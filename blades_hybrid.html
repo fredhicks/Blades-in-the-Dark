@@ -4,9 +4,7 @@
 
 <!-- Character Sheet -->
 <div class="sheet-char-type-character sheet-char-type">
-  
-  <div class="sheet-topborder"></div>
-<div class="sheet-col60"><div class="sheet-col60 sheet-logoholder"><div class="sheet-bladeslogo"></div></div><div class="sheet-col40 sheet-simple_input"><input type="text" name="attr_crew" class="" /><label for="attr_crew" >Crew</label></div></div><div class="sheet-col40 sheet-toppad"><div class="sheet-playbooktitle"><div class="sheet-title"><input type="text" name="attr_playbook" value="playbook" class="" /></div><div class="sheet-desc"><textarea name="attr_playbookdesc"  cols="50" rows="3" >A short playbook description</textarea></div></div></div>
+<div class="sheet-col60"><div class="sheet-col60 sheet-logoholder"><div class="sheet-bladeslogo"></div></div><div class="sheet-col40 sheet-simple_input"><input type="text" name="attr_crew" class="" /><label for="attr_crew" >Crew</label></div></div><div class="sheet-col40 sheet-toppad"><div class="sheet-playbooktitle"><div class="sheet-title"><input type="text" name="attr_playbook" placeholder="playbook" class="" /></div><div class="sheet-desc"><textarea name="attr_playbookdesc" placeholder="A short playbook description" cols="50" rows="3" ></textarea></div></div></div>
 <div class="sheet-col60 sheet-simple_input"><div class="sheet-col60"><input type="text" name="attr_name" class="" /><label for="attr_name" >Name</label></div><div class="sheet-col40"><input type="text" name="attr_alias" class="" /><label for="attr_alias" >Alias</label></div><div class="sheet-col100 sheet-fullwidth"><input type="text" name="attr_look" class="" /><label for="attr_look" >Look</label></div><div class="sheet-col60"><input type="text" name="attr_heritage" class="" /><label for="attr_heritage" >Heritage</label></div><div class="sheet-col40"><input type="text" name="attr_background" class="" /><label for="attr_background" >Background</label></div><div class="sheet-col100 sheet-fullwidth"><input type="text" name="attr_vice" class="" /><label for="attr_vice" >Vice / Purveyor</label><button type="roll" class="sheet-vicebutton sheet-rollbtn" value='&{template:bitd3}{{charname=@{character_name}}}{{stress=@{stress}}}{{insight=[[@{hunt1}+@{study1}+@{survey1}+@{tinker1}]]}}{{roll1avalue=[[@{hunt1}d6]]}}{{roll1bvalue=[[@{study1}d6]]}}{{roll1cvalue=[[@{survey1}d6]]}}{{roll1dvalue=[[@{tinker1}d6]]}}{{prowess=[[@{finesse1}+@{prowl1}+@{wreck1}+@{skirmish1}]]}}{{roll2avalue=[[@{finesse1}d6]]}}{{roll2bvalue=[[@{prowl1}d6]]}}{{roll2cvalue=[[@{skirmish1}d6]]}}{{roll2dvalue=[[@{wreck1}d6]]}}{{resolve=[[@{attune1}+@{command1}+@{consort1}+@{sway1}]]}}{{roll3avalue=[[@{attune1}d6]]}}{{roll3bvalue=[[@{command1}d6]]}}{{roll3cvalue=[[@{consort1}d6]]}}{{roll3dvalue=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Indulge Vice</button></div><div class="sheet-col100 sheet-blackborder"><div class="sheet-stress1">Stress</div><div class="sheet-stress2">
     <input type="radio" value="0" name="attr_stress" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero" checked /><span></span><!--
     --><input type="radio" value="1" name="attr_stress" class="sheet-stresstooth3" /><span></span><!--
@@ -43,7 +41,7 @@
     <input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker8" value="8"><span  class="sheet-trauma-check">8</span>
     <div class="sheet-harmrecoveryclock"></div>
     </div></div></div><div class="sheet-harmcolumn2"><div class="sheet-armor"><div class="sheet-armorcaption">Armor</div><input type="checkbox" name="attr_armor1" class="sheet-stresstooth3 sheet-armortooth" /><span></span></div><div class="sheet-armor"><div class="sheet-armorcaption">+Heavy</div><input type="checkbox" name="attr_heavy" class="sheet-stresstooth3 sheet-armortooth" /><span></span></div><div class="sheet-col90"><input type="text" name="attr_specialarmor" class="" /></div><div class="sheet-col10"><input type="checkbox" name="attr_special_armor1" class="sheet-stresstooth3  sheet-armortooth2" /><span></span></div><div class="sheet-col90"><input type="text" name="attr_specialarmor2" class="" /><div class="sheet-specialarmorcaption">other special armor</div></div><div class="sheet-col10"><input type="checkbox"  name="attr_special_armor2" class="sheet-stresstooth3 sheet-armortooth2" /><span></span></div><div class="sheet-coin1">Coin <!--
---> <input type="radio" value="0"  name="attr_coin" class="sheet-coinbox2 sheet-coinbox2zero" /><span class="sheet-coinbox2 sheet-coinbox2zero"></span><!--
+--> <input type="radio" value="0"  name="attr_coin" class="sheet-coinbox2 sheet-coinbox2zero" checked /><span class="sheet-coinbox2 sheet-coinbox2zero"></span><!--
 --> <input type="radio" value="1"name="attr_coin" class="sheet-coinbox2 sheet-firstcoinbox2" /><span  class="sheet-coinbox2"></span><!--
 --> <input type="radio" value="2" name="attr_coin" class="sheet-coinbox2" /><span class="sheet-coinbox2"></span><!--
 --> <input type="radio" value="3" name="attr_coin" class="sheet-coinbox2" /><span class="sheet-coinbox2"></span><!--
@@ -94,9 +92,9 @@
     
     </div><div class="sheet-col100"><div class="sheet-specialheader">Special Abilities</div><div class="sheet-abilitiesholder"><div class="sheet-specialability"><div class="sheet-abilitycheck">
 	<input type="checkbox" value="None" name="attr_ability1" /><span></span>
-<input type="text" value="Ability Name" class="sheet-abilityname1" name="attr_ability_name2" /><textarea class="sheet-ability1desc" name="attr_ability_info1">Ability description</textarea></div></div><fieldset class="repeating_abilities">  <div class="sheet-specialability"><div class="sheet-abilitycheck">
+<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability_name2" /><textarea class="sheet-ability1desc" name="attr_ability_info1" placeholder="Ability description"></textarea></div></div><fieldset class="repeating_abilities">  <div class="sheet-specialability"><div class="sheet-abilitycheck">
 	<input type="checkbox" value="None" name="attr_ability2" /><span></span>
-    <input type="text" value="Ability Name" class="sheet-abilityname1" name="attr_ability_name2" /><textarea class="sheet-ability1desc" name="attr_ability_info1">Ability description</textarea></div></div></fieldset></div></div><div class="sheet-markxp">Mark XP:</div><div class="sheet-playbookadvancement"><div class="sheet-playbookholder">Playbook Advancement </div>
+    <input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability_name2" /><textarea class="sheet-ability1desc" name="attr_ability_info1" placeholder="Ability description"></textarea></div></div></fieldset></div></div><div class="sheet-markxp">Mark XP:</div><div class="sheet-playbookadvancement"><div class="sheet-playbookholder">Playbook Advancement </div>
     <input type="radio" value="0" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked /><span></span><!--
     --><input type="radio" value="1" name="attr_playbook_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/><span></span><!--
 	--><input type="radio" value="2" name="attr_playbook_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/><span></span><!--
@@ -109,7 +107,7 @@
 </div><div class="sheet-markxpdesc"><ul>
     <li>Every time you roll a desperate action, mark xp in that action's attribute.</li>
     <li class="sheet-nondot">At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute) or 2xp if that item occurred multiple times.</li>
-    <li><input type="text" value="Enter your playbook's specific way to mark XP here." name="attr_markxp"></li>
+    <li><input type="text" placeholder="Enter your playbook's specific way to mark XP here." name="attr_markxp"></li>
     <li>You expressed your beliefs, drives, heritage, or background.</li>
     <li>You struggled with issues from your vice or traumas during the session.</li>
     </ul></div><div class="sheet-col50a">
@@ -138,15 +136,15 @@
 </div><span class="sheet-loadnumber">6</span> Heavy</div></div><div class="sheet-loadheader2">Items<span class="sheet-italics">(Italics don't count for load)</span></div><div class="sheet-itemholder"><div class="sheet-specialability sheet-itemitem sheet-playbookitems"><div class="sheet-abilitycheck">
         <input type="checkbox" value="None" name="attr_item1"  class="sheet-itemcheckbox"/><span></span><!--
     --><input type="checkbox" value="None" name="attr_item1b"  class="sheet-itemcheckbox"/><span></span><!--
-	--><input type="text" value="Fine two-slot item" class="sheet-abilityname1 sheet-item sheet-itembold sheet-item2box" name="attr_itemdesc1" /><div class="sheet-floatingbar"></div></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item2"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold" name="attr_itemdesc2" /></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item3"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold" name="attr_itemdesc3" /></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item4"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold sheet-itemitalic" name="attr_itemdesc4" /></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item5"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Regular one-slot item" class="sheet-abilityname1 sheet-item" name="attr_itemdesc5" /></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item6"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Regular one-slot item" class="sheet-abilityname1 sheet-item" name="attr_itemdesc6" /></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item7"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_itemdesc7" /></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item8"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_itemdesc8" /></div><div class="sheet-abilitycheck">
-	<input type="checkbox" value="None" name="attr_item9"  class="sheet-itemcheckbox"/><span></span><input type="text" value="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_itemdesc9" /></div></div>
+	--><input type="text" placeholder="Fine two-slot item" class="sheet-abilityname1 sheet-item sheet-itembold sheet-item2box" name="attr_itemdesc1" /><div class="sheet-floatingbar"></div></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item2"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold" name="attr_itemdesc2" /></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item3"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold" name="attr_itemdesc3" /></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item4"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold sheet-itemitalic" name="attr_itemdesc4" /></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item5"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item" name="attr_itemdesc5" /></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item6"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item" name="attr_itemdesc6" /></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item7"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_itemdesc7" /></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item8"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_itemdesc8" /></div><div class="sheet-abilitycheck">
+	<input type="checkbox" value="None" name="attr_item9"  class="sheet-itemcheckbox"/><span></span><input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_itemdesc9" /></div></div>
 
     <div class="sheet-specialability sheet-itemitem sheet-regularitems">
     <div class="sheet-abilitycheck">
@@ -321,9 +319,9 @@
 	<input type="checkbox" value="1" name="attr_sway4" /><span></span>
 </div><button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/sD36C99.png}}{{rolltypetext=sway}}{{roll1value=[[@{sway1}d6]]}}{{roll2value=[[@{sway2}d6]]}}{{roll3value=[[@{sway3}d6]]}}{{roll4value=[[@{sway4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Sway</button></div></div><div class="sheet-bonusdie"><div class="sheet-bonusdieheader">Bonus Die</div><div class="sheet-bonusdie1">+</div><div class="sheet-bonusdie2"><span class="sheet-smallcaps">Push yourself</span> (take 2 stress) -or- accept a <span class="sheet-smallcaps">Devil's Bargain</span></div></div><div class="sheet-specialheader">Strange Friends</div><div class="sheet-abilitiesholder"><div class="sheet-specialability"><div class="sheet-abilitycheck">
 		<input type="checkbox" value="None" name="attr_friend1" class="sheet-friendcheck2 sheet-friendup" /><span></span><input type="checkbox" class="sheet-friendcheck2 sheet-frienddown" value="None" name="attr_friend1b" /><span></span>
-    <input type="text" value="Friend name" class="sheet-abilityname1 sheet-friend" name="attr_friendname1" class="sheet-friendcheck sheet-friendcheckdown" /></div></div><fieldset class="repeating_friends">  <div class="sheet-specialability"><div class="sheet-abilitycheck">
+    <input type="text" placeholder="Friend name" class="sheet-abilityname1 sheet-friend" name="attr_friendname1" class="sheet-friendcheck sheet-friendcheckdown" /></div></div><fieldset class="repeating_friends">  <div class="sheet-specialability"><div class="sheet-abilitycheck">
 		<input type="checkbox" value="None" name="attr_friend1" class="sheet-friendcheck2 sheet-friendup" /><span></span><input type="checkbox" class="sheet-friendcheck2 sheet-frienddown" value="None" name="attr_friend1b" /><span></span>
-    <input type="text" value="Friend name" class="sheet-abilityname1 sheet-friend" name="attr_friendname2" class="sheet-friendcheck sheet-friendcheckdown" /></div></div></fieldset></div><button type="roll"  class="sheet-fortunebtn sheet-rollbtn" value='&{template:bitd4}{{charname=@{character_name}}} {{notes=?{Notes| }}}{{bonusdice=?{Number of dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll Fortune</button></div><div class="sheet-col100 sheet-col1002"><div class="sheet-specialheader sheet-specialheader2">Clocks</div><fieldset class="repeating_clocks"><div class="sheet-recoveryblurb sheet-recoveryblurb2"><input type="text" value="Clock Name" name="attr_clockname" class="sheet-clockname" ><br/><div class="sheet-harmprogress"><span>Size</span>
+    <input type="text" placeholder="Friend name" class="sheet-abilityname1 sheet-friend" name="attr_friendname2" class="sheet-friendcheck sheet-friendcheckdown" /></div></div></fieldset></div><button type="roll"  class="sheet-fortunebtn sheet-rollbtn" value='&{template:bitd4}{{charname=@{character_name}}} {{notes=?{Notes| }}}{{bonusdice=?{Number of dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll Fortune</button></div><div class="sheet-col100 sheet-col1002"><div class="sheet-specialheader sheet-specialheader2">Clocks</div><fieldset class="repeating_clocks"><div class="sheet-recoveryblurb sheet-recoveryblurb2"><input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname" ><br/><div class="sheet-harmprogress"><span>Size</span>
    <input type="radio" name="attr_clocksize" class="sheet-trauma-check sheet-longoption sheet-4segment" value="1" checked="true" ><span  class="sheet-trauma-check">4-segment</span>
    <input type="radio" name="attr_clocksize" class="sheet-trauma-check sheet-longoption sheet-6segment" value="2"><span  class="sheet-trauma-check">6-segment</span>
     <input type="radio" name="attr_clocksize" class="sheet-trauma-check sheet-longoption sheet-8segment" value="3"><span  class="sheet-trauma-check">8-segment</span>
@@ -370,14 +368,9 @@
     <input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_11" value="11"><span  class="sheet-trauma-check">11</span>
     <input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_12" value="12"><span  class="sheet-trauma-check sheet-traumalast">12</span>
     <div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+</div></div></fieldset></div>
+<textarea class="sheet-notes" name="attr_notes" placeholder="Notes"></textarea>
 </div>
-                        
-        
-        </div></fieldset></div><textarea class="sheet-notes" name="attr_notes">Notes.</textarea></div>
-
-
-
-
 </div>
 
 <!-- Crew Sheet -->
