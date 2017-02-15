@@ -2336,6 +2336,7 @@ div.itemcontrol {
     padding-top: 4px;
     padding-right: 6px;
     width: 67px;
+    margin-right: 6px;
 }
 .sheet-attributebtn {
     text-transform: uppercase !important;
@@ -3118,10 +3119,15 @@ label.sheet-friendcheckdown {
     background-color: rgba(255, 255, 255, 0);
 }
 .sheet-specialability.sheet-itemitem input.sheet-itemshort[type=text] {
+    width: 53px;
+}
+.sheet-specialability.sheet-itemitem input.sheet-itemshort1[type=text] {
     width: 69px;
 }
 .sheet-specialability.sheet-itemitem input.sheet-itemshort2[type=text] {
-    width: 50px;
+    width: 38px;
+    margin-left: 3px;
+    margin-right: -5px;
 }
 .sheet-specialability.sheet-itemitem input.sheet-itembold[type=text] {
     font-weight: 800;
@@ -3156,15 +3162,19 @@ label.sheet-friendcheckdown {
     width: 4px;
     height: 3px;
     border-top: 2px solid #838587;
+    z-index: -1;
+}
+.sheet-floatingbar1 {
     left: -166px;
 }
 .sheet-floatingbar2 {
-    display: inline-block;
-    position: relative;
-    width: 5px;
-    height: 3px;
-    border-top: 2px solid #838587;
-    left: -72px;
+    left: -74px;
+}
+.sheet-floatingbar3 {
+    left: -68px;
+}
+.sheet-floatingbar4 {
+    left: -56px;
 }
 .sheet-playbookitems .sheet-abilitycheck label {
     background-color: #d6d8d9;
