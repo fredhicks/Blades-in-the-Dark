@@ -2149,6 +2149,7 @@ div.itemcontrol {
     line-height: 19px;
     height: 16px;
     margin-top: 9px;
+    text-align: right;
 }
 .sheet-playbookholder {
     display: inline-block;
@@ -2436,7 +2437,6 @@ div.itemcontrol {
 .sheet-specialability input.sheet-friend[type=text] {
     resize: vertical;
     display: inline-block;
-    height: 50px;
     box-shadow: none;
     color: #6c6c6c;
     font-size: 95%;
@@ -2449,7 +2449,6 @@ div.itemcontrol {
     padding-top: 0px;
     padding-right: 0px;
     height: 33px;
-    width: 146px;
     width: 137px;
     padding-left: 0px;
 }
@@ -2634,6 +2633,9 @@ label.sheet-friendcheckdown {
 .sheet-specialability.sheet-itemitem input.sheet-item2box[type=text] {
     width: 144px;
 }
+.sheet-specialability.sheet-itemitem input.sheet-item3box[type=text] {
+    width: 125px;
+}
 .sheet-specialability.sheet-itemitem label {
     top: 3px;
     border-radius: 0;
@@ -2745,6 +2747,23 @@ label.sheet-friendcheckdown {
     background-size: 100% 27px;
     line-height: 137%;
     height: 378px;
+}
+/* NEW STUFF */
+.sheet-crewheader {
+    color: #7f8184;
+    text-transform: uppercase;
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+    font-size: 210%;
+    letter-spacing: -2px;
+    margin-top: -8px;
+    font-weight: 800;
+    box-sizing: border-box;
+    line-height: 50px !important;
+}
+.sheet-specialability input.sheet-friend.sheet-contact[type=text] {
+		color: black;
+		width: 95%;
+		font-weight: 800;
 }
 /* Roll template */
 .sheet-char-rolltemplate-bitd table {
