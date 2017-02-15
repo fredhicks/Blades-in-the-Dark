@@ -1329,7 +1329,7 @@ input.sheet-trauma-check + span {
     font-family: Georgia, serif;
 }
 input.sheet-trauma-check + span::after {
-    content: "—";
+    content: "— ";
     color: black!important;
     padding-left: 2px;
 }
@@ -1568,12 +1568,12 @@ input.sheet-coinbox2[type="checkbox"] {
     padding: 0;
     position: relative;
     z-index: 10;
-    left: 2px;
+    left: 4px;
     top: -4px;
-    margin: -8px -8px -8px -11px;
+    margin: -8px -8px -8px -9px;
 }
 input.sheet-firstcoinbox2[type="radio"] {
-    margin-left: 7px;
+    margin-left: 11px;
 }
 input.sheet-coinbox2[type="radio"] + span::before,
 input.sheet-coinbox2[type="checkbox"] + span::before {
@@ -1863,7 +1863,7 @@ div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
     padding-right: 50px;
     margin-top: 6px;
 }
-.sheet-recoveryblurb span {
+.sheet-recoveryblurb span.sheet-recoveryblurb-bold {
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
     text-transform: uppercase;
