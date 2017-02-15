@@ -174,65 +174,6 @@ label.sheet-char-hold-label {
     margin-left: 6px;
     margin-right: -13px;
 }
-
-/* END: OLD SHIT */
-/* Version text */
-.sheet-version-text {
-    text-align: right;
-    color: #a8a8a8;
-    position: relative;
-    top: -11px;
-    font-size: 12px;
-}
-/* Type Selector */
-div.sheet-type-crew {
-    display: none;
-}
-input.sheet-type-selector:checked ~ div.sheet-type-crew {
-    display: block;
-}
-input.sheet-type-selector:checked ~ div.sheet-type-character {
-    display: none;
-}
-input.sheet-type-selector {
-    opacity: 0;
-    width: 170px;
-    height: 20px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    z-index: 1;
-}
-input.sheet-type-selector + span {
-    border: solid 1px #a7a7a7;
-    text-align: center;
-    display: inline-block;
-    background: #cccccc;
-    color: #3f3f3f;
-    width: 170px;
-    height: 20px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: serif;
-    font-weight: 600;
-}
-input.sheet-type-selector:hover + span {
-    color: red !important;
-}
-input.sheet-type-selector,
-input.sheet-type-selector + span {
-    position: absolute;
-    left: 498px;
-    top: 52px;
-    border-bottom: 1px solid #a7a7a7 !important;
-}
-input.sheet-type-selector + span::before {
-    content: "Character Mode";
-}
-input.sheet-type-selector:checked + span::before {
-    content: "Crew Mode";
-}
-
 /* Character Tab */
 h1 {
     text-align: center;
@@ -240,11 +181,6 @@ h1 {
 .sheet-char-version {
     text-align: left;
     font-size: 10px;
-}
-label {
-    line-height: 25px;
-    font-size: 16px;
-    font-weight: bold;
 }
 label.sheet-char-alias,
 label.sheet-char-background {
@@ -300,7 +236,6 @@ input.sheet-char-spec {
     width: 175px;
 }
 /* Playbook Tab */
-
 input.sheet-char-ability-name {
     width: 125px;
     text-align: center;
@@ -657,47 +592,105 @@ input.sheet-char-claim-claimed5 {
     position: relative;
     top: -10px;
 }
+/* END: OLD SHIT */
+/* Version text */
+.sheet-version-text {
+    text-align: right;
+    color: #a8a8a8;
+    position: relative;
+    top: -11px;
+    font-size: 12px;
+}
+/* Type Selector */
+div.sheet-type-crew {
+    display: none;
+}
+input.sheet-type-selector:checked ~ div.sheet-type-crew {
+    display: block;
+}
+input.sheet-type-selector:checked ~ div.sheet-type-character {
+    display: none;
+}
+input.sheet-type-selector {
+    opacity: 0;
+    width: 170px;
+    height: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+input.sheet-type-selector + span {
+    border: solid 1px #a7a7a7;
+    text-align: center;
+    display: inline-block;
+    background: #cccccc;
+    color: #3f3f3f;
+    width: 170px;
+    height: 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: serif;
+    font-weight: 600;
+}
+input.sheet-type-selector:hover + span {
+    color: red !important;
+}
+input.sheet-type-selector,
+input.sheet-type-selector + span {
+    position: absolute;
+    left: 498px;
+    top: 52px;
+    border-bottom: 1px solid #a7a7a7 !important;
+}
+input.sheet-type-selector + span::before {
+    content: "Character Mode";
+}
+input.sheet-type-selector:checked + span::before {
+    content: "Crew Mode";
+}
+/* New sheet*/
+label {
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+}
 .charsheet {
     width: 860px;
-    height: auto !important;
-}
-.charsheet {
     padding: 0 !important;
     margin: 0 !important;
-    height: 100%;
-}
-.sheet-2col {
-    display: inline-block;
-    width: 50%;
-    vertical-align: top;
 }
 div.sheet-col100.sheet-col1002 > div.repcontrol {
     top: -15px !important;
     position: relative !important;
 }
 .sheet-col10 {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 6%;
     margin: 0;
     padding: 0;
     vertical-align: top;
 }
 .sheet-col60 {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 55%;
     margin: 0;
     padding: 0;
     vertical-align: top;
 }
 .sheet-col40 {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 45%;
     margin: 0;
     padding: 0;
     vertical-align: top;
 }
 .sheet-col50a {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 45%;
     margin: 0;
     margin-top: 5px;
@@ -707,7 +700,8 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     vertical-align: top;
 }
 .sheet-col50b {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 52%;
     margin: 0;
     margin-top: 5px;
@@ -717,14 +711,16 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     vertical-align: top;
 }
 .sheet-col90 {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 94%;
     margin: 0;
     padding: 0;
     vertical-align: top;
 }
 .sheet-col100 {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -1314,14 +1310,16 @@ input.sheet-trauma-check[type="radio"] {
 /* END TRAUMA DETAILS */
 
 .sheet-harmcolumn1 {
-    display: inline-block;
+    display: block;
+    float: left;
     box-sizing: border-box;
     width: 68%;
     margin-right: 9px;
     vertical-align: top;
 }
 .sheet-harmcolumn2 {
-    display: inline-block;
+    display: block;
+    float: left;
     box-sizing: border-box;
     width: 30%;
     vertical-align: top;
@@ -1348,7 +1346,8 @@ input.sheet-trauma-check[type="radio"] {
     vertical-align: top;
     width: 50%;
     box-sizing: border-box;
-    display: inline-block;
+    display: block;
+    float: left;
     overflow: hidden;
 }
 .sheet-armor .sheet-stresstooth3 {
@@ -2747,7 +2746,6 @@ label.sheet-friendcheckdown {
     line-height: 137%;
     height: 378px;
 }
-
 /* Roll template */
 .sheet-char-rolltemplate-bitd table {
     width: 240px;
