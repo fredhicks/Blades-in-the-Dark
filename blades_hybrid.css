@@ -865,7 +865,8 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 .sheet-stress3,
 .sheet-stress4 {
     box-sizing: border-box;
-    display: inline-block;
+    display: block;
+    float: left;
     height: 25px;
     overflow: hidden;
 }
@@ -874,6 +875,7 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 }
 .sheet-stress1,
 .sheet-stress3 {
+		padding-top: 1.5px;
     background-color: black;
     width: 74px;
     height: 12px;
@@ -1056,7 +1058,8 @@ input.sheet-zero[type=radio]:checked + label {
     overflow: hidden;
     box-sizing: border-box;
     vertical-align: top;
-    display: inline-block;
+    display: block;
+    float: left;
     line-height: 0px;
 }
 .sheet-traumaholder {
@@ -1175,7 +1178,7 @@ input.sheet-trauma-check[type="radio"] {
     float: left;
     box-sizing: border-box;
     width: 68%;
-    margin-right: 9px;
+    margin-right: 2%;
     vertical-align: top;
 }
 .sheet-harmcolumn2 {
@@ -1199,6 +1202,7 @@ input.sheet-trauma-check[type="radio"] {
     font-size: 74%;
     letter-spacing: 2px;
     padding-left: 5px;
+    padding-top: 1px;
     font-weight: 600;
     line-height: 9px;
 }
@@ -1213,6 +1217,9 @@ input.sheet-trauma-check[type="radio"] {
 }
 .sheet-armor .sheet-stresstooth {
     margin-left: 10px;
+}
+.sheet-stress2 input.sheet-stresstooth[type="radio"] + span::before {
+		margin-right: 11px;
 }
 .sheet-armorcaption {
     display: inline-block;
@@ -1469,31 +1476,6 @@ input.sheet-stashbox3[type="radio"]:checked + span::before {
     background-color: black;
     border: 1px solid black;
 }
-input.sheet-coinbox2zero {
-    left: 8px !important;
-    margin-left: -8px !important;
-    z-index: 10 !important;
-}
-input.sheet-coinbox2zero[type="radio"] + span::before {
-    width: 10px;
-    height: 13px;
-    position: absolute;
-    left: 381px;
-    top: 507px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
-}
-input.sheet-coinbox2zero[type="radio"]:checked + span::before {
-    width: 10px;
-    height: 13px;
-    position: absolute;
-    left: 381px;
-    top: 507px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
-}
 /* -------------- */
 /* COIN/STASH BOX ZERO BUTTONS */
 
@@ -1507,17 +1489,12 @@ input.sheet-coinbox2zero[type="radio"] + span::before {
     height: 13px;
     position: absolute;
     left: 381px;
-    top: 507px;
+    top: 503px;
     border: none;
     background-color: rgba(255, 255, 255, 0);
     background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
 input.sheet-coinbox2zero[type="radio"]:checked + span::before {
-    width: 10px;
-    height: 13px;
-    position: absolute;
-    left: 381px;
-    top: 507px;
     border: none;
     background-color: rgba(255, 255, 255, 0);
     background-image: url(http://i.imgur.com/b7fMDSq.png);
@@ -1528,11 +1505,10 @@ input.sheet-stashbox3.sheet-coinbox2zero {
 }
 input.sheet-stashbox3.sheet-coinbox2zero[type="radio"] + span::before,
 input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
-    left: 337px;
-    top: 533px;
+    left: 342px;
+    top: 526px;
 }
 /* -------------- */
-
 .sheet-harmrow {
     display: inline-block;
     width: 100%;
@@ -1632,7 +1608,7 @@ div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
 }
 .sheet-recoveryblurb2 {
     width: 100%;
-    padding-right: 50px;
+    padding: 8px 50px 12px 8px;
     margin-top: 6px;
 }
 .sheet-recoveryblurb span.sheet-recoveryblurb-bold {
@@ -2436,7 +2412,7 @@ label.sheet-friendcheckdown {
     font-style: normal;
     font-weight: 800;
     font-size: 105%;
-    padding-left: 3px;
+    padding-left: 4px;
 }
 .sheet-italics {
     font-family: Georgia, Times, "Times New Roman", serif;
