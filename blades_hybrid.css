@@ -2660,7 +2660,6 @@ label.sheet-friendcheckdown {
     width: 4px;
     height: 3px;
     border-top: 2px solid #838587;
-    z-index: -1;
 }
 .sheet-floatingbar1 {
     left: -166px;
