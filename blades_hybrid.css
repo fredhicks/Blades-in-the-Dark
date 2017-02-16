@@ -730,6 +730,9 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     margin-left: 5px;
     width: 97%;
 }
+.sheet-rep-block {
+		display: inline-block;
+}
 .sheet-fullwidth input {
     width: 100% !important;
 }
@@ -758,7 +761,7 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     color: #7f8184;
     text-transform: uppercase;
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    width: 65%;
+    width: 70%;
     font-size: 274%;
     letter-spacing: -2px;
     line-height: 100%;
@@ -767,6 +770,7 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     padding: 0px 10px;
 }
 .sheet-title input {
+		width: 250px;
     padding: 0;
     margin: 0;
     border: none;
@@ -791,7 +795,7 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 .sheet-desc {
     vertical-align: middle;
     display: inline-block;
-    width: 35%;
+    width: 30%;
     text-transform: uppercase;
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     letter-spacing: 1px;
@@ -2088,6 +2092,8 @@ div.itemcontrol {
     font-weight: 800;
     line-height: 9px;
     padding-top: 1px;
+    display: block;
+    float: left;
 }
 .sheet-loadheader,
 .sheet-loadheader2 {
@@ -2526,8 +2532,10 @@ label.sheet-friendcheckdown {
 .sheet-playbookitems .sheet-abilitycheck label {
     background-color: #d6d8d9;
 }
-.charsheet .sheet-itemitem button.repcontrol_edit,
-.charsheet .sheet-itemitem button.repcontrol_add {
+.sheet-itemitem button.repcontrol_edit,
+.sheet-itemitem button.repcontrol_add,
+.sheet-cohorts button.repcontrol_edit,
+.sheet-cohorts button.repcontrol_add {
     font-weight: 600!important;
     background-color: white !important;
     margin-top: 12px;
@@ -2636,6 +2644,140 @@ label.sheet-friendcheckdown {
 .sheet-specialability.sheet-itemitem span {
 		font-size: 83%;
 }
+.sheet-cohort-conditionholder {
+		display: block;
+		float: left;
+		width: 100%;
+}
+.sheet-cohort-conditionholder div {
+		box-sizing: border-box;
+		display: block;
+		float: left;
+		margin: 0;
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+    color: black;
+    text-transform: uppercase;
+    font-size: 74%;
+    letter-spacing: 0px;
+    font-weight: 400;
+}
+.sheet-cohort-weak {
+		width: 21%;
+}
+.sheet-cohort-impaired {
+		width: 28%;
+}
+.sheet-cohort-broken {
+		width: 28%;
+		padding-left: 4px;
+}
+div.sheet-cohort-armor {
+		width: 23%;
+		float: right;
+		font-weight: 800;
+}
+div.sheet-cohort-armor div {
+		font-weight: 800;
+}
+.sheet-cohort-title input {
+		color: white;
+		background: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    text-shadow: none;
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+    font-size: 82%;
+    font-weight: 800;
+    height: 17px;
+    padding: 4px 6px 0 0;
+    box-shadow: none;
+    margin-left: -5px;
+    margin-right: -2px;
+    display: block;
+    float: left;
+    width: 70%;
+    border: none;
+}
+.sheet-cohort-title-quality {
+    font-size: 70%;
+    text-align: right;
+    display: block;
+    float: right;
+    margin-right: -2px;
+}
+.sheet-cohort-quality {
+    display: block;
+    float: right;
+    width: 30%;
+    background-color: #d6d8d9;
+    height: 18px;
+    margin-top: -1px;
+}
+input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"] + span::before {
+    width: 8px;
+    height: 25px;
+    display: inline-block;
+    margin: 0 0 0 2px;;
+    content: "";
+    position: relative;
+    left: 7px;
+    top: -3px;
+    background-image: url(http://i.imgur.com/XNFdq3n.png);
+    cursor: pointer;
+    padding: 0;
+}
+input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::before {
+    content: "";
+    background-image: url(http://i.imgur.com/17DqQbA.png);
+}
+.sheet-cohort-text {
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    padding-bottom: 4px;
+}
+.sheet-cohort-text textarea {
+    resize: vertical;
+    box-shadow: none;
+    color: black;
+    font-size: 95%;
+    line-height: 122%;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    box-sizing: border-box;
+    margin: 0px;
+    border: none;
+    height: 74px;
+    border-bottom: 1px solid lightgray;
+}
+.sheet-cohorts {
+		margin-bottom: 6px;
+		float: left;
+}
+.sheet-hunting-grounds-box {
+    width: 100%;
+    box-sizing: border-box inherit;
+    border-top: 2px solid black;
+    margin-top: 20px;
+}
+.sheet-hunting-grounds-box input {
+		width: 100%;
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+		border: none;
+		box-shadow: none;
+		padding-bottom: 0;
+}
+.sheet-hunting-grounds-box input.sheet-hunting-grounds-header {
+    font-size: 88%;
+    font-weight: 800;
+}
+.sheet-hunting-grounds-box input.sheet-hunting-grounds-content {
+    font-size: 76%;
+    font-weight: 400;
+    padding-top: 0;
+}
 /* Roll template */
 .sheet-char-rolltemplate-bitd table {
     width: 240px;
@@ -2672,37 +2814,6 @@ label.sheet-friendcheckdown {
     vertical-align: center;
     text-align: center;
     font-family: "Times New Roman", Times, serif;
-}
-.sheet-cohort-title {
-    text-transform: uppercase;
-    letter-spacing: 0px;
-    text-shadow: none;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    font-size: 80%;
-    font-weight: 800;
-    line-height: 9px;
-    padding-top: 6px;
-    padding-right: 6px;
-    margin-left: -5px;
-    margin-right: -2px;
-    display: block;
-    float: left;
-    width: 70%;
-}
-.sheet-cohort-title-quality {
-    font-size: 60%;
-    text-align: right;
-    display: block;
-    float: right;
-    margin-right: -2px;
-}
-.sheet-cohort-quality {
-    display: block;
-    float: right;
-    width: 30%;
-    background-color: #d6d8d9;
-    height: 18px;
-    margin-top: -1px;
 }
 /* ROLL TEMPLATES */
 .sheet-rolltemplate-bitd .sheet-rolltableholder {
