@@ -2054,7 +2054,7 @@ input.sheet-itemcheckbox:checked + span::before,
     background-color: #c6c7c9;
     border: none;
 }
-.sheet-stashbox.sheet-attributedot:last-child {
+.sheet-attributedot:last-child {
     margin-right: 0px !important;
 }
 input.sheet-itemcheckbox {
@@ -2298,36 +2298,15 @@ div.itemcontrol {
 .sheet-attributedotsholder:first-child .sheet-firstdotholder {
     padding-top: 11px;
 }
-.sheet-stashbox.sheet-attributedot {
+.sheet-attributedot {
     border: none;
     margin: 0px 9px 0px 0px;
     width: 10px;
     display: inline-block;
 }
-.sheet-stashbox.sheet-attributedot:last-child {
+.sheet-attributedot:last-child {
     margin-right: 0px !important;
     border: none;
-}
-.sheet-stashbox.sheet-attributedot label:after {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50px;
-    top: 0px;
-    left: 0px;
-}
-.sheet-stashbox.sheet-attributedot label:hover::after {
-    filter: alpha(opacity=30);
-    opacity: 0.3;
-}
-.sheet-stashbox.sheet-attributedot:last-child label:after {
-    border: none;
-    background-color: red;
-    border-radius: 50px;
 }
 .sheet-rollbtn {
     font-family: Georgia, Times, "Times New Roman", serif;
@@ -2636,14 +2615,6 @@ label.sheet-friendcheckdown {
 .sheet-specialability.sheet-itemitem input.sheet-item3box[type=text] {
     width: 125px;
 }
-.sheet-specialability.sheet-itemitem label {
-    top: 3px;
-    border-radius: 0;
-    border-width: 1px
-}
-.sheet-specialability.sheet-itemitem label:after {
-    border-radius: 0;
-}
 .sheet-specialability.sheet-itemitem {
     border: 0;
     padding: 7px;
@@ -2672,6 +2643,18 @@ label.sheet-friendcheckdown {
 }
 .sheet-floatingbar4 {
     left: -56px;
+}
+.sheet-floatingbar5 {
+    left: -161px;
+}
+.sheet-floatingbar6 {
+    left: -150px;
+}
+.sheet-floatingbar7 {
+    left: -93px;
+}
+.sheet-floatingbar8 {
+    left: -112px;
 }
 .sheet-playbookitems .sheet-abilitycheck label {
     background-color: #d6d8d9;
@@ -2764,6 +2747,28 @@ label.sheet-friendcheckdown {
 		width: 95%;
 		font-weight: 800;
 }
+.sheet-specialability.sheet-itemitem label {
+    height: 16px;
+    border-radius: 0;
+    margin-bottom: 0;
+    border: 0;
+    color: black;
+    font-size: 78%;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0);
+  	font-family: Georgia, Times, "Times New Roman", serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.sheet-specialability.sheet-itemitem label.sheet-upgradecosts {
+    padding: 3px 0 3px 0;
+    font-size: 55%;
+    line-height: inherit;
+    height: 10px;
+}
+.sheet-specialability.sheet-itemitem span {
+		font-size: 83%;
+}
 /* Roll template */
 .sheet-char-rolltemplate-bitd table {
     width: 240px;
@@ -2801,8 +2806,36 @@ label.sheet-friendcheckdown {
     text-align: center;
     font-family: "Times New Roman", Times, serif;
 }
+.sheet-cohort-title {
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    text-shadow: none;
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+    font-size: 80%;
+    font-weight: 800;
+    line-height: 9px;
+    padding-top: 6px;
+    padding-right: 6px;
+    margin-left: -5px;
+    margin-right: -2px;
+    display: block;
+    float: left;
+    width: 70%;
+}
+.sheet-cohort-title-quality {
+    font-size: 60%;
+    text-align: right;
+    display: block;
+    float: right;
+}
+.sheet-cohort-quality {
+    display: block;
+    float: right;
+    width: 30%;
+    background-color: #d6d8d9;
+    height: 16px;
+}
 /* ROLL TEMPLATES */
-
 .sheet-rolltemplate-bitd .sheet-rolltableholder {
     margin-left: -45px;
     margin-right: -1px;

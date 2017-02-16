@@ -363,7 +363,7 @@
 				<span>Crew Upgrades</span>
 			</div>
 			<div class="sheet-itemholder">
-				<!-- Playbook items -->
+				<!-- Specific upgrades -->
 				<div class="sheet-specialability sheet-itemitem sheet-playbookitems">
 					<div class="sheet-abilitycheck">
 						<input type="checkbox" value="1" name="attr_upgrade_1_check" class="sheet-itemcheckbox"/>
@@ -373,8 +373,8 @@
 						<input type="checkbox" value="1" name="attr_upgrade_1_check_c" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" placeholder="Three-slot upgrade" class="sheet-abilityname1 sheet-item sheet-item3box" name="attr_upgrade_1_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
+						<div class="sheet-floatingbar sheet-floatingbar5"></div>
+						<div class="sheet-floatingbar sheet-floatingbar6"></div>
 					</div>
 					<div class="sheet-abilitycheck">
 						<input type="checkbox" value="1" name="attr_upgrade_2_check" class="sheet-itemcheckbox"/>
@@ -397,107 +397,142 @@
 						<input type="text" placeholder="Upgrade" class="sheet-abilityname1 sheet-item" name="attr_upgrade_5_desc" />
 					</div>
 				</div>
-				<!-- Regular items -->
+				<!-- Regular upgrades -->
 				<div class="sheet-specialability sheet-itemitem sheet-regularitems">
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_10_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="A Blade or Two" class="sheet-abilityname1 sheet-item" name="attr_item_10_desc" />
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_11_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Throwing Knives" class="sheet-abilityname1 sheet-item" name="attr_item_11_desc" />
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<label>Lair</label>
 					</div>
 					<div class="sheet-abilitycheck sheet-abilitycheckshort">
-						<input type="checkbox" value="1" name="attr_item_12_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="A Pistol" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_item_12_desc" />
+						<label>Quality</label>
 					</div>
 					<div class="sheet-abilitycheck sheet-abilitycheckshort">
-						<input type="checkbox" value="1" name="attr_item_13_check" class="sheet-itemcheckbox"/>
+						<input type="checkbox" value="1" name="attr_upgrade_6_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A 2nd Pistol" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_item_13_desc" />
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_14_check" class="sheet-itemcheckbox"/>
+						<input type="checkbox" value="1" name="attr_upgrade_6_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="checkbox" value="1" name="attr_item_14_check_b" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="A Large Weapon" class="sheet-abilityname1 sheet-item sheet-item2box" name="attr_item_14_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_15_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="An Unusual Weapon" class="sheet-abilityname1 sheet-item" name="attr_item_15_desc" />
+						<input type="text" value="Carriage" class="sheet-abilityname1 sheet-item sheet-itemshort" name="attr_upgrade_6_desc" />
 					</div>
 					<div class="sheet-abilitycheck sheet-abilitycheckshort">
-						<input type="checkbox" value="1" name="attr_item_16_check" class="sheet-itemcheckbox"/>
+						<input type="checkbox" value="1" name="attr_upgrade_7_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="checkbox" value="1" name="attr_item_16_check_b" class="sheet-itemcheckbox"/>
+						<input type="text" value="Documents" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_7_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_8_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Armor" class="sheet-abilityname1 sheet-item sheet-itemshort" name="attr_item_16_desc" />
+						<input type="checkbox" value="1" name="attr_upgrade_8_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Boat" class="sheet-abilityname1 sheet-item sheet-itemshort" name="attr_upgrade_8_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_9_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Gear" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_9_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_10_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Hidden" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_10_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_11_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Implements" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_11_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_12_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Quarters" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_12_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_13_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Pet/Special" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_13_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_14_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_14_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Secure" class="sheet-abilityname1 sheet-item sheet-itemshort" name="attr_upgrade_14_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_15_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Supplies" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_15_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_16_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_16_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Vault" class="sheet-abilityname1 sheet-item sheet-itemshort" name="attr_upgrade_16_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_17_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Tools" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_17_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_18_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Workshop" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_18_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_19_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Weapons" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_19_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<label>Training</label>
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<label>Cohorts</label>
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_20_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Insight" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_20_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<label class="sheet-upgradecosts">Upgrade Costs</label>
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_21_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Prowess" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_21_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<span>New Cohort: 2</span>
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_22_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Resolve" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_22_desc" />
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<span>Add Type: 2</span>
+					</div>
+					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+						<input type="checkbox" value="1" name="attr_upgrade_23_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Personal" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_upgrade_23_desc" />
+					</div>
+					<div class="sheet-abilitycheck">
+						<input type="checkbox" value="1" name="attr_upgrade_24_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_24_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_24_check_c" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_24_check_d" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Mastery" class="sheet-abilityname1 sheet-item sheet-itemshort" name="attr_upgrade_24_desc" />
 						<div class="sheet-floatingbar sheet-floatingbar2"></div>
+						<div class="sheet-floatingbar sheet-floatingbar7"></div>
+						<div class="sheet-floatingbar sheet-floatingbar8"></div>
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
-						<input type="checkbox" value="1" name="attr_item_16_check_c" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="checkbox" value="1" name="attr_item_16_check_d" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="checkbox" value="1" name="attr_item_16_check_e" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="+Heavy" class="sheet-abilityname1 sheet-item sheet-itemshort2" name="attr_item_17_desc_b" />
-						<div class="sheet-floatingbar sheet-floatingbar3"></div>
-						<div class="sheet-floatingbar sheet-floatingbar4"></div>
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_17_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Burglary Gear" class="sheet-abilityname1 sheet-item" name="attr_item_17_desc" />
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_18_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="checkbox" value="1" name="attr_item_18_check_b" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Climbing Gear" class="sheet-abilityname1 sheet-item sheet-item2box" name="attr_item_18_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_19_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Arcane Implements" class="sheet-abilityname1" name="attr_item_19_desc" />
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_20_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Documents" class="sheet-abilityname1 sheet-item" name="attr_item_20_desc" />
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_21_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Subterfuge Supplies" class="sheet-abilityname1 sheet-item" name="attr_item_21_desc" />
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_22_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="checkbox" value="1" name="attr_item_22_check_b" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Demolition Tools" class="sheet-abilityname1 sheet-item sheet-item2box" name="attr_item_22_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_23_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Tinkering Tools" class="sheet-abilityname1 sheet-item" name="attr_item_23_desc" />
-					</div>
-					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_item_24_check" class="sheet-itemcheckbox"/>
-						<span></span>
-						<input type="text" value="Lantern" class="sheet-abilityname1 sheet-item" name="attr_item_24_desc" />
-					</div>
-					<fieldset class="repeating_item">
+					<fieldset class="repeating_upgrade">
 						<div class="sheet-abilitycheck">
 							<input type="checkbox" value="1" name="attr_check" class="sheet-itemcheckbox"/>
 							<span></span>
@@ -513,23 +548,20 @@
 		<div class="sheet-col50a">
 			<!-- Insight box -->
 			<div class="sheet-attribute">
-				<div class="sheet-attributetitle">
-					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/aRCtei7.png}}{{rolltypetext=Insight}}{{roll1value=[[@{hunt1}d6]]}}{{roll2value=[[@{study1}d6]]}}{{roll3value=[[@{survey1}d6]]}}{{roll4value=[[@{tinker1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Insight</button>
+				<div class="sheet-cohort-title">
+					<span>Cohort</span>
+					<div class="sheet-cohort-title-quality">Quality</div>
 				</div>
-				<input type="radio" value="0" name="attr_insight_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked />
-				<span></span>
-				<input type="radio" value="1" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_insight_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-				<input type="radio" value="6" name="attr_insight_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
+				<div class="sheet-cohort-quality">
+					<input type="checkbox" value="1" name="attr_cohort1_q1" />
+					<span></span>
+					<input type="checkbox" value="1" name="attr_cohort1_q2" />
+					<span></span>
+					<input type="checkbox" value="1" name="attr_cohort1_q3" />
+					<span></span>
+					<input type="checkbox" value="1" name="attr_cohort1_q4" />
+					<span></span>
+				</div>
 			</div>
 			<div class="sheet-attributepadding">
 				<!-- Hunt -->
@@ -619,226 +651,6 @@
 						<span></span>
 					</div>
 					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/4XTlsJC.png}}{{rolltypetext=Tinker}}{{roll1value=[[@{tinker1}d6]]}}{{roll2value=[[@{tinker2}d6]]}}{{roll3value=[[@{tinker3}d6]]}}{{roll4value=[[@{tinker4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Tinker</button>
-				</div>
-			</div>
-			<!-- Prowess box -->
-			<div class="sheet-attribute">
-				<div class="sheet-attributetitle">
-					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/7PeppYz.png}}{{rolltypetext=Prowess}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{prowl1}d6]]}}{{roll3value=[[@{skirmish1}d6]]}}{{roll4value=[[@{wreck1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowess</button>
-				</div>
-				<input type="radio" value="0" name="attr_prowess_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked />
-				<span></span>
-				<input type="radio" value="1" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_prowess_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-				<input type="radio" value="6" name="attr_prowess_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-			</div>
-			<div class="sheet-attributepadding">
-				<!-- Finesse -->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_finesse1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_finesse2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_finesse3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_finesse4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/4WuVKpL.png}}{{rolltypetext=Finesse}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{finesse2}d6]]}}{{roll3value=[[@{finesse3}d6]]}}{{roll4value=[[@{finesse4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Finesse</button>
-				</div>
-				<!-- Prowl -->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_prowl1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_prowl2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_prowl3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_prowl4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/a8TEEyf.png}}{{rolltypetext=prowl}}{{roll1value=[[@{prowl1}d6]]}}{{roll2value=[[@{prowl2}d6]]}}{{roll3value=[[@{prowl3}d6]]}}{{roll4value=[[@{prowl4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowl</button>
-				</div>
-				<!-- Skirmish -->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_skirmish1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_skirmish2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_skirmish3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_skirmish4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/gJJNl73.png}}{{rolltypetext=skirmish}}{{roll1value=[[@{skirmish1}d6]]}}{{roll2value=[[@{skirmish2}d6]]}}{{roll3value=[[@{skirmish3}d6]]}}{{roll4value=[[@{skirmish4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Skirmish</button>
-				</div>
-				<!-- Wreck -->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_wreck1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_wreck2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_wreck3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_wreck4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/EHOIFOM.png}}{{rolltypetext=wreck}}{{roll1value=[[@{wreck1}d6]]}}{{roll2value=[[@{wreck2}d6]]}}{{roll3value=[[@{wreck3}d6]]}}{{roll4value=[[@{wreck4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Wreck</button>
-				</div>
-			</div>
-			<!-- Resolve box-->
-			<div class="sheet-attribute">
-				<div class="sheet-attributetitle">
-					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/eIZr40h.png}}{{rolltypetext=Insight}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{command1}d6]]}}{{roll3value=[[@{consort1}d6]]}}{{roll4value=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Resolve</button>
-				</div>
-				<input type="radio" value="0" name="attr_resolve_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked />
-				<span></span>
-				<input type="radio" value="1" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_resolve_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-				<input type="radio" value="6" name="attr_resolve_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-			</div>
-			<div class="sheet-attributepadding">
-				<!-- Attune -->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_attune1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_attune2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_attune3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_attune4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/wjmgeBL.png}}{{rolltypetext=attune}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{attune2}d6]]}}{{roll3value=[[@{attune3}d6]]}}{{roll4value=[[@{attune4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Attune</button>
-				</div>
-				<!-- Command-->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_command1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_command2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_command3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_command4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/i5oDHFv.png}}{{rolltypetext=command}}{{roll1value=[[@{command1}d6]]}}{{roll2value=[[@{command2}d6]]}}{{roll3value=[[@{command3}d6]]}}{{roll4value=[[@{command4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Command</button>
-				</div>
-				<!-- Consort -->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_consort1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_consort2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_consort3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_consort4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/bu0cPsL.png}}{{rolltypetext=consort}}{{roll1value=[[@{consort1}d6]]}}{{roll2value=[[@{consort2}d6]]}}{{roll3value=[[@{consort3}d6]]}}{{roll4value=[[@{consort4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Consort</button>
-				</div>
-				<!-- Sway -->
-				<div class="sheet-attributedotsholder">
-					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
-							<input type="checkbox" value="1" name="attr_sway1" />
-							<span></span>
-						</div>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_sway2" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_sway3" />
-						<span></span>
-					</div>
-					<div class="sheet-stashbox sheet-attributedot">
-						<input type="checkbox" value="1" name="attr_sway4" />
-						<span></span>
-					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/sD36C99.png}}{{rolltypetext=sway}}{{roll1value=[[@{sway1}d6]]}}{{roll2value=[[@{sway2}d6]]}}{{roll3value=[[@{sway3}d6]]}}{{roll4value=[[@{sway4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Sway</button>
 				</div>
 			</div>
 			<!-- Contacts -->
