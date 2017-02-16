@@ -2153,6 +2153,7 @@ div.itemcontrol {
     height: 22px;
 }
 .sheet-attributepadding {
+		float: left;
     padding: 0px;
     padding-left: 2px;
     width: 100%;
@@ -2242,10 +2243,11 @@ div.itemcontrol {
 .sheet-bonusdie {
     width: 100%;
     box-sizing: border-box;
-    padding: 0px 5px 5px 5px;
+    padding: 10px 5px 5px 5px;
     margin-bottom: 5px;
     position: relative;
     top: -10px;
+    float: left;
 }
 .sheet-bonusdieheader {
     width: 100%;
