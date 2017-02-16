@@ -2697,8 +2697,12 @@ div.sheet-cohort-armor div {
     margin-right: -2px;
     display: block;
     float: left;
-    width: 70%;
+    width: 60%;
     border: none;
+}
+button.sheet-cohortbtn {
+		float: left;
+		font-size: 50% !important;
 }
 .sheet-cohort-title-quality {
     font-size: 70%;
