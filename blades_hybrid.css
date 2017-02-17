@@ -1,598 +1,3 @@
-/* START: OLD SHIT, all of this seems to be for the old sections*/
-.sheet-char-tab-content {
-    display: none;
-}
-input.sheet-char-tab-crew:checked ~ div.sheet-char-tab-crew,
-input.sheet-char-tab-factions:checked ~ div.sheet-char-tab-factions {
-    display: block;
-}
-input.sheet-char-tab {
-    opacity: 0;
-    width: 100px;
-    height: 20px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    z-index: 1;
-    position: absolute;
-}
-input.sheet-char-tab + span {
-    border: solid 1px #a7a7a7;
-    border-bottom-color: #ffffff;
-    text-align: center;
-    display: inline-block;
-    background: #000000;
-    color: #ffffff;
-    width: 100px;
-    height: 20px;
-    font-size: 18px;
-}
-input.sheet-char-tab:checked + span {
-    background: #ffffff;
-    color: #000000;
-}
-input[type=radio].sheet-char-tab-char,
-input[type=radio].sheet-char-tab-char + span {
-    left: 0px;
-}
-input[type=radio].sheet-char-tab-playbook,
-input[type=radio].sheet-char-tab-playbook + span {
-    left: 110px;
-}
-/* Other Options */
-
-input[type=checkbox].sheet-char-check,
-input[type=checkbox].sheet-char-check-first {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 1;
-    position: relative;
-    opacity: 0;
-}
-input[type=checkbox].sheet-char-check + span,
-input[type=checkbox].sheet-char-check-first + span {
-    display: inline-block;
-    background: #ffffff;
-    background: white;
-    width: 16px;
-    height: 16px;
-    position: relative;
-    left: -16px;
-    top: 5px;
-    z-index: 1;
-    border: solid thin #000000;
-}
-input[type=checkbox].sheet-char-check,
-input.sheet-char-friend-info,
-input.sheet-char-item-info,
-input.sheet-char-crew-ability-name,
-input.sheet-char-crew-upgrade-info,
-input.sheet-char-contact-friend-info {
-    margin-left: -16px;
-}
-.sheet-char-check-last + span {
-    margin-right: -16px;
-}
-input[type=checkbox].sheet-char-check:checked + span,
-input[type=checkbox].sheet-char-check-first:checked + span {
-    background: black;
-}
-input.sheet-char-armor:before,
-input.sheet-char-cohort-armor:before,
-input.sheet-char-coin:before,
-input.sheet-char-recovery:before,
-input.sheet-char-ability:before,
-input.sheet-char-friend:before,
-input.sheet-char-rival:before,
-input.sheet-char-item:before,
-input.sheet-char-carry:before,
-input.sheet-char-turf:before,
-input.sheet-char-rep:before,
-input.sheet-char-clock:before {
-    content: "";
-    display: inline-block;
-    background: #ffffff;
-    width: 15px;
-    height: 15px;
-}
-input.sheet-char-armor:before,
-input.sheet-char-cohort-armor:before,
-input.sheet-char-coin:before,
-input.sheet-char-recovery:before,
-input.sheet-char-ability:before,
-input.sheet-char-item:before,
-input.sheet-char-carry:before,
-input.sheet-char-turf:before,
-input.sheet-char-rep:before,
-input.sheet-char-clock:before {
-    border: solid thin #000000;
-}
-input[type=checkbox].sheet-char-friend + span {
-    border: solid thin #007700;
-}
-input[type=checkbox].sheet-char-rival + span {
-    border: solid thin #770000;
-}
-input[type=checkbox].sheet-char-friend:checked + span {
-    background: #007700;
-}
-.sheet-char-clock-col {
-    width: 350px;
-}
-input.sheet-char-friend:checked::before {
-    background: #007700;
-}
-input[type=checkbox].sheet-char-rival:checked + span {
-    background: #770000;
-}
-input[type=checkbox].sheet-char-item-onebox {
-    /* Extra indentation so that we align nicely with the two-box and three-box
-    items below*/
-    
-    margin-left: 42px;
-}
-input[type=checkbox].sheet-char-item-twobox {
-    /* Extra indentation so that we align nicely with the two-box and three-box
-    items below*/
-    
-    margin-left: 21px;
-}
-input.sheet-char-item-info {
-    width: 155px;
-    margin-right: 15px;
-}
-.sheet-char-turfrow {
-    margin-bottom: -13px;
-}
-.sheet-char-turfrow-outer {
-    margin: auto;
-}
-label.sheet-char-turf-label,
-label.sheet-char-rep-label {
-    width: 25px;
-}
-label.sheet-char-wanted-label,
-label.sheet-char-coin-label {
-    width: 40px;
-    text-align: right;
-    margin-left: -20px;
-    margin-right: -10px;
-}
-label.sheet-char-heat-label,
-label.sheet-char-vault-label {
-    width: 40px;
-    text-align: right;
-    margin-left: 6px;
-    margin-right: -27px;
-}
-label.sheet-char-tier-label,
-label.sheet-char-hold-label {
-    width: 20px;
-    text-align: right;
-    margin-left: 6px;
-    margin-right: -13px;
-}
-/* Character Tab */
-h1 {
-    text-align: center;
-}
-.sheet-char-version {
-    text-align: left;
-    font-size: 10px;
-}
-label.sheet-char-alias,
-label.sheet-char-background {
-    margin-left: 10px;
-}
-input.sheet-char-name,
-input.sheet-char-alias {
-    width: 350px;
-}
-input.sheet-char-look {
-    margin-left: 5px;
-    width: 771px;
-}
-input.sheet-char-heritage,
-input.sheet-char-background {
-    width: 312px;
-}
-input.sheet-char-vice {
-    width: 699px;
-}
-label.sheet-char-trauma {
-    margin-left: 25px;
-}
-input.sheet-char-stress,
-input.sheet-char-trauma,
-input.sheet-char-stash,
-input.sheet-char-insight,
-input.sheet-char-prowess,
-input.sheet-char-resolve {
-    width: 25px;
-    text-align: center;
-    font-size: 16px;
-}
-h3 {
-    text-align: center;
-}
-h5 {
-    line-height: 27px;
-}
-.sheet-char-harm-full {
-    width: 424px;
-}
-label.sheet-char-armor,
-input.sheet-char-spec,
-label.sheet-char-coin,
-label.sheet-char-stash {
-    margin-left: 35px;
-}
-label.sheet-char-heavy {
-    margin-left: 18px;
-}
-input.sheet-char-spec {
-    width: 175px;
-}
-/* Playbook Tab */
-input.sheet-char-ability-name {
-    width: 125px;
-    text-align: center;
-    font-weight: bold;
-    margin-left: -16px;
-}
-input.sheet-char-ability-info {
-    width: 292px;
-}
-input.sheet-char-xp-goal {
-    width: 416px;
-}
-.sheet-char-xp-conditions {
-    width: 440px;
-}
-.sheet-char-actions {
-    margin-left: 35px;
-}
-h4 {
-    line-height: 27px;
-}
-.sheet-char-actions-hr {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-input.sheet-char-insight {
-    margin-left: 175px;
-}
-input.sheet-char-prowess {
-    margin-left: 159px;
-}
-input.sheet-char-resolve {
-    margin-left: 164px;
-}
-.sheet-char-secondary-actions {
-    margin-left: 35px;
-}
-.sheet-char-insight-actions {
-    margin-left: 33px;
-}
-.sheet-char-prowess-actions {
-    margin-left: 20px;
-}
-.sheet-char-resolve-actions {
-    margin-left: 10px;
-}
-.sheet-char-loads {
-    margin-left: 10px;
-}
-input.sheet-char-carry {
-    margin-left: 10px;
-}
-input.sheet-char-carry + span {
-    margin-right: -16px;
-}
-.sheet-char-bandolier {
-    margin-left: 15px;
-}
-/* Crew Sheet Field Layout And Formatting */
-
-input.sheet-char-crew-name,
-input.sheet-char-crew-reputation {
-    width: 330px;
-}
-input.sheet-char-crew-lair {
-    width: 782px;
-}
-/* Claims Map */
-
-.sheet-char-map-row-claims {
-    margin-left: 51px;
-    width: 800px;
-}
-.sheet-char-map-row-claims textarea {
-    width: 130px;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    background: #cccccc;
-    z-index: 0;
-    position: relative;
-    resize: none;
-}
-.sheet-char-map-claim,
-.sheet-char-map-connector {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    margin: -3px;
-}
-.sheet-char-connector-row {
-    margin-bottom: -20px;
-    margin-left: 48px;
-    width: 800px;
-}
-/* Hide right-connector checkbox */
-
-input.sheet-char-connector-check[type="checkbox"] {
-    opacity: 0;
-    width: 16px;
-    height: 16px;
-    position: relative;
-    top: -2px;
-    left: 15px;
-    margin: -10px;
-    cursor: pointer;
-    z-index: 2;
-}
-/* Hide right-connector when unchecked */
-
-input.sheet-char-connector-check[type="checkbox"] + span::before {
-    opacity: 0;
-    display: inline-block;
-    width: 30px;
-    height: 20px;
-    content: "";
-}
-/* Show right-connector when checked */
-
-input.sheet-char-connector-check[type="checkbox"]:checked + span::before {
-    opacity: 1;
-    content: "";
-    width: 30px;
-    height: 20px;
-    background: #cccccc;
-    z-index: -1;
-    border: 1px 0px 1px 0px;
-    position: relative;
-    left: -1px;
-}
-/* Row for the down-connectors */
-
-.sheet-char-down-connector {
-    width: 132px;
-    display: inline-block;
-    margin-right: 17px;
-    margin-left: 0px;
-    height: 30px;
-    text-align: center;
-}
-.sheet-char-notfirstrow {
-    margin-top: 15px;
-}
-/* Hide down-connector checkbox */
-
-input.sheet-char-down-connector-check[type="checkbox"] {
-    opacity: 0;
-    position: relative;
-    cursor: pointer;
-    z-index: 2;
-    width: 16px;
-    height: 36px;
-    top: -12px;
-    left: 8px;
-}
-/* Hide down-connector when unchecked */
-
-input.sheet-char-down-connector-check[type="checkbox"] + span::before {
-    opacity: 0;
-    display: inline-block;
-    content: "";
-    background: green;
-    position: relative;
-    z-index: 1;
-    width: 16px;
-    height: 26px;
-    top: 1px;
-    left: -8px;
-}
-/* Show down-connector when checked */
-
-input.sheet-char-down-connector-check[type="checkbox"]:checked + span::before {
-    opacity: 1;
-    display: inline-block;
-    content: "";
-    background: #cccccc;
-    position: relative;
-    z-index: 1;
-    width: 16px;
-    height: 26px;
-    top: 0px;
-    left: -8px;
-}
-/* Left-fillable radio buttons - Hide actual radio */
-
-input.sheet-char-leftradio[type="radio"] {
-    opacity: 0;
-    width: 16px;
-    height: 16px;
-    position: relative;
-    top: -2px;
-    left: 8px;
-    margin: -9px;
-    cursor: pointer;
-    z-index: 1;
-}
-/* Show fake radio buttons for left-fillable */
-
-input.sheet-char-leftradio[type="radio"] + span::before {
-    width: 16px;
-    height: 16px;
-    content: "";
-    display: inline-block;
-    border: solid thin #000000;
-    background: #000000;
-    position: relative;
-    top: 5px;
-}
-input.sheet-char-leftradiolast[type="radio"] + span::before {
-    margin-right: 0px;
-}
-/* Remove dot from all radios _after_ selected one */
-/* Ensure that your radio groups are encapsulated in a div, otherwise they will interfere with each other */
-
-input.sheet-char-leftradio[type="radio"]:checked ~ input.sheet-char-leftradio[type="radio"] + span::before {
-    content: "";
-    background: #ffffff;
-}
-/* Empty radio - used for clearing the line*/
-
-input.sheet-char-zero:checked + span::before {
-    opacity: 0;
-}
-input.sheet-char-zero:hover + span::before {
-    opacity: 0.25;
-    font-size: 12px;
-    content: "✖";
-    text-indent: 0.5px;
-    position: relative;
-    top: 2px;
-}
-input.sheet-char-zero + span::before {
-    opacity: 0;
-    position: relative;
-    top: 5px;
-}
-input[type=radio].sheet-char-radioindent,
-input[type=radio].sheet-char-radioindent + span {
-    margin-left: 5px;
-}
-/* Crew Upgrades */
-
-.sheet-char-lair-upgrade-info,
-.sheet-char-quality-upgrade-info {
-    width: 170px;
-}
-.sheet-char-crew-upgrade-info {
-    width: 160px;
-    margin-right: 15px;
-}
-.sheet-char-linkedbox + span::after {
-    content: "-";
-    line-height: 24px;
-    position: relative;
-    left: 16px;
-    font-size: 15px;
-    top: -4px;
-}
-.sheet-char-crew-ability-name {
-    width: 125px;
-}
-.sheet-char-crew-ability-info {
-    width: 680px;
-}
-.sheet-char-advancement-descr {
-    width: 335px;
-}
-.sheet-char-contact-friend-info,
-.sheet-char-friend-info {
-    width: 155px;
-    margin-right: 15px;
-}
-textarea.sheet-char-cohort-notes {
-    width: 298px;
-    height: 50px;
-}
-.sheet-char-cohort-label,
-.sheet-char-crew-advancement-label {
-    display: inline;
-    margin-right: -11px;
-}
-select.sheet-char-cohort-health {
-    width: 100px;
-}
-.sheet-char-cohort-name {
-    width: 250px;
-    margin: 5px;
-}
-.sheet-char-freejob textarea,
-.repeating_freejob textarea {
-    width: 330px;
-    height: 50px;
-}
-.sheet-char-freejob-name {
-    width: 194px;
-}
-.sheet-char-freejobs {
-    width: 340px;
-    margin-bottom: 10px;
-    margin-right: 20px;
-}
-.sheet-char-faction-section {
-    margin: 30px;
-}
-select.sheet-char-faction-status,
-select.sheet-char-faction-tier,
-select.sheet-char-faction-hold {
-    width: 45px;
-}
-.sheet-char-war-description {
-    width: 350px;
-}
-input.sheet-char-knifeimg[type="radio"] {
-    opacity: 1;
-    z-index: 1;
-}
-.sheet-char-claim-checkboxes {
-    position: relative;
-}
-input.sheet-char-claim-claimed1,
-input.sheet-char-claim-claimed2,
-input.sheet-char-claim-claimed3,
-input.sheet-char-claim-claimed4,
-input.sheet-char-claim-claimed5 {
-    position: absolute;
-}
-input.sheet-char-claim-claimed1 {
-    left: 50px;
-}
-input.sheet-char-claim-claimed2 {
-    left: 203px;
-}
-input.sheet-char-claim-claimed3 {
-    left: 357px;
-}
-input.sheet-char-claim-claimed4 {
-    left: 511px;
-}
-input.sheet-char-claim-claimed5 {
-    left: 665px;
-}
-.sheet-char-claimsection {
-    margin-bottom: -70px;
-}
-.sheet-char-claims-checks1 {
-    position: relative;
-    top: -175px;
-}
-.sheet-char-claims-checks2 {
-    position: relative;
-    top: -92px;
-}
-.sheet-char-claims-checks3 {
-    position: relative;
-    top: -10px;
-}
-/* END: OLD SHIT */
 /* Version text */
 .sheet-version-text {
     text-align: right;
@@ -601,6 +6,7 @@ input.sheet-char-claim-claimed5 {
     top: -11px;
     font-size: 12px;
 }
+
 /* Type Selector */
 div.sheet-type-crew {
     display: none;
@@ -649,16 +55,23 @@ input.sheet-type-selector + span::before {
 input.sheet-type-selector:checked + span::before {
     content: "Crew Mode";
 }
-/* New sheet*/
-label {
-    line-height: 25px;
-    font-size: 16px;
-    font-weight: bold;
-}
+
+/* Generalities and columns */
 .charsheet {
     width: 860px;
     padding: 0 !important;
     margin: 0 !important;
+}
+.charsheet button {
+    text-shadow: none !important;
+}
+.sheet-hidden {
+		display: none !important;
+}
+label {
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: bold;
 }
 div.sheet-col100.sheet-col1002 > div.repcontrol {
     top: -15px !important;
@@ -697,7 +110,6 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     margin-left: 5px;
     box-sizing: border-box;
     padding: 0;
-    vertical-align: top;
 }
 .sheet-col50b {
     display: block;
@@ -740,6 +152,55 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     padding-left: 5px;
     box-sizing: border-box;
 }
+.sheet-repholder {
+		display: block;
+		float: left;
+		margin: 0;
+		padding: 0;
+		width: 45%;
+}
+.sheet-holdholder {
+		display: block;
+		float: left;
+		margin: 0;
+		padding: 0;
+		margin-left: 1%;
+		width: 37%;
+}
+
+/* FONT STYLES */
+.sheet-smallcaps {
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.sheet-italics {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    text-transform: lowercase;
+    font-style: italic;
+    font-size: 106%;
+    font-weight: 500;
+    letter-spacing: 0px;
+    padding-left: 5px;
+}
+.sheet-boldspan {
+    font-weight: 800;
+    margin-left: 0;
+    float: none;
+}
+.sheet-italicspan {
+    font-style: italic;
+    margin-left: 0;
+    float: none;
+    font-weight: 800;
+}
+.sheet-font-hoefler,
+.sheet-font-hoefler input,
+.sheet-font-hoefler textarea {
+    text-transform: uppercase;
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+}
+
+/* LOGO */
 .sheet-bladeslogo {
     height: 63px;
     width: 95%;
@@ -750,6 +211,17 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 .sheet-logoholder {
     height: 50px;
 }
+.sheet-crewheader {
+    color: #7f8184;
+    font-size: 210%;
+    letter-spacing: -2px;
+    margin-top: -8px;
+    font-weight: 800;
+    box-sizing: border-box;
+    line-height: 50px !important;
+}
+
+/* PLAYBOOK */
 .sheet-playbooktitle {
     height: 50px;
     width: 100%;
@@ -759,8 +231,6 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     vertical-align: top;
     display: inline-block;
     color: #7f8184;
-    text-transform: uppercase;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     width: 70%;
     font-size: 274%;
     letter-spacing: -2px;
@@ -779,14 +249,11 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     border-radius: 0;
     box-shadow: none;
     box-sizing: border-box;
-    display: inline-block;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     font-size: 100%;
     letter-spacing: -2px;
     line-height: 50px !important;
     font-weight: 800;
     color: black;
-    text-transform: uppercase;
     top: -11px;
     position: relative;
     vertical-align: top;
@@ -796,8 +263,6 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     vertical-align: middle;
     display: inline-block;
     width: 30%;
-    text-transform: uppercase;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     letter-spacing: 1px;
     font-size: 66%;
     line-height: 154%;
@@ -819,14 +284,14 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     display: inline-block;
     font-size: 119%;
     line-height: 145%;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     font-weight: 800;
     color: rgb(127, 129, 132);
-    text-transform: uppercase;
     height: 150px;
     width: 136px;
     background: none;
 }
+
+/* HEADER INPUT AREAS */
 .sheet-simple_input input {
     border: none;
     background: none;
@@ -855,11 +320,15 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     font-size: 71%;
     margin: 0;
 }
+
+/* BLACK BORDER */
 .sheet-blackborder {
     box-sizing: border-box;
     border-top: 5px solid black;
     margin-top: 15px !important;
 }
+
+/* Stress, rep, hold styling */
 .sheet-stress1,
 .sheet-stress2,
 .sheet-stress3,
@@ -876,6 +345,22 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     height: 25px;
     overflow: hidden;
 }
+
+.sheet-rep3,
+.sheet-hold2,
+.sheet-hold3 {
+		background-color: #d6d8d9;
+		color: white;
+    height: 12px;
+    vertical-align: top;
+    color: black;
+    font-size: 74%;
+    letter-spacing: 0px;
+    padding-top: 1px;
+    padding-left: 2px;
+    font-weight: 600;
+    line-height: 9px;
+}
 .sheet-stress1,
 .sheet-stress3,
 .sheet-rep1,
@@ -884,15 +369,15 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     background-color: black;
     height: 12px;
     vertical-align: top;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: white;
-    text-transform: uppercase;
     font-size: 74%;
     letter-spacing: 1px;
     padding-left: 5px;
     font-weight: 600;
     line-height: 9px;
 }
+
+/* Detailed widths for stress et cetera */
 .sheet-stress1,
 .sheet-stress3 {
     width: 74px;
@@ -905,23 +390,6 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 }
 .sheet-rep2 {
     width: 130px;
-}
-.sheet-rep3,
-.sheet-hold2,
-.sheet-hold3 {
-		background-color: #d6d8d9;
-		color: white;
-    height: 12px;
-    vertical-align: top;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: black;
-    text-transform: uppercase;
-    font-size: 74%;
-    letter-spacing: 0px;
-    padding-top: 1px;
-    padding-left: 2px;
-    font-weight: 600;
-    line-height: 9px;
 }
 .sheet-hold {
 		width: 70%;
@@ -954,14 +422,24 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     padding-left: 1px;
     padding-top: 1px;
 }
-/* STRESS TEETH */
+
+/* Teeth */
 .sheet-regulartooth {
     background-image: url(http://i.imgur.com/pGe2dC1.png);
+}
+input.sheet-regulartooth {
+    top: -9px !important;
 }
 .sheet-regulartooth label:after {
     background-image: url(http://i.imgur.com/ZYuytKg.png);
 }
-/* Left-fill Stress-teeth radios WORKING */
+input.sheet-regulartooth:checked ~ span::before {
+    background-image: url(http://i.imgur.com/pGe2dC1.png) !important;
+}
+input.sheet-regulartooth:checked + span::before,
+input.sheet-regulartooth + span::before {
+    background-image: url(http://i.imgur.com/ZYuytKg.png) !important;
+}
 
 input.sheet-stresstooth[type="radio"],
 input.sheet-stresstooth[type="checkbox"] {
@@ -1008,16 +486,14 @@ input.sheet-stresstooth[type="radio"]:checked + span::before,
 input.sheet-stresstooth[type="checkbox"]:checked + span::before {
     background-image: url(http://i.imgur.com/17DqQbA.png);
 }
-input.sheet-regulartooth {
-    top: -9px !important;
+input.sheet-stresstooth[type="checkbox"] + span::before {
+    content: "";
+    background-image: url(http://i.imgur.com/XNFdq3n.png);
 }
-input.sheet-regulartooth:checked ~ span::before {
-    background-image: url(http://i.imgur.com/pGe2dC1.png) !important;
+input.sheet-stresstooth[type="checkbox"]:checked + span::before {
+    background-image: url(http://i.imgur.com/17DqQbA.png);
 }
-input.sheet-regulartooth:checked + span::before,
-input.sheet-regulartooth + span::before {
-    background-image: url(http://i.imgur.com/ZYuytKg.png) !important;
-}
+
 input.sheet-traumatooth,
 input.sheet-traumatooth + span::before {
     height: 13px;
@@ -1031,6 +507,12 @@ input.sheet-traumazero:checked ~ input.sheet-traumatooth + span::before {
     content: "";
     background-image: url(http://i.imgur.com/m3eW79B.png) !important;
 }
+
+.sheet-stress2 input.sheet-stresstooth[type="radio"] + span::before,
+.sheet-rep2 input.sheet-stresstooth[type="radio"] + span::before {
+		margin-right: 11px;
+}
+
 input.sheet-zero3[type="radio"] + span::before {
     width: 10px;
     background-image: url(http://i.imgur.com/b7fMDSq.png);
@@ -1039,15 +521,11 @@ input.sheet-zero3[type="radio"]:checked + span::before {
     width: 10px;
     background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
+
 input.sheet-stresszero[type="radio"] {
     position: absolute;
     left: 89px;
     top: 363px;
-}
-input.sheet-traumazero[type="radio"] {
-    position: absolute;
-    left: 218px;
-    top: 370px;
 }
 input.sheet-stresszero[type="radio"] + span::before,
 input.sheet-stresszero[type="radio"]:checked + span::before {
@@ -1055,27 +533,11 @@ input.sheet-stresszero[type="radio"]:checked + span::before {
     left: 80px;
     top: 362px;
 }
-input.sheet-repzero[type="radio"] {
+
+input.sheet-traumazero[type="radio"] {
     position: absolute;
-    left: 56px;
-    top: 261px;
-}
-input.sheet-repzero[type="radio"] + span::before,
-input.sheet-repzero[type="radio"]:checked + span::before {
-    position: absolute;
-    left: 48px;
-    top: 261px;
-}
-input.sheet-turfzero[type="radio"] {
-    position: absolute;
-    left: 201px;
-    top: 251px;
-}
-input.sheet-turfzero[type="radio"] + span::before,
-input.sheet-turfzero[type="radio"]:checked + span::before {
-    position: absolute;
-    left: 192px;
-    top: 249px;
+    left: 218px;
+    top: 370px;
 }
 input.sheet-traumazero[type="radio"] + span::before,
 input.sheet-traumazero[type="radio"]:checked + span::before {
@@ -1083,6 +545,31 @@ input.sheet-traumazero[type="radio"]:checked + span::before {
     left: 209px;
     top: 362px;
 }
+
+input.sheet-repzero[type="radio"] {
+    position: absolute;
+    left: 51px;
+    top: 261px;
+}
+input.sheet-repzero[type="radio"] + span::before,
+input.sheet-repzero[type="radio"]:checked + span::before {
+    position: absolute;
+    left: 43px;
+    top: 261px;
+}
+
+input.sheet-turfzero[type="radio"] {
+    position: absolute;
+    left: 196px;
+    top: 251px;
+}
+input.sheet-turfzero[type="radio"] + span::before,
+input.sheet-turfzero[type="radio"]:checked + span::before {
+    position: absolute;
+    left: 187px;
+    top: 249px;
+}
+
 input.sheet-xpzero3[type="radio"] {
     position: relative;
     left: 8px;
@@ -1095,42 +582,76 @@ input.sheet-xpzero3[type="radio"]:checked + span::before {
     margin-left: -3px;
     background-image: url(http://i.imgur.com/b7fMDSq.png) !important;
 }
-/* ARMOR TEETH PLACEMENT */
 
-.charsheet input.sheet-armortooth[type="checkbox"] {
+input.sheet-repzero[type="radio"]:checked + span::before,
+input.sheet-turfzero[type="radio"]:checked + span::before,
+input.sheet-traumazero[type="radio"]:checked + span::before,
+input.sheet-stresszero[type="radio"]:checked + span::before,
+input.sheet-coinbox2zero[type="radio"]:checked + span::before,
+input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
+		display: none;
+}
+/* TURF TEETH */
+input.sheet-stresstooth.sheet-halftooth-lower[type="radio"] {
+		height: 12.5px;
+		margin-top: -2px;
+}
+.sheet-turfbox {
+		display: block;
+    position: relative;
+    float: right;
+    z-index: 1;
+    margin-top: -34px;
+}
+.sheet-turfbox input[type="radio"] {
+    display: block;
+    float: right;
+    width: 11px;
+    opacity: 0;
+}
+input[type="checkbox"].sheet-turf1:checked ~ input[type="radio"].sheet-turf1 + span::before,
+input[type="checkbox"].sheet-turf2:checked ~ input[type="radio"].sheet-turf2 + span::before,
+input[type="checkbox"].sheet-turf3:checked ~ input[type="radio"].sheet-turf3 + span::before,
+input[type="checkbox"].sheet-turf4:checked ~ input[type="radio"].sheet-turf4 + span::before,
+input[type="checkbox"].sheet-turf5:checked ~ input[type="radio"].sheet-turf5 + span::before,
+input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + span::before {
+		/* cyan tooth */
+		background-image: url('http://i.imgur.com/rrc6fQV.png');
+}
+
+/* COHORT TEETH PLACEMENT */
+input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"] + span::before {
+    width: 8px;
+    height: 25px;
+    display: inline-block;
+    margin: 0 0 0 2px;;
+    content: "";
+    position: relative;
+    left: 7px;
+    top: -3px;
+    background-image: url(http://i.imgur.com/XNFdq3n.png);
+    cursor: pointer;
+    padding: 0;
+}
+input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::before {
+    content: "";
+    background-image: url(http://i.imgur.com/17DqQbA.png);
+}
+
+/* ARMOR TEETH PLACEMENT */
+input.sheet-armortooth[type="checkbox"] {
     left: 12px;
     top: -9px;
     z-index: 10;
 }
-.charsheet input.sheet-armortooth[type="checkbox"] + span::before {
+input.sheet-armortooth[type="checkbox"] + span::before {
     left: 12px;
 }
-.charsheet input.sheet-armortooth2[type="checkbox"] + span::before {
+input.sheet-armortooth2[type="checkbox"] + span::before {
     margin: 0px 0px 0px 0px;
 }
-input.sheet-stresstooth[type="checkbox"] + span::before {
-    content: "";
-    background-image: url(http://i.imgur.com/XNFdq3n.png);
-}
-input.sheet-stresstooth[type="checkbox"]:checked + span::before {
-    background-image: url(http://i.imgur.com/17DqQbA.png);
-}
-label.sheet-zero {
-    width: 10px;
-    position: absolute;
-    left: 80px;
-    top: 339px;
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
-}
-input.sheet-zero[type=radio]:checked + label {
-    width: 10px;
-    position: absolute;
-    left: 80px;
-    top: 339px;
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
-}
-/* TRAUMA TEETH */
 
+/* TRAUMA */
 .sheet-traumatop {
     width: 74px;
     height: 25px;
@@ -1150,8 +671,8 @@ input.sheet-zero[type=radio]:checked + label {
     box-sizing: border-box;
     vertical-align: top;
 }
-/* TRAUMA DETAILS */
 
+/* TRAUMA DETAILS */
 input.sheet-trauma-check[type="checkbox"] {
     opacity: 0;
     display: inline-block;
@@ -1184,6 +705,7 @@ input.sheet-trauma-check + span::after {
     color: black!important;
     padding-left: 2px;
 }
+
 div.sheet-recoveryblurb.sheet-recoveryblurb2 input.sheet-trauma-check + span::after {
     color: #5e5e5e !important;
 }
@@ -1213,6 +735,7 @@ div.sheet-stress4 span:nth-child(8)::after {
     content: "";
     padding-left: 0px
 }
+
 .sheet-4clock {
     display: none;
 }
@@ -1237,6 +760,7 @@ div.sheet-stress4 span:nth-child(8)::after {
 .sheet-12segment:checked ~ .sheet-12clock {
     display: block;
 }
+
 div.sheet-harmprogress input.sheet-trauma-check + span {
     font-size: 89%;
     top: 0px;
@@ -1250,8 +774,8 @@ input.sheet-trauma-check[type="radio"] {
     margin: 0;
     z-index: 10;
 }
-/* END TRAUMA DETAILS */
 
+/* STYLING HARM AND ARMOR */
 .sheet-harmcolumn1 {
     display: block;
     float: left;
@@ -1275,9 +799,7 @@ input.sheet-trauma-check[type="radio"] {
     width: 100%;
     height: 12px;
     vertical-align: top;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: white;
-    text-transform: uppercase;
     font-size: 74%;
     letter-spacing: 2px;
     padding-left: 5px;
@@ -1297,18 +819,12 @@ input.sheet-trauma-check[type="radio"] {
 .sheet-armor .sheet-stresstooth {
     margin-left: 10px;
 }
-.sheet-stress2 input.sheet-stresstooth[type="radio"] + span::before,
-.sheet-rep2 input.sheet-stresstooth[type="radio"] + span::before {
-		margin-right: 11px;
-}
 .sheet-armorcaption {
     display: inline-block;
     position: relative;
     top: -9px;
     right: 3px;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 88%;
     letter-spacing: 0px;
     font-weight: 800;
@@ -1320,9 +836,7 @@ input.sheet-trauma-check[type="radio"] {
     background-color: #d6d8d9;
     border: none;
     height: 20px;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 85%;
     letter-spacing: 0px;
     font-weight: 800;
@@ -1335,6 +849,7 @@ input.sheet-trauma-check[type="radio"] {
     font-size: 80%;
     line-height: 0px;
     padding-top: 7px;
+    text-transform: none;
 }
 .sheet-coin1 {
     width: 70%;
@@ -1345,9 +860,7 @@ input.sheet-trauma-check[type="radio"] {
     border-bottom: 1px solid #8c8c8c;
     border-right: 1px solid #8c8c8c;
     overflow: hidden;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 73%;
     letter-spacing: 0px;
     font-weight: 800;
@@ -1360,9 +873,7 @@ input.sheet-trauma-check[type="radio"] {
     box-sizing: border-box;
     border-top: 1px solid #8c8c8c;
     overflow: hidden;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: #717275;
-    text-transform: uppercase;
     font-size: 73%;
     letter-spacing: 0px;
     font-weight: 800;
@@ -1377,8 +888,8 @@ input.sheet-trauma-check[type="radio"] {
     width: 100%;
     height: 13px;
 }
-/* COIN BOXES */
 
+/* COIN BOXES */
 .sheet-coinbox {
     width: 10px;
     height: 10px;
@@ -1415,8 +926,8 @@ input.sheet-trauma-check[type="radio"] {
     filter: alpha(opacity=100);
     opacity: 1;
 }
-/* COIN BOXES LEFT-FILLED RADIO */
 
+/* COIN BOXES LEFT-FILLED RADIO */
 input.sheet-coinbox2[type="radio"],
 input.sheet-coinbox2[type="checkbox"] {
     opacity: 0;
@@ -1448,8 +959,7 @@ input.sheet-coinbox2[type="checkbox"] + span::before {
     padding: 0;
 }
 input.sheet-coinboxlast[type="radio"] + span::before,
-input.sheet-coinboxlast[type="checkbox"] + span::before,
-{
+input.sheet-coinboxlast[type="checkbox"] + span::before {
     margin-right: 0px !important;
 }
 input.sheet-coinbox2[type="radio"]:hover + span::before,
@@ -1490,9 +1000,8 @@ input.sheet-coinbox2[type="checkbox"]:checked + span::before {
     top: 3px;
     z-index: 10;
 }
-/* -------------- */
-/* STASH BOXES LEFT-RADIO SPANS */
 
+/* STASH BOXES LEFT-RADIO SPANS */
 input.sheet-stashbox3[type="radio"] {
     opacity: 0;
     width: 13px;
@@ -1556,9 +1065,8 @@ input.sheet-stashbox3[type="radio"]:checked + span::before {
     background-color: black;
     border: 1px solid black;
 }
-/* -------------- */
-/* COIN/STASH BOX ZERO BUTTONS */
 
+/* COIN/STASH BOX ZERO BUTTONS */
 input.sheet-coinbox2zero {
     left: 8px !important;
     margin-left: -8px !important;
@@ -1588,7 +1096,8 @@ input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
     left: 342px;
     top: 526px;
 }
-/* -------------- */
+
+/* HARM AND RECOVERY */
 .sheet-harmrow {
     display: inline-block;
     width: 100%;
@@ -1623,9 +1132,7 @@ input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
 .sheet-harmdetails1 {
     background-color: #d6d8d9;
     width: 4%;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 100%;
     letter-spacing: 0px;
     font-weight: 800;
@@ -1658,9 +1165,7 @@ div.sheet-harmrow.sheet-harmlast div:nth-child(3) {
 .sheet-harmdetails3 {
     background-color: #d6d8d9;
     width: 20%;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: #575859;
-    text-transform: uppercase;
     text-align: center;
     font-size: 80%;
     letter-spacing: 1px;
@@ -1692,9 +1197,7 @@ div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
     margin-top: 6px;
 }
 .sheet-recoveryblurb span.sheet-recoveryblurb-bold {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     text-align: center;
     font-size: 81%;
     letter-spacing: 1px;
@@ -1717,9 +1220,7 @@ div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
     box-shadow: none;
     border: none;
     padding: 0;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     text-align: left;
     font-size: 106%;
     letter-spacing: 1px;
@@ -1739,8 +1240,8 @@ div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
 div.sheet-harmprogress label:nth-child(19)::after {
     content: "";
 }
-/* 8 Piece Wheel */
 
+/* 8 Piece Wheel */
 .sheet-harmrecoveryclock {
     position: absolute;
     top: 7px;
@@ -1861,6 +1362,8 @@ input.sheet-longoption + span {
 .sheet-harmprogress input.sheet-clock12_12:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/Y1Vd6bo.png");
 }
+
+/* SPECIAL ABILITIES*/
 .sheet-specialheader {
     box-sizing: border-box;
     display: inline-block;
@@ -1869,9 +1372,7 @@ input.sheet-longoption + span {
     width: 100%;
     height: 20px;
     vertical-align: top;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 74%;
     letter-spacing: 1px;
     padding-left: 5px;
@@ -1920,8 +1421,8 @@ input.sheet-longoption + span {
     background-color: rgb(214, 216, 217);
     font-family: Georgia, Times, "Times New Roman", serif;
 }
-/* SPECIAL ABILITY TICKBOXES */
 
+/* CHECKBOXES */
 .sheet-abilitycheck input[type="checkbox"],
 input.sheet-itemcheckbox,
 .sheet-attributedot input,
@@ -2012,6 +1513,8 @@ input.sheet-itemcheckbox:hover + span::before {
 input.sheet-itemcheckbox:checked ~ input[type=text] {
     color: red;
 }
+
+/* REPCONTROLS */
 .charsheet button.repcontrol_edit,
 .charsheet button.repcontrol_add {
     letter-spacing: 0px !important;
@@ -2045,13 +1548,13 @@ div.itemcontrol {
     !important;
     padding-left: 23px !important;
 }
+
+/* XP CONDITION BOX*/
 .sheet-markxp {
     display: inline-block;
     width: 30%;
     background-color: black;
     color: white;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    text-transform: uppercase;
     font-size: 74%;
     letter-spacing: 2px;
     padding-left: 5px;
@@ -2067,8 +1570,6 @@ div.itemcontrol {
     padding-right: 0px;
     background-color: black;
     color: white;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    text-transform: uppercase;
     font-size: 74%;
     letter-spacing: 2px;
     padding-left: 5px;
@@ -2133,15 +1634,15 @@ div.itemcontrol {
     margin: 0px;
     height: auto;
 }
+
+/* ACTION RATINGS */
 .sheet-attribute {
     width: 100%;
     height: 21px;
     background-color: black;
     box-sizing: border-box;
     vertical-align: top;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: white;
-    text-transform: uppercase;
     font-size: 107%;
     letter-spacing: 0;
     padding-left: 7px;
@@ -2151,28 +1652,13 @@ div.itemcontrol {
     display: block;
     float: left;
 }
-.sheet-loadheader,
-.sheet-loadheader2 {
-    width: 100%;
-    background-color: #b3b4b6;
-    height: 20px;
-    box-sizing: border-box;
-    padding-left: 6px;
-    padding-top: 5px;
-    line-height: 0px;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: black;
-    text-transform: uppercase;
-    font-size: 74%;
-    letter-spacing: 0px;
-    font-weight: 800;
-}
-.sheet-loadheader2 {
-    margin-top: 5px;
-    padding-top: 10px;
+.sheet-attribute-xp-box {
+		float: right;
+    width: calc(100% - 95px);
 }
 .sheet-attributetitle {
-    display: inline-block;
+    display: block;
+    float: left;
     vertical-align: top;
     padding-top: 4px;
     padding-right: 6px;
@@ -2183,7 +1669,6 @@ div.itemcontrol {
     text-transform: uppercase !important;
     letter-spacing: 0px !important;
     text-shadow: none !important;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     font-size: 92% !important;
     font-weight: 800;
     line-height: 9px;
@@ -2195,14 +1680,11 @@ div.itemcontrol {
     box-shadow: none;
     background-image: none;
 }
-.charsheet button.sheet-attributebtn:hover {
+button.sheet-attributebtn:hover {
     color: #ff4747 !important
 }
-.charsheet button.sheet-attributebtn:before {
+button.sheet-attributebtn:before {
     content: "" !important;
-}
-.charsheet button {
-    text-shadow: none !important;
 }
 .sheet-attributedotsholder {
     width: 100%;
@@ -2238,6 +1720,41 @@ div.itemcontrol {
     margin-right: 0px !important;
     border: none;
 }
+
+/* LOAD */
+.sheet-loadheader,
+.sheet-loadheader2 {
+    width: 100%;
+    background-color: #b3b4b6;
+    height: 20px;
+    box-sizing: border-box;
+    padding-left: 6px;
+    padding-top: 5px;
+    line-height: 0px;
+    color: black;
+    font-size: 74%;
+    letter-spacing: 0px;
+    font-weight: 800;
+}
+.sheet-loadheader2 {
+    margin-top: 5px;
+    padding-top: 10px;
+}
+.sheet-loadcheckholder {
+    display: inline-block;
+    font-family: serif;
+    text-transform: lowercase;
+    font-style: italic;
+    font-size: 109%;
+}
+.sheet-loadnumber {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 105%;
+    padding-left: 4px;
+}
+
+/* BUTTONS */
 .sheet-rollbtn {
     font-family: Georgia, Times, "Times New Roman", serif;
     letter-spacing: 1px !important;
@@ -2265,12 +1782,11 @@ div.itemcontrol {
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif !important;
     font-size: 97% !important;
     content: ''!important;
     position: absolute;
     top: 310px;
-    left: 405px;
+    left: 398px;
     font-weight: 600!important;
     background-color: white !important;
     font-variant: normal !important;
@@ -2287,15 +1803,17 @@ div.itemcontrol {
     margin-left: 0px !important;
     margin-top: 10px !important;
 }
-.charsheet button.sheet-vicebutton:hover,
-.charsheet button.sheet-fortunebtn:hover {
+button.sheet-vicebutton:hover,
+button.sheet-fortunebtn:hover {
     color: #020202 !important;
     border-color: #020202 !important;
 }
-.charsheet button.sheet-vicebutton:before,
-.charsheet button.sheet-fortunebtn:before {
+button.sheet-vicebutton:before,
+button.sheet-fortunebtn:before {
     content: "" !important;
 }
+
+/* BONUS DIE SECTION */
 .sheet-bonusdie {
     width: 100%;
     box-sizing: border-box;
@@ -2308,9 +1826,7 @@ div.itemcontrol {
 .sheet-bonusdieheader {
     width: 100%;
     box-sizing: border-box;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 88%;
     letter-spacing: 0px;
     font-weight: 800;
@@ -2340,10 +1856,8 @@ div.itemcontrol {
     line-height: 122%;
     font-family: Georgia, Times, "Times New Roman", serif;
 }
-.sheet-smallcaps {
-    text-transform: uppercase;
-    font-weight: 800;
-}
+
+/* FRIENDS/CONTACTS */
 .sheet-specialability input.sheet-friend[type=text] {
     resize: vertical;
     display: inline-block;
@@ -2362,7 +1876,6 @@ div.itemcontrol {
     width: 137px;
     padding-left: 0px;
 }
-/* FRIEND CHECKS */
 input.sheet-friendcheck2 + span::before {
     margin: 0px 0px 0px -1px !important;
     border-radius: 0 !important;
@@ -2441,13 +1954,18 @@ label.sheet-friendcheckdown {
 .sheet-abilitycheck input[type=checkbox]:checked + label.sheet-friendcheckdown ~ input[type=text] {
     color: #000000;
 }
+.sheet-specialability input.sheet-friend.sheet-contact[type=text] {
+		color: black;
+		width: 95%;
+		font-weight: 800;
+}
+
+/* GATHER INFORMATION */
 .sheet-gatherinfoheader {
     width: 100%;
     box-sizing: border-box;
     border-top: 2px solid black;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 88%;
     letter-spacing: 0px;
     font-weight: 800;
@@ -2480,28 +1998,23 @@ label.sheet-friendcheckdown {
     left: 0;
     margin-top: 4px;
 }
-.sheet-loadcheckholder {
-    display: inline-block;
-    font-family: serif;
-    text-transform: lowercase;
-    font-style: italic;
-    font-size: 109%;
-}
-.sheet-loadnumber {
-    font-style: normal;
-    font-weight: 800;
-    font-size: 105%;
-    padding-left: 4px;
-}
-.sheet-italics {
+
+/* TEAMWORK */
+.sheet-teamworkbox {
+    width: 95%;
+    padding: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    color: black;
+    background-color: #d6d8d9;
+    font-size: 89%;
+    line-height: 122%;
     font-family: Georgia, Times, "Times New Roman", serif;
-    text-transform: lowercase;
-    font-style: italic;
-    font-size: 106%;
-    font-weight: 500;
-    letter-spacing: 0px;
-    padding-left: 5px;
+    font-variant: normal;
+    font-weight: 400;
 }
+
+/* ITEMS/UPGRADES */
 .sheet-itemholder {
     box-sizing: border-box;
     width: 100%;
@@ -2601,84 +2114,6 @@ label.sheet-friendcheckdown {
     font-variant: normal !important;
     padding: 4px !important;
 }
-.sheet-teamworkbox {
-    width: 95%;
-    padding: 5px;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    color: black;
-    background-color: #d6d8d9;
-    font-size: 89%;
-    line-height: 122%;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-variant: normal;
-    font-weight: 400;
-}
-.sheet-boldspan {
-    font-weight: 800;
-    margin-left: 0;
-    float: none;
-}
-.sheet-italicspan {
-    font-style: italic;
-    margin-left: 0;
-    float: none;
-    font-weight: 800;
-}
-.sheet-planningdesc {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    color: black;
-    font-size: 95%;
-    line-height: 127%;
-    font-size: 86%;
-    font-style: normal;
-    margin-bottom: 5px;
-}
-.sheet-lispan {
-    margin-left: 0;
-    float: none;
-    font-style: normal;
-    font-weight: 800;
-}
-.sheet-notes {
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    box-sizing: border-box;
-    font-family: "Shadows Into Light", cursive;
-    color: #c43c35;
-    font-size: 155%;
-    padding: 0px;
-    width: 356px;
-    border: 0;
-    background-color: #ffffff;
-    box-shadow: none;
-    resize: vertical;
-    background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-image: linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-size: 100% 27px;
-    line-height: 137%;
-    height: 378px;
-}
-/* NEW STUFF */
-.sheet-crewheader {
-    color: #7f8184;
-    text-transform: uppercase;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    font-size: 210%;
-    letter-spacing: -2px;
-    margin-top: -8px;
-    font-weight: 800;
-    box-sizing: border-box;
-    line-height: 50px !important;
-}
-.sheet-specialability input.sheet-friend.sheet-contact[type=text] {
-		color: black;
-		width: 95%;
-		font-weight: 800;
-}
 .sheet-specialability.sheet-itemitem label {
     height: 16px;
     border-radius: 0;
@@ -2701,6 +2136,8 @@ label.sheet-friendcheckdown {
 .sheet-specialability.sheet-itemitem span {
 		font-size: 83%;
 }
+
+/* COHORTS */
 .sheet-cohort-conditionholder {
 		display: block;
 		float: left;
@@ -2711,9 +2148,7 @@ label.sheet-friendcheckdown {
 		display: block;
 		float: left;
 		margin: 0;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     font-size: 74%;
     letter-spacing: 0px;
     font-weight: 400;
@@ -2739,10 +2174,8 @@ div.sheet-cohort-armor div {
 .sheet-cohort-title input {
 		color: white;
 		background: transparent;
-    text-transform: uppercase;
     letter-spacing: 0px;
     text-shadow: none;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     font-size: 82%;
     font-weight: 800;
     height: 17px;
@@ -2774,23 +2207,6 @@ button.sheet-cohortbtn {
     height: 18px;
     margin-top: -1px;
 }
-input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"] + span::before {
-    width: 8px;
-    height: 25px;
-    display: inline-block;
-    margin: 0 0 0 2px;;
-    content: "";
-    position: relative;
-    left: 7px;
-    top: -3px;
-    background-image: url(http://i.imgur.com/XNFdq3n.png);
-    cursor: pointer;
-    padding: 0;
-}
-input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::before {
-    content: "";
-    background-image: url(http://i.imgur.com/17DqQbA.png);
-}
 .sheet-cohort-text {
     float: left;
     box-sizing: border-box;
@@ -2811,9 +2227,22 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
     border-bottom: 1px solid lightgray;
 }
 .sheet-cohorts {
-		margin-bottom: 6px;
+		margin: 5px 0 6px 0;
 		float: left;
 }
+
+/* PLANNING */
+.sheet-planningdesc {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    color: black;
+    font-size: 95%;
+    line-height: 127%;
+    font-size: 86%;
+    font-style: normal;
+    margin-bottom: 5px;
+}
+
+/* HUNTING GROUNDS */
 .sheet-hunting-grounds-box {
     width: 100%;
     box-sizing: border-box inherit;
@@ -2822,9 +2251,7 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
 }
 .sheet-hunting-grounds-box input {
 		width: 100%;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: black;
-    text-transform: uppercase;
     letter-spacing: 0px;
 		border: none;
 		box-shadow: none;
@@ -2839,72 +2266,33 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
     font-weight: 400;
     padding-top: 0;
 }
-input.sheet-stresstooth.sheet-halftooth-lower[type="radio"] {
-		height: 12.5px;
-		margin-top: -2px;
+
+/* NOTES */
+.sheet-notes {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    font-family: "Shadows Into Light", cursive;
+    color: #c43c35;
+    font-size: 155%;
+    padding: 0px;
+    width: 356px;
+    border: 0;
+    background-color: #ffffff;
+    box-shadow: none;
+    resize: vertical;
+    background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+    background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+    background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+    background-image: linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+    background-size: 100% 27px;
+    line-height: 137%;
+    height: 378px;
 }
-.sheet-turfbox {
-		display: block;
-    position: relative;
-    float: right;
-    z-index: 1;
-    margin-top: -34px;
-}
-.sheet-turfbox input[type="radio"] {
-    display: block;
-    float: right;
-    width: 11px;
-    opacity: 0;
-}
-input[type="checkbox"].sheet-turf1:checked ~ input[type="radio"].sheet-turf1 + span::before,
-input[type="checkbox"].sheet-turf2:checked ~ input[type="radio"].sheet-turf2 + span::before,
-input[type="checkbox"].sheet-turf3:checked ~ input[type="radio"].sheet-turf3 + span::before,
-input[type="checkbox"].sheet-turf4:checked ~ input[type="radio"].sheet-turf4 + span::before,
-input[type="checkbox"].sheet-turf5:checked ~ input[type="radio"].sheet-turf5 + span::before,
-input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + span::before {
-		background-image: url('http://i.imgur.com/rrc6fQV.png');
-}
-.sheet-hidden {
-		display: none !important;
-}
-/* -------------------------- */
-/* Roll template 1 */
-.sheet-char-rolltemplate-bitd table {
-    width: 240px;
-    padding: 2px;
-    border: 1px solid;
-    background: url(https://i.imgur.com/DCcJ8p2.jpg);
-    background-size: 240px;
-    background-repeat: no-repeat;
-    font-family: "Times New Roman", Times, serif;
-    min-height: 85px;
-}
-.sheet-char-rolltemplate-bitd th {
-    color: darkred;
-    padding-left: 5px;
-    line-height: 1.6em;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-    width: 180px;
-}
-.sheet-char-rolltemplate-bitd .sheet-char-subheader {
-    color: black;
-    font-size: 1.5em;
-    font-style: bold;
-    font-family: "Times New Roman", Times, serif;
-}
-.sheet-char-rolltemplate-bitd td {
-    padding-left: 5px;
-    font-family: "Times New Roman", Times, serif;
-}
-.sheet-char-rolltemplate-bitd .sheet-char-result {
-    font-size: 3em;
-    vertical-align: center;
-    text-align: center;
-    font-family: "Times New Roman", Times, serif;
-}
+
+/* ROLL TEMPLATES */
+/* ACTION ROLL */
 .sheet-rolltemplate-bitd .sheet-rolltableholder {
     margin-left: -45px;
     margin-right: -1px;
@@ -3099,6 +2487,9 @@ input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + s
     font-style: normal;
     font-weight: 800;
 }
+.sheet-rolltemplate-bitd2 img {
+    height: 22px;
+}
 /* INDULGE VICE TEMPLATE */
 .sheet-rolltemplate-bitd3 .sheet-rolltableholder {
     margin-left: -45px;
@@ -3154,9 +2545,6 @@ input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + s
     line-height: 20px;
     position: relative;
     top: -4px;
-}
-.sheet-rolltemplate-bitd2 img {
-    height: 22px;
 }
 .sheet-rolltemplate-bitd3 .inlinerollresult {
     border: 0px solid white !important;
