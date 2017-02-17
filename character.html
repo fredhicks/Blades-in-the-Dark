@@ -1,7 +1,3 @@
-<!--Title & Version-->
-<div class="sheet-version-text">Version 0.1</div>
-<input type="checkbox" name="attr_sheet_type" class="sheet-type-selector" value="1" />
-<span></span>
 <!-- Character Sheet -->
 <div class="sheet-type-character">
 	<!-- Logo and Crew -->
@@ -9,7 +5,7 @@
 		<div class="sheet-col60 sheet-logoholder">
 			<div class="sheet-bladeslogo"></div>
 		</div>
-		<div class="sheet-col40 sheet-simple_input">
+		<div class="sheet-col40 sheet-simple-input">
 			<input type="text" name="attr_crew"/>
 			<label>Crew</label>
 		</div>
@@ -26,32 +22,34 @@
 		</div>
 	</div>
 	<!-- Left column -->
-	<div class="sheet-col60 sheet-simple_input">
+	<div class="sheet-col60">
 		<!-- Header text fields -->
-		<div class="sheet-col60">
-			<input type="text" name="attr_name"/>
-			<label>Name</label>
-		</div>
-		<div class="sheet-col40">
-			<input type="text" name="attr_alias"/>
-			<label>Alias</label>
-		</div>
-		<div class="sheet-col100 sheet-fullwidth">
-			<input type="text" name="attr_look"/>
-			<label>Look</label>
-		</div>
-		<div class="sheet-col60">
-			<input type="text" name="attr_heritage"/>
-			<label>Heritage</label>
-		</div>
-		<div class="sheet-col40">
-			<input type="text" name="attr_background"/>
-			<label>Background</label>
-		</div>
-		<div class="sheet-col100 sheet-fullwidth">
-			<input type="text" name="attr_vice"/>
-			<label>Vice / Purveyor</label>
-			<button type="roll" class="sheet-vicebutton sheet-rollbtn sheet-font-hoefler" value='&{template:bitd3}{{charname=@{character_name}}}{{stress=@{stress}}}{{insight=[[@{hunt1}+@{study1}+@{survey1}+@{tinker1}]]}}{{roll1avalue=[[@{hunt1}d6]]}}{{roll1bvalue=[[@{study1}d6]]}}{{roll1cvalue=[[@{survey1}d6]]}}{{roll1dvalue=[[@{tinker1}d6]]}}{{prowess=[[@{finesse1}+@{prowl1}+@{wreck1}+@{skirmish1}]]}}{{roll2avalue=[[@{finesse1}d6]]}}{{roll2bvalue=[[@{prowl1}d6]]}}{{roll2cvalue=[[@{skirmish1}d6]]}}{{roll2dvalue=[[@{wreck1}d6]]}}{{resolve=[[@{attune1}+@{command1}+@{consort1}+@{sway1}]]}}{{roll3avalue=[[@{attune1}d6]]}}{{roll3bvalue=[[@{command1}d6]]}}{{roll3cvalue=[[@{consort1}d6]]}}{{roll3dvalue=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Indulge Vice</button>
+		<div class="sheet-col100 sheet-header">
+			<div class="sheet-col60">
+				<input type="text" name="attr_name"/>
+				<label>Name</label>
+			</div>
+			<div class="sheet-col40">
+				<input type="text" name="attr_alias"/>
+				<label>Alias</label>
+			</div>
+			<div class="sheet-col100">
+				<input type="text" name="attr_look"/>
+				<label>Look</label>
+			</div>
+			<div class="sheet-col60">
+				<input type="text" name="attr_heritage"/>
+				<label>Heritage</label>
+			</div>
+			<div class="sheet-col40">
+				<input type="text" name="attr_background"/>
+				<label>Background</label>
+			</div>
+			<div class="sheet-col100">
+				<input type="text" name="attr_vice"/>
+				<label>Vice / Purveyor</label>
+				<button type="roll" class="sheet-vicebutton sheet-rollbtn sheet-font-hoefler" value='&{template:bitd3}{{charname=@{character_name}}}{{stress=@{stress}}}{{insight=[[@{hunt1}+@{study1}+@{survey1}+@{tinker1}]]}}{{roll1avalue=[[@{hunt1}d6]]}}{{roll1bvalue=[[@{study1}d6]]}}{{roll1cvalue=[[@{survey1}d6]]}}{{roll1dvalue=[[@{tinker1}d6]]}}{{prowess=[[@{finesse1}+@{prowl1}+@{wreck1}+@{skirmish1}]]}}{{roll2avalue=[[@{finesse1}d6]]}}{{roll2bvalue=[[@{prowl1}d6]]}}{{roll2cvalue=[[@{skirmish1}d6]]}}{{roll2dvalue=[[@{wreck1}d6]]}}{{resolve=[[@{attune1}+@{command1}+@{consort1}+@{sway1}]]}}{{roll3avalue=[[@{attune1}d6]]}}{{roll3bvalue=[[@{command1}d6]]}}{{roll3cvalue=[[@{consort1}d6]]}}{{roll3dvalue=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Indulge Vice</button>
+			</div>
 		</div>
 		<!-- Stress and Trauma -->
 		<div class="sheet-col100 sheet-blackborder">
@@ -120,7 +118,7 @@
 				<span class="sheet-trauma-check">Vicious</span>
 			</div>
 		</div>
-		<!-- Rest of the left column -->
+		<!-- Harm, Recovery, Armor, Coin -->
 		<div class="sheet-col100 sheet-blackborder">
 			<!-- Harm and Recovery -->
 			<div class="sheet-harmcolumn1">
@@ -314,31 +312,33 @@
 				<input type="radio" value="40" name="attr_stash" class="sheet-stashbox3 sheet-endstashbox"/>
 				<span class="sheet-stashbox3"></span>
 			</div>
-			<!-- Special abilities -->
-			<div class="sheet-col100">
-				<div class="sheet-specialheader sheet-font-hoefler">Special Abilities</div>
-				<div class="sheet-abilitiesholder">
+		</div>
+		<!-- Special abilities -->
+		<div class="sheet-col100">
+			<div class="sheet-specialheader sheet-font-hoefler">Special Abilities</div>
+			<div class="sheet-abilitiesholder">
+				<div class="sheet-specialability">
+					<div class="sheet-abilitycheck">
+						<input type="checkbox" value="1" name="attr_ability1_check" />
+						<span></span>
+						<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability1_name" />
+						<textarea class="sheet-ability1desc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
+					</div>
+				</div>
+				<fieldset class="repeating_ability">
 					<div class="sheet-specialability">
 						<div class="sheet-abilitycheck">
-							<input type="checkbox" value="1" name="attr_ability1_check" />
+							<input type="checkbox" value="1" name="attr_check" />
 							<span></span>
-							<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability1_name" />
-							<textarea class="sheet-ability1desc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
+							<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability_name" />
+							<textarea class="sheet-ability1desc" name="attr_ability_desc" placeholder="Ability description"></textarea>
 						</div>
 					</div>
-					<fieldset class="repeating_ability">
-						<div class="sheet-specialability">
-							<div class="sheet-abilitycheck">
-								<input type="checkbox" value="1" name="attr_check" />
-								<span></span>
-								<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability_name" />
-								<textarea class="sheet-ability1desc" name="attr_ability_desc" placeholder="Ability description"></textarea>
-							</div>
-						</div>
-					</fieldset>
-				</div>
+				</fieldset>
 			</div>
-			<!-- Advancement -->
+		</div>
+		<!-- Advancement -->
+		<div class="sheet-col100">
 			<div class="sheet-markxp sheet-font-hoefler">Mark XP:</div>
 			<div class="sheet-playbookadvancement sheet-font-hoefler">
 				<div class="sheet-playbookholder">Playbook Advancement </div>
@@ -372,6 +372,9 @@
 					<li>You struggled with issues from your vice or traumas during the session.</li>
 				</ul>
 			</div>
+		</div>
+		<!-- Info boxes -->
+		<div class="sheet-col100">
 			<!-- Teamwork -->
 			<div class="sheet-col50a">
 				<div class="sheet-gatherinfoheader sheet-font-hoefler">Teamwork</div>
@@ -450,100 +453,100 @@
 			<!-- Items -->
 			<div class="sheet-itemholder">
 				<!-- Playbook items -->
-				<div class="sheet-specialability sheet-itemitem sheet-playbookitems">
-					<div class="sheet-abilitycheck">
+				<div class="sheet-playbookitems">
+					<div class="sheet-item sheet-itembold sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_1_check" class="sheet-itemcheckbox"/>
 						<span></span>
 						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_1_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine two-slot item" class="sheet-item sheet-itembold sheet-item2box" name="attr_item_1_desc" />
+						<input type="text" placeholder="Fine two-slot item" name="attr_item_1_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itembold">
 						<input type="checkbox" value="1" name="attr_item_2_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine one-slot item" class="sheet-item sheet-itembold" name="attr_item_2_desc" />
+						<input type="text" placeholder="Fine one-slot item" name="attr_item_2_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itembold">
 						<input type="checkbox" value="1" name="attr_item_3_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine one-slot item" class="sheet-item sheet-itembold" name="attr_item_3_desc" />
+						<input type="text" placeholder="Fine one-slot item" name="attr_item_3_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itembold sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_4_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine one-slot item" class="sheet-item sheet-itembold sheet-itemitalic" name="attr_item_4_desc" />
+						<input type="text" placeholder="Fine one-slot item" name="attr_item_4_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_5_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-item" name="attr_item_5_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_5_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_6_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-item" name="attr_item_6_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_6_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_7_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-item sheet-itemitalic" name="attr_item_7_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_7_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_8_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-item sheet-itemitalic" name="attr_item_8_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_8_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_9_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-item sheet-itemitalic" name="attr_item_9_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_9_desc" />
 					</div>
 				</div>
 				<!-- Regular items -->
-				<div class="sheet-specialability sheet-itemitem sheet-regularitems">
-					<div class="sheet-abilitycheck">
+				<div class="sheet-regularitems">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_10_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A Blade or Two" class="sheet-item" name="attr_item_10_desc" />
+						<input type="text" value="A Blade or Two" name="attr_item_10_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_11_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Throwing Knives" class="sheet-item" name="attr_item_11_desc" />
+						<input type="text" value="Throwing Knives" name="attr_item_11_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort">
 						<input type="checkbox" value="1" name="attr_item_12_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A Pistol" class="sheet-item sheet-itemshort1" name="attr_item_12_desc" />
+						<input type="text" value="A Pistol" name="attr_item_12_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort">
 						<input type="checkbox" value="1" name="attr_item_13_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A 2nd Pistol" class="sheet-item sheet-itemshort1" name="attr_item_13_desc" />
+						<input type="text" value="A 2nd Pistol" name="attr_item_13_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_14_check" class="sheet-itemcheckbox"/>
 						<span></span>
 						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_14_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A Large Weapon" class="sheet-item sheet-item2box" name="attr_item_14_desc" />
+						<input type="text" value="A Large Weapon" name="attr_item_14_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_15_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="An Unusual Weapon" class="sheet-item" name="attr_item_15_desc" />
+						<input type="text" value="An Unusual Weapon" name="attr_item_15_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_16_check" class="sheet-itemcheckbox"/>
 						<span></span>
 						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_16_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Armor" class="sheet-item sheet-itemshort" name="attr_item_16_desc" />
+						<input type="text" value="Armor" name="attr_item_16_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort sheet-item3box">
 						<input type="checkbox" value="1" name="attr_item_16_check_c" class="sheet-itemcheckbox"/>
 						<span></span>
 						<div class="sheet-floatingbar"></div>
@@ -552,62 +555,62 @@
 						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_16_check_e" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="+Heavy" class="sheet-item sheet-itemshort2" name="attr_item_17_desc_b" />
+						<input type="text" value="+Heavy" name="attr_item_16_desc_b" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_17_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Burglary Gear" class="sheet-item" name="attr_item_17_desc" />
+						<input type="text" value="Burglary Gear" name="attr_item_17_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_18_check" class="sheet-itemcheckbox"/>
 						<span></span>
 						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_18_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Climbing Gear" class="sheet-item sheet-item2box" name="attr_item_18_desc" />
+						<input type="text" value="Climbing Gear" name="attr_item_18_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_19_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Arcane Implements" class="sheet-item" name="attr_item_19_desc" />
+						<input type="text" value="Arcane Implements" name="attr_item_19_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_20_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Documents" class="sheet-item" name="attr_item_20_desc" />
+						<input type="text" value="Documents" name="attr_item_20_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_21_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Subterfuge Supplies" class="sheet-item" name="attr_item_21_desc" />
+						<input type="text" value="Subterfuge Supplies" name="attr_item_21_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_22_check" class="sheet-itemcheckbox"/>
 						<span></span>
 						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_22_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Demolition Tools" class="sheet-item sheet-item2box" name="attr_item_22_desc" />
+						<input type="text" value="Demolition Tools" name="attr_item_22_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_23_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Tinkering Tools" class="sheet-item" name="attr_item_23_desc" />
+						<input type="text" value="Tinkering Tools" name="attr_item_23_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_24_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Lantern" class="sheet-item" name="attr_item_24_desc" />
+						<input type="text" value="Lantern" name="attr_item_24_desc" />
 					</div>
 					<fieldset class="repeating_item">
-						<div class="sheet-abilitycheck">
+						<div class="sheet-item sheet-item2box">
 							<input type="checkbox" value="1" name="attr_check" class="sheet-itemcheckbox"/>
 							<span></span>
 							<div class="sheet-floatingbar"></div>
 							<input type="checkbox" value="1" name="attr_check_b" class="sheet-itemcheckbox"/>
 							<span></span>
-							<input type="text" placeholder="Something Else?" class="sheet-item sheet-item2box" name="attr_desc" />
+							<input type="text" placeholder="Something Else?" name="attr_desc" />
 						</div>
 					</fieldset>
 				</div>
@@ -1029,7 +1032,7 @@
 			<button type="roll"  class="sheet-fortunebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd4}{{charname=@{character_name}}} {{notes=?{Notes| }}}{{bonusdice=?{Number of dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll Fortune</button>
 		</div>
 		<!-- Clocks -->
-		<div class="sheet-col100 sheet-col1002">
+		<div class="sheet-col97">
 			<div class="sheet-specialheader sheet-font-hoefler sheet-specialheader2">Clocks</div>
 			<fieldset class="repeating_clock">
 				<div class="sheet-recoveryblurb sheet-recoveryblurb2">

@@ -8,13 +8,10 @@
 }
 
 /* Type Selector */
-div.sheet-type-crew {
-    display: none;
-}
 input.sheet-type-selector:checked ~ div.sheet-type-crew {
     display: block;
 }
-input.sheet-type-selector:checked ~ div.sheet-type-character {
+div.sheet-type-crew, input.sheet-type-selector:checked ~ div.sheet-type-character {
     display: none;
 }
 input.sheet-type-selector {
@@ -56,7 +53,7 @@ input.sheet-type-selector:checked + span::before {
     content: "Crew Mode";
 }
 
-/* Generalities and columns */
+/* GENERALITIES */
 .charsheet {
     width: 860px;
     padding: 0 !important;
@@ -65,105 +62,68 @@ input.sheet-type-selector:checked + span::before {
 .charsheet button {
     text-shadow: none !important;
 }
-.sheet-hidden {
-		display: none !important;
-}
 label {
     line-height: 25px;
     font-size: 16px;
     font-weight: bold;
 }
-div.sheet-col100.sheet-col1002 > div.repcontrol {
-    top: -15px !important;
-    position: relative !important;
+input[type="text"] {
+		border: none;
+		background: none;
+    box-shadow: none;
+    width: 95%;
+    font-family: Georgia, Times, "Times New Roman", serif;
 }
-.sheet-col10 {
-    display: block;
+.sheet-hidden {
+		display: none !important;
+}
+
+/* COLUMN LAYOUT */
+.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97 .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
+		display: block;
     float: left;
-    width: 6%;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97 .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop {
     margin: 0;
     padding: 0;
-    vertical-align: top;
 }
 .sheet-col60 {
-    display: block;
-    float: left;
     width: 55%;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
 }
-.sheet-col40 {
-    display: block;
-    float: left;
+.sheet-col40, .sheet-col50a {
     width: 45%;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-}
-.sheet-col50a {
-    display: block;
-    float: left;
-    width: 45%;
-    margin: 0;
-    margin-top: 5px;
-    margin-left: 5px;
-    box-sizing: border-box;
-    padding: 0;
 }
 .sheet-col50b {
-    display: block;
-    float: left;
     width: 52%;
-    margin: 0;
-    margin-top: 5px;
-    margin-left: 5px;
-    box-sizing: border-box;
-    padding: 0;
-    vertical-align: top;
 }
 .sheet-col90 {
-    display: block;
-    float: left;
     width: 94%;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
 }
-.sheet-col100 {
-    display: block;
-    float: left;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
+.sheet-col10 {
+    width: 6%;
 }
-.sheet-col1002 {
+.sheet-col97 {
     margin-left: 5px;
     width: 97%;
+}
+.sheet-col100 {
+    width: 100%;
+}
+.sheet-col50a, .sheet-col50b {
+    margin: 5px 0 0 5px;
+    box-sizing: border-box;
 }
 .sheet-rep-block {
 		display: inline-block;
 }
-.sheet-fullwidth input {
-    width: 100% !important;
-}
-.sheet-toppad {
-    padding-left: 5px;
-    box-sizing: border-box;
-}
+
+/* SUBCOLUMNS */
 .sheet-repholder {
-		display: block;
-		float: left;
-		margin: 0;
-		padding: 0;
 		width: 45%;
 }
 .sheet-holdholder {
-		display: block;
-		float: left;
-		margin: 0;
-		padding: 0;
 		margin-left: 1%;
 		width: 35%;
 }
@@ -194,7 +154,7 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     font-weight: 800;
 }
 .sheet-font-hoefler,
-.sheet-font-hoefler input,
+.sheet-font-hoefler input[type="text"],
 .sheet-font-hoefler textarea {
     text-transform: uppercase;
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
@@ -239,24 +199,15 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     box-sizing: border-box;
     padding: 0px 10px;
 }
-.sheet-title input {
+.sheet-title input[type="text"] {
 		width: 250px;
     padding: 0;
-    margin: 0;
-    border: none;
-    background: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    box-sizing: border-box;
-    font-size: 100%;
     letter-spacing: -2px;
     line-height: 50px !important;
     font-weight: 800;
     color: black;
-    top: -11px;
+    top: -8px;
     position: relative;
-    vertical-align: top;
     padding-top: 10px;
 }
 .sheet-desc {
@@ -290,30 +241,25 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     width: 136px;
     background: none;
 }
+.sheet-toppad {
+    padding-left: 5px;
+    box-sizing: border-box;
+}
 
-/* HEADER INPUT AREAS */
-.sheet-simple_input input {
-    border: none;
-    background: none;
+/* HEADER AREAS */
+.sheet-header input[type="text"] {
+		width: 100%;
     border-bottom: 1px solid black;
     border-radius: 0;
-    box-shadow: none;
-    width: 80%;
-    margin: 0px;
-    margin-bottom: 4px;
-    padding: 3px 0px 0px 0px;
-    color: #c43c35;
-    font-family: Georgia, Times, "Times New Roman", serif;
     font-size: 109%;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    margin-top: 3px;
+    padding: 3px 0 0;
+    margin: 3px 0 0;
+    color: #c43c35;
 }
-.sheet-simple_input .sheet-col60 input {
-    width: 95% !important;
+.sheet-header .sheet-col60 input[type="text"] {
+		width: 95%
 }
-.sheet-simple_input label {
+.sheet-header label {
     font-family: Georgia, Times, "Times New Roman", serif;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -329,33 +275,11 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 }
 
 /* Stress, rep, hold styling */
-.sheet-stress1,
-.sheet-stress2,
-.sheet-stress3,
-.sheet-stress4,
-.sheet-rep1,
-.sheet-rep2,
-.sheet-rep3,
-.sheet-hold1,
-.sheet-hold2,
-.sheet-hold3 {
-    box-sizing: border-box;
-    display: block;
-    float: left;
-}
-.sheet-rep2,
-.sheet-stress2,
-.sheet-stress4 {
+.sheet-rep2, .sheet-stress2, .sheet-stress4 {
     height: 25px;
     overflow: hidden;
 }
-.sheet-rep3,
-.sheet-hold2,
-.sheet-hold3,
-.sheet-stress1,
-.sheet-stress3,
-.sheet-rep1,
-.sheet-hold1 {
+.sheet-rep1, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-stress1, .sheet-stress3 {
     height: 12px;
 		font-size: 74%;
     letter-spacing: 0px;
@@ -363,29 +287,28 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     line-height: 9px;
     padding-top: 1px;
 }
-.sheet-rep3,
-.sheet-hold2,
-.sheet-hold3 {
+.sheet-rep3, .sheet-hold2, .sheet-hold3 {
 		background-color: #d6d8d9;
     color: #000000;
     padding-left: 2px;
 }
-.sheet-stress1,
-.sheet-stress3,
-.sheet-rep1,
-.sheet-hold1 {
+.sheet-stress1, .sheet-stress3, .sheet-rep1, .sheet-hold1 {
     background-color: #000000;
     color: #ffffff;
     padding-left: 5px;
 }
 
 /* Detailed widths for stress et cetera */
-.sheet-stress1,
-.sheet-stress3 {
+.sheet-stress1, .sheet-stress3 {
     width: 74px;
 }
 .sheet-stress2 {
     width: 104px;
+}
+.sheet-stress4 {
+    width: 213px;
+    padding-left: 1px;
+    padding-top: 1px;
 }
 .sheet-rep1 {
     width: 16.5%;
@@ -406,13 +329,11 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 		width: 40%;
 }
 
-.sheet-rep1 div.sheet-radiolabel,
-.sheet-rep3 div.sheet-radiolabel,
-.sheet-hold1 div.sheet-radiolabel {
+/* Aligning labels just right */
+.sheet-rep1 div.sheet-radiolabel, .sheet-rep3 div.sheet-radiolabel, .sheet-hold1 div.sheet-radiolabel {
 		padding-top: 2px;
 }
-.sheet-hold2 div.sheet-radiolabel,
-.sheet-hold3 div.sheet-radiolabel {
+.sheet-hold2 div.sheet-radiolabel, .sheet-hold3 div.sheet-radiolabel {
 		width: auto;
 		float: left;
 		padding: 2px 3px 0;
@@ -421,10 +342,22 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 		float: right;
 		padding-right: 2px;
 }
-.sheet-stress4 {
-    width: 213px;
-    padding-left: 1px;
-    padding-top: 1px;
+
+/* TRAUMA */
+.sheet-traumatop {
+    width: 74px;
+    height: 25px;
+    overflow: hidden;
+    line-height: 0px;
+}
+.sheet-traumaholder {
+    width: 74px;
+    height: 13px;
+    display: inline-block;
+    text-align: right;
+    overflow: hidden;
+    box-sizing: border-box;
+    vertical-align: top;
 }
 
 /* Teeth */
@@ -683,27 +616,6 @@ input.sheet-armortooth2[type="checkbox"] + span::before {
     margin: 0px 0px 0px 0px;
 }
 
-/* TRAUMA */
-.sheet-traumatop {
-    width: 74px;
-    height: 25px;
-    overflow: hidden;
-    box-sizing: border-box;
-    vertical-align: top;
-    display: block;
-    float: left;
-    line-height: 0px;
-}
-.sheet-traumaholder {
-    width: 74px;
-    height: 13px;
-    display: inline-block;
-    text-align: right;
-    overflow: hidden;
-    box-sizing: border-box;
-    vertical-align: top;
-}
-
 /* TRAUMA DETAILS */
 input.sheet-trauma-check[type="checkbox"] {
     opacity: 0;
@@ -737,7 +649,6 @@ input.sheet-trauma-check + span::after {
     color: black!important;
     padding-left: 2px;
 }
-
 div.sheet-recoveryblurb.sheet-recoveryblurb2 input.sheet-trauma-check + span::after {
     color: #5e5e5e !important;
 }
@@ -767,32 +678,6 @@ div.sheet-stress4 span:nth-child(8)::after {
     content: "";
     padding-left: 0px
 }
-
-.sheet-4clock {
-    display: none;
-}
-.sheet-6clock {
-    display: none;
-}
-.sheet-8clock {
-    display: none;
-}
-.sheet-12clock {
-    display: none;
-}
-.sheet-4segment:checked ~ .sheet-4clock {
-    display: block;
-}
-.sheet-6segment:checked ~ .sheet-6clock {
-    display: block;
-}
-.sheet-8segment:checked ~ .sheet-8clock {
-    display: block;
-}
-.sheet-12segment:checked ~ .sheet-12clock {
-    display: block;
-}
-
 div.sheet-harmprogress input.sheet-trauma-check + span {
     font-size: 89%;
     top: 0px;
@@ -809,19 +694,11 @@ input.sheet-trauma-check[type="radio"] {
 
 /* STYLING HARM AND ARMOR */
 .sheet-harmcolumn1 {
-    display: block;
-    float: left;
-    box-sizing: border-box;
     width: 68%;
     margin-right: 2%;
-    vertical-align: top;
 }
 .sheet-harmcolumn2 {
-    display: block;
-    float: left;
-    box-sizing: border-box;
     width: 30%;
-    vertical-align: top;
 }
 .sheet-harm1 {
     box-sizing: border-box;
@@ -841,11 +718,7 @@ input.sheet-trauma-check[type="radio"] {
 }
 .sheet-armor {
     text-align: right;
-    vertical-align: top;
     width: 50%;
-    box-sizing: border-box;
-    display: block;
-    float: left;
     overflow: hidden;
 }
 .sheet-armor .sheet-stresstooth {
@@ -862,11 +735,10 @@ input.sheet-trauma-check[type="radio"] {
     font-weight: 800;
     line-height: 0px;
 }
-.sheet-col90 input {
+.sheet-col90 input[type="text"] {
     margin: 0;
     padding-left: 5px;
     background-color: #d6d8d9;
-    border: none;
     height: 20px;
     color: black;
     font-size: 85%;
@@ -1189,17 +1061,12 @@ input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
     line-height: 119%;
     padding: 8px;
 }
-.sheet-harmdetails2 input {
-    border-bottom: none;
-    padding: 6px;
-    padding-top: 12px;
+.sheet-harmdetails2 input[type="text"],
+.sheet-harmdetails2b input[type="text"] {
     font-size: 92%;
-}
-.sheet-harmdetails2b input {
-    border-bottom: none;
-    padding: 6px;
-    padding-top: 12px;
-    font-size: 92%;
+    padding: 12px 6px 6px;
+    margin: 3px 0 0;
+    color: #c43c35;
 }
 div.sheet-harmcolumn1 div:nth-child(3) div:nth-child(3),
 div.sheet-harmrow.sheet-harmlast div:nth-child(3) {
@@ -1291,6 +1158,30 @@ input.sheet-longoption {
 }
 input.sheet-longoption + span {
     text-transform: lowercase;
+}
+.sheet-4clock {
+    display: none;
+}
+.sheet-6clock {
+    display: none;
+}
+.sheet-8clock {
+    display: none;
+}
+.sheet-12clock {
+    display: none;
+}
+.sheet-4segment:checked ~ .sheet-4clock {
+    display: block;
+}
+.sheet-6segment:checked ~ .sheet-6clock {
+    display: block;
+}
+.sheet-8segment:checked ~ .sheet-8clock {
+    display: block;
+}
+.sheet-12segment:checked ~ .sheet-12clock {
+    display: block;
 }
 .sheet-harmprogress input.sheet-clock8_0:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/ji8z8CE.png");
@@ -1428,7 +1319,6 @@ input.sheet-longoption + span {
     box-sizing: border-box;
 }
 .sheet-specialability input[type=text] {
-    border-bottom: none;
     display: inline-block;
     width: 25%;
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
@@ -1438,7 +1328,7 @@ input.sheet-longoption + span {
     font-weight: 800;
     letter-spacing: 0px;
     padding-left: 5px;
-    padding-top: 4px;
+    margin: 3px 0 0;
 }
 .sheet-specialability textarea {
     width: 69%;
@@ -1450,18 +1340,19 @@ input.sheet-longoption + span {
     font-size: 95%;
     border: none;
     line-height: 122%;
+    margin-top: 3px;
     background-color: rgb(214, 216, 217);
     font-family: Georgia, Times, "Times New Roman", serif;
 }
-
-/* CHECK FOR VALIDITY */
-.sheet-attributedot input {
-		width: 20px;
-    height: 20px;
+.sheet-abilitycheck {
+    display: inline-block;
+    width: 100%;
 }
+
 /* CHECKBOXES */
+	/* style inputs*/
 .sheet-abilitycheck input[type="checkbox"],
-input.sheet-itemcheckbox,
+.sheet-item input[type="checkbox"],
 .sheet-attributedot input,
 .sheet-cohort-quality input {
     display: inline-block;
@@ -1469,21 +1360,21 @@ input.sheet-itemcheckbox,
     z-index: 1;
     opacity: 0;
 }
-input.sheet-itemcheckbox {
-    width: 15px;
-    height: 15px;
+.sheet-item input[type="checkbox"] {
+		margin: 3px 0 0 2px;
 }
-.sheet-abilitycheck {
-    display: inline-block;
-    width: 100%;
+	/* style spans */
+.sheet-abilitycheck input[type="checkbox"] + span::before,
+.sheet-attributedot input + span::before {
+    top: 1px;
+    border-radius: 30px;
 }
 .sheet-abilitycheck input[type="checkbox"] + span::before,
-input.sheet-itemcheckbox + span::before,
+.sheet-item input[type="checkbox"] + span::before,
 .sheet-attributedot input + span::before,
 .sheet-cohort-quality input + span::before {
     content: '';
     cursor: pointer;
-    top: 0px;
     width: 10px;
     height: 10px;
     display: inline-block;
@@ -1492,51 +1383,39 @@ input.sheet-itemcheckbox + span::before,
     padding: 0;
     background-color: white;
     border: 1px solid #838587;
-    border-radius: 30px;
 }
-.sheet-abilitycheck input[type="checkbox"]:checked + span::before,
-input.sheet-itemcheckbox:checked + span::before,
-.sheet-attributedot input:checked + span::before,
-.sheet-cohort-quality input:checked + span::before {
-    content: '';
-    position: relative;
-    top: 0px;
-    padding: 0;
-    margin: 0px 0px 0px 2px;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 30px;
+	/* opacity on hover */
+.sheet-abilitycheck input[type="checkbox"]:hover + span::before,
+.sheet-item input[type="checkbox"]:hover + span::before {
+    opacity: 0.3;
 }
+	/* section-specific styling */
 .sheet-cohort-quality input,
 .sheet-cohort-quality input + span:before {
-    border-radius: 50px !important;
+    border-radius: 50px;
     background-color: #fffff;
     box-sizing: border-box;
     margin-top: 4px;
+    top: 0px;
 }
-input.sheet-itemcheckbox + span::before,
-input.sheet-itemcheckbox:checked + span::before {
-    top: 2px !important;
-    border-radius: 0px !important;
-    background-color: #d6d8d9 !important;
-    margin-right: 1px !important;
+.sheet-item input[type="checkbox"] + span::before {
+    top: 2px;
+    border-radius: 0px;
+    margin-right: 1px;
 }
-.sheet-regularitems input.sheet-itemcheckbox + span::before,
-.sheet-regularitems input.sheet-itemcheckbox:checked + span::before {
-    background-color: white !important;
+.sheet-playbookitems .sheet-item input[type="checkbox"] + span::before {
+    background-color: #d6d8d9;
 }
-input.sheet-itemcheckbox:checked + span::before,
-.sheet-regularitems input.sheet-itemcheckbox:checked + span::before {
+	/* turn checked boxes red*/
+.sheet-abilitycheck input[type="checkbox"]:checked + span::before,
+.sheet-item input[type="checkbox"]:checked + span::before,
+.sheet-attributedot input:checked + span::before,
+.sheet-cohort-quality input:checked + span::before {
     background-color: red !important;
 }
-.sheet-abilitycheck input[type="checkbox"]:hover + span::before,
-input.sheet-itemcheckbox:hover + span::before {
-    filter: alpha(opacity=30);
-    opacity: 0.3;
-}
+	/* turn text red if boxes are checked*/
 .sheet-abilitycheck input[type="checkbox"]:checked ~ input[type=text],
-input.sheet-itemcheckbox:checked ~ input[type=text] {
+.sheet-item input[type="checkbox"]:checked ~ input[type=text] {
     color: red;
 }
 
@@ -1568,11 +1447,26 @@ input.sheet-itemcheckbox:checked ~ input[type=text] {
     border-color: #020202 !important;
     background-color: #cccccc !important;
 }
+.sheet-itemholder button.repcontrol_edit,
+.sheet-itemholder button.repcontrol_add,
+.sheet-cohorts button.repcontrol_edit,
+.sheet-cohorts button.repcontrol_add {
+    font-weight: 600!important;
+    background-color: white !important;
+    margin-top: 12px;
+    font-size: 91% !important;
+    font-family: serif !important;
+    font-variant: normal !important;
+    padding: 4px !important;
+}
 div.itemcontrol {
     z-index: 100 !important;
     padding-top: 0px;
-    !important;
     padding-left: 23px !important;
+}
+div.sheet-col97 > div.repcontrol {
+    top: -15px !important;
+    position: relative !important;
 }
 
 /* XP CONDITION BOX*/
@@ -1639,7 +1533,7 @@ div.itemcontrol {
     display: block;
     position: absolute;
     transform: rotate(45deg);
-    top: .25em;
+    top: .5em;
     left: 0;
 }
 .sheet-markxpdesc li.sheet-nondot {
@@ -1666,8 +1560,6 @@ div.itemcontrol {
     width: 100%;
     height: 21px;
     background-color: black;
-    box-sizing: border-box;
-    vertical-align: top;
     color: white;
     font-size: 107%;
     letter-spacing: 0;
@@ -1675,17 +1567,12 @@ div.itemcontrol {
     font-weight: 800;
     line-height: 9px;
     padding-top: 1px;
-    display: block;
-    float: left;
 }
 .sheet-attribute-xp-box {
 		float: right;
     width: calc(100% - 95px);
 }
 .sheet-attributetitle {
-    display: block;
-    float: left;
-    vertical-align: top;
     padding-top: 4px;
     padding-right: 6px;
     width: 67px;
@@ -1751,6 +1638,10 @@ button.sheet-attributebtn:before {
     border-radius: 50px !important;
     background-color: #c6c7c9;
     border: none;
+}
+.sheet-attributedot input {
+		width: 20px;
+    height: 20px;
 }
 
 /* LOAD */
@@ -1938,7 +1829,8 @@ input.sheet-frienddown:checked ~ input[type=text] {
     font-weight: 400;
     height: 33px;
     width: 137px;
-    padding-left: 0 0 4px 3px;
+    padding: 0 0 4px 3px;
+    margin: 0;
 }
 .sheet-specialability input.sheet-friend.sheet-contact[type=text] {
 		color: black;
@@ -2001,83 +1893,42 @@ input.sheet-frienddown:checked ~ input[type=text] {
 }
 
 /* ITEMS/UPGRADES */
-
-.sheet-itemholder {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+.sheet-itemholder > div {
+		padding: 7px;
 }
-.sheet-specialability.sheet-itemitem input[type=text] {
-    width: calc(100% - 20px);
-    height: 16px;
-    margin-left: 5px;
-    border-radius: 0;
-    border: 0;
-    padding: 3px 0px 3px 0px;
-    font-weight: 400;
-    font-variant: normal;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-size: 83%;
-    box-shadow: none;
-    background-color: rgba(255, 255, 255, 0);
-}
-.sheet-specialability.sheet-itemitem input.sheet-itemshort[type=text] {
-    width: 53px;
-}
-.sheet-specialability.sheet-itemitem input.sheet-itemshort1[type=text] {
-    width: 69px;
-}
-.sheet-specialability.sheet-itemitem input.sheet-itemshort2[type=text] {
-    width: 38px;
-    margin-left: 3px;
-    margin-right: -5px;
-}
-.sheet-specialability.sheet-itemitem input.sheet-itembold[type=text] {
-    font-weight: 800;
-}
-.sheet-specialability.sheet-itemitem input.sheet-itemitalic[type=text] {
-    font-style: italic;
-}
-.sheet-specialability.sheet-itemitem input.sheet-item2box[type=text] {
-    width: 144px;
-}
-.sheet-specialability.sheet-itemitem input.sheet-item3box[type=text] {
-    width: calc(100% - 50px);
-}
-.sheet-specialability.sheet-itemitem {
-    border: 0;
-    padding: 7px;
-}
-.sheet-abilitycheckshort {
-    width: 50%;
-}
-.sheet-floatingbar {
+.sheet-itemholder .sheet-item {
 		display: inline-block;
-    width: 4px;
-    height: 3px;
-    margin: 0 -2px;
-    border-top: 2px solid #838587;
+		width: 100%;
+}
+.sheet-itemholder .sheet-item.sheet-itemshort {
+    width: 50%;
 }
 .sheet-playbookitems {
     background-color: #d6d8d9;
 }
-.sheet-playbookitems .sheet-abilitycheck label {
-    background-color: #d6d8d9;
+.sheet-item input[type=text] {
+    width: calc(100% - 20px);
+    height: 16px;
+    margin-left: 5px;
+    padding: 3px 0;
+    font-size: 83%;
 }
-.sheet-itemitem button.repcontrol_edit,
-.sheet-itemitem button.repcontrol_add,
-.sheet-cohorts button.repcontrol_edit,
-.sheet-cohorts button.repcontrol_add {
-    font-weight: 600!important;
-    background-color: white !important;
-    margin-top: 12px;
-    font-size: 91% !important;
-    font-family: serif !important;
-    font-variant: normal !important;
-    padding: 4px !important;
+.sheet-item.sheet-item2box input[type=text] {
+    width: calc(100% - 35px);
 }
-.sheet-specialability.sheet-itemitem label {
+.sheet-item.sheet-item3box input[type=text] {
+    width: calc(100% - 50px);
+}
+.sheet-item.sheet-item4box input[type=text] {
+    width: calc(100% - 65px);
+}
+.sheet-item.sheet-itembold input[type=text] {
+    font-weight: 800;
+}
+.sheet-item.sheet-itemitalic input[type=text] {
+    font-style: italic;
+}
+.sheet-item label {
     height: 16px;
     border-radius: 0;
     margin-bottom: 0;
@@ -2090,26 +1941,28 @@ input.sheet-frienddown:checked ~ input[type=text] {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-.sheet-specialability.sheet-itemitem label.sheet-upgradecosts {
+.sheet-item label.sheet-upgradecosts {
     padding: 3px 0 3px 0;
     font-size: 55%;
     line-height: inherit;
     height: 10px;
 }
-.sheet-specialability.sheet-itemitem span {
+.sheet-item span {
 		font-size: 83%;
+}
+.sheet-floatingbar {
+		display: inline-block;
+    width: 4px;
+    height: 3px;
+    margin: 0 -2px;
+    border-top: 2px solid #838587;
 }
 
 /* COHORTS */
 .sheet-cohort-conditionholder {
-		display: block;
-		float: left;
 		width: 100%;
 }
-.sheet-cohort-conditionholder div {
-		box-sizing: border-box;
-		display: block;
-		float: left;
+.sheet-cohort-conditionholder > div {
 		margin: 0;
     color: black;
     font-size: 74%;
@@ -2212,7 +2065,7 @@ button.sheet-cohortbtn {
     border-top: 2px solid black;
     margin-top: 20px;
 }
-.sheet-hunting-grounds-box input {
+.sheet-hunting-grounds-box input[type="text"] {
 		width: 100%;
     color: black;
     letter-spacing: 0px;
@@ -2220,11 +2073,11 @@ button.sheet-cohortbtn {
 		box-shadow: none;
 		padding-bottom: 0;
 }
-.sheet-hunting-grounds-box input.sheet-hunting-grounds-header {
+.sheet-hunting-grounds-box input[type="text"].sheet-hunting-grounds-header {
     font-size: 88%;
     font-weight: 800;
 }
-.sheet-hunting-grounds-box input.sheet-hunting-grounds-content {
+.sheet-hunting-grounds-box input[type="text"].sheet-hunting-grounds-content {
     font-size: 76%;
     font-weight: 400;
     padding-top: 0;
