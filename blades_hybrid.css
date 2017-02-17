@@ -165,7 +165,7 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 		margin: 0;
 		padding: 0;
 		margin-left: 1%;
-		width: 37%;
+		width: 35%;
 }
 
 /* FONT STYLES */
@@ -335,46 +335,48 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 .sheet-stress4,
 .sheet-rep1,
 .sheet-rep2,
+.sheet-rep3,
 .sheet-hold1,
 .sheet-hold2,
-.sheet-hold3,
-.sheet-hold {
+.sheet-hold3 {
     box-sizing: border-box;
     display: block;
     float: left;
+}
+.sheet-rep2,
+.sheet-stress2,
+.sheet-stress4 {
     height: 25px;
     overflow: hidden;
 }
-
+.sheet-rep3,
+.sheet-hold2,
+.sheet-hold3,
+.sheet-stress1,
+.sheet-stress3,
+.sheet-rep1,
+.sheet-hold1 {
+    height: 12px;
+		font-size: 74%;
+    letter-spacing: 0px;
+    font-weight: 600;
+    line-height: 9px;
+    padding-top: 1px;
+}
 .sheet-rep3,
 .sheet-hold2,
 .sheet-hold3 {
 		background-color: #d6d8d9;
-		color: white;
-    height: 12px;
-    vertical-align: top;
-    color: black;
-    font-size: 74%;
-    letter-spacing: 0px;
-    padding-top: 1px;
+    color: #000000;
     padding-left: 2px;
-    font-weight: 600;
-    line-height: 9px;
 }
 .sheet-stress1,
 .sheet-stress3,
 .sheet-rep1,
 .sheet-hold1 {
-		padding-top: 1px;
-    background-color: black;
-    height: 12px;
-    vertical-align: top;
-    color: white;
-    font-size: 74%;
-    letter-spacing: 1px;
+    background-color: #000000;
+    color: #ffffff;
     padding-left: 5px;
-    font-weight: 600;
-    line-height: 9px;
 }
 
 /* Detailed widths for stress et cetera */
@@ -386,32 +388,34 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
     width: 104px;
 }
 .sheet-rep1 {
-    width: 35px;
+    width: 16.5%;
 }
 .sheet-rep2 {
-    width: 130px;
+    width: 61%;
 }
-.sheet-hold {
-		width: 70%;
+.sheet-rep3 {
+		width: 22.5%;
 }
 .sheet-hold1 {
 		width: 28%;
 }
-.sheet-hold2,
+.sheet-hold2 {
+		width: 32%;
+}
 .sheet-hold3 {
-		width: 36%;
+		width: 40%;
 }
-.sheet-rep3 {
-		display: block;
-		float: right;
-		width: 45px;
-}
+
 .sheet-rep1 div.sheet-radiolabel,
 .sheet-rep3 div.sheet-radiolabel,
-.sheet-hold1 div.sheet-radiolabel,
+.sheet-hold1 div.sheet-radiolabel {
+		padding-top: 2px;
+}
 .sheet-hold2 div.sheet-radiolabel,
 .sheet-hold3 div.sheet-radiolabel {
-		padding-top: 2px;
+		width: auto;
+		float: left;
+		padding: 2px 3px 0;
 }
 .sheet-turflabel {
 		float: right;
@@ -424,20 +428,15 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 }
 
 /* Teeth */
-.sheet-regulartooth {
-    background-image: url(http://i.imgur.com/pGe2dC1.png);
-}
 input.sheet-regulartooth {
+		background-image: url(http://i.imgur.com/pGe2dC1.png);
     top: -9px !important;
-}
-.sheet-regulartooth label:after {
-    background-image: url(http://i.imgur.com/ZYuytKg.png);
 }
 input.sheet-regulartooth:checked ~ span::before {
     background-image: url(http://i.imgur.com/pGe2dC1.png) !important;
 }
-input.sheet-regulartooth:checked + span::before,
-input.sheet-regulartooth + span::before {
+input.sheet-regulartooth + span::before,
+input.sheet-regulartooth:checked + span::before {
     background-image: url(http://i.imgur.com/ZYuytKg.png) !important;
 }
 
@@ -464,6 +463,7 @@ input.sheet-stresstooth[type="checkbox"] + span::before {
     content: "";
     position: relative;
     left: 8px;
+    /* red tooth */
     background-image: url(http://i.imgur.com/17DqQbA.png);
     cursor: pointer;
     padding: 0;
@@ -480,18 +480,48 @@ input.sheet-stresstooth[type="checkbox"]:hover + span::before {
 input.sheet-stresstooth[type="radio"]:checked ~ input.sheet-stresstooth[type="radio"] + span::before,
 input.sheet-stresstooth[type="checkbox"]:checked ~ input.sheet-stresstooth[type="checkbox"] + span::before {
     content: "";
+    /* white tooth */
     background-image: url(http://i.imgur.com/XNFdq3n.png);
 }
 input.sheet-stresstooth[type="radio"]:checked + span::before,
 input.sheet-stresstooth[type="checkbox"]:checked + span::before {
+		/* red tooth */
     background-image: url(http://i.imgur.com/17DqQbA.png);
 }
 input.sheet-stresstooth[type="checkbox"] + span::before {
     content: "";
+    /* white tooth */
     background-image: url(http://i.imgur.com/XNFdq3n.png);
 }
-input.sheet-stresstooth[type="checkbox"]:checked + span::before {
-    background-image: url(http://i.imgur.com/17DqQbA.png);
+
+input.sheet-holdtooth[type="radio"] {
+		opacity: 0;
+    width: 11px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1;
+    left: 12px;
+    top: 5px;
+    margin: -11px -11px -11px -10px;
+}
+input.sheet-holdtooth[type="radio"] + span::before {
+		width: 8px;
+    height: 25px;
+    display: block;
+    float: right;
+    margin: 0;
+    content: "";
+    position: relative;
+    top: -1px;
+    background-image: url(http://i.imgur.com/XNFdq3n.png);
+    cursor: pointer;
+    padding: 0;
+}
+input.sheet-holdtooth[type="radio"]:checked + span::before {
+		background-image: url(http://i.imgur.com/17DqQbA.png);
 }
 
 input.sheet-traumatooth,
@@ -588,9 +618,11 @@ input.sheet-turfzero[type="radio"]:checked + span::before,
 input.sheet-traumazero[type="radio"]:checked + span::before,
 input.sheet-stresszero[type="radio"]:checked + span::before,
 input.sheet-coinbox2zero[type="radio"]:checked + span::before,
-input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
+input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before,
+input.sheet-xpzero3[type="radio"]:checked + span::before {
 		display: none;
 }
+
 /* TURF TEETH */
 input.sheet-stresstooth.sheet-halftooth-lower[type="radio"] {
 		height: 12.5px;
@@ -1146,9 +1178,16 @@ input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
 .sheet-harmdetails2b {
     width: 38%;
 }
-div.sheet-harmcolumn1 div:nth-child(3) div:nth-child(3),
-div.sheet-harmrow.sheet-harmlast div:nth-child(3) {
-    border-left: 1px solid #d6d8d9;
+.sheet-harmdetails3 {
+    background-color: #d6d8d9;
+    width: 20%;
+    color: #575859;
+    text-align: center;
+    font-size: 80%;
+    letter-spacing: 1px;
+    font-weight: 800;
+    line-height: 119%;
+    padding: 8px;
 }
 .sheet-harmdetails2 input {
     border-bottom: none;
@@ -1162,16 +1201,9 @@ div.sheet-harmrow.sheet-harmlast div:nth-child(3) {
     padding-top: 12px;
     font-size: 92%;
 }
-.sheet-harmdetails3 {
-    background-color: #d6d8d9;
-    width: 20%;
-    color: #575859;
-    text-align: center;
-    font-size: 80%;
-    letter-spacing: 1px;
-    font-weight: 800;
-    line-height: 119%;
-    padding: 8px;
+div.sheet-harmcolumn1 div:nth-child(3) div:nth-child(3),
+div.sheet-harmrow.sheet-harmlast div:nth-child(3) {
+    border-left: 1px solid #d6d8d9;
 }
 div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
     padding-top: 13px;
@@ -1214,6 +1246,20 @@ div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
     border-bottom: 4px solid transparent;
     border-left: 4px solid black;
 }
+.sheet-harmprogress {
+    margin-top: 10px;
+}
+.sheet-harmprogress input.sheet-trauma-check + label {
+    top: 0px;
+    font-size: 105%;
+    font-weight: normal;
+    font-style: normal;
+}
+div.sheet-harmprogress label:nth-child(19)::after {
+    content: "";
+}
+
+/* Clock stuff */
 .sheet-clockname {
     width: 100%;
     background-color: #d6d8d9;
@@ -1228,20 +1274,6 @@ div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
     font-weight: 600;
     line-height: 119%;
 }
-.sheet-harmprogress {
-    margin-top: 10px;
-}
-.sheet-harmprogress input.sheet-trauma-check + label {
-    top: 0px;
-    font-size: 105%;
-    font-weight: normal;
-    font-style: normal;
-}
-div.sheet-harmprogress label:nth-child(19)::after {
-    content: "";
-}
-
-/* 8 Piece Wheel */
 .sheet-harmrecoveryclock {
     position: absolute;
     top: 7px;
@@ -1260,31 +1292,31 @@ input.sheet-longoption {
 input.sheet-longoption + span {
     text-transform: lowercase;
 }
-.sheet-harmprogress input.sheet-recoverytracker0:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_0:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/ji8z8CE.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker1:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_1:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/My9TlI6.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker2:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_2:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/5o93FQt.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker3:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_3:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/MR6r8J7.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker4:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_4:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/OADDLy1.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker5:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_5:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/XvnSlyZ.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker6:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_6:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/IKUp5Bv.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker7:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_7:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/tmBBDIN.png");
 }
-.sheet-harmprogress input.sheet-recoverytracker8:checked + span ~ .sheet-harmrecoveryclock {
+.sheet-harmprogress input.sheet-clock8_8:checked + span ~ .sheet-harmrecoveryclock {
     background-image: url("http://i.imgur.com/Y0eUmrG.png");
 }
 .sheet-harmprogress input.sheet-clock4_0:checked + span ~ .sheet-harmrecoveryclock {
@@ -1422,6 +1454,11 @@ input.sheet-longoption + span {
     font-family: Georgia, Times, "Times New Roman", serif;
 }
 
+/* CHECK FOR VALIDITY */
+.sheet-attributedot input {
+		width: 20px;
+    height: 20px;
+}
 /* CHECKBOXES */
 .sheet-abilitycheck input[type="checkbox"],
 input.sheet-itemcheckbox,
@@ -1429,10 +1466,12 @@ input.sheet-itemcheckbox,
 .sheet-cohort-quality input {
     display: inline-block;
     position: absolute;
-    z-index: 100;
+    z-index: 1;
     opacity: 0;
-    width: 20px;
-    height: 20px;
+}
+input.sheet-itemcheckbox {
+    width: 15px;
+    height: 15px;
 }
 .sheet-abilitycheck {
     display: inline-block;
@@ -1469,25 +1508,12 @@ input.sheet-itemcheckbox:checked + span::before,
     background-color: red;
     border-radius: 30px;
 }
-.sheet-attributedot input,
-.sheet-attributedot input + span:before {
-    border-radius: 50px !important;
-    background-color: #c6c7c9;
-    border: none;
-}
 .sheet-cohort-quality input,
 .sheet-cohort-quality input + span:before {
     border-radius: 50px !important;
     background-color: #fffff;
     box-sizing: border-box;
     margin-top: 4px;
-}
-.sheet-attributedot:last-child {
-    margin-right: 0px !important;
-}
-input.sheet-itemcheckbox {
-    width: 16px !important;
-    height: 15px !important;
 }
 input.sheet-itemcheckbox + span::before,
 input.sheet-itemcheckbox:checked + span::before {
@@ -1720,6 +1746,12 @@ button.sheet-attributebtn:before {
     margin-right: 0px !important;
     border: none;
 }
+.sheet-attributedot input,
+.sheet-attributedot input + span:before {
+    border-radius: 50px !important;
+    background-color: #c6c7c9;
+    border: none;
+}
 
 /* LOAD */
 .sheet-loadheader,
@@ -1858,25 +1890,7 @@ button.sheet-fortunebtn:before {
 }
 
 /* FRIENDS/CONTACTS */
-.sheet-specialability input.sheet-friend[type=text] {
-    resize: vertical;
-    display: inline-block;
-    box-shadow: none;
-    color: #6c6c6c;
-    font-size: 95%;
-    border: none;
-    line-height: 122%;
-    background-color: rgb(214, 216, 217);
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-variant: normal;
-    font-weight: 400;
-    padding-top: 0px;
-    padding-right: 0px;
-    height: 33px;
-    width: 137px;
-    padding-left: 0px;
-}
-input.sheet-friendcheck2 + span::before {
+input.sheet-friendcheck + span::before {
     margin: 0px 0px 0px -1px !important;
     border-radius: 0 !important;
     width: 0 !important;
@@ -1910,49 +1924,21 @@ input.sheet-friendup:checked ~ input[type=text] {
 input.sheet-frienddown:checked ~ input[type=text] {
     color: black !important;
 }
-label.sheet-friendcheck {
-    margin: 0px 0px 0px -1px;
-    border-radius: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 5px 10px 5px;
-    border-color: transparent transparent #ffffff transparent;
-    background-color: #d6d8d9;
-    top: -3px;
-}
-.sheet-abilitycheck label.sheet-friendcheck:after {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    margin: 0px 0px 0px -5px;
-    border-radius: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 5px 10px 5px;
-    border-color: transparent transparent #ff0000 transparent;
-    background-color: #d6d8d9;
-}
-label.sheet-friendcheckdown {
-    border-width: 10px 5px 0 5px;
-    border-color: #ffffff transparent transparent transparent;
-    top: 1px;
-}
-.sheet-abilitycheck label.sheet-friendcheckdown:after {
-    top: -10px;
-    border-width: 10px 5px 0 5px;
-    border-color: #000000 transparent transparent transparent;
-}
-.sheet-abilitycheck label.sheet-friendcheck:hover::after {
-    filter: alpha(opacity=30);
-    opacity: 0.3;
-}
-.sheet-abilitycheck input[type=checkbox]:checked + label.sheet-friendcheck:after {
-    filter: alpha(opacity=100);
-    opacity: 1;
-}
-.sheet-abilitycheck input[type=checkbox]:checked + label.sheet-friendcheckdown ~ input[type=text] {
-    color: #000000;
+.sheet-specialability input.sheet-friend[type=text] {
+    resize: vertical;
+    display: inline-block;
+    box-shadow: none;
+    color: #6c6c6c;
+    font-size: 95%;
+    border: none;
+    line-height: 122%;
+    background-color: rgb(214, 216, 217);
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-variant: normal;
+    font-weight: 400;
+    height: 33px;
+    width: 137px;
+    padding-left: 0 0 4px 3px;
 }
 .sheet-specialability input.sheet-friend.sheet-contact[type=text] {
 		color: black;
@@ -2015,6 +2001,7 @@ label.sheet-friendcheckdown {
 }
 
 /* ITEMS/UPGRADES */
+
 .sheet-itemholder {
     box-sizing: border-box;
     width: 100%;
@@ -2022,7 +2009,7 @@ label.sheet-friendcheckdown {
     margin: 0;
 }
 .sheet-specialability.sheet-itemitem input[type=text] {
-    width: 167px;
+    width: calc(100% - 20px);
     height: 16px;
     margin-left: 5px;
     border-radius: 0;
@@ -2056,7 +2043,7 @@ label.sheet-friendcheckdown {
     width: 144px;
 }
 .sheet-specialability.sheet-itemitem input.sheet-item3box[type=text] {
-    width: 125px;
+    width: calc(100% - 50px);
 }
 .sheet-specialability.sheet-itemitem {
     border: 0;
@@ -2065,39 +2052,15 @@ label.sheet-friendcheckdown {
 .sheet-abilitycheckshort {
     width: 50%;
 }
-.sheet-playbookitems {
-    background-color: #d6d8d9;
-}
 .sheet-floatingbar {
-    display: inline-block;
-    position: relative;
+		display: inline-block;
     width: 4px;
     height: 3px;
+    margin: 0 -2px;
     border-top: 2px solid #838587;
 }
-.sheet-floatingbar1 {
-    left: -166px;
-}
-.sheet-floatingbar2 {
-    left: -74px;
-}
-.sheet-floatingbar3 {
-    left: -68px;
-}
-.sheet-floatingbar4 {
-    left: -56px;
-}
-.sheet-floatingbar5 {
-    left: -161px;
-}
-.sheet-floatingbar6 {
-    left: -150px;
-}
-.sheet-floatingbar7 {
-    left: -93px;
-}
-.sheet-floatingbar8 {
-    left: -112px;
+.sheet-playbookitems {
+    background-color: #d6d8d9;
 }
 .sheet-playbookitems .sheet-abilitycheck label {
     background-color: #d6d8d9;
