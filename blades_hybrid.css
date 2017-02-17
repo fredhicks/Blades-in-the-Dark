@@ -863,41 +863,98 @@ div.sheet-col100.sheet-col1002 > div.repcontrol {
 .sheet-stress1,
 .sheet-stress2,
 .sheet-stress3,
-.sheet-stress4 {
+.sheet-stress4,
+.sheet-rep1,
+.sheet-rep2,
+.sheet-hold1,
+.sheet-hold2,
+.sheet-hold3,
+.sheet-hold {
     box-sizing: border-box;
     display: block;
     float: left;
     height: 25px;
     overflow: hidden;
 }
-.sheet-stress2 {
-    width: 104px;
-}
 .sheet-stress1,
-.sheet-stress3 {
-		padding-top: 1.5px;
+.sheet-stress3,
+.sheet-rep1,
+.sheet-hold1 {
+		padding-top: 1px;
     background-color: black;
-    width: 74px;
     height: 12px;
     vertical-align: top;
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: white;
     text-transform: uppercase;
     font-size: 74%;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     padding-left: 5px;
     font-weight: 600;
     line-height: 9px;
 }
+.sheet-stress1,
+.sheet-stress3 {
+    width: 74px;
+}
+.sheet-stress2 {
+    width: 104px;
+}
+.sheet-rep1 {
+    width: 35px;
+}
+.sheet-rep2 {
+    width: 130px;
+}
+.sheet-rep3,
+.sheet-hold2,
+.sheet-hold3 {
+		background-color: #d6d8d9;
+		color: white;
+    height: 12px;
+    vertical-align: top;
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+    color: black;
+    text-transform: uppercase;
+    font-size: 74%;
+    letter-spacing: 0px;
+    padding-top: 1px;
+    padding-left: 2px;
+    font-weight: 600;
+    line-height: 9px;
+}
+.sheet-hold {
+		width: 70%;
+}
+.sheet-hold1 {
+		width: 28%;
+}
+.sheet-hold2,
+.sheet-hold3 {
+		width: 36%;
+}
+.sheet-rep3 {
+		display: block;
+		float: right;
+		width: 45px;
+}
+.sheet-rep1 div.sheet-radiolabel,
+.sheet-rep3 div.sheet-radiolabel,
+.sheet-hold1 div.sheet-radiolabel,
+.sheet-hold2 div.sheet-radiolabel,
+.sheet-hold3 div.sheet-radiolabel {
+		padding-top: 2px;
+}
+.sheet-turflabel {
+		float: right;
+		padding-right: 2px;
+}
 .sheet-stress4 {
     width: 213px;
-    overflow: hidden;
-    box-sizing: border-box;
     padding-left: 1px;
     padding-top: 1px;
 }
 /* STRESS TEETH */
-
 .sheet-regulartooth {
     background-image: url(http://i.imgur.com/pGe2dC1.png);
 }
@@ -997,6 +1054,28 @@ input.sheet-stresszero[type="radio"]:checked + span::before {
     position: absolute;
     left: 80px;
     top: 362px;
+}
+input.sheet-repzero[type="radio"] {
+    position: absolute;
+    left: 56px;
+    top: 261px;
+}
+input.sheet-repzero[type="radio"] + span::before,
+input.sheet-repzero[type="radio"]:checked + span::before {
+    position: absolute;
+    left: 48px;
+    top: 261px;
+}
+input.sheet-turfzero[type="radio"] {
+    position: absolute;
+    left: 201px;
+    top: 251px;
+}
+input.sheet-turfzero[type="radio"] + span::before,
+input.sheet-turfzero[type="radio"]:checked + span::before {
+    position: absolute;
+    left: 192px;
+    top: 249px;
 }
 input.sheet-traumazero[type="radio"] + span::before,
 input.sheet-traumazero[type="radio"]:checked + span::before {
@@ -1218,7 +1297,8 @@ input.sheet-trauma-check[type="radio"] {
 .sheet-armor .sheet-stresstooth {
     margin-left: 10px;
 }
-.sheet-stress2 input.sheet-stresstooth[type="radio"] + span::before {
+.sheet-stress2 input.sheet-stresstooth[type="radio"] + span::before,
+.sheet-rep2 input.sheet-stresstooth[type="radio"] + span::before {
 		margin-right: 11px;
 }
 .sheet-armorcaption {
@@ -2283,7 +2363,6 @@ div.itemcontrol {
     padding-left: 0px;
 }
 /* FRIEND CHECKS */
-
 input.sheet-friendcheck2 + span::before {
     margin: 0px 0px 0px -1px !important;
     border-radius: 0 !important;
@@ -2760,7 +2839,36 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
     font-weight: 400;
     padding-top: 0;
 }
-/* Roll template */
+input.sheet-stresstooth.sheet-halftooth-lower[type="radio"] {
+		height: 12.5px;
+		margin-top: -2px;
+}
+.sheet-turfbox {
+		display: block;
+    position: relative;
+    float: right;
+    z-index: 1;
+    margin-top: -34px;
+}
+.sheet-turfbox input[type="radio"] {
+    display: block;
+    float: right;
+    width: 11px;
+    opacity: 0;
+}
+input[type="checkbox"].sheet-turf1:checked ~ input[type="radio"].sheet-turf1 + span::before,
+input[type="checkbox"].sheet-turf2:checked ~ input[type="radio"].sheet-turf2 + span::before,
+input[type="checkbox"].sheet-turf3:checked ~ input[type="radio"].sheet-turf3 + span::before,
+input[type="checkbox"].sheet-turf4:checked ~ input[type="radio"].sheet-turf4 + span::before,
+input[type="checkbox"].sheet-turf5:checked ~ input[type="radio"].sheet-turf5 + span::before,
+input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + span::before {
+		background-image: url('http://i.imgur.com/rrc6fQV.png');
+}
+.sheet-hidden {
+		display: none !important;
+}
+/* -------------------------- */
+/* Roll template 1 */
 .sheet-char-rolltemplate-bitd table {
     width: 240px;
     padding: 2px;
@@ -2797,7 +2905,6 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
     text-align: center;
     font-family: "Times New Roman", Times, serif;
 }
-/* ROLL TEMPLATES */
 .sheet-rolltemplate-bitd .sheet-rolltableholder {
     margin-left: -45px;
     margin-right: -1px;
@@ -2893,7 +3000,6 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
     color: #ffd8ca;
 }
 /* RESIST TEMPLATE */
-
 .sheet-rolltemplate-bitd2 .sheet-rolltableholder {
     margin-left: -45px;
     margin-right: -1px;
@@ -2994,7 +3100,6 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
     font-weight: 800;
 }
 /* INDULGE VICE TEMPLATE */
-
 .sheet-rolltemplate-bitd3 .sheet-rolltableholder {
     margin-left: -45px;
     margin-right: -1px;
@@ -3098,7 +3203,6 @@ input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::befor
     font-weight: 800;
 }
 /* FORTUNE TEMPLE */
-
 .sheet-rolltemplate-bitd4 .sheet-rolltableholder {
     margin-left: -45px;
     margin-right: -1px;
