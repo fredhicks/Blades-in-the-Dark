@@ -514,7 +514,6 @@ input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + s
 .sheet-cohort-conditionholder input.sheet-stresstooth[type="checkbox"] {
     top: -12px;
     left: 0;
-    top: 0;
 }
 .sheet-cohort-conditionholder input.sheet-stresstooth[type="checkbox"] + span::before {
     margin: 0 0 0 1px;;
@@ -1915,7 +1914,7 @@ div.sheet-cohort-armor {
 div.sheet-cohort-armor div {
 		font-weight: 800;
 }
-.sheet-cohort-title input {
+.sheet-cohort-title input[type="text"] {
 		color: white;
 		background: transparent;
     letter-spacing: 0px;
@@ -1965,6 +1964,7 @@ button.sheet-cohortbtn {
     line-height: 122%;
     font-family: Georgia, Times, "Times New Roman", serif;
     box-sizing: border-box;
+    background: transparent;
     margin: 0px;
     border: none;
     height: 74px;
@@ -2099,9 +2099,6 @@ button.sheet-cohortbtn {
     padding-top: 20px;
     padding-left: 29px;
 }
-.sheet-rolltemplate-bitd img {
-    height: 31px;
-}
 .sheet-rolltemplate-bitd .sheet-rolltableeffect {
     padding-left: 15px;
 }
@@ -2130,6 +2127,9 @@ button.sheet-cohortbtn {
     padding-top: 11px;
     text-shadow: 0px 0px 6px rgb(255, 158, 0);
     color: #ffd8ca;
+}
+.sheet-rolltemplate-bitd img {
+    height: 31px;
 }
 /* RESIST TEMPLATE */
 .sheet-rolltemplate-bitd2 .sheet-rolltableholder {
@@ -2184,9 +2184,6 @@ button.sheet-cohortbtn {
     line-height: 20px;
     position: relative;
     top: -4px;
-}
-.sheet-rolltemplate-bitd2 img {
-    height: 22px;
 }
 .sheet-rolltemplate-bitd2 .inlinerollresult {
     border: 0px solid white !important;
