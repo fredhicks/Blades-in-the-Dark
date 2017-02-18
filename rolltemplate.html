@@ -22,116 +22,114 @@ Resist
 
 
 <rolltemplate class="sheet-rolltemplate-bitd">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}}</div>
-            <div class="sheet-rolltablerolls">Rolls</div>
-            <div class="sheet-rolltabletitle">[{{rolltypetext}}]({{rolltypeimage}})</div>
-            <div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll1value 1}}{{#rollLess() roll2value 1}}{{#rollLess() roll3value 1}}{{#rollLess() roll4value 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll4value 1}}{{/rollLess() roll3value 1}}{{/rollLess() roll2value 1}}{{/rollLess() roll1value 1}}
-                </div>
-            <div  class="sheet-rolltableposition">{{position}}</div><div class="sheet-rolltableeffect">{{effect}}</div>
-                </div>
+	<div class="sheet-rolltableholder">
+		<div class="sheet-rolltablename">{{charname}}</div>
+		<div class="sheet-rolltablerolls">Rolls</div>
+		<div class="sheet-rolltabletitle">[{{rolltypetext}}]({{rolltypeimage}})</div>
+		<div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+			{{#rollLess() roll1value 1}}{{#rollLess() roll2value 1}}{{#rollLess() roll3value 1}}{{#rollLess() roll4value 1}}{{#rollLess() bonusdice 1}}
+				<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+				<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+			{{/rollLess() bonusdice 1}}{{/rollLess() roll4value 1}}{{/rollLess() roll3value 1}}{{/rollLess() roll2value 1}}{{/rollLess() roll1value 1}}
+		</div>
+		<div class="sheet-rolltableposition">{{position}}</div>
+		<div class="sheet-rolltableeffect">{{effect}}</div>
+	</div>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-bitd2">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}}</div>
-            <div class="sheet-rolltablerolls">Resists a Consequence With</div>
-            <div class="sheet-rolltabletitle">[{{rolltypetext}}]({{rolltypeimage}})</div>
-            <div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll1value 1}}{{#rollLess() roll2value 1}}{{#rollLess() roll3value 1}}{{#rollLess() roll4value 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll4value 1}}{{/rollLess() roll3value 1}}{{/rollLess() roll2value 1}}{{/rollLess() roll1value 1}}
-                </div>
-                <div class="sheet-resistinstructions">Suffer <em>6 stress minus the highest die result.</em> When you roll a critical on resistance, clear 1 stress.</div>
-                </div>
+	<div class="sheet-rolltableholder">
+		<div class="sheet-rolltablename">{{charname}}</div>
+		<div class="sheet-rolltablerolls">Resists a Consequence With</div>
+		<div class="sheet-rolltabletitle">[{{rolltypetext}}]({{rolltypeimage}})</div>
+		<div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+			{{#rollLess() roll1value 1}}{{#rollLess() roll2value 1}}{{#rollLess() roll3value 1}}{{#rollLess() roll4value 1}}{{#rollLess() bonusdice 1}}
+				<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+				<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+			{{/rollLess() bonusdice 1}}{{/rollLess() roll4value 1}}{{/rollLess() roll3value 1}}{{/rollLess() roll2value 1}}{{/rollLess() roll1value 1}}
+		</div>
+		<div class="sheet-resistinstructions">Suffer <em>6 stress minus the highest die result.</em> When you roll a critical on resistance, clear 1 stress.</div>
+	</div>
 </rolltemplate>
 
 
 <rolltemplate class="sheet-rolltemplate-bitd3">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}} </div>
-            <div class="sheet-rolltablerolls">(who currently has {{stress}} stress) indulges</div>
-            <div class="sheet-rolltabletitle">[vice](http://i.imgur.com/eaNKZTO.png)</div>
-            <div class="sheet-rolltabledice">
-                
-                {{#rollLess() insight prowess}}{{#rollLess() insight resolve}}
-                {{#rollGreater() roll1avalue 0}}{{roll1avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1avalue 0}}{{#rollGreater() roll1bvalue 0}}{{roll1bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1bvalue 0}}{{#rollGreater() roll1cvalue 0}}{{roll1cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1cvalue 0}}{{#rollGreater() roll1dvalue 0}}{{roll1dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll1avalue 1}}{{#rollLess() roll1bvalue 1}}{{#rollLess() roll1cvalue 1}}{{#rollLess() roll1dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll1dvalue 1}}{{/rollLess() roll1cvalue 1}}{{/rollLess() roll1bvalue 1}}{{/rollLess() roll1avalue 1}}
-               {{/rollLess() insight resolve}} {{/rollLess() insight prowess}}
-                
-                {{#rollLess() prowess insight}}{{#rollLess() prowess resolve}}
-                {{#rollGreater() roll2avalue 0}}{{roll2avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2avalue 0}}{{#rollGreater() roll2bvalue 0}}{{roll2bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2bvalue 0}}{{#rollGreater() roll2cvalue 0}}{{roll2cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2cvalue 0}}{{#rollGreater() roll2dvalue 0}}{{roll2dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll2avalue 1}}{{#rollLess() roll2bvalue 1}}{{#rollLess() roll2cvalue 1}}{{#rollLess() roll2dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll2dvalue 1}}{{/rollLess() roll2cvalue 1}}{{/rollLess() roll2bvalue 1}}{{/rollLess() roll2avalue 1}}
-               {{/rollLess() prowess resolve}} {{/rollLess() prowess insight}}
-                
-                {{#rollLess() resolve insight}}{{#rollLess() resolve prowess}}
-                {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollLess() resolve prowess}} {{/rollLess() resolve insight}}
-                
-                {{#rollTotal() resolve insight}}{{#rollTotal() resolve prowess}}
-                {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollTotal() resolve prowess}} {{/rollTotal() resolve insight}}
-                
-                {{#rollGreater() resolve insight}}{{#rollTotal() insight prowess}}
-                     {{#rollGreater() roll1avalue 0}}{{roll1avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1avalue 0}}{{#rollGreater() roll1bvalue 0}}{{roll1bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1bvalue 0}}{{#rollGreater() roll1cvalue 0}}{{roll1cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1cvalue 0}}{{#rollGreater() roll1dvalue 0}}{{roll1dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                    {{#rollLess() roll1avalue 1}}{{#rollLess() roll1bvalue 1}}{{#rollLess() roll1cvalue 1}}{{#rollLess() roll1dvalue 1}}{{#rollLess() bonusdice 1}}
-                    <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                    <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                    {{/rollLess() bonusdice 1}}{{/rollLess() roll1dvalue 1}}{{/rollLess() roll1cvalue 1}}{{/rollLess() roll1bvalue 1}}{{/rollLess() roll1avalue 1}}
-                {{/rollTotal() insight prowess}}{{/rollGreater() resolve insight}}
-                
-                {{#rollGreater() insight resolve}}{{#rollTotal() resolve prowess}}
-                     {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                    {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                    <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                    <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                    {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollTotal() resolve prowess}}{{/rollGreater() insight resolve}}
-                
-                {{#rollGreater() prowess insight}}{{#rollTotal() insight resolve}}
-                     {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                    {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                    <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                    <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                    {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollTotal() insight resolve}}{{/rollGreater() prowess insight}}
-                
-                </div>
-                <div class="sheet-resistinstructions"><em>Clear an amount of stress equal to the highest die result.</em> If the result of your vice roll means you clear more stress levels
-than you had marked, you <em>overindulge.</em></div>
-                </div>
+	<div class="sheet-rolltableholder">
+		<div class="sheet-rolltablename">{{charname}} </div>
+		<div class="sheet-rolltablerolls">(who currently has {{stress}} stress) indulges</div>
+		<div class="sheet-rolltabletitle">[vice](http://i.imgur.com/eaNKZTO.png)</div>
+		<div class="sheet-rolltabledice">
+			{{#rollLess() insight prowess}}{{#rollLess() insight resolve}}
+				{{#rollGreater() roll1avalue 0}}{{roll1avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1avalue 0}}{{#rollGreater() roll1bvalue 0}}{{roll1bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1bvalue 0}}{{#rollGreater() roll1cvalue 0}}{{roll1cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1cvalue 0}}{{#rollGreater() roll1dvalue 0}}{{roll1dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+				{{#rollLess() roll1avalue 1}}{{#rollLess() roll1bvalue 1}}{{#rollLess() roll1cvalue 1}}{{#rollLess() roll1dvalue 1}}{{#rollLess() bonusdice 1}}
+					<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+					<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+				{{/rollLess() bonusdice 1}}{{/rollLess() roll1dvalue 1}}{{/rollLess() roll1cvalue 1}}{{/rollLess() roll1bvalue 1}}{{/rollLess() roll1avalue 1}}
+			{{/rollLess() insight resolve}} {{/rollLess() insight prowess}}
+
+			{{#rollLess() prowess insight}}{{#rollLess() prowess resolve}}
+				{{#rollGreater() roll2avalue 0}}{{roll2avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2avalue 0}}{{#rollGreater() roll2bvalue 0}}{{roll2bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2bvalue 0}}{{#rollGreater() roll2cvalue 0}}{{roll2cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2cvalue 0}}{{#rollGreater() roll2dvalue 0}}{{roll2dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+				{{#rollLess() roll2avalue 1}}{{#rollLess() roll2bvalue 1}}{{#rollLess() roll2cvalue 1}}{{#rollLess() roll2dvalue 1}}{{#rollLess() bonusdice 1}}
+					<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+					<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+				{{/rollLess() bonusdice 1}}{{/rollLess() roll2dvalue 1}}{{/rollLess() roll2cvalue 1}}{{/rollLess() roll2bvalue 1}}{{/rollLess() roll2avalue 1}}
+			{{/rollLess() prowess resolve}} {{/rollLess() prowess insight}}
+
+			{{#rollLess() resolve insight}}{{#rollLess() resolve prowess}}
+				{{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+				{{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
+					<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+					<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+				{{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
+			{{/rollLess() resolve prowess}} {{/rollLess() resolve insight}}
+
+			{{#rollTotal() resolve insight}}{{#rollTotal() resolve prowess}}
+				{{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+				{{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
+					<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+					<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+				{{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
+			{{/rollTotal() resolve prowess}} {{/rollTotal() resolve insight}}
+
+			{{#rollGreater() resolve insight}}{{#rollTotal() insight prowess}}
+				{{#rollGreater() roll1avalue 0}}{{roll1avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1avalue 0}}{{#rollGreater() roll1bvalue 0}}{{roll1bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1bvalue 0}}{{#rollGreater() roll1cvalue 0}}{{roll1cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1cvalue 0}}{{#rollGreater() roll1dvalue 0}}{{roll1dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+				{{#rollLess() roll1avalue 1}}{{#rollLess() roll1bvalue 1}}{{#rollLess() roll1cvalue 1}}{{#rollLess() roll1dvalue 1}}{{#rollLess() bonusdice 1}}
+					<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+					<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+				{{/rollLess() bonusdice 1}}{{/rollLess() roll1dvalue 1}}{{/rollLess() roll1cvalue 1}}{{/rollLess() roll1bvalue 1}}{{/rollLess() roll1avalue 1}}
+			{{/rollTotal() insight prowess}}{{/rollGreater() resolve insight}}
+
+			{{#rollGreater() insight resolve}}{{#rollTotal() resolve prowess}}
+				{{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+				{{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
+					<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+					<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+				{{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
+			{{/rollTotal() resolve prowess}}{{/rollGreater() insight resolve}}
+
+			{{#rollGreater() prowess insight}}{{#rollTotal() insight resolve}}
+				{{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+				{{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
+					<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+					<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+				{{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
+			{{/rollTotal() insight resolve}}{{/rollGreater() prowess insight}}
+		</div>
+		<div class="sheet-resistinstructions"><em>Clear an amount of stress equal to the highest die result.</em> If the result of your vice roll means you clear more stress levels than you had marked, you <em>overindulge.</em></div>
+	</div>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-bitd4">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}}</div>
-            <div class="sheet-rolltablerolls">Rolls</div>
-            <div class="sheet-rolltabletitle">[fortune](http://i.imgur.com/1gkCarn.png)</div>
-            <div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-               {{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}
-                </div>
-                <div class="sheet-rolltablenotes">{{notes}}</div>
-                </div>
+	<div class="sheet-rolltableholder">
+		<div class="sheet-rolltablename">{{charname}}</div>
+		<div class="sheet-rolltablerolls">Rolls</div>
+		<div class="sheet-rolltabletitle">[fortune](http://i.imgur.com/1gkCarn.png)</div>
+		<div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
+			{{#rollLess() bonusdice 1}}
+				<div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
+				<div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
+			{{/rollLess() bonusdice 1}}
+		</div>
+		<div class="sheet-rolltablenotes">{{notes}}</div>
+	</div>
 </rolltemplate>
