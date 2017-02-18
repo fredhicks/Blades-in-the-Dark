@@ -79,7 +79,7 @@ input[type="text"] {
 }
 
 /* COLUMN LAYOUT */
-.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97, .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
+.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97, .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
 		display: block;
     float: left;
     vertical-align: top;
@@ -125,7 +125,7 @@ input[type="text"] {
 }
 .sheet-holdholder {
 		margin-left: 1%;
-		width: 35%;
+		width: 42%;
 }
 
 /* FONT STYLES */
@@ -279,7 +279,7 @@ input[type="text"] {
 .sheet-rep2, .sheet-stress2, .sheet-stress4 {
     height: 25px;
 }
-.sheet-rep1, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-stress1, .sheet-stress3 {
+.sheet-rep1, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-stress1, .sheet-stress3 {
     height: 12px;
 		font-size: 74%;
     letter-spacing: 0px;
@@ -292,7 +292,7 @@ input[type="text"] {
     color: #000000;
     padding-left: 2px;
 }
-.sheet-stress1, .sheet-stress3, .sheet-rep1, .sheet-hold1 {
+.sheet-stress1, .sheet-stress3, .sheet-rep1, .sheet-hold1, .sheet-hold4 {
     background-color: #000000;
     color: #ffffff;
     padding-left: 5px;
@@ -319,14 +319,14 @@ input[type="text"] {
 .sheet-rep3 {
 		width: 22.5%;
 }
-.sheet-hold1 {
-		width: 28%;
+.sheet-hold1, .sheet-hold4 {
+		width: 21%;
 }
 .sheet-hold2 {
-		width: 32%;
+		width: 26%;
 }
 .sheet-hold3 {
-		width: 40%;
+		width: 32%;
 }
 .sheet-stresszeroholder {
 		position: absolute;
@@ -346,7 +346,7 @@ input[type="text"] {
 }
 
 /* Aligning labels just right */
-.sheet-stress1 div.sheet-radiolabel, .sheet-stress3 div.sheet-radiolabel, .sheet-rep1 div.sheet-radiolabel, .sheet-rep3 div.sheet-radiolabel, .sheet-hold1 div.sheet-radiolabel, .sheet-harm1 {
+.sheet-stress1 div.sheet-radiolabel, .sheet-stress3 div.sheet-radiolabel, .sheet-rep1 div.sheet-radiolabel, .sheet-rep3 div.sheet-radiolabel, .sheet-hold1 div.sheet-radiolabel, .sheet-hold4 div.sheet-radiolabel, .sheet-harm1 {
 		padding-top: 2px;
 }
 .sheet-hold2 div.sheet-radiolabel, .sheet-hold3 div.sheet-radiolabel {
@@ -1266,7 +1266,7 @@ input.sheet-longoption + span {
 
 /* CHECKBOXES */
 	/* style inputs*/
-.sheet-abilitycheck input[type="checkbox"], .sheet-item input[type="checkbox"], .sheet-attributedot input[type="checkbox"], .sheet-cohort-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
+.sheet-abilitycheck input[type="checkbox"], .sheet-item input[type="checkbox"], .sheet-attributedot input[type="checkbox"], .sheet-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
     display: inline-block;
     position: absolute;
     z-index: 1;
@@ -1284,7 +1284,7 @@ input.sheet-longoption + span {
     top: 1px;
     border-radius: 30px;
 }
-.sheet-abilitycheck input[type="checkbox"] + span::before, .sheet-item input[type="checkbox"] + span::before, .sheet-attributedot input + span::before, .sheet-cohort-quality input + span::before, .sheet-friend input[type="checkbox"] + span::before {
+.sheet-abilitycheck input[type="checkbox"] + span::before, .sheet-item input[type="checkbox"] + span::before, .sheet-attributedot input + span::before, .sheet-quality input + span::before, .sheet-friend input[type="checkbox"] + span::before {
     content: '';
     cursor: pointer;
     width: 10px;
@@ -1301,11 +1301,14 @@ input.sheet-longoption + span {
     opacity: 0.3;
 }
 	/* section-specific styling */
-.sheet-cohort-quality input,
-.sheet-cohort-quality input + span:before {
+.sheet-quality input,
+.sheet-quality input + span:before {
     border-radius: 50px;
     box-sizing: border-box;
     margin-top: 4px;
+}
+.sheet-tier.sheet-quality input + span:before {
+		margin-right: 2px;
 }
 .sheet-item input[type="checkbox"] + span::before {
     top: 2px;
@@ -1319,7 +1322,7 @@ input.sheet-longoption + span {
 .sheet-abilitycheck input[type="checkbox"]:checked + span::before,
 .sheet-item input[type="checkbox"]:checked + span::before,
 .sheet-attributedot input:checked + span::before,
-.sheet-cohort-quality input:checked + span::before {
+.sheet-quality input:checked + span::before {
     background-color: red !important;
 }
 	/* turn text red if boxes are checked*/
@@ -1921,18 +1924,18 @@ button.sheet-cohortbtn {
 		font-size: 50% !important;
 		width: 37px;
 }
-.sheet-cohort-title-quality {
-    font-size: 70%;
-    text-align: right;
+.sheet-quality {
     display: block;
     float: right;
-    margin-right: -2px;
-}
-.sheet-cohort-quality {
-    display: block;
-    float: right;
-    width: 30%;
     background-color: #d6d8d9;
+}
+.sheet-tier.sheet-quality {
+		width: 12%;
+		margin-top: 15px;
+		height: 17px;	
+}
+.sheet-cohorts .sheet-quality {
+    width: 30%;
     height: 18px;
     margin-top: -1px;
 }

@@ -110,13 +110,20 @@
 					<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-tooth sheet-holdtooth" />
 					<span></span>
 				</div>
+				<div class="sheet-hold4 sheet-font-hoefler">
+					<div class="sheet-radiolabel">Tier</div>
+				</div>
 			</div>
 			<!-- Tier -->
-			<div class="sheet-tier">
-				<div class="sheet-tier1">
-				</div>
-				<div class="sheet-tier2">
-				</div>
+			<div class="sheet-tier sheet-quality">
+				<input type="checkbox" value="1" name="attr_crew_quality_1" />
+				<span></span>
+				<input type="checkbox" value="1" name="attr_crew_quality_2" />
+				<span></span>
+				<input type="checkbox" value="1" name="attr_crew_quality_3" />
+				<span></span>
+				<input type="checkbox" value="1" name="attr_crew_quality_4" />
+				<span></span>
 			</div>
 		</div>
 		<!-- Special abilities -->
@@ -384,7 +391,7 @@
 						<input type="text" value="Cohort" name="attr_cohort1_name"></input>
 						<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort1_name}}}{{roll1value=[[@{cohort1_q1}d6]]}}{{roll2value=[[@{cohort1_q2}d6]]}}{{roll3value=[[@{cohort1_q3}d6]]}}{{roll4value=[[@{cohort1_q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
 					</div>
-					<div class="sheet-cohort-quality">
+					<div class="sheet-quality">
 						<input type="checkbox" value="1" name="attr_cohort1_q1" />
 						<span></span>
 						<input type="checkbox" value="1" name="attr_cohort1_q2" />
@@ -417,7 +424,7 @@
 						<span></span>
 					</div>
 				</div>
-				<div class="cohort-text">
+				<div class="sheet-cohort-text">
 						<textarea name="attr_cohort1_desc"></textarea>
 				</div>
 				<!-- Cohort repeating section -->
@@ -429,7 +436,7 @@
 									<input value="Cohort" name="attr_cohort_name"></input>
 									<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort_name}}}{{roll1value=[[@{q1}d6]]}}{{roll2value=[[@{q2}d6]]}}{{roll3value=[[@{q3}d6]]}}{{roll4value=[[@{q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
 								</div>
-								<div class="sheet-cohort-quality">
+								<div class="sheet-quality">
 									<input type="checkbox" value="1" name="attr_q1" />
 									<span></span>
 									<input type="checkbox" value="1" name="attr_q2" />
@@ -462,7 +469,7 @@
 									<span></span>
 								</div>
 							</div>
-							<div class="cohort-text">
+							<div class="sheet-cohort-text">
 									<textarea name="attr_desc"></textarea>
 							</div>
 						</div>
