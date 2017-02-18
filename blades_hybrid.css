@@ -79,7 +79,7 @@ input[type="text"] {
 }
 
 /* COLUMN LAYOUT */
-.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97 .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
+.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97, .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
 		display: block;
     float: left;
     vertical-align: top;
@@ -205,6 +205,7 @@ input[type="text"] {
     letter-spacing: -2px;
     line-height: 50px !important;
     font-weight: 800;
+    font-size: 100%;
     color: black;
     top: -8px;
     position: relative;
@@ -277,7 +278,6 @@ input[type="text"] {
 /* Stress, rep, hold styling */
 .sheet-rep2, .sheet-stress2, .sheet-stress4 {
     height: 25px;
-    overflow: hidden;
 }
 .sheet-rep1, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-stress1, .sheet-stress3 {
     height: 12px;
@@ -328,9 +328,25 @@ input[type="text"] {
 .sheet-hold3 {
 		width: 40%;
 }
+.sheet-stresszeroholder {
+		position: absolute;
+		margin: 12px 0 0 60px;
+}
+.sheet-traumazeroholder {
+		position: absolute;
+		margin: 12px 0 0 13px;
+}
+.sheet-repzeroholder {
+		position: absolute;
+		margin: 12px 0 0 22px;
+}
+.sheet-turfzeroholder {
+		position: absolute;
+		margin: -1px 0 0 167px;
+}
 
 /* Aligning labels just right */
-.sheet-rep1 div.sheet-radiolabel, .sheet-rep3 div.sheet-radiolabel, .sheet-hold1 div.sheet-radiolabel {
+.sheet-stress1 div.sheet-radiolabel, .sheet-stress3 div.sheet-radiolabel, .sheet-rep1 div.sheet-radiolabel, .sheet-rep3 div.sheet-radiolabel, .sheet-hold1 div.sheet-radiolabel, .sheet-harm1 {
 		padding-top: 2px;
 }
 .sheet-hold2 div.sheet-radiolabel, .sheet-hold3 div.sheet-radiolabel {
@@ -361,20 +377,7 @@ input[type="text"] {
 }
 
 /* Teeth */
-input.sheet-regulartooth {
-		background-image: url(http://i.imgur.com/pGe2dC1.png);
-    top: -9px !important;
-}
-input.sheet-regulartooth:checked ~ span::before {
-    background-image: url(http://i.imgur.com/pGe2dC1.png) !important;
-}
-input.sheet-regulartooth + span::before,
-input.sheet-regulartooth:checked + span::before {
-    background-image: url(http://i.imgur.com/ZYuytKg.png) !important;
-}
-
-input.sheet-stresstooth[type="radio"],
-input.sheet-stresstooth[type="checkbox"] {
+input.sheet-tooth[type="radio"], input.sheet-tooth[type="checkbox"] {
     opacity: 0;
     width: 13px;
     height: 25px;
@@ -387,8 +390,8 @@ input.sheet-stresstooth[type="checkbox"] {
     top: -9px;
     margin: -11px -11px -11px -10px;
 }
-input.sheet-stresstooth[type="radio"] + span::before,
-input.sheet-stresstooth[type="checkbox"] + span::before {
+input.sheet-tooth[type="radio"] + span::before,
+input.sheet-tooth[type="checkbox"] + span::before {
     width: 8px;
     height: 25px;
     display: inline-block;
@@ -396,79 +399,64 @@ input.sheet-stresstooth[type="checkbox"] + span::before {
     content: "";
     position: relative;
     left: 8px;
-    /* red tooth */
-    background-image: url(http://i.imgur.com/17DqQbA.png);
     cursor: pointer;
     padding: 0;
 }
-input.sheet-stresstoothlast[type="radio"] + span::before,
-input.sheet-stresstoothlast[type="checkbox"] + span::before {
-    margin-right: 0px !important;
-}
-input.sheet-stresstooth[type="radio"]:hover + span::before,
-input.sheet-stresstooth[type="checkbox"]:hover + span::before {
+input.sheet-tooth[type="radio"]:hover + span::before, input.sheet-tooth[type="checkbox"]:hover + span::before {
     filter: alpha(opacity=70);
     opacity: 0.7;
 }
-input.sheet-stresstooth[type="radio"]:checked ~ input.sheet-stresstooth[type="radio"] + span::before,
-input.sheet-stresstooth[type="checkbox"]:checked ~ input.sheet-stresstooth[type="checkbox"] + span::before {
-    content: "";
-    /* white tooth */
-    background-image: url(http://i.imgur.com/XNFdq3n.png);
+input.sheet-toothlast[type="radio"] + span::before, input.sheet-toothlast[type="checkbox"] + span::before {
+    margin-right: 0px !important;
 }
-input.sheet-stresstooth[type="radio"]:checked + span::before,
+
+input.sheet-stresstooth[type="radio"] + span::before,
 input.sheet-stresstooth[type="checkbox"]:checked + span::before {
-		/* red tooth */
+    /* red tooth */
     background-image: url(http://i.imgur.com/17DqQbA.png);
 }
-input.sheet-stresstooth[type="checkbox"] + span::before {
-    content: "";
+input.sheet-stresstooth[type="checkbox"] + span::before,
+input.sheet-stresstooth:checked ~ input.sheet-stresstooth[type="radio"] + span::before {
     /* white tooth */
     background-image: url(http://i.imgur.com/XNFdq3n.png);
 }
 
-input.sheet-holdtooth[type="radio"] {
-		opacity: 0;
+input.sheet-xptooth {
+    top: -9px !important;
+}
+input.sheet-xptooth[type="radio"] + span::before {
+    background-image: url(http://i.imgur.com/ZYuytKg.png);
+}
+input.sheet-xptooth:checked ~ input.sheet-xptooth[type="radio"] + span::before {
+    background-image: url(http://i.imgur.com/pGe2dC1.png);
+}
+
+input.sheet-tooth.sheet-holdtooth[type="radio"] {
     width: 11px;
-    height: 25px;
     display: inline-block;
-    position: relative;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1;
     left: 12px;
     top: 5px;
-    margin: -11px -11px -11px -10px;
 }
-input.sheet-holdtooth[type="radio"] + span::before {
-		width: 8px;
-    height: 25px;
-    display: block;
+input.sheet-tooth.sheet-holdtooth[type="radio"] + span::before {
     float: right;
+    left: initial;
     margin: 0;
-    content: "";
-    position: relative;
     top: -1px;
     background-image: url(http://i.imgur.com/XNFdq3n.png);
-    cursor: pointer;
-    padding: 0;
 }
-input.sheet-holdtooth[type="radio"]:checked + span::before {
+input.sheet-tooth.sheet-holdtooth[type="radio"]:checked + span::before {
 		background-image: url(http://i.imgur.com/17DqQbA.png);
 }
 
-input.sheet-traumatooth,
-input.sheet-traumatooth + span::before {
+input.sheet-traumatooth {
     height: 13px;
 }
-input.sheet-traumatooth + span::before,
-input.sheet-traumatooth:checked + span::before {
-    background-image: url(http://i.imgur.com/co4IzVF.png) !important;
+input.sheet-traumatooth[type="radio"] + span::before {
+    height: 13px;
+    background-image: url(http://i.imgur.com/co4IzVF.png);
 }
-input.sheet-traumatooth:checked ~ input.sheet-traumatooth + span::before,
-input.sheet-traumazero:checked ~ input.sheet-traumatooth + span::before {
-    content: "";
-    background-image: url(http://i.imgur.com/m3eW79B.png) !important;
+input.sheet-traumatooth:checked ~ input.sheet-traumatooth[type="radio"] + span::before {
+    background-image: url(http://i.imgur.com/m3eW79B.png);
 }
 
 .sheet-stress2 input.sheet-stresstooth[type="radio"] + span::before,
@@ -476,88 +464,27 @@ input.sheet-traumazero:checked ~ input.sheet-traumatooth + span::before {
 		margin-right: 11px;
 }
 
-input.sheet-zero3[type="radio"] + span::before {
+input.sheet-zero[type="radio"] + span::before {
     width: 10px;
     background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
-input.sheet-zero3[type="radio"]:checked + span::before {
-    width: 10px;
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
-}
-
-input.sheet-stresszero[type="radio"] {
-    position: absolute;
-    left: 89px;
-    top: 363px;
-}
-input.sheet-stresszero[type="radio"] + span::before,
-input.sheet-stresszero[type="radio"]:checked + span::before {
-    position: absolute;
-    left: 80px;
-    top: 362px;
-}
-
-input.sheet-traumazero[type="radio"] {
-    position: absolute;
-    left: 218px;
-    top: 370px;
-}
-input.sheet-traumazero[type="radio"] + span::before,
-input.sheet-traumazero[type="radio"]:checked + span::before {
-    position: absolute;
-    left: 209px;
-    top: 362px;
-}
-
-input.sheet-repzero[type="radio"] {
-    position: absolute;
-    left: 51px;
-    top: 261px;
-}
-input.sheet-repzero[type="radio"] + span::before,
-input.sheet-repzero[type="radio"]:checked + span::before {
-    position: absolute;
-    left: 43px;
-    top: 261px;
-}
-
-input.sheet-turfzero[type="radio"] {
-    position: absolute;
-    left: 196px;
-    top: 251px;
-}
-input.sheet-turfzero[type="radio"] + span::before,
-input.sheet-turfzero[type="radio"]:checked + span::before {
-    position: absolute;
-    left: 187px;
-    top: 249px;
-}
-
-input.sheet-xpzero3[type="radio"] {
+input.sheet-xpzero[type="radio"] {
     position: relative;
     left: 8px;
 }
-input.sheet-xpzero3[type="radio"] + span::before,
-input.sheet-xpzero3[type="radio"]:checked + span::before {
+input.sheet-xpzero[type="radio"] + span::before {
     position: relative;
     left: 10px;
     top: 1px;
     margin-left: -3px;
-    background-image: url(http://i.imgur.com/b7fMDSq.png) !important;
 }
-
-input.sheet-repzero[type="radio"]:checked + span::before,
-input.sheet-turfzero[type="radio"]:checked + span::before,
-input.sheet-traumazero[type="radio"]:checked + span::before,
-input.sheet-stresszero[type="radio"]:checked + span::before,
-input.sheet-coinbox2zero[type="radio"]:checked + span::before,
-input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before,
-input.sheet-xpzero3[type="radio"]:checked + span::before {
+input.sheet-zero[type="radio"]:checked + span::before,
+input.sheet-coinbox2zero[type="radio"]:checked + span::before {
 		display: none;
 }
 
-/* TURF TEETH */
-input.sheet-stresstooth.sheet-halftooth-lower[type="radio"] {
+/* TURF */
+input.sheet-tooth.sheet-halftooth-lower[type="radio"] {
 		height: 12.5px;
 		margin-top: -2px;
 }
@@ -585,22 +512,10 @@ input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + s
 }
 
 /* COHORT TEETH PLACEMENT */
-input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"] + span::before {
-    width: 8px;
-    height: 25px;
-    display: inline-block;
+.sheet-cohort-conditionholder input.sheet-stresstooth[type="checkbox"] + span::before {
     margin: 0 0 0 2px;;
-    content: "";
-    position: relative;
     left: 7px;
     top: -3px;
-    background-image: url(http://i.imgur.com/XNFdq3n.png);
-    cursor: pointer;
-    padding: 0;
-}
-input.sheet-stresstooth.sheet-cohorttooth[type="checkbox"]:checked + span::before {
-    content: "";
-    background-image: url(http://i.imgur.com/17DqQbA.png);
 }
 
 /* ARMOR TEETH PLACEMENT */
@@ -613,7 +528,7 @@ input.sheet-armortooth[type="checkbox"] + span::before {
     left: 12px;
 }
 input.sheet-armortooth2[type="checkbox"] + span::before {
-    margin: 0px 0px 0px 0px;
+    margin: 0;
 }
 
 /* TRAUMA DETAILS */
@@ -721,7 +636,7 @@ input.sheet-trauma-check[type="radio"] {
     width: 50%;
     overflow: hidden;
 }
-.sheet-armor .sheet-stresstooth {
+.sheet-armor .sheet-tooth {
     margin-left: 10px;
 }
 .sheet-armorcaption {
@@ -1308,7 +1223,7 @@ input.sheet-longoption + span {
     margin-bottom: 15px;
     padding-top: 11px;
 }
-.sheet-specialability {
+.sheet-specialability, .sheet-friend {
     padding-top: 2px;
     padding-left: 4px;
     border-bottom: 1px solid #b3b4b6;
@@ -1318,7 +1233,7 @@ input.sheet-longoption + span {
     background-color: #d6d8d9;
     box-sizing: border-box;
 }
-.sheet-specialability input[type=text] {
+.sheet-abilitycheck input[type=text] {
     display: inline-block;
     width: 25%;
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
@@ -1330,7 +1245,7 @@ input.sheet-longoption + span {
     padding-left: 5px;
     margin: 3px 0 0;
 }
-.sheet-specialability textarea {
+.sheet-abilitycheck textarea {
     width: 69%;
     resize: vertical;
     display: inline-block;
@@ -1344,35 +1259,32 @@ input.sheet-longoption + span {
     background-color: rgb(214, 216, 217);
     font-family: Georgia, Times, "Times New Roman", serif;
 }
-.sheet-abilitycheck {
+.sheet-abilitycheck, .sheet-friend {
     display: inline-block;
     width: 100%;
 }
 
 /* CHECKBOXES */
 	/* style inputs*/
-.sheet-abilitycheck input[type="checkbox"],
-.sheet-item input[type="checkbox"],
-.sheet-attributedot input,
-.sheet-cohort-quality input {
+.sheet-abilitycheck input[type="checkbox"], .sheet-item input[type="checkbox"], .sheet-attributedot input[type="checkbox"], .sheet-cohort-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
     display: inline-block;
     position: absolute;
     z-index: 1;
     opacity: 0;
 }
+	/* fix position */
 .sheet-item input[type="checkbox"] {
 		margin: 3px 0 0 2px;
 }
+.sheet-abilitycheck input[type="checkbox"] {
+		margin: 7px 0 0 2px;
+}
 	/* style spans */
-.sheet-abilitycheck input[type="checkbox"] + span::before,
-.sheet-attributedot input + span::before {
+.sheet-abilitycheck input[type="checkbox"] + span::before, .sheet-attributedot input + span::before {
     top: 1px;
     border-radius: 30px;
 }
-.sheet-abilitycheck input[type="checkbox"] + span::before,
-.sheet-item input[type="checkbox"] + span::before,
-.sheet-attributedot input + span::before,
-.sheet-cohort-quality input + span::before {
+.sheet-abilitycheck input[type="checkbox"] + span::before, .sheet-item input[type="checkbox"] + span::before, .sheet-attributedot input + span::before, .sheet-cohort-quality input + span::before, .sheet-friend input[type="checkbox"] + span::before {
     content: '';
     cursor: pointer;
     width: 10px;
@@ -1385,18 +1297,15 @@ input.sheet-longoption + span {
     border: 1px solid #838587;
 }
 	/* opacity on hover */
-.sheet-abilitycheck input[type="checkbox"]:hover + span::before,
-.sheet-item input[type="checkbox"]:hover + span::before {
+.sheet-abilitycheck input[type="checkbox"]:hover + span::before, .sheet-item input[type="checkbox"]:hover + span::before, .sheet-friend input[type="checkbox"]:hover + span::before {
     opacity: 0.3;
 }
 	/* section-specific styling */
 .sheet-cohort-quality input,
 .sheet-cohort-quality input + span:before {
     border-radius: 50px;
-    background-color: #fffff;
     box-sizing: border-box;
     margin-top: 4px;
-    top: 0px;
 }
 .sheet-item input[type="checkbox"] + span::before {
     top: 2px;
@@ -1462,7 +1371,6 @@ input.sheet-longoption + span {
 div.itemcontrol {
     z-index: 100 !important;
     padding-top: 0px;
-    padding-left: 23px !important;
 }
 div.sheet-col97 > div.repcontrol {
     top: -15px !important;
@@ -1570,7 +1478,11 @@ div.sheet-col97 > div.repcontrol {
 }
 .sheet-attribute-xp-box {
 		float: right;
-    width: calc(100% - 95px);
+    width: 73px;
+}
+.sheet-attribute-xp-zero-box {
+		float: right;
+    width: 12px;
 }
 .sheet-attributetitle {
     padding-top: 4px;
@@ -1781,7 +1693,13 @@ button.sheet-fortunebtn:before {
 }
 
 /* FRIENDS/CONTACTS */
-input.sheet-friendcheck + span::before {
+input[type="checkbox"].sheet-friendup {
+		margin: 6px 0 0 -2px;
+}
+input[type="checkbox"].sheet-frienddown {
+		margin: 10px 0 0 2px;
+}
+.sheet-friend input[type="checkbox"].sheet-friendcheck + span::before {
     margin: 0px 0px 0px -1px !important;
     border-radius: 0 !important;
     width: 0 !important;
@@ -1792,39 +1710,34 @@ input.sheet-friendcheck + span::before {
     background-color: #d6d8d9 !important;
     top: -3px !important;
 }
-input.sheet-frienddown + span::before {
+.sheet-friend input[type="checkbox"].sheet-frienddown + span::before {
     border-width: 10px 5px 0 5px !important;
     border-color: #ffffff transparent transparent transparent !important;
     top: 1px !important;
     margin: 0px 0px 0px 3px !important;
 }
-input.sheet-friendup + span::before {
+.sheet-friend input[type="checkbox"].sheet-friendup + span::before {
     border-width: 0 5px 10px 5px !important;
     border-color: transparent transparent #ffffff transparent;
     top: -3px !important;
 }
-input.sheet-frienddown:checked + span::before {
+.sheet-friend input[type="checkbox"].sheet-frienddown:checked + span::before {
     border-color: #000000 transparent transparent transparent !important;
 }
-input.sheet-friendup:checked + span::before {
+.sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
     border-color: transparent transparent red transparent !important;
 }
-input.sheet-friendup:checked ~ input[type=text] {
+.sheet-friend input[type="checkbox"].sheet-friendup:checked ~ input[type=text] {
     color: red !important;
 }
-input.sheet-frienddown:checked ~ input[type=text] {
+.sheet-friend input[type="checkbox"].sheet-frienddown:checked ~ input[type=text] {
     color: black !important;
 }
-.sheet-specialability input.sheet-friend[type=text] {
-    resize: vertical;
-    display: inline-block;
-    box-shadow: none;
+.sheet-friend input[type=text] {
+    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
     color: #6c6c6c;
     font-size: 95%;
-    border: none;
     line-height: 122%;
-    background-color: rgb(214, 216, 217);
-    font-family: Georgia, Times, "Times New Roman", serif;
     font-variant: normal;
     font-weight: 400;
     height: 33px;
@@ -1832,7 +1745,7 @@ input.sheet-frienddown:checked ~ input[type=text] {
     padding: 0 0 4px 3px;
     margin: 0;
 }
-.sheet-specialability input.sheet-friend.sheet-contact[type=text] {
+.sheet-friend.sheet-contact input[type=text] {
 		color: black;
 		width: 95%;
 		font-weight: 800;
@@ -1962,12 +1875,13 @@ input.sheet-frienddown:checked ~ input[type=text] {
 .sheet-cohort-conditionholder {
 		width: 100%;
 }
-.sheet-cohort-conditionholder > div {
+.sheet-cohort-conditionholder > div > div {
 		margin: 0;
     color: black;
-    font-size: 74%;
+    font-size: 55%;
     letter-spacing: 0px;
     font-weight: 400;
+    float: left;
 }
 .sheet-cohort-weak {
 		width: 21%;
@@ -1996,17 +1910,16 @@ div.sheet-cohort-armor div {
     font-weight: 800;
     height: 17px;
     padding: 4px 6px 0 0;
-    box-shadow: none;
     margin-left: -5px;
     margin-right: -2px;
     display: block;
     float: left;
-    width: 60%;
-    border: none;
+    width: calc(70% - 37px);
 }
 button.sheet-cohortbtn {
 		float: left;
 		font-size: 50% !important;
+		width: 37px;
 }
 .sheet-cohort-title-quality {
     font-size: 70%;

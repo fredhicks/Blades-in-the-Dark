@@ -1,8 +1,7 @@
 <!--Title & Version-->
 <div class="sheet-version-text">Version 0.1</div>
 <input type="checkbox" name="attr_sheet_type" class="sheet-type-selector" value="1" />
-<span></span>
-<!-- Character Sheet -->
+<span></span><!-- Character Sheet -->
 <div class="sheet-type-character">
 	<!-- Logo and Crew -->
 	<div class="sheet-col60">
@@ -17,10 +16,10 @@
 	<!-- Playbook -->
 	<div class="sheet-col40 sheet-toppad">
 		<div class="sheet-playbooktitle">
-			<div class="sheet-title">
+			<div class="sheet-title sheet-font-hoefler">
 				<input type="text" name="attr_playbook" placeholder="playbook"/>
 			</div>
-			<div class="sheet-desc">
+			<div class="sheet-desc sheet-font-hoefler">
 				<textarea name="attr_playbookdesc" placeholder="A short playbook description" cols="50" rows="3"></textarea>
 			</div>
 		</div>
@@ -51,47 +50,51 @@
 		<div class="sheet-col100 sheet-fullwidth">
 			<input type="text" name="attr_vice"/>
 			<label>Vice / Purveyor</label>
-			<button type="roll" class="sheet-vicebutton sheet-rollbtn" value='&{template:bitd3}{{charname=@{character_name}}}{{stress=@{stress}}}{{insight=[[@{hunt1}+@{study1}+@{survey1}+@{tinker1}]]}}{{roll1avalue=[[@{hunt1}d6]]}}{{roll1bvalue=[[@{study1}d6]]}}{{roll1cvalue=[[@{survey1}d6]]}}{{roll1dvalue=[[@{tinker1}d6]]}}{{prowess=[[@{finesse1}+@{prowl1}+@{wreck1}+@{skirmish1}]]}}{{roll2avalue=[[@{finesse1}d6]]}}{{roll2bvalue=[[@{prowl1}d6]]}}{{roll2cvalue=[[@{skirmish1}d6]]}}{{roll2dvalue=[[@{wreck1}d6]]}}{{resolve=[[@{attune1}+@{command1}+@{consort1}+@{sway1}]]}}{{roll3avalue=[[@{attune1}d6]]}}{{roll3bvalue=[[@{command1}d6]]}}{{roll3cvalue=[[@{consort1}d6]]}}{{roll3dvalue=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Indulge Vice</button>
+			<button type="roll" class="sheet-vicebutton sheet-rollbtn sheet-font-hoefler" value='&{template:bitd3}{{charname=@{character_name}}}{{stress=@{stress}}}{{insight=[[@{hunt1}+@{study1}+@{survey1}+@{tinker1}]]}}{{roll1avalue=[[@{hunt1}d6]]}}{{roll1bvalue=[[@{study1}d6]]}}{{roll1cvalue=[[@{survey1}d6]]}}{{roll1dvalue=[[@{tinker1}d6]]}}{{prowess=[[@{finesse1}+@{prowl1}+@{wreck1}+@{skirmish1}]]}}{{roll2avalue=[[@{finesse1}d6]]}}{{roll2bvalue=[[@{prowl1}d6]]}}{{roll2cvalue=[[@{skirmish1}d6]]}}{{roll2dvalue=[[@{wreck1}d6]]}}{{resolve=[[@{attune1}+@{command1}+@{consort1}+@{sway1}]]}}{{roll3avalue=[[@{attune1}d6]]}}{{roll3bvalue=[[@{command1}d6]]}}{{roll3cvalue=[[@{consort1}d6]]}}{{roll3dvalue=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Indulge Vice</button>
 		</div>
 		<!-- Stress and Trauma -->
 		<div class="sheet-col100 sheet-blackborder">
 			<!-- Stress markers -->
-			<div class="sheet-stress1">Stress</div>
+			<div class="sheet-stress1 sheet-font-hoefler">
+				<div class="sheet-radiolabel">Stress</div>
+			</div>
 			<div class="sheet-stress2">
-				<input type="radio" value="0" name="attr_stress" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero" checked />
+				<input type="radio" value="0" name="attr_stress" class="sheet-stresstooth sheet-zero3 sheet-stresszero" checked />
 				<span></span>
-				<input type="radio" value="1" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="1" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="2" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="2" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="3" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="3" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="4" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="4" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="5" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="5" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="6" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="6" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="7" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="7" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="8" name="attr_stress" class="sheet-stresstooth3" />
+				<input type="radio" value="8" name="attr_stress" class="sheet-stresstooth" />
 				<span></span>
-				<input type="radio" value="9" name="attr_stress" class="sheet-stresstooth3 sheet-stresstoothlast" />
+				<input type="radio" value="9" name="attr_stress" class="sheet-stresstooth sheet-stresstoothlast" />
 				<span></span>
 			</div>
 			<!-- Trauma markers -->
 			<div class="sheet-traumatop">
-				<div class="sheet-stress3">Trauma</div>
+				<div class="sheet-stress3 sheet-font-hoefler">
+					<div class="sheet-radiolabel">Trauma</div>
+				</div>
 				<div class="sheet-traumaholder">
-					<input type="radio" value="0" name="attr_trauma" class="sheet-stresstooth3 sheet-zero3 sheet-traumazero" checked />
+					<input type="radio" value="0" name="attr_trauma" class="sheet-stresstooth sheet-zero3 sheet-traumazero" checked />
 					<span></span>
-					<input type="radio" value="1" name="attr_trauma" class="sheet-stresstooth3 sheet-traumatooth3"/>
+					<input type="radio" value="1" name="attr_trauma" class="sheet-stresstooth sheet-traumatooth"/>
 					<span></span>
-					<input type="radio" value="2" name="attr_trauma" class="sheet-stresstooth3 sheet-traumatooth3"/>
+					<input type="radio" value="2" name="attr_trauma" class="sheet-stresstooth sheet-traumatooth"/>
 					<span></span>
-					<input type="radio" value="3" name="attr_trauma" class="sheet-stresstooth3 sheet-traumatooth3"/>
+					<input type="radio" value="3" name="attr_trauma" class="sheet-stresstooth sheet-traumatooth"/>
 					<span></span>
-					<input type="radio" value="4" name="attr_trauma" class="sheet-stresstooth3 sheet-traumatooth3"/>
+					<input type="radio" value="4" name="attr_trauma" class="sheet-stresstooth sheet-traumatooth"/>
 					<span></span>
 				</div>
 			</div>
@@ -121,59 +124,59 @@
 			<!-- Harm and Recovery -->
 			<div class="sheet-harmcolumn1">
 				<!-- Harm -->
-				<div class="sheet-harm1">Harm</div>
+				<div class="sheet-harm1 sheet-font-hoefler">Harm</div>
 				<div class="sheet-harmrow sheet-harmfirst">
-					<div class="sheet-harmdetails1">3</div>
+					<div class="sheet-harmdetails1 sheet-font-hoefler">3</div>
 					<div class="sheet-harmdetails2">
 						<input type="text" name="attr_harm3" />
 					</div>
-					<div class="sheet-harmdetails3">Need Help</div>
+					<div class="sheet-harmdetails3 sheet-font-hoefler">Need Help</div>
 				</div>
 				<div class="sheet-harmrow">
-					<div class="sheet-harmdetails1">2</div>
+					<div class="sheet-harmdetails1 sheet-font-hoefler">2</div>
 					<div class="sheet-harmdetails2b">
 						<input type="text" name="attr_harm2_1"/>
 					</div>
 					<div class="sheet-harmdetails2b">
 						<input type="text" name="attr_harm2_2" />
 					</div>
-					<div class="sheet-harmdetails3">-1D</div>
+					<div class="sheet-harmdetails3 sheet-font-hoefler">-1D</div>
 				</div>
 				<div class="sheet-harmrow sheet-harmlast">
-					<div class="sheet-harmdetails1">1</div>
+					<div class="sheet-harmdetails1 sheet-font-hoefler">1</div>
 					<div class="sheet-harmdetails2b">
 						<input type="text" name="attr_harm1_1"/>
 					</div>
 					<div class="sheet-harmdetails2b">
 						<input type="text" name="attr_harm1_2" />
 					</div>
-					<div class="sheet-harmdetails3">Less Effect</div>
+					<div class="sheet-harmdetails3 sheet-font-hoefler">Less Effect</div>
 				</div>
 				<!-- Recovery -->
 				<div class="sheet-recoveryblurb">
-					<span class="sheet-recoveryblurb-bold">RECOVERY</span>
+					<span class="sheet-recoveryblurb-bold sheet-font-hoefler">RECOVERY</span>
 					<span> Get treatment in downtime to activate your healing project clock </span>
 					<div class="sheet-arrow-right"></div>
 					<br/>
 					<div class="sheet-harmprogress">
-						<span class="sheet-recoveryblurb-bold">Progress</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker0" checked="true" value="0" />
+						<span class="sheet-recoveryblurb-bold sheet-font-hoefler">Progress</span>
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_0" checked="true" value="0" />
 						<span class="sheet-trauma-check">0</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker1" value="1" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_1" value="1" />
 						<span class="sheet-trauma-check">1</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker2" value="2" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_2" value="2" />
 						<span class="sheet-trauma-check">2</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker3" value="3" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_3" value="3" />
 						<span class="sheet-trauma-check">3</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker4" value="4" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_4" value="4" />
 						<span class="sheet-trauma-check">4</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker5" value="5" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_5" value="5" />
 						<span class="sheet-trauma-check">5</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker6" value="6" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_6" value="6" />
 						<span class="sheet-trauma-check">6</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker7" value="7" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_7" value="7" />
 						<span class="sheet-trauma-check">7</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-recoverytracker8" value="8" />
+						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_8" value="8" />
 						<span class="sheet-trauma-check">8</span>
 						<div class="sheet-harmrecoveryclock"></div>
 					</div>
@@ -183,32 +186,32 @@
 			<div class="sheet-harmcolumn2">
 				<!-- Armor -->
 				<div class="sheet-armor">
-					<div class="sheet-armorcaption">Armor</div>
-					<input type="checkbox" name="attr_armor" class="sheet-stresstooth3 sheet-armortooth" />
+					<div class="sheet-armorcaption sheet-font-hoefler">Armor</div>
+					<input type="checkbox" name="attr_armor" class="sheet-stresstooth sheet-armortooth" />
 					<span></span>
 				</div>
 				<div class="sheet-armor">
-					<div class="sheet-armorcaption">+Heavy</div>
-					<input type="checkbox" name="attr_armor_heavy" class="sheet-stresstooth3 sheet-armortooth" />
+					<div class="sheet-armorcaption sheet-font-hoefler">+Heavy</div>
+					<input type="checkbox" name="attr_armor_heavy" class="sheet-stresstooth sheet-armortooth" />
 					<span></span>
 				</div>
-				<div class="sheet-col90">
+				<div class="sheet-col90 sheet-font-hoefler">
 					<input type="text" name="attr_special_armor_1_name"/>
 				</div>
 				<div class="sheet-col10">
-					<input type="checkbox" name="attr_special_armor_1" class="sheet-stresstooth3 sheet-armortooth2" />
+					<input type="checkbox" name="attr_special_armor_1" class="sheet-stresstooth sheet-armortooth2" />
 					<span></span>
 				</div>
-				<div class="sheet-col90">
+				<div class="sheet-col90 sheet-font-hoefler">
 					<input type="text" name="attr_special_armor_2_name"/>
 					<div class="sheet-specialarmorcaption">other special armor</div>
 				</div>
 				<div class="sheet-col10">
-					<input type="checkbox" name="attr_special_armor_2" class="sheet-stresstooth3 sheet-armortooth2" />
+					<input type="checkbox" name="attr_special_armor_2" class="sheet-stresstooth sheet-armortooth2" />
 					<span></span>
 				</div>
 				<!-- Coin -->
-				<div class="sheet-coin1">
+				<div class="sheet-coin1 sheet-font-hoefler">
 					<span>Coin</span>
 					<input type="radio" value="0" name="attr_coin" class="sheet-coinbox2 sheet-coinbox2zero" checked />
 					<span class="sheet-coinbox2 sheet-coinbox2zero"></span>
@@ -221,7 +224,7 @@
 					<input type="radio" value="4" name="attr_coin" class="sheet-coinbox2" />
 					<span class="sheet-coinbox2"></span>
 				</div>
-				<div class="sheet-coin2">Stash</div>
+				<div class="sheet-coin2 sheet-font-hoefler">Stash</div>
 				<br/>
 				<!-- Stash -->
 				<input type="radio" value="0" name="attr_stash" class="sheet-stashbox3 sheet-coinbox2zero" checked />
@@ -312,7 +315,7 @@
 			</div>
 			<!-- Special abilities -->
 			<div class="sheet-col100">
-				<div class="sheet-specialheader">Special Abilities</div>
+				<div class="sheet-specialheader sheet-font-hoefler">Special Abilities</div>
 				<div class="sheet-abilitiesholder">
 					<div class="sheet-specialability">
 						<div class="sheet-abilitycheck">
@@ -322,7 +325,7 @@
 							<textarea class="sheet-ability1desc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
 						</div>
 					</div>
-					<fieldset class="repeating_abilities">
+					<fieldset class="repeating_ability">
 						<div class="sheet-specialability">
 							<div class="sheet-abilitycheck">
 								<input type="checkbox" value="1" name="attr_check" />
@@ -335,26 +338,26 @@
 				</div>
 			</div>
 			<!-- Advancement -->
-			<div class="sheet-markxp">Mark XP:</div>
-			<div class="sheet-playbookadvancement">
+			<div class="sheet-markxp sheet-font-hoefler">Mark XP:</div>
+			<div class="sheet-playbookadvancement sheet-font-hoefler">
 				<div class="sheet-playbookholder">Playbook Advancement </div>
-				<input type="radio" value="0" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked />
+				<input type="radio" value="0" name="attr_playbook_xp" class="sheet-stresstooth sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth" checked />
 				<span></span>
-				<input type="radio" value="1" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3"/>
+				<input type="radio" value="1" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth"/>
 				<span></span>
-				<input type="radio" value="2" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3"/>
+				<input type="radio" value="2" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth"/>
 				<span></span>
-				<input type="radio" value="3" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3"/>
+				<input type="radio" value="3" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth"/>
 				<span></span>
-				<input type="radio" value="4" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3"/>
+				<input type="radio" value="4" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth"/>
 				<span></span>
-				<input type="radio" value="5" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
+				<input type="radio" value="5" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth" />
 				<span></span>
-				<input type="radio" value="6" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
+				<input type="radio" value="6" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth" />
 				<span></span>
-				<input type="radio" value="7" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
+				<input type="radio" value="7" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth" />
 				<span></span>
-				<input type="radio" value="8" name="attr_playbook_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
+				<input type="radio" value="8" name="attr_playbook_xp" class="sheet-stresstooth sheet-regulartooth" />
 				<span></span>
 			</div>
 			<div class="sheet-markxpdesc">
@@ -370,7 +373,7 @@
 			</div>
 			<!-- Teamwork -->
 			<div class="sheet-col50a">
-				<div class="sheet-gatherinfoheader">Teamwork</div>
+				<div class="sheet-gatherinfoheader sheet-font-hoefler">Teamwork</div>
 				<div class="sheet-teamworkbox">
 					<span class="sheet-boldspan">Assist</span>
 					<span> a teammate</span>
@@ -390,7 +393,7 @@
 			</div>
 			<!-- Gather Information-->
 			<div class="sheet-col50b">
-				<div class="sheet-gatherinfoheader">Gather Information</div>
+				<div class="sheet-gatherinfoheader sheet-font-hoefler">Gather Information</div>
 				<div class="sheet-gatherinfo">
 					<div class="sheet-markxpdesc">
 						<ul>
@@ -412,7 +415,7 @@
 		<!-- Items and Planning-->
 		<div class="sheet-col50b">
 			<!-- Load -->
-			<div class="sheet-loadheader">
+			<div class="sheet-loadheader sheet-font-hoefler">
 				<span>Load</span>
 				<div class="sheet-loadcheckholder">
 					<div class="sheet-coinbox">
@@ -439,170 +442,171 @@
 					<span> Heavy</span>
 				</div>
 			</div>
-			<div class="sheet-loadheader2">
+			<div class="sheet-loadheader2 sheet-font-hoefler">
 				<span>Items</span>
 				<span class="sheet-italics">(Italics don't count for load)</span>
 			</div>
 			<!-- Items -->
 			<div class="sheet-itemholder">
 				<!-- Playbook items -->
-				<div class="sheet-specialability sheet-itemitem sheet-playbookitems">
-					<div class="sheet-abilitycheck">
+				<div class="sheet-playbookitems">
+					<div class="sheet-item sheet-itembold sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_1_check" class="sheet-itemcheckbox"/>
 						<span></span>
+						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_1_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine two-slot item" class="sheet-abilityname1 sheet-item sheet-itembold sheet-item2box" name="attr_item_1_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
+						<input type="text" placeholder="Fine two-slot item" name="attr_item_1_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itembold">
 						<input type="checkbox" value="1" name="attr_item_2_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold" name="attr_item_2_desc" />
+						<input type="text" placeholder="Fine one-slot item" name="attr_item_2_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itembold">
 						<input type="checkbox" value="1" name="attr_item_3_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold" name="attr_item_3_desc" />
+						<input type="text" placeholder="Fine one-slot item" name="attr_item_3_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itembold sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_4_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Fine one-slot item" class="sheet-abilityname1 sheet-item sheet-itembold sheet-itemitalic" name="attr_item_4_desc" />
+						<input type="text" placeholder="Fine one-slot item" name="attr_item_4_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_5_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item" name="attr_item_5_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_5_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_6_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item" name="attr_item_6_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_6_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_7_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_item_7_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_7_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_8_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_item_8_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_8_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" value="1" name="attr_item_9_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" placeholder="Regular one-slot item" class="sheet-abilityname1 sheet-item sheet-itemitalic" name="attr_item_9_desc" />
+						<input type="text" placeholder="Regular one-slot item" name="attr_item_9_desc" />
 					</div>
 				</div>
 				<!-- Regular items -->
-				<div class="sheet-specialability sheet-itemitem sheet-regularitems">
-					<div class="sheet-abilitycheck">
+				<div class="sheet-regularitems">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_10_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A Blade or Two" class="sheet-abilityname1 sheet-item" name="attr_item_10_desc" />
+						<input type="text" value="A Blade or Two" name="attr_item_10_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_11_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Throwing Knives" class="sheet-abilityname1 sheet-item" name="attr_item_11_desc" />
+						<input type="text" value="Throwing Knives" name="attr_item_11_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort">
 						<input type="checkbox" value="1" name="attr_item_12_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A Pistol" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_item_12_desc" />
+						<input type="text" value="A Pistol" name="attr_item_12_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort">
 						<input type="checkbox" value="1" name="attr_item_13_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A 2nd Pistol" class="sheet-abilityname1 sheet-item sheet-itemshort1" name="attr_item_13_desc" />
+						<input type="text" value="A 2nd Pistol" name="attr_item_13_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_14_check" class="sheet-itemcheckbox"/>
 						<span></span>
+						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_14_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="A Large Weapon" class="sheet-abilityname1 sheet-item sheet-item2box" name="attr_item_14_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
+						<input type="text" value="A Large Weapon" name="attr_item_14_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_15_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="An Unusual Weapon" class="sheet-abilityname1 sheet-item" name="attr_item_15_desc" />
+						<input type="text" value="An Unusual Weapon" name="attr_item_15_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_16_check" class="sheet-itemcheckbox"/>
 						<span></span>
+						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_16_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Armor" class="sheet-abilityname1 sheet-item sheet-itemshort" name="attr_item_16_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar2"></div>
+						<input type="text" value="Armor" name="attr_item_16_desc" />
 					</div>
-					<div class="sheet-abilitycheck sheet-abilitycheckshort">
+					<div class="sheet-item sheet-itemshort sheet-item3box">
 						<input type="checkbox" value="1" name="attr_item_16_check_c" class="sheet-itemcheckbox"/>
 						<span></span>
+						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_16_check_d" class="sheet-itemcheckbox"/>
 						<span></span>
+						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_16_check_e" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="+Heavy" class="sheet-abilityname1 sheet-item sheet-itemshort2" name="attr_item_17_desc_b" />
-						<div class="sheet-floatingbar sheet-floatingbar3"></div>
-						<div class="sheet-floatingbar sheet-floatingbar4"></div>
+						<input type="text" value="+Heavy" name="attr_item_16_desc_b" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_17_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Burglary Gear" class="sheet-abilityname1 sheet-item" name="attr_item_17_desc" />
+						<input type="text" value="Burglary Gear" name="attr_item_17_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_18_check" class="sheet-itemcheckbox"/>
 						<span></span>
+						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_18_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Climbing Gear" class="sheet-abilityname1 sheet-item sheet-item2box" name="attr_item_18_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
+						<input type="text" value="Climbing Gear" name="attr_item_18_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_19_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Arcane Implements" class="sheet-abilityname1" name="attr_item_19_desc" />
+						<input type="text" value="Arcane Implements" name="attr_item_19_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_20_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Documents" class="sheet-abilityname1 sheet-item" name="attr_item_20_desc" />
+						<input type="text" value="Documents" name="attr_item_20_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_21_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Subterfuge Supplies" class="sheet-abilityname1 sheet-item" name="attr_item_21_desc" />
+						<input type="text" value="Subterfuge Supplies" name="attr_item_21_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_22_check" class="sheet-itemcheckbox"/>
 						<span></span>
+						<div class="sheet-floatingbar"></div>
 						<input type="checkbox" value="1" name="attr_item_22_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Demolition Tools" class="sheet-abilityname1 sheet-item sheet-item2box" name="attr_item_22_desc" />
-						<div class="sheet-floatingbar sheet-floatingbar1"></div>
+						<input type="text" value="Demolition Tools" name="attr_item_22_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_23_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Tinkering Tools" class="sheet-abilityname1 sheet-item" name="attr_item_23_desc" />
+						<input type="text" value="Tinkering Tools" name="attr_item_23_desc" />
 					</div>
-					<div class="sheet-abilitycheck">
+					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_item_24_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<input type="text" value="Lantern" class="sheet-abilityname1 sheet-item" name="attr_item_24_desc" />
+						<input type="text" value="Lantern" name="attr_item_24_desc" />
 					</div>
 					<fieldset class="repeating_item">
-						<div class="sheet-abilitycheck">
+						<div class="sheet-item sheet-item2box">
 							<input type="checkbox" value="1" name="attr_check" class="sheet-itemcheckbox"/>
 							<span></span>
+							<div class="sheet-floatingbar"></div>
 							<input type="checkbox" value="1" name="attr_check_b" class="sheet-itemcheckbox"/>
 							<span></span>
-							<input type="text" placeholder="Something Else?" class="sheet-abilityname1 sheet-item sheet-item2box" name="attr_desc" />
+							<input type="text" placeholder="Something Else?" name="attr_desc" />
 						</div>
 					</fieldset>
 				</div>
@@ -648,338 +652,347 @@
 		<!-- Action ratings -->
 		<div class="sheet-col50a">
 			<!-- Insight box -->
-			<div class="sheet-attribute">
+			<div class="sheet-attribute sheet-font-hoefler">
 				<div class="sheet-attributetitle">
-					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/aRCtei7.png}}{{rolltypetext=Insight}}{{roll1value=[[@{hunt1}d6]]}}{{roll2value=[[@{study1}d6]]}}{{roll3value=[[@{survey1}d6]]}}{{roll4value=[[@{tinker1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Insight</button>
+					<button type="roll" class="sheet-attributebtn sheet-font-hoefler" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/aRCtei7.png}}{{rolltypetext=Insight}}{{roll1value=[[@{hunt1}d6]]}}{{roll2value=[[@{study1}d6]]}}{{roll3value=[[@{survey1}d6]]}}{{roll4value=[[@{tinker1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Insight</button>
 				</div>
-				<input type="radio" value="0" name="attr_insight_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked />
-				<span></span>
-				<input type="radio" value="1" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_insight_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_insight_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-				<input type="radio" value="6" name="attr_insight_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
+				<input type="radio" value="0" name="attr_insight_xp" class="sheet-stresstooth sheet-zero3 sheet-xpzero3 sheet-regulartooth" checked />
+					<span></span>
+				<div class="sheet-attribute-xp-box">
+					<input type="checkbox" value="0" name="attr_insight_xp" class="sheet-hidden sheet-regulartooth" checked />
+					<input type="radio" value="1" name="attr_insight_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="2" name="attr_insight_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="3" name="attr_insight_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="4" name="attr_insight_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="5" name="attr_insight_xp" class="sheet-stresstooth sheet-regulartooth" />
+					<span></span>
+					<input type="radio" value="6" name="attr_insight_xp" class="sheet-stresstooth sheet-regulartooth" />
+					<span></span>
+				</div>
 			</div>
 			<div class="sheet-attributepadding">
 				<!-- Hunt -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_hunt1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_hunt2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_hunt3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_hunt4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Hunt}}{{roll1value=[[@{hunt1}d6]]}}{{roll2value=[[@{hunt2}d6]]}}{{roll3value=[[@{hunt3}d6]]}}{{roll4value=[[@{hunt4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Hunt</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Hunt}}{{roll1value=[[@{hunt1}d6]]}}{{roll2value=[[@{hunt2}d6]]}}{{roll3value=[[@{hunt3}d6]]}}{{roll4value=[[@{hunt4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Hunt</button>
 				</div>
 				<!-- Study -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_study1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_study2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_study3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_study4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/sWoUh5J.png}}{{rolltypetext=Study}}{{roll1value=[[@{study1}d6]]}}{{roll2value=[[@{study2}d6]]}}{{roll3value=[[@{study3}d6]]}}{{roll4value=[[@{study4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Study</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/sWoUh5J.png}}{{rolltypetext=Study}}{{roll1value=[[@{study1}d6]]}}{{roll2value=[[@{study2}d6]]}}{{roll3value=[[@{study3}d6]]}}{{roll4value=[[@{study4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Study</button>
 				</div>
 				<!-- Survey -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_survey1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_survey2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_survey3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_survey4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/mpUDldm.png}}{{rolltypetext=Survey}}{{roll1value=[[@{survey1}d6]]}}{{roll2value=[[@{survey2}d6]]}}{{roll3value=[[@{survey3}d6]]}}{{roll4value=[[@{survey4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Survey</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/mpUDldm.png}}{{rolltypetext=Survey}}{{roll1value=[[@{survey1}d6]]}}{{roll2value=[[@{survey2}d6]]}}{{roll3value=[[@{survey3}d6]]}}{{roll4value=[[@{survey4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Survey</button>
 				</div>
 				<!-- Tinker -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_tinker1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_tinker2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_tinker3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_tinker4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/4XTlsJC.png}}{{rolltypetext=Tinker}}{{roll1value=[[@{tinker1}d6]]}}{{roll2value=[[@{tinker2}d6]]}}{{roll3value=[[@{tinker3}d6]]}}{{roll4value=[[@{tinker4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Tinker</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/4XTlsJC.png}}{{rolltypetext=Tinker}}{{roll1value=[[@{tinker1}d6]]}}{{roll2value=[[@{tinker2}d6]]}}{{roll3value=[[@{tinker3}d6]]}}{{roll4value=[[@{tinker4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Tinker</button>
 				</div>
 			</div>
 			<!-- Prowess box -->
-			<div class="sheet-attribute">
+			<div class="sheet-attribute sheet-font-hoefler">
 				<div class="sheet-attributetitle">
-					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/7PeppYz.png}}{{rolltypetext=Prowess}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{prowl1}d6]]}}{{roll3value=[[@{skirmish1}d6]]}}{{roll4value=[[@{wreck1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowess</button>
+					<button type="roll" class="sheet-attributebtn sheet-font-hoefler" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/7PeppYz.png}}{{rolltypetext=Prowess}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{prowl1}d6]]}}{{roll3value=[[@{skirmish1}d6]]}}{{roll4value=[[@{wreck1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowess</button>
 				</div>
-				<input type="radio" value="0" name="attr_prowess_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked />
-				<span></span>
-				<input type="radio" value="1" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_prowess_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_prowess_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-				<input type="radio" value="6" name="attr_prowess_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
+				<input type="radio" value="0" name="attr_prowess_xp" class="sheet-stresstooth sheet-zero3 sheet-xpzero3 sheet-regulartooth" checked />
+					<span></span>
+				<div class="sheet-attribute-xp-box">
+					<input type="checkbox" value="0" name="attr_prowess_xp" class="sheet-hidden sheet-regulartooth" checked />
+					<input type="radio" value="1" name="attr_prowess_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="2" name="attr_prowess_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="3" name="attr_prowess_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="4" name="attr_prowess_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="5" name="attr_prowess_xp" class="sheet-stresstooth sheet-regulartooth" />
+					<span></span>
+					<input type="radio" value="6" name="attr_prowess_xp" class="sheet-stresstooth sheet-regulartooth" />
+					<span></span>
+				</div>
 			</div>
 			<div class="sheet-attributepadding">
 				<!-- Finesse -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_finesse1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_finesse2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_finesse3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_finesse4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/4WuVKpL.png}}{{rolltypetext=Finesse}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{finesse2}d6]]}}{{roll3value=[[@{finesse3}d6]]}}{{roll4value=[[@{finesse4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Finesse</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/4WuVKpL.png}}{{rolltypetext=Finesse}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{finesse2}d6]]}}{{roll3value=[[@{finesse3}d6]]}}{{roll4value=[[@{finesse4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Finesse</button>
 				</div>
 				<!-- Prowl -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_prowl1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_prowl2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_prowl3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_prowl4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/a8TEEyf.png}}{{rolltypetext=prowl}}{{roll1value=[[@{prowl1}d6]]}}{{roll2value=[[@{prowl2}d6]]}}{{roll3value=[[@{prowl3}d6]]}}{{roll4value=[[@{prowl4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowl</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/a8TEEyf.png}}{{rolltypetext=prowl}}{{roll1value=[[@{prowl1}d6]]}}{{roll2value=[[@{prowl2}d6]]}}{{roll3value=[[@{prowl3}d6]]}}{{roll4value=[[@{prowl4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowl</button>
 				</div>
 				<!-- Skirmish -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_skirmish1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_skirmish2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_skirmish3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_skirmish4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/gJJNl73.png}}{{rolltypetext=skirmish}}{{roll1value=[[@{skirmish1}d6]]}}{{roll2value=[[@{skirmish2}d6]]}}{{roll3value=[[@{skirmish3}d6]]}}{{roll4value=[[@{skirmish4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Skirmish</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/gJJNl73.png}}{{rolltypetext=skirmish}}{{roll1value=[[@{skirmish1}d6]]}}{{roll2value=[[@{skirmish2}d6]]}}{{roll3value=[[@{skirmish3}d6]]}}{{roll4value=[[@{skirmish4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Skirmish</button>
 				</div>
 				<!-- Wreck -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_wreck1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_wreck2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_wreck3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_wreck4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/EHOIFOM.png}}{{rolltypetext=wreck}}{{roll1value=[[@{wreck1}d6]]}}{{roll2value=[[@{wreck2}d6]]}}{{roll3value=[[@{wreck3}d6]]}}{{roll4value=[[@{wreck4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Wreck</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/EHOIFOM.png}}{{rolltypetext=wreck}}{{roll1value=[[@{wreck1}d6]]}}{{roll2value=[[@{wreck2}d6]]}}{{roll3value=[[@{wreck3}d6]]}}{{roll4value=[[@{wreck4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Wreck</button>
 				</div>
 			</div>
 			<!-- Resolve box-->
-			<div class="sheet-attribute">
+			<div class="sheet-attribute sheet-font-hoefler">
 				<div class="sheet-attributetitle">
-					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/eIZr40h.png}}{{rolltypetext=Insight}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{command1}d6]]}}{{roll3value=[[@{consort1}d6]]}}{{roll4value=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Resolve</button>
+					<button type="roll" class="sheet-attributebtn sheet-font-hoefler" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/eIZr40h.png}}{{rolltypetext=Insight}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{command1}d6]]}}{{roll3value=[[@{consort1}d6]]}}{{roll4value=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Resolve</button>
 				</div>
-				<input type="radio" value="0" name="attr_resolve_xp" class="sheet-stresstooth3 sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth3" checked />
-				<span></span>
-				<input type="radio" value="1" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_resolve_xp"  class="sheet-stresstooth3 sheet-regulartooth3"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_resolve_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
-				<input type="radio" value="6" name="attr_resolve_xp" class="sheet-stresstooth3 sheet-regulartooth3" />
-				<span></span>
+				<input type="radio" value="0" name="attr_resolve_xp" class="sheet-stresstooth sheet-zero3 sheet-xpzero3 sheet-regulartooth" checked />
+					<span></span>
+				<div class="sheet-attribute-xp-box">
+					<input type="checkbox" value="0" name="attr_resolve_xp" class="sheet-hidden sheet-regulartooth" checked />
+					<input type="radio" value="1" name="attr_resolve_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="2" name="attr_resolve_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="3" name="attr_resolve_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="4" name="attr_resolve_xp"  class="sheet-stresstooth sheet-regulartooth"/>
+					<span></span>
+					<input type="radio" value="5" name="attr_resolve_xp" class="sheet-stresstooth sheet-regulartooth" />
+					<span></span>
+					<input type="radio" value="6" name="attr_resolve_xp" class="sheet-stresstooth sheet-regulartooth" />
+					<span></span>
+				</div>
 			</div>
 			<div class="sheet-attributepadding">
 				<!-- Attune -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_attune1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_attune2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_attune3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_attune4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/wjmgeBL.png}}{{rolltypetext=attune}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{attune2}d6]]}}{{roll3value=[[@{attune3}d6]]}}{{roll4value=[[@{attune4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Attune</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/wjmgeBL.png}}{{rolltypetext=attune}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{attune2}d6]]}}{{roll3value=[[@{attune3}d6]]}}{{roll4value=[[@{attune4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Attune</button>
 				</div>
 				<!-- Command-->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_command1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_command2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_command3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_command4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/i5oDHFv.png}}{{rolltypetext=command}}{{roll1value=[[@{command1}d6]]}}{{roll2value=[[@{command2}d6]]}}{{roll3value=[[@{command3}d6]]}}{{roll4value=[[@{command4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Command</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/i5oDHFv.png}}{{rolltypetext=command}}{{roll1value=[[@{command1}d6]]}}{{roll2value=[[@{command2}d6]]}}{{roll3value=[[@{command3}d6]]}}{{roll4value=[[@{command4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Command</button>
 				</div>
 				<!-- Consort -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_consort1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_consort2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_consort3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_consort4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/bu0cPsL.png}}{{rolltypetext=consort}}{{roll1value=[[@{consort1}d6]]}}{{roll2value=[[@{consort2}d6]]}}{{roll3value=[[@{consort3}d6]]}}{{roll4value=[[@{consort4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Consort</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/bu0cPsL.png}}{{rolltypetext=consort}}{{roll1value=[[@{consort1}d6]]}}{{roll2value=[[@{consort2}d6]]}}{{roll3value=[[@{consort3}d6]]}}{{roll4value=[[@{consort4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Consort</button>
 				</div>
 				<!-- Sway -->
 				<div class="sheet-attributedotsholder">
 					<div class="sheet-firstdotholder">
-						<div class="sheet-stashbox sheet-attributedot">
+						<div class="sheet-attributedot">
 							<input type="checkbox" value="1" name="attr_sway1" />
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_sway2" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_sway3" />
 						<span></span>
 					</div>
-					<div class="sheet-stashbox sheet-attributedot">
+					<div class="sheet-attributedot">
 						<input type="checkbox" value="1" name="attr_sway4" />
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-rollbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/sD36C99.png}}{{rolltypetext=sway}}{{roll1value=[[@{sway1}d6]]}}{{roll2value=[[@{sway2}d6]]}}{{roll3value=[[@{sway3}d6]]}}{{roll4value=[[@{sway4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Sway</button>
+					<button type="roll" class="sheet-attributebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/sD36C99.png}}{{rolltypetext=sway}}{{roll1value=[[@{sway1}d6]]}}{{roll2value=[[@{sway2}d6]]}}{{roll3value=[[@{sway3}d6]]}}{{roll4value=[[@{sway4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Sway</button>
 				</div>
 			</div>
 			<!-- Bonus die box -->
 			<div class="sheet-bonusdie">
-				<div class="sheet-bonusdieheader">Bonus Die</div>
+				<div class="sheet-bonusdieheader sheet-font-hoefler">Bonus Die</div>
 				<div class="sheet-bonusdie1">+</div>
 				<div class="sheet-bonusdie2">
 					<span class="sheet-smallcaps">Push yourself</span>
@@ -988,38 +1001,624 @@
 				</div>
 			</div>
 			<!-- Strange friends -->
-			<div class="sheet-specialheader">Strange Friends</div>
+			<div class="sheet-specialheader sheet-font-hoefler">Strange Friends</div>
 			<div class="sheet-abilitiesholder">
 				<div class="sheet-specialability">
 					<div class="sheet-abilitycheck">
-						<input type="checkbox" value="1" name="attr_friend1_up" class="sheet-friendcheck2 sheet-friendup" />
+						<input type="checkbox" value="1" name="attr_friend1_up" class="sheet-friendcheck sheet-friendup" />
 						<span></span>
-						<input type="checkbox" class="sheet-friendcheck2 sheet-frienddown" value="1" name="attr_friend1_down" />
+						<input type="checkbox" class="sheet-friendcheck sheet-frienddown" value="1" name="attr_friend1_down" />
 						<span></span>
-						<input type="text" placeholder="Friend name" class="sheet-abilityname1 sheet-friend" name="attr_friend1_name" class="sheet-friendcheck sheet-friendcheckdown" />
+						<input type="text" placeholder="Friend name" class="sheet-friend" name="attr_friend1_name" />
 					</div>
 				</div>
-				<fieldset class="repeating_friends">
+				<fieldset class="repeating_friend">
 					<div class="sheet-specialability">
 						<div class="sheet-abilitycheck">
-							<input type="checkbox" value="1" name="attr_up" class="sheet-friendcheck2 sheet-friendup" />
+							<input type="checkbox" value="1" name="attr_up" class="sheet-friendcheck sheet-friendup" />
 							<span></span>
-							<input type="checkbox" class="sheet-friendcheck2 sheet-frienddown" value="1" name="attr_down" />
+							<input type="checkbox" class="sheet-friendcheck sheet-frienddown" value="1" name="attr_down" />
 							<span></span>
-							<input type="text" placeholder="Friend name" class="sheet-abilityname1 sheet-friend" name="attr_friend_name" class="sheet-friendcheck sheet-friendcheckdown" />
+							<input type="text" placeholder="Friend name" class="sheet-friend" name="attr_friend_name" />
 						</div>
 					</div>
 				</fieldset>
 			</div>
 			<!-- Roll Fortune -->
-			<button type="roll"  class="sheet-fortunebtn sheet-rollbtn" value='&{template:bitd4}{{charname=@{character_name}}} {{notes=?{Notes| }}}{{bonusdice=?{Number of dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll Fortune</button>
+			<button type="roll"  class="sheet-fortunebtn sheet-rollbtn sheet-font-hoefler" value='&{template:bitd4}{{charname=@{character_name}}} {{notes=?{Notes| }}}{{bonusdice=?{Number of dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll Fortune</button>
 		</div>
 		<!-- Clocks -->
 		<div class="sheet-col100 sheet-col1002">
-			<div class="sheet-specialheader sheet-specialheader2">Clocks</div>
-			<fieldset class="repeating_clocks">
+			<div class="sheet-specialheader sheet-font-hoefler sheet-specialheader2">Clocks</div>
+			<fieldset class="repeating_clock">
 				<div class="sheet-recoveryblurb sheet-recoveryblurb2">
-					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname" />
+					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname sheet-font-hoefler" />
+					<br/>
+					<div class="sheet-harmprogress">
+						<span>Size</span>
+						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-4segment" value="1" checked="true"  />
+						<span  class="sheet-trauma-check">4-segment</span>
+						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-6segment" value="2" />
+						<span  class="sheet-trauma-check">6-segment</span>
+						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-8segment" value="3" />
+						<span  class="sheet-trauma-check">8-segment</span>
+						<input type="radio" name="attr_size" class="sheet-trauma-check  sheet-longoption sheet-12segment" value="4" />
+						<span  class="sheet-trauma-check sheet-traumalast">12-segment</span>
+						<div class="sheet-harmprogress sheet-4clock">
+							<span>Progress</span>
+							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_0" checked="true" value="0" />
+							<span class="sheet-trauma-check">0</span>
+							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_1" value="1" />
+							<span  class="sheet-trauma-check">1</span>
+							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_2" value="2" />
+							<span  class="sheet-trauma-check">2</span>
+							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_3" value="3" />
+							<span  class="sheet-trauma-check">3</span>
+							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_4" value="4" />
+							<span  class="sheet-trauma-check sheet-traumalast">4</span>
+							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+						</div>
+						<div class="sheet-harmprogress sheet-6clock">
+							<span>Progress</span>
+							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_0" checked="true" value="0" />
+							<span class="sheet-trauma-check">0</span>
+							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_1" value="1" />
+							<span  class="sheet-trauma-check">1</span>
+							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_2" value="2" />
+							<span  class="sheet-trauma-check">2</span>
+							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_3" value="3" />
+							<span  class="sheet-trauma-check">3</span>
+							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_4" value="4" />
+							<span  class="sheet-trauma-check">4</span>
+							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_5" value="5" />
+							<span  class="sheet-trauma-check">5</span>
+							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_6" value="6" />
+							<span class="sheet-trauma-check sheet-traumalast">6</span>
+							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+						</div>
+						<div class="sheet-harmprogress sheet-8clock">
+							<span>Progress</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_0" checked="true" value="0" />
+							<span class="sheet-trauma-check">0</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_1" value="1" />
+							<span  class="sheet-trauma-check">1</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_2" value="2" />
+							<span  class="sheet-trauma-check">2</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_3" value="3" />
+							<span  class="sheet-trauma-check">3</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_4" value="4" />
+							<span  class="sheet-trauma-check">4</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_5" value="5" />
+							<span  class="sheet-trauma-check">5</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_6" value="6" />
+							<span class="sheet-trauma-check">6</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_7" value="7" />
+							<span  class="sheet-trauma-check">7</span>
+							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_8" value="8" />
+							<span  class="sheet-trauma-check sheet-traumalast">8</span>
+							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+						</div>
+						<div class="sheet-harmprogress sheet-12clock">
+							<span>Progress</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_0" checked="true" value="0" />
+							<span class="sheet-trauma-check">0</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_1" value="1" />
+							<span  class="sheet-trauma-check">1</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_2" value="2" />
+							<span  class="sheet-trauma-check">2</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_3" value="3" />
+							<span  class="sheet-trauma-check">3</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_4" value="4" />
+							<span  class="sheet-trauma-check">4</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_5" value="5" />
+							<span  class="sheet-trauma-check">5</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_6" value="6" />
+							<span class="sheet-trauma-check">6</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_7" value="7" />
+							<span  class="sheet-trauma-check">7</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_8" value="8" />
+							<span  class="sheet-trauma-check">8</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_9" value="9" />
+							<span  class="sheet-trauma-check">9</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_10" value="10" />
+							<span class="sheet-trauma-check">10</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_11" value="11" />
+							<span  class="sheet-trauma-check">11</span>
+							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_12" value="12" />
+							<span  class="sheet-trauma-check sheet-traumalast">12</span>
+							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<textarea class="sheet-notes" name="attr_notes" placeholder="Notes"></textarea>
+	</div>
+</div><!-- Crew Sheet -->
+<div class="sheet-type-crew">
+	<!-- Logo -->
+	<div class="sheet-col60">
+		<div class="sheet-col60 sheet-logoholder">
+			<div class="sheet-bladeslogo"></div>
+		</div>
+		<div class="sheet-col40 sheet-crewheader sheet-font-hoefler">Crew sheet</div>
+	</div>
+	<!-- Crew Type -->
+	<div class="sheet-col40 sheet-toppad">
+		<div class="sheet-playbooktitle">
+			<div class="sheet-title sheet-font-hoefler">
+				<input type="text" name="attr_crew_type" placeholder="Crew"/>
+			</div>
+			<div class="sheet-desc sheet-font-hoefler">
+				<textarea name="attr_crew_desc" placeholder="A short crew description" cols="50" rows="3"></textarea>
+			</div>
+		</div>
+	</div>
+	<!-- Left column -->
+	<div class="sheet-col60 sheet-simple_input">
+		<!-- Header text fields -->
+		<div class="sheet-col60">
+			<input type="text" name="attr_crew_name"/>
+			<label>Name</label>
+		</div>
+		<div class="sheet-col40">
+			<input type="text" name="attr_reputation"/>
+			<label>Reputation</label>
+		</div>
+		<div class="sheet-col100 sheet-fullwidth">
+			<input type="text" name="attr_lair"/>
+			<label>Lair</label>
+		</div>
+		<!-- Rep, Hold, and Tier -->
+		<div>
+			<!-- Rep -->
+			<div class="sheet-repholder sheet-blackborder">
+				<div class="sheet-rep1 sheet-font-hoefler">
+					<div class="sheet-radiolabel">Rep</div>
+				</div>
+				<div class="sheet-rep2">
+					<input type="checkbox" value="1" name="attr_turf" class="sheet-hidden sheet-turf1" />
+					<input type="checkbox" value="2" name="attr_turf" class="sheet-hidden sheet-turf2" />
+					<input type="checkbox" value="3" name="attr_turf" class="sheet-hidden sheet-turf3" />
+					<input type="checkbox" value="4" name="attr_turf" class="sheet-hidden sheet-turf4" />
+					<input type="checkbox" value="5" name="attr_turf" class="sheet-hidden sheet-turf5" />
+					<input type="checkbox" value="6" name="attr_turf" class="sheet-hidden sheet-turf6" />
+					<input type="radio" value="0" name="attr_rep" class="sheet-stresstooth sheet-zero3 sheet-repzero" checked />
+					<span></span>
+					<input type="radio" value="1" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<span></span>
+					<input type="radio" value="2" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<span></span>
+					<input type="radio" value="3" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<span></span>
+					<input type="radio" value="4" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<span></span>
+					<input type="radio" value="5" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<span></span>
+					<input type="radio" value="6" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<span></span>
+					<input type="radio" value="7" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf6" />
+					<span></span>
+					<input type="radio" value="8" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="9" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="10" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="11" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="12" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-stresstoothlast sheet-turf1 sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
+					<div class="sheet-turfbox">
+						<input type="radio" value="1" name="attr_turf" />
+						<input type="radio" value="2" name="attr_turf" />
+						<input type="radio" value="3" name="attr_turf" />
+						<input type="radio" value="4" name="attr_turf" />
+						<input type="radio" value="5" name="attr_turf" />
+						<input type="radio" value="6" name="attr_turf" />
+					</div>
+				</div>
+				<div class="sheet-rep3 sheet-font-hoefler">
+					<div class="sheet-radiolabel sheet-turflabel">Turf</div>
+					<input type="radio" value="0" name="attr_turf" class="sheet-stresstooth sheet-zero3 sheet-halftooth-lower sheet-turfzero" checked />
+						<span></span>
+				</div>
+			</div>
+			<div class="sheet-holdholder sheet-blackborder">
+				<div class="sheet-hold1 sheet-font-hoefler">
+					<div class="sheet-radiolabel">Hold</div>
+				</div>
+				<div class="sheet-hold2 sheet-font-hoefler">
+					<div class="sheet-radiolabel">Weak</div>
+					<input type="radio" value="weak" name="attr_hold" class="sheet-holdtooth" checked />
+					<span></span>
+				</div>
+				<div class="sheet-hold3 sheet-font-hoefler">
+					<div class="sheet-radiolabel">Strong</div>
+					<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-holdtooth" />
+					<span></span>
+				</div>
+			</div>
+			<div class="sheet-tier">
+				<div class="sheet-tier1">
+				</div>
+				<div class="sheet-tier2">
+				</div>
+			</div>
+		</div>
+		<!-- Rest of the left column -->
+		<div class="sheet-col100 sheet-blackborder">
+			<!-- Special abilities -->
+			<div class="sheet-col100">
+				<div class="sheet-specialheader sheet-font-hoefler">Special Abilities</div>
+				<div class="sheet-abilitiesholder">
+					<div class="sheet-specialability">
+						<div class="sheet-abilitycheck">
+							<input type="checkbox" value="1" name="attr_ability1_check" />
+							<span></span>
+							<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability1_name" />
+							<textarea class="sheet-ability1desc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
+						</div>
+					</div>
+					<fieldset class="repeating_ability">
+						<div class="sheet-specialability">
+							<div class="sheet-abilitycheck">
+								<input type="checkbox" value="1" name="attr_check" />
+								<span></span>
+								<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability_name" />
+								<textarea class="sheet-ability1desc" name="attr_ability_desc" placeholder="Ability description"></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<!-- Advancement -->
+			<div class="sheet-markxp sheet-font-hoefler">Crew XP</div>
+			<div class="sheet-playbookadvancement sheet-font-hoefler">
+				<div class="sheet-playbookholder">Crew Advancement </div>
+				<input type="radio" value="0" name="attr_crew_xp" class="sheet-stresstooth sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth" checked />
+				<span></span>
+				<input type="radio" value="1" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<span></span>
+				<input type="radio" value="2" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<span></span>
+				<input type="radio" value="3" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<span></span>
+				<input type="radio" value="4" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<span></span>
+				<input type="radio" value="5" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<span></span>
+				<input type="radio" value="6" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<span></span>
+				<input type="radio" value="7" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<span></span>
+				<input type="radio" value="8" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<span></span>
+			</div>
+			<div class="sheet-markxpdesc">
+				<ul>
+					<li class="sheet-nondot">At the end of each session, for each item below, mark 1 xp (or instead mark 2 xp if that item occurred multiple times).</li>
+					<li>
+						<input type="text" placeholder="Enter your crew's specific way to mark XP here." name="attr_mark_crew_xp" />
+					</li>
+					<li>Contend with challenges above your current station.</li>
+					<li>Bolster your crew's reputation or develop a new one.</li>
+					<li>Express the goals, drives, inner conflict, or essential nature of the crew.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Right column-->
+	<div class="sheet-col40">
+		<!-- Upgrades and Hunting Grounds-->
+		<div class="sheet-col50b">
+			<!-- Upgrades -->
+			<div class="sheet-loadheader2 sheet-font-hoefler">
+				<span>Crew Upgrades</span>
+			</div>
+			<div class="sheet-itemholder">
+				<!-- Specific upgrades -->
+				<div class="sheet-playbookitems">
+					<div class="sheet-item sheet-item3box">
+						<input type="checkbox" value="1" name="attr_upgrade_1_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<div class="sheet-floatingbar"></div>
+						<input type="checkbox" value="1" name="attr_upgrade_1_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<div class="sheet-floatingbar"></div>
+						<input type="checkbox" value="1" name="attr_upgrade_1_check_c" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" placeholder="Three-slot upgrade" name="attr_upgrade_1_desc" />
+					</div>
+					<div class="sheet-item">
+						<input type="checkbox" value="1" name="attr_upgrade_2_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" placeholder="Upgrade" name="attr_upgrade_2_desc" />
+					</div>
+					<div class="sheet-item">
+						<input type="checkbox" value="1" name="attr_upgrade_3_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" placeholder="Upgrade" name="attr_upgrade_3_desc" />
+					</div>
+					<div class="sheet-item">
+						<input type="checkbox" value="1" name="attr_upgrade_4_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" placeholder="Upgrade" name="attr_upgrade_4_desc" />
+					</div>
+					<div class="sheet-item">
+						<input type="checkbox" value="1" name="attr_upgrade_5_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" placeholder="Upgrade" name="attr_upgrade_5_desc" />
+					</div>
+				</div>
+				<!-- Regular upgrades -->
+				<div class="sheet-regularitems">
+					<div class="sheet-item sheet-itemshort">
+						<label>Lair</label>
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<label>Quality</label>
+					</div>
+					<div class="sheet-item sheet-item2box sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_6_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_6_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Carriage" name="attr_upgrade_6_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_7_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Documents" name="attr_upgrade_7_desc" />
+					</div>
+					<div class="sheet-item sheet-item2box sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_8_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_8_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Boat" name="attr_upgrade_8_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_9_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Gear" name="attr_upgrade_9_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_10_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Hidden" name="attr_upgrade_10_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_11_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Implements" name="attr_upgrade_11_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_12_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Quarters" name="attr_upgrade_12_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_13_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Pet/Special" name="attr_upgrade_13_desc" />
+					</div>
+					<div class="sheet-item sheet-item2box sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_14_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_14_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Secure" name="attr_upgrade_14_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_15_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Supplies" name="attr_upgrade_15_desc" />
+					</div>
+					<div class="sheet-item sheet-item2box sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_16_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_upgrade_16_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Vault" name="attr_upgrade_16_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_17_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Tools" name="attr_upgrade_17_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_18_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Workshop" name="attr_upgrade_18_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_19_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Weapons" name="attr_upgrade_19_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<label>Training</label>
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<label>Cohorts</label>
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_20_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Insight" name="attr_upgrade_20_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<label class="sheet-upgradecosts">Upgrade Costs</label>
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_21_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Prowess" name="attr_upgrade_21_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<span>New Cohort: 2</span>
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_22_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Resolve" name="attr_upgrade_22_desc" />
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<span>Add Type: 2</span>
+					</div>
+					<div class="sheet-item sheet-itemshort">
+						<input type="checkbox" value="1" name="attr_upgrade_23_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Personal" name="attr_upgrade_23_desc" />
+					</div>
+					<div class="sheet-item sheet-item4box">
+						<input type="checkbox" value="1" name="attr_upgrade_24_check" class="sheet-itemcheckbox"/>
+						<span></span>
+						<div class="sheet-floatingbar"></div>
+						<input type="checkbox" value="1" name="attr_upgrade_24_check_b" class="sheet-itemcheckbox"/>
+						<span></span>
+						<div class="sheet-floatingbar"></div>
+						<input type="checkbox" value="1" name="attr_upgrade_24_check_c" class="sheet-itemcheckbox"/>
+						<span></span>
+						<div class="sheet-floatingbar"></div>
+						<input type="checkbox" value="1" name="attr_upgrade_24_check_d" class="sheet-itemcheckbox"/>
+						<span></span>
+						<input type="text" value="Mastery" name="attr_upgrade_24_desc" />
+					</div>
+					<fieldset class="repeating_upgrade">
+						<div class="sheet-item sheet-item2box">
+							<input type="checkbox" value="1" name="attr_check" class="sheet-itemcheckbox"/>
+							<span></span>
+							<input type="checkbox" value="1" name="attr_check_b" class="sheet-itemcheckbox"/>
+							<span></span>
+							<input type="text" placeholder="Something Else?" name="attr_desc" />
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="sheet-hunting-grounds-box sheet-font-hoefler">
+				<input type="text" class="sheet-hunting-grounds-header" name="attr_hunting_grounds_type" value="Hunting Grounds" />
+				<input type="text" class="sheet-hunting-grounds-content" name="attr_hunting_grounds" placeholder="Robbery" />
+			</div>
+		</div>
+		<!-- Cohorts and Contacts -->
+		<div class="sheet-col50a">
+			<div class="sheet-cohorts">
+				<!-- First Cohort -->
+				<div class="sheet-attribute sheet-font-hoefler">
+					<div class="sheet-cohort-title">
+						<input value="Cohort" name="attr_cohort1_name"></input>
+						<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort1_name}}}{{roll1value=[[@{cohort1_q1}d6]]}}{{roll2value=[[@{cohort1_q2}d6]]}}{{roll3value=[[@{cohort1_q3}d6]]}}{{roll4value=[[@{cohort1_q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll</button>
+					</div>
+					<div class="sheet-cohort-quality">
+						<input type="checkbox" value="1" name="attr_cohort1_q1" />
+						<span></span>
+						<input type="checkbox" value="1" name="attr_cohort1_q2" />
+						<span></span>
+						<input type="checkbox" value="1" name="attr_cohort1_q3" />
+						<span></span>
+						<input type="checkbox" value="1" name="attr_cohort1_q4" />
+						<span></span>
+					</div>
+				</div>
+				<div class="sheet-cohort-conditionholder sheet-font-hoefler">
+					<div class="sheet-cohort-weak">
+						<div>Weak</div>
+						<input type="checkbox" name="attr_cohort1_weak" class="sheet-stresstooth sheet-cohorttooth" />
+						<span></span>
+					</div>
+					<div class="sheet-cohort-impaired">
+						<div>Impaired</div>
+						<input type="checkbox" name="attr_cohort1_impaired" class="sheet-stresstooth sheet-cohorttooth" />
+						<span></span>
+					</div>
+					<div class="sheet-cohort-broken">
+						<div>Broken</div>
+						<input type="checkbox" name="attr_cohort1_broken" class="sheet-stresstooth sheet-cohorttooth" />
+						<span></span>
+					</div>
+					<div class="sheet-cohort-armor">
+						<div>Armor</div>
+						<input type="checkbox" name="attr_cohort1_armor" class="sheet-stresstooth sheet-cohorttooth" />
+						<span></span>
+					</div>
+				</div>
+				<div class="cohort-text">
+						<textarea name="attr_cohort1_desc"></textarea>
+				</div>
+				<!-- Cohort repeating section -->
+				<div class="sheet-col100">
+					<fieldset class="repeating_cohort">
+						<div class="sheet-rep-block">
+							<div class="sheet-attribute sheet-font-hoefler">
+								<div class="sheet-cohort-title">
+									<input value="Cohort" name="attr_cohort_name"></input>
+									<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort_name}}}{{roll1value=[[@{q1}d6]]}}{{roll2value=[[@{q2}d6]]}}{{roll3value=[[@{q3}d6]]}}{{roll4value=[[@{q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll</button>
+								</div>
+								<div class="sheet-cohort-quality">
+									<input type="checkbox" value="1" name="attr_q1" />
+									<span></span>
+									<input type="checkbox" value="1" name="attr_q2" />
+									<span></span>
+									<input type="checkbox" value="1" name="attr_q3" />
+									<span></span>
+									<input type="checkbox" value="1" name="attr_q4" />
+									<span></span>
+								</div>
+							</div>
+							<div class="sheet-cohort-conditionholder sheet-font-hoefler">
+								<div class="sheet-cohort-weak">
+									<div>Weak</div>
+									<input type="checkbox" name="attr_weak" class="sheet-stresstooth sheet-cohorttooth" />
+									<span></span>
+								</div>
+								<div class="sheet-cohort-impaired">
+									<div>Impaired</div>
+									<input type="checkbox" name="attr_impaired" class="sheet-stresstooth sheet-cohorttooth" />
+									<span></span>
+								</div>
+								<div class="sheet-cohort-broken">
+									<div>Broken</div>
+									<input type="checkbox" name="attr_broken" class="sheet-stresstooth sheet-cohorttooth" />
+									<span></span>
+								</div>
+								<div class="sheet-cohort-armor">
+									<div>Armor</div>
+									<input type="checkbox" name="attr_armor" class="sheet-stresstooth sheet-cohorttooth" />
+									<span></span>
+								</div>
+							</div>
+							<div class="cohort-text">
+									<textarea name="attr_desc"></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<!-- Contacts -->
+			<div class="sheet-specialheader sheet-font-hoefler">Contacts</div>
+			<div class="sheet-abilitiesholder">
+				<div class="sheet-specialability">
+					<div class="sheet-abilitycheck">
+						<input type="text" placeholder="Contact name" class="sheet-friend sheet-contact" name="attr_contact1_name"/>
+					</div>
+				</div>
+				<fieldset class="repeating_contact">
+					<div class="sheet-specialability">
+						<div class="sheet-abilitycheck">
+							<input type="text" placeholder="Friend name" class="sheet-friend sheet-contact" name="attr_contact_name" />
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<!-- Clocks -->
+		<div class="sheet-col100 sheet-col1002">
+			<div class="sheet-specialheader sheet-font-hoefler sheet-specialheader2">Clocks</div>
+			<fieldset class="repeating_clock">
+				<div class="sheet-recoveryblurb sheet-recoveryblurb2">
+					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname sheet-font-hoefler" />
 					<br/>
 					<div class="sheet-harmprogress">
 						<span>Size</span>
@@ -1122,992 +1721,3 @@
 		<textarea class="sheet-notes" name="attr_notes" placeholder="Notes"></textarea>
 	</div>
 </div>
-<!-- Crew Sheet -->
-<div class="sheet-type-crew">
-  <input type="radio" name="sheet-char-tab2" class="sheet-char-tab sheet-char-tab-crew" title="Crew" value="1" checked="checked" /><span>Crew</span>
-  <input type="radio" name="sheet-char-tab2" class="sheet-char-tab sheet-char-tab-factions" title="Factions" value="2" /><span>Factions</span>
-
- <!--Crew Tab-->
-  <div class="sheet-char-tab-content sheet-char-tab-crew">
-
-    <br />
-
-    <!-- Name & Reputation, Lair, Wanted, Money, Rep, Tier, Claims, Advancement -->
-    <div class="sheet-char-row"> <!-- Wanted, Heat, Coin, Vaults / Rep, Turf, Hold, Tier-->
-
-      <!-- Name -->
-      <div class="sheet-col">
-        <div class="sheet-char-row">
-          <div class="sheet-col"><label>Name:</label></div>
-          <input type="text" name="attr_name" class="sheet-char-crew-name">
-        </div>
-      </div>
-      <!-- Reputation -->
-      <div class="sheet-col">
-        <div class="sheet-char-row">
-          <div class="sheet-col"><label>Reputation:</label></div>
-          <input type="text" name="attr_crew_reputation" class="sheet-char-crew-reputation">
-        </div>
-      </div>
-
-      <!-- Lair -->
-      <div class="sheet-char-row">
-        <div class="sheet-col"><label>Lair:</label></div>
-        <input type="text" name="attr_crew_lair" class="sheet-char-crew-lair">
-      </div>  
- 
-      <!-- Wanted, Heat, Coin, Vaults / Rep, Turf, Hold, Tier-->
-      <div class="sheet-char-row sheet-char-heatrow">
-
-        <!-- Rep, Turf, Hold, Tier-->
-        <div class="sheet-col">
-
-          <!-- Rep, Turf -->
-          <div class="sheet-char-row sheet-char-turfrow-outer">
-            <div class="sheet-char-row sheet-char-turfrow">
-              <div class="sheet-col"><label class="sheet-char-turf-label">Turf</label></div>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check-first" name="attr_crew_turf1" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf2" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf3" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf4" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf5" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf6" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf7" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf8" /><span></span>
-              <input type="checkbox" class="sheet-char-turf sheet-char-check" name="attr_crew_turf9" /><span></span>
-            </div>
-            <div class="sheet-char-row">
-              <div class="sheet-col sheet-char-rep"><label class="sheet-char-rep-label">Rep</label></div>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check-first" name="attr_crew_rep1" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep2" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep3" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep4" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep5" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep6" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep7" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep8" /><span></span>
-              <input type="checkbox" class="sheet-char-rep sheet-char-check" name="attr_crew_rep9" /><span></span>
-              <div class="sheet-col"><label></label></div>
-            </div>
-          </div> <!-- Rep, Turf -->
-        </div> <!-- Rep, Turf, Hold, Tier -->
-
-        <!-- Wanted, Coin -->
-        <div class="sheet-col">
-          <!-- Wanted -->
-          <div class="sheet-char-row">
-            <div class="sheet-char-row">
-              <div class="sheet-col"><label class="sheet-char-wanted-label">Wanted</label></div>
-              <input type="radio" class="sheet-char-wanted sheet-char-leftradio sheet-char-zero" name="attr_crew_wanted" value="0" checked="checked" /><span></span>
-              <input type="radio" class="sheet-char-wanted sheet-char-leftradio" name="attr_crew_wanted" value=1 /><span></span>
-              <input type="radio" class="sheet-char-wanted sheet-char-leftradio" name="attr_crew_wanted" value=2 /><span></span>
-              <input type="radio" class="sheet-char-wanted sheet-char-leftradio" name="attr_crew_wanted" value=3 /><span></span>
-              <input type="radio" class="sheet-char-wanted sheet-char-leftradio" name="attr_crew_wanted" value=4 /><span></span>
-            </div>
-          </div> <!-- Wanted -->
-
-          <!-- Coin -->
-          <div class="sheet-char-row">
-            <div class="sheet-char-row">
-              <div class="sheet-col"><label class="sheet-char-coin-label">Coin</label></div>
-              <input type="radio" class="sheet-char-coin sheet-char-leftradio sheet-char-zero" name="attr_crew_coin" value="0" checked="checked" /><span></span>
-              <input type="radio" class="sheet-char-coin sheet-char-leftradio" name="attr_crew_coin" value=1 /><span></span>
-              <input type="radio" class="sheet-char-coin sheet-char-leftradio" name="attr_crew_coin" value=2 /><span></span>
-              <input type="radio" class="sheet-char-coin sheet-char-leftradio" name="attr_crew_coin" value=3 /><span></span>
-              <input type="radio" class="sheet-char-coin sheet-char-leftradio" name="attr_crew_coin" value=4 /><span></span>
-            </div>
-          </div> <!-- Coin -->
-        </div> <!-- Wanted, Coin -->
-
-        <!-- Heat, Vault -->
-        <div class="sheet-col">
-          <!-- Heat -->
-          <div class="sheet-char-row">
-              <div class="sheet-col"><label class="sheet-char-heat-label">Heat</label></div>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio sheet-char-zero" name="attr_crew_heat" value="0" checked="checked"/><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="1" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="2" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="3" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="4" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="5" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="6" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="7" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="8" /><span></span>
-              <input type="radio" class="sheet-char-heat sheet-char-leftradio" name="attr_crew_heat" value="9" /><span></span>
-          </div> <!-- Heat -->
-
-          <!-- Vaults -->
-          <div class="sheet-char-row">
-            <div class="sheet-char-row">
-              <div class="sheet-col"><label class="sheet-char-vault-label">Vault</label></div>
-              <div class="sheet-col">
-              <input type="radio" class="sheet-char-vault1 sheet-char-leftradio sheet-char-zero" name="attr_crew_vault1" value="0" checked="checked" /><span></span>
-              <input type="radio" class="sheet-char-vault1 sheet-char-leftradio" name="attr_crew_vault1" value=1 /><span></span>
-              <input type="radio" class="sheet-char-vault1 sheet-char-leftradio" name="attr_crew_vault1" value=2 /><span></span>
-              <input type="radio" class="sheet-char-vault1 sheet-char-leftradio" name="attr_crew_vault1" value=3 /><span></span>
-              <input type="radio" class="sheet-char-vault1 sheet-char-leftradio" name="attr_crew_vault1" value=4 /><span></span>
-            </div>
-
-              <div class="sheet-col">
-              <input type="radio" class="sheet-char-vault2 sheet-char-leftradio sheet-char-zero" name="attr_crew_vault2" value="0" checked="checked" /><span></span>
-              <input type="radio" class="sheet-char-vault2 sheet-char-leftradio" name="attr_crew_vault2" value=1 /><span></span>
-              <input type="radio" class="sheet-char-vault2 sheet-char-leftradio" name="attr_crew_vault2" value=2 /><span></span>
-              <input type="radio" class="sheet-char-vault2 sheet-char-leftradio" name="attr_crew_vault2" value=3 /><span></span>
-              <input type="radio" class="sheet-char-vault2 sheet-char-leftradio" name="attr_crew_vault2" value=4 /><span></span>
-              </div>
-            </div>
-          </div> <!-- Vaults -->
-        </div> <!-- Heat, Vaults -->
-
-        <!-- Hold, Tier -->
-        <div class="sheet-col">
-          <!-- Hold -->
-          <div class="sheet-char-row">
-            <div class="sheet-col"><label class="sheet-char-hold-label">Hold</label></div>
-            <input type="radio" class="sheet-char-hold sheet-char-leftradio sheet-char-zero" name="attr_crew_hold" value="0" checked="checked"/><span></span>
-            <input type="radio" class="sheet-char-hold sheet-char-leftradio" name="attr_crew_hold" value="1" title="Weak"/><span></span>
-            <input type="radio" class="sheet-char-hold sheet-char-leftradio" name="attr_crew_hold" value="2" title="Firm"/><span></span>
-            <input type="radio" class="sheet-char-hold sheet-char-leftradio" name="attr_crew_hold" value="3" title="Strong"/><span></span>
-          </div> <!-- Hold -->
-
-          <!-- Tier -->
-          <div class="sheet-char-row">
-            <div class="sheet-col"><label class="sheet-char-tier-label">Tier</label></div>
-            <input type="radio" class="sheet-char-tier sheet-char-leftradio sheet-char-zero" name="attr_crew_tier" value="0" checked="checked" /><span></span> 
-            <input type="radio" class="sheet-char-tier sheet-char-leftradio" name="attr_crew_tier" value=1 /><span></span>
-            <input type="radio" class="sheet-char-tier sheet-char-leftradio" name="attr_crew_tier" value=2 /><span></span>
-            <input type="radio" class="sheet-char-tier sheet-char-leftradio" name="attr_crew_tier" value=3 /><span></span>
-            <input type="radio" class="sheet-char-tier sheet-char-leftradio" name="attr_crew_tier" value=4 /><span></span>
-          </div> <!-- Tier -->
-        </div> <!-- Hold, Tier -->
-
-      </div> <!-- Wanted, Heat, Coin, Vaults / Rep, Turf, Hold, Tier-->
-
-    <hr> 
-    
-      <div class="sheet-char-row"> <!-- Claims Map -->
-        <div class="sheet-char-map-row-claims">
-            <h3>Claims</h3>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim1" class="sheet-char-claim"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim1_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim2" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim2_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim3" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim3_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim4" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim4_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim5" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-        </div>
-
-        <div class="sheet-char-connector-row">
-          <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim1_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim2_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim3_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim4_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim5_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-        </div>
-
-        <div class="sheet-char-map-row-claims sheet-char-notfirstrow">
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim6" class="sheet-char-claim"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim6_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim7" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim7_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim8" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim8_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim9" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim9_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim10" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-        </div>
-
-       <div class="sheet-char-connector-row">
-          <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim6_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim7_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim8_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim9_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-            <div class="sheet-char-down-connector">
-          <input type="checkbox" name="attr_claim10_down_connector" class="sheet-char-down-connector-check" value="1"><span></span>
-          </div>
-        </div>
-
-        <div class="sheet-char-map-row-claims sheet-char-notfirstrow">
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim11" class="sheet-char-claim"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim11_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim12" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim12_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim13" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim13_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim14" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-          <div class="sheet-char-map-connector">
-            <input type="checkbox" name="attr_claim14_right_connector" class="sheet-char-connector-check" value="1"><span></span>
-          </div>
-          <div class="sheet-char-map-claim">
-            <textarea name="attr_claim15" class="sheet-char-claim  sheet-char-notfirst"></textarea>
-          </div>
-        </div>
-        <div class="sheet-char-claim-checkboxes sheet-char-claims-checks1">
-            <input type="checkbox" name="attr_claim1_claimed" class="sheet-char-claim-claimed1">
-            <input type="checkbox" name="attr_claim2_claimed" class="sheet-char-claim-claimed2">
-            <input type="checkbox" name="attr_claim3_claimed" class="sheet-char-claim-claimed3">
-            <input type="checkbox" name="attr_claim4_claimed" class="sheet-char-claim-claimed4">
-            <input type="checkbox" name="attr_claim5_claimed" class="sheet-char-claim-claimed5">
-        </div>
-        <div class="sheet-char-claim-checkboxes sheet-char-claims-checks2">
-            <input type="checkbox" name="attr_claim6_claimed" class="sheet-char-claim-claimed1">
-            <input type="checkbox" name="attr_claim7_claimed" class="sheet-char-claim-claimed2">
-            <input type="checkbox" name="attr_claim8_claimed" class="sheet-char-claim-claimed3">
-            <input type="checkbox" name="attr_claim9_claimed" class="sheet-char-claim-claimed4">
-            <input type="checkbox" name="attr_claim10_claimed" class="sheet-char-claim-claimed5">
-        </div>
-        <div class="sheet-char-claim-checkboxes sheet-char-claims-checks3">
-            <input type="checkbox" name="attr_claim11_claimed" class="sheet-char-claim-claimed1">
-            <input type="checkbox" name="attr_claim12_claimed" class="sheet-char-claim-claimed2">
-            <input type="checkbox" name="attr_claim13_claimed" class="sheet-char-claim-claimed3">
-            <input type="checkbox" name="attr_claim14_claimed" class="sheet-char-claim-claimed4">
-            <input type="checkbox" name="attr_claim15_claimed" class="sheet-char-claim-claimed5">
-        </div>
-      </div> <!-- Claims Map -->
-
-    <hr>
-
-      <div class="sheet-char-row"> <!-- Special Abilities -->
-        
-        <div class="sheet-col"> <!--Crew Special Abilities-->
-          <div class="sheet-char-row">
-            <div class="sheet-col"><h3>Special Abilities</h3></div>
-          </div>
-
-          <div class="sheet-char-row">
-            <input type="checkbox" name="attr_crew_ability1" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-            <input type="text" name="attr_crew_ability_name1" class="sheet-char-crew-ability-name">
-            <input type="text" name="attr_crew_ability_info1" class="sheet-char-crew-ability-info">
-          </div>
-
-          <div class="sheet-char-row">
-            <input type="checkbox" name="attr_crew_ability2" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-            <input type="text" name="attr_crew_ability_name2" class="sheet-char-crew-ability-name">
-            <input type="text" name="attr_crew_ability_info2" class="sheet-char-crew-ability-info">
-          </div>
-
-          <div class="sheet-char-row">
-            <input type="checkbox" name="attr_crew_ability3" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-            <input type="text" name="attr_crew_ability_name3" class="sheet-char-crew-ability-name">
-            <input type="text" name="attr_crew_ability_info3" class="sheet-char-crew-ability-info">
-          </div>
-
-          <div class="sheet-char-row">
-            <input type="checkbox" name="attr_crew_ability4" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-            <input type="text" name="attr_crew_ability_name4" class="sheet-char-crew-ability-name">
-            <input type="text" name="attr_crew_ability_info4" class="sheet-char-crew-ability-info">
-          </div>
-
-          <div class="sheet-char-row">
-            <input type="checkbox" name="attr_crew_ability5" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-            <input type="text" name="attr_crew_ability_name5" class="sheet-char-crew-ability-name">
-            <input type="text" name="attr_crew_ability_info5" class="sheet-char-crew-ability-info">
-          </div>
-
-          <div class="sheet-char-row">
-            <input type="checkbox" name="attr_crew_ability6" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-            <input type="text" name="attr_crew_ability_name6" class="sheet-char-crew-ability-name">
-            <input type="text" name="attr_crew_ability_info6" class="sheet-char-crew-ability-info">
-          </div>
-
-          <div class="sheet-char-row">
-            <input type="checkbox" name="attr_crew_ability7" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-            <input type="text" name="attr_crew_ability_name7" class="sheet-char-crew-ability-name">
-            <input type="text" name="attr_crew_ability_info7" class="sheet-char-crew-ability-info">
-          </div>
-
-          <fieldset class="repeating_crew_ability">
-            <div class="sheet-char-row">
-              <input type="checkbox" name="attr_crew_ability0" class="sheet-char-crew-ability sheet-char-check-first"><span></span>
-              <input type="text" name="attr_crew_ability_name0" class="sheet-char-crew-ability-name" placeholder="Veteran Choice">
-              <input type="text" name="attr_crew_ability_info0" class="sheet-char-crew-ability-info" placeholder="Special ability from another source.">
-            </div>
-          </fieldset>
-        </div> <!-- Crew Special Abilities -->
-      </div> <!-- Special Abilities -->
-
-      <hr>
-
-      <div class="sheet-char-row"> <!-- Advancement and Upgrades -->
-
-        <div class="sheet-col"> <!-- Crew Advancement Label, Bubbles, and Infos -->
-          <div class="sheet-char-row"> <!-- Crew Advancement Label and Bubbles -->
-            <div class="sheet-char-row"><label class="sheet-char-crew-advancement-label">Crew Advancement</label>
-            <!-- Bubbles -->
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio sheet-char-zero" name="attr_crew_advancement" value="0" checked="checked" /><span></span> 
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="1"/><span></span>
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="2"/><span></span>
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="3"/><span></span>
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="4"/><span></span>
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="5"/><span></span>
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="6"/><span></span>
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="7"/><span></span>
-              <input type="radio" class="sheet-char-crew-advancement sheet-char-leftradio" name="attr_crew_advancement" value="8"/><span></span>
-            </div> <!-- Bubbles -->
-          </div> <!-- Crew Advancement Label and Bubbles -->
-          <div class="sheet-char-row">Mark XP for crew advancement each time you:</div>
-          <div class="sheet-char-row"><input type="text" class="sheet-char-advancement-descr" name="attr_crew_advancement_info1" placeholder="Execute a profitable burglary, robbery, or other theft."></div>
-          <div class="sheet-char-row"><input type="text" class="sheet-char-advancement-descr" name="attr_crew_advancement_info2" placeholder="Improve the quality or variety of your hunting grounds."></div>
-          <div class="sheet-char-row"><input type="text" class="sheet-char-advancement-descr" name="attr_crew_advancement_info3" placeholder="Bolster your crew's reputation or develop a new one."></div>
-          <div class="sheet-char-row"><input type="text" class="sheet-char-advancement-descr" name="attr_crew_advancement_info4" placeholder="Contend with challenges above your current station."></div>
-        </div> <!-- Crew Advancement Label, Bubbles, and Infos -->
-        
-        <div class="sheet-col"> <!-- Crew, Lair/Quality/Training -->
-          <div class="sheet-col"> <!-- Crew Upgrades -->
-            <div class="sheet-col"> <!-- Crew Upgrades -->
-              <div class="sheet-char-row"><h3>Crew Upgrades</h3> </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_crew_upgrade1" class="sheet-char-crew_upgrade sheet-char-check-first"><span></span>
-                <input type="text" name="attr_crew_upgrade_info1" class="sheet-char-crew-upgrade-info">
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_crew_upgrade2" class="sheet-char-crew_upgrade sheet-char-check-first"><span></span>
-                <input type="text" name="attr_crew_upgrade_info2" class="sheet-char-crew-upgrade-info">
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_crew_upgrade3" class="sheet-char-crew_upgrade sheet-char-check-first"><span></span>
-                <input type="text" name="attr_crew_upgrade_info3" class="sheet-char-crew-upgrade-info">
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_crew_upgrade4" class="sheet-char-crew_upgrade sheet-char-check-first"><span></span>
-                <input type="text" name="attr_crew_upgrade_info4" class="sheet-char-crew-upgrade-info">
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_crew_upgrade5" class="sheet-char-crew_upgrade sheet-char-check-first"><span></span>
-                <input type="text" name="attr_crew_upgrade_info5" class="sheet-char-crew-upgrade-info">
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_crew_upgrade6" class="sheet-char-crew_upgrade sheet-char-check-first"><span></span>
-                <input type="text" name="attr_crew_upgrade_info6" class="sheet-char-crew-upgrade-info">
-              </div>
-            </div> <!-- Crew Upgrades -->
-          </div> <!-- Crew Upgrades -->
-          <div class="sheet-col"> <!-- Lair/Quality/Training Upgrades -->
-            <div class="sheet-col"> <!-- Lair Upgrades -->
-              <div class="sheet-char-row"> <!-- Lair Upgrades -->
-                <h3>Lair</h3>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_lair_upgrade1a" class="sheet-char-lair-upgrade sheet-char-check-first"><span></span>
-                  <input type="checkbox" name="attr_lair_upgrade1b" class="sheet-char-lair-upgrade sheet-char-check sheet-char-check-last"><span></span>
-                  Carriage
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_lair_upgrade2a" class="sheet-char-lair-upgrade sheet-char-check-first"><span></span>
-                  <input type="checkbox" name="attr_lair_upgrade2b" class="sheet-char-lair-upgrade sheet-char-check sheet-char-check-last"><span></span>
-                  Boat
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_lair_upgrade3a" class="sheet-char-lair-upgrade sheet-char-check-first sheet-char-check-last sheet-char-item-twobox"><span></span>
-                  Hidden
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_lair_upgrade4a" class="sheet-char-lair-upgrade sheet-char-check-first sheet-char-check-last sheet-char-item-twobox"><span></span>
-                  Quarters
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_lair_upgrade5a" class="sheet-char-lair-upgrade sheet-char-check-first"><span></span>
-                  <input type="checkbox" name="attr_lair_upgrade5b" class="sheet-char-lair-upgrade sheet-char-check sheet-char-check-last"><span></span>
-                  Secure
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_lair_upgrade6a" class="sheet-char-lair-upgrade sheet-char-check-first"><span></span>
-                  <input type="checkbox" name="attr_lair_upgrade6b" class="sheet-char-lair-upgrade sheet-char-check sheet-char-check-last"><span></span>
-                  Vault
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_lair_upgrade7a" class="sheet-char-lair-upgrade sheet-char-check-first sheet-char-check-last sheet-char-item-twobox"><span></span>
-                  Workshop
-                </div>
-              </div> <!-- Lair Upgrades -->
-            </div> <!-- Lair Upgrades -->
-            
-            <div class="sheet-col"> <!-- Quality Upgrades -->
-              <div class="sheet-char-row"> <!-- Quality Upgrades -->
-                <h3>Quality</h3>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_quality_upgrade1a" class="sheet-char-quality-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                  Documents
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_quality_upgrade2a" class="sheet-char-quality-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                  Gear
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_quality_upgrade3a" class="sheet-char-quality-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                  Implements
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_quality_upgrade4a" class="sheet-char-quality-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                  Pet/Special
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_quality_upgrade6a" class="sheet-char-quality-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                  Supplies
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_quality_upgrade7a" class="sheet-char-quality-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                  Tools
-                </div>
-                <div class="sheet-char-row">
-                  <input type="checkbox" name="attr_quality_upgrade8a" class="sheet-char-quality-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                  Weapons
-                </div>
-              </div>
-            </div> <!-- Quality Upgrades -->
-
-            <div class="sheet-col"> <!-- Training Upgrades -->
-              <h3>Training</h3>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_training_upgrade1" class="sheet-char-training-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                Insight
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_training_upgrade2" class="sheet-char-training-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                Prowess
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_training_upgrade3" class="sheet-char-training-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                Resolve
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_training_upgrade4" class="sheet-char-training-upgrade sheet-char-check-first sheet-char-check-last"><span></span>
-                Personal
-              </div>
-              <div class="sheet-char-row">
-                <input type="checkbox" name="attr_training_upgrade5" class="sheet-char-training-upgrade sheet-char-check-first sheet-char-linkedbox"><span></span>
-                <input type="checkbox" name="attr_training_upgrade6" class="sheet-char-training-upgrade sheet-char-check sheet-char-check-last"><span></span>
-                Mastery
-              </div>
-            </div> <!-- Training Upgrades -->
-          </div> <!-- Lair/Quality/Training Upgrades -->
-        </div> <!-- Crew, Lair/Quality/Training -->
-      </div> <!-- Crew Advancement -->
-    </div>
-    
-    <hr>
-    
-    <div class="sheet-char-row"> <!-- Contacts, Cohorts -->
-      <div class="sheet-col sheet-char-freejob"> <!-- Hunting Grounds -->
-        <div class="sheet-char-row"><input type="text" name="attr_freejobs" class="sheet-char-freejobs" placeholder="Hunting Grounds/Smuggling Routes/Products/Rituals"></div>
-          
-          <div class="sheet-char-row"> <!-- Default Hunting Ground -->
-            <div class="sheet-char-row"> <!-- Name and Bubbles Row -->
-              <div class="sheet-col"><input type="text" name="attr_freejob_name1" class="sheet-char-freejob-name" placeholder="Name"></div>
-              <div class="sheet-col">Quality:</div>
-              <div class="sheet-col"> <!-- Quality Bubbles -->
-                <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio sheet-char-zero" name="attr_freejob_quality1" value="0" checked="checked" /><span></span>
-                <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality1" value="1" /><span></span>
-                <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality1" value="2" /><span></span>
-                <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality1" value="3" /><span></span>
-                <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality1" value="4" /><span></span>
-              </div>  <!-- Quality Bubbles -->
-            </div> <!-- Name and Bubbles Row-->
-            <div class="sheet-char-row"><textarea name="attr_freejob_notes" placeholder="Notes"></textarea></div>
-          </div>  <!-- Default Hunting Ground -->
-          
-          <fieldset class="repeating_freejob">
-            <div class="sheet-col"><input type="text" name="attr_freejob_name" class="sheet-char-freejob-name" placeholder="Name"></div>
-            <div class="sheet-col">Quality:</div>
-            <div class="sheet-col">
-              <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio sheet-char-zero" name="attr_freejob_quality" value="0" checked="checked" /><span></span>
-              <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality" value="1" /><span></span>
-              <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality" value="2" /><span></span>
-              <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality" value="3" /><span></span>
-              <input type="radio" class="sheet-char-freejob-quality sheet-char-leftradio" name="attr_freejob_quality" value="4" /><span></span>
-            </div>
-            <div class="sheet-char-row"><textarea name="attr_freejob_notes" placeholder="Notes"></textarea></div>
-        </fieldset>
-      </div> <!-- Hunting Grounds -->
-
-      <div class="sheet-col"> <!-- Contacts -->
-        <div class="sheet-char-row">
-          <h3>Contacts</h3>
-        </div>
-
-        <div class="sheet-char-row">
-          <input type="checkbox" name="attr_contact_friend1" class="sheet-char-friend sheet-char-check-first"><span></span>
-          <input type="checkbox" name="attr_contact_rival1" class="sheet-char-rival sheet-char-check"><span></span>
-          <input type="text" name="attr_contact_friend_info1" class="sheet-char-contact-friend-info">
-
-        </div>
-
-        <div class="sheet-char-row">
-          <fieldset class="repeating_contact">
-            <div class="sheet-char-row">
-              <input type="checkbox" name="attr_contact_friend" class="sheet-char-friend sheet-char-check-first"><span></span>
-              <input type="checkbox" name="attr_contact_rival" class="sheet-char-rival sheet-char-check"><span></span>
-              <input type="text" name="attr_contact_friend_info" class="sheet-char-contact-friend-info">
-            </div>
-          </fieldset>
-        </div>
-      </div> <!-- Contacts -->
-      
-      <div class="sheet-col"> <!-- Cohorts -->
-        <div class="sheet-char-row">
-          <h3>Cohorts</h3>
-        </div>
-
-        <fieldset class="repeating_cohort">
-          <div class="sheet-char-row">
-            <div class="sheet-col">
-              <label class="sheet-char-cohort-label">Quality</label>
-              <input type="radio" class="sheet-char-cohort-quality sheet-char-leftradio sheet-char-zero" name="attr_cohort_quality" value="0" checked="checked" /><span></span>
-              <input type="radio" class="sheet-char-cohort-quality sheet-char-leftradio" name="attr_cohort_quality" value="1"/><span></span>
-              <input type="radio" class="sheet-char-cohort-quality sheet-char-leftradio" name="attr_cohort_quality" value="2"/><span></span>
-              <input type="radio" class="sheet-char-cohort-quality sheet-char-leftradio" name="attr_cohort_quality" value="3"/><span></span>
-              <input type="radio" class="sheet-char-cohort-quality sheet-char-leftradio" name="attr_cohort_quality" value="4"/><span></span>
-              <label class="sheet-char-cohort-label">Armor</label>
-              <input type="checkbox" name="attr_cohort_armor" class="sheet-char-cohort-armor sheet-char-check-first"><span></span>
-            </div>
-          </div>
-          <div class="sheet-char-row">
-            <div class="sheet-char-row">
-                <label class="sheet-char-cohort-label">Name</label>
-                <input type="text" class="sheet-char-cohort-name" name="attr_cohort_name"/>
-            </div>
-            <div class="sheet-char-row">
-              <label class="sheet-char-cohort-label">Health</label>
-              <select class="sheet-char-cohort-health" name="attr_cohort_health">
-                <option></option>
-                <option>Weak</option>
-                <option>Impaired</option>
-                <option>Broken</option>
-              </select>
-              <label class="sheet-char-cohort-label">Type</label>
-              <select class="sheet-char-cohort-health" name="attr_cohort_type">
-                <option></option>
-                <option>Adepts</option>
-                <option>Killers</option>
-                <option>Rooks</option>
-                <option>Rovers</option>
-                <option>Shadows</option>
-                <option>Thugs</option>
-              </select>
-            </div>
-          </div>
-          <textarea name="attr_cohort_notes" class="sheet-char-cohort-notes" placeholder="Notes"></textarea>
-        </fieldset>
-      </div> <!-- Cohorts -->
-
-
-    </div>
-
-    <div class="sheet-char-row"> <!-- Notes -->
-      <div class="sheet-char-row">
-        <h3>Notes</h3>
-      </div>
-      <textarea name="attr_crew_notes" class="sheet-char-crew-notes"></textarea>
-    </div> <!-- Notes -->
-  </div>
-
-   <!--Factions Tab-->
-  <div class="sheet-char-tab-content sheet-char-tab-factions">
-    <div class="sheet-col sheet-char-faction-section"> <!-- Criminal Underworld -->
-      <div class="sheet-char-row"><h3>Criminal Underworld</h3></div>
-      <fieldset class="repeating_factioncrime">
-        <div class="sheet-char-row">
-          <div class="sheet-col"><input type="text" name="attr_faction_name_crime" class="sheet-char-faction-name"></div>
-          <div class="sheet-col">
-            <select name="attr_faction_status_crime" class="sheet-char-faction-status">
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option selected="selected">0</option>
-              <option>-1</option>
-              <option>-2</option>
-              <option>-3</option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_tier_crime" class="sheet-char-faction-tier">
-              <option value="5">V</option>
-              <option value="4">IV</option>
-              <option value="3">III</option>
-              <option value="2">II</option>
-              <option value="1">I</option>
-              <option value="0" selected="selected"> </option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_hold_crime" class="sheet-char-faction-hold">
-              <option>S</option>
-              <option>F</option>
-              <option selected="selected">W</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
-    </div> <!-- Criminal Underworld -->
-
-    <div class="sheet-col sheet-char-faction-section"> <!-- City Institutions -->
-      <div class="sheet-char-row"><h3>City Institutions</h3></div>
-      <fieldset class="repeating_factioncity">
-        <div class="sheet-char-row">
-          <div class="sheet-col"><input type="text" name="attr_faction_name_city" class="sheet-char-faction-name"></div>
-          <div class="sheet-col">
-            <select name="attr_faction_status_city" class="sheet-char-faction-status">
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option selected="selected">0</option>
-              <option>-1</option>
-              <option>-2</option>
-              <option>-3</option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_tier_city" class="sheet-char-faction-tier">
-              <option value="5">V</option>
-              <option value="4">IV</option>
-              <option value="3">III</option>
-              <option value="2">II</option>
-              <option value="1">I</option>
-              <option value="0" selected="selected"> </option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_hold_city" class="sheet-char-faction-hold">
-              <option>S</option>
-              <option>F</option>
-              <option selected="selected">W</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
-    </div> <!-- City Institutions -->
-    
-    <div class="sheet-col sheet-char-faction-section"> <!-- Labor & Trade -->
-      <div class="sheet-char-row"><h3>Labor & Trade</h3></div>
-      <fieldset class="repeating_factionlabor">
-        <div class="sheet-char-row">
-          <div class="sheet-col"><input type="text" name="attr_faction_name_labor" class="sheet-char-faction-name"></div>
-          <div class="sheet-col">
-            <select name="attr_faction_status_labor" class="sheet-char-faction-status">
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option selected="selected">0</option>
-              <option>-1</option>
-              <option>-2</option>
-              <option>-3</option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_tier_labor" class="sheet-char-faction-tier">
-              <option value="5">V</option>
-              <option value="4">IV</option>
-              <option value="3">III</option>
-              <option value="2">II</option>
-              <option value="1">I</option>
-              <option value="0" selected="selected"> </option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_hold_labor" class="sheet-char-faction-hold">
-              <option>S</option>
-              <option>F</option>
-              <option selected="selected">W</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
-    </div> <!-- Labor & Trade -->
-    
-    <div class="sheet-col sheet-char-faction-section"> <!-- Faith & Weirdness -->
-      <div class="sheet-char-row"><h3>Faith & Weirdness</h3></div>
-      <fieldset class="repeating_factionfaith">
-        <div class="sheet-char-row">
-          <div class="sheet-col"><input type="text" name="attr_faction_name_faith" class="sheet-char-faction-name"></div>
-          <div class="sheet-col">
-            <select name="attr_faction_status_faith" class="sheet-char-faction-status">
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option selected="selected">0</option>
-              <option>-1</option>
-              <option>-2</option>
-              <option>-3</option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_tier_faith" class="sheet-char-faction-tier">
-              <option value="5">V</option>
-              <option value="4">IV</option>
-              <option value="3">III</option>
-              <option value="2">II</option>
-              <option value="1">I</option>
-              <option value="0" selected="selected"> </option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_hold_faith" class="sheet-char-faction-hold">
-              <option>S</option>
-              <option>F</option>
-              <option selected="selected">W</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
-    </div> <!-- Faith & Weirdness -->
-    
-    <div class="sheet-col sheet-char-faction-section"> <!-- Others -->
-      <div class="sheet-char-row"><h3>Others</h3></div>
-      <fieldset class="repeating_factionother">
-        <div class="sheet-char-row">
-          <div class="sheet-col"><input type="text" name="attr_faction_name_other" class="sheet-char-faction-name"></div>
-          <div class="sheet-col">
-            <select name="attr_faction_status_other" class="sheet-char-faction-status">
-              <option>3</option>
-              <option>2</option>
-              <option>1</option>
-              <option selected="selected">0</option>
-              <option>-1</option>
-              <option>-2</option>
-              <option>-3</option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_tier_other" class="sheet-char-faction-tier">
-              <option value="5">V</option>
-              <option value="4">IV</option>
-              <option value="3">III</option>
-              <option value="2">II</option>
-              <option value="1">I</option>
-              <option value="0" selected="selected"> </option>
-            </select>
-          </div>
-          <div class="sheet-col">
-            <select name="attr_faction_hold_other" class="sheet-char-faction-hold">
-              <option>S</option>
-              <option>F</option>
-              <option selected="selected">W</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
-    </div> <!-- Others -->
-
-    <div class="sheet-col sheet-char-war-description sheet-char-faction-section">
-      <div class="sheet-char-row"><h2>War</h2></div>
-      <div class="sheet-char-row">When you're at war with any number of factions (status -3), the following penalties apply:</div>
-      <div class="sheet-char-row">
-        <ul>
-          <li>Lose 1 hold (temporarily, while the war persists).  This may knock you down a Tier.</li>
-          <li>Take +1 Heat from each score.</li>
-          <li>PCs get only one free downtime action instead of two.</li>
-          <li>Your claims which generate coin (vice dens, fighting pits, fences, etc.) produce only half their normal income (round down).</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-
-
-</div>
-<!--  Template Example
-&{template:bitdaction} {{name=@{character_name}}} {{action=Hunt}} {{position=Risky}} {{result=[[]]}}
-
-Action
-&{template:bitd} {{name=@{character_name}}} {{action=?{Action|Hunt|Study|Survey|Tinker|Finesse|Prowl|Skirmish|Wreck|Attune|Command|Consort|Sway}}} {{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}} {{result=[[(?{Base Dice|1}+?{Extra Dice|0})d6sk1]]}} 
-
-Fortune
-&{template:bitd} {{name=@{character_name}}} {{fortune=?{Testing|Vice|Heat|Tier|Engagement|Gather Info|Attribute|Quality|Magnitude|Sheer Blasted Luck} - {{note=?{Note}}} {{result=[[?{Dice|1}d6sk1]]}} 
-
-Resist
-&{template:bitd} {{name=@{character_name}}} {{resist=?{Attribute|Insight|Prowess|Resolve}}} {{stress=[[6-?{How many dice|1}d6sk1]]}} 
-
-
-&{template:bitd} {{name=Arkady}} {{action=Hunt}} {{position=Risky}} {{effect=Standard}} {{result=[[3d6sk1]]}} 
-
-&{template:bitd} {{name=Arkady}} {{fortune=Blasted Damn Fate}} {{note=Note note note note note note}} {{result=[[1d6sk1]]}} 
-
-&{template:bitd} {{name=Arkady}} {{resist=Prowess}} {{stress=[[6-1d6sk1]]}} 
--->
-
-<!-- ROLL TEMPLATES -->
-
-
-<rolltemplate class="sheet-rolltemplate-bitd">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}}</div>
-            <div class="sheet-rolltablerolls">Rolls</div>
-            <div class="sheet-rolltabletitle">[{{rolltypetext}}]({{rolltypeimage}})</div>
-            <div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll1value 1}}{{#rollLess() roll2value 1}}{{#rollLess() roll3value 1}}{{#rollLess() roll4value 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll4value 1}}{{/rollLess() roll3value 1}}{{/rollLess() roll2value 1}}{{/rollLess() roll1value 1}}
-                </div>
-            <div  class="sheet-rolltableposition">{{position}}</div><div class="sheet-rolltableeffect">{{effect}}</div>
-                </div>
-</rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-bitd2">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}}</div>
-            <div class="sheet-rolltablerolls">Resists a Consequence With</div>
-            <div class="sheet-rolltabletitle">[{{rolltypetext}}]({{rolltypeimage}})</div>
-            <div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll1value 1}}{{#rollLess() roll2value 1}}{{#rollLess() roll3value 1}}{{#rollLess() roll4value 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll4value 1}}{{/rollLess() roll3value 1}}{{/rollLess() roll2value 1}}{{/rollLess() roll1value 1}}
-                </div>
-                <div class="sheet-resistinstructions">Suffer <em>6 stress minus the highest die result.</em> When you roll a critical on resistance, clear 1 stress.</div>
-                </div>
-</rolltemplate>
-
-
-<rolltemplate class="sheet-rolltemplate-bitd3">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}} </div>
-            <div class="sheet-rolltablerolls">(who currently has {{stress}} stress) indulges</div>
-            <div class="sheet-rolltabletitle">[vice](http://i.imgur.com/eaNKZTO.png)</div>
-            <div class="sheet-rolltabledice">
-                
-                {{#rollLess() insight prowess}}{{#rollLess() insight resolve}}
-                {{#rollGreater() roll1avalue 0}}{{roll1avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1avalue 0}}{{#rollGreater() roll1bvalue 0}}{{roll1bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1bvalue 0}}{{#rollGreater() roll1cvalue 0}}{{roll1cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1cvalue 0}}{{#rollGreater() roll1dvalue 0}}{{roll1dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll1avalue 1}}{{#rollLess() roll1bvalue 1}}{{#rollLess() roll1cvalue 1}}{{#rollLess() roll1dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll1dvalue 1}}{{/rollLess() roll1cvalue 1}}{{/rollLess() roll1bvalue 1}}{{/rollLess() roll1avalue 1}}
-               {{/rollLess() insight resolve}} {{/rollLess() insight prowess}}
-                
-                {{#rollLess() prowess insight}}{{#rollLess() prowess resolve}}
-                {{#rollGreater() roll2avalue 0}}{{roll2avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2avalue 0}}{{#rollGreater() roll2bvalue 0}}{{roll2bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2bvalue 0}}{{#rollGreater() roll2cvalue 0}}{{roll2cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2cvalue 0}}{{#rollGreater() roll2dvalue 0}}{{roll2dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll2dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll2avalue 1}}{{#rollLess() roll2bvalue 1}}{{#rollLess() roll2cvalue 1}}{{#rollLess() roll2dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll2dvalue 1}}{{/rollLess() roll2cvalue 1}}{{/rollLess() roll2bvalue 1}}{{/rollLess() roll2avalue 1}}
-               {{/rollLess() prowess resolve}} {{/rollLess() prowess insight}}
-                
-                {{#rollLess() resolve insight}}{{#rollLess() resolve prowess}}
-                {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollLess() resolve prowess}} {{/rollLess() resolve insight}}
-                
-                {{#rollTotal() resolve insight}}{{#rollTotal() resolve prowess}}
-                {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollTotal() resolve prowess}} {{/rollTotal() resolve insight}}
-                
-                {{#rollGreater() resolve insight}}{{#rollTotal() insight prowess}}
-                     {{#rollGreater() roll1avalue 0}}{{roll1avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1avalue 0}}{{#rollGreater() roll1bvalue 0}}{{roll1bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1bvalue 0}}{{#rollGreater() roll1cvalue 0}}{{roll1cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1cvalue 0}}{{#rollGreater() roll1dvalue 0}}{{roll1dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll1dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                    {{#rollLess() roll1avalue 1}}{{#rollLess() roll1bvalue 1}}{{#rollLess() roll1cvalue 1}}{{#rollLess() roll1dvalue 1}}{{#rollLess() bonusdice 1}}
-                    <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                    <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                    {{/rollLess() bonusdice 1}}{{/rollLess() roll1dvalue 1}}{{/rollLess() roll1cvalue 1}}{{/rollLess() roll1bvalue 1}}{{/rollLess() roll1avalue 1}}
-                {{/rollTotal() insight prowess}}{{/rollGreater() resolve insight}}
-                
-                {{#rollGreater() insight resolve}}{{#rollTotal() resolve prowess}}
-                     {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                    {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                    <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                    <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                    {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollTotal() resolve prowess}}{{/rollGreater() insight resolve}}
-                
-                {{#rollGreater() prowess insight}}{{#rollTotal() insight resolve}}
-                     {{#rollGreater() roll3avalue 0}}{{roll3avalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3avalue 0}}{{#rollGreater() roll3bvalue 0}}{{roll3bvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3bvalue 0}}{{#rollGreater() roll3cvalue 0}}{{roll3cvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3cvalue 0}}{{#rollGreater() roll3dvalue 0}}{{roll3dvalue}}<span class="sheet-comma">, </span>{{/rollGreater() roll3dvalue 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-                    {{#rollLess() roll3avalue 1}}{{#rollLess() roll3bvalue 1}}{{#rollLess() roll3cvalue 1}}{{#rollLess() roll3dvalue 1}}{{#rollLess() bonusdice 1}}
-                    <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                    <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                    {{/rollLess() bonusdice 1}}{{/rollLess() roll3dvalue 1}}{{/rollLess() roll3cvalue 1}}{{/rollLess() roll3bvalue 1}}{{/rollLess() roll3avalue 1}}
-                {{/rollTotal() insight resolve}}{{/rollGreater() prowess insight}}
-                
-                </div>
-                <div class="sheet-resistinstructions"><em>Clear an amount of stress equal to the highest die result.</em> If the result of your vice roll means you clear more stress levels
-than you had marked, you <em>overindulge.</em></div>
-                </div>
-</rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-bitd4">
-            <div class="sheet-rolltableholder">
-            <div class="sheet-rolltablename">{{charname}}</div>
-            <div class="sheet-rolltablerolls">Rolls</div>
-            <div class="sheet-rolltabletitle">[fortune](http://i.imgur.com/1gkCarn.png)</div>
-            <div class="sheet-rolltabledice">{{#rollGreater() roll1value 0}}{{roll1value}}<span class="sheet-comma">, </span>{{/rollGreater() roll1value 0}}{{#rollGreater() roll2value 0}}{{roll2value}}<span class="sheet-comma">, </span>{{/rollGreater() roll2value 0}}{{#rollGreater() roll3value 0}}{{roll3value}}<span class="sheet-comma">, </span>{{/rollGreater() roll3value 0}}{{#rollGreater() roll4value 0}}{{roll4value}}<span class="sheet-comma">, </span>{{/rollGreater() roll4value 0}}{{#rollGreater() bonusdice 0}}{{bonus1}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 0}}{{#rollGreater() bonusdice 1}}{{bonus2}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 1}}{{#rollGreater() bonusdice 2}}{{bonus3}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 2}}{{#rollGreater() bonusdice 3}}{{bonus4}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 3}}{{#rollGreater() bonusdice 4}}{{bonus5}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 4}}{{#rollGreater() bonusdice 5}}{{bonus6}}<span class="sheet-comma">, </span>{{/rollGreater() bonusdice 5}}
-               {{#rollLess() bonusdice 1}}
-                <div class="sheet-zerodice1">   {{zerodice1}}, {{zerodice2}}</div>
-                <div class="sheet-zerodice2">Zero Dice - take the lowest result above</div>
-                {{/rollLess() bonusdice 1}}
-                </div>
-                <div class="sheet-rolltablenotes">{{notes}}</div>
-                </div>
-</rolltemplate>

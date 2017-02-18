@@ -42,6 +42,10 @@
 				<div class="sheet-rep1 sheet-font-hoefler">
 					<div class="sheet-radiolabel">Rep</div>
 				</div>
+				<div class="repzeroholder">
+					<input type="radio" value="0" name="attr_rep" class="sheet-tooth sheet-zero" checked />
+					<span></span>
+				</div>
 				<div class="sheet-rep2">
 					<input type="checkbox" value="1" name="attr_turf" class="sheet-hidden sheet-turf1" />
 					<input type="checkbox" value="2" name="attr_turf" class="sheet-hidden sheet-turf2" />
@@ -49,31 +53,30 @@
 					<input type="checkbox" value="4" name="attr_turf" class="sheet-hidden sheet-turf4" />
 					<input type="checkbox" value="5" name="attr_turf" class="sheet-hidden sheet-turf5" />
 					<input type="checkbox" value="6" name="attr_turf" class="sheet-hidden sheet-turf6" />
-					<input type="radio" value="0" name="attr_rep" class="sheet-stresstooth sheet-zero3 sheet-repzero" checked />
+					<input type="checkbox" value="0" name="attr_rep" class="sheet-stresstooth sheet-hidden" />
+					<input type="radio" value="1" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
 					<span></span>
-					<input type="radio" value="1" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<input type="radio" value="2" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
 					<span></span>
-					<input type="radio" value="2" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<input type="radio" value="3" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
 					<span></span>
-					<input type="radio" value="3" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<input type="radio" value="4" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
 					<span></span>
-					<input type="radio" value="4" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<input type="radio" value="5" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
 					<span></span>
-					<input type="radio" value="5" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<input type="radio" value="6" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
 					<span></span>
-					<input type="radio" value="6" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower" />
+					<input type="radio" value="7" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf6" />
 					<span></span>
-					<input type="radio" value="7" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf6" />
+					<input type="radio" value="8" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf5 sheet-turf6" />
 					<span></span>
-					<input type="radio" value="8" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf5 sheet-turf6" />
+					<input type="radio" value="9" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf4 sheet-turf5 sheet-turf6" />
 					<span></span>
-					<input type="radio" value="9" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf4 sheet-turf5 sheet-turf6" />
+					<input type="radio" value="10" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
 					<span></span>
-					<input type="radio" value="10" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<input type="radio" value="11" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
 					<span></span>
-					<input type="radio" value="11" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
-					<span></span>
-					<input type="radio" value="12" name="attr_rep" class="sheet-stresstooth sheet-halftooth-lower sheet-stresstoothlast sheet-turf1 sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<input type="radio" value="12" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-toothlast sheet-turf1 sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
 					<span></span>
 					<div class="sheet-turfbox">
 						<input type="radio" value="1" name="attr_turf" />
@@ -84,10 +87,12 @@
 						<input type="radio" value="6" name="attr_turf" />
 					</div>
 				</div>
+				<div class="sheet-turfzeroholder">
+					<input type="radio" value="0" name="attr_turf" class="sheet-tooth sheet-zero" checked />
+					<span></span>
+				</div>
 				<div class="sheet-rep3 sheet-font-hoefler">
 					<div class="sheet-radiolabel sheet-turflabel">Turf</div>
-					<input type="radio" value="0" name="attr_turf" class="sheet-stresstooth sheet-zero3 sheet-halftooth-lower sheet-turfzero" checked />
-						<span></span>
 				</div>
 			</div>
 			<!-- Hold -->
@@ -97,12 +102,12 @@
 				</div>
 				<div class="sheet-hold2 sheet-font-hoefler">
 					<div class="sheet-radiolabel">Weak</div>
-					<input type="radio" value="weak" name="attr_hold" class="sheet-holdtooth" checked />
+					<input type="radio" value="weak" name="attr_hold" class="sheet-tooth sheet-holdtooth" checked />
 					<span></span>
 				</div>
 				<div class="sheet-hold3 sheet-font-hoefler">
 					<div class="sheet-radiolabel">Strong</div>
-					<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-holdtooth" />
+					<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-tooth sheet-holdtooth" />
 					<span></span>
 				</div>
 			</div>
@@ -143,23 +148,24 @@
 			<div class="sheet-markxp sheet-font-hoefler">Crew XP</div>
 			<div class="sheet-playbookadvancement sheet-font-hoefler">
 				<div class="sheet-playbookholder">Crew Advancement </div>
-				<input type="radio" value="0" name="attr_crew_xp" class="sheet-stresstooth sheet-zero3 sheet-stresszero sheet-xpzero3 sheet-regulartooth" checked />
+				<input type="radio" value="0" name="attr_crew_xp" class="sheet-tooth sheet-zero" checked />
 				<span></span>
-				<input type="radio" value="1" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<input type="checkbox" value="0" name="attr_crew_xp" class="sheet-xptooth sheet-hidden"/>
+				<input type="radio" value="1" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
 				<span></span>
-				<input type="radio" value="2" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<input type="radio" value="2" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
 				<span></span>
-				<input type="radio" value="3" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<input type="radio" value="3" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
 				<span></span>
-				<input type="radio" value="4" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth"/>
+				<input type="radio" value="4" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
 				<span></span>
-				<input type="radio" value="5" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<input type="radio" value="5" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
 				<span></span>
-				<input type="radio" value="6" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<input type="radio" value="6" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
 				<span></span>
-				<input type="radio" value="7" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<input type="radio" value="7" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
 				<span></span>
-				<input type="radio" value="8" name="attr_crew_xp" class="sheet-stresstooth sheet-regulartooth" />
+				<input type="radio" value="8" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
 				<span></span>
 			</div>
 			<div class="sheet-markxpdesc">
@@ -375,8 +381,8 @@
 				<!-- First Cohort -->
 				<div class="sheet-attribute sheet-font-hoefler">
 					<div class="sheet-cohort-title">
-						<input value="Cohort" name="attr_cohort1_name"></input>
-						<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort1_name}}}{{roll1value=[[@{cohort1_q1}d6]]}}{{roll2value=[[@{cohort1_q2}d6]]}}{{roll3value=[[@{cohort1_q3}d6]]}}{{roll4value=[[@{cohort1_q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll</button>
+						<input type="text" value="Cohort" name="attr_cohort1_name"></input>
+						<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort1_name}}}{{roll1value=[[@{cohort1_q1}d6]]}}{{roll2value=[[@{cohort1_q2}d6]]}}{{roll3value=[[@{cohort1_q3}d6]]}}{{roll4value=[[@{cohort1_q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
 					</div>
 					<div class="sheet-cohort-quality">
 						<input type="checkbox" value="1" name="attr_cohort1_q1" />
@@ -392,22 +398,22 @@
 				<div class="sheet-cohort-conditionholder sheet-font-hoefler">
 					<div class="sheet-cohort-weak">
 						<div>Weak</div>
-						<input type="checkbox" name="attr_cohort1_weak" class="sheet-stresstooth sheet-cohorttooth" />
+						<input type="checkbox" name="attr_cohort1_weak" class="sheet-tooth sheet-stresstooth" />
 						<span></span>
 					</div>
 					<div class="sheet-cohort-impaired">
 						<div>Impaired</div>
-						<input type="checkbox" name="attr_cohort1_impaired" class="sheet-stresstooth sheet-cohorttooth" />
+						<input type="checkbox" name="attr_cohort1_impaired" class="sheet-tooth sheet-stresstooth" />
 						<span></span>
 					</div>
 					<div class="sheet-cohort-broken">
 						<div>Broken</div>
-						<input type="checkbox" name="attr_cohort1_broken" class="sheet-stresstooth sheet-cohorttooth" />
+						<input type="checkbox" name="attr_cohort1_broken" class="sheet-tooth sheet-stresstooth" />
 						<span></span>
 					</div>
 					<div class="sheet-cohort-armor">
 						<div>Armor</div>
-						<input type="checkbox" name="attr_cohort1_armor" class="sheet-stresstooth sheet-cohorttooth" />
+						<input type="checkbox" name="attr_cohort1_armor" class="sheet-tooth sheet-stresstooth" />
 						<span></span>
 					</div>
 				</div>
@@ -421,7 +427,7 @@
 							<div class="sheet-attribute sheet-font-hoefler">
 								<div class="sheet-cohort-title">
 									<input value="Cohort" name="attr_cohort_name"></input>
-									<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort_name}}}{{roll1value=[[@{q1}d6]]}}{{roll2value=[[@{q2}d6]]}}{{roll3value=[[@{q3}d6]]}}{{roll4value=[[@{q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll</button>
+									<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort_name}}}{{roll1value=[[@{q1}d6]]}}{{roll2value=[[@{q2}d6]]}}{{roll3value=[[@{q3}d6]]}}{{roll4value=[[@{q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
 								</div>
 								<div class="sheet-cohort-quality">
 									<input type="checkbox" value="1" name="attr_q1" />
@@ -437,22 +443,22 @@
 							<div class="sheet-cohort-conditionholder sheet-font-hoefler">
 								<div class="sheet-cohort-weak">
 									<div>Weak</div>
-									<input type="checkbox" name="attr_weak" class="sheet-stresstooth sheet-cohorttooth" />
+									<input type="checkbox" name="attr_weak" class="sheet-tooth sheet-stresstooth" />
 									<span></span>
 								</div>
 								<div class="sheet-cohort-impaired">
 									<div>Impaired</div>
-									<input type="checkbox" name="attr_impaired" class="sheet-stresstooth sheet-cohorttooth" />
+									<input type="checkbox" name="attr_impaired" class="sheet-tooth sheet-stresstooth" />
 									<span></span>
 								</div>
 								<div class="sheet-cohort-broken">
 									<div>Broken</div>
-									<input type="checkbox" name="attr_broken" class="sheet-stresstooth sheet-cohorttooth" />
+									<input type="checkbox" name="attr_broken" class="sheet-tooth sheet-stresstooth" />
 									<span></span>
 								</div>
 								<div class="sheet-cohort-armor">
 									<div>Armor</div>
-									<input type="checkbox" name="attr_armor" class="sheet-stresstooth sheet-cohorttooth" />
+									<input type="checkbox" name="attr_armor" class="sheet-tooth sheet-stresstooth" />
 									<span></span>
 								</div>
 							</div>
@@ -466,16 +472,12 @@
 			<!-- Contacts -->
 			<div class="sheet-specialheader sheet-font-hoefler">Contacts</div>
 			<div class="sheet-abilitiesholder">
-				<div class="sheet-specialability">
-					<div class="sheet-abilitycheck">
-						<input type="text" placeholder="Contact name" class="sheet-friend sheet-contact" name="attr_contact1_name"/>
-					</div>
+				<div class="sheet-friend sheet-contact">
+					<input type="text" placeholder="Contact name" name="attr_contact1_name"/>
 				</div>
 				<fieldset class="repeating_contact">
-					<div class="sheet-specialability">
-						<div class="sheet-abilitycheck">
-							<input type="text" placeholder="Friend name" class="sheet-friend sheet-contact" name="attr_contact_name" />
-						</div>
+					<div class="sheet-friend sheet-contact">
+						<input type="text" placeholder="Friend name" name="attr_contact_name" />
 					</div>
 				</fieldset>
 			</div>
