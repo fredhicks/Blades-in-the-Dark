@@ -346,7 +346,7 @@ input[type="text"] {
 
 /* Aligning labels just right */
 .sheet-stress1 div.sheet-radiolabel, .sheet-stress3 div.sheet-radiolabel, .sheet-rep1 div.sheet-radiolabel, .sheet-rep3 div.sheet-radiolabel, .sheet-hold1 div.sheet-radiolabel, .sheet-hold4 div.sheet-radiolabel, .sheet-harm1 {
-		padding-top: 2px;
+		padding-top: 1px;
 }
 .sheet-hold2 div.sheet-radiolabel, .sheet-hold3 div.sheet-radiolabel {
 		width: auto;
@@ -511,10 +511,15 @@ input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + s
 }
 
 /* COHORT TEETH PLACEMENT */
+.sheet-cohort-conditionholder input.sheet-stresstooth[type="checkbox"] {
+    top: -12px;
+    left: 0;
+    top: 0;
+}
 .sheet-cohort-conditionholder input.sheet-stresstooth[type="checkbox"] + span::before {
-    margin: 0 0 0 2px;;
-    left: 7px;
-    top: -3px;
+    margin: 0 0 0 1px;;
+    left: 1px;
+    top: 0;
 }
 
 /* ARMOR TEETH PLACEMENT */
@@ -1443,7 +1448,7 @@ div.sheet-col97 > div.repcontrol {
     display: block;
     position: absolute;
     transform: rotate(45deg);
-    top: .5em;
+    top: .25em;
     left: 0;
 }
 .sheet-markxpdesc li.sheet-nondot {
@@ -1877,7 +1882,7 @@ input[type="checkbox"].sheet-frienddown {
 .sheet-cohort-conditionholder {
 		width: 100%;
 }
-.sheet-cohort-conditionholder > div > div {
+.sheet-cohort-conditionholder > div > div:first-child {
 		margin: 0;
     color: black;
     font-size: 55%;
@@ -1885,15 +1890,22 @@ input[type="checkbox"].sheet-frienddown {
     font-weight: 400;
     float: left;
 }
+.sheet-cohort-conditionholder > div > div:nth-child(2) {
+		margin: 0;
+    font-size: 55%;
+    float: right;
+}
 .sheet-cohort-weak {
-		width: 21%;
+		width: 19%;
+		margin-right: 2%;
 }
 .sheet-cohort-impaired {
 		width: 28%;
+		margin-right: 2%;
 }
 .sheet-cohort-broken {
-		width: 28%;
-		padding-left: 4px;
+		width: 24%;
+		margin-right: 2%;
 }
 div.sheet-cohort-armor {
 		width: 23%;
