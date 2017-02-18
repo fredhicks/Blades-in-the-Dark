@@ -153,9 +153,8 @@ input[type="text"] {
     float: none;
     font-weight: 800;
 }
-.sheet-font-hoefler,
-.sheet-font-hoefler input[type="text"],
-.sheet-font-hoefler textarea {
+
+.sheet-title input[type="text"], .sheet-desc textarea, button.sheet-rollbtn, .sheet-radiolabel, .sheet-harm1, .sheet-harmrow div, .sheet-recoveryblurb-bold, .sheet-armorcaption, .sheet-col90 input[type="text"], .sheet-coin1, .sheet-coin2, .sheet-specialheader, .sheet-specialheader input[type="text"], .sheet-specialheader textarea, .sheet-markxp, .sheet-playbookadvancement, .sheet-gatherinfoheader, .sheet-loadheader, .sheet-loadheader2, .sheet-attribute, button.sheet-attributebtn, .sheet-bonusdieheader, .sheet-crewheader, .sheet-hunting-grounds-box input[type="text"], .sheet-cohort-conditionholder div {
     text-transform: uppercase;
     font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }

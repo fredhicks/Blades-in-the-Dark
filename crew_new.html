@@ -5,15 +5,15 @@
 		<div class="sheet-col60 sheet-logoholder">
 			<div class="sheet-bladeslogo"></div>
 		</div>
-		<div class="sheet-col40 sheet-crewheader sheet-font-hoefler">Crew sheet</div>
+		<div class="sheet-col40 sheet-crewheader">Crew sheet</div>
 	</div>
 	<!-- Crew Type -->
 	<div class="sheet-col40 sheet-toppad">
 		<div class="sheet-playbooktitle">
-			<div class="sheet-title sheet-font-hoefler">
+			<div class="sheet-title">
 				<input type="text" name="attr_crew_type" placeholder="Crew"/>
 			</div>
-			<div class="sheet-desc sheet-font-hoefler">
+			<div class="sheet-desc">
 				<textarea name="attr_crew_desc" placeholder="A short crew description" cols="50" rows="3"></textarea>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 		<div class="sheet-col100">
 			<!-- Rep -->
 			<div class="sheet-repholder sheet-blackborder">
-				<div class="sheet-rep1 sheet-font-hoefler">
+				<div class="sheet-rep1">
 					<div class="sheet-radiolabel">Rep</div>
 				</div>
 				<div class="repzeroholder">
@@ -91,26 +91,26 @@
 					<input type="radio" value="0" name="attr_turf" class="sheet-tooth sheet-zero" checked />
 					<span></span>
 				</div>
-				<div class="sheet-rep3 sheet-font-hoefler">
+				<div class="sheet-rep3">
 					<div class="sheet-radiolabel sheet-turflabel">Turf</div>
 				</div>
 			</div>
 			<!-- Hold -->
 			<div class="sheet-holdholder sheet-blackborder">
-				<div class="sheet-hold1 sheet-font-hoefler">
+				<div class="sheet-hold1">
 					<div class="sheet-radiolabel">Hold</div>
 				</div>
-				<div class="sheet-hold2 sheet-font-hoefler">
+				<div class="sheet-hold2">
 					<div class="sheet-radiolabel">Weak</div>
 					<input type="radio" value="weak" name="attr_hold" class="sheet-tooth sheet-holdtooth" checked />
 					<span></span>
 				</div>
-				<div class="sheet-hold3 sheet-font-hoefler">
+				<div class="sheet-hold3">
 					<div class="sheet-radiolabel">Strong</div>
 					<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-tooth sheet-holdtooth" />
 					<span></span>
 				</div>
-				<div class="sheet-hold4 sheet-font-hoefler">
+				<div class="sheet-hold4">
 					<div class="sheet-radiolabel">Tier</div>
 				</div>
 			</div>
@@ -128,7 +128,7 @@
 		</div>
 		<!-- Special abilities -->
 		<div class="sheet-col100 sheet-blackborder">
-			<div class="sheet-specialheader sheet-font-hoefler">Special Abilities</div>
+			<div class="sheet-specialheader">Special Abilities</div>
 			<div class="sheet-abilitiesholder">
 				<div class="sheet-specialability">
 					<div class="sheet-abilitycheck">
@@ -152,8 +152,8 @@
 		</div>
 		<!-- Advancement -->
 		<div class="sheet-col100">
-			<div class="sheet-markxp sheet-font-hoefler">Crew XP</div>
-			<div class="sheet-playbookadvancement sheet-font-hoefler">
+			<div class="sheet-markxp">Crew XP</div>
+			<div class="sheet-playbookadvancement">
 				<div class="sheet-playbookholder">Crew Advancement </div>
 				<input type="radio" value="0" name="attr_crew_xp" class="sheet-tooth sheet-zero" checked />
 				<span></span>
@@ -193,7 +193,7 @@
 		<!-- Upgrades and Hunting Grounds-->
 		<div class="sheet-col50b">
 			<!-- Upgrades -->
-			<div class="sheet-loadheader2 sheet-font-hoefler">
+			<div class="sheet-loadheader2">
 				<span>Crew Upgrades</span>
 			</div>
 			<div class="sheet-itemholder">
@@ -377,7 +377,7 @@
 					</fieldset>
 				</div>
 			</div>
-			<div class="sheet-hunting-grounds-box sheet-font-hoefler">
+			<div class="sheet-hunting-grounds-box">
 				<input type="text" class="sheet-hunting-grounds-header" name="attr_hunting_grounds_type" value="Hunting Grounds" />
 				<input type="text" class="sheet-hunting-grounds-content" name="attr_hunting_grounds" placeholder="Robbery" />
 			</div>
@@ -386,10 +386,10 @@
 		<div class="sheet-col50a">
 			<div class="sheet-cohorts">
 				<!-- First Cohort -->
-				<div class="sheet-attribute sheet-font-hoefler">
+				<div class="sheet-attribute">
 					<div class="sheet-cohort-title">
 						<input type="text" value="Cohort" name="attr_cohort1_name"></input>
-						<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort1_name}}}{{roll1value=[[@{cohort1_q1}d6]]}}{{roll2value=[[@{cohort1_q2}d6]]}}{{roll3value=[[@{cohort1_q3}d6]]}}{{roll4value=[[@{cohort1_q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
+						<button type="roll" class="sheet-attributebtn sheet-cohortbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort1_name}}}{{roll1value=[[@{cohort1_q1}d6]]}}{{roll2value=[[@{cohort1_q2}d6]]}}{{roll3value=[[@{cohort1_q3}d6]]}}{{roll4value=[[@{cohort1_q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
 					</div>
 					<div class="sheet-quality">
 						<input type="checkbox" value="1" name="attr_cohort1_q1" />
@@ -402,7 +402,7 @@
 						<span></span>
 					</div>
 				</div>
-				<div class="sheet-cohort-conditionholder sheet-font-hoefler">
+				<div class="sheet-cohort-conditionholder">
 					<div class="sheet-cohort-weak">
 						<div>Weak</div>
 						<input type="checkbox" name="attr_cohort1_weak" class="sheet-tooth sheet-stresstooth" />
@@ -431,10 +431,10 @@
 				<div class="sheet-col100">
 					<fieldset class="repeating_cohort">
 						<div class="sheet-rep-block">
-							<div class="sheet-attribute sheet-font-hoefler">
+							<div class="sheet-attribute">
 								<div class="sheet-cohort-title">
-									<input value="Cohort" name="attr_cohort_name"></input>
-									<button type="roll" class="sheet-attributebtn sheet-cohortbtn sheet-font-hoefler" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort_name}}}{{roll1value=[[@{q1}d6]]}}{{roll2value=[[@{q2}d6]]}}{{roll3value=[[@{q3}d6]]}}{{roll4value=[[@{q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
+									<input type="text" value="Cohort" name="attr_cohort_name"></input>
+									<button type="roll" class="sheet-attributebtn sheet-cohortbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort_name}}}{{roll1value=[[@{q1}d6]]}}{{roll2value=[[@{q2}d6]]}}{{roll3value=[[@{q3}d6]]}}{{roll4value=[[@{q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
 								</div>
 								<div class="sheet-quality">
 									<input type="checkbox" value="1" name="attr_q1" />
@@ -447,7 +447,7 @@
 									<span></span>
 								</div>
 							</div>
-							<div class="sheet-cohort-conditionholder sheet-font-hoefler">
+							<div class="sheet-cohort-conditionholder">
 								<div class="sheet-cohort-weak">
 									<div>Weak</div>
 									<input type="checkbox" name="attr_weak" class="sheet-tooth sheet-stresstooth" />
@@ -477,7 +477,7 @@
 				</div>
 			</div>
 			<!-- Contacts -->
-			<div class="sheet-specialheader sheet-font-hoefler">Contacts</div>
+			<div class="sheet-specialheader">Contacts</div>
 			<div class="sheet-abilitiesholder">
 				<div class="sheet-friend sheet-contact">
 					<input type="text" placeholder="Contact name" name="attr_contact1_name"/>
@@ -491,10 +491,10 @@
 		</div>
 		<!-- Clocks -->
 		<div class="sheet-col97">
-			<div class="sheet-specialheader sheet-font-hoefler sheet-specialheader2">Clocks</div>
+			<div class="sheet-specialheader sheet-specialheader2">Clocks</div>
 			<fieldset class="repeating_clock">
 				<div class="sheet-recoveryblurb sheet-recoveryblurb2">
-					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname sheet-font-hoefler" />
+					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname" />
 					<br/>
 					<div class="sheet-harmprogress">
 						<span>Size</span>
