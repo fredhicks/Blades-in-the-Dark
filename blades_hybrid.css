@@ -101,13 +101,13 @@ span {
 		font-family: Georgia, Times, "Times New Roman", serif;
 		color: black;
 }
-.sheet-hidden {
-	display: none !important;
-}
 input[type="checkbox"], input[type="radio"] {
 		opacity: 0;
 		display: inline-block;
 		z-index: 10;
+}
+.sheet-hidden {
+	display: none !important;
 }
 
 /* USEFUL GENERAL LAYOUT*/
@@ -560,7 +560,6 @@ input.sheet-tooth.sheet-halftooth-lower[type="radio"] {
 		display: block;
 		float: right;
 		width: 11px;
-		opacity: 0;
 }
 input[type="checkbox"].sheet-turf1:checked ~ input[type="radio"].sheet-turf1 + span::before,
 input[type="checkbox"].sheet-turf2:checked ~ input[type="radio"].sheet-turf2 + span::before,
@@ -645,9 +644,6 @@ div.sheet-recoveryblurb.sheet-recoveryblurb2 span {
 }
 input.sheet-traumarow2 + span {
 		top: -8px !important;
-}
-input.sheet-traumarow2 {
-		top: 367px;
 }
 div.sheet-stress4 span:last-child::after,
 div.sheet-stress4 span:nth-child(8)::after {
@@ -899,34 +895,30 @@ input.sheet-stashbox3[type="radio"]:checked + span::before {
 }
 
 /* COIN/STASH BOX ZERO BUTTONS */
-input.sheet-coinbox2zero {
-		left: 8px !important;
-		margin-left: -8px !important;
-		z-index: 10 !important;
+input.sheet-coinbox2zero[type="radio"] {
+	left: 8px;
+	margin-left: -8px;
 }
 input.sheet-coinbox2zero[type="radio"] + span::before {
-		width: 10px;
-		height: 13px;
-		position: absolute;
-		left: 381px;
-		top: 503px;
-		border: none;
-		background-color: rgba(255, 255, 255, 0);
-		background-image: url(http://i.imgur.com/b7fMDSq.png);
+	width: 10px;
+	height: 13px;
+	position: absolute;
+	border: none;
+	margin-left: 4px;
+	background-color: rgba(255, 255, 255, 0);
+	background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
 input.sheet-coinbox2zero[type="radio"]:checked + span::before {
-		border: none;
-		background-color: rgba(255, 255, 255, 0);
-		background-image: url(http://i.imgur.com/b7fMDSq.png);
+	border: none;
+	background-color: rgba(255, 255, 255, 0);
+	background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
-input.sheet-stashbox3.sheet-coinbox2zero {
-		top: 0px !important;
-		left: -5px !important;
+input.sheet-stashbox3.sheet-coinbox2zero[type="radio"] {
+	top: 0px !important;
+	left: -5px !important;
 }
-input.sheet-stashbox3.sheet-coinbox2zero[type="radio"] + span::before,
-input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
-		left: 342px;
-		top: 526px;
+input.sheet-stashbox3.sheet-coinbox2zero[type="radio"] + span::before {
+	margin-left: -5px;
 }
 
 /* HARM AND RECOVERY */
@@ -1590,30 +1582,20 @@ button.sheet-attributebtn:before {
 		top: -1px;
 		left: 2px;
 }
-.sheet-vicebutton,
+button.sheet-vicebutton[type="roll"],
 .sheet-fortunebtn {
 		letter-spacing: 0px !important;
-		text-shadow: none !important;
 		background-image: none;
 		color: #616161 !important;
 		border-radius: 0;
 		border-color: #b3b4b6 !important;
 		box-shadow: none;
-		-webkit-transition: all 0.2s;
-		-moz-transition: all 0.2s;
-		-ms-transition: all 0.2s;
-		-o-transition: all 0.2s;
 		transition: all 0.2s;
+		float: right;
 		font-size: 97% !important;
-		content: ''!important;
-		position: absolute;
-		top: 288px;
-		left: 404px;
-		font-weight: 600!important;
-		background-color: white !important;
-		font-variant: normal !important;
 		padding: 4px !important;
 		text-transform: none !important;
+		margin: 5px 3px -5px 0;
 }
 .sheet-fortunebtn {
 		width: 100%;
