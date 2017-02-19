@@ -203,31 +203,35 @@
 			</div>
 		</div>
 		<!-- Advancement -->
-		<div class="sheet-col100">
-			<div class="sheet-markxp">Crew XP</div>
-			<div class="sheet-playbookadvancement">
-				<div class="sheet-playbookholder">Crew Advancement </div>
-				<input type="radio" value="0" name="attr_crew_xp" class="sheet-tooth sheet-zero" checked />
-				<span></span>
-				<input type="checkbox" value="0" name="attr_crew_xp" class="sheet-xptooth sheet-hidden" checked/>
-				<input type="radio" value="1" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
-				<input type="radio" value="6" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
-				<input type="radio" value="7" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
-				<input type="radio" value="8" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
+		<div class="sheet-col100 sheet-advancement">
+			<div class="sheet-advancement-header sheet-blackheader">
+				<div class="sheet-advancement-markxp sheet-label">Mark XP:</div>
+				<div class="sheet-advancement-tracker">
+					<div class="sheet-advancement-label sheet-label">Crew Advancement </div>
+					<div class="sheet-advancement-xpholder">
+						<input type="radio" value="0" name="attr_crew_xp" class="sheet-tooth sheet-zero" checked />
+						<span></span>
+						<input type="checkbox" value="0" name="attr_crew_xp" class="sheet-xptooth sheet-hidden" checked />
+						<input type="radio" value="1" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="2" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="3" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="4" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="5" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+						<input type="radio" value="6" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+						<input type="radio" value="7" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+						<input type="radio" value="8" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+					</div>
+				</div>
 			</div>
-			<div class="sheet-markxpdesc">
+			<div class="sheet-advancement-desc">
 				<ul>
 					<li class="sheet-nondot">At the end of each session, for each item below, mark 1 xp (or instead mark 2 xp if that item occurred multiple times).</li>
 					<li>
@@ -254,10 +258,10 @@
 					<div class="sheet-item sheet-item3box">
 						<input type="checkbox" value="1" name="attr_upgrade_1_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_upgrade_1_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_upgrade_1_check_c" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" placeholder="Three-slot upgrade" name="attr_upgrade_1_desc" />
@@ -407,13 +411,13 @@
 					<div class="sheet-item sheet-item4box">
 						<input type="checkbox" value="1" name="attr_upgrade_24_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_upgrade_24_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_upgrade_24_check_c" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_upgrade_24_check_d" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" value="Mastery" name="attr_upgrade_24_desc" />

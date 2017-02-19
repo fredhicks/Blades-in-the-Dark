@@ -1,119 +1,164 @@
 /* Version text */
 .sheet-version-text {
-    text-align: right;
-    color: #a8a8a8;
-    position: relative;
-    top: -11px;
-    font-size: 12px;
+		text-align: right;
+		color: #a8a8a8;
+		position: relative;
+		top: -11px;
+		font-size: 12px;
 }
 
 /* Type Selector */
 input.sheet-type-selector:checked ~ div.sheet-type-crew {
-    display: block;
+		display: block;
 }
 div.sheet-type-crew, input.sheet-type-selector:checked ~ div.sheet-type-character {
-    display: none;
+		display: none;
 }
 input.sheet-type-selector {
-    opacity: 0;
-    width: 170px;
-    height: 20px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    z-index: 1;
+		opacity: 0;
+		width: 170px;
+		height: 20px;
+		margin-bottom: 5px;
+		cursor: pointer;
+		z-index: 1;
 }
 input.sheet-type-selector + span {
-    border: solid 1px #a7a7a7;
-    text-align: center;
-    display: inline-block;
-    background: #cccccc;
-    color: #3f3f3f;
-    width: 170px;
-    height: 20px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: serif;
-    font-weight: 600;
+		border: solid 1px #a7a7a7;
+		text-align: center;
+		display: inline-block;
+		background: #cccccc;
+		color: #3f3f3f;
+		width: 170px;
+		height: 20px;
+		font-size: 11px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-family: serif;
+		font-weight: 600;
 }
 input.sheet-type-selector:hover + span {
-    color: red !important;
+		color: red !important;
 }
 input.sheet-type-selector,
 input.sheet-type-selector + span {
-    position: absolute;
-    left: 498px;
-    top: 52px;
-    border-bottom: 1px solid #a7a7a7 !important;
+		position: absolute;
+		left: 498px;
+		top: 52px;
+		border-bottom: 1px solid #a7a7a7 !important;
 }
 input.sheet-type-selector + span::before {
-    content: "Character Mode";
+		content: "Character Mode";
 }
 input.sheet-type-selector:checked + span::before {
-    content: "Crew Mode";
+		content: "Crew Mode";
 }
 
 /* GENERALITIES */
 .charsheet {
-    width: 860px;
-    padding: 0 !important;
-    margin: 0 !important;
+	width: 860px;
+	padding: 0 !important;
+	margin: 0 !important;
 }
-.charsheet button {
-    text-shadow: none !important;
+button {
+	text-shadow: none !important;
 }
 label {
-    line-height: 25px;
-    font-size: 16px;
-    font-weight: bold;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 0;
+}
+div {
+	box-sizing: border-box;
 }
 input[type="text"] {
-		border: none;
-		background: none;
-    box-shadow: none;
-    width: 95%;
-    font-family: Georgia, Times, "Times New Roman", serif;
+	border: none;
+	background: none;
+	box-shadow: none;
+	width: 95%;
+	padding: 0;
+	font-family: Georgia, Times, "Times New Roman", serif;
+}
+li, li input[type="text"] {
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-style: italic;
+	color: black;
+	position: relative;
+}
+li:after {
+	background: black;
+	transform: rotate(45deg);
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+}
+ul {
+	list-style: none;
+	margin: 0;
+}
+span {
+		font-family: Georgia, Times, "Times New Roman", serif;
+		color: black;
 }
 .sheet-hidden {
-		display: none !important;
+	display: none !important;
+}
+
+/* USEFUL GENERAL LAYOUT*/
+.sheet-blackheader {
+	background-color: black;
+	color: white;
+	font-size: 74%;
+	font-weight: 600;
+	height: 18px;
+	line-height: 16px;
+	padding-left: 5px;
+	text-transform: uppercase;
+	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+}
+.sheet-blackheader div.sheet-label {
+	padding-top: 2px;
+}
+.sheet-plainheader {
+		width: 100%;
+		border-top: 2px solid black;
+		color: black;
+		font-size: 88%;
+		font-weight: 800;
+		line-height: 22px;
+		text-transform: uppercase;
+		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }
 
 /* COLUMN LAYOUT */
 .sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97, .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-heat1, .sheet-heat2, .sheet-heat3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
-		display: block;
-    float: left;
-    vertical-align: top;
-    box-sizing: border-box;
-}
-.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97 .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop {
-    margin: 0;
-    padding: 0;
+		float: left;
 }
 .sheet-col60 {
-    width: 55%;
+		width: 55%;
 }
 .sheet-col40, .sheet-col50a {
-    width: 45%;
+		width: 45%;
 }
 .sheet-col50b {
-    width: 52%;
+		width: 52%;
 }
 .sheet-col90 {
-    width: 94%;
+		width: 94%;
 }
 .sheet-col10 {
-    width: 6%;
+		width: 6%;
 }
 .sheet-col97 {
-    margin-left: 5px;
-    width: 97%;
+		margin-left: 5px;
+		width: 97%;
 }
 .sheet-col100 {
-    width: 100%;
+		width: 100%;
 }
 .sheet-col50a, .sheet-col50b {
-    margin: 5px 0 0 5px;
-    box-sizing: border-box;
+		margin: 5px 0 0 5px;
 }
 .sheet-rep-block {
 		display: inline-block;
@@ -130,190 +175,169 @@ input[type="text"] {
 
 /* FONT STYLES */
 .sheet-smallcaps {
-    text-transform: uppercase;
-    font-weight: 800;
+		text-transform: uppercase;
+		font-weight: 800;
 }
 .sheet-italics {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    text-transform: lowercase;
-    font-style: italic;
-    font-size: 106%;
-    font-weight: 500;
-    letter-spacing: 0px;
-    padding-left: 5px;
-}
-.sheet-boldspan {
-    font-weight: 800;
-    margin-left: 0;
-    float: none;
-}
-.sheet-italicspan {
-    font-style: italic;
-    margin-left: 0;
-    float: none;
-    font-weight: 800;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		text-transform: lowercase;
+		font-style: italic;
+		font-size: 106%;
+		font-weight: 500;
+		letter-spacing: 0px;
+		padding-left: 5px;
 }
 
-.sheet-title input[type="text"], .sheet-desc textarea, button.sheet-rollbtn, .sheet-radiolabel, .sheet-harm1, .sheet-harmrow div, .sheet-recoveryblurb-bold, .sheet-armorcaption, .sheet-col90 input[type="text"], .sheet-coin1, .sheet-coin2, .sheet-specialheader, .sheet-specialheader input[type="text"], .sheet-specialheader textarea, .sheet-markxp, .sheet-playbookadvancement, .sheet-gatherinfoheader, .sheet-loadheader, .sheet-loadheader2, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-bonusdieheader, .sheet-crewheader, .sheet-hunting-grounds-box input[type="text"], .sheet-cohort-conditionholder div, input.sheet-clockname {
-    text-transform: uppercase;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+.sheet-title input[type="text"], .sheet-desc textarea, button.sheet-rollbtn, .sheet-radiolabel, .sheet-harm1, .sheet-harmrow div, .sheet-recoveryblurb-bold, .sheet-armorcaption, .sheet-col90 input[type="text"], .sheet-coin1, .sheet-coin2, .sheet-specialheader, .sheet-specialheader input[type="text"], .sheet-specialheader textarea, .sheet-loadheader span, .sheet-loadheader2 span, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-bonusdieheader, .sheet-crewheader, .sheet-hunting-grounds-box input[type="text"], .sheet-cohort-conditionholder div, input.sheet-clockname {
+		text-transform: uppercase;
+		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }
 
 /* LOGO */
 .sheet-bladeslogo {
-    height: 63px;
-    width: 95%;
-    background-image: url(http://i.imgur.com/qaufkev.png);
-    background-size: 102% auto;
-    background-repeat: no-repeat;
+		height: 63px;
+		width: 95%;
+		background-image: url(http://i.imgur.com/qaufkev.png);
+		background-size: 102% auto;
+		background-repeat: no-repeat;
 }
 .sheet-logoholder {
-    height: 50px;
+		height: 50px;
 }
 .sheet-crewheader {
-    color: #7f8184;
-    font-size: 210%;
-    letter-spacing: -2px;
-    margin-top: -8px;
-    font-weight: 800;
-    box-sizing: border-box;
-    line-height: 50px !important;
+		color: #7f8184;
+		font-size: 210%;
+		letter-spacing: -2px;
+		margin-top: -8px;
+		font-weight: 800;
+		line-height: 50px !important;
 }
 
 /* PLAYBOOK */
 .sheet-playbooktitle {
-    height: 50px;
-    width: 100%;
-    background-color: #d6d8d9;
+		height: 50px;
+		width: 100%;
+		background-color: #d6d8d9;
 }
 .sheet-title {
-    vertical-align: top;
-    display: inline-block;
-    color: #7f8184;
-    width: 70%;
-    font-size: 274%;
-    letter-spacing: -2px;
-    line-height: 100%;
-    font-weight: 800;
-    box-sizing: border-box;
-    padding: 0px 10px;
+		vertical-align: top;
+		display: inline-block;
+		color: #7f8184;
+		width: 70%;
+		font-size: 274%;
+		letter-spacing: -2px;
+		line-height: 100%;
+		font-weight: 800;
+		padding: 0px 10px;
 }
 .sheet-title input[type="text"] {
 		width: 250px;
-    padding: 0;
-    letter-spacing: -2px;
-    line-height: 50px !important;
-    font-weight: 800;
-    font-size: 100%;
-    color: black;
-    top: -8px;
-    position: relative;
-    padding-top: 10px;
+		padding: 0;
+		letter-spacing: -2px;
+		line-height: 50px !important;
+		font-weight: 800;
+		font-size: 100%;
+		color: black;
+		top: -8px;
+		position: relative;
+		padding-top: 10px;
 }
 .sheet-desc {
-    vertical-align: middle;
-    display: inline-block;
-    width: 30%;
-    letter-spacing: 1px;
-    font-size: 66%;
-    line-height: 154%;
-    font-weight: 800;
-    box-sizing: border-box;
-    padding-top: 6px;
-    color: #7f8184;
+		vertical-align: middle;
+		display: inline-block;
+		width: 30%;
+		letter-spacing: 1px;
+		font-size: 66%;
+		line-height: 154%;
+		font-weight: 800;
+		padding-top: 6px;
+		color: #7f8184;
 }
 .sheet-desc textarea {
-    resize: none;
-    height: 50px !important;
-    width: 95% !important;
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    border-radius: 0px;
-    box-shadow: none;
-    box-sizing: border-box;
-    display: inline-block;
-    font-size: 119%;
-    line-height: 145%;
-    font-weight: 800;
-    color: rgb(127, 129, 132);
-    height: 150px;
-    width: 136px;
-    background: none;
+		resize: none;
+		height: 50px !important;
+		width: 95% !important;
+		padding: 0px;
+		margin: 0px;
+		border: none;
+		border-radius: 0px;
+		box-shadow: none;
+		display: inline-block;
+		font-size: 119%;
+		line-height: 145%;
+		font-weight: 800;
+		color: rgb(127, 129, 132);
+		height: 150px;
+		width: 136px;
+		background: none;
 }
 .sheet-toppad {
-    padding-left: 5px;
-    box-sizing: border-box;
+		padding-left: 5px;
 }
 
-/* HEADER AREAS */
+/* HEADER */
 .sheet-header input[type="text"] {
 		width: 100%;
-    border-bottom: 1px solid black;
-    border-radius: 0;
-    font-size: 109%;
-    padding: 3px 0 0;
-    margin: 3px 0 0;
-    color: #c43c35;
+		border-bottom: 1px solid black;
+		border-radius: 0;
+		font-size: 109%;
+		padding: 3px 0 0;
+		margin: 3px 0 0;
+		color: #c43c35;
 }
 .sheet-header .sheet-col60 input[type="text"] {
 		width: 95%
 }
 .sheet-header label {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 71%;
-    margin: 0;
+		font-size: 71%;
 }
 
 /* BLACK BORDER */
 .sheet-blackborder {
-    box-sizing: border-box;
-    border-top: 5px solid black;
-    margin-top: 15px !important;
+		border-top: 5px solid black;
+		margin-top: 15px !important;
 }
 
 /* Stress, rep, hold styling */
 .sheet-rep2, .sheet-stress2, .sheet-heat2, .sheet-stress4 {
-    height: 25px;
+		height: 25px;
 }
 .sheet-rep1, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-stress1, .sheet-stress3, .sheet-heat1, .sheet-heat3 {
-    height: 12px;
+		height: 12px;
 		font-size: 74%;
-    letter-spacing: 0px;
-    font-weight: 600;
-    line-height: 9px;
-    padding-top: 1px;
+		letter-spacing: 0px;
+		font-weight: 600;
+		line-height: 9px;
+		padding-top: 1px;
 }
 .sheet-rep3, .sheet-hold2, .sheet-hold3 {
 		background-color: #d6d8d9;
-    color: #000000;
-    padding-left: 2px;
+		color: #000000;
+		padding-left: 2px;
 }
 .sheet-stress1, .sheet-stress3, .sheet-rep1, .sheet-hold1, .sheet-hold4, .sheet-heat1, .sheet-heat3 {
-    background-color: #000000;
-    color: #ffffff;
-    padding-left: 5px;
+		background-color: #000000;
+		color: #ffffff;
+		padding-left: 5px;
 }
 
 /* Detailed widths for stress et cetera */
 .sheet-stress1, .sheet-stress3 {
-    width: 74px;
+		width: 74px;
 }
 .sheet-stress2, .sheet-heat2 {
-    width: 104px;
+		width: 104px;
 }
 .sheet-stress4 {
-    width: 213px;
-    padding-left: 1px;
-    padding-top: 1px;
+		width: 213px;
+		padding-left: 1px;
+		padding-top: 1px;
 }
 .sheet-rep1 {
-    width: 16.5%;
+		width: 16.5%;
 }
 .sheet-rep2 {
-    width: 61%;
+		width: 61%;
 }
 .sheet-rep3 {
 		width: 22.5%;
@@ -328,13 +352,14 @@ input[type="text"] {
 		width: 32%;
 }
 .sheet-heat1 {
-    width: 50px;
+		width: 50px;
 }
 .sheet-heat3 {
 		width: 95px;
 }
 .sheet-heattop {
 		width: 249px;
+		float: left;
 }
 .sheet-stresszeroholder {
 		position: absolute;
@@ -377,26 +402,25 @@ input[type="text"] {
 
 /* TRAUMA */
 .sheet-traumatop, .sheet-wantedtop {
-    height: 25px;
-    overflow: hidden;
-    line-height: 0px;
+		height: 25px;
+		overflow: hidden;
+		line-height: 0px;
 }
 .sheet-traumatop {
-    width: 74px;
+		width: 74px;
 }
 .sheet-wantedtop {
 		width: 95px;
 }
 .sheet-traumaholder, .sheet-wantedholder {
-    height: 13px;
-    display: inline-block;
-    text-align: right;
-    overflow: hidden;
-    box-sizing: border-box;
-    vertical-align: top;
+		height: 13px;
+		display: inline-block;
+		text-align: right;
+		overflow: hidden;
+		vertical-align: top;
 }
 .sheet-traumaholder {
-    width: 74px;
+		width: 74px;
 }
 .sheet-wantedholder {
 		width: 95px;
@@ -404,85 +428,85 @@ input[type="text"] {
 
 /* Teeth */
 input.sheet-tooth[type="radio"], input.sheet-tooth[type="checkbox"] {
-    opacity: 0;
-    width: 13px;
-    height: 25px;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1;
-    left: 8px;
-    top: -9px;
-    margin: -11px -11px -11px -10px;
+		opacity: 0;
+		width: 13px;
+		height: 25px;
+		display: inline-block;
+		position: relative;
+		cursor: pointer;
+		padding: 0;
+		z-index: 1;
+		left: 8px;
+		top: -9px;
+		margin: -11px -11px -11px -10px;
 }
 input.sheet-tooth[type="radio"] + span::before,
 input.sheet-tooth[type="checkbox"] + span::before {
-    width: 8px;
-    height: 25px;
-    display: inline-block;
-    margin: 0px 12px 0px 0px;
-    content: "";
-    position: relative;
-    left: 8px;
-    cursor: pointer;
-    padding: 0;
+		width: 8px;
+		height: 25px;
+		display: inline-block;
+		margin: 0px 12px 0px 0px;
+		content: "";
+		position: relative;
+		left: 8px;
+		cursor: pointer;
+		padding: 0;
 }
 input.sheet-tooth[type="radio"]:hover + span::before, input.sheet-tooth[type="checkbox"]:hover + span::before {
-    filter: alpha(opacity=70);
-    opacity: 0.7;
+		filter: alpha(opacity=70);
+		opacity: 0.7;
 }
 input.sheet-toothlast[type="radio"] + span::before, input.sheet-toothlast[type="checkbox"] + span::before {
-    margin-right: 0px !important;
+		margin-right: 0px !important;
 }
 
 input.sheet-stresstooth[type="radio"] + span::before,
 input.sheet-stresstooth[type="checkbox"]:checked + span::before {
-    /* red tooth */
-    background-image: url(http://i.imgur.com/17DqQbA.png);
+		/* red tooth */
+		background-image: url(http://i.imgur.com/17DqQbA.png);
 }
 input.sheet-stresstooth[type="checkbox"] + span::before,
 input.sheet-stresstooth:checked ~ input.sheet-stresstooth[type="radio"] + span::before {
-    /* white tooth */
-    background-image: url(http://i.imgur.com/XNFdq3n.png);
+		/* white tooth */
+		background-image: url(http://i.imgur.com/XNFdq3n.png);
 }
 
 input.sheet-xptooth {
-    top: -9px !important;
+		top: -9px !important;
 }
 input.sheet-xptooth[type="radio"] + span::before {
-    background-image: url(http://i.imgur.com/ZYuytKg.png);
+		background-image: url(http://i.imgur.com/ZYuytKg.png);
 }
 input.sheet-xptooth:checked ~ input.sheet-xptooth[type="radio"] + span::before {
-    background-image: url(http://i.imgur.com/pGe2dC1.png);
+		background-image: url(http://i.imgur.com/pGe2dC1.png);
 }
 
 input.sheet-tooth.sheet-holdtooth[type="radio"] {
-    width: 11px;
-    display: inline-block;
-    left: 12px;
-    top: 5px;
+		width: 11px;
+		display: inline-block;
+		left: 12px;
+		top: 5px;
 }
 input.sheet-tooth.sheet-holdtooth[type="radio"] + span::before {
-    float: right;
-    left: initial;
-    margin: 0;
-    top: -1px;
-    background-image: url(http://i.imgur.com/XNFdq3n.png);
+		float: right;
+		left: initial;
+		margin: 0;
+		top: -1px;
+		background-image: url(http://i.imgur.com/XNFdq3n.png);
 }
 input.sheet-tooth.sheet-holdtooth[type="radio"]:checked + span::before {
 		background-image: url(http://i.imgur.com/17DqQbA.png);
 }
 
 input.sheet-traumatooth {
-    height: 13px;
+		height: 13px;
 }
 input.sheet-traumatooth[type="radio"] + span::before {
-    height: 13px;
-    background-image: url(http://i.imgur.com/co4IzVF.png);
+		height: 13px;
+		background-image: url(http://i.imgur.com/co4IzVF.png);
 }
 input.sheet-traumatooth:checked ~ input.sheet-traumatooth[type="radio"] + span::before {
-    background-image: url(http://i.imgur.com/m3eW79B.png);
+		background-image: url(http://i.imgur.com/m3eW79B.png);
 }
 
 .sheet-stress2 input.sheet-stresstooth[type="radio"] + span::before,
@@ -498,18 +522,18 @@ input.sheet-traumatooth:checked ~ input.sheet-traumatooth[type="radio"] + span::
 }
 
 input.sheet-zero[type="radio"] + span::before {
-    width: 10px;
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
+		width: 10px;
+		background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
 input.sheet-xpzero[type="radio"] {
-    position: relative;
-    left: 8px;
+		position: relative;
+		left: 8px;
 }
 input.sheet-xpzero[type="radio"] + span::before {
-    position: relative;
-    left: 10px;
-    top: 1px;
-    margin-left: -3px;
+		position: relative;
+		left: 10px;
+		top: 1px;
+		margin-left: -3px;
 }
 input.sheet-zero[type="radio"]:checked + span::before,
 input.sheet-coinbox2zero[type="radio"]:checked + span::before {
@@ -523,16 +547,16 @@ input.sheet-tooth.sheet-halftooth-lower[type="radio"] {
 }
 .sheet-turfbox {
 		display: block;
-    position: relative;
-    float: right;
-    z-index: 1;
-    margin-top: -34px;
+		position: relative;
+		float: right;
+		z-index: 1;
+		margin-top: -34px;
 }
 .sheet-turfbox input[type="radio"] {
-    display: block;
-    float: right;
-    width: 11px;
-    opacity: 0;
+		display: block;
+		float: right;
+		width: 11px;
+		opacity: 0;
 }
 input[type="checkbox"].sheet-turf1:checked ~ input[type="radio"].sheet-turf1 + span::before,
 input[type="checkbox"].sheet-turf2:checked ~ input[type="radio"].sheet-turf2 + span::before,
@@ -546,768 +570,759 @@ input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + s
 
 /* COHORT TEETH PLACEMENT */
 .sheet-cohort-conditionholder input.sheet-stresstooth[type="checkbox"] {
-    top: -12px;
-    left: 0;
+		top: -12px;
+		left: 0;
 }
 .sheet-cohort-conditionholder input.sheet-stresstooth[type="checkbox"] + span::before {
-    margin: 0 0 0 1px;;
-    left: 0;
-    top: 0;
+		margin: 0 0 0 1px;;
+		left: 0;
+		top: 0;
 }
 
 /* ARMOR TEETH PLACEMENT */
 input.sheet-armortooth[type="checkbox"] {
-    left: 12px;
-    top: -9px;
-    z-index: 10;
+		left: 12px;
+		top: -9px;
+		z-index: 10;
 }
 input.sheet-armortooth[type="checkbox"] + span::before {
-    left: 12px;
+		left: 12px;
 }
 input.sheet-armortooth2[type="checkbox"] + span::before {
-    margin: 0;
+		margin: 0;
 }
 
 /* TRAUMA DETAILS */
 input.sheet-trauma-check[type="checkbox"] {
-    opacity: 0;
-    display: inline-block;
-    position: absolute;
-    width: 52px;
-    height: 11px;
-    margin: 0;
-    z-index: 10;
+		opacity: 0;
+		display: inline-block;
+		position: absolute;
+		width: 52px;
+		height: 11px;
+		margin: 0;
+		z-index: 10;
 }
 input.sheet-trauma-check + span {
-    display: inline;
-    border: none;
-    text-align: left;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    z-index: 1;
-    letter-spacing: 0px;
-    line-height: 0px;
-    font-size: 64%;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: relative;
-    top: -3px;
-    left: 2px;
-    font-family: Georgia, serif;
+		display: inline;
+		border: none;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+		z-index: 1;
+		letter-spacing: 0px;
+		line-height: 0px;
+		font-size: 64%;
+		font-weight: bold;
+		text-transform: uppercase;
+		position: relative;
+		top: -3px;
+		left: 2px;
+		font-family: Georgia, serif;
 }
 input.sheet-trauma-check + span::after {
-    content: "— ";
-    color: black!important;
-    padding-left: 2px;
+		content: "— ";
+		color: black!important;
+		padding-left: 2px;
 }
 div.sheet-recoveryblurb.sheet-recoveryblurb2 input.sheet-trauma-check + span::after {
-    color: #5e5e5e !important;
+		color: #5e5e5e !important;
 }
 span.sheet-trauma-check.sheet-traumalast::after {
-    content: " " !important;
-    color: black!important;
-    padding-left: 0px;
+		content: " " !important;
+		color: black!important;
+		padding-left: 0px;
 }
 input.sheet-trauma-check + span:hover {
-    color: #9c9c9c;
+		color: #9c9c9c;
 }
 input.sheet-trauma-check:checked + span {
-    opacity: 1 !important;
-    color: #ff0000 !important;
+		opacity: 1 !important;
+		color: #ff0000 !important;
 }
 div.sheet-recoveryblurb.sheet-recoveryblurb2 span {
-    color: #5e5e5e;
+		color: #5e5e5e;
 }
 input.sheet-traumarow2 + span {
-    top: -8px !important;
+		top: -8px !important;
 }
 input.sheet-traumarow2 {
-    top: 367px;
+		top: 367px;
 }
 div.sheet-stress4 span:last-child::after,
 div.sheet-stress4 span:nth-child(8)::after {
-    content: "";
-    padding-left: 0px
+		content: "";
+		padding-left: 0px
 }
 div.sheet-harmprogress input.sheet-trauma-check + span {
-    font-size: 89%;
-    top: 0px;
+		font-size: 89%;
+		top: 0px;
 }
 input.sheet-trauma-check[type="radio"] {
-    opacity: 0;
-    display: inline-block;
-    position: absolute;
-    width: 20px;
-    height: 11px;
-    margin: 0;
-    z-index: 10;
+		opacity: 0;
+		display: inline-block;
+		position: absolute;
+		width: 20px;
+		height: 11px;
+		margin: 0;
+		z-index: 10;
 }
 
 /* STYLING HARM AND ARMOR */
 .sheet-harmcolumn1 {
-    width: 68%;
-    margin-right: 2%;
+		width: 68%;
+		margin-right: 2%;
 }
 .sheet-harmcolumn2 {
-    width: 30%;
+		width: 30%;
 }
 .sheet-harm1 {
-    box-sizing: border-box;
-    display: inline-block;
-    overflow: hidden;
-    background-color: black;
-    width: 100%;
-    height: 12px;
-    vertical-align: top;
-    color: white;
-    font-size: 74%;
-    letter-spacing: 2px;
-    padding-left: 5px;
-    padding-top: 1px;
-    font-weight: 600;
-    line-height: 9px;
+		display: inline-block;
+		overflow: hidden;
+		background-color: black;
+		width: 100%;
+		height: 12px;
+		vertical-align: top;
+		color: white;
+		font-size: 74%;
+		letter-spacing: 2px;
+		padding-left: 5px;
+		padding-top: 1px;
+		font-weight: 600;
+		line-height: 9px;
 }
 .sheet-armor {
-    text-align: right;
-    width: 50%;
-    overflow: hidden;
+		text-align: right;
+		width: 50%;
+		overflow: hidden;
 }
 .sheet-armor .sheet-tooth {
-    margin-left: 10px;
+		margin-left: 10px;
 }
 .sheet-armorcaption {
-    display: inline-block;
-    position: relative;
-    top: -9px;
-    right: 3px;
-    color: black;
-    font-size: 88%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 0px;
+		display: inline-block;
+		position: relative;
+		top: -9px;
+		right: 3px;
+		color: black;
+		font-size: 88%;
+		letter-spacing: 0px;
+		font-weight: 800;
+		line-height: 0px;
 }
 .sheet-col90 input[type="text"] {
-    margin: 0;
-    padding-left: 5px;
-    background-color: #d6d8d9;
-    height: 20px;
-    color: black;
-    font-size: 85%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 0px;
+		margin: 0;
+		padding-left: 5px;
+		background-color: #d6d8d9;
+		height: 20px;
+		color: black;
+		font-size: 85%;
+		letter-spacing: 0px;
+		font-weight: 800;
+		line-height: 0px;
 }
 .sheet-specialarmorcaption {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-style: italic;
-    color: #808183;
-    font-size: 80%;
-    line-height: 0px;
-    padding-top: 7px;
-    text-transform: none;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: italic;
+		color: #808183;
+		font-size: 80%;
+		line-height: 0px;
+		padding-top: 7px;
+		text-transform: none;
 }
 .sheet-coin1 {
-    width: 70%;
-    height: 17px;
-    margin-top: 18px;
-    display: inline-block;
-    box-sizing: border-box;
-    border-bottom: 1px solid #8c8c8c;
-    border-right: 1px solid #8c8c8c;
-    overflow: hidden;
-    color: black;
-    font-size: 73%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 0px;
+		width: 70%;
+		height: 17px;
+		margin-top: 18px;
+		display: inline-block;
+		border-bottom: 1px solid #8c8c8c;
+		border-right: 1px solid #8c8c8c;
+		overflow: hidden;
+		color: black;
+		font-size: 73%;
+		letter-spacing: 0px;
+		font-weight: 800;
+		line-height: 0px;
 }
 .sheet-coin2 {
-    width: 30%;
-    height: 17px;
-    display: inline-block;
-    box-sizing: border-box;
-    border-top: 1px solid #8c8c8c;
-    overflow: hidden;
-    color: #717275;
-    font-size: 73%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 0px;
-    padding-top: 8px;
-    padding-left: 3px;
+		width: 30%;
+		height: 17px;
+		display: inline-block;
+		border-top: 1px solid #8c8c8c;
+		overflow: hidden;
+		color: #717275;
+		font-size: 73%;
+		letter-spacing: 0px;
+		font-weight: 800;
+		line-height: 0px;
+		padding-top: 8px;
+		padding-left: 3px;
 }
 .sheet-stashrow {
-    display: inline-block;
-    box-sizing: border-box;
-    overflow: hidden;
-    width: 100%;
-    height: 13px;
+		display: inline-block;
+		overflow: hidden;
+		width: 100%;
+		height: 13px;
 }
 
 /* COIN BOXES */
 .sheet-coinbox {
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    margin: 0px 0px 0px 2px;
-    position: relative;
-    background-color: white;
-    border: 1px solid black;
+		width: 10px;
+		height: 10px;
+		display: inline-block;
+		margin: 0px 0px 0px 2px;
+		position: relative;
+		background-color: white;
+		border: 1px solid black;
 }
 .sheet-coinbox:last-child {
-    margin-right: 0px !important;
+		margin-right: 0px !important;
 }
 .sheet-coinbox label {
-    cursor: pointer;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 0px;
+		cursor: pointer;
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		top: 0px;
 }
 .sheet-coinbox label:after {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		content: '';
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background-color: red;
 }
 .sheet-coinbox label:hover::after {
-    filter: alpha(opacity=30);
-    opacity: 0.3;
+		filter: alpha(opacity=30);
+		opacity: 0.3;
 }
 .sheet-coinbox input[type=checkbox]:checked + label:after {
-    filter: alpha(opacity=100);
-    opacity: 1;
+		filter: alpha(opacity=100);
+		opacity: 1;
 }
 
 /* COIN BOXES LEFT-FILLED RADIO */
 input.sheet-coinbox2[type="radio"],
 input.sheet-coinbox2[type="checkbox"] {
-    opacity: 0;
-    width: 13px;
-    height: 12px;
-    display: inline-block;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    z-index: 10;
-    left: 4px;
-    top: -4px;
-    margin: -8px -8px -8px -9px;
+		opacity: 0;
+		width: 13px;
+		height: 12px;
+		display: inline-block;
+		cursor: pointer;
+		padding: 0;
+		position: relative;
+		z-index: 10;
+		left: 4px;
+		top: -4px;
+		margin: -8px -8px -8px -9px;
 }
 input.sheet-firstcoinbox2[type="radio"] {
-    margin-left: 11px;
+		margin-left: 11px;
 }
 input.sheet-coinbox2[type="radio"] + span::before,
 input.sheet-coinbox2[type="checkbox"] + span::before {
-    width: 9px;
-    height: 9px;
-    display: inline-block;
-    margin: 0px 6px 0px 0px;
-    content: "";
-    position: relative;
-    background-color: red;
-    border: 1px solid black;
-    cursor: pointer;
-    padding: 0;
+		width: 9px;
+		height: 9px;
+		display: inline-block;
+		margin: 0px 6px 0px 0px;
+		content: "";
+		position: relative;
+		background-color: red;
+		border: 1px solid black;
+		cursor: pointer;
+		padding: 0;
 }
 input.sheet-coinboxlast[type="radio"] + span::before,
 input.sheet-coinboxlast[type="checkbox"] + span::before {
-    margin-right: 0px !important;
+		margin-right: 0px !important;
 }
 input.sheet-coinbox2[type="radio"]:hover + span::before,
 input.sheet-coinbox2[type="checkbox"]:hover + span::before {
-    filter: alpha(opacity=70);
-    opacity: 0.7;
+		filter: alpha(opacity=70);
+		opacity: 0.7;
 }
 input.sheet-coinbox2[type="radio"]:checked ~ input.sheet-coinbox2[type="radio"] + span::before {
-    content: "";
-    background-color: white;
+		content: "";
+		background-color: white;
 }
 input.sheet-coinbox2[type="radio"]:checked + span::before,
 input.sheet-coinbox2[type="checkbox"]:checked + span::before {
-    background-color: red;
+		background-color: red;
 }
 .sheet-loadcheckholder .sheet-coinbox {
-    transform: rotate(45deg);
-    margin-left: 6px;
-    width: 7px;
-    height: 7px;
-    border: none;
-    background-color: rgba(179, 180, 182, 0);
+		transform: rotate(45deg);
+		margin-left: 6px;
+		width: 7px;
+		height: 7px;
+		border: none;
+		background-color: rgba(179, 180, 182, 0);
 }
 .sheet-loadcheckholder input.sheet-coinbox2[type="checkbox"] + span::before {
-    width: 8px;
-    height: 8px;
-    top: 0px;
-    left: -1px;
-    background-color: white;
+		width: 8px;
+		height: 8px;
+		top: 0px;
+		left: -1px;
+		background-color: white;
 }
 .sheet-loadcheckholder input.sheet-coinbox2[type="checkbox"]:checked + span::before {
-    background-color: red;
+		background-color: red;
 }
 .sheet-loadcheckholder input.sheet-coinbox2[type="checkbox"] {
-    width: 12px;
-    height: 12px;
-    left: 5px;
-    top: 3px;
-    z-index: 10;
+		width: 12px;
+		height: 12px;
+		left: 5px;
+		top: 3px;
+		z-index: 10;
 }
 
 /* STASH BOXES LEFT-RADIO SPANS */
 input.sheet-stashbox3[type="radio"] {
-    opacity: 0;
-    width: 13px;
-    height: 12px;
-    display: inline-block;
-    cursor: pointer;
-    padding: 0px;
-    position: relative;
-    z-index: 10;
-    left: 2px;
-    top: -4px;
-    margin: -9px -9px -8px -11px;
+		opacity: 0;
+		width: 13px;
+		height: 12px;
+		display: inline-block;
+		cursor: pointer;
+		padding: 0px;
+		position: relative;
+		z-index: 10;
+		left: 2px;
+		top: -4px;
+		margin: -9px -9px -8px -11px;
 }
 input.sheet-stashbox3[type="radio"] + span::before {
-    width: 9px;
-    height: 9px;
-    display: inline-block;
-    margin: 0px 9px 0px 0px;
-    content: "";
-    position: relative;
-    background-color: black;
-    border: 1px solid black;
-    cursor: pointer;
-    padding: 0;
+		width: 9px;
+		height: 9px;
+		display: inline-block;
+		margin: 0px 9px 0px 0px;
+		content: "";
+		position: relative;
+		background-color: black;
+		border: 1px solid black;
+		cursor: pointer;
+		padding: 0;
 }
 input.sheet-endstashbox[type="radio"] {
-    width: 22px;
-    height: 13px;
-    border: 1px solid;
-    left: 6px;
-    margin: -11px;
+		width: 22px;
+		height: 13px;
+		border: 1px solid;
+		left: 6px;
+		margin: -11px;
 }
 input.sheet-indentbox[type="radio"] {
-    left: 14px;
-    width: 13px;
-    margin-left: -13px;
+		left: 14px;
+		width: 13px;
+		margin-left: -13px;
 }
 input.sheet-indentbox[type="radio"] + span::before {
-    margin-left: 12px;
+		margin-left: 12px;
 }
 input.sheet-endstashbox[type="radio"] + span::before {
-    width: 10px;
-    height: 10px;
-    margin-right: 0px;
-    border: 1px solid #000 !important;
-    left: -4px;
+		width: 10px;
+		height: 10px;
+		margin-right: 0px;
+		border: 1px solid #000 !important;
+		left: -4px;
 }
 input.sheet-stashfirst[type="radio"] {
-    margin-left: 3px;
+		margin-left: 3px;
 }
 input.sheet-stashbox3[type="radio"]:hover + span::before {
-    filter: alpha(opacity=70);
-    opacity: 0.7;
+		filter: alpha(opacity=70);
+		opacity: 0.7;
 }
 input.sheet-stashbox3[type="radio"]:checked ~ input.sheet-stashbox3[type="radio"] + span::before {
-    content: "";
-    background-color: #c6c7c9;
-    border: 1px solid #c6c7c9;
+		content: "";
+		background-color: #c6c7c9;
+		border: 1px solid #c6c7c9;
 }
 input.sheet-stashbox3[type="radio"]:checked + span::before {
-    background-color: black;
-    border: 1px solid black;
+		background-color: black;
+		border: 1px solid black;
 }
 
 /* COIN/STASH BOX ZERO BUTTONS */
 input.sheet-coinbox2zero {
-    left: 8px !important;
-    margin-left: -8px !important;
-    z-index: 10 !important;
+		left: 8px !important;
+		margin-left: -8px !important;
+		z-index: 10 !important;
 }
 input.sheet-coinbox2zero[type="radio"] + span::before {
-    width: 10px;
-    height: 13px;
-    position: absolute;
-    left: 381px;
-    top: 503px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
+		width: 10px;
+		height: 13px;
+		position: absolute;
+		left: 381px;
+		top: 503px;
+		border: none;
+		background-color: rgba(255, 255, 255, 0);
+		background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
 input.sheet-coinbox2zero[type="radio"]:checked + span::before {
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    background-image: url(http://i.imgur.com/b7fMDSq.png);
+		border: none;
+		background-color: rgba(255, 255, 255, 0);
+		background-image: url(http://i.imgur.com/b7fMDSq.png);
 }
 input.sheet-stashbox3.sheet-coinbox2zero {
-    top: 0px !important;
-    left: -5px !important;
+		top: 0px !important;
+		left: -5px !important;
 }
 input.sheet-stashbox3.sheet-coinbox2zero[type="radio"] + span::before,
 input.sheet-stashbox3.sheet-coinbox2zero[type="radio"]:checked + span::before {
-    left: 342px;
-    top: 526px;
+		left: 342px;
+		top: 526px;
 }
 
 /* HARM AND RECOVERY */
 .sheet-harmrow {
-    display: inline-block;
-    width: 100%;
-    height: 40px;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    border-bottom: 1px solid black;
-    position: relative;
-    top: -11px;
+		display: inline-block;
+		width: 100%;
+		height: 40px;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+		border-bottom: 1px solid black;
+		position: relative;
+		top: -11px;
 }
 .sheet-harmfirst {
-    position: relative !important;
-    top: -6px !important;
+		position: relative !important;
+		top: -6px !important;
 }
 .sheet-harmlast {
-    position: relative !important;
-    top: -16px !important;
+		position: relative !important;
+		top: -16px !important;
 }
 .sheet-harmdetails1,
 .sheet-harmdetails2,
 .sheet-harmdetails2b,
 .sheet-harmdetails3 {
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    height: 40px;
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+		height: 40px;
 }
 .sheet-harmdetails1 {
-    background-color: #d6d8d9;
-    width: 4%;
-    color: black;
-    font-size: 100%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 100%;
-    padding: 3px;
-    padding-top: 11px;
+		background-color: #d6d8d9;
+		width: 4%;
+		color: black;
+		font-size: 100%;
+		letter-spacing: 0px;
+		font-weight: 800;
+		line-height: 100%;
+		padding: 3px;
+		padding-top: 11px;
 }
 .sheet-harmdetails2 {
-    width: 76%;
+		width: 76%;
 }
 .sheet-harmdetails2b {
-    width: 38%;
+		width: 38%;
 }
 .sheet-harmdetails3 {
-    background-color: #d6d8d9;
-    width: 20%;
-    color: #575859;
-    text-align: center;
-    font-size: 80%;
-    letter-spacing: 1px;
-    font-weight: 800;
-    line-height: 119%;
-    padding: 8px;
+		background-color: #d6d8d9;
+		width: 20%;
+		color: #575859;
+		text-align: center;
+		font-size: 80%;
+		letter-spacing: 1px;
+		font-weight: 800;
+		line-height: 119%;
+		padding: 8px;
 }
 .sheet-harmdetails2 input[type="text"],
 .sheet-harmdetails2b input[type="text"] {
-    font-size: 92%;
-    padding: 12px 6px 6px;
-    margin: 3px 0 0;
-    color: #c43c35;
+		font-size: 92%;
+		padding: 12px 6px 6px;
+		margin: 3px 0 0;
+		color: #c43c35;
 }
 div.sheet-harmcolumn1 div:nth-child(3) div:nth-child(3),
 div.sheet-harmrow.sheet-harmlast div:nth-child(3) {
-    border-left: 1px solid #d6d8d9;
+		border-left: 1px solid #d6d8d9;
 }
 div.sheet-harmcolumn1 div:nth-child(3) div.sheet-harmdetails3 {
-    padding-top: 13px;
+		padding-top: 13px;
 }
 .sheet-recoveryblurb {
-    position: relative;
-    top: -21px;
-    width: 80%;
-    display: inline-block;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 8px;
-    background-color: #d6d8d9;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-style: italic;
-    color: black;
-    font-size: 80%;
-    line-height: 0px;
+		position: relative;
+		top: -21px;
+		width: 80%;
+		display: inline-block;
+		margin: 0;
+		padding: 8px;
+		background-color: #d6d8d9;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		font-style: italic;
+		color: black;
+		font-size: 80%;
+		line-height: 0px;
 }
 .sheet-recoveryblurb2 {
-    width: 100%;
-    padding: 8px 50px 12px 8px;
-    margin-top: 6px;
+		width: 100%;
+		padding: 8px 50px 12px 8px;
+		margin-top: 6px;
 }
 .sheet-recoveryblurb span.sheet-recoveryblurb-bold {
-    color: black;
-    text-align: center;
-    font-size: 81%;
-    letter-spacing: 1px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 119%;
-    padding-right: 3px;
+		color: black;
+		text-align: center;
+		font-size: 81%;
+		letter-spacing: 1px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 119%;
+		padding-right: 3px;
 }
 .sheet-arrow-right {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-left: 4px solid black;
+		display: inline-block;
+		width: 0;
+		height: 0;
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		border-left: 4px solid black;
 }
 .sheet-harmprogress {
-    margin-top: 10px;
+		margin-top: 10px;
 }
 .sheet-harmprogress input.sheet-trauma-check + label {
-    top: 0px;
-    font-size: 105%;
-    font-weight: normal;
-    font-style: normal;
+		top: 0px;
+		font-size: 105%;
+		font-weight: normal;
+		font-style: normal;
 }
 div.sheet-harmprogress label:nth-child(19)::after {
-    content: "";
+		content: "";
 }
 
 /* Clock stuff */
 .sheet-clockname {
-    width: 100%;
-    background-color: #d6d8d9;
-    box-shadow: none;
-    border: none;
-    padding: 0;
-    color: black;
-    text-align: left;
-    font-size: 106%;
-    letter-spacing: 1px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 119%;
+		width: 100%;
+		background-color: #d6d8d9;
+		box-shadow: none;
+		border: none;
+		padding: 0;
+		color: black;
+		text-align: left;
+		font-size: 106%;
+		letter-spacing: 1px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 119%;
 }
 .sheet-harmrecoveryclock {
-    position: absolute;
-    top: 7px;
-    left: 262px;
-    z-index: 1;
-    height: 44px;
-    width: 44px;
-    background-image: url('http://i.imgur.com/ji8z8CE.png');
+		position: absolute;
+		top: 7px;
+		left: 262px;
+		z-index: 1;
+		height: 44px;
+		width: 44px;
+		background-image: url('http://i.imgur.com/ji8z8CE.png');
 }
 .sheet-harmrecoveryclock2 {
-    left: 327px;
+		left: 327px;
 }
 input.sheet-longoption {
-    width: 64px !important;
+		width: 64px !important;
 }
 input.sheet-longoption + span {
-    text-transform: lowercase;
+		text-transform: lowercase;
 }
 .sheet-4clock {
-    display: none;
+		display: none;
 }
 .sheet-6clock {
-    display: none;
+		display: none;
 }
 .sheet-8clock {
-    display: none;
+		display: none;
 }
 .sheet-12clock {
-    display: none;
+		display: none;
 }
 .sheet-4segment:checked ~ .sheet-4clock {
-    display: block;
+		display: block;
 }
 .sheet-6segment:checked ~ .sheet-6clock {
-    display: block;
+		display: block;
 }
 .sheet-8segment:checked ~ .sheet-8clock {
-    display: block;
+		display: block;
 }
 .sheet-12segment:checked ~ .sheet-12clock {
-    display: block;
+		display: block;
 }
 .sheet-harmprogress input.sheet-clock8_0:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/ji8z8CE.png");
+		background-image: url("http://i.imgur.com/ji8z8CE.png");
 }
 .sheet-harmprogress input.sheet-clock8_1:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/My9TlI6.png");
+		background-image: url("http://i.imgur.com/My9TlI6.png");
 }
 .sheet-harmprogress input.sheet-clock8_2:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/5o93FQt.png");
+		background-image: url("http://i.imgur.com/5o93FQt.png");
 }
 .sheet-harmprogress input.sheet-clock8_3:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/MR6r8J7.png");
+		background-image: url("http://i.imgur.com/MR6r8J7.png");
 }
 .sheet-harmprogress input.sheet-clock8_4:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/OADDLy1.png");
+		background-image: url("http://i.imgur.com/OADDLy1.png");
 }
 .sheet-harmprogress input.sheet-clock8_5:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/XvnSlyZ.png");
+		background-image: url("http://i.imgur.com/XvnSlyZ.png");
 }
 .sheet-harmprogress input.sheet-clock8_6:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/IKUp5Bv.png");
+		background-image: url("http://i.imgur.com/IKUp5Bv.png");
 }
 .sheet-harmprogress input.sheet-clock8_7:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/tmBBDIN.png");
+		background-image: url("http://i.imgur.com/tmBBDIN.png");
 }
 .sheet-harmprogress input.sheet-clock8_8:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/Y0eUmrG.png");
+		background-image: url("http://i.imgur.com/Y0eUmrG.png");
 }
 .sheet-harmprogress input.sheet-clock4_0:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/dafd6b0.png");
+		background-image: url("http://i.imgur.com/dafd6b0.png");
 }
 .sheet-harmprogress input.sheet-clock4_1:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/fM5WKMB.png");
+		background-image: url("http://i.imgur.com/fM5WKMB.png");
 }
 .sheet-harmprogress input.sheet-clock4_2:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/P6Wx884.png");
+		background-image: url("http://i.imgur.com/P6Wx884.png");
 }
 .sheet-harmprogress input.sheet-clock4_3:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/C1mMa0r.png");
+		background-image: url("http://i.imgur.com/C1mMa0r.png");
 }
 .sheet-harmprogress input.sheet-clock4_4:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/RZfr3By.png");
+		background-image: url("http://i.imgur.com/RZfr3By.png");
 }
 .sheet-harmprogress input.sheet-clock6_0:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/arZJyPv.png");
+		background-image: url("http://i.imgur.com/arZJyPv.png");
 }
 .sheet-harmprogress input.sheet-clock6_1:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/7l0Tihg.png");
+		background-image: url("http://i.imgur.com/7l0Tihg.png");
 }
 .sheet-harmprogress input.sheet-clock6_2:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/MhIfWuq.png");
+		background-image: url("http://i.imgur.com/MhIfWuq.png");
 }
 .sheet-harmprogress input.sheet-clock6_3:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/qwiaO8q.png");
+		background-image: url("http://i.imgur.com/qwiaO8q.png");
 }
 .sheet-harmprogress input.sheet-clock6_4:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/8O2eCB5.png");
+		background-image: url("http://i.imgur.com/8O2eCB5.png");
 }
 .sheet-harmprogress input.sheet-clock6_5:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/i7ivEnS.png");
+		background-image: url("http://i.imgur.com/i7ivEnS.png");
 }
 .sheet-harmprogress input.sheet-clock6_6:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/DuYwNvN.png");
+		background-image: url("http://i.imgur.com/DuYwNvN.png");
 }
 .sheet-harmprogress input.sheet-clock12_0:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/AzLi8pr.png");
+		background-image: url("http://i.imgur.com/AzLi8pr.png");
 }
 .sheet-harmprogress input.sheet-clock12_1:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/pDCHycE.png");
+		background-image: url("http://i.imgur.com/pDCHycE.png");
 }
 .sheet-harmprogress input.sheet-clock12_2:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/JbRUclC.png");
+		background-image: url("http://i.imgur.com/JbRUclC.png");
 }
 .sheet-harmprogress input.sheet-clock12_3:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/jRyp6oP.png");
+		background-image: url("http://i.imgur.com/jRyp6oP.png");
 }
 .sheet-harmprogress input.sheet-clock12_4:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/BHM56D9.png");
+		background-image: url("http://i.imgur.com/BHM56D9.png");
 }
 .sheet-harmprogress input.sheet-clock12_5:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/a4c1e5I.png");
+		background-image: url("http://i.imgur.com/a4c1e5I.png");
 }
 .sheet-harmprogress input.sheet-clock12_6:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/IRGWvwH.png");
+		background-image: url("http://i.imgur.com/IRGWvwH.png");
 }
 .sheet-harmprogress input.sheet-clock12_7:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/GbUzXr7.png");
+		background-image: url("http://i.imgur.com/GbUzXr7.png");
 }
 .sheet-harmprogress input.sheet-clock12_8:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/krkIEho.png");
+		background-image: url("http://i.imgur.com/krkIEho.png");
 }
 .sheet-harmprogress input.sheet-clock12_9:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/7vuvV92.png");
+		background-image: url("http://i.imgur.com/7vuvV92.png");
 }
 .sheet-harmprogress input.sheet-clock12_10:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/Q9xWEYx.png");
+		background-image: url("http://i.imgur.com/Q9xWEYx.png");
 }
 .sheet-harmprogress input.sheet-clock12_11:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/N29lNdB.png");
+		background-image: url("http://i.imgur.com/N29lNdB.png");
 }
 .sheet-harmprogress input.sheet-clock12_12:checked + span ~ .sheet-harmrecoveryclock {
-    background-image: url("http://i.imgur.com/Y1Vd6bo.png");
+		background-image: url("http://i.imgur.com/Y1Vd6bo.png");
 }
 
 /* SPECIAL ABILITIES*/
 .sheet-specialheader {
-    box-sizing: border-box;
-    display: inline-block;
-    overflow: hidden;
-    background-color: #b3b4b6;
-    width: 100%;
-    height: 20px;
-    vertical-align: top;
-    color: black;
-    font-size: 74%;
-    letter-spacing: 1px;
-    padding-left: 5px;
-    padding-top: 11px;
-    font-weight: 600;
-    line-height: 0px;
+		display: inline-block;
+		overflow: hidden;
+		background-color: #b3b4b6;
+		width: 100%;
+		height: 20px;
+		vertical-align: top;
+		color: black;
+		font-size: 74%;
+		letter-spacing: 1px;
+		padding-left: 5px;
+		padding-top: 11px;
+		font-weight: 600;
+		line-height: 0px;
 }
 .sheet-specialheader2 {
-    margin-top: 26px;
-    margin-bottom: 15px;
-    padding-top: 11px;
+		margin-top: 26px;
+		margin-bottom: 15px;
+		padding-top: 11px;
 }
 .sheet-specialability, .sheet-friend {
-    padding-top: 2px;
-    padding-left: 4px;
-    border-bottom: 1px solid #b3b4b6;
+		padding-top: 2px;
+		padding-left: 4px;
+		border-bottom: 1px solid #b3b4b6;
 }
 .sheet-abilitiesholder {
-    width: 100%;
-    background-color: #d6d8d9;
-    box-sizing: border-box;
+		width: 100%;
+		background-color: #d6d8d9;
 }
 .sheet-abilitycheck input[type=text] {
-    display: inline-block;
-    width: 25%;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: black;
-    font-variant: small-caps;
-    font-size: 100%;
-    font-weight: 800;
-    letter-spacing: 0px;
-    padding-left: 5px;
-    margin: 3px 0 0;
+		display: inline-block;
+		width: 25%;
+		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+		color: black;
+		font-variant: small-caps;
+		font-size: 100%;
+		font-weight: 800;
+		letter-spacing: 0px;
+		padding-left: 5px;
+		margin: 3px 0 0;
 }
 .sheet-abilitycheck textarea {
-    width: 69%;
-    resize: vertical;
-    display: inline-block;
-    height: 50px;
-    box-shadow: none;
-    color: black;
-    font-size: 95%;
-    border: none;
-    line-height: 122%;
-    margin-top: 3px;
-    background-color: rgb(214, 216, 217);
-    font-family: Georgia, Times, "Times New Roman", serif;
+		width: 69%;
+		resize: vertical;
+		display: inline-block;
+		height: 50px;
+		box-shadow: none;
+		color: black;
+		font-size: 95%;
+		border: none;
+		line-height: 122%;
+		margin-top: 3px;
+		background-color: rgb(214, 216, 217);
+		font-family: Georgia, Times, "Times New Roman", serif;
 }
 .sheet-abilitycheck, .sheet-friend {
-    display: inline-block;
-    width: 100%;
+		display: inline-block;
+		width: 100%;
 }
 
 /* CHECKBOXES */
 	/* style inputs*/
 .sheet-abilitycheck input[type="checkbox"], .sheet-item input[type="checkbox"], .sheet-attributedot input[type="checkbox"], .sheet-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
-    display: inline-block;
-    position: absolute;
-    z-index: 1;
-    opacity: 0;
+		display: inline-block;
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
 }
 	/* fix position */
 .sheet-item input[type="checkbox"] {
@@ -1318,418 +1333,393 @@ input.sheet-longoption + span {
 }
 	/* style spans */
 .sheet-abilitycheck input[type="checkbox"] + span::before, .sheet-attributedot input + span::before {
-    top: 1px;
-    border-radius: 30px;
+		top: 1px;
+		border-radius: 30px;
 }
-.sheet-abilitycheck input[type="checkbox"] + span::before, .sheet-item input[type="checkbox"] + span::before, .sheet-attributedot input + span::before, .sheet-quality input + span::before, .sheet-friend input[type="checkbox"] + span::before {
-    content: '';
-    cursor: pointer;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    margin: 0px 0px 0px 2px;
-    position: relative;
-    padding: 0;
-    background-color: white;
-    border: 1px solid #838587;
+.sheet-abilitycheck input[type="checkbox"] + span::before, .sheet-item input[type="checkbox"] + span::before, .sheet-attributedot input + span::before, .sheet-friend input[type="checkbox"] + span::before {
+		content: '';
+		cursor: pointer;
+		width: 10px;
+		height: 10px;
+		display: inline-block;
+		margin: 0px 0px 0px 2px;
+		position: relative;
+		padding: 0;
+		background-color: white;
+		border: 1px solid #838587;
+}
+.sheet-quality input + span::before {
+	content: '';
+	cursor: pointer;
+	width: 9px;
+	height: 9px;
+	display: inline-block;
+	margin: 0px 0px 0px 1px;
+	position: relative;
+	padding: 0;
+	background-color: white;
+	border: 1px solid #838587;
 }
 	/* opacity on hover */
 .sheet-abilitycheck input[type="checkbox"]:hover + span::before, .sheet-item input[type="checkbox"]:hover + span::before, .sheet-friend input[type="checkbox"]:hover + span::before {
-    opacity: 0.3;
+		opacity: 0.3;
 }
 	/* section-specific styling */
 .sheet-quality input,
 .sheet-quality input + span:before {
-    border-radius: 50px;
-    box-sizing: border-box;
-    margin-top: 4px;
+		border-radius: 40px;
+		margin-top: 4px;
 }
 .sheet-tier.sheet-quality input + span:before {
 		margin-right: 2px;
 }
 .sheet-item input[type="checkbox"] + span::before {
-    top: 2px;
-    border-radius: 0px;
-    margin-right: 1px;
+		top: 2px;
+		border-radius: 0px;
+		margin-right: 1px;
 }
 .sheet-playbookitems .sheet-item input[type="checkbox"] + span::before {
-    background-color: #d6d8d9;
+		background-color: #d6d8d9;
 }
 	/* turn checked boxes red*/
 .sheet-abilitycheck input[type="checkbox"]:checked + span::before,
 .sheet-item input[type="checkbox"]:checked + span::before,
 .sheet-attributedot input:checked + span::before,
 .sheet-quality input:checked + span::before {
-    background-color: red !important;
+		background-color: red !important;
 }
 	/* turn text red if boxes are checked*/
 .sheet-abilitycheck input[type="checkbox"]:checked ~ input[type=text],
 .sheet-item input[type="checkbox"]:checked ~ input[type=text] {
-    color: red;
+		color: red;
 }
 
 /* REPCONTROLS */
 .charsheet button.repcontrol_edit,
 .charsheet button.repcontrol_add {
-    letter-spacing: 0px !important;
-    text-shadow: none !important;
-    padding: 6px !important;
-    background-image: none;
-    background-color: #d6d8d9 !important;
-    color: #616161 !important;
-    border-radius: 0;
-    border-color: #b3b4b6 !important;
-    box-shadow: none;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif !important;
-    font-variant: small-caps !important;
-    font-size: 100% !important;
-    font-weight: 800 !important;
+		letter-spacing: 0px !important;
+		text-shadow: none !important;
+		padding: 6px !important;
+		background-image: none;
+		background-color: #d6d8d9 !important;
+		color: #616161 !important;
+		border-radius: 0;
+		border-color: #b3b4b6 !important;
+		box-shadow: none;
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		-ms-transition: all 0.2s;
+		-o-transition: all 0.2s;
+		transition: all 0.2s;
+		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif !important;
+		font-variant: small-caps !important;
+		font-size: 100% !important;
+		font-weight: 800 !important;
 }
 .charsheet button.repcontrol_edit:hover,
 .charsheet button.repcontrol_add:hover {
-    color: #020202 !important;
-    border-color: #020202 !important;
-    background-color: #cccccc !important;
+		color: #020202 !important;
+		border-color: #020202 !important;
+		background-color: #cccccc !important;
 }
 .sheet-itemholder button.repcontrol_edit,
 .sheet-itemholder button.repcontrol_add,
 .sheet-cohorts button.repcontrol_edit,
 .sheet-cohorts button.repcontrol_add {
-    font-weight: 600!important;
-    background-color: white !important;
-    margin-top: 12px;
-    font-size: 91% !important;
-    font-family: serif !important;
-    font-variant: normal !important;
-    padding: 4px !important;
+		font-weight: 600!important;
+		background-color: white !important;
+		margin-top: 12px;
+		font-size: 91% !important;
+		font-family: serif !important;
+		font-variant: normal !important;
+		padding: 4px !important;
 }
 div.itemcontrol {
-    z-index: 100 !important;
-    padding-top: 0px;
+		z-index: 100 !important;
+		padding-top: 0px;
 }
 div.sheet-col97 > div.repcontrol {
-    top: -15px !important;
-    position: relative !important;
+		top: -15px !important;
+		position: relative !important;
 }
 
 /* XP CONDITION BOX*/
-.sheet-markxp {
-    display: inline-block;
-    width: 30%;
-    background-color: black;
-    color: white;
-    font-size: 74%;
-    letter-spacing: 2px;
-    padding-left: 5px;
-    font-weight: 600;
-    line-height: 19px;
-    height: 16px;
-    margin-top: 9px;
+.sheet-advancement {
+	margin-top: 10px;
+
 }
-.sheet-playbookadvancement {
-    vertical-align: top;
-    display: inline-block;
-    width: 67%;
-    padding-right: 0px;
-    background-color: black;
-    color: white;
-    font-size: 74%;
-    letter-spacing: 2px;
-    padding-left: 5px;
-    font-weight: 600;
-    line-height: 19px;
-    height: 16px;
-    margin-top: 9px;
-    text-align: right;
+.sheet-advancement-header div {
+	float: left;
+	letter-spacing: 2px;
 }
-.sheet-playbookholder {
-    display: inline-block;
-    position: relative;
-    top: -14px;
-    padding-right: 14px;
+.sheet-advancement-markxp {
+	width: 30%;
 }
-.sheet-markxpdesc {
-    width: 99%;
-    background-color: #d6d8d9;
+.sheet-advancement-tracker {
+	width: 70%;
+	text-align: right;
+	height: 16px;
 }
-.sheet-markxpdesc ul {
-    list-style: none;
-    padding: 15px 20px 4px 16px;
-    margin: 0;
+.sheet-advancement-label {
+	width: calc(100% - 114px);
 }
-.sheet-markxpdesc li {
-    margin: 0;
-    margin-bottom: 1em;
-    padding-left: 1.5em;
-    position: relative;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-style: italic;
-    color: black;
-    font-size: 95%;
-    line-height: 127%;
+.sheet-advancement-xpholder {
+	width: 114px;
 }
-.sheet-markxpdesc li:after {
-    content: '';
-    height: .4em;
-    width: .4em;
-    background: black;
-    display: block;
-    position: absolute;
-    transform: rotate(45deg);
-    top: .25em;
-    left: 0;
+.sheet-advancement-desc {
+	width: 99%;
+	float: left;
+	background-color: #d6d8d9;
 }
-.sheet-markxpdesc li.sheet-nondot {
-    font-style: normal;
-    padding-left: 0;
+.sheet-advancement-desc ul {
+	padding: 15px 20px 4px 16px;
 }
-.sheet-markxpdesc li.sheet-nondot:after {
-    display: none;
+.sheet-advancement-desc li, .sheet-advancement-desc input[type=text] {
+	font-size: 95%;
+	line-height: 127%;
 }
-.sheet-markxpdesc input {
-    border-bottom: none;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-style: italic;
-    color: black;
-    font-size: 95%;
-    line-height: 125%;
-    padding: 0px;
-    margin: 0px;
-    height: auto;
+.sheet-advancement-desc li {
+	margin-bottom: 1em;
+	padding-left: 1.5em;
+}
+.sheet-advancement-desc li:after {
+	height: .4em;
+	width: .4em;
+	top: .25em;
+}
+.sheet-advancement-desc li.sheet-nondot {
+	font-style: normal;
+	padding-left: 0;
+}
+.sheet-advancement-desc li.sheet-nondot:after {
+		display: none;
 }
 
 /* ACTION RATINGS */
 .sheet-attribute {
-    width: 100%;
-    height: 21px;
-    background-color: black;
-    color: white;
-    font-size: 107%;
-    letter-spacing: 0;
-    padding-left: 7px;
-    font-weight: 800;
-    line-height: 9px;
-    padding-top: 1px;
+		width: 100%;
+		height: 21px;
+		background-color: black;
+		color: white;
+		font-size: 107%;
+		letter-spacing: 0;
+		padding-left: 7px;
+		font-weight: 800;
+		line-height: 9px;
+		padding-top: 1px;
 }
 .sheet-attribute-xp-box {
 		float: right;
-    width: 73px;
+		width: 73px;
 }
 .sheet-attribute-xp-zero-box {
 		float: right;
-    width: 12px;
+		width: 12px;
 }
 .sheet-attributetitle {
-    padding-top: 4px;
-    padding-right: 6px;
-    width: 67px;
-    margin-right: 6px;
+		padding-top: 4px;
+		padding-right: 6px;
+		width: 67px;
+		margin-right: 6px;
 }
 .sheet-attributebtn {
-    text-transform: uppercase !important;
-    letter-spacing: 0px !important;
-    text-shadow: none !important;
-    font-size: 92% !important;
-    font-weight: 800;
-    line-height: 9px;
-    border: none;
-    background-color: black;
-    color: white;
-    margin: 0 !important;
-    padding: 0 !important;
-    box-shadow: none;
-    background-image: none;
+		text-transform: uppercase !important;
+		letter-spacing: 0px !important;
+		text-shadow: none !important;
+		font-size: 92% !important;
+		font-weight: 800;
+		line-height: 9px;
+		border: none;
+		background-color: black;
+		color: white;
+		margin: 0 !important;
+		padding: 0 !important;
+		box-shadow: none;
+		background-image: none;
 }
 button.sheet-attributebtn:hover {
-    color: #ff4747 !important
+		color: #ff4747 !important
 }
 button.sheet-attributebtn:before {
-    content: "" !important;
+		content: "" !important;
 }
 .sheet-attributedotsholder {
-    width: 100%;
-    height: 22px;
+		width: 100%;
+		height: 22px;
 }
 .sheet-attributepadding {
 		float: left;
-    padding: 0px;
-    padding-left: 2px;
-    width: 100%;
-    margin-bottom: 14px;
+		padding: 0px;
+		padding-left: 2px;
+		width: 100%;
+		margin-bottom: 14px;
 }
 .sheet-firstdotholder {
-    display: inline-block;
-    border-right: 1px solid black;
-    padding: 4px;
-    margin-right: 6px;
-    padding-right: 9px;
+		display: inline-block;
+		border-right: 1px solid black;
+		padding: 4px;
+		margin-right: 6px;
+		padding-right: 9px;
 }
 .sheet-attributedotsholder:first-child {
-    height: 30px;
+		height: 30px;
 }
 .sheet-attributedotsholder:first-child .sheet-firstdotholder {
-    padding-top: 11px;
+		padding-top: 11px;
 }
 .sheet-attributedot {
-    border: none;
-    margin: 0px 9px 0px 0px;
-    width: 10px;
-    display: inline-block;
+		border: none;
+		margin: 0px 8px 0px 0px;
+		width: 10px;
+		display: inline-block;
 }
 .sheet-attributedot:last-child {
-    margin-right: 0px !important;
-    border: none;
+		margin-right: 0px !important;
+		border: none;
 }
 .sheet-attributedot input,
 .sheet-attributedot input + span:before {
-    border-radius: 50px !important;
-    background-color: #c6c7c9;
-    border: none;
+		border-radius: 50px !important;
+		background-color: #c6c7c9;
+		border: none;
 }
 .sheet-attributedot input {
 		width: 20px;
-    height: 20px;
+		height: 20px;
 }
 
 /* LOAD */
 .sheet-loadheader,
 .sheet-loadheader2 {
-    width: 100%;
-    background-color: #b3b4b6;
-    height: 20px;
-    box-sizing: border-box;
-    padding-left: 6px;
-    padding-top: 5px;
-    line-height: 0px;
-    color: black;
-    font-size: 74%;
-    letter-spacing: 0px;
-    font-weight: 800;
+		width: 100%;
+		background-color: #b3b4b6;
+		height: 20px;
+		padding-left: 6px;
+		padding-top: 5px;
+		line-height: 0px;
+		color: black;
+		font-size: 74%;
+		letter-spacing: 0px;
+		font-weight: 800;
 }
 .sheet-loadheader2 {
-    margin-top: 5px;
-    padding-top: 10px;
+		margin-top: 5px;
+		padding-top: 10px;
 }
 .sheet-loadcheckholder {
-    display: inline-block;
-    font-family: serif;
-    text-transform: lowercase;
-    font-style: italic;
-    font-size: 109%;
+		display: inline-block;
+		font-family: serif;
+		text-transform: lowercase;
+		font-style: italic;
+		font-size: 109%;
+}
+.sheet-loadcheckholder span {
+	text-transform: lowercase;
 }
 .sheet-loadnumber {
-    font-style: normal;
-    font-weight: 800;
-    font-size: 105%;
-    padding-left: 4px;
+		font-style: normal;
+		font-weight: 800;
+		font-size: 105%;
+		padding-left: 4px;
 }
 
 /* BUTTONS */
 .sheet-rollbtn {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    letter-spacing: 1px !important;
-    font-weight: 600 !important;
-    line-height: 13px;
-    font-size: 95% !important;
-    text-transform: uppercase !important;
-    background-color: white !important;
-    color: black;
-    position: relative;
-    top: -1px;
-    left: 2px;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		letter-spacing: 1px !important;
+		font-weight: 600 !important;
+		line-height: 13px;
+		font-size: 95% !important;
+		text-transform: uppercase !important;
+		background-color: white !important;
+		color: black;
+		position: relative;
+		top: -1px;
+		left: 2px;
 }
 .sheet-vicebutton,
 .sheet-fortunebtn {
-    letter-spacing: 0px !important;
-    text-shadow: none !important;
-    background-image: none;
-    color: #616161 !important;
-    border-radius: 0;
-    border-color: #b3b4b6 !important;
-    box-shadow: none;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s;
-    font-size: 97% !important;
-    content: ''!important;
-    position: absolute;
-    top: 310px;
-    left: 398px;
-    font-weight: 600!important;
-    background-color: white !important;
-    font-variant: normal !important;
-    padding: 4px !important;
-    text-transform: none !important;
+		letter-spacing: 0px !important;
+		text-shadow: none !important;
+		background-image: none;
+		color: #616161 !important;
+		border-radius: 0;
+		border-color: #b3b4b6 !important;
+		box-shadow: none;
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		-ms-transition: all 0.2s;
+		-o-transition: all 0.2s;
+		transition: all 0.2s;
+		font-size: 97% !important;
+		content: ''!important;
+		position: absolute;
+		top: 288px;
+		left: 404px;
+		font-weight: 600!important;
+		background-color: white !important;
+		font-variant: normal !important;
+		padding: 4px !important;
+		text-transform: none !important;
 }
 .sheet-fortunebtn {
-    width: 100%;
-    height: 38px;
-    text-align: center;
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-left: 0px !important;
-    margin-top: 10px !important;
+		width: 100%;
+		height: 38px;
+		text-align: center;
+		position: relative;
+		top: 0;
+		left: 0;
+		margin-left: 0px !important;
+		margin-top: 10px !important;
 }
 button.sheet-vicebutton:hover,
 button.sheet-fortunebtn:hover {
-    color: #020202 !important;
-    border-color: #020202 !important;
+		color: #020202 !important;
+		border-color: #020202 !important;
 }
 button.sheet-vicebutton:before,
 button.sheet-fortunebtn:before {
-    content: "" !important;
+		content: "" !important;
 }
 
 /* BONUS DIE SECTION */
 .sheet-bonusdie {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 5px 5px 5px;
-    margin-bottom: 5px;
-    position: relative;
-    top: -10px;
-    float: left;
+		width: 100%;
+		padding: 10px 5px 5px 5px;
+		margin-bottom: 5px;
+		position: relative;
+		top: -10px;
+		float: left;
 }
 .sheet-bonusdieheader {
-    width: 100%;
-    box-sizing: border-box;
-    color: black;
-    font-size: 88%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 22px;
+		width: 100%;
+		color: black;
+		font-size: 88%;
+		letter-spacing: 0px;
+		font-weight: 800;
+		line-height: 22px;
 }
 .sheet-bonusdie1 {
-    box-sizing: border-box;
-    width: 10%;
-    background-color: black;
-    color: white;
-    display: inline-block;
-    height: 45px;
-    padding: 11px 4px 4px 4px;
-    font-weight: 800;
-    vertical-align: top;
+		width: 10%;
+		background-color: black;
+		color: white;
+		display: inline-block;
+		height: 45px;
+		padding: 11px 4px 4px 4px;
+		font-weight: 800;
+		vertical-align: top;
 }
 .sheet-bonusdie2 {
-    display: inline-block;
-    vertical-align: top;
-    background-color: #d6d8d9;
-    box-sizing: border-box;
-    width: 90%;
-    color: black;
-    height: 45px;
-    padding: 5px;
-    font-size: 80%;
-    line-height: 122%;
-    font-family: Georgia, Times, "Times New Roman", serif;
+		display: inline-block;
+		vertical-align: top;
+		background-color: #d6d8d9;
+		width: 90%;
+		color: black;
+		height: 45px;
+		padding: 5px;
+		font-size: 80%;
+		line-height: 122%;
+		font-family: Georgia, Times, "Times New Roman", serif;
 }
 
 /* FRIENDS/CONTACTS */
@@ -1740,50 +1730,50 @@ input[type="checkbox"].sheet-frienddown {
 		margin: 10px 0 0 2px;
 }
 .sheet-friend input[type="checkbox"].sheet-friendcheck + span::before {
-    margin: 0px 0px 0px -1px !important;
-    border-radius: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    border-style: solid !important;
-    border-width: 0 5px 10px 5px !important;
-    border-color: transparent transparent #ffffff transparent !important;
-    background-color: #d6d8d9 !important;
-    top: -3px !important;
+		margin: 0px 0px 0px -1px !important;
+		border-radius: 0 !important;
+		width: 0 !important;
+		height: 0 !important;
+		border-style: solid !important;
+		border-width: 0 5px 10px 5px !important;
+		border-color: transparent transparent #ffffff transparent !important;
+		background-color: #d6d8d9 !important;
+		top: -3px !important;
 }
 .sheet-friend input[type="checkbox"].sheet-frienddown + span::before {
-    border-width: 10px 5px 0 5px !important;
-    border-color: #ffffff transparent transparent transparent !important;
-    top: 1px !important;
-    margin: 0px 0px 0px 3px !important;
+		border-width: 10px 5px 0 5px !important;
+		border-color: #ffffff transparent transparent transparent !important;
+		top: 1px !important;
+		margin: 0px 0px 0px 3px !important;
 }
 .sheet-friend input[type="checkbox"].sheet-friendup + span::before {
-    border-width: 0 5px 10px 5px !important;
-    border-color: transparent transparent #ffffff transparent;
-    top: -3px !important;
+		border-width: 0 5px 10px 5px !important;
+		border-color: transparent transparent #ffffff transparent;
+		top: -3px !important;
 }
 .sheet-friend input[type="checkbox"].sheet-frienddown:checked + span::before {
-    border-color: #000000 transparent transparent transparent !important;
+		border-color: #000000 transparent transparent transparent !important;
 }
 .sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
-    border-color: transparent transparent red transparent !important;
+		border-color: transparent transparent red transparent !important;
 }
 .sheet-friend input[type="checkbox"].sheet-friendup:checked ~ input[type=text] {
-    color: red !important;
+		color: red !important;
 }
 .sheet-friend input[type="checkbox"].sheet-frienddown:checked ~ input[type=text] {
-    color: black !important;
+		color: black !important;
 }
 .sheet-friend input[type=text] {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: #6c6c6c;
-    font-size: 95%;
-    line-height: 122%;
-    font-variant: normal;
-    font-weight: 400;
-    height: 33px;
-    width: 137px;
-    padding: 0 0 4px 3px;
-    margin: 0;
+		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+		color: #6c6c6c;
+		font-size: 95%;
+		line-height: 122%;
+		font-variant: normal;
+		font-weight: 400;
+		height: 33px;
+		width: 137px;
+		padding: 0 0 4px 3px;
+		margin: 0;
 }
 .sheet-friend.sheet-contact input[type=text] {
 		color: black;
@@ -1791,58 +1781,43 @@ input[type="checkbox"].sheet-frienddown {
 		font-weight: 800;
 }
 
-/* GATHER INFORMATION */
-.sheet-gatherinfoheader {
-    width: 100%;
-    box-sizing: border-box;
-    border-top: 2px solid black;
-    color: black;
-    font-size: 88%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 22px;
-    margin-top: 20px;
+/* INFO BOXES */
+.sheet-gatherinfo, .sheet-teamwork, .sheet-planning {
+	margin-top: 20px;
 }
-.sheet-gatherinfo .sheet-markxpdesc {
-    background-color: white;
-    padding: 0;
-    margin: 0;
+.sheet-gatherinfo ul {
+	padding: 0;
 }
-.sheet-gatherinfo .sheet-markxpdesc ul {
-    padding: 0;
-    margin: 0;
+.sheet-gatherinfo li {
+	margin-bottom: 4px;
+	padding-left: 11px;
+	font-size: 86%;
 }
-.sheet-gatherinfo .sheet-markxpdesc li {
-    margin-bottom: 4px;
-    padding-left: 11px;
-    font-size: 86%;
+.sheet-gatherinfo li:after {
+	height: 4px;
+	width: 4px;
+	top: .25em;
+	margin-top: 4px;
 }
-.sheet-gatherinfo .sheet-markxpdesc li:after {
-    content: '';
-    height: 4px;
-    width: 4px;
-    background: black;
-    display: block;
-    position: absolute;
-    transform: rotate(45deg);
-    top: .25em;
-    left: 0;
-    margin-top: 4px;
-}
-
-/* TEAMWORK */
 .sheet-teamworkbox {
-    width: 95%;
-    padding: 5px;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    color: black;
-    background-color: #d6d8d9;
-    font-size: 89%;
-    line-height: 122%;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-variant: normal;
-    font-weight: 400;
+		width: 95%;
+		padding: 5px;
+		margin-bottom: 5px;
+		background-color: #d6d8d9;
+		font-size: 89%;
+		line-height: 122%;
+}
+.sheet-planningdesc {
+		font-size: 95%;
+		line-height: 127%;
+		margin-bottom: 5px;
+}
+.sheet-bold {
+		font-weight: 800;
+}
+.sheet-italic {
+		font-style: italic;
+		font-weight: 800;
 }
 
 /* ITEMS/UPGRADES */
@@ -1854,61 +1829,61 @@ input[type="checkbox"].sheet-frienddown {
 		width: 100%;
 }
 .sheet-itemholder .sheet-item.sheet-itemshort {
-    width: 50%;
+		width: 50%;
 }
 .sheet-playbookitems {
-    background-color: #d6d8d9;
+		background-color: #d6d8d9;
 }
 .sheet-item input[type=text] {
-    width: calc(100% - 20px);
-    height: 16px;
-    margin-left: 5px;
-    padding: 3px 0;
-    font-size: 83%;
+		width: calc(100% - 20px);
+		height: 16px;
+		margin-left: 5px;
+		padding: 3px 0;
+		font-size: 83%;
 }
 .sheet-item.sheet-item2box input[type=text] {
-    width: calc(100% - 35px);
+		width: calc(100% - 35px);
 }
 .sheet-item.sheet-item3box input[type=text] {
-    width: calc(100% - 50px);
+		width: calc(100% - 50px);
 }
 .sheet-item.sheet-item4box input[type=text] {
-    width: calc(100% - 65px);
+		width: calc(100% - 65px);
 }
 .sheet-item.sheet-itembold input[type=text] {
-    font-weight: 800;
+		font-weight: 800;
 }
 .sheet-item.sheet-itemitalic input[type=text] {
-    font-style: italic;
+		font-style: italic;
 }
 .sheet-item label {
-    height: 16px;
-    border-radius: 0;
-    margin-bottom: 0;
-    border: 0;
-    color: black;
-    font-size: 78%;
-    box-shadow: none;
-    background-color: rgba(255, 255, 255, 0);
-  	font-family: Georgia, Times, "Times New Roman", serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+		height: 16px;
+		border-radius: 0;
+		margin-bottom: 0;
+		border: 0;
+		color: black;
+		font-size: 78%;
+		box-shadow: none;
+		background-color: rgba(255, 255, 255, 0);
+		font-family: Georgia, Times, "Times New Roman", serif;
+		text-transform: uppercase;
+		letter-spacing: 1px;
 }
 .sheet-item label.sheet-upgradecosts {
-    padding: 3px 0 3px 0;
-    font-size: 55%;
-    line-height: inherit;
-    height: 10px;
+		padding: 3px 0 3px 0;
+		font-size: 55%;
+		line-height: inherit;
+		height: 10px;
 }
 .sheet-item span {
 		font-size: 83%;
 }
 .sheet-floatingbar {
 		display: inline-block;
-    width: 4px;
-    height: 3px;
-    margin: 0 -2px;
-    border-top: 2px solid #838587;
+		width: 4px;
+		height: 3px;
+		margin: 0 -2px;
+		border-top: 2px solid #838587;
 }
 
 /* COHORTS */
@@ -1917,16 +1892,16 @@ input[type="checkbox"].sheet-frienddown {
 }
 .sheet-cohort-conditionholder > div > div:first-child {
 		margin: 0;
-    color: black;
-    font-size: 55%;
-    letter-spacing: 0px;
-    font-weight: 400;
-    float: left;
+		color: black;
+		font-size: 55%;
+		letter-spacing: 0px;
+		font-weight: 400;
+		float: left;
 }
 .sheet-cohort-conditionholder > div > div:nth-child(2) {
 		margin: 0;
-    font-size: 55%;
-    float: right;
+		font-size: 55%;
+		float: right;
 }
 .sheet-cohort-weak {
 		width: 19%;
@@ -1951,17 +1926,17 @@ div.sheet-cohort-armor div {
 .sheet-cohort-title input[type="text"] {
 		color: white;
 		background: transparent;
-    letter-spacing: 0px;
-    text-shadow: none;
-    font-size: 82%;
-    font-weight: 800;
-    height: 17px;
-    padding: 4px 6px 0 0;
-    margin-left: -5px;
-    margin-right: -2px;
-    display: block;
-    float: left;
-    width: calc(70% - 37px);
+		letter-spacing: 0px;
+		text-shadow: none;
+		font-size: 82%;
+		font-weight: 800;
+		height: 17px;
+		padding: 4px 6px 0 0;
+		margin-left: -5px;
+		margin-right: -2px;
+		display: block;
+		float: left;
+		width: calc(70% - 37px);
 }
 button.sheet-cohortbtn {
 		float: right;
@@ -1970,511 +1945,84 @@ button.sheet-cohortbtn {
 		margin-top: 1px !important;
 }
 .sheet-quality {
-    display: block;
-    float: right;
-    background-color: #d6d8d9;
+		display: block;
+		float: right;
+		background-color: #d6d8d9;
 }
 .sheet-tier.sheet-quality {
 		width: 12%;
 		margin-top: 15px;
-		height: 17px;	
+		height: 17px; 
 }
 .sheet-cohorts .sheet-quality {
-    width: 30%;
-    height: 18px;
-    margin: -1px 0 0 3px;
+		width: 30%;
+		height: 18px;
+		margin: -1px 0 0 3px;
 }
 .sheet-cohort-text {
-    float: left;
-    box-sizing: border-box;
-    width: 100%;
-    padding-bottom: 4px;
+		float: left;
+		width: 100%;
+		padding-bottom: 4px;
 }
 .sheet-cohort-text textarea {
-    resize: vertical;
-    box-shadow: none;
-    color: black;
-    font-size: 95%;
-    line-height: 122%;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    box-sizing: border-box;
-    background: transparent;
-    margin: 0px;
-    border: none;
-    height: 74px;
-    border-bottom: 1px solid lightgray;
+		resize: vertical;
+		box-shadow: none;
+		color: black;
+		font-size: 95%;
+		line-height: 122%;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		background: transparent;
+		margin: 0px;
+		border: none;
+		height: 74px;
+		border-bottom: 1px solid lightgray;
 }
 .sheet-cohorts {
 		margin: 5px 0 6px 0;
 		float: left;
 }
 
-/* PLANNING */
-.sheet-planningdesc {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    color: black;
-    font-size: 95%;
-    line-height: 127%;
-    font-size: 86%;
-    font-style: normal;
-    margin-bottom: 5px;
-}
-
 /* HUNTING GROUNDS */
 .sheet-hunting-grounds-box {
-    width: 100%;
-    box-sizing: border-box inherit;
-    border-top: 2px solid black;
-    margin-top: 20px;
+		width: 100%;
+		border-top: 2px solid black;
+		margin-top: 20px;
 }
 .sheet-hunting-grounds-box input[type="text"] {
 		width: 100%;
-    color: black;
-    letter-spacing: 0px;
-		border: none;
-		box-shadow: none;
+		color: black;
+		letter-spacing: 0px;
 		padding-bottom: 0;
 }
 .sheet-hunting-grounds-box input[type="text"].sheet-hunting-grounds-header {
-    font-size: 88%;
-    font-weight: 800;
+		font-size: 88%;
+		font-weight: 800;
 }
 .sheet-hunting-grounds-box input[type="text"].sheet-hunting-grounds-content {
-    font-size: 76%;
-    font-weight: 400;
-    padding-top: 0;
+		font-size: 76%;
+		font-weight: 400;
+		padding-top: 0;
 }
 
 /* NOTES */
 .sheet-notes {
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    box-sizing: border-box;
-    font-family: "Shadows Into Light", cursive;
-    color: #c43c35;
-    font-size: 155%;
-    padding: 0px;
-    width: 356px;
-    border: 0;
-    background-color: #ffffff;
-    box-shadow: none;
-    resize: vertical;
-    background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-image: linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-    background-size: 100% 27px;
-    line-height: 137%;
-    height: 378px;
-}
-
-/* ROLL TEMPLATES */
-/* ACTION ROLL */
-.sheet-rolltemplate-bitd .sheet-rolltableholder {
-    margin-left: -45px;
-    margin-right: -1px;
-    background-image: url(http://i.imgur.com/tGbnc6O.gif);
-    width: 299px;
-    height: 258px;
-    font-variant-numeric: lining-nums;
-}
-.sheet-rolltemplate-bitd .sheet-rolltablename {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: #e74a10;
-    text-transform: uppercase;
-    font-size: 103%;
-    letter-spacing: 1px;
-    padding-left: 32px;
-    font-weight: 800;
-    line-height: 0px;
-    height: 20px;
-    padding-top: 32px;
-}
-.sheet-rolltemplate-bitd .sheet-rolltablerolls {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: #e74a10;
-    text-transform: uppercase;
-    font-size: 103%;
-    letter-spacing: 1px;
-    padding-left: 32px;
-    font-weight: 800;
-    line-height: 0px;
-    font-style: italic;
-}
-.sheet-rolltemplate-bitd .sheet-rolltabletitle {
-    padding-left: 30px;
-    padding-top: 22px;
-}
-.sheet-rolltemplate-bitd .sheet-rolltabledice {
-    height: 27px;
-    padding-top: 41px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    color: white;
-    text-transform: uppercase;
-    font-size: 137%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 20px;
-}
-.sheet-rolltemplate-bitd .sheet-rolltableposition,
-.sheet-rolltemplate-bitd .sheet-rolltableeffect {
-    display: inline-block;
-    width: 49%;
-    box-sizing: border-box;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: white;
-    text-transform: uppercase;
-    font-size: 82%;
-    letter-spacing: 1px;
-    padding-top: 20px;
-    padding-left: 29px;
-}
-.sheet-rolltemplate-bitd .sheet-rolltableeffect {
-    padding-left: 15px;
-}
-.sheet-rolltemplate-bitd .inlinerollresult {
-    border: 0px solid white !important;
-    background-color: rgba(158, 100, 81, 0);
-    font-weight: normal;
-}
-.sheet-rolltemplate-bitd .sheet-comma:last-child {
-    display: none;
-}
-.sheet-rolltemplate-bitd .sheet-zerodice1 {
-    position: relative;
-    top: 4px;
-    font-size: 103%;
-    text-shadow: 0px 0px 6px rgb(255, 158, 0);
-    color: #ffffff;
-}
-.sheet-rolltemplate-bitd .sheet-zerodice2 {
-    line-height: 100%;
-    font-size: 67%;
-    font-style: italic;
-    text-transform: none;
-    font-weight: 400;
-    letter-spacing: 0;
-    padding-top: 11px;
-    text-shadow: 0px 0px 6px rgb(255, 158, 0);
-    color: #ffd8ca;
-}
-.sheet-rolltemplate-bitd img {
-    height: 31px;
-}
-/* RESIST TEMPLATE */
-.sheet-rolltemplate-bitd2 .sheet-rolltableholder {
-    margin-left: -45px;
-    margin-right: -1px;
-    background-image: url(http://i.imgur.com/0aMMISi.jpg);
-    width: 299px;
-    height: 258px;
-    font-variant-numeric: lining-nums;
-}
-.sheet-rolltemplate-bitd2 .sheet-rolltablename {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: #8da8bb;
-    text-transform: uppercase;
-    font-size: 91%;
-    letter-spacing: 0px;
-    padding-left: 30px;
-    font-weight: 400;
-    line-height: 0px;
-    height: 20px;
-    padding-top: 32px;
-}
-.sheet-rolltemplate-bitd2 .sheet-rolltablerolls {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: #8da8bb;
-    text-transform: uppercase;
-    font-size: 91%;
-    letter-spacing: 0px;
-    padding-left: 30px;
-    font-weight: 400;
-    line-height: 0px;
-    font-style: normal;
-    position: relative;
-    top: -5px;
-}
-.sheet-rolltemplate-bitd2 .sheet-rolltabletitle {
-    padding-left: 30px;
-    padding-top: 7px;
-}
-.sheet-rolltemplate-bitd2 .sheet-rolltabledice {
-    height: 27px;
-    padding-top: 41px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    color: white;
-    text-transform: uppercase;
-    font-size: 137%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 20px;
-    position: relative;
-    top: -4px;
-}
-.sheet-rolltemplate-bitd2 .inlinerollresult {
-    border: 0px solid white !important;
-    background-color: rgba(158, 100, 81, 0);
-    font-weight: normal;
-    padding-left: 0;
-    position: relative;
-}
-.sheet-rolltemplate-bitd2 .sheet-comma:last-child {
-    display: none;
-}
-.sheet-rolltemplate-bitd2 .sheet-zerodice1 {
-    position: relative;
-    top: 4px;
-    font-size: 103%;
-    font-family: serif;
-    text-shadow: 0px 0px 6px rgb(9, 199, 208);
-    color: #ffffff;
-}
-.sheet-rolltemplate-bitd2 .sheet-zerodice1 .inlinerollresult {
-    top: 0px;
-}
-.sheet-rolltemplate-bitd2 .sheet-zerodice2 {
-    line-height: 100%;
-    font-size: 67%;
-    font-style: italic;
-    text-transform: none;
-    font-weight: 400;
-    letter-spacing: 0;
-    padding-top: 8px;
-    text-shadow: 0px 0px 6px rgb(9, 199, 208);
-    color: #d8e4ef;
-}
-.sheet-rolltemplate-bitd2 .sheet-resistinstructions {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    padding: 15px 56px 0px 27px;
-    color: #d3dde4;
-    font-weight: 200;
-    font-size: 95%;
-}
-.sheet-rolltemplate-bitd2 .sheet-resistinstructions em {
-    font-style: normal;
-    font-weight: 800;
-}
-.sheet-rolltemplate-bitd2 img {
-    height: 22px;
-}
-/* INDULGE VICE TEMPLATE */
-.sheet-rolltemplate-bitd3 .sheet-rolltableholder {
-    margin-left: -45px;
-    margin-right: -1px;
-    background-image: url(http://i.imgur.com/JRHeBtH.jpg);
-    width: 299px;
-    height: 258px;
-    font-variant-numeric: lining-nums;
-}
-.sheet-rolltemplate-bitd3 .sheet-rolltablename {
-    font-family: serif;
-    color: #ffffff;
-    text-transform: none;
-    font-size: 110%;
-    letter-spacing: 0px;
-    padding-left: 28px;
-    font-weight: 400;
-    line-height: 0px;
-    height: 20px;
-    padding-top: 32px;
-}
-.sheet-rolltemplate-bitd3 .sheet-rolltablerolls {
-    font-family: serif;
-    color: #ffffff;
-    text-transform: none;
-    font-size: 110%;
-    letter-spacing: 0px;
-    padding-left: 28px;
-    font-weight: 400;
-    line-height: 0px;
-    font-style: normal;
-    position: relative;
-    top: -5px;
-}
-.sheet-rolltemplate-bitd3 .sheet-rolltabletitle {
-    padding-left: 27px;
-    padding-top: 8px;
-    position: relative;
-    top: 5px;
-}
-.sheet-rolltemplate-bitd3 .sheet-rolltabledice {
-    height: 27px;
-    padding-top: 41px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    color: white;
-    text-transform: uppercase;
-    font-size: 137%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 20px;
-    position: relative;
-    top: -4px;
-}
-.sheet-rolltemplate-bitd3 .inlinerollresult {
-    border: 0px solid white !important;
-    background-color: rgba(158, 100, 81, 0);
-    font-weight: normal;
-    padding-left: 0;
-    position: relative;
-}
-.sheet-rolltemplate-bitd3 .sheet-comma:last-child {
-    display: none;
-}
-.sheet-rolltemplate-bitd3 .sheet-zerodice1 {
-    position: relative;
-    top: 4px;
-    font-size: 103%;
-    font-family: serif;
-    text-shadow: 0px 0px 6px rgb(9, 199, 208);
-    color: #ffffff;
-}
-.sheet-rolltemplate-bitd3 .sheet-zerodice1 .inlinerollresult {
-    top: 0px;
-}
-.sheet-rolltemplate-bitd3 .sheet-zerodice2 {
-    line-height: 100%;
-    font-size: 67%;
-    font-style: italic;
-    text-transform: none;
-    font-weight: 400;
-    letter-spacing: 0;
-    padding-top: 8px;
-    text-shadow: 0px 0px 6px rgb(9, 199, 208);
-    color: #d8e4ef;
-}
-.sheet-rolltemplate-bitd3 .sheet-resistinstructions {
-    font-family: Georgia, Times, "Times New Roman", serif;
-    padding: 15px 56px 0px 27px;
-    color: #c9c9c9;
-    font-weight: 200;
-    font-size: 81%;
-    line-height: 119%;
-}
-.sheet-rolltemplate-bitd3 .sheet-resistinstructions em {
-    font-style: normal;
-    font-weight: 800;
-}
-/* FORTUNE TEMPLE */
-.sheet-rolltemplate-bitd4 .sheet-rolltableholder {
-    margin-left: -45px;
-    margin-right: -1px;
-    background-image: url(http://i.imgur.com/jYgw79y.jpg);
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-color: white;
-    width: 299px;
-    height: auto;
-    min-height: 250px;
-    font-variant-numeric: lining-nums;
-}
-.sheet-rolltemplate-bitd4 .sheet-rolltablename {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: #303032;
-    text-transform: uppercase;
-    font-size: 103%;
-    letter-spacing: 1px;
-    padding-left: 32px;
-    font-weight: 800;
-    line-height: 0px;
-    height: 20px;
-    padding-top: 32px;
-}
-.sheet-rolltemplate-bitd4 .sheet-rolltablerolls {
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: #303032;
-    text-transform: uppercase;
-    font-size: 103%;
-    letter-spacing: 1px;
-    padding-left: 32px;
-    font-weight: 800;
-    line-height: 0px;
-    font-style: italic;
-}
-.sheet-rolltemplate-bitd4 .sheet-rolltabletitle {
-    padding-left: 30px;
-    padding-top: 22px;
-}
-.sheet-rolltemplate-bitd4 .sheet-rolltabledice {
-    height: 27px;
-    padding-top: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 10px;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    color: #303032;
-    text-transform: uppercase;
-    font-size: 137%;
-    letter-spacing: 0px;
-    font-weight: 800;
-    line-height: 20px;
-}
-.sheet-rolltemplate-bitd4 .sheet-rolltableposition,
-.sheet-rolltemplate-bitd4 .sheet-rolltableeffect {
-    display: inline-block;
-    width: 49%;
-    box-sizing: border-box;
-    font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-    color: white;
-    text-transform: uppercase;
-    font-size: 82%;
-    letter-spacing: 1px;
-    padding-top: 20px;
-    padding-left: 29px;
-}
-.sheet-rolltemplate-bitd4 img {
-    height: 31px;
-}
-.sheet-rolltemplate-bitd4 .sheet-rolltableeffect {
-    padding-left: 15px;
-}
-.sheet-rolltemplate-bitd4 .inlinerollresult {
-    border: 0px solid white !important;
-    background-color: rgba(158, 100, 81, 0);
-    font-weight: normal;
-}
-.sheet-rolltemplate-bitd4 .sheet-comma:last-child {
-    display: none;
-}
-.sheet-rolltemplate-bitd4 .sheet-zerodice1 {
-    position: relative;
-    top: 4px;
-    font-size: 103%;
-    text-shadow: 0px 0px 6px rgb(136, 219, 215);
-    color: #1e1e1e;
-}
-.sheet-rolltemplate-bitd4 .sheet-zerodice2 {
-    width: 60%;
-    line-height: 100%;
-    font-size: 67%;
-    font-style: italic;
-    text-transform: none;
-    font-weight: 400;
-    letter-spacing: 0;
-    padding-top: 11px;
-    text-shadow: 0px 0px 6px rgb(136, 219, 215);
-    color: #1e1e1e;
-}
-.sheet-rolltemplate-bitd4 .sheet-rolltablenotes {
-    width: 46%;
-    line-height: 112%;
-    font-size: 98%;
-    text-transform: none;
-    font-weight: 400;
-    letter-spacing: 0;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    color: #1e1e1e;
-    Padding-left: 29px;
-    font-family: Georgia, serif;
+		margin-top: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+		font-family: "Shadows Into Light", cursive;
+		color: #c43c35;
+		font-size: 155%;
+		padding: 0px;
+		width: 356px;
+		border: 0;
+		background-color: #ffffff;
+		box-shadow: none;
+		resize: vertical;
+		background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+		background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+		background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+		background-image: linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+		background-size: 100% 27px;
+		line-height: 137%;
+		height: 378px;
 }

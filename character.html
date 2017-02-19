@@ -344,31 +344,35 @@
 			</div>
 		</div>
 		<!-- Advancement -->
-		<div class="sheet-col100">
-			<div class="sheet-markxp">Mark XP:</div>
-			<div class="sheet-playbookadvancement">
-				<div class="sheet-playbookholder">Playbook Advancement </div>
-				<input type="radio" value="0" name="attr_playbook_xp" class="sheet-tooth sheet-zero" checked />
-				<span></span>
-				<input type="checkbox" value="0" name="attr_playbook_xp" class="sheet-xptooth sheet-hidden" checked />
-				<input type="radio" value="1" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
-				<input type="radio" value="6" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
-				<input type="radio" value="7" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
-				<input type="radio" value="8" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
-				<span></span>
+		<div class="sheet-col100 sheet-advancement">
+			<div class="sheet-advancement-header sheet-blackheader">
+				<div class="sheet-advancement-markxp sheet-label">Mark XP:</div>
+				<div class="sheet-advancement-tracker">
+					<div class="sheet-advancement-label sheet-label">Playbook Advancement </div>
+					<div class="sheet-advancement-xpholder">
+						<input type="radio" value="0" name="attr_playbook_xp" class="sheet-tooth sheet-zero" checked />
+						<span></span>
+						<input type="checkbox" value="0" name="attr_playbook_xp" class="sheet-xptooth sheet-hidden" checked />
+						<input type="radio" value="1" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="2" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="3" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="4" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
+						<span></span>
+						<input type="radio" value="5" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+						<input type="radio" value="6" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+						<input type="radio" value="7" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+						<input type="radio" value="8" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth" />
+						<span></span>
+					</div>
+				</div>
 			</div>
-			<div class="sheet-markxpdesc">
+			<div class="sheet-advancement-desc">
 				<ul>
 					<li>Every time you roll a desperate action, mark xp in that action's attribute.</li>
 					<li class="sheet-nondot">At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute) or 2xp if that item occurred multiple times.</li>
@@ -383,40 +387,34 @@
 		<!-- Info boxes -->
 		<div class="sheet-col100">
 			<!-- Teamwork -->
-			<div class="sheet-col50a">
-				<div class="sheet-gatherinfoheader">Teamwork</div>
+			<div class="sheet-col50a sheet-teamwork">
+				<div class="sheet-plainheader">Teamwork</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Assist</span>
-					<span> a teammate</span>
+					<span class="sheet-bold">Assist</span><span> a teammate</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span>Lead a </span>
-					<span class="sheet-boldspan">group action</span>
+					<span>Lead a </span><span class="sheet-bold">group action</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Protect</span>
-					<span> a teammate</span>
+					<span class="sheet-bold">Protect</span><span> a teammate</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Set up</span>
-					<span> a teammate</span>
+					<span class="sheet-bold">Set up</span><span> a teammate</span>
 				</div>
 			</div>
 			<!-- Gather Information-->
-			<div class="sheet-col50b">
-				<div class="sheet-gatherinfoheader">Gather Information</div>
-				<div class="sheet-gatherinfo">
-					<div class="sheet-markxpdesc">
-						<ul>
-							<li>What do they intend to do?</li>
-							<li>How can I get them to [X]?</li>
-							<li>What are they really feeling?</li>
-							<li>What should I be worried about?</li>
-							<li>Where's the weakness here?</li>
-							<li>How can I find [X]?</li>
-							<li>What's really going on here?</li>
-						</ul>
-					</div>
+			<div class="sheet-col50b sheet-gatherinfo">
+				<div class="sheet-plainheader">Gather Information</div>
+				<div>
+					<ul>
+						<li>What do they intend to do?</li>
+						<li>How can I get them to [X]?</li>
+						<li>What are they really feeling?</li>
+						<li>What should I be worried about?</li>
+						<li>Where's the weakness here?</li>
+						<li>How can I find [X]?</li>
+						<li>What's really going on here?</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -464,7 +462,7 @@
 					<div class="sheet-item sheet-itembold sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_1_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_item_1_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" placeholder="Fine two-slot item" name="attr_item_1_desc" />
@@ -535,7 +533,7 @@
 					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_14_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_item_14_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" value="A Large Weapon" name="attr_item_14_desc" />
@@ -548,7 +546,7 @@
 					<div class="sheet-item sheet-itemshort sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_16_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_item_16_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" value="Armor" name="attr_item_16_desc" />
@@ -556,10 +554,10 @@
 					<div class="sheet-item sheet-itemshort sheet-item3box">
 						<input type="checkbox" value="1" name="attr_item_16_check_c" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_item_16_check_d" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_item_16_check_e" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" value="+Heavy" name="attr_item_16_desc_b" />
@@ -572,7 +570,7 @@
 					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_18_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_item_18_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" value="Climbing Gear" name="attr_item_18_desc" />
@@ -595,7 +593,7 @@
 					<div class="sheet-item sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_22_check" class="sheet-itemcheckbox"/>
 						<span></span>
-						<div class="sheet-floatingbar"></div>
+						<span class="sheet-floatingbar"></span>
 						<input type="checkbox" value="1" name="attr_item_22_check_b" class="sheet-itemcheckbox"/>
 						<span></span>
 						<input type="text" value="Demolition Tools" name="attr_item_22_desc" />
@@ -614,7 +612,7 @@
 						<div class="sheet-item sheet-item2box">
 							<input type="checkbox" value="1" name="attr_check" class="sheet-itemcheckbox"/>
 							<span></span>
-							<div class="sheet-floatingbar"></div>
+							<span class="sheet-floatingbar"></span>
 							<input type="checkbox" value="1" name="attr_check_b" class="sheet-itemcheckbox"/>
 							<span></span>
 							<input type="text" placeholder="Something Else?" name="attr_desc" />
@@ -623,40 +621,30 @@
 				</div>
 			</div>
 			<!-- Planning and Load -->
-			<div class="sheet-gatherinfoheader">Planning &amp; Load</div>
-			<div class="sheet-gatherinfo">
+			<div class="sheet-planning">
+				<div class="sheet-plainheader">Planning &amp; Load</div>
 				<div class="sheet-planningdesc">
-					<span>Choose a plan, provide the </span>
-					<span class="sheet-italicspan">detail</span>.
-					
+					<span>Choose a plan, provide the </span><span class="sheet-italic">detail</span>.
 					<br/>
-					<span>Choose your </span>
-					<span class="sheet-italicspan">load</span>
-					<span> for the operation.</span>
+					<span>Choose your </span><span class="sheet-italic">load</span><span> for the operation.</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Assault:</span>
-					<span> Point of attack</span>
+					<span class="sheet-bold">Assault:</span><span> Point of attack</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Occult:</span>
-					<span> Arcane power</span>
+					<span class="sheet-bold">Occult:</span><span> Arcane power</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Deception:</span>
-					<span> Method</span>
+					<span class="sheet-bold">Deception:</span><span> Method</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Social:</span>
-					<span> Connection</span>
+					<span class="sheet-bold">Social:</span><span> Connection</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Stealth:</span>
-					<span> Entry point</span>
+					<span class="sheet-bold">Stealth:</span><span> Entry point</span>
 				</div>
 				<div class="sheet-teamworkbox">
-					<span class="sheet-boldspan">Transport:</span>
-					<span> Route</span>
+					<span class="sheet-bold">Transport:</span><span> Route</span>
 				</div>
 			</div>
 		</div>
