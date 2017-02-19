@@ -119,8 +119,6 @@ input[type="checkbox"], input[type="radio"] {
 	height: 18px;
 	line-height: 16px;
 	padding-left: 5px;
-	text-transform: uppercase;
-	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }
 .sheet-blackheader div.sheet-label {
 	padding-top: 2px;
@@ -132,8 +130,6 @@ input[type="checkbox"], input[type="radio"] {
 		font-size: 88%;
 		font-weight: 800;
 		line-height: 22px;
-		text-transform: uppercase;
-		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }
 
 /* COLUMN LAYOUT */
@@ -179,29 +175,164 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 /* FONT STYLES */
-.sheet-smallcaps {
-		text-transform: uppercase;
-		font-weight: 800;
+.sheet-label {
+	text-transform: uppercase;
+	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }
-.sheet-italics {
-		font-style: italic;
-		font-size: 106%;
-		font-weight: 500;
-		letter-spacing: 0px;
-		padding-left: 5px;
+.sheet-smallcaps {
+	text-transform: uppercase;
+	font-weight: 800;
 }
 .sheet-bold {
-		font-weight: 800;
+	font-weight: 800;
 }
 .sheet-italic {
-		font-style: italic;
+	font-style: italic;
+}
+/* FRIENDS/CONTACTS */
+input[type="checkbox"].sheet-friendup {
+	margin: 6px 0 0 -2px;
+}
+input[type="checkbox"].sheet-frienddown {
+	margin: 10px 0 0 2px;
+}
+.sheet-friend input[type="checkbox"].sheet-friendcheck + span::before {
+	margin: 0px 0px 0px -1px !important;
+	border-radius: 0 !important;
+	width: 0 !important;
+	height: 0 !important;
+	border-style: solid !important;
+	border-width: 0 5px 10px 5px !important;
+	border-color: transparent transparent #ffffff transparent !important;
+	background-color: #d6d8d9 !important;
+	top: -3px !important;
+}
+.sheet-friend input[type="checkbox"].sheet-frienddown + span::before {
+	border-width: 10px 5px 0 5px !important;
+	border-color: #ffffff transparent transparent transparent !important;
+	top: 1px !important;
+	margin: 0px 0px 0px 3px !important;
+}
+.sheet-friend input[type="checkbox"].sheet-friendup + span::before {
+	border-width: 0 5px 10px 5px !important;
+	border-color: transparent transparent #ffffff transparent;
+	top: -3px !important;
+}
+.sheet-friend input[type="checkbox"].sheet-frienddown:checked + span::before {
+	border-color: #000000 transparent transparent transparent !important;
+}
+.sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
+	border-color: transparent transparent red transparent !important;
+}
+.sheet-friend input[type="checkbox"].sheet-friendup:checked ~ input[type=text] {
+	color: red !important;
+}
+.sheet-friend input[type="checkbox"].sheet-frienddown:checked ~ input[type=text] {
+	color: black !important;
+}
+.sheet-friend input[type=text] {
+	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+	color: #6c6c6c;
+	font-size: 95%;
+	line-height: 122%;
+	font-variant: normal;
+	font-weight: 400;
+	height: 33px;
+	width: 137px;
+	padding: 0 0 4px 3px;
+	margin: 0;
+}
+.sheet-friend.sheet-contact input[type=text] {
+	color: black;
+	width: 95%;
+	font-weight: 800;
 }
 
-.sheet-title input[type="text"], .sheet-desc textarea, button.sheet-rollbtn, .sheet-radiolabel, .sheet-harm1, .sheet-harmrow div, .sheet-recoveryblurb-bold, .sheet-armorcaption, .sheet-col90 input[type="text"], .sheet-coin1, .sheet-coin2, .sheet-specialheader, .sheet-specialheader input[type="text"], .sheet-specialheader textarea, .sheet-loadheader span, .sheet-loadheader2 span, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-bonusdieheader, .sheet-crewheader, .sheet-hunting-grounds-box input[type="text"], .sheet-cohort-conditionholder div, input.sheet-clockname {
-		text-transform: uppercase;
-		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+/* INFO BOXES */
+.sheet-gatherinfo, .sheet-teamwork, .sheet-planning {
+	margin-top: 20px;
 }
-
+.sheet-gatherinfo ul {
+	padding: 0;
+}
+.sheet-gatherinfo li {
+	margin-bottom: 4px;
+	padding-left: 11px;
+	font-size: 86%;
+}
+.sheet-gatherinfo li:after {
+	height: 4px;
+	width: 4px;
+	top: .25em;
+	margin-top: 4px;
+}
+.sheet-teamworkbox {
+	width: 95%;
+	padding: 5px;
+	margin-bottom: 5px;
+	background-color: #d6d8d9;
+	font-size: 89%;
+	line-height: 122%;
+}
+.sheet-planningdesc {
+	font-size: 89%;
+	line-height: 127%;
+	margin-bottom: 5px;
+}
+/* ITEMS/UPGRADES */
+.sheet-itemholder > div {
+	padding: 7px;
+}
+.sheet-itemholder .sheet-item {
+	display: inline-block;
+	width: 100%;
+}
+.sheet-itemholder .sheet-item.sheet-itemshort {
+	width: 50%;
+}
+.sheet-playbookitems {
+	background-color: #d6d8d9;
+}
+.sheet-item input[type=text] {
+	width: calc(100% - 20px);
+	height: 16px;
+	margin-left: 5px;
+	padding: 3px 0;
+	font-size: 83%;
+}
+.sheet-item.sheet-item2box input[type=text] {
+	width: calc(100% - 35px);
+}
+.sheet-item.sheet-item3box input[type=text] {
+	width: calc(100% - 50px);
+}
+.sheet-item.sheet-item4box input[type=text] {
+	width: calc(100% - 65px);
+}
+.sheet-item.sheet-itembold input[type=text] {
+	font-weight: 800;
+}
+.sheet-item.sheet-itemitalic input[type=text] {
+	font-style: italic;
+}
+.sheet-item span.sheet-label {
+	font-weight: bold;
+	font-size: 78%;
+	letter-spacing: 1px;
+}
+.sheet-item span.sheet-label.sheet-upgradecosts {
+	font-size: 55%;
+}
+.sheet-item span {
+	font-size: 83%;
+}
+.sheet-floatingbar {
+	display: inline-block;
+	width: 4px;
+	height: 3px;
+	margin: 0 -2px;
+	border-top: 2px solid #838587;
+}
 /* LOGO */
 .sheet-bladeslogo {
 		height: 63px;
@@ -219,8 +350,106 @@ input[type="checkbox"], input[type="radio"] {
 		letter-spacing: -2px;
 		margin-top: -8px;
 		font-weight: 800;
-		line-height: 50px !important;
+		line-height: 50px;
 }
+
+/* LOAD */
+.sheet-loadheader, .sheet-loadheader2 {
+	background-color: #b3b4b6;
+	height: 20px;
+	line-height: 0px;
+	color: black;
+	font-size: 74%;
+	font-weight: 800;
+}
+.sheet-loadheader {
+	padding: 5px 0 0 6px;
+}
+.sheet-loadheader2 {
+	margin-top: 5px;
+	padding: 10px 0 0 6px;
+}
+.sheet-loadheader2 .sheet-italic {
+	font-size: 106%;
+	font-weight: 500;
+	padding-left: 5px;
+}
+.sheet-loadcheckholder {
+		display: inline-block;
+		font-family: serif;
+		text-transform: lowercase;
+		font-style: italic;
+		font-size: 109%;
+		font-weight: 500;
+}
+.sheet-loadnumber {
+		font-style: normal;
+		font-weight: 800;
+		font-size: 105%;
+		padding-left: 4px;
+}
+/* ADVANCEMENT BOX*/
+.sheet-advancement {
+	margin-top: 10px;
+}
+.sheet-advancement-header div {
+	float: left;
+	letter-spacing: 2px;
+}
+.sheet-advancement-markxp {
+	width: 30%;
+}
+.sheet-advancement-tracker {
+	width: 70%;
+	text-align: right;
+	height: 16px;
+}
+.sheet-advancement-label {
+	width: calc(100% - 114px);
+}
+.sheet-advancement-xpholder {
+	width: 114px;
+}
+.sheet-advancement-desc {
+	width: 99%;
+	float: left;
+	background-color: #d6d8d9;
+}
+.sheet-advancement-desc ul {
+	padding: 15px 20px 4px 16px;
+}
+.sheet-advancement-desc li, .sheet-advancement-desc input[type=text] {
+	font-size: 95%;
+	line-height: 127%;
+}
+.sheet-advancement-desc li {
+	margin-bottom: 1em;
+	padding-left: 1.5em;
+}
+.sheet-advancement-desc li:after {
+	height: .4em;
+	width: .4em;
+	top: .25em;
+}
+.sheet-advancement-desc li.sheet-nondot {
+	font-style: normal;
+	padding-left: 0;
+}
+.sheet-advancement-desc li.sheet-nondot:after {
+		display: none;
+}
+
+
+
+
+
+
+/* More stuff*/
+.sheet-title input[type="text"], .sheet-desc textarea, button.sheet-rollbtn, .sheet-radiolabel, .sheet-harm1, .sheet-harmrow div, .sheet-recoveryblurb-bold, .sheet-armorcaption, .sheet-col90 input[type="text"], .sheet-coin1, .sheet-coin2, .sheet-specialheader, .sheet-specialheader input[type="text"], .sheet-specialheader textarea, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-bonusdieheader, .sheet-hunting-grounds-box input[type="text"], .sheet-cohort-conditionholder div, input.sheet-clockname {
+	text-transform: uppercase;
+	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+}
+
 
 /* PLAYBOOK */
 .sheet-playbooktitle {
@@ -808,6 +1037,7 @@ input.sheet-loadbox[type="checkbox"] {
 		margin: -8px -8px -8px -9px;
 		width: 12px;
 		height: 12px;
+		position: absolute;
 		left: 5px;
 		top: 3px;
 }
@@ -1388,58 +1618,6 @@ div.sheet-col97 > div.repcontrol {
 		position: relative !important;
 }
 
-/* XP CONDITION BOX*/
-.sheet-advancement {
-	margin-top: 10px;
-
-}
-.sheet-advancement-header div {
-	float: left;
-	letter-spacing: 2px;
-}
-.sheet-advancement-markxp {
-	width: 30%;
-}
-.sheet-advancement-tracker {
-	width: 70%;
-	text-align: right;
-	height: 16px;
-}
-.sheet-advancement-label {
-	width: calc(100% - 114px);
-}
-.sheet-advancement-xpholder {
-	width: 114px;
-}
-.sheet-advancement-desc {
-	width: 99%;
-	float: left;
-	background-color: #d6d8d9;
-}
-.sheet-advancement-desc ul {
-	padding: 15px 20px 4px 16px;
-}
-.sheet-advancement-desc li, .sheet-advancement-desc input[type=text] {
-	font-size: 95%;
-	line-height: 127%;
-}
-.sheet-advancement-desc li {
-	margin-bottom: 1em;
-	padding-left: 1.5em;
-}
-.sheet-advancement-desc li:after {
-	height: .4em;
-	width: .4em;
-	top: .25em;
-}
-.sheet-advancement-desc li.sheet-nondot {
-	font-style: normal;
-	padding-left: 0;
-}
-.sheet-advancement-desc li.sheet-nondot:after {
-		display: none;
-}
-
 /* ACTION RATINGS */
 .sheet-attribute {
 		width: 100%;
@@ -1533,41 +1711,6 @@ button.sheet-attributebtn:before {
 		height: 20px;
 }
 
-/* LOAD */
-.sheet-loadheader,
-.sheet-loadheader2 {
-		width: 100%;
-		background-color: #b3b4b6;
-		height: 20px;
-		padding-left: 6px;
-		padding-top: 5px;
-		line-height: 0px;
-		color: black;
-		font-size: 74%;
-		letter-spacing: 0px;
-		font-weight: 800;
-}
-.sheet-loadheader2 {
-		margin-top: 5px;
-		padding-top: 10px;
-}
-.sheet-loadcheckholder {
-		display: inline-block;
-		font-family: serif;
-		text-transform: lowercase;
-		font-style: italic;
-		font-size: 109%;
-}
-.sheet-loadcheckholder span {
-	text-transform: lowercase;
-}
-.sheet-loadnumber {
-		font-style: normal;
-		font-weight: 800;
-		font-size: 105%;
-		padding-left: 4px;
-}
-
 /* BUTTONS */
 .sheet-rollbtn {
 		font-family: Georgia, Times, "Times New Roman", serif;
@@ -1655,163 +1798,6 @@ button.sheet-fortunebtn:before {
 		font-size: 80%;
 		line-height: 122%;
 		font-family: Georgia, Times, "Times New Roman", serif;
-}
-
-/* FRIENDS/CONTACTS */
-input[type="checkbox"].sheet-friendup {
-		margin: 6px 0 0 -2px;
-}
-input[type="checkbox"].sheet-frienddown {
-		margin: 10px 0 0 2px;
-}
-.sheet-friend input[type="checkbox"].sheet-friendcheck + span::before {
-		margin: 0px 0px 0px -1px !important;
-		border-radius: 0 !important;
-		width: 0 !important;
-		height: 0 !important;
-		border-style: solid !important;
-		border-width: 0 5px 10px 5px !important;
-		border-color: transparent transparent #ffffff transparent !important;
-		background-color: #d6d8d9 !important;
-		top: -3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown + span::before {
-		border-width: 10px 5px 0 5px !important;
-		border-color: #ffffff transparent transparent transparent !important;
-		top: 1px !important;
-		margin: 0px 0px 0px 3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup + span::before {
-		border-width: 0 5px 10px 5px !important;
-		border-color: transparent transparent #ffffff transparent;
-		top: -3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown:checked + span::before {
-		border-color: #000000 transparent transparent transparent !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
-		border-color: transparent transparent red transparent !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup:checked ~ input[type=text] {
-		color: red !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown:checked ~ input[type=text] {
-		color: black !important;
-}
-.sheet-friend input[type=text] {
-		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-		color: #6c6c6c;
-		font-size: 95%;
-		line-height: 122%;
-		font-variant: normal;
-		font-weight: 400;
-		height: 33px;
-		width: 137px;
-		padding: 0 0 4px 3px;
-		margin: 0;
-}
-.sheet-friend.sheet-contact input[type=text] {
-		color: black;
-		width: 95%;
-		font-weight: 800;
-}
-
-/* INFO BOXES */
-.sheet-gatherinfo, .sheet-teamwork, .sheet-planning {
-	margin-top: 20px;
-}
-.sheet-gatherinfo ul {
-	padding: 0;
-}
-.sheet-gatherinfo li {
-	margin-bottom: 4px;
-	padding-left: 11px;
-	font-size: 86%;
-}
-.sheet-gatherinfo li:after {
-	height: 4px;
-	width: 4px;
-	top: .25em;
-	margin-top: 4px;
-}
-.sheet-teamworkbox {
-		width: 95%;
-		padding: 5px;
-		margin-bottom: 5px;
-		background-color: #d6d8d9;
-		font-size: 89%;
-		line-height: 122%;
-}
-.sheet-planningdesc {
-		font-size: 95%;
-		line-height: 127%;
-		margin-bottom: 5px;
-}
-
-/* ITEMS/UPGRADES */
-.sheet-itemholder > div {
-		padding: 7px;
-}
-.sheet-itemholder .sheet-item {
-		display: inline-block;
-		width: 100%;
-}
-.sheet-itemholder .sheet-item.sheet-itemshort {
-		width: 50%;
-}
-.sheet-playbookitems {
-		background-color: #d6d8d9;
-}
-.sheet-item input[type=text] {
-		width: calc(100% - 20px);
-		height: 16px;
-		margin-left: 5px;
-		padding: 3px 0;
-		font-size: 83%;
-}
-.sheet-item.sheet-item2box input[type=text] {
-		width: calc(100% - 35px);
-}
-.sheet-item.sheet-item3box input[type=text] {
-		width: calc(100% - 50px);
-}
-.sheet-item.sheet-item4box input[type=text] {
-		width: calc(100% - 65px);
-}
-.sheet-item.sheet-itembold input[type=text] {
-		font-weight: 800;
-}
-.sheet-item.sheet-itemitalic input[type=text] {
-		font-style: italic;
-}
-.sheet-item label {
-		height: 16px;
-		border-radius: 0;
-		margin-bottom: 0;
-		border: 0;
-		color: black;
-		font-size: 78%;
-		box-shadow: none;
-		background-color: rgba(255, 255, 255, 0);
-		font-family: Georgia, Times, "Times New Roman", serif;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-}
-.sheet-item label.sheet-upgradecosts {
-		padding: 3px 0 3px 0;
-		font-size: 55%;
-		line-height: inherit;
-		height: 10px;
-}
-.sheet-item span {
-		font-size: 83%;
-}
-.sheet-floatingbar {
-		display: inline-block;
-		width: 4px;
-		height: 3px;
-		margin: 0 -2px;
-		border-top: 2px solid #838587;
 }
 
 /* COHORTS */
