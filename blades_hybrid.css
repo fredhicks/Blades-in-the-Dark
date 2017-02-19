@@ -132,13 +132,13 @@ span {
 }
 
 /* COLUMN LAYOUT */
-.sheet-col60, .sheet-col40, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97, .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-heat1, .sheet-heat2, .sheet-heat3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
+.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col90, .sheet-col10, .sheet-col100, .sheet-col97, .sheet-repholder, .sheet-holdholder, .sheet-harmcolumn1, .sheet-harmcolumn2, .sheet-armor, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-heat1, .sheet-heat2, .sheet-heat3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
 		float: left;
 }
-.sheet-col60 {
+.sheet-col55 {
 		width: 55%;
 }
-.sheet-col40, .sheet-col50a {
+.sheet-col45, .sheet-col50a {
 		width: 45%;
 }
 .sheet-col50b {
@@ -179,13 +179,17 @@ span {
 		font-weight: 800;
 }
 .sheet-italics {
-		font-family: Georgia, Times, "Times New Roman", serif;
-		text-transform: lowercase;
 		font-style: italic;
 		font-size: 106%;
 		font-weight: 500;
 		letter-spacing: 0px;
 		padding-left: 5px;
+}
+.sheet-bold {
+		font-weight: 800;
+}
+.sheet-italic {
+		font-style: italic;
 }
 
 .sheet-title input[type="text"], .sheet-desc textarea, button.sheet-rollbtn, .sheet-radiolabel, .sheet-harm1, .sheet-harmrow div, .sheet-recoveryblurb-bold, .sheet-armorcaption, .sheet-col90 input[type="text"], .sheet-coin1, .sheet-coin2, .sheet-specialheader, .sheet-specialheader input[type="text"], .sheet-specialheader textarea, .sheet-loadheader span, .sheet-loadheader2 span, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-bonusdieheader, .sheet-crewheader, .sheet-hunting-grounds-box input[type="text"], .sheet-cohort-conditionholder div, input.sheet-clockname {
@@ -285,7 +289,7 @@ span {
 		margin: 3px 0 0;
 		color: #c43c35;
 }
-.sheet-header .sheet-col60 input[type="text"] {
+.sheet-header .sheet-col55 input[type="text"] {
 		width: 95%
 }
 .sheet-header label {
@@ -1811,13 +1815,6 @@ input[type="checkbox"].sheet-frienddown {
 		font-size: 95%;
 		line-height: 127%;
 		margin-bottom: 5px;
-}
-.sheet-bold {
-		font-weight: 800;
-}
-.sheet-italic {
-		font-style: italic;
-		font-weight: 800;
 }
 
 /* ITEMS/UPGRADES */
