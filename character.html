@@ -11,14 +11,12 @@
 		</div>
 	</div>
 	<!-- Playbook -->
-	<div class="sheet-col45 sheet-toppad">
-		<div class="sheet-playbooktitle">
-			<div class="sheet-title">
-				<input type="text" name="attr_playbook" placeholder="playbook"/>
-			</div>
-			<div class="sheet-desc">
-				<textarea name="attr_playbookdesc" placeholder="A short playbook description" cols="50" rows="3"></textarea>
-			</div>
+	<div class="sheet-col45 sheet-playbook">
+		<div class="sheet-playbook-title">
+			<input type="text" name="attr_playbook" class="sheet-label" placeholder="playbook"/>
+		</div>
+		<div class="sheet-playbook-desc">
+			<textarea name="attr_playbookdesc" class="sheet-label" placeholder="A short playbook description" cols="50" rows="3"></textarea>
 		</div>
 	</div>
 	<!-- Left column -->
@@ -55,10 +53,10 @@
 		<div class="sheet-col100 sheet-blackborder">
 			<!-- Stress markers -->
 			<div class="sheet-stress1">
-				<div class="sheet-radiolabel">Stress</div>
+				<div class="sheet-label">Stress</div>
 			</div>
 			<div class="sheet-stresszeroholder">
-				<input type="radio" value="0" name="attr_stress" class="sheet-tooth sheet-zero sheet-stresszero" checked />
+				<input type="radio" value="0" name="attr_stress" class="sheet-zero" checked />
 				<span></span>
 			</div>
 			<div class="sheet-stress2">
@@ -85,43 +83,43 @@
 			<!-- Trauma markers -->
 			<div class="sheet-traumatop">
 				<div class="sheet-stress3">
-					<div class="sheet-radiolabel">Trauma</div>
+					<div class="sheet-label">Trauma</div>
 				</div>
 				<div class="sheet-traumazeroholder">
-					<input type="radio" value="0" name="attr_trauma" class="sheet-tooth sheet-zero sheet-traumazero" checked />
+					<input type="radio" value="0" name="attr_trauma" class="sheet-zero" checked />
 					<span></span>
 				</div>
 				<div class="sheet-traumaholder">
-					<input type="checkbox" value="0" name="attr_trauma" class="sheet-traumatooth sheet-hidden" checked/>
-					<input type="radio" value="1" name="attr_trauma" class="sheet-tooth sheet-traumatooth"/>
+					<input type="checkbox" value="0" name="attr_trauma" class="sheet-regulartooth sheet-hidden" checked/>
+					<input type="radio" value="1" name="attr_trauma" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
-					<input type="radio" value="2" name="attr_trauma" class="sheet-tooth sheet-traumatooth"/>
+					<input type="radio" value="2" name="attr_trauma" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
-					<input type="radio" value="3" name="attr_trauma" class="sheet-tooth sheet-traumatooth"/>
+					<input type="radio" value="3" name="attr_trauma" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
-					<input type="radio" value="4" name="attr_trauma" class="sheet-tooth sheet-traumatooth"/>
+					<input type="radio" value="4" name="attr_trauma" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
 				</div>
 			</div>
 			<!-- Individual traumata -->
-			<div class="sheet-stress4">
-				<input type="checkbox" name="attr_cold" class="sheet-trauma-check" />
-				<span class="sheet-trauma-check">Cold</span>
-				<input type="checkbox" name="attr_haunted" class="sheet-trauma-check" />
-				<span class="sheet-trauma-check">Haunted</span>
-				<input type="checkbox" name="attr_obsessed" class="sheet-trauma-check" />
-				<span class="sheet-trauma-check">Obsessed</span>
-				<input type="checkbox" name="attr_paranoid" class="sheet-trauma-check" />
-				<span class="sheet-trauma-check">Paranoid</span>
+			<div class="sheet-traumata sheet-stress4">
+				<input type="checkbox" name="attr_cold" class="sheet-text-input" />
+				<span>Cold</span>
+				<input type="checkbox" name="attr_haunted" class="sheet-text-input" />
+				<span>Haunted</span>
+				<input type="checkbox" name="attr_obsessed" class="sheet-text-input" />
+				<span>Obsessed</span>
+				<input type="checkbox" name="attr_paranoid" class="sheet-text-input sheet-last" />
+				<span>Paranoid</span>
 				<br/>
-				<input type="checkbox" name="attr_reckless" class="sheet-trauma-check sheet-traumarow2" />
-				<span class="sheet-trauma-check">Reckless</span>
-				<input type="checkbox" name="attr_soft" class="sheet-trauma-check sheet-traumarow2" />
-				<span class="sheet-trauma-check">Soft</span>
-				<input type="checkbox" name="attr_unstable" class="sheet-trauma-check sheet-traumarow2" />
-				<span class="sheet-trauma-check">Unstable</span>
-				<input type="checkbox" name="attr_vicious" class="sheet-trauma-check sheet-traumarow2" />
-				<span class="sheet-trauma-check">Vicious</span>
+				<input type="checkbox" name="attr_reckless" class="sheet-text-input sheet-traumarow2" />
+				<span>Reckless</span>
+				<input type="checkbox" name="attr_soft" class="sheet-text-input sheet-traumarow2" />
+				<span>Soft</span>
+				<input type="checkbox" name="attr_unstable" class="sheet-text-input sheet-traumarow2" />
+				<span>Unstable</span>
+				<input type="checkbox" name="attr_vicious" class="sheet-text-input sheet-last sheet-traumarow2" />
+				<span>Vicious</span>
 			</div>
 		</div>
 		<!-- Harm, Recovery, Armor, Coin -->
@@ -129,8 +127,8 @@
 			<!-- Harm and Recovery -->
 			<div class="sheet-harmcolumn1">
 				<!-- Harm -->
-				<div class="sheet-harm1">Harm</div>
-				<div class="sheet-harmrow sheet-harmfirst">
+				<div class="sheet-harm1 sheet-label">Harm</div>
+				<div class="sheet-harmrow">
 					<div class="sheet-harmdetails1">3</div>
 					<div class="sheet-harmdetails2">
 						<input type="text" name="attr_harm3" />
@@ -158,32 +156,32 @@
 					<div class="sheet-harmdetails3">Less Effect</div>
 				</div>
 				<!-- Recovery -->
-				<div class="sheet-recoveryblurb">
-					<span class="sheet-recoveryblurb-bold">RECOVERY</span>
-					<span> Get treatment in downtime to activate your healing project clock </span>
+				<div class="sheet-recovery">
+					<span class="sheet-bold sheet-label">Recovery</span>
+					<span> Get treatment in downtime to activate your healing project clock</span>
 					<div class="sheet-arrow-right"></div>
 					<br/>
-					<div class="sheet-harmprogress">
-						<span class="sheet-recoveryblurb-bold">Progress</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_0" checked="true" value="0" />
-						<span class="sheet-trauma-check">0</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_1" value="1" />
-						<span class="sheet-trauma-check">1</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_2" value="2" />
-						<span class="sheet-trauma-check">2</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_3" value="3" />
-						<span class="sheet-trauma-check">3</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_4" value="4" />
-						<span class="sheet-trauma-check">4</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_5" value="5" />
-						<span class="sheet-trauma-check">5</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_6" value="6" />
-						<span class="sheet-trauma-check">6</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_7" value="7" />
-						<span class="sheet-trauma-check">7</span>
-						<input type="radio" name="attr_recovery" class="sheet-trauma-check sheet-clock8_8" value="8" />
-						<span class="sheet-trauma-check">8</span>
-						<div class="sheet-harmrecoveryclock"></div>
+					<div class="sheet-clockprogress sheet-8clock">
+						<span class="sheet-bold sheet-label">Progress</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="0" checked />
+						<span>0</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="1" />
+						<span>1</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="2" />
+						<span>2</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="3" />
+						<span>3</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="4" />
+						<span>4</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="5" />
+						<span>5</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="6" />
+						<span>6</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input" value="7" />
+						<span>7</span>
+						<input type="radio" name="attr_recovery" class="sheet-text-input sheet-last" value="8" />
+						<span>8</span>
+						<div class="sheet-clockpicture"></div>
 					</div>
 				</div>
 			</div>
@@ -192,19 +190,19 @@
 				<!-- Armor -->
 				<div class="sheet-armor">
 					<div class="sheet-armorcaption">Armor</div>
-					<input type="checkbox" name="attr_armor" class="sheet-tooth sheet-stresstooth sheet-armortooth" />
+					<input type="checkbox" name="attr_armor" class="sheet-tooth sheet-stresstooth" />
 					<span></span>
 				</div>
 				<div class="sheet-armor">
 					<div class="sheet-armorcaption">+Heavy</div>
-					<input type="checkbox" name="attr_armor_heavy" class="sheet-tooth sheet-stresstooth sheet-armortooth" />
+					<input type="checkbox" name="attr_armor_heavy" class="sheet-tooth sheet-stresstooth" />
 					<span></span>
 				</div>
 				<div class="sheet-col90">
 					<input type="text" name="attr_special_armor_1_name"/>
 				</div>
 				<div class="sheet-col10">
-					<input type="checkbox" name="attr_special_armor_1" class="sheet-tooth sheet-stresstooth sheet-armortooth2" />
+					<input type="checkbox" name="attr_special_armor_1" class="sheet-tooth sheet-stresstooth" />
 					<span></span>
 				</div>
 				<div class="sheet-col90">
@@ -212,7 +210,7 @@
 					<div class="sheet-specialarmorcaption">other special armor</div>
 				</div>
 				<div class="sheet-col10">
-					<input type="checkbox" name="attr_special_armor_2" class="sheet-tooth sheet-stresstooth sheet-armortooth2" />
+					<input type="checkbox" name="attr_special_armor_2" class="sheet-tooth sheet-stresstooth" />
 					<span></span>
 				</div>
 				<!-- Coin -->
@@ -321,24 +319,20 @@
 		</div>
 		<!-- Special abilities -->
 		<div class="sheet-col100">
-			<div class="sheet-specialheader">Special Abilities</div>
-			<div class="sheet-abilitiesholder">
+			<div class="sheet-greyheader sheet-label">Special Abilities</div>
+			<div class="sheet-greyholder">
 				<div class="sheet-specialability">
-					<div class="sheet-abilitycheck">
 						<input type="checkbox" value="1" name="attr_ability1_check" />
 						<span></span>
-						<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability1_name" />
-						<textarea class="sheet-ability1desc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
-					</div>
+						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
+						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
 				</div>
 				<fieldset class="repeating_ability">
 					<div class="sheet-specialability">
-						<div class="sheet-abilitycheck">
-							<input type="checkbox" value="1" name="attr_check" />
-							<span></span>
-							<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability_name" />
-							<textarea class="sheet-ability1desc" name="attr_ability_desc" placeholder="Ability description"></textarea>
-						</div>
+						<input type="checkbox" value="1" name="attr_check" />
+						<span></span>
+						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_name" placeholder="Ability Name"></textarea>
+						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_desc" placeholder="Ability description"></textarea>
 					</div>
 				</fieldset>
 			</div>
@@ -350,7 +344,7 @@
 				<div class="sheet-advancement-tracker">
 					<div class="sheet-advancement-label sheet-label">Playbook Advancement </div>
 					<div class="sheet-advancement-xpholder">
-						<input type="radio" value="0" name="attr_playbook_xp" class="sheet-tooth sheet-zero" checked />
+						<input type="radio" value="0" name="attr_playbook_xp" class="sheet-zero" checked />
 						<span></span>
 						<input type="checkbox" value="0" name="attr_playbook_xp" class="sheet-xptooth sheet-hidden" checked />
 						<input type="radio" value="1" name="attr_playbook_xp" class="sheet-tooth sheet-xptooth"/>
@@ -656,6 +650,8 @@
 					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/aRCtei7.png}}{{rolltypetext=Insight}}{{roll1value=[[@{hunt1}d6]]}}{{roll2value=[[@{study1}d6]]}}{{roll3value=[[@{survey1}d6]]}}{{roll4value=[[@{tinker1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Insight</button>
 				</div>
 				<div class="sheet-attribute-xp-box">
+					<input type="radio" value="0" name="attr_insight_xp" class="sheet-zero" checked />
+					<span></span>
 					<input type="checkbox" value="0" name="attr_insight_xp" class="sheet-hidden sheet-xptooth" checked />
 					<input type="radio" value="1" name="attr_insight_xp"  class="sheet-tooth sheet-xptooth"/>
 					<span></span>
@@ -668,10 +664,6 @@
 					<input type="radio" value="5" name="attr_insight_xp" class="sheet-tooth sheet-xptooth" />
 					<span></span>
 					<input type="radio" value="6" name="attr_insight_xp" class="sheet-tooth sheet-xptooth" />
-					<span></span>
-				</div>
-				<div class="sheet-attribute-xp-zero-box">
-					<input type="radio" value="0" name="attr_insight_xp" class="sheet-tooth sheet-zero sheet-xpzero" checked />
 					<span></span>
 				</div>
 			</div>
@@ -771,6 +763,8 @@
 					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/7PeppYz.png}}{{rolltypetext=Prowess}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{prowl1}d6]]}}{{roll3value=[[@{skirmish1}d6]]}}{{roll4value=[[@{wreck1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowess</button>
 				</div>
 				<div class="sheet-attribute-xp-box">
+					<input type="radio" value="0" name="attr_prowess_xp" class="sheet-zero" checked />
+					<span></span>
 					<input type="checkbox" value="0" name="attr_prowess_xp" class="sheet-hidden sheet-xptooth" checked />
 					<input type="radio" value="1" name="attr_prowess_xp"  class="sheet-tooth sheet-xptooth"/>
 					<span></span>
@@ -783,10 +777,6 @@
 					<input type="radio" value="5" name="attr_prowess_xp" class="sheet-tooth sheet-xptooth" />
 					<span></span>
 					<input type="radio" value="6" name="attr_prowess_xp" class="sheet-tooth sheet-xptooth" />
-					<span></span>
-				</div>
-				<div class="sheet-attribute-xp-zero-box">
-					<input type="radio" value="0" name="attr_prowess_xp" class="sheet-tooth sheet-zero sheet-xpzero" checked />
 					<span></span>
 				</div>
 			</div>
@@ -886,6 +876,8 @@
 					<button type="roll" class="sheet-attributebtn" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/eIZr40h.png}}{{rolltypetext=Insight}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{command1}d6]]}}{{roll3value=[[@{consort1}d6]]}}{{roll4value=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Resolve</button>
 				</div>
 				<div class="sheet-attribute-xp-box">
+					<input type="radio" value="0" name="attr_resolve_xp" class="sheet-zero" checked />
+					<span></span>
 					<input type="checkbox" value="0" name="attr_resolve_xp" class="sheet-hidden sheet-xptooth" checked />
 					<input type="radio" value="1" name="attr_resolve_xp"  class="sheet-tooth sheet-xptooth"/>
 					<span></span>
@@ -898,10 +890,6 @@
 					<input type="radio" value="5" name="attr_resolve_xp" class="sheet-tooth sheet-xptooth" />
 					<span></span>
 					<input type="radio" value="6" name="attr_resolve_xp" class="sheet-tooth sheet-xptooth" />
-					<span></span>
-				</div>
-				<div class="attribute-xp-zero-box">
-					<input type="radio" value="0" name="attr_resolve_xp" class="sheet-tooth sheet-zero sheet-xpzero" checked />
 					<span></span>
 				</div>
 			</div>
@@ -1006,8 +994,8 @@
 				</div>
 			</div>
 			<!-- Strange friends -->
-			<div class="sheet-specialheader">Strange Friends</div>
-			<div class="sheet-abilitiesholder">
+			<div class="sheet-greyheader sheet-label">Strange Friends</div>
+			<div class="sheet-greyholder">
 				<div class="sheet-friend">
 					<input type="checkbox" value="1" name="attr_friend1_up" class="sheet-friendcheck sheet-friendup" />
 					<span></span>
@@ -1029,105 +1017,104 @@
 			<button type="roll"  class="sheet-fortunebtn sheet-rollbtn" value='&{template:bitd4}{{charname=@{character_name}}} {{notes=?{Notes| }}}{{bonusdice=?{Number of dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll Fortune</button>
 		</div>
 		<!-- Clocks -->
-		<div class="sheet-col97">
-			<div class="sheet-specialheader sheet-specialheader2">Clocks</div>
+		<div class="sheet-col97 sheet-clocks">
+			<div class="sheet-greyheader sheet-label">Clocks</div>
 			<fieldset class="repeating_clock">
-				<div class="sheet-recoveryblurb sheet-recoveryblurb2">
-					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname" />
-					<br/>
-					<div class="sheet-harmprogress">
+				<div class="sheet-clock">
+					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-label" />
+					<div class="sheet-clockprogress">
 						<span>Size</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-4segment" value="1" checked="true"  />
-						<span  class="sheet-trauma-check">4-segment</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-6segment" value="2" />
-						<span  class="sheet-trauma-check">6-segment</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-8segment" value="3" />
-						<span  class="sheet-trauma-check">8-segment</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check  sheet-longoption sheet-12segment" value="4" />
-						<span  class="sheet-trauma-check sheet-traumalast">12-segment</span>
-						<div class="sheet-harmprogress sheet-4clock">
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-longoption" value="4" checked />
+						<span>4-segment</span>
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-longoption" value="6" />
+						<span>6-segment</span>
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-longoption" value="8" />
+						<span>8-segment</span>
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-last sheet-longoption" value="12" />
+						<span>12-segment</span>
+						<div class="sheet-4clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_4" value="4" />
-							<span  class="sheet-trauma-check sheet-traumalast">4</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input sheet-last" value="4" />
+							<span>4</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
-						<div class="sheet-harmprogress sheet-6clock">
+						<div class="sheet-6clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_4" value="4" />
-							<span  class="sheet-trauma-check">4</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_5" value="5" />
-							<span  class="sheet-trauma-check">5</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_6" value="6" />
-							<span class="sheet-trauma-check sheet-traumalast">6</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="4" />
+							<span>4</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="5" />
+							<span>5</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input sheet-last" value="6" />
+							<span>6</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
-						<div class="sheet-harmprogress sheet-8clock">
+						<div class="sheet-8clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_4" value="4" />
-							<span  class="sheet-trauma-check">4</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_5" value="5" />
-							<span  class="sheet-trauma-check">5</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_6" value="6" />
-							<span class="sheet-trauma-check">6</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_7" value="7" />
-							<span  class="sheet-trauma-check">7</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-clock8_8" value="8" />
-							<span  class="sheet-trauma-check sheet-traumalast">8</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="4" />
+							<span>4</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="5" />
+							<span>5</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="6" />
+							<span>6</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="7" />
+							<span>7</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input sheet-last" value="8" />
+							<span>8</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
-						<div class="sheet-harmprogress sheet-12clock">
+						<div class="sheet-12clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_4" value="4" />
-							<span  class="sheet-trauma-check">4</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_5" value="5" />
-							<span  class="sheet-trauma-check">5</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_6" value="6" />
-							<span class="sheet-trauma-check">6</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_7" value="7" />
-							<span  class="sheet-trauma-check">7</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_8" value="8" />
-							<span  class="sheet-trauma-check">8</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_9" value="9" />
-							<span  class="sheet-trauma-check">9</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_10" value="10" />
-							<span class="sheet-trauma-check">10</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_11" value="11" />
-							<span  class="sheet-trauma-check">11</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_12" value="12" />
-							<span  class="sheet-trauma-check sheet-traumalast">12</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="4" />
+							<span>4</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="5" />
+							<span>5</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="6" />
+							<span>6</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="7" />
+							<span>7</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="8" />
+							<span>8</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="9" />
+							<span>9</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="10" />
+							<span>10</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="11" />
+							<span>11</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input sheet-last" value="12" />
+							<span>12</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
 					</div>
 				</div>

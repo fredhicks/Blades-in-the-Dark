@@ -5,17 +5,15 @@
 		<div class="sheet-col55 sheet-logoholder">
 			<div class="sheet-bladeslogo"></div>
 		</div>
-		<div class="sheet-col45 sheet-crewheader">Crew sheet</div>
+		<div class="sheet-col45 sheet-crewheader sheet-label">Crew sheet</div>
 	</div>
 	<!-- Crew Type -->
-	<div class="sheet-col45 sheet-toppad">
-		<div class="sheet-playbooktitle">
-			<div class="sheet-title">
-				<input type="text" name="attr_crew_type" placeholder="Crew"/>
-			</div>
-			<div class="sheet-desc">
-				<textarea name="attr_crew_desc" placeholder="A short crew description" cols="50" rows="3"></textarea>
-			</div>
+	<div class="sheet-col45 sheet-playbook">
+		<div class="sheet-playbook-title">
+			<input type="text" class="sheet-label" name="attr_crew_type" placeholder="Crew"/>
+		</div>
+		<div class="sheet-playbook-desc">
+			<textarea name="attr_crew_desc" class="sheet-label" placeholder="A short crew description" cols="50" rows="3"></textarea>
 		</div>
 	</div>
 	<!-- Left column -->
@@ -40,44 +38,13 @@
 			<!-- Rep -->
 			<div class="sheet-repholder sheet-blackborder">
 				<div class="sheet-rep1">
-					<div class="sheet-radiolabel">Rep</div>
+					<div class="sheet-label">Rep</div>
 				</div>
 				<div class="repzeroholder">
 					<input type="radio" value="0" name="attr_rep" class="sheet-tooth sheet-zero" checked />
 					<span></span>
 				</div>
 				<div class="sheet-rep2">
-					<input type="checkbox" value="1" name="attr_turf" class="sheet-hidden sheet-turf1" />
-					<input type="checkbox" value="2" name="attr_turf" class="sheet-hidden sheet-turf2" />
-					<input type="checkbox" value="3" name="attr_turf" class="sheet-hidden sheet-turf3" />
-					<input type="checkbox" value="4" name="attr_turf" class="sheet-hidden sheet-turf4" />
-					<input type="checkbox" value="5" name="attr_turf" class="sheet-hidden sheet-turf5" />
-					<input type="checkbox" value="6" name="attr_turf" class="sheet-hidden sheet-turf6" />
-					<input type="checkbox" value="0" name="attr_rep" class="sheet-stresstooth sheet-hidden" checked/>
-					<input type="radio" value="1" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
-					<span></span>
-					<input type="radio" value="2" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
-					<span></span>
-					<input type="radio" value="3" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
-					<span></span>
-					<input type="radio" value="4" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
-					<span></span>
-					<input type="radio" value="5" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
-					<span></span>
-					<input type="radio" value="6" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower" />
-					<span></span>
-					<input type="radio" value="7" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf6" />
-					<span></span>
-					<input type="radio" value="8" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf5 sheet-turf6" />
-					<span></span>
-					<input type="radio" value="9" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf4 sheet-turf5 sheet-turf6" />
-					<span></span>
-					<input type="radio" value="10" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
-					<span></span>
-					<input type="radio" value="11" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
-					<span></span>
-					<input type="radio" value="12" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-halftooth-lower sheet-toothlast sheet-turf1 sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
-					<span></span>
 					<div class="sheet-turfbox">
 						<input type="radio" value="1" name="attr_turf" />
 						<input type="radio" value="2" name="attr_turf" />
@@ -86,32 +53,63 @@
 						<input type="radio" value="5" name="attr_turf" />
 						<input type="radio" value="6" name="attr_turf" />
 					</div>
+					<input type="checkbox" value="1" name="attr_turf" class="sheet-hidden sheet-turf1" />
+					<input type="checkbox" value="2" name="attr_turf" class="sheet-hidden sheet-turf2" />
+					<input type="checkbox" value="3" name="attr_turf" class="sheet-hidden sheet-turf3" />
+					<input type="checkbox" value="4" name="attr_turf" class="sheet-hidden sheet-turf4" />
+					<input type="checkbox" value="5" name="attr_turf" class="sheet-hidden sheet-turf5" />
+					<input type="checkbox" value="6" name="attr_turf" class="sheet-hidden sheet-turf6" />
+					<input type="checkbox" value="0" name="attr_rep" class="sheet-stresstooth sheet-hidden" checked/>
+					<input type="radio" value="1" name="attr_rep" class="sheet-tooth sheet-stresstooth" />
+					<span></span>
+					<input type="radio" value="2" name="attr_rep" class="sheet-tooth sheet-stresstooth" />
+					<span></span>
+					<input type="radio" value="3" name="attr_rep" class="sheet-tooth sheet-stresstooth" />
+					<span></span>
+					<input type="radio" value="4" name="attr_rep" class="sheet-tooth sheet-stresstooth" />
+					<span></span>
+					<input type="radio" value="5" name="attr_rep" class="sheet-tooth sheet-stresstooth" />
+					<span></span>
+					<input type="radio" value="6" name="attr_rep" class="sheet-tooth sheet-stresstooth" />
+					<span></span>
+					<input type="radio" value="7" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-turf6" />
+					<span></span>
+					<input type="radio" value="8" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="9" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="10" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="11" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
+					<input type="radio" value="12" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-toothlast sheet-turf1 sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6" />
+					<span></span>
 				</div>
 				<div class="sheet-turfzeroholder">
 					<input type="radio" value="0" name="attr_turf" class="sheet-tooth sheet-zero" checked />
 					<span></span>
 				</div>
 				<div class="sheet-rep3">
-					<div class="sheet-radiolabel sheet-turflabel">Turf</div>
+					<div class="sheet-label sheet-turflabel">Turf</div>
 				</div>
 			</div>
 			<!-- Hold -->
 			<div class="sheet-holdholder sheet-blackborder">
 				<div class="sheet-hold1">
-					<div class="sheet-radiolabel">Hold</div>
+					<div class="sheet-label">Hold</div>
 				</div>
 				<div class="sheet-hold2">
-					<div class="sheet-radiolabel">Weak</div>
+					<div class="sheet-label">Weak</div>
 					<input type="radio" value="weak" name="attr_hold" class="sheet-tooth sheet-holdtooth" checked />
 					<span></span>
 				</div>
 				<div class="sheet-hold3">
-					<div class="sheet-radiolabel">Strong</div>
+					<div class="sheet-label">Strong</div>
 					<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-tooth sheet-holdtooth" />
 					<span></span>
 				</div>
 				<div class="sheet-hold4">
-					<div class="sheet-radiolabel">Tier</div>
+					<div class="sheet-label">Tier</div>
 				</div>
 			</div>
 			<!-- Tier -->
@@ -129,7 +127,7 @@
 		<div class="sheet-heattop sheet-blackborder">
 			<!-- Heat markers -->
 			<div class="sheet-heat1">
-				<div class="sheet-radiolabel">Heat</div>
+				<div class="sheet-label">Heat</div>
 			</div>
 			<div class="sheet-heatzeroholder">
 				<input type="radio" value="0" name="attr_heat" class="sheet-tooth sheet-zero sheet-stresszero" checked />
@@ -159,45 +157,41 @@
 			<!-- Wanted markers -->
 			<div class="sheet-wantedtop">
 				<div class="sheet-heat3">
-					<div class="sheet-radiolabel">Wanted level</div>
+					<div class="sheet-label">Wanted level</div>
 				</div>
 				<div class="sheet-wantedzeroholder">
 					<input type="radio" value="0" name="attr_wanted" class="sheet-tooth sheet-zero sheet-traumazero" checked />
 					<span></span>
 				</div>
 				<div class="sheet-wantedholder">
-					<input type="checkbox" value="0" name="attr_wanted" class="sheet-traumatooth sheet-hidden" checked/>
-					<input type="radio" value="1" name="attr_wanted" class="sheet-tooth sheet-traumatooth"/>
+					<input type="checkbox" value="0" name="attr_wanted" class="sheet-regulartooth sheet-hidden" checked/>
+					<input type="radio" value="1" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
-					<input type="radio" value="2" name="attr_wanted" class="sheet-tooth sheet-traumatooth"/>
+					<input type="radio" value="2" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
-					<input type="radio" value="3" name="attr_wanted" class="sheet-tooth sheet-traumatooth"/>
+					<input type="radio" value="3" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
-					<input type="radio" value="4" name="attr_wanted" class="sheet-tooth sheet-traumatooth"/>
+					<input type="radio" value="4" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
 				</div>
 			</div>
 		</div>
 		<!-- Special abilities -->
-		<div class="sheet-col100 sheet-blackborder">
-			<div class="sheet-specialheader">Special Abilities</div>
-			<div class="sheet-abilitiesholder">
+		<div class="sheet-col100">
+			<div class="sheet-greyheader sheet-label">Special Abilities</div>
+			<div class="sheet-greyholder">
 				<div class="sheet-specialability">
-					<div class="sheet-abilitycheck">
 						<input type="checkbox" value="1" name="attr_ability1_check" />
 						<span></span>
-						<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability1_name" />
-						<textarea class="sheet-ability1desc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
-					</div>
+						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
+						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
 				</div>
 				<fieldset class="repeating_ability">
 					<div class="sheet-specialability">
-						<div class="sheet-abilitycheck">
-							<input type="checkbox" value="1" name="attr_check" />
-							<span></span>
-							<input type="text" placeholder="Ability Name" class="sheet-abilityname1" name="attr_ability_name" />
-							<textarea class="sheet-ability1desc" name="attr_ability_desc" placeholder="Ability description"></textarea>
-						</div>
+						<input type="checkbox" value="1" name="attr_check" />
+						<span></span>
+						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_name" placeholder="Ability Name"></textarea>
+						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_desc" placeholder="Ability description"></textarea>
 					</div>
 				</fieldset>
 			</div>
@@ -209,7 +203,7 @@
 				<div class="sheet-advancement-tracker">
 					<div class="sheet-advancement-label sheet-label">Crew Advancement </div>
 					<div class="sheet-advancement-xpholder">
-						<input type="radio" value="0" name="attr_crew_xp" class="sheet-tooth sheet-zero" checked />
+						<input type="radio" value="0" name="attr_crew_xp" class="sheet-zero" checked />
 						<span></span>
 						<input type="checkbox" value="0" name="attr_crew_xp" class="sheet-xptooth sheet-hidden" checked />
 						<input type="radio" value="1" name="attr_crew_xp" class="sheet-tooth sheet-xptooth"/>
@@ -433,9 +427,9 @@
 					</fieldset>
 				</div>
 			</div>
-			<div class="sheet-hunting-grounds-box">
-				<input type="text" class="sheet-hunting-grounds-header" name="attr_hunting_grounds_type" value="Hunting Grounds" />
-				<input type="text" class="sheet-hunting-grounds-content" name="attr_hunting_grounds" placeholder="Robbery" />
+			<div class="sheet-hunting-grounds">
+				<input type="text" class="sheet-hunting-grounds-header sheet-label" name="attr_hunting_grounds_type" value="Hunting Grounds" />
+				<input type="text" class="sheet-hunting-grounds-content sheet-label" name="attr_hunting_grounds" placeholder="Robbery" />
 			</div>
 		</div>
 		<!-- Cohorts and Contacts -->
@@ -549,8 +543,8 @@
 				</div>
 			</div>
 			<!-- Contacts -->
-			<div class="sheet-specialheader">Contacts</div>
-			<div class="sheet-abilitiesholder">
+			<div class="sheet-greyheader sheet-label">Contacts</div>
+			<div class="sheet-greyholder">
 				<div class="sheet-friend sheet-contact">
 					<input type="text" placeholder="Contact name" name="attr_contact1_name"/>
 				</div>
@@ -562,105 +556,104 @@
 			</div>
 		</div>
 		<!-- Clocks -->
-		<div class="sheet-col97">
-			<div class="sheet-specialheader sheet-specialheader2">Clocks</div>
+		<div class="sheet-col97 sheet-clocks">
+			<div class="sheet-greyheader sheet-label">Clocks</div>
 			<fieldset class="repeating_clock">
-				<div class="sheet-recoveryblurb sheet-recoveryblurb2">
-					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-clockname" />
-					<br/>
-					<div class="sheet-harmprogress">
+				<div class="sheet-clock">
+					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-label" />
+					<div class="sheet-clockprogress">
 						<span>Size</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-4segment" value="1" checked="true"  />
-						<span  class="sheet-trauma-check">4-segment</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-6segment" value="2" />
-						<span  class="sheet-trauma-check">6-segment</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check sheet-longoption sheet-8segment" value="3" />
-						<span  class="sheet-trauma-check">8-segment</span>
-						<input type="radio" name="attr_size" class="sheet-trauma-check  sheet-longoption sheet-12segment" value="4" />
-						<span  class="sheet-trauma-check sheet-traumalast">12-segment</span>
-						<div class="sheet-harmprogress sheet-4clock">
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-longoption" value="4" checked />
+						<span>4-segment</span>
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-longoption" value="6" />
+						<span>6-segment</span>
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-longoption" value="8" />
+						<span>8-segment</span>
+						<input type="radio" name="attr_size" class="sheet-text-input sheet-last sheet-longoption" value="12" />
+						<span>12-segment</span>
+						<div class="sheet-4clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock1" class="sheet-trauma-check sheet-clock4_4" value="4" />
-							<span  class="sheet-trauma-check sheet-traumalast">4</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock1" class="sheet-text-input sheet-last" value="4" />
+							<span>4</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
-						<div class="sheet-harmprogress sheet-6clock">
+						<div class="sheet-6clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_4" value="4" />
-							<span  class="sheet-trauma-check">4</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_5" value="5" />
-							<span  class="sheet-trauma-check">5</span>
-							<input type="radio" name="attr_clock2" class="sheet-trauma-check sheet-clock6_6" value="6" />
-							<span class="sheet-trauma-check sheet-traumalast">6</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="4" />
+							<span>4</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input" value="5" />
+							<span>5</span>
+							<input type="radio" name="attr_clock2" class="sheet-text-input sheet-last" value="6" />
+							<span>6</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
-						<div class="sheet-harmprogress sheet-8clock">
+						<div class="sheet-8clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker4" value="4" />
-							<span  class="sheet-trauma-check">4</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker5" value="5" />
-							<span  class="sheet-trauma-check">5</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker6" value="6" />
-							<span class="sheet-trauma-check">6</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker7" value="7" />
-							<span  class="sheet-trauma-check">7</span>
-							<input type="radio" name="attr_clock3" class="sheet-trauma-check sheet-recoverytracker8" value="8" />
-							<span  class="sheet-trauma-check sheet-traumalast">8</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="4" />
+							<span>4</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="5" />
+							<span>5</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="6" />
+							<span>6</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input" value="7" />
+							<span>7</span>
+							<input type="radio" name="attr_clock3" class="sheet-text-input sheet-last" value="8" />
+							<span>8</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
-						<div class="sheet-harmprogress sheet-12clock">
+						<div class="sheet-12clock">
 							<span>Progress</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_0" checked="true" value="0" />
-							<span class="sheet-trauma-check">0</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_1" value="1" />
-							<span  class="sheet-trauma-check">1</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_2" value="2" />
-							<span  class="sheet-trauma-check">2</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_3" value="3" />
-							<span  class="sheet-trauma-check">3</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_4" value="4" />
-							<span  class="sheet-trauma-check">4</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_5" value="5" />
-							<span  class="sheet-trauma-check">5</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_6" value="6" />
-							<span class="sheet-trauma-check">6</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_7" value="7" />
-							<span  class="sheet-trauma-check">7</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_8" value="8" />
-							<span  class="sheet-trauma-check">8</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_9" value="9" />
-							<span  class="sheet-trauma-check">9</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_10" value="10" />
-							<span class="sheet-trauma-check">10</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_11" value="11" />
-							<span  class="sheet-trauma-check">11</span>
-							<input type="radio" name="attr_clock4" class="sheet-trauma-check sheet-clock12_12" value="12" />
-							<span  class="sheet-trauma-check sheet-traumalast">12</span>
-							<div class="sheet-harmrecoveryclock sheet-harmrecoveryclock2"></div>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="0" checked />
+							<span>0</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="1" />
+							<span>1</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="2" />
+							<span>2</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="3" />
+							<span>3</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="4" />
+							<span>4</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="5" />
+							<span>5</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="6" />
+							<span>6</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="7" />
+							<span>7</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="8" />
+							<span>8</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="9" />
+							<span>9</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="10" />
+							<span>10</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input" value="11" />
+							<span>11</span>
+							<input type="radio" name="attr_clock4" class="sheet-text-input sheet-last" value="12" />
+							<span>12</span>
+							<div class="sheet-clockpicture"></div>
 						</div>
 					</div>
 				</div>
