@@ -244,46 +244,6 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-friends {
 	margin-top: 10px;
 }
-input[type="checkbox"].sheet-friendup {
-	margin: 6px 0 0 -2px;
-}
-input[type="checkbox"].sheet-frienddown {
-	margin: 10px 0 0 2px;
-}
-.sheet-friend input[type="checkbox"].sheet-friendcheck + span::before {
-	margin: 0px 0px 0px -1px !important;
-	border-radius: 0 !important;
-	width: 0 !important;
-	height: 0 !important;
-	border-style: solid !important;
-	border-width: 0 5px 10px 5px !important;
-	border-color: transparent transparent #ffffff transparent !important;
-	background-color: #d6d8d9 !important;
-	top: -3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown + span::before {
-	border-width: 10px 5px 0 5px !important;
-	border-color: #ffffff transparent transparent transparent !important;
-	top: 1px !important;
-	margin: 0px 0px 0px 3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup + span::before {
-	border-width: 0 5px 10px 5px !important;
-	border-color: transparent transparent #ffffff transparent;
-	top: -3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown:checked + span::before {
-	border-color: #000000 transparent transparent transparent !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
-	border-color: transparent transparent red transparent !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup:checked ~ input[type=text] {
-	color: red !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown:checked ~ input[type=text] {
-	color: black !important;
-}
 .sheet-friend input[type=text] {
 	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 	color: #6c6c6c;
@@ -418,7 +378,7 @@ input[type="checkbox"].sheet-frienddown {
 	font-weight: 800;
 }
 .sheet-loadheader {
-	padding: 5px 0 0 6px;
+	padding: 2px 0 0 6px;
 }
 .sheet-loadheader2 {
 	margin-top: 5px;
@@ -1273,17 +1233,14 @@ input.sheet-radiobox:hover + span::before {
 	line-height: 137%;
 	height: 378px;
 }
-/* DEITY DISPLAY */
+/* DEITY DISPLAY (set via sheet workers) */
 .sheet-show-deity {
 	display: none;
 }
 input.sheet-show-deity:checked ~ div.sheet-show-deity {
 	display: block;
 }
-
-
-/* CHECKBOXES */
-/* LOAD CHECKBOX */
+/* LOAD CHECKBOXES */
 .sheet-loadboxholder {
 		transform: rotate(45deg);
 		display: inline-block;
@@ -1292,24 +1249,17 @@ input.sheet-show-deity:checked ~ div.sheet-show-deity {
 		height: 7px;
 }
 input.sheet-loadbox[type="checkbox"] {
-		margin: -8px -8px -8px -9px;
 		width: 12px;
 		height: 12px;
-		position: absolute;
-		left: 5px;
-		top: 3px;
+		margin-bottom: -10px;
+		position: relative;
 }
 input.sheet-loadbox[type="checkbox"] + span::before {
-		margin: 0px 6px 0px 0px;
 		display: inline-block;
 		content: "";
-		position: relative;
 		border: 1px solid black;
-		cursor: pointer;
 		width: 8px;
 		height: 8px;
-		top: 0px;
-		left: -1px;
 		background-color: white;
 }
 input.sheet-loadbox[type="checkbox"]:checked + span::before {
@@ -1319,6 +1269,69 @@ input.sheet-loadbox[type="checkbox"]:hover + span::before {
 		filter: alpha(opacity=70);
 		opacity: 0.7;
 }
+/* ROLL BUTTONS */
+button[type=roll] {
+	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+	background: transparent;
+	box-shadow: none;
+}
+button[type=roll]:before {
+	content: "" !important;
+}
+button[type=roll].sheet-rollbutton {
+	text-transform: uppercase;
+	border: none;
+	margin: 0;
+	padding: 0;
+	font-weight: 800;
+	font-size: 92%;
+	line-height: 9px;
+}
+button[type=roll].sheet-attributebutton {
+	font-size: 92%;
+	line-height: 9px;
+	color: white;
+}
+button[type=roll].sheet-actionbutton {
+	font-size: 95%;
+	letter-spacing: 1px;
+	color: black;
+}
+button[type=roll].sheet-vicebutton, button[type=roll].sheet-fortunebutton {
+	color: #616161;
+	border-color: #b3b4b6;
+	border-radius: 0;
+	transition: all 0.2s;
+	padding: 4px;
+	font-size: 97%;
+	font-weight: 600;
+}
+button[type=roll].sheet-vicebutton {
+	float: right;
+	margin: 5px 3px -5px 0;
+	line-height: 13px;
+}
+button[type=roll].sheet-fortunebutton {
+	width: 100%;
+	float: left;
+	height: 38px;
+	margin: 10px 3px 0 0;
+}
+button[type=roll].sheet-rollbutton:hover {
+	color: #ff4747;
+}
+button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:hover {
+		color: #020202;
+		border-color: #020202;
+}
+
+
+
+
+
+/* DIRTY SECTION BELOW */
+/* CHECKBOXES */
+
 	/* style inputs*/
 .sheet-specialability input[type="checkbox"], .sheet-item input[type="checkbox"], .sheet-attributedot input[type="checkbox"], .sheet-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
 		position: absolute;
@@ -1393,12 +1406,52 @@ input.sheet-loadbox[type="checkbox"]:hover + span::before {
 		color: red;
 }
 
-/* MORE STUFF*/
-button.sheet-rollbtn, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-cohort-conditionholder div {
+input[type="checkbox"].sheet-friendup {
+	margin: 6px 0 0 -2px;
+}
+input[type="checkbox"].sheet-frienddown {
+	margin: 10px 0 0 2px;
+}
+.sheet-friend input[type="checkbox"].sheet-friendcheck + span::before {
+	margin: 0px 0px 0px -1px !important;
+	border-radius: 0 !important;
+	width: 0 !important;
+	height: 0 !important;
+	border-style: solid !important;
+	border-width: 0 5px 10px 5px !important;
+	border-color: transparent transparent #ffffff transparent !important;
+	background-color: #d6d8d9 !important;
+	top: -3px !important;
+}
+.sheet-friend input[type="checkbox"].sheet-frienddown + span::before {
+	border-width: 10px 5px 0 5px !important;
+	border-color: #ffffff transparent transparent transparent !important;
+	top: 1px !important;
+	margin: 0px 0px 0px 3px !important;
+}
+.sheet-friend input[type="checkbox"].sheet-friendup + span::before {
+	border-width: 0 5px 10px 5px !important;
+	border-color: transparent transparent #ffffff transparent;
+	top: -3px !important;
+}
+.sheet-friend input[type="checkbox"].sheet-frienddown:checked + span::before {
+	border-color: #000000 transparent transparent transparent !important;
+}
+.sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
+	border-color: transparent transparent red transparent !important;
+}
+.sheet-friend input[type="checkbox"].sheet-friendup:checked ~ input[type=text] {
+	color: red !important;
+}
+.sheet-friend input[type="checkbox"].sheet-frienddown:checked ~ input[type=text] {
+	color: black !important;
+}
+
+/* ACTION RATINGS */
+.sheet-attribute, .sheet-attribute input[type="text"], .sheet-cohort-conditionholder div {
 	text-transform: uppercase;
 	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }
-/* ACTION RATINGS */
 .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
 		float: left;
 }
@@ -1425,27 +1478,6 @@ button.sheet-rollbtn, .sheet-attribute, .sheet-attribute input[type="text"], but
 		padding-right: 6px;
 		width: 67px;
 		margin-right: 6px;
-}
-.sheet-attributebtn {
-		text-transform: uppercase !important;
-		letter-spacing: 0px !important;
-		text-shadow: none !important;
-		font-size: 92% !important;
-		font-weight: 800;
-		line-height: 9px;
-		border: none;
-		background-color: black;
-		color: white;
-		margin: 0 !important;
-		padding: 0 !important;
-		box-shadow: none;
-		background-image: none;
-}
-button.sheet-attributebtn:hover {
-		color: #ff4747 !important
-}
-button.sheet-attributebtn:before {
-		content: "" !important;
 }
 .sheet-attributedotsholder {
 		width: 100%;
@@ -1491,55 +1523,13 @@ button.sheet-attributebtn:before {
 		width: 20px;
 		height: 20px;
 }
-/* BUTTONS */
-.sheet-rollbtn {
-		font-family: Georgia, Times, "Times New Roman", serif;
-		letter-spacing: 1px !important;
-		font-weight: 600 !important;
-		line-height: 13px;
-		font-size: 95% !important;
-		text-transform: uppercase !important;
-		background-color: white !important;
-		color: black;
-		position: relative;
-		top: -1px;
-		left: 2px;
-}
-button.sheet-vicebutton[type="roll"],
-.sheet-fortunebtn {
-		letter-spacing: 0px !important;
-		background-image: none;
-		color: #616161 !important;
-		border-radius: 0;
-		border-color: #b3b4b6 !important;
-		box-shadow: none;
-		transition: all 0.2s;
-		float: right;
-		font-size: 97% !important;
-		padding: 4px !important;
-		text-transform: none !important;
-		margin: 5px 3px -5px 0;
-}
-.sheet-fortunebtn {
-		width: 100%;
-		height: 38px;
-		text-align: center;
-		position: relative;
-		top: 0;
-		left: 0;
-		margin-left: 0px !important;
-		margin-top: 10px !important;
-}
-button.sheet-vicebutton:hover,
-button.sheet-fortunebtn:hover {
-		color: #020202 !important;
-		border-color: #020202 !important;
-}
-button.sheet-vicebutton:before,
-button.sheet-fortunebtn:before {
-		content: "" !important;
-}
 /* COHORTS */
+button.sheet-cohortbtn {
+		float: right;
+		font-size: 50% !important;
+		width: 37px;
+		margin-top: 1px !important;
+}
 .sheet-cohort-conditionholder {
 		width: 100%;
 }
@@ -1590,12 +1580,6 @@ div.sheet-cohort-armor div {
 		display: block;
 		float: left;
 		width: calc(70% - 37px);
-}
-button.sheet-cohortbtn {
-		float: right;
-		font-size: 50% !important;
-		width: 37px;
-		margin-top: 1px !important;
 }
 .sheet-quality {
 		display: block;
