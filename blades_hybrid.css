@@ -344,9 +344,9 @@ input[type="checkbox"], input[type="radio"] {
 }
 .sheet-floatingbar {
 	display: inline-block;
-	width: 4px;
-	height: 3px;
-	margin: 0 -2px;
+	width: 3px;
+	height: 2px;
+	margin: 0 -1px 0 -2px;
 	border-top: 2px solid #838587;
 }
 /* LOGO */
@@ -817,7 +817,6 @@ textarea.sheet-abilityname {
 	height: 50px;
 	padding-left: 5px;
 	font-variant: small-caps;
-	font-size: 100%;
 	font-weight: 800;
 	letter-spacing: 0px;
 	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
@@ -1326,29 +1325,59 @@ button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:
 }
 
 
-
-
+input.sheet-checkbox {
+	position: relative;
+	margin-right: -12px;
+}
+input.sheet-checkbox + span::before {
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #838587;
+	margin: 0 2px 0 1px;
+}
+input.sheet-checkbox:hover + span::before {
+	opacity: 0.7;
+}
+input.sheet-checkbox.sheet-circlebox + span::before {
+	border-radius: 30px;
+	background: white;
+	vertical-align: top;
+}
+input.sheet-checkbox.sheet-squarebox + span::before {
+	background: transparent;
+	vertical-align: middle;
+}
+input.sheet-checkbox.sheet-circlebox-small + span::before {
+	border-radius: 40px;
+	height: 9px;
+	width: 9px;
+	margin-right: 1px;
+}
+input.sheet-checkbox:checked + span::before {
+	background-color: red;
+}
+/* Change text colour when boxes are checked*/
+.sheet-specialability input:checked ~ textarea.sheet-abilityname, .sheet-item input:checked ~ input[type=text], .sheet-friend input.sheet-friendup:checked ~ input[type=text] {
+	color: red;
+}
+.sheet-friend input.sheet-frienddown:checked ~ input[type=text] {
+	color: black;
+}
 
 /* DIRTY SECTION BELOW */
 /* CHECKBOXES */
-
 	/* style inputs*/
-.sheet-specialability input[type="checkbox"], .sheet-item input[type="checkbox"], .sheet-attributedot input[type="checkbox"], .sheet-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
+.sheet-attributedot input[type="checkbox"], .sheet-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
 		position: absolute;
 }
-	/* fix position */
-.sheet-item input[type="checkbox"] {
-		margin: 3px 0 0 2px;
-}
-.sheet-specialability input[type="checkbox"] {
-		margin: 7px 0 0 2px;
-}
 	/* style spans */
-.sheet-specialability input[type="checkbox"] + span::before, .sheet-attributedot input + span::before {
+.sheet-attributedot input + span::before {
 		top: 1px;
-		border-radius: 30px;
+		border-radius: 30px;	
 }
-.sheet-specialability input[type="checkbox"] + span::before, .sheet-item input[type="checkbox"] + span::before, .sheet-attributedot input + span::before, .sheet-friend input[type="checkbox"] + span::before {
+.sheet-attributedot input + span::before, .sheet-friend input[type="checkbox"] + span::before {
 		content: '';
 		cursor: pointer;
 		width: 10px;
@@ -1373,39 +1402,20 @@ button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:
 	border: 1px solid #838587;
 }
 	/* opacity on hover */
-.sheet-specialability input[type="checkbox"]:hover + span::before, .sheet-item input[type="checkbox"]:hover + span::before, .sheet-friend input[type="checkbox"]:hover + span::before {
-		opacity: 0.3;
-}
 	/* section-specific styling */
 .sheet-quality input,
 .sheet-quality input + span:before {
-		border-radius: 40px;
+	border-radius: 40px;
 		margin-top: 4px;
 }
 .sheet-hold5.sheet-quality input + span:before {
 		margin-right: 2px;
 }
-.sheet-item input[type="checkbox"] + span::before {
-		top: 2px;
-		border-radius: 0px;
-		margin-right: 1px;
-}
-.sheet-playbookitems .sheet-item input[type="checkbox"] + span::before {
-		background-color: #d6d8d9;
-}
 	/* turn checked boxes red*/
-.sheet-specialability input[type="checkbox"]:checked + span::before,
-.sheet-item input[type="checkbox"]:checked + span::before,
 .sheet-attributedot input:checked + span::before,
 .sheet-quality input:checked + span::before {
 		background-color: red !important;
 }
-	/* turn text red if boxes are checked*/
-.sheet-specialability input[type="checkbox"]:checked ~ textarea.sheet-abilityname,
-.sheet-item input[type="checkbox"]:checked ~ input[type=text] {
-		color: red;
-}
-
 input[type="checkbox"].sheet-friendup {
 	margin: 6px 0 0 -2px;
 }
@@ -1439,12 +1449,6 @@ input[type="checkbox"].sheet-frienddown {
 }
 .sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
 	border-color: transparent transparent red transparent !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup:checked ~ input[type=text] {
-	color: red !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown:checked ~ input[type=text] {
-	color: black !important;
 }
 
 /* ACTION RATINGS */
