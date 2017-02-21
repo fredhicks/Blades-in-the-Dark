@@ -1329,6 +1329,9 @@ input.sheet-checkbox {
 	position: relative;
 	margin-right: -12px;
 }
+input.sheet-checkbox.sheet-circlebox-small {
+	margin-bottom: 3px;
+}
 input.sheet-checkbox + span::before {
 	content: "";
 	display: inline-block;
@@ -1353,7 +1356,13 @@ input.sheet-checkbox.sheet-circlebox-small + span::before {
 	border-radius: 40px;
 	height: 9px;
 	width: 9px;
+	background: white;
+	vertical-align: middle;
 	margin-right: 1px;
+	margin-bottom: 3px;
+}
+input.sheet-checkbox + span:last-child::before {
+	margin-right: 0px !important;
 }
 input.sheet-checkbox:checked + span::before {
 	background-color: red;
@@ -1365,14 +1374,19 @@ input.sheet-checkbox:checked + span::before {
 .sheet-friend input.sheet-frienddown:checked ~ input[type=text] {
 	color: black;
 }
+/* small adjustments */
+.sheet-hold5.sheet-quality input.sheet-checkbox.sheet-circlebox-small + span::before {
+	margin-right: 2px;
+}
+
+
+
 
 /* DIRTY SECTION BELOW */
 /* CHECKBOXES */
-	/* style inputs*/
-.sheet-attributedot input[type="checkbox"], .sheet-quality input[type="checkbox"], .sheet-friend input[type="checkbox"] {
+.sheet-attributedot input[type="checkbox"], .sheet-friend input[type="checkbox"] {
 		position: absolute;
 }
-	/* style spans */
 .sheet-attributedot input + span::before {
 		top: 1px;
 		border-radius: 30px;	
@@ -1389,31 +1403,7 @@ input.sheet-checkbox:checked + span::before {
 		background-color: white;
 		border: 1px solid #838587;
 }
-.sheet-quality input + span::before {
-	content: '';
-	cursor: pointer;
-	width: 9px;
-	height: 9px;
-	display: inline-block;
-	margin: 0px 0px 0px 1px;
-	position: relative;
-	padding: 0;
-	background-color: white;
-	border: 1px solid #838587;
-}
-	/* opacity on hover */
-	/* section-specific styling */
-.sheet-quality input,
-.sheet-quality input + span:before {
-	border-radius: 40px;
-		margin-top: 4px;
-}
-.sheet-hold5.sheet-quality input + span:before {
-		margin-right: 2px;
-}
-	/* turn checked boxes red*/
-.sheet-attributedot input:checked + span::before,
-.sheet-quality input:checked + span::before {
+.sheet-attributedot input:checked + span::before {
 		background-color: red !important;
 }
 input[type="checkbox"].sheet-friendup {
@@ -1450,6 +1440,12 @@ input[type="checkbox"].sheet-frienddown {
 .sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
 	border-color: transparent transparent red transparent !important;
 }
+
+
+
+
+
+
 
 /* ACTION RATINGS */
 .sheet-attribute, .sheet-attribute input[type="text"], .sheet-cohort-conditionholder div {
@@ -1591,8 +1587,9 @@ div.sheet-cohort-armor div {
 		background-color: #d6d8d9;
 }
 .sheet-cohorts .sheet-quality {
-		width: 30%;
-		height: 18px;
+		width: 31%;
+		height: 17px;
+		line-height: 16px
 		margin: -1px 0 0 3px;
 }
 .sheet-cohort-text {
