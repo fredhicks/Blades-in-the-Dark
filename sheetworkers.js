@@ -4,12 +4,11 @@ on("change:crew_type", function () {
 	getAttrs(['crew_type'], function (v) {
 		if (v.crew_type.toLowerCase() === 'cultists') {
 			setAttrs({
-				show_deity : 1;
+				show_deity : 1
 			});
-		}
-		else {
+		} else {
 			setAttrs({
-				show_deity : 0;
+				show_deity : 0
 			});
 		}
 	});
