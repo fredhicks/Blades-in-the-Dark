@@ -50,16 +50,16 @@
 			</div>
 		</div>
 		<!-- Stress and Trauma -->
-		<div class="sheet-col100 sheet-blackborder sheet-leftcolumnitem">
+		<div class="sheet-col100 sheet-stress sheet-leftcolumnitem">
 			<!-- Stress markers -->
-			<div class="sheet-stress1">
+			<div class="sheet-blackheader sheet-stress1">
 				<div class="sheet-label">Stress</div>
+				<div class="sheet-zeroholder">
+					<input type="radio" value="0" name="attr_stress" class="sheet-zero" checked/>
+					<span></span>
+				</div>
 			</div>
-			<div class="sheet-stresszeroholder">
-				<input type="radio" value="0" name="attr_stress" class="sheet-zero" checked/>
-				<span></span>
-			</div>
-			<div class="sheet-stress2">
+			<div class="sheet-stress2 sheet-blackborder">
 				<input type="checkbox" value="0" name="attr_stress" class="sheet-stresstooth sheet-hidden" checked/>
 				<input type="radio" value="1" name="attr_stress" class="sheet-tooth sheet-stresstooth"/>
 				<span></span>
@@ -81,11 +81,11 @@
 				<span></span>
 			</div>
 			<!-- Trauma markers -->
-			<div class="sheet-traumatop">
-				<div class="sheet-stress3">
+			<div class="sheet-stress3">
+				<div class="sheet-blackheader">
 					<div class="sheet-label">Trauma</div>
 				</div>
-				<div class="sheet-traumazeroholder">
+				<div class="sheet-zeroholder">
 					<input type="radio" value="0" name="attr_trauma" class="sheet-zero" checked/>
 					<span></span>
 				</div>
@@ -102,7 +102,7 @@
 				</div>
 			</div>
 			<!-- Individual traumata -->
-			<div class="sheet-traumata sheet-stress4">
+			<div class="sheet-traumata sheet-stress4 sheet-blackborder">
 				<input type="checkbox" name="attr_cold" class="sheet-text-input"/>
 				<span>Cold</span>
 				<input type="checkbox" name="attr_haunted" class="sheet-text-input"/>
@@ -350,7 +350,7 @@
 		</div>
 		<!-- Special abilities -->
 		<div class="sheet-col100 sheet-leftcolumnitem">
-			<div class="sheet-greyheader sheet-label">Special Abilities</div>
+			<div class="sheet-specialheader sheet-label">Special Abilities</div>
 			<div class="sheet-greyholder">
 				<div class="sheet-specialability">
 						<input type="checkbox" value="1" name="attr_ability1_check"/>
@@ -481,7 +481,7 @@
 				<span class="sheet-italic">(italics don't count for load)</span>
 			</div>
 			<!-- Items -->
-			<div class="sheet-itemholder">
+			<div class="sheet-itemholder sheet-white-repcontrol">
 				<!-- Playbook items -->
 				<div class="sheet-playbookitems">
 					<div class="sheet-item sheet-itembold sheet-item2box">
@@ -1015,41 +1015,45 @@
 				</div>
 			</div>
 			<!-- Bonus die box -->
-			<div class="sheet-bonusdie">
-				<div class="sheet-bonusdieheader">Bonus Die</div>
-				<div class="sheet-bonusdie1">+</div>
-				<div class="sheet-bonusdie2">
-					<span class="sheet-smallcaps">Push yourself</span>
-					<span> (take 2 stress) -or- accept a </span>
-					<span class="sheet-smallcaps">Devil's Bargain</span>
+			<div class="sheet-bonusdie sheet-col100">
+				<div class="sheet-label sheet-col100">Bonus Die</div>
+				<div class="sheet-col100">
+					<div class="sheet-bonusdieplus">+</div>
+					<div class="sheet-bonusdietext">
+						<span class="sheet-smallcaps">Push yourself</span>
+						<span> (take 2 stress) -or- accept a </span>
+						<span class="sheet-smallcaps">Devil's Bargain</span>
+					</div>
 				</div>
 			</div>
 			<!-- Strange friends -->
-			<div class="sheet-greyheader sheet-label">Strange Friends</div>
-			<div class="sheet-greyholder">
-				<div class="sheet-friend">
-					<input type="checkbox" value="1" name="attr_friend1_up" class="sheet-friendcheck sheet-friendup"/>
-					<span></span>
-					<input type="checkbox" class="sheet-friendcheck sheet-frienddown" value="1" name="attr_friend1_down"/>
-					<span></span>
-					<input type="text" placeholder="Friend name" name="attr_friend1_name"/>
-				</div>
-				<fieldset class="repeating_friend">
+			<div class="sheet-col100 sheet-friends">
+				<div class="sheet-specialheader sheet-label">Strange Friends</div>
+				<div class="sheet-greyholder">
 					<div class="sheet-friend">
-						<input type="checkbox" value="1" name="attr_up" class="sheet-friendcheck sheet-friendup"/>
+						<input type="checkbox" value="1" name="attr_friend1_up" class="sheet-friendcheck sheet-friendup"/>
 						<span></span>
-						<input type="checkbox" class="sheet-friendcheck sheet-frienddown" value="1" name="attr_down"/>
+						<input type="checkbox" class="sheet-friendcheck sheet-frienddown" value="1" name="attr_friend1_down"/>
 						<span></span>
-						<input type="text" placeholder="Friend name" name="attr_friend_name"/>
+						<input type="text" placeholder="Friend name" name="attr_friend1_name"/>
 					</div>
-				</fieldset>
+					<fieldset class="repeating_friend">
+						<div class="sheet-friend">
+							<input type="checkbox" value="1" name="attr_up" class="sheet-friendcheck sheet-friendup"/>
+							<span></span>
+							<input type="checkbox" class="sheet-friendcheck sheet-frienddown" value="1" name="attr_down"/>
+							<span></span>
+							<input type="text" placeholder="Friend name" name="attr_friend_name"/>
+						</div>
+					</fieldset>
+				</div>
 			</div>
 			<!-- Roll Fortune -->
 			<button type="roll"  class="sheet-fortunebtn sheet-rollbtn" value='&{template:bitd4}{{charname=@{character_name}}} {{notes=?{Notes| }}}{{bonusdice=?{Number of dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll Fortune</button>
 		</div>
 		<!-- Clocks -->
 		<div class="sheet-col97 sheet-clocks">
-			<div class="sheet-greyheader sheet-label">Clocks</div>
+			<div class="sheet-specialheader sheet-label">Clocks</div>
 			<fieldset class="repeating_clock">
 				<div class="sheet-clock">
 					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-label"/>

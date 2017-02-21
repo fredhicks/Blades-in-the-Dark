@@ -34,17 +34,16 @@
 			</div>
 		</div>
 		<!-- Rep, Hold, and Tier -->
-		<div class="sheet-col100">
-			<!-- Rep -->
-			<div class="sheet-repholder sheet-blackborder">
-				<div class="sheet-rep1">
+		<div class="sheet-col100 sheet-leftcolumnitem">
+			<div class="sheet-rep sheet-col45">
+				<div class="sheet-rep1 sheet-blackheader">
 					<div class="sheet-label">Rep</div>
+					<div class="sheet-zeroholder">
+						<input type="radio" value="0" name="attr_rep" class="sheet-zero" checked/>
+						<span></span>
+					</div>
 				</div>
-				<div class="repzeroholder">
-					<input type="radio" value="0" name="attr_rep" class="sheet-tooth sheet-zero" checked/>
-					<span></span>
-				</div>
-				<div class="sheet-rep2">
+				<div class="sheet-rep2 sheet-blackborder">
 					<div class="sheet-turfbox">
 						<input type="radio" value="1" name="attr_turf"/>
 						<input type="radio" value="2" name="attr_turf"/>
@@ -82,103 +81,165 @@
 					<span></span>
 					<input type="radio" value="11" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6"/>
 					<span></span>
-					<input type="radio" value="12" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-toothlast sheet-turf1 sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6"/>
+					<input type="radio" value="12" name="attr_rep" class="sheet-tooth sheet-stresstooth sheet-turf1 sheet-turf2 sheet-turf3 sheet-turf4 sheet-turf5 sheet-turf6"/>
 					<span></span>
 				</div>
-				<div class="sheet-turfzeroholder">
-					<input type="radio" value="0" name="attr_turf" class="sheet-tooth sheet-zero" checked/>
-					<span></span>
-				</div>
-				<div class="sheet-rep3">
-					<div class="sheet-label sheet-turflabel">Turf</div>
+				<div class="sheet-rep3 sheet-blackborder">
+					<div class="sheet-zeroholder">
+						<input type="radio" value="0" name="attr_turf" class="sheet-zero" checked/>
+						<span></span>
+					</div>
+					<div class="sheet-black-on-grey">
+						<div class="sheet-label">Turf</div>
+					</div>
 				</div>
 			</div>
 			<!-- Hold -->
-			<div class="sheet-holdholder sheet-blackborder">
-				<div class="sheet-hold1">
+			<div class="sheet-hold sheet-col54b">
+				<div class="sheet-hold1 sheet-blackheader">
 					<div class="sheet-label">Hold</div>
 				</div>
-				<div class="sheet-hold2">
-					<div class="sheet-label">Weak</div>
-					<input type="radio" value="weak" name="attr_hold" class="sheet-tooth sheet-holdtooth" checked/>
-					<span></span>
+				<div class="sheet-hold2 sheet-blackborder">
+					<div class="sheet-black-on-grey">
+						<div class="sheet-label">Weak</div>
+					</div>
+					<div class="sheet-toothholder">
+						<input type="radio" value="weak" name="attr_hold" class="sheet-tooth sheet-holdtooth" checked/>
+						<span></span>
+					</div>
 				</div>
-				<div class="sheet-hold3">
-					<div class="sheet-label">Strong</div>
-					<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-tooth sheet-holdtooth"/>
-					<span></span>
+				<div class="sheet-hold3 sheet-blackborder">
+					<div class="sheet-black-on-grey">
+						<div class="sheet-label">Strong</div>
+					</div>
+					<div class="sheet-toothholder">
+						<input type="radio" value="1" value="strong" name="attr_hold" class="sheet-tooth sheet-holdtooth"/>
+						<span></span>
+					</div>
 				</div>
-				<div class="sheet-hold4">
+				<!-- Tier -->
+				<div class="sheet-hold4 sheet-blackheader">
 					<div class="sheet-label">Tier</div>
 				</div>
-			</div>
-			<!-- Tier -->
-			<div class="sheet-tier sheet-quality">
-				<input type="checkbox" value="1" name="attr_crew_quality_1"/>
-				<span></span>
-				<input type="checkbox" value="1" name="attr_crew_quality_2"/>
-				<span></span>
-				<input type="checkbox" value="1" name="attr_crew_quality_3"/>
-				<span></span>
-				<input type="checkbox" value="1" name="attr_crew_quality_4"/>
-				<span></span>
+				<div class="sheet-hold5 sheet-quality">
+					<input type="checkbox" value="1" name="attr_crew_tier_1"/>
+					<span></span>
+					<input type="checkbox" value="1" name="attr_crew_tier_2"/>
+					<span></span>
+					<input type="checkbox" value="1" name="attr_crew_tier_3"/>
+					<span></span>
+					<input type="checkbox" value="1" name="attr_crew_tier_4"/>
+					<span></span>
+				</div>
 			</div>
 		</div>
-		<div class="sheet-heattop sheet-blackborder">
-			<!-- Heat markers -->
-			<div class="sheet-heat1">
-				<div class="sheet-label">Heat</div>
-			</div>
-			<div class="sheet-heatzeroholder">
-				<input type="radio" value="0" name="attr_heat" class="sheet-tooth sheet-zero sheet-stresszero" checked/>
-				<span></span>
-			</div>
-			<div class="sheet-heat2">
-				<input type="checkbox" value="0" name="attr_heat" class="sheet-stresstooth sheet-hidden" checked/>
-				<input type="radio" value="1" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="2" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="3" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="4" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="5" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="6" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="7" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="8" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-				<input type="radio" value="9" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
-				<span></span>
-			</div>
-			<!-- Wanted markers -->
-			<div class="sheet-wantedtop">
+		<!-- Heat and Coin -->
+		<div class="sheet-col100 sheet-leftcolumnitem">
+			<!-- Heat -->
+			<div class="sheet-col45 sheet-heat">
+				<!-- Heat markers -->
+				<div class="sheet-heat1 sheet-blackheader">
+					<div class="sheet-label">Heat</div>
+					<div class="sheet-zeroholder">
+						<input type="radio" value="0" name="attr_heat" class="sheet-zero" checked/>
+						<span></span>
+					</div>
+				</div>
+				<div class="sheet-heat2 sheet-blackborder">
+					<input type="checkbox" value="0" name="attr_heat" class="sheet-stresstooth sheet-hidden" checked/>
+					<input type="radio" value="1" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="2" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="3" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="4" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="5" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="6" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="7" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="8" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+					<input type="radio" value="9" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
+					<span></span>
+				</div>
+				<!-- Wanted Level-->
 				<div class="sheet-heat3">
-					<div class="sheet-label">Wanted level</div>
+					<div class="sheet-blackheader">
+						<div class="sheet-label">Wanted</div>
+					</div>
+					<div class="sheet-zeroholder">
+						<input type="radio" value="0" name="attr_wanted" class="sheet-zero" checked/>
+						<span></span>
+					</div>
+					<div class="sheet-wantedholder">
+						<input type="checkbox" value="0" name="attr_wanted" class="sheet-regulartooth sheet-hidden" checked/>
+						<input type="radio" value="1" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+						<span></span>
+						<input type="radio" value="2" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+						<span></span>
+						<input type="radio" value="3" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+						<span></span>
+						<input type="radio" value="4" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+						<span></span>
+					</div>
 				</div>
-				<div class="sheet-wantedzeroholder">
-					<input type="radio" value="0" name="attr_wanted" class="sheet-tooth sheet-zero sheet-traumazero" checked/>
-					<span></span>
+			</div>
+			<!-- Coin -->
+			<div class="sheet-crewcoin sheet-col52b">
+				<div class="col100">
+					<div class="sheet-blackheader sheet-crewcoin1">
+						<div class="sheet-label">Coin</div>
+					</div>
+					<div class="sheet-greyheader sheet-crewcoin2">
+						<div class="sheet-label">Vaults</div>
+					</div>
 				</div>
-				<div class="sheet-wantedholder">
-					<input type="checkbox" value="0" name="attr_wanted" class="sheet-regulartooth sheet-hidden" checked/>
-					<input type="radio" value="1" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+				<div class="sheet-col100">
+					<input type="checkbox" value="0" name="attr_crewcoin" class="sheet-radiobox sheet-hidden" checked/>
+					<input type="radio" value="1"name="attr_crewcoin" class="sheet-radiobox"/>
 					<span></span>
-					<input type="radio" value="2" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+					<input type="radio" value="2" name="attr_crewcoin" class="sheet-radiobox"/>
 					<span></span>
-					<input type="radio" value="3" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+					<input type="radio" value="3" name="attr_crewcoin" class="sheet-radiobox"/>
 					<span></span>
-					<input type="radio" value="4" name="attr_wanted" class="sheet-tooth sheet-regulartooth"/>
+					<input type="radio" value="4" name="attr_crewcoin" class="sheet-radiobox"/>
+					<span></span>
+					<div class="sheet-crewcoinbar"></div>
+					<input type="radio" value="5"name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="6" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="7" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="8" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<div class="sheet-crewcoinbar"></div>
+					<input type="radio" value="9"name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="10" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="11" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="12" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="13"name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="14" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="15" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
+					<span></span>
+					<input type="radio" value="16" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
 					<span></span>
 				</div>
 			</div>
 		</div>
 		<!-- Special abilities -->
-		<div class="sheet-col100">
-			<div class="sheet-greyheader sheet-label">Special Abilities</div>
+		<div class="sheet-col100 sheet-leftcolumnitem">
+			<div class="sheet-specialheader sheet-label">Special Abilities</div>
 			<div class="sheet-greyholder">
 				<div class="sheet-specialability">
 						<input type="checkbox" value="1" name="attr_ability1_check"/>
@@ -246,7 +307,7 @@
 			<div class="sheet-loadheader2">
 				<span class="sheet-label">Crew Upgrades</span>
 			</div>
-			<div class="sheet-itemholder">
+			<div class="sheet-itemholder sheet-white-repcontrol">
 				<!-- Specific upgrades -->
 				<div class="sheet-playbookitems">
 					<div class="sheet-item sheet-item3box">
@@ -367,10 +428,10 @@
 						<span></span>
 						<input type="text" value="Weapons" name="attr_upgrade_19_desc"/>
 					</div>
-					<div class="sheet-item sheet-itemshort">
+					<div class="sheet-item sheet-upgradecaption sheet-itemshort">
 						<span class="sheet-label">Training</span>
 					</div>
-					<div class="sheet-item sheet-itemshort">
+					<div class="sheet-item sheet-upgradecaption sheet-itemshort">
 						<span class="sheet-label">Cohorts</span>
 					</div>
 					<div class="sheet-item sheet-itemshort">
@@ -427,9 +488,9 @@
 					</fieldset>
 				</div>
 			</div>
-			<div class="sheet-hunting-grounds">
-				<input type="text" class="sheet-hunting-grounds-header sheet-label" name="attr_hunting_grounds_type" value="Hunting Grounds"/>
-				<input type="text" class="sheet-hunting-grounds-content sheet-label" name="attr_hunting_grounds" placeholder="Robbery"/>
+			<div class="sheet-hunting-grounds sheet-plainheader">
+				<input type="text" class="sheet-label" name="attr_hunting_grounds_type" value="Hunting Grounds"/>
+				<input type="text" class="sheet-label" name="attr_hunting_grounds" placeholder="Robbery"/>
 			</div>
 		</div>
 		<!-- Cohorts and Contacts -->
@@ -486,7 +547,7 @@
 						<textarea name="attr_cohort1_desc"></textarea>
 				</div>
 				<!-- Cohort repeating section -->
-				<div class="sheet-col100">
+				<div class="sheet-col100 sheet-white-repcontrol">
 					<fieldset class="repeating_cohort">
 						<div class="sheet-rep-block">
 							<div class="sheet-attribute">
@@ -543,7 +604,7 @@
 				</div>
 			</div>
 			<!-- Contacts -->
-			<div class="sheet-greyheader sheet-label">Contacts</div>
+			<div class="sheet-specialheader sheet-label">Contacts</div>
 			<div class="sheet-greyholder">
 				<div class="sheet-friend sheet-contact">
 					<input type="text" placeholder="Contact name" name="attr_contact1_name"/>
@@ -557,7 +618,7 @@
 		</div>
 		<!-- Clocks -->
 		<div class="sheet-col97 sheet-clocks">
-			<div class="sheet-greyheader sheet-label">Clocks</div>
+			<div class="sheet-specialheader sheet-label">Clocks</div>
 			<fieldset class="repeating_clock">
 				<div class="sheet-clock">
 					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-label"/>

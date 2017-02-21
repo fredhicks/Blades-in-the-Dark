@@ -116,18 +116,29 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-rep-block {
 	display: inline-block;
 }
-
 /* USEFUL GENERAL LAYOUT*/
-.sheet-blackheader {
-	background-color: black;
-	color: white;
+.sheet-blackheader, .sheet-black-on-grey, .sheet-greyheader {
 	font-size: 74%;
 	font-weight: 600;
-	height: 18px;
+	height: 16px;
 	line-height: 16px;
 	padding-left: 5px;
 }
-.sheet-blackheader div.sheet-label {
+.sheet-blackheader {
+	background-color: black;
+	color: white;
+}
+.sheet-black-on-grey, .sheet-greyheader {
+	background-color: #b3b4b6;
+	color: black;
+}
+.sheet-black-on-grey {
+	float: left;
+	position: relative;
+	top: -3px;
+	z-index: -1;
+}
+.sheet-blackheader .sheet-label, .sheet-black-on-grey .sheet-label,  .sheet-greyheader .sheet-label {
 	padding-top: 2px;
 }
 .sheet-plainheader {
@@ -138,7 +149,7 @@ input[type="checkbox"], input[type="radio"] {
 	font-weight: 800;
 	line-height: 22px;
 }
-.sheet-greyheader {
+.sheet-specialheader {
 	background-color: #b3b4b6;
 	width: 100%;
 	float: left;
@@ -160,11 +171,10 @@ input[type="checkbox"], input[type="radio"] {
 	margin-top: 15px;
 }
 .sheet-blackborder {
-	border-top: 5px solid black;
+	border-top: 3px solid black;
 }
-
 /* COLUMN LAYOUT */
-.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col6, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70 {
+.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col6, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70, .sheet-col54b, .sheet-col52b {
 	float: left;
 }
 .sheet-col2 {
@@ -178,6 +188,14 @@ input[type="checkbox"], input[type="radio"] {
 }
 .sheet-col50 {
 	width: 50%;
+}
+.sheet-col52b {
+	width: 52%;
+	margin-left: 3%;
+}
+.sheet-col54b {
+	width: 54%;
+	margin-left: 1%;
 }
 .sheet-col55 {
 	width: 55%;
@@ -207,7 +225,6 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-col50a, .sheet-col50b {
 	margin: 5px 0 0 1.5%;
 }
-
 /* FONT STYLES */
 .sheet-label, input[type="text"].sheet-label, textarea.sheet-label {
 	text-transform: uppercase;
@@ -224,6 +241,9 @@ input[type="checkbox"], input[type="radio"] {
 	font-style: italic;
 }
 /* FRIENDS/CONTACTS */
+.sheet-friends {
+	margin-top: 10px;
+}
 input[type="checkbox"].sheet-friendup {
 	margin: 6px 0 0 -2px;
 }
@@ -354,9 +374,13 @@ input[type="checkbox"].sheet-frienddown {
 }
 .sheet-item span.sheet-label.sheet-upgradecosts {
 	font-size: 55%;
+	line-height: normal;
 }
 .sheet-item span {
 	font-size: 83%;
+}
+.sheet-item.sheet-upgradecaption {
+	margin-top: 5px;
 }
 .sheet-floatingbar {
 	display: inline-block;
@@ -447,6 +471,7 @@ input[type="checkbox"].sheet-frienddown {
 }
 .sheet-advancement-desc {
 	width: 99%;
+	margin-top: -2px;
 	float: left;
 	background-color: #d6d8d9;
 }
@@ -750,7 +775,11 @@ input.sheet-tooth + span::before {
 	content: "";
 }
 input.sheet-tooth + span:last-child::before {
-	margin-right: 0px;
+	margin-right: 0px !important;
+}
+input.sheet-tooth:nth-last-child(2) {
+	width: 8px;
+	margin-right: -8px;
 }
 input.sheet-tooth:hover + span::before {
 	filter: alpha(opacity=70);
@@ -798,20 +827,6 @@ input.sheet-zero + span::before {
 }
 input.sheet-zero[type="radio"]:checked + span::before {
 	display: none;
-}
-.sheet-wantedholder input.sheet-regulartooth[type="radio"] + span::before {
-		margin-right: 8px;
-}
-.sheet-armor input.sheet-tooth {
-	width: 8px;
-	margin-right: -8px;
-}
-.sheet-repholder input.sheet-tooth {
-	width: 11px;
-	margin-right: -11px;
-}
-.sheet-repholder input.sheet-tooth + span::before {
-	margin-right: 3px;
 }
 /* TURF RADIOS */
 .sheet-turfbox input[type="radio"] {
@@ -979,6 +994,17 @@ textarea.sheet-abilitydesc {
 	position: absolute;
 	margin: 20px 0 0 -8px;
 }
+/* CREW COIN */
+.sheet-crewcoin div:first-child {
+	margin-bottom: 2px;
+}
+.sheet-crewcoinbar {
+	display: inline-block;
+	border-left: 1px solid #c6c7c9;
+	height: 12px;
+	width: 1px;
+	margin: 0 2px;
+}
 /* LEFT-FILLED RADIO BOXES */
 input.sheet-radiobox {
 	width: 12px;
@@ -997,11 +1023,13 @@ input.sheet-radiobox:hover + span::before {
 	filter: alpha(opacity=70);
 	opacity: 0.7;
 }
-.sheet-coin input.sheet-radiobox:checked ~ input.sheet-radiobox + span::before {
+.sheet-coin input.sheet-radiobox:checked ~ input.sheet-radiobox + span::before,
+.sheet-crewcoin input.sheet-radiobox:checked ~ input.sheet-radiobox + span::before {
 	background-color: white;
 	border: 1px solid black;
 }
-.sheet-coin input.sheet-radiobox + span::before {
+.sheet-coin input.sheet-radiobox + span::before,
+.sheet-crewcoin input.sheet-radiobox + span::before {
 	background-color: red;
 	border: 1px solid black;
 }
@@ -1024,87 +1052,119 @@ input.sheet-radiobox:hover + span::before {
 	height: 10px;
 	border: 1px solid black !important;
 }
-
-
-
-/* SUBCOLUMNS */
-.sheet-repholder, .sheet-holdholder, .sheet-traumatop, .sheet-stress1, .sheet-stress2, .sheet-stress3, .sheet-stress4, .sheet-rep1, .sheet-rep2, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-heat1, .sheet-heat2, .sheet-heat3, .sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
-		float: left;
+.sheet-crewcoin input.sheet-radiobox:checked ~ input.sheet-radiobox.sheet-vaultcoin + span::before {
+	border: 1px solid #c6c7c9;
 }
-.sheet-repholder {
-		width: 45%;
+.sheet-crewcoin input.sheet-radiobox + span::before {
+	margin: 0 4px 0 0;
 }
-.sheet-holdholder {
-		margin-left: 1%;
-		width: 42%;
+/* HUNTING GROUNDS */
+.sheet-hunting-grounds {
+	width: 100%;
+	color: black;
+	margin-top: 20px;
+	letter-spacing: 0px;
 }
-/* More stuff*/
-button.sheet-rollbtn, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-bonusdieheader, .sheet-cohort-conditionholder div {
-	text-transform: uppercase;
-	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+.sheet-hunting-grounds input[type="text"]:first-child {
+	font-weight: 800;
 }
-/* Stress, rep, hold styling */
-.sheet-rep2, .sheet-stress2, .sheet-heat2, .sheet-stress4 {
-		height: 25px;
+.sheet-hunting-grounds input[type="text"]:last-child {
+	font-size: 88%;
+	font-weight: 400;
 }
-.sheet-rep1, .sheet-rep3, .sheet-hold1, .sheet-hold2, .sheet-hold3, .sheet-hold4, .sheet-stress1, .sheet-stress3, .sheet-heat1, .sheet-heat3 {
-		height: 12px;
-		font-size: 74%;
-		letter-spacing: 0px;
-		font-weight: 600;
-		line-height: 9px;
-		padding-top: 1px;
+/* BONUS DIE SECTION */
+.sheet-bonusdie {
+	padding: 0 5px;
+	margin-top: 10px;
+	color: black;
 }
-.sheet-rep3, .sheet-hold2, .sheet-hold3 {
+.sheet-bonusdie .sheet-label {
+	font-size: 88%;
+	font-weight: 800;
+	padding: 2px 0;
+}
+.sheet-bonusdie > div:last-child {
+	height: 45px;
+}
+.sheet-bonusdie .sheet-bonusdieplus {
+	width: 10%;
+	float: left;
+	background-color: black;
+	color: white;
+	height: 45px;
+	padding: 11px 4px 4px 4px;
+	font-weight: 800;
+}
+.sheet-bonusdie .sheet-bonusdietext {
+	background-color: #d6d8d9;
+	width: 90%;
+	float: left;
+	padding: 5px;
+	font-size: 80%;
+	line-height: 122%;
+}
+/* REPEATING SECTION CONTROLS */
+.charsheet button.repcontrol_edit, .charsheet button.repcontrol_add {
+		padding: 6px;
+		background-image: none;
 		background-color: #d6d8d9;
-		color: #000000;
-		padding-left: 2px;
+		color: #616161;
+		border-radius: 0;
+		border-color: #b3b4b6;
+		transition: all 0.2s;
+		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+		font-variant: small-cap;
+		font-weight: 800;
 }
-.sheet-stress1, .sheet-stress3, .sheet-rep1, .sheet-hold1, .sheet-hold4, .sheet-heat1, .sheet-heat3 {
-		background-color: #000000;
-		color: #ffffff;
-		padding-left: 5px;
+.charsheet button.repcontrol_edit:hover, .charsheet button.repcontrol_add:hover {
+		color: #020202;
+		border-color: #020202;
+		background-color: #cccccc;
 }
-
-/* Detailed widths for stress et cetera */
+.sheet-white-repcontrol button.repcontrol_edit, .sheet-white-repcontrol button.repcontrol_add {
+		font-weight: 600;
+		background-color: white;
+		margin-top: 12px;
+		font-size: 91%;
+		font-family: serif;
+		padding: 4px;
+}
+.itemcontrol {
+		z-index: 20;
+}
+/* STRESS, REP, et cetera */
+.sheet-stress > div, .sheet-rep > div, .sheet-hold > div, .sheet-heat > div, .sheet-crewcoin > div:first-child > div {
+	float: left;
+}
+.sheet-stress, .sheet-rep, .sheet-hold, .sheet-heat, .sheet-crewcoin {
+	height: 25px;
+}
 .sheet-stress1, .sheet-stress3 {
-		width: 64px;
+	width: 64px;
 }
-.sheet-stress2, .sheet-heat2 {
-		width: 110px;
+.sheet-stress2 {
+	width: 123px;
 }
 .sheet-stress4 {
-		width: 213px;
-		padding-left: 1px;
-		padding-top: 1px;
+	width: calc(100% - 251px);
+	padding-left: 5px;
+	padding-top: 1px;
+}
+.sheet-traumaholder, .sheet-wantedholder {
+	height: 13px;
+	display: block;
+	float: right;
+	text-align: right;
+	width: 100%
 }
 .sheet-rep1 {
-		width: 16.5%;
+	width: 35px;
 }
 .sheet-rep2 {
-		width: 129px;
+	width: 135px;
 }
 .sheet-rep3 {
-		width: 22.5%;
-}
-.sheet-hold1, .sheet-hold4 {
-		width: 21%;
-}
-.sheet-hold2 {
-		width: 26%;
-}
-.sheet-hold3 {
-		width: 32%;
-}
-.sheet-heat1 {
-		width: 50px;
-}
-.sheet-heat3 {
-		width: 95px;
-}
-.sheet-heattop {
-		width: 249px;
-		float: left;
+	width: calc(100% - 170px);
 }
 .sheet-turfbox {
 		display: block;
@@ -1113,74 +1173,89 @@ button.sheet-rollbtn, .sheet-attribute, .sheet-attribute input[type="text"], but
 		z-index: 2;
 		margin-left: 63px;
 }
-.sheet-stresszeroholder {
-		position: absolute;
-		margin: 12px 0 0 50px;
+.sheet-hold1, .sheet-hold4, .sheet-heat1 {
+	width: 41px;
 }
-.sheet-heatzeroholder {
-		position: absolute;
-		margin: 12px 0 0 35px;
+.sheet-hold2 {
+	width: 51px;
 }
-.sheet-traumazeroholder {
-		position: absolute;
-		margin: 12px 0 0 8px;
+.sheet-hold3 {
+	width: 63px;
 }
-.sheet-repzeroholder {
-		position: absolute;
-		margin: 12px 0 0 22px;
+.sheet-hold5 {
+	width: calc(100% - 196px);
+	height: 16px; 
 }
-.sheet-turfzeroholder {
-		position: absolute;
-		margin: -1px 0 0 167px;
+.sheet-heat2 {
+	width: 110px;
 }
-.sheet-wantedzeroholder {
-		position: absolute;
-		margin: 12px 0 0 8px;
+.sheet-heat3 {
+	width: calc(100% - 151px);
 }
-/* Aligning labels just right */
-.sheet-stress1 div.sheet-label, .sheet-stress3 div.sheet-label, .sheet-rep1 div.sheet-label, .sheet-rep3 div.sheet-label, .sheet-hold1 div.sheet-label, .sheet-hold4 div.sheet-label, .sheet-heat1 div.sheet-label, .sheet-heat3 div.sheet-label {
-		padding-top: 1px;
+.sheet-crewcoin1 {
+	width: 50px;
 }
-.sheet-hold2 div.sheet-label, .sheet-hold3 div.sheet-label {
-		width: auto;
-		float: left;
-		padding: 2px 3px 0;
+.sheet-crewcoin2 {
+	width: calc(100% - 50px);
 }
-.sheet-turflabel {
-		float: right;
-		padding-right: 2px;
+.sheet-zeroholder {
+	position: absolute;
 }
-
-/* TRAUMA */
-.sheet-traumatop, .sheet-wantedtop {
-		height: 25px;
-		overflow: hidden;
-		line-height: 0px;
+.sheet-stress1 .sheet-zeroholder {
+	margin: -2px 0 0 45px;
 }
-.sheet-traumatop {
-		width: 64px;
+.sheet-stress3 .sheet-zeroholder {
+	margin-left: 5px;
 }
-.sheet-wantedtop {
-		width: 95px;
+.sheet-rep1 .sheet-zeroholder {
+	margin: -2px 0 0 17px;
 }
-.sheet-traumaholder, .sheet-wantedholder {
-		height: 13px;
-		display: inline-block;
-		text-align: right;
-		overflow: hidden;
-		vertical-align: top;
+.sheet-rep3 .sheet-zeroholder {
+	margin: 13px 0 0 -3px;
 }
-.sheet-traumaholder {
-		width: 64px;
+.sheet-heat1 .sheet-zeroholder {
+	margin: -2px 0 0 23px;
 }
-.sheet-wantedholder {
-		width: 95px;
+.sheet-heat3 .sheet-zeroholder {
+	margin-left: 5px;
 }
-
-
-
-
-
+/* small fixes */
+.sheet-rep .sheet-black-on-grey {
+	padding-right: 4px;
+	text-align: right;
+	width: 100%;
+}
+.sheet-rep input.sheet-tooth {
+	width: 11px;
+	margin-right: -11px;
+}
+.sheet-rep input.sheet-tooth + span::before {
+	margin-right: 3px;
+}
+.sheet-hold .sheet-black-on-grey {
+	width: calc(100% - 8px);
+}
+.sheet-hold .sheet-toothholder {
+	float: right;
+	width: 8px;
+}
+/* NOTES */
+.sheet-notes {
+	margin-top: 20px;
+	margin-left: 10px;
+	font-family: "Shadows Into Light", cursive;
+	color: #c43c35;
+	font-size: 155%;
+	width: 356px;
+	resize: vertical;
+	background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+	background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+	background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+	background-image: linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
+	background-size: 100% 27px;
+	line-height: 137%;
+	height: 378px;
+}
 
 
 
@@ -1272,7 +1347,7 @@ input.sheet-loadbox[type="checkbox"]:hover + span::before {
 		border-radius: 40px;
 		margin-top: 4px;
 }
-.sheet-tier.sheet-quality input + span:before {
+.sheet-hold5.sheet-quality input + span:before {
 		margin-right: 2px;
 }
 .sheet-item input[type="checkbox"] + span::before {
@@ -1296,52 +1371,15 @@ input.sheet-loadbox[type="checkbox"]:hover + span::before {
 		color: red;
 }
 
-/* REPCONTROLS */
-.charsheet button.repcontrol_edit,
-.charsheet button.repcontrol_add {
-		letter-spacing: 0px !important;
-		text-shadow: none !important;
-		padding: 6px !important;
-		background-image: none;
-		background-color: #d6d8d9 !important;
-		color: #616161 !important;
-		border-radius: 0;
-		border-color: #b3b4b6 !important;
-		box-shadow: none;
-		-webkit-transition: all 0.2s;
-		-moz-transition: all 0.2s;
-		-ms-transition: all 0.2s;
-		-o-transition: all 0.2s;
-		transition: all 0.2s;
-		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif !important;
-		font-variant: small-caps !important;
-		font-size: 100% !important;
-		font-weight: 800 !important;
+/* MORE STUFF*/
+button.sheet-rollbtn, .sheet-attribute, .sheet-attribute input[type="text"], button.sheet-attributebtn, .sheet-cohort-conditionholder div {
+	text-transform: uppercase;
+	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
 }
-.charsheet button.repcontrol_edit:hover,
-.charsheet button.repcontrol_add:hover {
-		color: #020202 !important;
-		border-color: #020202 !important;
-		background-color: #cccccc !important;
-}
-.sheet-itemholder button.repcontrol_edit,
-.sheet-itemholder button.repcontrol_add,
-.sheet-cohorts button.repcontrol_edit,
-.sheet-cohorts button.repcontrol_add {
-		font-weight: 600!important;
-		background-color: white !important;
-		margin-top: 12px;
-		font-size: 91% !important;
-		font-family: serif !important;
-		font-variant: normal !important;
-		padding: 4px !important;
-}
-div.itemcontrol {
-		z-index: 100 !important;
-		padding-top: 0px;
-}
-
 /* ACTION RATINGS */
+.sheet-attribute, .sheet-attributetitle, .sheet-cohort-conditionholder, .sheet-cohort-conditionholder > div {
+		float: left;
+}
 .sheet-attribute {
 		width: 100%;
 		height: 21px;
@@ -1431,7 +1469,6 @@ button.sheet-attributebtn:before {
 		width: 20px;
 		height: 20px;
 }
-
 /* BUTTONS */
 .sheet-rollbtn {
 		font-family: Georgia, Times, "Times New Roman", serif;
@@ -1480,47 +1517,6 @@ button.sheet-vicebutton:before,
 button.sheet-fortunebtn:before {
 		content: "" !important;
 }
-
-/* BONUS DIE SECTION */
-.sheet-bonusdie {
-		width: 100%;
-		padding: 10px 5px 5px 5px;
-		margin-bottom: 5px;
-		position: relative;
-		top: -10px;
-		float: left;
-}
-.sheet-bonusdieheader {
-		width: 100%;
-		color: black;
-		font-size: 88%;
-		letter-spacing: 0px;
-		font-weight: 800;
-		line-height: 22px;
-}
-.sheet-bonusdie1 {
-		width: 10%;
-		background-color: black;
-		color: white;
-		display: inline-block;
-		height: 45px;
-		padding: 11px 4px 4px 4px;
-		font-weight: 800;
-		vertical-align: top;
-}
-.sheet-bonusdie2 {
-		display: inline-block;
-		vertical-align: top;
-		background-color: #d6d8d9;
-		width: 90%;
-		color: black;
-		height: 45px;
-		padding: 5px;
-		font-size: 80%;
-		line-height: 122%;
-		font-family: Georgia, Times, "Times New Roman", serif;
-}
-
 /* COHORTS */
 .sheet-cohort-conditionholder {
 		width: 100%;
@@ -1584,11 +1580,6 @@ button.sheet-cohortbtn {
 		float: right;
 		background-color: #d6d8d9;
 }
-.sheet-tier.sheet-quality {
-		width: 12%;
-		margin-top: 15px;
-		height: 17px; 
-}
 .sheet-cohorts .sheet-quality {
 		width: 30%;
 		height: 18px;
@@ -1615,49 +1606,4 @@ button.sheet-cohortbtn {
 .sheet-cohorts {
 		margin: 5px 0 6px 0;
 		float: left;
-}
-
-/* HUNTING GROUNDS */
-.sheet-hunting-grounds {
-		width: 100%;
-		border-top: 2px solid black;
-		margin-top: 20px;
-}
-.sheet-hunting-grounds input[type="text"] {
-		width: 100%;
-		color: black;
-		letter-spacing: 0px;
-		padding-bottom: 0;
-}
-.sheet-hunting-grounds input[type="text"].sheet-hunting-grounds-header {
-		font-size: 88%;
-		font-weight: 800;
-}
-.sheet-hunting-grounds input[type="text"].sheet-hunting-grounds-content {
-		font-size: 76%;
-		font-weight: 400;
-		padding-top: 0;
-}
-
-/* NOTES */
-.sheet-notes {
-		margin-top: 20px;
-		margin-left: 10px;
-		margin-right: 10px;
-		font-family: "Shadows Into Light", cursive;
-		color: #c43c35;
-		font-size: 155%;
-		padding: 0px;
-		width: 356px;
-		border: 0;
-		background-color: #ffffff;
-		box-shadow: none;
-		resize: vertical;
-		background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-		background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-		background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-		background-image: linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-		background-size: 100% 27px;
-		line-height: 137%;
-		height: 378px;
 }
