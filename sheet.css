@@ -1364,10 +1364,10 @@ input.sheet-checkbox:checked + span::before {
 	background-color: red !important;
 }
 /* Change text colour when boxes are checked*/
-.sheet-specialability input:checked ~ textarea.sheet-abilityname, .sheet-item input:checked ~ input[type=text], .sheet-friend input.sheet-friendup:checked ~ input[type=text] {
+.sheet-specialability input:checked ~ textarea.sheet-abilityname, .sheet-item input:checked ~ input[type=text], input.sheet-friendup:checked ~ input[type=text] {
 	color: red;
 }
-.sheet-friend input.sheet-frienddown:checked ~ input[type=text] {
+input.sheet-frienddown:checked ~ input[type=text] {
 	color: black;
 }
 /* specific adjustments */
@@ -1389,60 +1389,36 @@ input.sheet-checkbox:checked + span::before {
 	background-color: #c6c7c9;
 	border: none;
 }
-
-
+/* Friend triangles */
+input.sheet-checkbox.sheet-friendup {
+	margin-bottom: 12px;
+}
+input.sheet-checkbox.sheet-friendup {
+	margin: 0 -14px 0 3px;
+}
+.sheet-friend input.sheet-checkbox + span::before {
+	width: 0;
+	height: 0;
+	background-color: #d6d8d9 !important;
+}
+.sheet-friend input.sheet-frienddown + span::before {
+	border-width: 10px 5px 0 5px;
+	margin: 0 0 -2px 3px;
+	border-color: #ffffff transparent transparent transparent;
+}
+.sheet-friend input.sheet-friendup + span::before {
+	border-width: 0 5px 10px 5px;
+	margin-bottom: 5px;
+	border-color: transparent transparent #ffffff transparent;
+}
+.sheet-friend input.sheet-frienddown:checked + span::before {
+	border-color: #000000 transparent transparent transparent;
+}
+.sheet-friend input.sheet-friendup:checked + span::before {
+	border-color: transparent transparent red transparent;
+}
 
 /* DIRTY SECTION BELOW */
-/* CHECKBOXES */
-.sheet-friend input[type="checkbox"] {
-		position: absolute;
-}
-.sheet-friend input[type="checkbox"] + span::before {
-		content: '';
-		cursor: pointer;
-		width: 10px;
-		height: 10px;
-		display: inline-block;
-		margin: 0px 0px 0px 2px;
-		position: relative;
-		padding: 0;
-		background-color: white;
-		border: 1px solid #838587;
-}
-input[type="checkbox"].sheet-friendup {
-	margin: 6px 0 0 -2px;
-}
-input[type="checkbox"].sheet-frienddown {
-	margin: 10px 0 0 2px;
-}
-.sheet-friend input[type="checkbox"].sheet-friendcheck + span::before {
-	margin: 0px 0px 0px -1px !important;
-	border-radius: 0 !important;
-	width: 0 !important;
-	height: 0 !important;
-	border-style: solid !important;
-	border-width: 0 5px 10px 5px !important;
-	border-color: transparent transparent #ffffff transparent !important;
-	background-color: #d6d8d9 !important;
-	top: -3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown + span::before {
-	border-width: 10px 5px 0 5px !important;
-	border-color: #ffffff transparent transparent transparent !important;
-	top: 1px !important;
-	margin: 0px 0px 0px 3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup + span::before {
-	border-width: 0 5px 10px 5px !important;
-	border-color: transparent transparent #ffffff transparent;
-	top: -3px !important;
-}
-.sheet-friend input[type="checkbox"].sheet-frienddown:checked + span::before {
-	border-color: #000000 transparent transparent transparent !important;
-}
-.sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
-	border-color: transparent transparent red transparent !important;
-}
 
 /* ACTION RATINGS */
 .sheet-attribute, .sheet-attribute input[type="text"], .sheet-cohort-conditionholder div {
