@@ -1,1 +1,3 @@
-coinboxes: relative instead of absolute positioning and css cleanup
+- fix attribute section and checkboxes section
+- add turf boxes
+- add status section
