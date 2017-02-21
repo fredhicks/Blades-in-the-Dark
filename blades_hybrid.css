@@ -513,12 +513,11 @@ input[type="checkbox"].sheet-frienddown {
 	float: left;
 }
 .sheet-playbook-title input[type="text"] {
-	width: 250px;
 	letter-spacing: -2px;
 	font-size: 274%;
 	color: black;
 	font-weight: 800;
-	padding: 10px 10px 0 10px;
+	padding: 10px 0 0 10px;
 }
 .sheet-playbook-desc textarea {
 	height: 50px;
@@ -995,15 +994,33 @@ textarea.sheet-abilitydesc {
 	margin: 20px 0 0 -8px;
 }
 /* CREW COIN */
-.sheet-crewcoin div:first-child {
-	margin-bottom: 2px;
+.sheet-crewcoin {
+	height: 60px;
+}
+.sheet-crewcoin > div:nth-child(3) {
+	margin-top: 2px;
+	padding-left: 3px;
+}
+.sheet-crewcoin > div:last-child {
+	font-size: 72%;
+	margin-top: -5px;
+	padding-left: 3px;
 }
 .sheet-crewcoinbar {
 	display: inline-block;
 	border-left: 1px solid #c6c7c9;
-	height: 12px;
+	height: 15px;
 	width: 1px;
-	margin: 0 2px;
+	margin: 0 5px 0 3px;
+}
+.sheet-crewcoin input.sheet-radiobox:checked ~ input.sheet-radiobox.sheet-vaultcoin + span::before {
+	border: 1px solid #c6c7c9;
+}
+.sheet-crewcoin input.sheet-radiobox + span::before {
+	margin: 0 3px 2px 0;
+}
+.sheet-crewcoin input.sheet-radiobox {
+	margin: 0 -12px 8px 0;
 }
 /* LEFT-FILLED RADIO BOXES */
 input.sheet-radiobox {
@@ -1052,21 +1069,18 @@ input.sheet-radiobox:hover + span::before {
 	height: 10px;
 	border: 1px solid black !important;
 }
-.sheet-crewcoin input.sheet-radiobox:checked ~ input.sheet-radiobox.sheet-vaultcoin + span::before {
-	border: 1px solid #c6c7c9;
-}
-.sheet-crewcoin input.sheet-radiobox + span::before {
-	margin: 0 4px 0 0;
-}
 /* HUNTING GROUNDS */
 .sheet-hunting-grounds {
 	width: 100%;
 	color: black;
+	font-size: 88%;
 	margin-top: 20px;
 	letter-spacing: 0px;
 }
 .sheet-hunting-grounds input[type="text"]:first-child {
 	font-weight: 800;
+	color: black;
+	line-height: 22px;
 }
 .sheet-hunting-grounds input[type="text"]:last-child {
 	font-size: 88%;
@@ -1136,7 +1150,7 @@ input.sheet-radiobox:hover + span::before {
 .sheet-stress > div, .sheet-rep > div, .sheet-hold > div, .sheet-heat > div, .sheet-crewcoin > div:first-child > div {
 	float: left;
 }
-.sheet-stress, .sheet-rep, .sheet-hold, .sheet-heat, .sheet-crewcoin {
+.sheet-stress, .sheet-rep, .sheet-hold, .sheet-heat {
 	height: 25px;
 }
 .sheet-stress1, .sheet-stress3 {
@@ -1193,10 +1207,10 @@ input.sheet-radiobox:hover + span::before {
 	width: calc(100% - 151px);
 }
 .sheet-crewcoin1 {
-	width: 50px;
+	width: 60px;
 }
 .sheet-crewcoin2 {
-	width: calc(100% - 50px);
+	width: calc(100% - 60px);
 }
 .sheet-zeroholder {
 	position: absolute;
@@ -1218,6 +1232,9 @@ input.sheet-radiobox:hover + span::before {
 }
 .sheet-heat3 .sheet-zeroholder {
 	margin-left: 5px;
+}
+.sheet-crewcoin .sheet-zeroholder {
+	margin: 19px 0 0 -10px;
 }
 /* small fixes */
 .sheet-rep .sheet-black-on-grey {
@@ -1256,8 +1273,13 @@ input.sheet-radiobox:hover + span::before {
 	line-height: 137%;
 	height: 378px;
 }
-
-
+/* DEITY DISPLAY */
+.sheet-show-deity {
+	display: none;
+}
+input.sheet-show-deity:checked ~ div.sheet-show-deity {
+	display: block;
+}
 
 
 /* CHECKBOXES */

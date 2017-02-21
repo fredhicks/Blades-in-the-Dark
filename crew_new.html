@@ -32,6 +32,15 @@
 				<input type="text" name="attr_lair"/>
 				<label>Lair</label>
 			</div>
+			<input type="checkbox" class="sheet-show-deity" name="attr_show_deity" value="1"/>
+			<div class="sheet-col55 sheet-show-deity">
+				<input type="text" name="attr_crew_deity"/>
+				<label>Deity</label>
+			</div>
+			<div class="sheet-col45 sheet-show-deity">
+				<input type="text" name="attr_crew_deity_features"/>
+				<label>Deity Features</label>
+			</div>
 		</div>
 		<!-- Rep, Hold, and Tier -->
 		<div class="sheet-col100 sheet-leftcolumnitem">
@@ -198,6 +207,10 @@
 						<div class="sheet-label">Vaults</div>
 					</div>
 				</div>
+				<div class="zeroholder">
+						<input type="radio" value="0" name="attr_crewcoin" class="sheet-zero" checked/>
+						<span></span>
+					</div>
 				<div class="sheet-col100">
 					<input type="checkbox" value="0" name="attr_crewcoin" class="sheet-radiobox sheet-hidden" checked/>
 					<input type="radio" value="1"name="attr_crewcoin" class="sheet-radiobox"/>
@@ -234,6 +247,9 @@
 					<span></span>
 					<input type="radio" value="16" name="attr_crewcoin" class="sheet-radiobox sheet-vaultcoin"/>
 					<span></span>
+				</div>
+				<div class="sheet-col100">
+					<span class="sheet-italic">Upon crew advance, each PC gets +1 Stash (+2 per Tier)</span>
 				</div>
 			</div>
 		</div>
