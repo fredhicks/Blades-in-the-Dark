@@ -1158,6 +1158,7 @@ input.sheet-radiobox:hover + span::before {
 .sheet-hold5 {
 	width: calc(100% - 196px);
 	height: 16px; 
+	padding-left: 2px;
 }
 .sheet-heat2 {
 	width: 110px;
@@ -1323,8 +1324,7 @@ button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:
 		color: #020202;
 		border-color: #020202;
 }
-
-
+/* CHECKBOXES */
 input.sheet-checkbox {
 	position: relative;
 	margin-right: -12px;
@@ -1338,19 +1338,15 @@ input.sheet-checkbox + span::before {
 	width: 10px;
 	height: 10px;
 	border: 1px solid #838587;
-	margin: 0 2px 0 1px;
+	margin: 0 2px 0 0;
 }
 input.sheet-checkbox:hover + span::before {
 	opacity: 0.7;
 }
-input.sheet-checkbox.sheet-circlebox + span::before {
-	border-radius: 30px;
-	background: white;
-	vertical-align: top;
-}
 input.sheet-checkbox.sheet-squarebox + span::before {
 	background: transparent;
 	vertical-align: middle;
+	margin-left: 1px;
 }
 input.sheet-checkbox.sheet-circlebox-small + span::before {
 	border-radius: 40px;
@@ -1358,14 +1354,14 @@ input.sheet-checkbox.sheet-circlebox-small + span::before {
 	width: 9px;
 	background: white;
 	vertical-align: middle;
-	margin-right: 1px;
+	margin-right: 2px;
 	margin-bottom: 3px;
 }
 input.sheet-checkbox + span:last-child::before {
 	margin-right: 0px !important;
 }
 input.sheet-checkbox:checked + span::before {
-	background-color: red;
+	background-color: red !important;
 }
 /* Change text colour when boxes are checked*/
 .sheet-specialability input:checked ~ textarea.sheet-abilityname, .sheet-item input:checked ~ input[type=text], .sheet-friend input.sheet-friendup:checked ~ input[type=text] {
@@ -1374,24 +1370,34 @@ input.sheet-checkbox:checked + span::before {
 .sheet-friend input.sheet-frienddown:checked ~ input[type=text] {
 	color: black;
 }
-/* small adjustments */
+/* specific adjustments */
 .sheet-hold5.sheet-quality input.sheet-checkbox.sheet-circlebox-small + span::before {
-	margin-right: 2px;
+	margin-right: 3px;
 }
-
+.sheet-specialability input.sheet-checkbox.sheet-circlebox + span::before {
+	border-radius: 30px;
+	background: white;
+	vertical-align: top;
+}
+.sheet-attributepadding input.sheet-checkbox {
+	width: 20px;
+	height: 20px;
+	margin-right: -20px;
+}
+.sheet-attributepadding input.sheet-checkbox.sheet-circlebox + span::before {
+	border-radius: 50px;
+	background-color: #c6c7c9;
+	border: none;
+}
 
 
 
 /* DIRTY SECTION BELOW */
 /* CHECKBOXES */
-.sheet-attributedot input[type="checkbox"], .sheet-friend input[type="checkbox"] {
+.sheet-friend input[type="checkbox"] {
 		position: absolute;
 }
-.sheet-attributedot input + span::before {
-		top: 1px;
-		border-radius: 30px;	
-}
-.sheet-attributedot input + span::before, .sheet-friend input[type="checkbox"] + span::before {
+.sheet-friend input[type="checkbox"] + span::before {
 		content: '';
 		cursor: pointer;
 		width: 10px;
@@ -1402,9 +1408,6 @@ input.sheet-checkbox:checked + span::before {
 		padding: 0;
 		background-color: white;
 		border: 1px solid #838587;
-}
-.sheet-attributedot input:checked + span::before {
-		background-color: red !important;
 }
 input[type="checkbox"].sheet-friendup {
 	margin: 6px 0 0 -2px;
@@ -1440,12 +1443,6 @@ input[type="checkbox"].sheet-frienddown {
 .sheet-friend input[type="checkbox"].sheet-friendup:checked + span::before {
 	border-color: transparent transparent red transparent !important;
 }
-
-
-
-
-
-
 
 /* ACTION RATINGS */
 .sheet-attribute, .sheet-attribute input[type="text"], .sheet-cohort-conditionholder div {
@@ -1513,16 +1510,6 @@ input[type="checkbox"].sheet-frienddown {
 		margin-right: 0px !important;
 		border: none;
 }
-.sheet-attributedot input,
-.sheet-attributedot input + span:before {
-		border-radius: 50px !important;
-		background-color: #c6c7c9;
-		border: none;
-}
-.sheet-attributedot input {
-		width: 20px;
-		height: 20px;
-}
 /* COHORTS */
 button.sheet-cohortbtn {
 		float: right;
@@ -1589,8 +1576,9 @@ div.sheet-cohort-armor div {
 .sheet-cohorts .sheet-quality {
 		width: 31%;
 		height: 17px;
-		line-height: 16px
-		margin: -1px 0 0 3px;
+    line-height: 16px;
+    padding-left: 1px;
+    margin: -1px 0 0 3px;
 }
 .sheet-cohort-text {
 		float: left;
