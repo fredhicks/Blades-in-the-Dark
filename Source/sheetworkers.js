@@ -102,11 +102,12 @@ on('change:crew_type', function () {
 	},
 		attributes = _.chain(crewData).map(o => _.keys(o)).flatten().uniq().union(['crew_type']).value();
 	getAttrs(attributes, function (attrValues) {
-		let finalSettings,
-			defaultSettings = {
+		let defaultSettings = {
 			show_deity: 0,
 			cohort1_name: 'Cohort',
-		}, attrsForce = ['show_deity', 'cohort1_name', 'upgrade_2_tall', 'upgrade_3_tall'],
+			},
+			finalSettings = defaultSettings,
+			attrsForce = ['show_deity', 'cohort1_name', 'upgrade_2_tall', 'upgrade_3_tall'],
 			crew_type = attrValues.crew_type.toLowerCase();
 		/* Change unset attributes to crew default */
 		if (_.has(crewData, crew_type)) {
@@ -121,4 +122,162 @@ on('change:crew_type', function () {
 	});
 });
 /* Set some default fields when setting playbook */
+on('change:playbook', function () {
+	'use strict';
+	let playbookData = {
+		cutter: {
+			command1: 1,
+			gatherinfo1: 'How can I hurt them?',
+			gatherinfo2: 'Who\'s most afraid of me?',
+			gatherinfo3: 'Who\'s most dangerous here?',
+			gatherinfo4: 'What do they intend to do?',
+			gatherinfo5: 'How can I get them to [X]?',
+			gatherinfo6: 'Are they telling the truth?',
+			item_1_desc: 'Fine heavy weapon',
+			item_2_desc: 'Fine hand weapon',
+			item_6_desc: 'Scary weapon or tool',
+			item_7_desc: 'Manacles & chain',
+			item_8_desc: 'Rage essence vial',
+			item_9_desc: 'Spiritbane charm',
+			playbook_description: 'A Dangerous &\nIntimidating\nFighter',
+			skirmish1: 1,
+			skirmish2: 1,
+			xp_condition: 'You addressed a challenge with violence or coercion.'
+		},
+		hound: {
+			gatherinfo1: 'What do they intend to do?',
+			gatherinfo2: 'How can I get them to [X]?',
+			gatherinfo3: 'What are they really feeling?',
+			gatherinfo4: 'Where are they vulnerable?',
+			gatherinfo5: 'Where did [X] go?',
+			gatherinfo6: 'How can I find [X]?',
+			hunt1: 1,
+			hunt2: 1,
+			item_1_desc: 'Fine long rifle',
+			item_2_desc: 'Fine pair of pistols',
+			item_5_desc: 'Electroplasmic ammunition',
+			item_6_desc: 'Spyglass',
+			item_7_desc: 'A trained hunting pet',
+			item_8_desc: 'Spiritbane charm',
+			playbook_description: 'A Deadly\nSharpshooter\nand Tracker',
+			survey1: 1,
+			xp_condition: 'You addressed a challenge with tracking or violence.'
+		},
+		leech: {
+			gatherinfo1: 'What do they intend to do?',
+			gatherinfo2: 'How can I get them to [X]?',
+			gatherinfo3: 'Are they telling the truth?',
+			gatherinfo4: 'What can I tinker with here?',
+			gatherinfo5: 'What might happen if I [X]?',
+			gatherinfo6: 'How can I find [X]?',
+			item_0_desc: 'Gadgets',
+			item_1_desc: 'Fine wrecker tools',
+			item_2_desc: 'Fine tinkering tools',
+			item_5_desc: 'Bandolier of alchemicals (3)',
+			item_6_desc: 'Bandolier of alchemicals (3)',
+			item_7_desc: 'Blowgun & darts, syringes',
+			playbook_description: 'A Saboteur and\nTechnician',
+			show_alchemicals: 1,
+			tinker1: 1,
+			tinker2: 1,
+			wreck1: 1,
+			xp_condition: 'You addressed a challenge with technical skill or mayhem.'
+		},
+		lurk: {
+			finesse1: 1,
+			gatherinfo1: 'What do they intend to do?',
+			gatherinfo2: 'How can I get them to [X]?',
+			gatherinfo3: 'What should I look out for?',
+			gatherinfo4: 'What\'s the best way in?',
+			gatherinfo5: 'Where can I hide here?',
+			gatherinfo6: 'How can I find [X]?',
+			item_3_desc: 'Fine shadow cloak',
+			item_4_desc: 'Fine lockpicks',
+			item_5_desc: 'Light climbing gear',
+			item_6_desc: 'Dark-sight goggles',
+			item_7_desc: 'Silence potion vial',
+			item_8_desc: 'Spiritbane charm',
+			playbook_description: 'A Stealthy\nInfiltrator\nand Burglar',
+			prowl1: 1,
+			prowl2: 1,
+			xp_condition: 'You addressed a challenge with stealth or evasion.'
+		},
+		slide: {
+			consort1: 1,
+			gatherinfo1: 'What do they intend to do?',
+			gatherinfo2: 'How can I get them to [X]?',
+			gatherinfo3: 'Are they telling the truth?',
+			gatherinfo4: 'What are they really feeling?',
+			gatherinfo5: 'What do they really care about?',
+			gatherinfo6: 'How can I blend in here?',
+			item_3_desc: 'Fine disguise kit',
+			item_4_desc: 'Fine clothes & jewelry',
+			item_6_desc: 'A cane-sword',
+			item_7_desc: 'Fine loaded dice, trick cards',
+			item_8_desc: 'Trance powder',
+			item_9_desc: 'Spiritbane charm',
+			playbook_description: 'A Subtle\nManipulator\nand Spy',
+			sway1: 1,
+			sway2: 1,
+			xp_condition: 'You addressed a challenge with deception or in influence.'
+		},
+		spider: {
+			consort1: 1,
+			consort2: 1,
+			gatherinfo1: 'What do they want most?',
+			gatherinfo2: 'What should I look out for?',
+			gatherinfo3: 'Where\'s the leverage here?',
+			gatherinfo4: 'How can I discover [X]?',
+			gatherinfo5: 'What do they intend to do?',
+			gatherinfo6: 'How can I get them to [X]?',
+			item_3_desc: 'Fine bottle of whiskey',
+			item_4_desc: 'Fine cover identity',
+			item_5_desc: 'Blueprints',
+			item_7_desc: 'Vial of slumber essence',
+			item_8_desc: 'Concealed palm pistol',
+			item_9_desc: 'Spiritbane charm',
+			playbook_description: 'A Devious\nMastermind',
+			study1: 1,
+			xp_condition: 'You addressed a challenge with calculation or conspiracy.'
+		},
+		whisper: {
+			attune1: 1,
+			attune2: 1,
+			gatherinfo1: 'What is arcane or weird here?',
+			gatherinfo2: 'What echoes in the ghost field?',
+			gatherinfo3: 'What is hidden or lost here?',
+			gatherinfo4: 'What do they intend to do?',
+			gatherinfo5: 'What drives them to do this?',
+			gatherinfo6: 'How can I reveal [X]?',
+			item_1_desc: 'Fine lightning hook',
+			item_2_desc: 'Fine spirit mask',
+			item_6_desc: 'Spirit bottles (2)',
+			item_7_desc: 'Electroplasm vials',
+			item_8_desc: 'Ghost key',
+			item_9_desc: 'Demonbane charm',
+			playbook_description: 'An Arcane\nAdept and\nChanneler',
+			study1: 1,
+			xp_condition: 'You addressed a challenge with knowledge or arcane power.'
+		}
+		},
+		attributes = _.chain(playbookData).map(o => _.keys(o)).flatten().uniq().union(['playbook']).value();
+	getAttrs(attributes, function (attrValues) {
+		let defaultSettings = {
+			show_alchemicals: 0
+			},
+			finalSettings = defaultSettings,
+			attrsForce = ['show_alchemicals'],
+			playbook = attrValues.playbook.toLowerCase();
+		/* Change unset attributes to crew default */
+		if (_.has(playbookData, playbook)) {
+			finalSettings = _.reduce(playbookData[playbook], function(memo, value, key) {
+				if (!attrValues[key] || _.contains(attrsForce, key)) {
+					memo[key] = value;
+				}
+				return memo;
+			}, _.clone(defaultSettings));
+		}
+		setAttrs(finalSettings);
+	});
+});
 </script>

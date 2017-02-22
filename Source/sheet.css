@@ -275,6 +275,11 @@ input[type="checkbox"], input[type="radio"] {
 	margin-bottom: 4px;
 	padding-left: 11px;
 	font-size: 86%;
+	height: 17px;
+}
+.sheet-gatherinfo li input[type=text] {
+	width: 100%;
+	font-size: 100%;
 }
 .sheet-gatherinfo li:after {
 	height: 4px;
@@ -498,7 +503,7 @@ input[type="checkbox"], input[type="radio"] {
 }
 .sheet-playbook-desc textarea {
 	height: 50px;
-	width: 108px;	
+	width: 112px;	
 	padding-top: 6px;
 	font-size: 78%;
 	font-weight: 800;

@@ -432,12 +432,12 @@
 				<div class="sheet-plainheader sheet-label">Gather Information</div>
 				<div>
 					<ul>
-						<li>What do they intend to do?</li>
-						<li>How can I get them to [X]?</li>
-						<li>What are they really feeling?</li>
-						<li>What should I be worried about?</li>
-						<li>Where's the weakness here?</li>
-						<li>How can I find [X]?</li>
+						<li><input type="text" name="attr_gatherinfo1" placeholder="What do they intend to do?"/></li>
+						<li><input type="text" name="attr_gatherinfo2" placeholder="How can I get them to [X]?"/></li>
+						<li><input type="text" name="attr_gatherinfo3" placeholder="What are they really feeling?"/></li>
+						<li><input type="text" name="attr_gatherinfo4" placeholder="What should I be worried about?"/></li>
+						<li><input type="text" name="attr_gatherinfo5" placeholder="Where's the weakness here?"/></li>
+						<li><input type="text" name="attr_gatherinfo6" placeholder="How can I find [X]?"/></li>
 						<li>What's really going on here?</li>
 					</ul>
 				</div>
@@ -484,6 +484,15 @@
 			<div class="sheet-itemholder sheet-white-repcontrol">
 				<!-- Playbook items -->
 				<div class="sheet-playbookitems">
+					<div class="sheet-item sheet-item3box">
+						<input type="checkbox" value="1" name="attr_item_0_check" class="sheet-checkbox sheet-squarebox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_item_0_check_b" class="sheet-checkbox sheet-squarebox"/>
+						<span></span>
+						<input type="checkbox" value="1" name="attr_item_0_check_c" class="sheet-checkbox sheet-squarebox"/>
+						<span></span>
+						<input type="text" placeholder="Three one-slot items" name="attr_item_0_desc"/>
+					</div>
 					<div class="sheet-item sheet-itembold sheet-item2box">
 						<input type="checkbox" value="1" name="attr_item_1_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
