@@ -16,7 +16,7 @@
 			<input type="text" name="attr_playbook" class="sheet-label" placeholder="playbook"/>
 		</div>
 		<div class="sheet-playbook-desc">
-			<textarea name="attr_playbookdesc" class="sheet-label" placeholder="A short playbook description"></textarea>
+			<textarea name="attr_playbook_description" class="sheet-label" placeholder="A short playbook description"></textarea>
 		</div>
 	</div>
 	<!-- Left column -->
@@ -356,14 +356,14 @@
 						<input type="checkbox" value="1" name="attr_ability1_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
 						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
-						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
+						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_description" placeholder="Ability description"></textarea>
 				</div>
 				<fieldset class="repeating_ability">
 					<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" value="1" name="attr_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
 						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_name" placeholder="Ability Name"></textarea>
-						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_desc" placeholder="Ability description"></textarea>
+						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_description" placeholder="Ability description"></textarea>
 					</div>
 				</fieldset>
 			</div>
@@ -402,7 +402,7 @@
 					<li>Every time you roll a desperate action, mark xp in that action's attribute.</li>
 					<li class="sheet-nondot">At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute) or 2xp if that item occurred multiple times.</li>
 					<li>
-						<input type="text" placeholder="Enter your playbook's specific way to mark XP here." name="attr_markxp"/>
+						<input type="text" placeholder="Enter your playbook's specific way to mark XP here." name="attr_xp_condition"/>
 					</li>
 					<li>You expressed your beliefs, drives, heritage, or background.</li>
 					<li>You struggled with issues from your vice or traumas during the session.</li>
@@ -1025,7 +1025,7 @@
 							<span></span>
 							<input type="checkbox" class="sheet-checkbox sheet-frienddown" value="1" name="attr_down"/>
 							<span></span>
-							<input type="text" placeholder="Friend name" name="attr_friend_name"/>
+							<input type="text" placeholder="Friend name" name="attr_name"/>
 						</div>
 					</fieldset>
 				</div>
@@ -1038,7 +1038,7 @@
 			<div class="sheet-specialheader sheet-col100 sheet-label">Clocks</div>
 			<fieldset class="repeating_clock">
 				<div class="sheet-clock">
-					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-label"/>
+					<input type="text" placeholder="Clock Name" name="attr_name" class="sheet-label"/>
 					<div class="sheet-clockprogress">
 						<span>Size</span>
 						<input type="radio" name="attr_size" class="sheet-text-input sheet-longoption" value="4" checked/>
