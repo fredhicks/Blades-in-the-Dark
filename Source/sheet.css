@@ -175,7 +175,7 @@ input[type="checkbox"], input[type="radio"] {
 	background-color: #d6d8d9;
 }
 /* COLUMN LAYOUT */
-.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col6, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70, .sheet-col54b, .sheet-col52b {
+.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col6, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70, .sheet-col54b, .sheet-col52b, .sheet-col18 {
 	float: left;
 }
 .sheet-col2 {
@@ -183,6 +183,9 @@ input[type="checkbox"], input[type="radio"] {
 }
 .sheet-col6 {
 	width: 6%;
+}
+.sheet-col18 {
+	width: 18%;
 }
 .sheet-col30 {
 	width: 30%;
@@ -1354,6 +1357,20 @@ input.sheet-checkbox {
 input.sheet-checkbox.sheet-circlebox-small {
 	margin-bottom: 3px;
 }
+input.sheet-checkbox.sheet-squarebox-small {
+	height: 10px;
+	width: 10px;
+	margin-right: -10px;
+}
+input.sheet-checkbox.sheet-squarebox-small + span::before {
+	margin: 0;
+	width: 7px;
+	height: 7px;
+}
+input.sheet-checkbox.sheet-squarebox-small:checked + span::before {
+	background-color: black !important;
+	opacity: 0.7;
+}
 input.sheet-checkbox + span::before {
 	content: "";
 	display: inline-block;
@@ -1525,4 +1542,54 @@ div.sheet-cohort-condition4 {
 	font-family: Georgia, Times, "Times New Roman", serif;
 	height: 74px;
 	border-bottom: 1px solid lightgray;
+}
+/* CLAIMS */
+.sheet-claimbox {
+	background-color: #d6d8d9;
+}
+.sheet-claimbox, .sheet-lairbox, .sheet-claims-horisep {
+	height: 66px;
+}
+.sheet-claims-seprow {
+	height: 10px;
+}
+.sheet-lairbox {
+	text-align: center;
+	background-color: #808080;
+}
+.sheet-lairbox .sheet-label {
+	color: white;
+	margin-top: calc(50% - 18px);
+}
+.sheet-claims-horisep {
+	float: left;
+	width: 2.5%;
+}
+.sheet-claimbox .sheet-label {
+	font-size: 60%;
+	line-height: 12px;
+	height: 24px;
+	font-weight: 600;
+	width: 98%;
+	margin: 4px 1% 2px;
+}
+.sheet-claimbox textarea {
+	box-sizing: border-box;
+	text-align: center;
+	resize: none;
+	color: black;
+}
+.sheet-claimbox textarea.sheet-claim-desc {
+	width: 95%;
+	margin: 2px 2.5% 4px;
+	line-height: 10px;
+	height: 30px;
+	font-size: 64%;
+	font-family: Georgia, Times, "Times New Roman", serif;
+}
+.sheet-claimbox div:first-child {
+	float: left;
+	position: absolute;
+	margin: 1px 0 0 1px;
+	line-height: 0;
 }
