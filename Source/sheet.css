@@ -307,11 +307,11 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-itemholder > div {
 	padding: 7px;
 }
-.sheet-itemholder .sheet-item {
+.sheet-item {
 	display: inline-block;
 	width: 100%;
 }
-.sheet-itemholder .sheet-item.sheet-itemshort {
+.sheet-item.sheet-itemshort {
 	width: 50%;
 }
 .sheet-playbookitems {

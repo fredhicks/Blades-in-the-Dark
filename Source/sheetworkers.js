@@ -45,13 +45,13 @@ on('change:crew_type', function () {
 			hunting_grounds_description: 'Accident - Disappearance - Murder - Ransom',
 			upgrade_1_desc: 'Hardened (+1 trauma box)',
 			upgrade_2_desc: 'Assassin rigging (2 free load of weapons or gear)',
-			upgrade_2_tall: '1',
+			upgrade_2_tall: 'on',
 			upgrade_3_desc: 'Ironhook Contacts (+1 Tier in prison)',
-			upgrade_3_tall: '1',
+			upgrade_3_tall: 'on',
 			upgrade_4_desc: 'Elite Skulks',
 			upgrade_5_desc: 'Elite Thugs',
-			upgrade_20_check: 1,	/* Insight */
-			upgrade_21_check: 1		/* Prowess */
+			upgrade_20_check: 'on',		/* Insight */
+			upgrade_21_check: 'on'		/* Prowess */
 		},
 		bravos: {
 			claim_1_desc: '+1 scale for your\nSkulks cohorts',
@@ -92,12 +92,12 @@ on('change:crew_type', function () {
 			hunting_grounds_description: 'Battle - Extortion - Sabotage - Smash & Grab',
 			upgrade_1_desc: 'Hardened (+1 trauma box)',
 			upgrade_2_desc: 'Bravos rigging (2 free load of weapons or armor)',
-			upgrade_2_tall: '1',
+			upgrade_2_tall: 'on',
 			upgrade_3_desc: 'Ironhook Contacts (+1 Tier in prison)',
-			upgrade_3_tall: '1',
+			upgrade_3_tall: 'on',
 			upgrade_4_desc: 'Elite Rovers',
 			upgrade_5_desc: 'Elite Thugs',
-			upgrade_21_check: 1		/* Prowess */
+			upgrade_21_check: 'on'		/* Prowess */
 		},
 		cult: {
 			claim_1_desc: '+1 scale for your\nAdepts cohorts',
@@ -138,15 +138,15 @@ on('change:crew_type', function () {
 			crew_xp_condition: 'Advance the agenda of your deity or embody its precepts in action.',
 			hunting_grounds_type: 'Sacred Sites:',
 			hunting_grounds_description: 'Acquisition - Augury - Consecration - Sacrifice',
-			show_deity: 1,
+			show_deity: 'on',
 			upgrade_1_desc: 'Ordained (+1 trauma box)',
 			upgrade_2_desc: 'Cult rigging (2 free load of documents or implements)',
-			upgrade_2_tall: '1',
+			upgrade_2_tall: 'on',
 			upgrade_3_desc: 'Ritual sanctum in lair',
 			upgrade_3_tall: '0',
 			upgrade_4_desc: 'Elite Adepts',
 			upgrade_5_desc: 'Elite Thugs',
-			upgrade_22_check: 1		/* Resolve */
+			upgrade_22_check: 'on'		/* Resolve */
 		},
 		hawkers: {
 			claim_1_desc: '',
@@ -189,13 +189,13 @@ on('change:crew_type', function () {
 			hunting_grounds_description: 'Sale - Supply - Show of Force - Socialize',
 			upgrade_1_desc: 'Composed (+1 stress box)',
 			upgrade_2_desc: 'Hawker\'s rigging (1 carried item is concealed and has no load)',
-			upgrade_2_tall: '1',
+			upgrade_2_tall: 'on',
 			upgrade_3_desc: 'Ironhook Contacts (+1 Tier in prison)',
-			upgrade_3_tall: '1',
+			upgrade_3_tall: 'on',
 			upgrade_4_desc: 'Elite Rooks',
 			upgrade_5_desc: 'Elite Thugs',
-			upgrade_14_check: 1,	/* Secure */
-			upgrade_22_check: 1		/* Resolve */
+			upgrade_14_check: 'on',	/* Secure */
+			upgrade_22_check: 'on		/* Resolve */
 		},
 		shadows: {
 			claim_1_desc: '+1d to Command\nand Sway on site',
@@ -236,13 +236,13 @@ on('change:crew_type', function () {
 			hunting_grounds_description: 'Burglary - Espionage - Robbery - Sabotage',
 			upgrade_1_desc: 'Steady (+1 stress box)',
 			upgrade_2_desc: 'Thief Rigging (2 free load of tools or gear)',
-			upgrade_2_tall: '1',
+			upgrade_2_tall: 'on',
 			upgrade_3_desc: 'Underground maps & passkeys',
 			upgrade_3_tall: '0',
 			upgrade_4_desc: 'Elite Rooks',
 			upgrade_5_desc: 'Elite Skulks',
-			upgrade_10_check: 1,	/* Hidden */
-			upgrade_21_check: 1		/* Prowess */
+			upgrade_10_check: 'on',		/* Hidden */
+			upgrade_21_check: 'on'		/* Prowess */
 		},
 		smugglers: {
 			claim_1_desc: '',
@@ -287,15 +287,15 @@ on('change:crew_type', function () {
 			hunting_grounds_description: 'Arcane/Weird - Arms - Contraband - Passengers',
 			upgrade_1_desc: 'Steady (+1 stress box)',
 			upgrade_2_desc: 'Smuggler\'s rigging (2 items carried are perfectly concealed)',
-			upgrade_2_tall: '1',
+			upgrade_2_tall: 'on',
 			upgrade_3_desc: 'Camouflage (vehicles are perfectly concealed at rest)',
-			upgrade_3_tall: '1',
+			upgrade_3_tall: 'on',
 			upgrade_4_desc: 'Elite Rovers',
 			upgrade_5_desc: 'Barge (+mobility for lair)',
-			upgrade_6_check: 1,					/* Vehicle */
+			upgrade_6_check: 'on',					/* Vehicle */
 			upgrade_6_desc: 'Vehicle',	/* change Carriage to Vehicle */
 			upgrade_8_desc: 'Vehicle',	/* change Boat to Vehicle */
-			upgrade_21_check: 1					/* Prowess */
+			upgrade_21_check: 'on'					/* Prowess */
 		}
 	},
 		attributes = _.chain(crewData).map(o => _.keys(o)).flatten().uniq().union(['crew_type']).value();
@@ -375,7 +375,7 @@ on('change:playbook', function () {
 			item_6_desc: 'Bandolier of alchemicals (3)',
 			item_7_desc: 'Blowgun & darts, syringes',
 			playbook_description: 'A Saboteur and\nTechnician',
-			show_alchemicals: 1,
+			show_alchemicals: 'on',
 			tinker1: 1,
 			tinker2: 1,
 			wreck1: 1,
