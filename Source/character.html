@@ -127,10 +127,10 @@
 			<!-- Harm and Recovery -->
 			<div class="sheet-harm sheet-col68">
 				<!-- Harm -->
-				<div class="sheet-blackheader sheet-harmheader">
+				<div class="sheet-blackheader sheet-harmheader sheet-col100">
 					<div class="sheet-label">Harm</div>
 				</div>
-				<div class="sheet-harmrow">
+				<div class="sheet-harmrow sheet-col100">
 					<div class="sheet-label">3</div>
 					<div>
 						<div class="sheet-col100">
@@ -139,7 +139,7 @@
 					</div>
 					<div class="sheet-label">Need Help</div>
 				</div>
-				<div class="sheet-harmrow">
+				<div class="sheet-harmrow sheet-col100">
 					<div class="sheet-label">2</div>
 					<div>
 						<div class="sheet-col50">
@@ -151,7 +151,7 @@
 					</div>
 					<div class="sheet-label">-1D</div>
 				</div>
-				<div class="sheet-harmrow">
+				<div class="sheet-harmrow sheet-col100">
 					<div class="sheet-label">1</div>
 					<div>
 						<div class="sheet-col50">
@@ -350,16 +350,16 @@
 		</div>
 		<!-- Special abilities -->
 		<div class="sheet-col100 sheet-leftcolumnitem">
-			<div class="sheet-specialheader sheet-label">Special Abilities</div>
-			<div class="sheet-greyholder">
-				<div class="sheet-specialability">
+			<div class="sheet-specialheader sheet-col100 sheet-label">Special Abilities</div>
+			<div class="sheet-greyholder sheet-col100">
+				<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" value="1" name="attr_ability1_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
 						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
 						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
 				</div>
 				<fieldset class="repeating_ability">
-					<div class="sheet-specialability">
+					<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" value="1" name="attr_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
 						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_name" placeholder="Ability Name"></textarea>
@@ -677,7 +677,7 @@
 		<div class="sheet-col50a">
 			<!-- Insight box -->
 			<div class="sheet-attribute sheet-col100">
-				<div class="sheet-attributetitle sheet-col100">
+				<div class="sheet-attribute-title sheet-col100">
 					<div>
 						<button type="roll" class="sheet-rollbutton sheet-attributebutton" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/aRCtei7.png}}{{rolltypetext=Insight}}{{roll1value=[[@{hunt1}d6]]}}{{roll2value=[[@{study1}d6]]}}{{roll3value=[[@{survey1}d6]]}}{{roll4value=[[@{tinker1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Insight</button>
 					</div>
@@ -784,7 +784,7 @@
 			</div>
 			<!-- Prowess box -->
 			<div class="sheet-attribute sheet-col100">
-				<div class="sheet-attributetitle sheet-col100">
+				<div class="sheet-attribute-title sheet-col100">
 					<div>
 						<button type="roll" class="sheet-rollbutton sheet-attributebutton" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/7PeppYz.png}}{{rolltypetext=Prowess}}{{roll1value=[[@{finesse1}d6]]}}{{roll2value=[[@{prowl1}d6]]}}{{roll3value=[[@{skirmish1}d6]]}}{{roll4value=[[@{wreck1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Prowess</button>
 					</div>
@@ -891,7 +891,7 @@
 			</div>
 			<!-- Resolve box-->
 			<div class="sheet-attribute sheet-col100">
-				<div class="sheet-attributetitle sheet-col100">
+				<div class="sheet-attribute-title sheet-col100">
 					<div>
 						<button type="roll" class="sheet-rollbutton sheet-attributebutton" value='&{template:bitd2}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/eIZr40h.png}}{{rolltypetext=Insight}}{{roll1value=[[@{attune1}d6]]}}{{roll2value=[[@{command1}d6]]}}{{roll3value=[[@{consort1}d6]]}}{{roll4value=[[@{sway1}d6]]}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Resolve</button>
 					</div>
@@ -1010,9 +1010,9 @@
 			</div>
 			<!-- Strange friends -->
 			<div class="sheet-col100 sheet-friends">
-				<div class="sheet-specialheader sheet-label">Strange Friends</div>
-				<div class="sheet-greyholder">
-					<div class="sheet-friend">
+				<div class="sheet-specialheader sheet-col100 sheet-label">Strange Friends</div>
+				<div class="sheet-greyholder sheet-col100">
+					<div class="sheet-friend sheet-rep-block">
 						<input type="checkbox" value="1" name="attr_friend1_up" class="sheet-checkbox sheet-friendup"/>
 						<span></span>
 						<input type="checkbox" class="sheet-checkbox sheet-frienddown" value="1" name="attr_friend1_down"/>
@@ -1020,7 +1020,7 @@
 						<input type="text" placeholder="Friend name" name="attr_friend1_name"/>
 					</div>
 					<fieldset class="repeating_friend">
-						<div class="sheet-friend">
+						<div class="sheet-friend sheet-rep-block">
 							<input type="checkbox" value="1" name="attr_up" class="sheet-checkbox sheet-friendup"/>
 							<span></span>
 							<input type="checkbox" class="sheet-checkbox sheet-frienddown" value="1" name="attr_down"/>
@@ -1035,7 +1035,7 @@
 		</div>
 		<!-- Clocks -->
 		<div class="sheet-col97 sheet-clocks">
-			<div class="sheet-specialheader sheet-label">Clocks</div>
+			<div class="sheet-specialheader sheet-col100 sheet-label">Clocks</div>
 			<fieldset class="repeating_clock">
 				<div class="sheet-clock">
 					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-label"/>

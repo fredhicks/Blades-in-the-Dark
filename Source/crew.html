@@ -255,16 +255,16 @@
 		</div>
 		<!-- Special abilities -->
 		<div class="sheet-col100 sheet-leftcolumnitem">
-			<div class="sheet-specialheader sheet-label">Special Abilities</div>
-			<div class="sheet-greyholder">
-				<div class="sheet-specialability">
+			<div class="sheet-specialheader sheet-col100 sheet-label">Special Abilities</div>
+			<div class="sheet-greyholder sheet-col100">
+				<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" value="1" name="attr_ability1_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
 						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
 						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_desc" placeholder="Ability description"></textarea>
 				</div>
 				<fieldset class="repeating_ability">
-					<div class="sheet-specialability">
+					<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" value="1" name="attr_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
 						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_name" placeholder="Ability Name"></textarea>
@@ -511,11 +511,12 @@
 		</div>
 		<!-- Cohorts and Contacts -->
 		<div class="sheet-col50a">
-			<div class="sheet-cohorts">
-				<!-- First Cohort -->
-				<div class="sheet-attribute">
-					<div class="sheet-cohort-title">
-						<input type="text" value="Cohort" name="attr_cohort1_name"></input>
+			<!-- First Cohort -->
+			<div class="sheet-cohort sheet-col100">
+				<div class="sheet-cohort-title sheet-col100"> 
+					<div>
+						<input class="sheet-hidden" value="Cohort" name=attr_cohort1_name"/>
+						<button type="roll" class="sheet-rollbutton sheet-cohortbutton" value='placeholder'><span class="sheet-label" name="attr_cohort1_name"></span></button>
 					</div>
 					<div class="sheet-quality">
 						<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_cohort1_q1"/>
@@ -527,114 +528,114 @@
 						<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_cohort1_q4"/>
 						<span></span>
 					</div>
-					<button type="roll" class="sheet-attributebtn sheet-cohortbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort1_name}}}{{roll1value=[[@{cohort1_q1}d6]]}}{{roll2value=[[@{cohort1_q2}d6]]}}{{roll3value=[[@{cohort1_q3}d6]]}}{{roll4value=[[@{cohort1_q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
 				</div>
-				<div class="sheet-cohort-conditionholder">
-					<div class="sheet-cohort-weak">
-						<div>Weak</div>
-						<div>
+				<div class="sheet-cohort-condition sheet-col100">
+					<div class="sheet-cohort-condition1">
+						<div class="sheet-label">Weak</div>
+						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_weak" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-cohort-impaired">
-						<div>Impaired</div>
-						<div>
+					<div class="sheet-cohort-condition2">
+						<div class="sheet-label">Impaired</div>
+						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_impaired" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-cohort-broken">
-						<div>Broken</div>
-						<div>
+					<div class="sheet-cohort-condition3">
+						<div class="sheet-label">Broken</div>
+						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_broken" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-cohort-armor">
-						<div>Armor</div>
-						<div>
+					<div class="sheet-cohort-condition4">
+						<div class="sheet-label">Armor</div>
+						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_armor" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
 				</div>
-				<div class="sheet-cohort-text">
-						<textarea name="attr_cohort1_desc"></textarea>
-				</div>
-				<!-- Cohort repeating section -->
-				<div class="sheet-col100 sheet-white-repcontrol">
-					<fieldset class="repeating_cohort">
-						<div class="sheet-rep-block">
-							<div class="sheet-attribute">
-								<div class="sheet-cohort-title">
-									<input type="text" value="Cohort" name="attr_cohort_name"></input>
-								</div>
-								<div class="sheet-quality">
-									<input type="checkbox" value="1" name="attr_q1"/>
-									<span></span>
-									<input type="checkbox" value="1" name="attr_q2"/>
-									<span></span>
-									<input type="checkbox" value="1" name="attr_q3"/>
-									<span></span>
-									<input type="checkbox" value="1" name="attr_q4"/>
-									<span></span>
-								</div>
-								<button type="roll" class="sheet-attributebtn sheet-cohortbtn" value='&{template:bitd}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/Hf2zM1L.png}}{{rolltypetext=Cohort - @{cohort_name}}}{{roll1value=[[@{q1}d6]]}}{{roll2value=[[@{q2}d6]]}}{{roll3value=[[@{q3}d6]]}}{{roll4value=[[@{q4}d6]]}}{{position=?{Position|Risky|Controlled|Desperate}}} {{effect=?{Effect|Standard|Limited|Great}}}{{bonusdice=?{Bonus dice|0,[[0]]|1,[[1]]|2,[[2]]|3,[[3]]|4,[[4]]|5,[[5]]|6,[[6]]}}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Quality</button>
-							</div>
-							<div class="sheet-cohort-conditionholder">
-								<div class="sheet-cohort-weak">
-									<div>Weak</div>
-									<div>
-										<input type="checkbox" name="attr_weak" class="sheet-tooth sheet-stresstooth"/>
-										<span></span>
-									</div>
-								</div>
-								<div class="sheet-cohort-impaired">
-									<div>Impaired</div>
-									<div>
-										<input type="checkbox" name="attr_impaired" class="sheet-tooth sheet-stresstooth"/>
-										<span></span>
-									</div>
-								</div>
-								<div class="sheet-cohort-broken">
-									<div>Broken</div>
-									<div>
-										<input type="checkbox" name="attr_broken" class="sheet-tooth sheet-stresstooth"/>
-										<span></span>
-									</div>
-								</div>
-								<div class="sheet-cohort-armor">
-									<div>Armor</div>
-									<div>
-										<input type="checkbox" name="attr_armor" class="sheet-tooth sheet-stresstooth"/>
-										<span></span>
-									</div>
-								</div>
-							</div>
-							<div class="sheet-cohort-text">
-									<textarea name="attr_desc"></textarea>
-							</div>
-						</div>
-					</fieldset>
+				<div class="sheet-cohort-text sheet-col100">
+						<textarea name="attr_cohort1_description"></textarea>
 				</div>
 			</div>
+			<!-- Cohort repeating section -->
+			<div class="sheet-col100 sheet-white-repcontrol">
+				<fieldset class="repeating_cohort">
+					<div class="sheet-rep-block sheet-cohort">
+						<div class="sheet-cohort-title sheet-col100"> 
+							<div>
+								<button type="roll" class="sheet-rollbutton sheet-cohortbutton" value='placeholder'>Cohort</span></button>
+							</div>
+							<div class="sheet-quality">
+								<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_q1"/>
+								<span></span>
+								<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_q2"/>
+								<span></span>
+								<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_q3"/>
+								<span></span>
+								<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_q4"/>
+								<span></span>
+							</div>
+						</div>
+						<div class="sheet-cohort-condition sheet-col100">
+							<div class="sheet-cohort-condition1">
+								<div class="sheet-label">Weak</div>
+								<div class="sheet-toothholder">
+									<input type="checkbox" name="attr_weak" class="sheet-tooth sheet-stresstooth"/>
+									<span></span>
+								</div>
+							</div>
+							<div class="sheet-cohort-condition2">
+								<div class="sheet-label">Impaired</div>
+								<div class="sheet-toothholder">
+									<input type="checkbox" name="attr_impaired" class="sheet-tooth sheet-stresstooth"/>
+									<span></span>
+								</div>
+							</div>
+							<div class="sheet-cohort-condition3">
+								<div class="sheet-label">Broken</div>
+								<div class="sheet-toothholder">
+									<input type="checkbox" name="attr_broken" class="sheet-tooth sheet-stresstooth"/>
+									<span></span>
+								</div>
+							</div>
+							<div class="sheet-cohort-condition4">
+								<div class="sheet-label">Armor</div>
+								<div class="sheet-toothholder">
+									<input type="checkbox" name="attr_armor" class="sheet-tooth sheet-stresstooth"/>
+									<span></span>
+								</div>
+							</div>
+						</div>
+						<div class="sheet-cohort-text sheet-col100">
+								<textarea name="attr_description"></textarea>
+						</div>
+					</div>
+				</fieldset>
+			</div>
 			<!-- Contacts -->
-			<div class="sheet-specialheader sheet-label">Contacts</div>
-			<div class="sheet-greyholder">
-				<div class="sheet-friend sheet-contact">
+			<div class="sheet-col100 sheet-contacts">
+				<div class="sheet-specialheader sheet-col100 sheet-label">Contacts</div>
+				<div class="sheet-greyholder sheet-col100">
+				<div class="sheet-friend sheet-contact sheet-rep-block">
 					<input type="text" placeholder="Contact name" name="attr_contact1_name"/>
 				</div>
 				<fieldset class="repeating_contact">
-					<div class="sheet-friend sheet-contact">
+					<div class="sheet-friend sheet-contact sheet-rep-block">
 						<input type="text" placeholder="Friend name" name="attr_contact_name"/>
 					</div>
 				</fieldset>
 			</div>
+			</div>
 		</div>
 		<!-- Clocks -->
 		<div class="sheet-col97 sheet-clocks">
-			<div class="sheet-specialheader sheet-label">Clocks</div>
+			<div class="sheet-specialheader sheet-col100 sheet-label">Clocks</div>
 			<fieldset class="repeating_clock">
 				<div class="sheet-clock">
 					<input type="text" placeholder="Clock Name" name="attr_clockname" class="sheet-label"/>
