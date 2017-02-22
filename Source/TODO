@@ -1,7 +1,6 @@
 WORKERS
 - keep track of boxes changed by user
 - adapt sheet workers to modify unchanged boxes
-- ADD: sheet worker data for claims map
 
 CHARACTER
 - ADD: alchemicals section
