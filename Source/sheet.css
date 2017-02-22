@@ -316,6 +316,18 @@ input[type="checkbox"], input[type="radio"] {
 	padding: 3px 0;
 	font-size: 83%;
 }
+.sheet-item textarea {
+	width: calc(100% - 20px);
+	resize: none;
+	padding: 2px 0px;
+	height: 16px;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 83%;
+	margin-left: 5px;
+}
+.sheet-item input.sheet-item-textarea-tall:checked + textarea {
+	height: 32px;
+}
 .sheet-item.sheet-item2box input[type=text] {
 	width: calc(100% - 35px);
 }
@@ -445,6 +457,7 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-advancement-desc li, .sheet-advancement-desc input[type=text] {
 	font-size: 95%;
 	line-height: 127%;
+	width: 100%;
 }
 .sheet-advancement-desc li {
 	margin-bottom: 1em;
@@ -1368,7 +1381,7 @@ input.sheet-checkbox:checked + span::before {
 	background-color: red !important;
 }
 /* Change text colour when boxes are checked*/
-.sheet-specialability input:checked ~ textarea.sheet-abilityname, .sheet-item input:checked ~ input[type=text], input.sheet-friendup:checked ~ input[type=text] {
+.sheet-specialability input:checked ~ textarea.sheet-abilityname, .sheet-item input.sheet-checkbox:checked ~ input[type=text], .sheet-item.sheet-checkbox input:checked ~ textarea, input.sheet-friendup:checked ~ input[type=text] {
 	color: red;
 }
 input.sheet-frienddown:checked ~ input[type=text] {

@@ -13,7 +13,7 @@
 			<input type="text" class="sheet-label" name="attr_crew_type" placeholder="Crew"/>
 		</div>
 		<div class="sheet-playbook-desc">
-			<textarea name="attr_crew_desc" class="sheet-label" placeholder="A short crew description"></textarea>
+			<textarea spellcheck="false" name="attr_crew_description" class="sheet-label" placeholder="A short crew description"></textarea>
 		</div>
 	</div>
 	<!-- Left column -->
@@ -38,7 +38,7 @@
 				<label>Deity</label>
 			</div>
 			<div class="sheet-col45 sheet-show-deity">
-				<input type="text" name="attr_crew_deity_features"/>
+				<input type="text" placeholder="choose 2 features" name="attr_crew_deity_features"/>
 				<label>Deity Features</label>
 			</div>
 		</div>
@@ -260,7 +260,7 @@
 				<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" value="1" name="attr_ability1_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
-						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
+						<textarea spellcheck="false" class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
 						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_description" placeholder="Ability description"></textarea>
 				</div>
 				<fieldset class="repeating_ability">
@@ -340,12 +340,14 @@
 					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_upgrade_2_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" placeholder="Upgrade" name="attr_upgrade_2_desc"/>
+						<input type="checkbox" value="1" name="attr_upgrade_2_tall" class="sheet-hidden sheet-item-textarea-tall"/>
+						<textarea spellcheck="false" placeholder="Upgrade" name="attr_upgrade_2_desc"></textarea>
 					</div>
 					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_upgrade_3_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" placeholder="Upgrade" name="attr_upgrade_3_desc"/>
+						<input type="checkbox" value="1" name="attr_upgrade_3_tall" class="sheet-hidden sheet-item-textarea-tall"/>
+						<textarea spellcheck="false" placeholder="Upgrade" name="attr_upgrade_3_desc"></textarea>
 					</div>
 					<div class="sheet-item">
 						<input type="checkbox" value="1" name="attr_upgrade_4_check" class="sheet-checkbox sheet-squarebox"/>
@@ -505,7 +507,7 @@
 				</div>
 			</div>
 			<div class="sheet-hunting-grounds sheet-plainheader">
-				<input type="text" class="sheet-label" name="attr_hunting_grounds_type" value="Hunting Grounds"/>
+				<input type="text" class="sheet-label" name="attr_hunting_grounds_type" placeholder="Hunting Grounds:"/>
 				<input type="text" class="sheet-label" name="attr_hunting_grounds_description" placeholder="Robbery"/>
 			</div>
 		</div>
@@ -560,7 +562,7 @@
 					</div>
 				</div>
 				<div class="sheet-cohort-text sheet-col100">
-						<textarea name="attr_cohort1_description"></textarea>
+						<textarea spellcheck="false" name="attr_cohort1_description"></textarea>
 				</div>
 			</div>
 			<!-- Cohort repeating section -->
@@ -613,7 +615,7 @@
 							</div>
 						</div>
 						<div class="sheet-cohort-text sheet-col100">
-								<textarea name="attr_description"></textarea>
+								<textarea spellcheck="false" name="attr_description"></textarea>
 						</div>
 					</div>
 				</fieldset>
@@ -737,6 +739,6 @@
 				</div>
 			</fieldset>
 		</div>
-		<textarea class="sheet-notes" name="attr_notes" placeholder="Notes"></textarea>
+		<textarea spellcheck="false" class="sheet-notes" name="attr_notes" placeholder="Notes"></textarea>
 	</div>
 </div>
