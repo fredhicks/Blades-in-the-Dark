@@ -824,8 +824,12 @@ input[type="checkbox"].sheet-turf3:checked ~ input[type="radio"].sheet-turf3 + s
 input[type="checkbox"].sheet-turf4:checked ~ input[type="radio"].sheet-turf4 + span::before,
 input[type="checkbox"].sheet-turf5:checked ~ input[type="radio"].sheet-turf5 + span::before,
 input[type="checkbox"].sheet-turf6:checked ~ input[type="radio"].sheet-turf6 + span::before {
-		/* cyan tooth */
-		background-image: url('http://i.imgur.com/rrc6fQV.png');
+	/* black tooth*/
+	background-image: url('http://i.imgur.com/Sm1jToy.png');
+}
+input.sheet-stresstooth:checked ~ input.sheet-stresstooth.sheet-turf6 + span::before {
+	/* half grey tooth */
+	background-image: url('http://i.imgur.com/gAgcV8Z.png');
 }
 /* SPECIAL ABILITIES*/
 .sheet-specialability, .sheet-friend {
