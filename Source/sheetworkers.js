@@ -13,16 +13,17 @@ on("change:crew_type", function () {
 			show_deity: 0,
 			cohort1_name: 'Cohort'
 		};
+		v.crew_type = v.crew_type.toLowerCase();
 		/* show deity section if cultists are selected */
-		if (v.crew_type.toLowerCase() === 'cult') {
+		if (v.crew_type === 'cult') {
 			finalSettings.show_deity = 1;
 		}
 		/* change first cohort's name to vehicle if smugglers are selected */
-		if (v.crew_type.toLowerCase() === 'smugglers') {
+		if (v.crew_type === 'smugglers') {
 			finalSettings.cohort1_name = 'Vehicle';
 		}
 		/* add crew description if it does not exist yet */
-		if (_.has(crewDescriptions, v.crew_type) && v.crew_description === '') {
+		if (_.has(crewDescriptions, v.crew_type) && !v.crew_description) {
 			finalSettings.crew_description = crewDescriptions[v.crew_type];
 		}
 		setAttrs(finalSettings);
