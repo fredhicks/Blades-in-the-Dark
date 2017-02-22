@@ -1,9 +1,14 @@
+WORKERS
+- keep track of boxes changed by user
+- adapt sheet workers to modify unchanged boxes
+- ADD: sheet worker data for claims map
+
 CHARACTER
 - ADD: alchemicals section
 
 CREW
-- make cohort & tier buttons functional
-- keep track of boxes changed by user
-- adapt sheet workers to modify unchanged boxes
-- ADD: sheet worker data for claims map
 - ADD: faction/status section
+
+ROLL TEMPLATE & BUTTONS
+- make cohort & tier buttons functional
+- simplify roll template via sheet workers
