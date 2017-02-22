@@ -3,9 +3,7 @@ CHARACTER
 
 CREW
 - make cohort & tier buttons functional
-- make tier a button
 - keep track of boxes changed by user
 - adapt sheet workers to modify unchanged boxes
 - ADD: sheet worker data for claims map
-- ADD: status section
-
+- ADD: faction/status section

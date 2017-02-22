@@ -1316,6 +1316,10 @@ button[type=roll].sheet-attributebutton, button[type=roll].sheet-cohortbutton {
 	line-height: 9px;
 	color: white;
 }
+button[type=roll].sheet-tierbutton {
+	font-size: inherit;
+	color: inherit;
+}
 button[type=roll].sheet-cohortbutton span {
 	color: inherit;
 }
