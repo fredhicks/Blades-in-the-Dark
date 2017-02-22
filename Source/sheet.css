@@ -1402,19 +1402,19 @@ input.sheet-checkbox + span:last-child::before {
 input.sheet-checkbox:checked + span::before {
 	background-color: red !important;
 }
-input.sheet-checkbox.sheet-claimbridge-hor {
+input.sheet-checkbox.sheet-claimbridge {
 	width: 100%;
 	height: 100%;
 	margin-right: -100%;
 }
-input.sheet-checkbox.sheet-claimbridge-hor + span::before {
+input.sheet-checkbox.sheet-claimbridge + span::before {
 	margin: 0;
 	border: none;
 	width: 100%;
 	height: 100%;
 	background: transparent;
 }
-input.sheet-checkbox.sheet-claimbridge-hor:checked + span::before {
+input.sheet-checkbox.sheet-claimbridge:checked + span::before {
 	background: #d6d8d9 !important;
 }
 /* Change text colour when boxes are checked*/

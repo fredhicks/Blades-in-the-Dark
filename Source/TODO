@@ -1,3 +1,11 @@
-- add status section
-- add alchemicals section
+CHARACTER
+- ADD: alchemicals section
+
+CREW
+- make cohort button functional
+- keep track of boxes changed by user
+- adapt sheet workers to modify unchanged boxes
+- ADD: sheet worker data for claims map
+- ADD: status section
 - make tier a button
+- new, improved turf button styling
