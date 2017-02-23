@@ -1,14 +1,9 @@
-WORKERS
-- keep track of boxes changed by user
-- adapt sheet workers to modify unchanged boxes
-
 CREW
-- ADD: quality caption to cohort quality
 - ADD: faction/status section
-
 GENERAL
 - Add settings button?
-
+CHARACTER
+- Add option to hide part of the playbook items
 ROLL TEMPLATE & BUTTONS
 - make cohort & tier buttons functional
 - simplify roll template via sheet workers
