@@ -326,14 +326,15 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-item textarea {
 	width: calc(100% - 20px);
 	resize: none;
-	padding: 2px 0px;
-	height: 16px;
+	position: relative;
+	top: 2px;
+	height: 18px;
 	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 83%;
 	margin-left: 5px;
 }
 .sheet-item input.sheet-item-textarea-tall:checked + textarea {
-	height: 32px;
+	height: 36px;
 }
 .sheet-item.sheet-item2box input[type=text] {
 	width: calc(100% - 35px);
@@ -491,10 +492,13 @@ input[type="checkbox"], input[type="radio"] {
 }
 .sheet-playbook-title {
 	width: 70%;
+	height: inherit;
 	float: left;
+	padding: 5px 0 0 10px;
 }
 .sheet-playbook-desc {
 	width: 30%;
+	height: inherit;
 	float: left;
 }
 .sheet-playbook-title input[type="text"] {
@@ -502,9 +506,9 @@ input[type="checkbox"], input[type="radio"] {
 	font-size: 274%;
 	color: black;
 	font-weight: 800;
-	padding: 10px 0 0 10px;
 }
 .sheet-playbook-desc textarea {
+	box-sizing: border-box;
 	height: 50px;
 	width: 112px;	
 	padding-top: 6px;
@@ -1082,12 +1086,13 @@ input.sheet-radiobox:hover + span::before {
 	float: left;
 	background-color: black;
 	color: white;
-	height: 45px;
+	height: 49px;
 	padding: 11px 4px 4px 4px;
 	font-weight: 800;
 }
 .sheet-bonusdie .sheet-bonusdietext {
 	background-color: #d6d8d9;
+	height: 49px;
 	width: 90%;
 	float: left;
 	padding: 5px;
@@ -1356,6 +1361,8 @@ button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:
 /* CHECKBOXES */
 input.sheet-checkbox {
 	position: relative;
+	height: 12px;
+	width: 12px;
 	margin-right: -12px;
 }
 input.sheet-checkbox.sheet-circlebox-small {
