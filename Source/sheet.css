@@ -174,14 +174,11 @@ input[type="checkbox"], input[type="radio"] {
 	background-color: #d6d8d9;
 }
 /* COLUMN LAYOUT */
-.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col6, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70, .sheet-col54b, .sheet-col52b, .sheet-col18 {
+.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70, .sheet-col54b, .sheet-col52b, .sheet-col18 {
 	float: left;
 }
 .sheet-col2 {
 	width: 2%;
-}
-.sheet-col6 {
-	width: 6%;
 }
 .sheet-col18 {
 	width: 18%;
@@ -1056,21 +1053,15 @@ input.sheet-radiobox:hover + span::before {
 	border: 1px solid black !important;
 }
 /* HUNTING GROUNDS */
-.sheet-hunting-grounds {
-	width: 100%;
-	color: black;
-	font-size: 88%;
-	margin-top: 20px;
-	letter-spacing: 0px;
-}
-.sheet-hunting-grounds input[type="text"]:first-child {
+.sheet-hunting-grounds input[type="text"] {
 	font-weight: 800;
 	color: black;
 	line-height: 22px;
 }
-.sheet-hunting-grounds input[type="text"]:last-child {
-	font-size: 88%;
-	font-weight: 400;
+.sheet-hunting-grounds textarea {
+	font-size: inherit;
+	height: 36px;
+	resize: vertical;
 }
 /* BONUS DIE SECTION */
 .sheet-bonusdie {
