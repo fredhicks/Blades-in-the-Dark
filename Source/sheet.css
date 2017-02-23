@@ -86,7 +86,6 @@ textarea {
 }
 li, li input[type="text"] {
 	font-family: Georgia, Times, "Times New Roman", serif;
-	font-style: italic;
 	color: black;
 	position: relative;
 }
@@ -241,7 +240,7 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-bold {
 	font-weight: 800;
 }
-.sheet-italic {
+.sheet-italic, .sheet-italic input[type=text] {
 	font-style: italic;
 }
 /* FRIENDS/CONTACTS */
@@ -276,12 +275,14 @@ input[type="checkbox"], input[type="radio"] {
 }
 .sheet-gatherinfo li {
 	margin-bottom: 4px;
+	font-style: italic;
 	padding-left: 11px;
 	font-size: 86%;
 	height: 17px;
 }
 .sheet-gatherinfo li input[type=text] {
 	width: 100%;
+	font-style: italic;
 	font-size: 100%;
 }
 .sheet-gatherinfo li:after {
@@ -465,6 +466,7 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-advancement-desc li, .sheet-advancement-desc input[type=text] {
 	font-size: 95%;
 	line-height: 127%;
+	font-style: italic;
 	width: 100%;
 }
 .sheet-advancement-desc li {
@@ -477,8 +479,8 @@ input[type="checkbox"], input[type="radio"] {
 	top: .25em;
 }
 .sheet-advancement-desc li.sheet-nondot {
-	font-style: normal;
 	padding-left: 0;
+	font-style: normal;
 }
 .sheet-advancement-desc li.sheet-nondot:after {
 		display: none;
