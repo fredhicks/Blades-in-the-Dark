@@ -138,7 +138,7 @@ input[type="checkbox"], input[type="radio"] {
 	top: -3px;
 	z-index: -1;
 }
-.sheet-blackheader .sheet-label, .sheet-black-on-grey .sheet-label,  .sheet-greyheader .sheet-label {
+.sheet-blackheader .sheet-label, .sheet-black-on-grey .sheet-label, .sheet-greyheader .sheet-label {
 	padding-top: 2px;
 }
 .sheet-plainheader {
@@ -163,7 +163,7 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-greyholder {
 	background-color: #d6d8d9;
 }
-.sheet-leftcolumnitem {
+.sheet-def-margin {
 	margin-top: 15px;
 }
 .sheet-blackborder {
@@ -267,7 +267,7 @@ input[type="checkbox"], input[type="radio"] {
 	font-weight: 800;
 }
 /* INFO BOXES */
-.sheet-gatherinfo, .sheet-teamwork, .sheet-planning {
+.sheet-gatherinfo, .sheet-teamwork {
 	margin-top: 20px;
 }
 .sheet-gatherinfo ul {
@@ -376,22 +376,22 @@ input[type="checkbox"], input[type="radio"] {
 }
 /* LOGO */
 .sheet-bladeslogo {
-		height: 63px;
-		width: 95%;
-		background-image: url(http://i.imgur.com/qaufkev.png);
-		background-size: 102% auto;
-		background-repeat: no-repeat;
+	height: 63px;
+	width: 95%;
+	background-image: url(http://i.imgur.com/qaufkev.png);
+	background-size: 102% auto;
+	background-repeat: no-repeat;
 }
 .sheet-logoholder {
-		height: 50px;
+	height: 50px;
 }
 .sheet-crewheader {
-		color: #7f8184;
-		font-size: 210%;
-		letter-spacing: -2px;
-		margin-top: -8px;
-		font-weight: 800;
-		line-height: 50px;
+	color: #7f8184;
+	font-size: 210%;
+	letter-spacing: -2px;
+	margin-top: -8px;
+	font-weight: 800;
+	line-height: 50px;
 }
 /* LOAD */
 .sheet-loadheader, .sheet-loadheader2 {
@@ -415,19 +415,19 @@ input[type="checkbox"], input[type="radio"] {
 	padding-left: 5px;
 }
 .sheet-loadcheckholder {
-		display: inline-block;
-		font-family: serif;
-		text-transform: lowercase;
-		font-style: italic;
-		font-size: 104%;
-		font-weight: 500;
+	display: inline-block;
+	font-family: serif;
+	text-transform: lowercase;
+	font-style: italic;
+	font-size: 104%;
+	font-weight: 500;
 }
 .sheet-loadnumber {
-		font-style: normal;
-		font-weight: 800;
-		font-size: 105%;
-		padding-left: 4px;
-		padding-right: 2px;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 105%;
+	padding-left: 4px;
+	padding-right: 2px;
 }
 /* ADVANCEMENT BOX*/
 .sheet-advancement {
@@ -483,7 +483,7 @@ input[type="checkbox"], input[type="radio"] {
 	font-style: normal;
 }
 .sheet-advancement-desc li.sheet-nondot:after {
-		display: none;
+	display: none;
 }
 /* PLAYBOOK */
 .sheet-playbook {
@@ -528,10 +528,10 @@ input[type="checkbox"], input[type="radio"] {
 	color: #c43c35;
 }
 .sheet-header .sheet-col55 input[type="text"] {
-		width: 95%
+	width: 95%
 }
 .sheet-header label {
-		font-size: 71%;
+	font-size: 71%;
 }
 /* CLOCKS */
 .sheet-clock input.sheet-label {
@@ -542,127 +542,127 @@ input[type="checkbox"], input[type="radio"] {
 	line-height: 119%;
 }
 .sheet-clockpicture {
-		position: absolute;
-		margin-top: -38px;
-		z-index: 1;
-		height: 44px;
-		width: 44px;
-		background-image: url('http://i.imgur.com/ji8z8CE.png');
+	position: absolute;
+	margin-top: -38px;
+	z-index: 1;
+	height: 44px;
+	width: 44px;
+	background-image: url('http://i.imgur.com/ji8z8CE.png');
 }
 .sheet-recovery .sheet-clockpicture {
-		left: 288px;
+	left: 288px;
 }
 .sheet-clock .sheet-clockpicture {
-		left: 327px;
+	left: 327px;
 }
 .sheet-4clock, .sheet-6clock, .sheet-8clock, .sheet-12clock {
-		display: none;
-		margin-top: 10px;
+	display: none;
+	margin-top: 10px;
 }
 input[value="4"]:checked ~ .sheet-4clock, input[value="6"]:checked ~ .sheet-6clock, input[value="8"]:checked ~ .sheet-8clock, input[value="12"]:checked ~ .sheet-12clock, .sheet-recovery .sheet-8clock {
-		display: block;
+	display: block;
 }
 .sheet-8clock input[value="0"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/ji8z8CE.png");
+	background-image: url("http://i.imgur.com/ji8z8CE.png");
 }
 .sheet-8clock input[value="1"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/My9TlI6.png");
+	background-image: url("http://i.imgur.com/My9TlI6.png");
 }
 .sheet-8clock input[value="2"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/5o93FQt.png");
+	background-image: url("http://i.imgur.com/5o93FQt.png");
 }
 .sheet-8clock input[value="3"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/MR6r8J7.png");
+	background-image: url("http://i.imgur.com/MR6r8J7.png");
 }
 .sheet-8clock input[value="4"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/OADDLy1.png");
+	background-image: url("http://i.imgur.com/OADDLy1.png");
 }
 .sheet-8clock input[value="5"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/XvnSlyZ.png");
+	background-image: url("http://i.imgur.com/XvnSlyZ.png");
 }
 .sheet-8clock input[value="6"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/IKUp5Bv.png");
+	background-image: url("http://i.imgur.com/IKUp5Bv.png");
 }
 .sheet-8clock input[value="7"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/tmBBDIN.png");
+	background-image: url("http://i.imgur.com/tmBBDIN.png");
 }
 .sheet-8clock input[value="8"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/Y0eUmrG.png");
+	background-image: url("http://i.imgur.com/Y0eUmrG.png");
 }
 .sheet-4clock input[value="0"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/dafd6b0.png");
+	background-image: url("http://i.imgur.com/dafd6b0.png");
 }
 .sheet-4clock input[value="1"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/fM5WKMB.png");
+	background-image: url("http://i.imgur.com/fM5WKMB.png");
 }
 .sheet-4clock input[value="2"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/P6Wx884.png");
+	background-image: url("http://i.imgur.com/P6Wx884.png");
 }
 .sheet-4clock input[value="3"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/C1mMa0r.png");
+	background-image: url("http://i.imgur.com/C1mMa0r.png");
 }
 .sheet-4clock input[value="4"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/RZfr3By.png");
+	background-image: url("http://i.imgur.com/RZfr3By.png");
 }
 .sheet-6clock input[value="0"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/arZJyPv.png");
+	background-image: url("http://i.imgur.com/arZJyPv.png");
 }
 .sheet-6clock input[value="1"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/7l0Tihg.png");
+	background-image: url("http://i.imgur.com/7l0Tihg.png");
 }
 .sheet-6clock input[value="2"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/MhIfWuq.png");
+	background-image: url("http://i.imgur.com/MhIfWuq.png");
 }
 .sheet-6clock input[value="3"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/qwiaO8q.png");
+	background-image: url("http://i.imgur.com/qwiaO8q.png");
 }
 .sheet-6clock input[value="4"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/8O2eCB5.png");
+	background-image: url("http://i.imgur.com/8O2eCB5.png");
 }
 .sheet-6clock input[value="5"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/i7ivEnS.png");
+	background-image: url("http://i.imgur.com/i7ivEnS.png");
 }
 .sheet-6clock input[value="6"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/DuYwNvN.png");
+	background-image: url("http://i.imgur.com/DuYwNvN.png");
 }
 .sheet-12clock input[value="0"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/AzLi8pr.png");
+	background-image: url("http://i.imgur.com/AzLi8pr.png");
 }
 .sheet-12clock input[value="1"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/pDCHycE.png");
+	background-image: url("http://i.imgur.com/pDCHycE.png");
 }
 .sheet-12clock input[value="2"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/JbRUclC.png");
+	background-image: url("http://i.imgur.com/JbRUclC.png");
 }
 .sheet-12clock input[value="3"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/jRyp6oP.png");
+	background-image: url("http://i.imgur.com/jRyp6oP.png");
 }
 .sheet-12clock input[value="4"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/BHM56D9.png");
+	background-image: url("http://i.imgur.com/BHM56D9.png");
 }
 .sheet-12clock input[value="5"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/a4c1e5I.png");
+	background-image: url("http://i.imgur.com/a4c1e5I.png");
 }
 .sheet-12clock input[value="6"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/IRGWvwH.png");
+	background-image: url("http://i.imgur.com/IRGWvwH.png");
 }
 .sheet-12clock input[value="7"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/GbUzXr7.png");
+	background-image: url("http://i.imgur.com/GbUzXr7.png");
 }
 .sheet-12clock input[value="8"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/krkIEho.png");
+	background-image: url("http://i.imgur.com/krkIEho.png");
 }
 .sheet-12clock input[value="9"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/7vuvV92.png");
+	background-image: url("http://i.imgur.com/7vuvV92.png");
 }
 .sheet-12clock input[value="10"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/Q9xWEYx.png");
+	background-image: url("http://i.imgur.com/Q9xWEYx.png");
 }
 .sheet-12clock input[value="11"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/N29lNdB.png");
+	background-image: url("http://i.imgur.com/N29lNdB.png");
 }
 .sheet-12clock input[value="12"]:checked ~ .sheet-clockpicture {
-		background-image: url("http://i.imgur.com/Y1Vd6bo.png");
+	background-image: url("http://i.imgur.com/Y1Vd6bo.png");
 }
 .sheet-clockprogress {
 	margin-top: 10px;
@@ -680,7 +680,7 @@ input[value="4"]:checked ~ .sheet-4clock, input[value="6"]:checked ~ .sheet-6clo
 	margin-bottom: 8px;
 }
 .sheet-clocks {
-		margin-top: 26px;
+	margin-top: 26px;
 }
 .sheet-recovery .sheet-bold {
 	font-size: 81%;
@@ -725,10 +725,10 @@ input.sheet-text-input.sheet-traumarow2 + span {
 input.sheet-text-input:hover + span {
 	color: #9c9c9c;
 }
-input.sheet-text-input:checked + span  {
+input.sheet-text-input:checked + span {
 	color: #ff0000;
 }
-input.sheet-text-input:checked:hover + span  {
+input.sheet-text-input:checked:hover + span {
 	color: #dd0000;
 }
 input.sheet-text-input + span::after {
@@ -772,28 +772,28 @@ input.sheet-tooth:hover + span::before {
 	opacity: 0.7;
 }
 input.sheet-xptooth + span::before {
-		background-image: url(http://i.imgur.com/ZYuytKg.png);
+	background-image: url(http://i.imgur.com/ZYuytKg.png);
 }
 input.sheet-xptooth:checked ~ input.sheet-xptooth + span::before {
-		background-image: url(http://i.imgur.com/pGe2dC1.png);
+	background-image: url(http://i.imgur.com/pGe2dC1.png);
 }
 input.sheet-stresstooth[type="radio"] + span::before,
 input.sheet-stresstooth[type="checkbox"]:checked + span::before,
 input.sheet-holdtooth:checked + span::before {
-		/* red tooth */
-		background-image: url(http://i.imgur.com/17DqQbA.png);
+	/* red tooth */
+	background-image: url(http://i.imgur.com/17DqQbA.png);
 }
 input.sheet-stresstooth[type="checkbox"] + span::before,
 input.sheet-stresstooth:checked ~ input.sheet-stresstooth[type="radio"] + span::before,
 input.sheet-holdtooth + span::before {
-		/* white tooth */
-		background-image: url(http://i.imgur.com/XNFdq3n.png);
+	/* white tooth */
+	background-image: url(http://i.imgur.com/XNFdq3n.png);
 }
 input.sheet-regulartooth[type="radio"] + span::before {
-		background-image: url(http://i.imgur.com/co4IzVF.png);
+	background-image: url(http://i.imgur.com/co4IzVF.png);
 }
 input.sheet-regulartooth:checked ~ input.sheet-regulartooth[type="radio"] + span::before {
-		background-image: url(http://i.imgur.com/m3eW79B.png);
+	background-image: url(http://i.imgur.com/m3eW79B.png);
 }
 input.sheet-zero {
 	position: relative;
@@ -816,9 +816,9 @@ input.sheet-zero[type="radio"]:checked + span::before {
 }
 /* TURF RADIOS */
 .sheet-turfbox input[type="radio"] {
-		display: block;
-		float: right;
-		width: 11px;
+	display: block;
+	float: right;
+	width: 11px;
 }
 input[type="checkbox"].sheet-turf1:checked ~ input[type="radio"].sheet-turf1 + span::before,
 input[type="checkbox"].sheet-turf2:checked ~ input[type="radio"].sheet-turf2 + span::before,
@@ -910,13 +910,13 @@ textarea.sheet-abilitydesc {
 	padding-top: 13px;
 }
 .sheet-arrow-right {
-		display: inline-block;
-		width: 0;
-		height: 0;
-		margin-left: 2px;
-		border-top: 4px solid transparent;
-		border-bottom: 4px solid transparent;
-		border-left: 4px solid black;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-left: 4px solid black;
 }
 /* ARMOR */
 .sheet-armor .sheet-label {
@@ -936,12 +936,12 @@ textarea.sheet-abilitydesc {
 	font-weight: 800;
 }
 .sheet-specialarmorcaption {
-		font-family: Georgia, Times, "Times New Roman", serif;
-		font-style: italic;
-		color: #808183;
-		font-size: 80%;
-		line-height: 0px;
-		padding-top: 7px;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-style: italic;
+	color: #808183;
+	font-size: 80%;
+	line-height: 0px;
+	padding-top: 7px;
 }
 /* COIN */
 .sheet-coinrow {
@@ -1104,32 +1104,32 @@ input.sheet-radiobox:hover + span::before {
 }
 /* REPEATING SECTION CONTROLS */
 .charsheet button.repcontrol_edit, .charsheet button.repcontrol_add {
-		padding: 6px;
-		background-image: none;
-		background-color: #d6d8d9;
-		color: #616161;
-		border-radius: 0;
-		border-color: #b3b4b6;
-		transition: all 0.2s;
-		font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-		font-variant: small-cap;
-		font-weight: 800;
+	padding: 6px;
+	background-image: none;
+	background-color: #d6d8d9;
+	color: #616161;
+	border-radius: 0;
+	border-color: #b3b4b6;
+	transition: all 0.2s;
+	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+	font-variant: small-cap;
+	font-weight: 800;
 }
 .charsheet button.repcontrol_edit:hover, .charsheet button.repcontrol_add:hover {
-		color: #020202;
-		border-color: #020202;
-		background-color: #cccccc;
+	color: #020202;
+	border-color: #020202;
+	background-color: #cccccc;
 }
 .sheet-white-repcontrol button.repcontrol_edit, .sheet-white-repcontrol button.repcontrol_add {
-		font-weight: 600;
-		background-color: white;
-		margin-top: 12px;
-		font-size: 91%;
-		font-family: serif;
-		padding: 4px;
+	font-weight: 600;
+	background-color: white;
+	margin-top: 12px;
+	font-size: 91%;
+	font-family: serif;
+	padding: 4px;
 }
 .itemcontrol {
-		z-index: 20;
+	z-index: 20;
 }
 /* STRESS, REP, et cetera */
 .sheet-stress > div, .sheet-rep > div, .sheet-hold > div, .sheet-heat > div, .sheet-crewcoin > div:first-child > div {
@@ -1166,11 +1166,11 @@ input.sheet-radiobox:hover + span::before {
 	width: calc(100% - 170px);
 }
 .sheet-turfbox {
-		display: block;
-		position: absolute;
-		float: right;
-		z-index: 2;
-		margin-left: 63px;
+	display: block;
+	position: absolute;
+	float: right;
+	z-index: 2;
+	margin-left: 63px;
 }
 .sheet-hold1, .sheet-hold4, .sheet-heat1 {
 	width: 41px;
@@ -1268,32 +1268,32 @@ input.sheet-show-deity:checked ~ div.sheet-show-deity {
 }
 /* LOAD CHECKBOXES */
 .sheet-loadboxholder {
-		transform: rotate(45deg);
-		display: inline-block;
-		margin-left: 6px;
-		width: 7px;
-		height: 7px;
+	transform: rotate(45deg);
+	display: inline-block;
+	margin-left: 6px;
+	width: 7px;
+	height: 7px;
 }
 input.sheet-loadbox[type="checkbox"] {
-		width: 12px;
-		height: 12px;
-		margin-bottom: -10px;
-		position: relative;
+	width: 12px;
+	height: 12px;
+	margin-bottom: -10px;
+	position: relative;
 }
 input.sheet-loadbox[type="checkbox"] + span::before {
-		display: inline-block;
-		content: "";
-		border: 1px solid black;
-		width: 8px;
-		height: 8px;
-		background-color: white;
+	display: inline-block;
+	content: "";
+	border: 1px solid black;
+	width: 8px;
+	height: 8px;
+	background-color: white;
 }
 input.sheet-loadbox[type="checkbox"]:checked + span::before {
-		background-color: red;
+	background-color: red;
 }
 input.sheet-loadbox[type="checkbox"]:hover + span::before {
-		filter: alpha(opacity=70);
-		opacity: 0.7;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
 }
 /* ROLL BUTTONS */
 button[type=roll] {
@@ -1356,8 +1356,8 @@ button[type=roll].sheet-rollbutton:hover {
 	color: #ff4747;
 }
 button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:hover {
-		color: #020202;
-		border-color: #020202;
+	color: #020202;
+	border-color: #020202;
 }
 /* CHECKBOXES */
 input.sheet-checkbox {
@@ -1491,7 +1491,7 @@ input.sheet-checkbox.sheet-friendup {
 	background-color: black;
 	padding-left: 7px;
 }
-.sheet-attribute-title div:first-child, .sheet-cohort-title div:first-child  {
+.sheet-attribute-title div:first-child, .sheet-cohort-title div:first-child {
 	width: 67px;
 	float: left;
 }
@@ -1624,4 +1624,38 @@ div.sheet-cohort-condition4 {
 	position: absolute;
 	margin: 1px 0 0 1px;
 	line-height: 0;
+}
+/* Alchemicals */
+input.sheet-alchemicals-checkbox {
+	width: 93px;
+	margin-right: -93px;
+}
+input.sheet-alchemicals-checkbox + div {
+	display: inline-block;
+}
+input.sheet-alchemicals-checkbox:hover + div {
+	color: red;
+}
+.sheet-alchemicals-content {
+	display: none;
+	padding-left: 7px;
+}
+input.sheet-alchemicals-checkbox:checked ~ .sheet-alchemicals-content {
+	display: block;
+}
+.sheet-alchemicals .sheet-bandolier span:first-child {
+	margin-right: 7px;
+}
+.sheet-alchemicals .sheet-italic {
+	font-size: 80%;
+}
+.sheet-alchemicals li:after {
+	height: 4px;
+	width: 4px;
+	top: .7em;
+}
+.sheet-alchemicals li {
+	padding-left: 11px;
+	font-size: 84%;
+	height: 16px;
 }

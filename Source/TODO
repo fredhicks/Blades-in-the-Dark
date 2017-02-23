@@ -2,12 +2,12 @@ WORKERS
 - keep track of boxes changed by user
 - adapt sheet workers to modify unchanged boxes
 
-CHARACTER
-- ADD: alchemicals section
-
 CREW
 - ADD: quality caption to cohort quality
 - ADD: faction/status section
+
+GENERAL
+- Add settings button?
 
 ROLL TEMPLATE & BUTTONS
 - make cohort & tier buttons functional

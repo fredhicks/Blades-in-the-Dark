@@ -375,7 +375,6 @@ on('change:playbook', function () {
 			item_6_desc: 'Bandolier of alchemicals (3)',
 			item_7_desc: 'Blowgun & darts, syringes',
 			playbook_description: 'A Saboteur and\nTechnician',
-			show_alchemicals: 'on',
 			tinker1: 1,
 			tinker2: 1,
 			wreck1: 1,
@@ -460,9 +459,7 @@ on('change:playbook', function () {
 		},
 		attributes = _.chain(playbookData).map(o => _.keys(o)).flatten().uniq().union(['playbook']).value();
 	getAttrs(attributes, function (attrValues) {
-		let defaultSettings = {
-			show_alchemicals: 0
-			},
+		let defaultSettings = {},
 			finalSettings = defaultSettings,
 			attrsForce = ['show_alchemicals'],
 			playbook = attrValues.playbook.toLowerCase();
