@@ -441,56 +441,87 @@ var crewData = {
 },
 	crewAttributes = _.chain(crewData).map(o => _.keys(o)).flatten().uniq().value(),
 	playbookAttributes = _.chain(playbookData).map(o => _.keys(o)).flatten().uniq().value(),
-	watchedAttributes = _.union(crewAttributes, playbookAttributes),
-	crewAttributesChanged = _.map(crewAttributes, name => `changed_${name}`);
-	playbookAttributesChanged = _.map(playbookAttributes, name => `changed_${name}`);
+	watchedAttributes = _.union(crewAttributes, playbookAttributes);
 /* Set flag when one of watched attributes is changed by user */
 _.each(watchedAttributes, function(name) {
 	'use strict';
 		on(`change:${name}`, function(eventInfo) {
 			if (eventInfo.sourceType === 'player') {
-				let attrs = {};
-				attrs[`changed_${name}`] = 'on';
-				setAttrs(attrs);
+				getAttrs(['changed_attributes'], function(v) {
+					let changedAttributes = _.union((v.changed_attributes||'').split(','),[name]).join(',');
+					setAttrs({
+						changed_attributes: changedAttributes
+					});
+				});
 			}
 		});
 	});
-/* Set some default fields when setting crew type */
-on('change:crew_type', function () {
+/* Set some default fields when setting crew type or playbook */
+on('change:crew_type change:playbook', function (event) {
 	'use strict';
-	let attributes = _.union(crewAttributesChanged, ['crew_type']);
-	getAttrs(attributes, function (attrValues) {
-		let crew_type = attrValues.crew_type.toLowerCase(),
-			data = crewData[crew_type];
-		/* Change unset attributes to crew default */
+	getAttrs(['crew_type', 'playbook', 'changed_attributes'], function (attrValues) {
+		let changedAttributes = (attrValues.changed_attributes||'').split(','),
+			data;
+		switch(event.sourceAttribute) {
+			case 'crew_type':
+				data = crewData[attrValues.crew_type.toLowerCase()];
+				break;
+			case 'playbook':
+				data = playbookData[attrValues.playbook.toLowerCase()];
+		}
+		/* Change unset attributes to default */
 		if (data) {
 			let finalSettings = _.reduce(data, function(settings, value, name) {
-				if (!attrValues[`changed_${name}`]) {
+				if (!_.contains(changedAttributes, name)) {
 					settings[name] = value;
 				}
 				return settings;
-			}, {});
+				}, {});
 			setAttrs(finalSettings);
 		}
 	});
 });
-/* Set some default fields when setting playbook */
-on('change:playbook', function () {
+/* Calculate number of dice for vice rolls */
+var actions = {
+	insight: [
+		'hunt',
+		'study',
+		'survey',
+		'tinker'
+	],
+	prowess: [
+		'finesse',
+		'prowl',
+		'skirmish',
+		'wreck'
+	],
+	resolve: [
+		'attune',
+		'command',
+		'consort',
+		'sway'
+	]
+},
+	actions1 = _.mapObject(actions, array => _.map(array, str => str + '1')),
+	actions1Flat = _.chain(actions1).map(x => x).flatten().value(),
+	actions1Event = _.map(actions1Flat, str => `change:${str}`).join(' ');
+on(actions1Event, function() {
 	'use strict';
-	let attributes = _.union(playbookAttributesChanged, ['playbook']);
-	getAttrs(attributes, function (attrValues) {
-		let playbook = attrValues.playbook.toLowerCase(),
-			data = playbookData[playbook];
-		/* Change unset attributes to crew default */
-		if (data) {
-			let finalSettings = _.reduce(data, function(settings, value, name) {
-				if (!attrValues[`changed_${name}`]) {
-					settings[name] = value;
-				}
-				return settings;
-			}, {});
-			setAttrs(finalSettings);
-		}
+	getAttrs(actions1Flat, function(values) {
+		let numDice = _.chain(actions1)
+			.map(function(array) {
+				return _.chain(array)
+					.map(str => values[str])
+					.reduce((s,v) => s + parseInt(v||0), 0)
+					.value()
+			})
+			.min().value(),
+			setting = {};
+		setting.vice1 = (numDice > 0) ? 1 : 0;
+		setting.vice2 = (numDice > 1) ? 1 : 0;
+		setting.vice3 = (numDice > 2) ? 1 : 0;
+		setting.vice4 = (numDice > 3) ? 1 : 0;
+		setAttrs(setting);
 	});
 });
 </script>
