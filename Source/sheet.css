@@ -318,6 +318,7 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-item input[type=text] {
 	width: calc(100% - 20px);
 	height: 16px;
+	color: black;
 	margin-left: 5px;
 	padding: 3px 0;
 	font-size: 83%;
@@ -1322,6 +1323,8 @@ button[type=roll].sheet-actionbutton {
 	float: right;
 	color: black;
 	margin-top: 3px;
+	text-align: left;
+	width: 86px;
 }
 button[type=roll].sheet-vicebutton, button[type=roll].sheet-fortunebutton {
 	color: #616161;
@@ -1636,6 +1639,7 @@ input.sheet-alchemicals-checkbox:checked ~ .sheet-alchemicals-content {
 }
 .sheet-alchemicals .sheet-bandolier span:first-child {
 	margin-right: 7px;
+	font-size: 90%;
 }
 .sheet-alchemicals .sheet-italic {
 	font-size: 80%;
