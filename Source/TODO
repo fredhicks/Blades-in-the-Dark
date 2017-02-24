@@ -1,5 +1,6 @@
 CREW
 - ADD: faction/status section
 - little triangle next to contact name
+- fix font size for weak/impaired/broken/armor on windows/linux
 CHARACTER
 - Add option to hide part of the playbook items
