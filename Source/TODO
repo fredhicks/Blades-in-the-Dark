@@ -1,9 +1,7 @@
 CREW
 - ADD: faction/status section
-GENERAL
-- Add settings button?
+- little triangle next to contact name
 CHARACTER
 - Add option to hide part of the playbook items
-ROLL TEMPLATE & BUTTONS
-- make cohort & tier buttons functional
-- simplify roll template via sheet workers
+CONVERSION
+- Add attribute conversions from the live sheet
