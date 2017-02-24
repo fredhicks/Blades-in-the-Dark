@@ -1,6 +1,11 @@
 CREW
 - ADD: faction/status section
+- ADD: Wanted/Heat button (for entanglements)
 - little triangle next to contact name
 - fix font size for weak/impaired/broken/armor on windows/linux
+- add notes to cohort roll template?
 CHARACTER
 - Add option to hide part of the playbook items
+- Add option for extra stress/trauma box (up to 2 stress, 1 trauma)
+- Add ability to hide change load numbers
+- Add option for extra playbook/crew xp trigger

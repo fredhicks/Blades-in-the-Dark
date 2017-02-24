@@ -1,4 +1,5 @@
 <script type="text/worker">
+/* Set some default fields when setting crew type or playbook */
 var crewData = {
 	assassins: {
 		claim_1_desc: '+1 scale for your\nSkulks cohorts',
@@ -442,21 +443,6 @@ var crewData = {
 	crewAttributes = _.chain(crewData).map(o => _.keys(o)).flatten().uniq().value(),
 	playbookAttributes = _.chain(playbookData).map(o => _.keys(o)).flatten().uniq().value(),
 	watchedAttributes = _.union(crewAttributes, playbookAttributes);
-/* Set flag when one of watched attributes is changed by user */
-_.each(watchedAttributes, function(name) {
-	'use strict';
-		on(`change:${name}`, function(eventInfo) {
-			if (eventInfo.sourceType === 'player') {
-				getAttrs(['changed_attributes'], function(v) {
-					let changedAttributes = _.union((v.changed_attributes||'').split(','),[name]).join(',');
-					setAttrs({
-						changed_attributes: changedAttributes
-					});
-				});
-			}
-		});
-	});
-/* Set some default fields when setting crew type or playbook */
 on('change:crew_type change:playbook', function (event) {
 	'use strict';
 	getAttrs(['crew_type', 'playbook', 'changed_attributes'], function (attrValues) {
@@ -481,6 +467,20 @@ on('change:crew_type change:playbook', function (event) {
 		}
 	});
 });
+/* Watch for changes in auto-set attributes and don't touch them */
+_.each(watchedAttributes, function(name) {
+	'use strict';
+		on(`change:${name}`, function(eventInfo) {
+			if (eventInfo.sourceType === 'player') {
+				getAttrs(['changed_attributes'], function(v) {
+					let changedAttributes = _.union((v.changed_attributes||'').split(','),[name]).join(',');
+					setAttrs({
+						changed_attributes: changedAttributes
+					});
+				});
+			}
+		});
+	});
 /* Calculate number of dice for vice rolls */
 var actions = {
 	insight: [
@@ -522,6 +522,53 @@ on(actions1Event, function() {
 		setting.vice3 = (numDice > 2) ? 1 : 0;
 		setting.vice4 = (numDice > 3) ? 1 : 0;
 		setAttrs(setting);
+	});
+});
+/* Make friend1 checkboxes exclusive */
+var friends = ['friend1_up', 'friend1_down'],
+	friendsEvent = _.map(friends, str => `change:${str}`).join(' ');
+on(friendsEvent, function(event) {
+	'use strict';
+	getAttrs(friends, function(v) {
+		if(v[event.sourceAttribute] === 'on') {
+			let setting = _.chain(friends)
+				.reject(str => (str === event.sourceAttribute))
+				.object([0])
+				.value();
+			setAttrs(setting);
+		}
+	});
+});
+/* Make repeating friend checkboxes exclusive */
+var friendsRepeating = ['up', 'down'],
+	friendsRepeatingPrefixed = _.map(friendsRepeating, str => `repeating_friend_${str}`),
+	friendsEvent = _.map(friendsRepeating, str => `change:repeating_friend:${str}`).join(' ');
+on(friendsEvent, function(event) {
+	'use strict';
+	getAttrs(friendsRepeatingPrefixed, function(v) {
+		let sanitizedSource = _.reject(event.sourceAttribute.split('_'),(v,i)=> i==2).join('_');
+		if(v[sanitizedSource] === 'on') {
+			let setting = _.chain(friendsRepeatingPrefixed)
+				.reject(str => (str === sanitizedSource))
+				.object([0])
+				.value();
+			setAttrs(setting);
+		}
+	});
+});
+/* Make load checkboxes exclusive */
+var loads = ['load_light', 'load_normal', 'load_heavy'],
+	loadsEvent = _.map(loads, str => `change:${str}`).join(' ');
+on(loadsEvent, function(event) {
+	'use strict';
+	getAttrs(loads, function(v) {
+		if(v[event.sourceAttribute] === 'on') {
+			let setting = _.chain(loads)
+				.reject(str => (str === event.sourceAttribute))
+				.object([0,0])
+				.value();
+			setAttrs(setting);
+		}
 	});
 });
 </script>
