@@ -360,9 +360,6 @@
 		padding-top: 20px;
 		padding-left: 29px;
 }
-.sheet-rolltemplate-bitd-fortune img {
-		height: 31px;
-}
 .sheet-rolltemplate-bitd-fortune .sheet-rolltableeffect {
 		padding-left: 15px;
 }
@@ -405,6 +402,9 @@
 		color: #1e1e1e;
 		Padding-left: 29px;
 		font-family: Georgia, serif;
+}
+.sheet-rolltemplate-bitd-fortune img {
+		height: 31px;
 }
 /* TIER/QUALITY TEMPLATE */
 .sheet-rolltemplate-bitd-tier .sheet-rolltableholder {
