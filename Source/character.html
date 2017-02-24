@@ -83,6 +83,12 @@
 				<span></span>
 				<input type="radio" value="9" name="attr_stress" class="sheet-tooth sheet-stresstooth"/>
 				<span></span>
+				<input type="checkbox" name="attr_setting_extra_stress1" class="sheet-hidden sheet-toothhider"/>
+				<input type="radio" value="10" name="attr_stress" class="sheet-tooth sheet-stresstooth"/>
+				<span></span>
+				<input type="checkbox" name="attr_setting_extra_stress2" class="sheet-hidden sheet-toothhider"/>
+				<input type="radio" value="11" name="attr_stress" class="sheet-tooth sheet-stresstooth"/>
+				<span></span>
 			</div>
 			<!-- Trauma markers -->
 			<div class="sheet-stress3">
@@ -102,6 +108,9 @@
 					<input type="radio" value="3" name="attr_trauma" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
 					<input type="radio" value="4" name="attr_trauma" class="sheet-tooth sheet-regulartooth"/>
+					<span></span>
+					<input type="checkbox" name="attr_setting_extra_trauma" class="sheet-hidden sheet-toothhider"/>
+					<input type="radio" value="5" name="attr_trauma" class="sheet-tooth sheet-regulartooth"/>
 					<span></span>
 				</div>
 			</div>
@@ -408,6 +417,10 @@
 					<li>
 						<input type="text" placeholder="Enter your playbook's specific way to mark XP here." name="attr_xp_condition"/>
 					</li>
+					<input type="checkbox" name="attr_setting_extra_xp" class="sheet-hidden sheet-xp-hider"/>
+					<li>
+						<input type="text" placeholder="Enter another specific way to mark XP here." name="attr_xp_condition_extra"/>
+					</li>
 					<li>You expressed your beliefs, drives, heritage, or background.</li>
 					<li>You struggled with issues from your vice or traumas during the session.</li>
 				</ul>
@@ -460,7 +473,7 @@
 						<input type="checkbox" name="attr_load_light" class="sheet-loadbox"/>
 						<span></span>
 					</div>
-					<span class="sheet-loadnumber">3</span>
+					<span class="sheet-loadnumber" name="attr_setting_load_l"></span>
 					<span>Light</span>
 				</div>
 				<div class="sheet-loadcheckholder">
@@ -468,7 +481,7 @@
 						<input type="checkbox" name="attr_load_normal" class="sheet-loadbox"/>
 						<span></span>
 					</div>
-					<span class="sheet-loadnumber">5</span>
+					<span class="sheet-loadnumber" name="attr_setting_load_n"></span>
 					<span>Normal</span>
 				</div>
 				<div class="sheet-loadcheckholder">
@@ -476,7 +489,8 @@
 						<input type="checkbox" name="attr_load_heavy" class="sheet-loadbox"/>
 						<span></span>
 					</div>
-					<span class="sheet-loadnumber">6+</span>
+					<span class="sheet-loadnumber" name="attr_setting_load_h"></span>
+					<span class="sheet-bold">+</span>
 					<span>Heavy</span>
 				</div>
 			</div>
@@ -485,9 +499,10 @@
 				<span class="sheet-italic">(italics don't count for load)</span>
 			</div>
 			<!-- Items -->
-			<div class="sheet-itemholder sheet-white-repcontrol sheet-col100">
+			<div class="sheet-itemholder sheet-white-repcontrol sheet-col100 sheet-items">
 				<!-- Playbook items -->
 				<div class="sheet-playbookitems sheet-col100">
+					<input type="checkbox" name="attr_setting_showitem_0" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-item3box">
 						<input type="checkbox" name="attr_item_0_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
@@ -497,6 +512,7 @@
 						<span></span>
 						<input type="text" placeholder="Three one-slot items" name="attr_item_0_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_1" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-itembold sheet-item2box">
 						<input type="checkbox" name="attr_item_1_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
@@ -505,41 +521,49 @@
 						<span></span>
 						<input type="text" placeholder="Fine two-slot item" name="attr_item_1_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_2" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-itembold">
 						<input type="checkbox" name="attr_item_2_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<input type="text" placeholder="Fine one-slot item" name="attr_item_2_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_3" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-itembold">
 						<input type="checkbox" name="attr_item_3_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<input type="text" placeholder="Fine one-slot item" name="attr_item_3_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_4" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-itembold sheet-itemitalic">
 						<input type="checkbox" name="attr_item_4_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<input type="text" placeholder="Fine one-slot item" name="attr_item_4_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_5" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item">
 						<input type="checkbox" name="attr_item_5_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<input type="text" placeholder="Regular one-slot item" name="attr_item_5_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_6" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item">
 						<input type="checkbox" name="attr_item_6_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<input type="text" placeholder="Regular one-slot item" name="attr_item_6_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_7" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" name="attr_item_7_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<input type="text" placeholder="Regular one-slot item" name="attr_item_7_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_8" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" name="attr_item_8_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<input type="text" placeholder="Regular one-slot item" name="attr_item_8_desc"/>
 					</div>
+					<input type="checkbox" name="attr_setting_showitem_9" class="sheet-hidden sheet-itemhider" checked/>
 					<div class="sheet-item sheet-itemitalic">
 						<input type="checkbox" name="attr_item_9_check" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>

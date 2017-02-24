@@ -51,6 +51,81 @@ input.sheet-type-selector + span::before {
 input.sheet-type-selector:checked + span::before {
 	content: "Crew Mode";
 }
+/* SETTINGS */
+input.sheet-settings-checkbox, input.sheet-settings-checkbox + span {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 52px;
+	left: 800px;
+}
+input.sheet-settings-checkbox + span {
+	opacity: 0.3;
+	font-size: 120%
+	font-family: pictos;
+	display:inline-block;
+}
+input.sheet-settings-checkbox:checked + span {
+		opacity: 1;
+}
+input.sheet-settings-checkbox:checked ~ .sheet-settings {
+	display: block;
+}
+.sheet-settings {
+	display: none;
+	position: absolute;
+	left: 536px;
+	width: 350px;
+	border: 1px solid black;
+	background: white;
+	z-index: 100;
+	padding: 5px;
+	border-radius: 5px;
+}
+.sheet-settings > div {
+	width: 50%;
+	float: left;
+	padding: 2px;
+}
+.sheet-settings input.sheet-checkbox.sheet-squarebox:checked + span::before {
+	background-color: black !important;
+}
+.sheet-settings span:last-child {
+	font-size: 80%;
+	padding-left: 3px;
+}
+input.sheet-itemhider + div.sheet-item {
+	display: none;
+}
+input.sheet-itemhider:checked + div.sheet-item {
+	display: inline-block;
+}
+input.sheet-toothhider + input.sheet-tooth, input.sheet-toothhider + input.sheet-tooth + span::before {
+	display:none;
+}
+input.sheet-toothhider:checked + input.sheet-tooth, input.sheet-toothhider:checked + input.sheet-tooth + span::before {
+	display: inline-block;
+}
+input.sheet-xp-hider + li {
+	display: none;
+}
+input.sheet-xp-hider:checked + li {
+	display: list-item;
+}
+div.sheet-loadsettings {
+	width: 100%;
+}
+.sheet-loadsettings span {
+	font-size: 80%;
+	padding: 0 4px 0 0;
+}
+input[type=number] {
+	padding: 0 2px;
+	margin-left: 8px;
+	box-shadow: none;
+	width: 30px;
+	font-size: 90%;
+}
 /* GENERALITIES */
 .charsheet {
 	width: 860px;
@@ -427,6 +502,10 @@ input[type="checkbox"], input[type="radio"] {
 	font-size: 104%;
 	font-weight: 500;
 }
+.sheet-loadcheckholder .sheet-bold {
+	font-size: 105%;
+	margin-left: -2px;
+}
 .sheet-loadnumber {
 	font-style: normal;
 	font-weight: 800;
@@ -750,7 +829,7 @@ input.sheet-text-input.sheet-last + span::after {
 }
 /* TEETH */
 input.sheet-stresstooth, input.sheet-xptooth, input.sheet-holdtooth,
-input.sheet-stresstooth + span::before, input.sheet-xptooth + span::before, input.sheet-holdtooth + span::before, {
+input.sheet-stresstooth + span::before, input.sheet-xptooth + span::before, input.sheet-holdtooth + span::before {
 	height: 25px;
 }
 input.sheet-regulartooth, input.sheet-regulartooth + span::before {
@@ -1141,14 +1220,17 @@ input.sheet-radiobox:hover + span::before {
 .sheet-stress, .sheet-rep, .sheet-hold, .sheet-heat {
 	height: 25px;
 }
-.sheet-stress1, .sheet-stress3 {
-	width: 64px;
+.sheet-stress1 {
+	width: 57px;
+}
+.sheet-stress3 {
+	width: 72px;
 }
 .sheet-stress2 {
-	width: 123px;
+	width: 130px;
 }
 .sheet-stress4 {
-	width: calc(100% - 251px);
+	width: calc(100% - 259px);
 	padding-left: 5px;
 	padding-top: 1px;
 }
@@ -1205,7 +1287,7 @@ input.sheet-radiobox:hover + span::before {
 	position: absolute;
 }
 .sheet-stress1 .sheet-zeroholder {
-	margin: -2px 0 0 45px;
+	margin: -2px 0 0 40px;
 }
 .sheet-stress3 .sheet-zeroholder {
 	margin-left: 5px;
