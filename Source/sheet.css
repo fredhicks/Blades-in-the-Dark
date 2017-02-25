@@ -758,7 +758,7 @@ input[value="4"]:checked ~ .sheet-4clock, input[value="6"]:checked ~ .sheet-6clo
 	background-color: #d6d8d9;
 	font-style: italic;
 	font-size: 80%;
-	line-height: 0px;
+	line-height: 8px;
 }
 .sheet-clock {
 	width: 100%;

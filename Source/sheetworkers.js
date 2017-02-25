@@ -1,4 +1,5 @@
 <script type="text/worker">
+/* DEFAULT FILLS FOR PLAYBOOKS AND CREWS
 /* Set some default fields when setting crew type or playbook */
 var crewData = {
 	assassins: {
@@ -286,7 +287,7 @@ var crewData = {
 		claim_bridge_13_14: 0,
 		cohort1_description: 'Type: Boat - Carriage - Other',
 		cohort1_name: 'Vehicle',
-		cohort1_quality1: 1,
+		cohort1_quality1: '1',
 		crew_description: 'Suppliers\nof Illicit\nGoods',
 		crew_xp_condition: 'Execute a successful smuggling or acquire new clients or contraband sources.',
 		hunting_grounds_type: 'Cargo Types:',
@@ -307,7 +308,7 @@ var crewData = {
 	},
 	playbookData = {
 	cutter: {
-		command1: 1,
+		command1: '1',
 		gatherinfo1: 'How can I hurt them?',
 		gatherinfo2: 'Who\'s most afraid of me?',
 		gatherinfo3: 'Who\'s most dangerous here?',
@@ -321,10 +322,28 @@ var crewData = {
 		item_8_desc: 'Rage essence vial',
 		item_9_desc: 'Spiritbane charm',
 		playbook_description: 'A Dangerous &\nIntimidating\nFighter',
-		skirmish1: 1,
-		skirmish2: 1,
+		skirmish1: '1',
+		skirmish2: '1',
 		xp_condition: 'You addressed a challenge with violence or coercion.'
 	},
+// 	ghost: {
+// 		attune1: '1',
+// 		gatherinfo1: 'What do they intend to do?',
+// 		gatherinfo2: 'How can I get them to [X]?',
+// 		gatherinfo3: 'What are they really feeling?',
+// 		gatherinfo4: 'What should I look out for?',
+// 		gatherinfo5: 'Where\'s the weakness here?',
+// 		gatherinfo6: 'How can I find [X]?',
+// 		hunt1: '1',
+// 		playbook_description: 'A spirit without a body',
+// 		setting_stress_name: 'Drain',
+// 		setting_trauma_name: 'Gloom',
+// 		setting_traumata_set: 'ghost',
+// 		setting_vice: 'ghost',
+// 		xp_condition: 'You exacted vengeance upon those whom you deem deserving.',
+// 		xp_condition2: 'You expressed your your outrage or anger, or settled scores from your heritage or background.',
+// 		xp_condition3: 'You struggled with issues from your need or glooms during the session.'
+// 	},
 	hound: {
 		gatherinfo1: 'What do they intend to do?',
 		gatherinfo2: 'How can I get them to [X]?',
@@ -332,8 +351,8 @@ var crewData = {
 		gatherinfo4: 'Where are they vulnerable?',
 		gatherinfo5: 'Where did [X] go?',
 		gatherinfo6: 'How can I find [X]?',
-		hunt1: 1,
-		hunt2: 1,
+		hunt1: '1',
+		hunt2: '1',
 		item_1_desc: 'Fine long rifle',
 		item_2_desc: 'Fine pair of pistols',
 		item_5_desc: 'Electroplasmic ammunition',
@@ -341,9 +360,29 @@ var crewData = {
 		item_7_desc: 'A trained hunting pet',
 		item_8_desc: 'Spiritbane charm',
 		playbook_description: 'A Deadly\nSharpshooter\nand Tracker',
-		survey1: 1,
+		survey1: '1',
 		xp_condition: 'You addressed a challenge with tracking or violence.'
 	},
+// 	hull: {
+// 		attune1: '1',
+// 		gatherinfo1: 'What do they intend to do?',
+// 		gatherinfo2: 'How can I get them to [X]?',
+// 		gatherinfo3: 'What are they really feeling?',
+// 		gatherinfo4: 'What should I look out for?',
+// 		gatherinfo5: 'Where\'s the weakness here?',
+// 		gatherinfo6: 'How can I find [X]?',
+// 		playbook_description: 'A spirit animating a clockwork frame',
+// 		setting_load_h: '7',
+// 		setting_hull_frame: 'on',
+// 		setting_stress_name: 'Drain',
+// 		setting_trauma_name: 'Wear',
+// 		setting_traumata_set: 'hull',
+// 		setting_vice: 'hull',
+// 		skirmish1: '1',
+// 		xp_condition: 'You fulfilled your functions despite difficulty or danger.',
+// 		xp_condition2: 'You suppressed or ignored your former human beliefs, drives, heritage, or background.',
+// 		xp_condition3: 'You struggled with issues from your wear during the session.'
+// 	}
 	leech: {
 		gatherinfo1: 'What do they intend to do?',
 		gatherinfo2: 'How can I get them to [X]?',
@@ -358,13 +397,13 @@ var crewData = {
 		item_6_desc: 'Bandolier of alchemicals (3)',
 		item_7_desc: 'Blowgun & darts, syringes',
 		playbook_description: 'A Saboteur and\nTechnician',
-		tinker1: 1,
-		tinker2: 1,
-		wreck1: 1,
+		tinker1: '1',
+		tinker2: '1',
+		wreck1: '1',
 		xp_condition: 'You addressed a challenge with technical skill or mayhem.'
 	},
 	lurk: {
-		finesse1: 1,
+		finesse1: '1',
 		gatherinfo1: 'What do they intend to do?',
 		gatherinfo2: 'How can I get them to [X]?',
 		gatherinfo3: 'What should I look out for?',
@@ -378,12 +417,12 @@ var crewData = {
 		item_7_desc: 'Silence potion vial',
 		item_8_desc: 'Spiritbane charm',
 		playbook_description: 'A Stealthy\nInfiltrator\nand Burglar',
-		prowl1: 1,
-		prowl2: 1,
+		prowl1: '1',
+		prowl2: '1',
 		xp_condition: 'You addressed a challenge with stealth or evasion.'
 	},
 	slide: {
-		consort1: 1,
+		consort1: '1',
 		gatherinfo1: 'What do they intend to do?',
 		gatherinfo2: 'How can I get them to [X]?',
 		gatherinfo3: 'Are they telling the truth?',
@@ -397,13 +436,13 @@ var crewData = {
 		item_8_desc: 'Trance powder',
 		item_9_desc: 'Spiritbane charm',
 		playbook_description: 'A Subtle\nManipulator\nand Spy',
-		sway1: 1,
-		sway2: 1,
+		sway1: '1',
+		sway2: '1',
 		xp_condition: 'You addressed a challenge with deception or in influence.'
 	},
 	spider: {
-		consort1: 1,
-		consort2: 1,
+		consort1: '1',
+		consort2: '1',
 		gatherinfo1: 'What do they want most?',
 		gatherinfo2: 'What should I look out for?',
 		gatherinfo3: 'Where\'s the leverage here?',
@@ -417,12 +456,12 @@ var crewData = {
 		item_8_desc: 'Concealed palm pistol',
 		item_9_desc: 'Spiritbane charm',
 		playbook_description: 'A Devious\nMastermind',
-		study1: 1,
+		study1: '1',
 		xp_condition: 'You addressed a challenge with calculation or conspiracy.'
 	},
 	whisper: {
-		attune1: 1,
-		attune2: 1,
+		attune1: '1',
+		attune2: '1',
 		gatherinfo1: 'What is arcane or weird here?',
 		gatherinfo2: 'What echoes in the ghost field?',
 		gatherinfo3: 'What is hidden or lost here?',
@@ -436,15 +475,37 @@ var crewData = {
 		item_8_desc: 'Ghost key',
 		item_9_desc: 'Demonbane charm',
 		playbook_description: 'An Arcane\nAdept and\nChanneler',
-		study1: 1,
+		study1: '1',
 		xp_condition: 'You addressed a challenge with knowledge or arcane power.'
 	}
+	// ,vampire: {
+// 		attune1: '1',
+// 		command1: '1',
+// 		gatherinfo1: 'What do they intend to do?',
+// 		gatherinfo2: 'How can I get them to [X]?',
+// 		gatherinfo3: 'What are they really feeling?',
+// 		gatherinfo4: 'What should I look out for?',
+// 		gatherinfo5: 'Where\'s the weakness here?',
+// 		gatherinfo6: 'How can I find [X]?',
+// 		hunt1: '1',
+// 		item_3_desc: 'Fine shadow cloak',
+// 		item_4_desc: 'Fine clothes and accoutrements',
+// 		item_5_desc: 'Fine personal weapon',
+// 		item_7_desc: 'Demonbane charm',
+// 		item_8_desc: 'Spiritbane charm',
+// 		playbook_description: 'A spirit animating an undead body',
+// 		prowl1: '1',
+// 		skirmish1: '1',
+// 		sway1: '1'
+// 		xp_condition: 'You displayed your dominance or slayed without mercy.',
+// 		xp_condition2: 'You expressed your beliefs, drives, heritage, or background.',
+// 		xp_condition3: 'You struggled with issues from your vice, traumas, or strictures during the session.'
+// 	}
 },
 	crewAttributes = _.chain(crewData).map(o => _.keys(o)).flatten().uniq().value(),
 	playbookAttributes = _.chain(playbookData).map(o => _.keys(o)).flatten().uniq().value(),
 	watchedAttributes = _.union(crewAttributes, playbookAttributes);
 on('change:crew_type change:playbook', function (event) {
-	'use strict';
 	getAttrs(['crew_type', 'playbook', 'changed_attributes'], function (attrValues) {
 		let changedAttributes = (attrValues.changed_attributes||'').split(','),
 			data;
@@ -468,8 +529,7 @@ on('change:crew_type change:playbook', function (event) {
 	});
 });
 /* Watch for changes in auto-set attributes and don't touch them */
-_.each(watchedAttributes, function(name) {
-	'use strict';
+watchedAttributes.forEach(function(name) {
 		on(`change:${name}`, function(eventInfo) {
 			if (eventInfo.sourceType === 'player') {
 				getAttrs(['changed_attributes'], function(v) {
@@ -481,7 +541,7 @@ _.each(watchedAttributes, function(name) {
 			}
 		});
 	});
-/* Calculate number of dice for vice rolls */
+/* VICE CALCULATION */
 var actions = {
 	insight: [
 		'hunt',
@@ -503,32 +563,114 @@ var actions = {
 	]
 },
 	actions1 = _.mapObject(actions, array => _.map(array, str => str + '1')),
-	actions1Flat = _.chain(actions1).map(x => x).flatten().value(),
-	actions1Event = _.map(actions1Flat, str => `change:${str}`).join(' ');
-on(actions1Event, function() {
-	'use strict';
-	getAttrs(actions1Flat, function(values) {
-		let numDice = _.chain(actions1)
-			.map(function(array) {
-				return _.chain(array)
-					.map(str => values[str])
-					.reduce((s,v) => s + parseInt(v||0), 0)
-					.value()
-			})
-			.min().value(),
-			setting = {};
-		setting.vice1 = (numDice > 0) ? 1 : 0;
-		setting.vice2 = (numDice > 1) ? 1 : 0;
-		setting.vice3 = (numDice > 2) ? 1 : 0;
-		setting.vice4 = (numDice > 3) ? 1 : 0;
-		setAttrs(setting);
+	actionsFlat = _.chain(actions).map(x => x).flatten().value()
+	actions1Flat = _.map(actionsFlat, str => str + '1'),
+	actions1Event = _.map(actions1Flat, str => `change:${str}`).join(' '),
+	calculateVice = function() {
+		getAttrs(actions1Flat, function(values) {
+			let numDice = _.chain(actions1)
+				.map(function(array) {
+					return _.chain(array)
+						.map(str => values[str])
+						.reduce((s,v) => s + parseInt(v||0), 0)
+						.value()
+				})
+				.min().value(),
+				setting = {};
+			setting.vice1 = (numDice > 0) ? 1 : 0;
+			setting.vice2 = (numDice > 1) ? 1 : 0;
+			setting.vice3 = (numDice > 2) ? 1 : 0;
+			setting.vice4 = (numDice > 3) ? 1 : 0;
+			setAttrs(setting);
+		});
+	};
+on(actions1Event, calculateVice);
+/* LEFT-FILL CHECKBOXES */
+var handleFourBoxesFill = function(name) {
+	on(`change:${name}1 change:${name}2 change:${name}3 change:${name}4`, function(event) {
+		getAttrs([event.sourceAttribute], function (v) {
+			let rName = event.sourceAttribute.slice(0,-1);
+			if (v[event.sourceAttribute] === '1') {
+				let setting = {};
+				switch(event.sourceAttribute.slice(-1)) {
+					case '4':
+						setting[`${rName}3`] = '1';
+					case '3':
+						setting[`${rName}2`] = '1';
+					case '2':
+						setting[`${rName}1`] = '1';
+				}
+				setAttrs(setting);
+			}
+			if (v[event.sourceAttribute] === '0') {
+				let setting = {};
+				switch(event.sourceAttribute.slice(-1)) {
+					case '1':
+						setting[`${rName}2`] = '0';
+					case '2':
+						setting[`${rName}3`] = '0';
+					case '3':
+						setting[`${rName}4`] = '0';
+				}
+				setAttrs(setting);
+			}
+		});
+	});
+};
+/* Action ratings */
+actionsFlat.forEach(handleFourBoxesFill);
+/* Items/Upgrades */
+var itemChecks = [
+	'item_1_check',
+	'item_14_check',
+	'item_16_check',
+	'item_18_check',
+	'item_22_check',
+	'upgrade_1_check',
+	'upgrade_24_check',
+	'bandolier1_check',
+	'bandolier2_check'];
+itemChecks.forEach(function(name) {
+	on(`change:${name} change:${name}_b change:${name}_c change:${name}_d change:${name}_e`, function(event) {
+		getAttrs([event.sourceAttribute], function (v) {
+			if (v[event.sourceAttribute] === 'on') {
+				let setting = {};
+				switch(event.sourceAttribute.slice('-1')) {
+					case 'e':
+						setting[`${name}_d`] = 'on';
+					case 'd':
+						setting[`${name}_c`] = 'on';
+					case 'c':
+						setting[`${name}_b`] = 'on';
+					case 'b':
+						setting[`${name}`] = 'on';
+				}
+				setAttrs(setting);
+			}
+			if (v[event.sourceAttribute] === '0') {
+				let setting = {};
+				switch(event.sourceAttribute.slice('-1')) {
+					case 'k':
+						setting[`${name}_b`] = 0;
+					case 'b':
+						setting[`${name}_c`] = 0;
+					case 'c':
+						setting[`${name}_d`] = 0;
+					case 'd':
+						setting[`${name}_e`] = 0;
+				}
+				setAttrs(setting);
+			}
+		});
 	});
 });
-/* Make friend1 checkboxes exclusive */
+/* Quality and Tier */
+['crew_tier', 'cohort1_quality'].forEach(handleFourBoxesFill);
+/* PSEUDO-RADIOS: exclusive checkboxes */
+/* friend1 */
 var friends = ['friend1_up', 'friend1_down'],
 	friendsEvent = _.map(friends, str => `change:${str}`).join(' ');
 on(friendsEvent, function(event) {
-	'use strict';
 	getAttrs(friends, function(v) {
 		if(v[event.sourceAttribute] === 'on') {
 			let setting = _.chain(friends)
@@ -539,12 +681,11 @@ on(friendsEvent, function(event) {
 		}
 	});
 });
-/* Make repeating friend checkboxes exclusive */
+/* repeating_friend */
 var friendsRepeating = ['up', 'down'],
 	friendsRepeatingPrefixed = _.map(friendsRepeating, str => `repeating_friend_${str}`),
-	friendsEvent = _.map(friendsRepeating, str => `change:repeating_friend:${str}`).join(' ');
-on(friendsEvent, function(event) {
-	'use strict';
+	friendsRepeatingEvent = _.map(friendsRepeating, str => `change:repeating_friend:${str}`).join(' ');
+on(friendsRepeatingEvent, function(event) {
 	getAttrs(friendsRepeatingPrefixed, function(v) {
 		let sanitizedSource = _.reject(event.sourceAttribute.split('_'),(v,i)=> i==2).join('_');
 		if(v[sanitizedSource] === 'on') {
@@ -556,11 +697,10 @@ on(friendsEvent, function(event) {
 		}
 	});
 });
-/* Make load checkboxes exclusive */
+/* load */
 var loads = ['load_light', 'load_normal', 'load_heavy'],
 	loadsEvent = _.map(loads, str => `change:${str}`).join(' ');
 on(loadsEvent, function(event) {
-	'use strict';
 	getAttrs(loads, function(v) {
 		if(v[event.sourceAttribute] === 'on') {
 			let setting = _.chain(loads)
