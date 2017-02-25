@@ -607,6 +607,7 @@ on('change:wanted', function() {
 		setAttrs(setting);
 	});
 });
+
 /* LEFT-FILL CHECKBOXES */
 var handleFourBoxesFill = function(name) {
 	on(`change:${name}1 change:${name}2 change:${name}3 change:${name}4`, function(event) {
