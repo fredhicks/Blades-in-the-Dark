@@ -1392,6 +1392,11 @@ button[type=roll].sheet-tierbutton {
 	letter-spacing: inherit;
 	color: inherit;
 }
+button[type=roll].sheet-attributebutton {
+	font-size: 98%;
+	line-height: 9px;
+	color: white;
+}
 button[type=roll].sheet-actionbutton {
 	font-size: 95%;
 	letter-spacing: 1px;
