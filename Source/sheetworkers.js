@@ -1,5 +1,4 @@
 <script type="text/worker">
-
 /* DEFAULT FILLS FOR PLAYBOOKS AND CREWS
 /* Set some default fields when setting crew type or playbook */
 var crewData = {
@@ -587,6 +586,27 @@ var actions = {
 	};
 on(actions1Event, calculateVice);
 
+/* CALCULATE WANTED */
+on('change:wanted', function() {
+	getAttrs(['wanted'], function(v) {
+		let setting = {};
+		setting.wanted1 = 0;
+		setting.wanted2 = 0;
+		setting.wanted3 = 0;
+		setting.wanted4 = 0;
+		switch(v.wanted) {
+			case '4':
+				setting.wanted4 = 1;
+			case '3':
+				setting.wanted3 = 1;
+			case '2':
+				setting.wanted2 = 1;
+			case '1':
+				setting.wanted1 = 1;
+		}
+		setAttrs(setting);
+	});
+});
 /* LEFT-FILL CHECKBOXES */
 var handleFourBoxesFill = function(name) {
 	on(`change:${name}1 change:${name}2 change:${name}3 change:${name}4`, function(event) {

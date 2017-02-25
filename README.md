@@ -4,16 +4,16 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## TODO
 
-### Crew
+* ADD: support for Ghost, Hull, and Vampire playbooks
 * ADD: faction/status section
-* ADD: Wanted/Heat button (for entanglements)
 * fix font size for weak/impaired/broken/armor on windows/linux
 * Maybe: change checked ~ red to checked ~ bold
 
-### Character
-* ADD: support for Ghost, Hull, and Vampire playbooks
 
 ## Changelog
+
+### 0.3
+* Added Wanted button, which will roll the wanted level for entanglement
 
 ### 0.2.2
 * changed cohort section to conform to 8.1 - removed cohort button and added text field instead, since you now roll your crew tier

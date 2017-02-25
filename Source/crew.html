@@ -402,11 +402,15 @@
 				<!-- Wanted Level-->
 				<div class="sheet-heat3">
 					<div class="sheet-blackheader">
-						<div class="sheet-label">Wanted</div>
+						<button type="roll" class="sheet-rollbutton sheet-tierbutton" value='&{template:bitd-entangle}{{charname=@{character_name}}}{{heat=@{heat}}}{{rolltypetext=Entanglement}}{{roll1value=[[@{wanted1}d6]]}}{{roll2value=[[@{wanted2}d6]]}}{{roll3value=[[@{wanted3}d6]]}}{{roll4value=[[@{wanted4}d6]]}}{{bonusdice=[[?{Bonus dice|0|1|2|3|4|5|6}]]}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Wanted</button>
 					</div>
 					<div class="sheet-zeroholder">
 						<input type="radio" value="0" name="attr_wanted" class="sheet-zero" checked/>
 						<span></span>
+						<input type="checkbox" value="1" name="attr_wanted1" class="sheet-hidden"/>
+						<input type="checkbox" value="1" name="attr_wanted2" class="sheet-hidden"/>
+						<input type="checkbox" value="1" name="attr_wanted3" class="sheet-hidden"/>
+						<input type="checkbox" value="1" name="attr_wanted4" class="sheet-hidden"/>
 					</div>
 					<div class="sheet-wantedholder">
 						<input type="checkbox" value="0" name="attr_wanted" class="sheet-regulartooth sheet-hidden" checked/>
