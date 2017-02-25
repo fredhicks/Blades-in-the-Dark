@@ -57,11 +57,11 @@ input.sheet-settings-checkbox, input.sheet-settings-checkbox + span {
 	height: 20px;
 	position: absolute;
 	top: 52px;
-	left: 800px;
+	left: 790px;
 }
 input.sheet-settings-checkbox + span {
 	opacity: 0.3;
-	font-size: 120%
+	font-size: 120%;
 	font-family: pictos;
 	display:inline-block;
 }
@@ -248,7 +248,7 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-blackborder {
 	border-top: 3px solid black;
 }
-.sheet-quality {
+.sheet-tier {
 	float: right;
 	background-color: #d6d8d9;
 }
@@ -1013,23 +1013,13 @@ textarea.sheet-abilitydesc {
 	padding: 5px 0 0 5px;
 	width: calc(100% - 8px);
 }
-.sheet-armor input[type="text"] {
-	padding-left: 5px;
-	background-color: #d6d8d9;
-	height: 20px;
-	color: black;
-	font-size: 85%;
-	font-weight: 800;
-}
-.sheet-specialarmorcaption {
-	font-family: Georgia, Times, "Times New Roman", serif;
-	font-style: italic;
-	color: #808183;
-	font-size: 80%;
-	line-height: 0px;
-	padding-top: 7px;
+.sheet-armor .sheet-label.sheet-specialarmorlabel {
+	padding-left: 50%;
 }
 /* COIN */
+.sheet-coin-and-stash {
+	margin-top: 39px;
+}
 .sheet-coinrow {
 	font-size: 73%;	
 	height: 17px;	
@@ -1527,7 +1517,7 @@ input.sheet-frienddown:checked ~ input[type=text] {
 	font-weight: 800;
 }
 /* specific adjustments */
-.sheet-hold5.sheet-quality input.sheet-checkbox.sheet-circlebox-small + span::before {
+.sheet-tier input.sheet-checkbox.sheet-circlebox-small + span::before {
 	margin-right: 3px;
 }
 .sheet-specialability input.sheet-checkbox.sheet-circlebox + span::before {
@@ -1592,7 +1582,7 @@ input.sheet-checkbox.sheet-friendup {
 	background-color: black;
 	padding-left: 7px;
 }
-.sheet-attribute-title div:first-child, .sheet-cohort-title div:first-child {
+.sheet-attribute-title div:first-child {
 	width: 67px;
 	float: left;
 }
@@ -1633,10 +1623,41 @@ input.sheet-checkbox.sheet-friendup {
 	margin-right: 0px;
 }
 /* COHORTS */
+.sheet-cohort-title .sheet-label {
+	float: right;
+	font-size: 50%;
+	color: white;
+}
+.sheet-cohort-title div:first-child {
+	width: 85px;
+	float: left;
+}
+.sheet-cohort-title input[type=text] {
+	font-weight: 600;
+	width: 100%;
+	font-size: 90%;
+	background: transparent;
+	padding: 2px 0 0;
+}
+.sheet-cohort-title > .sheet-label:last-child {
+	margin-right: 2px;
+}
+.sheet-cohort-title .sheet-label:nth-last-child(3) {
+	margin: 0 2px;
+}
+.sheet-cohortbox {
+	float: right;
+	padding-left: 1px;
+	width: 13px;
+	height: 16px;
+	background: #d6d8d9;
+}
 .sheet-cohort-condition > div, .sheet-cohort-condition .sheet-label {
 	float: left;
+}
+.sheet-cohort-condition .sheet-label {
 	color: black;
-	font-size: 75%;
+	font-size: 55%;
 }
 .sheet-cohort-condition1 {
 	width: 19%;
@@ -1654,11 +1675,6 @@ div.sheet-cohort-condition4 {
 	width: 23%;
 	float: right;
 	font-weight: 800;
-}
-.sheet-cohort .sheet-quality {
-	width: 34%;
-	height: 18px;
-	padding-left: 3px;
 }
 .sheet-cohort-text textarea {
 	resize: vertical;

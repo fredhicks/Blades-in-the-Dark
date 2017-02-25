@@ -86,8 +86,8 @@ var crewData = {
 		claim_bridge_3_4: 0,
 		claim_bridge_2_7: 0,
 		claim_bridge_12_13: 0,
-		cohort1_description: 'Thugs',
-		cohort1_name: 'Cohort',
+		cohort1_name: 'Thugs',
+		cohort1_type: 'gang',
 		crew_description: 'Mercenaries,\nThugs &\nKillers',
 		crew_xp_condition: 'Execute a successful battle, extortion, sabotage, or smash & grab operation.',
 		hunting_grounds_type: 'Hunting Grounds:',
@@ -136,8 +136,8 @@ var crewData = {
 		claim_bridge_6_11: 0,
 		claim_bridge_12_13: 0,
 		claim_bridge_13_14: 0,
-		cohort1_description: 'Adepts',
-		cohort1_name: 'Cohort',
+		cohort1_name: 'Adepts',
+		cohort1_type: 'gang',
 		crew_description: 'Acolytes\nof a Deity',
 		crew_xp_condition: 'Advance the agenda of your deity or embody its precepts in action.',
 		hunting_grounds_type: 'Sacred Sites:',
@@ -288,7 +288,6 @@ var crewData = {
 		claim_bridge_13_14: 0,
 		cohort1_description: 'Type: Boat - Carriage - Other',
 		cohort1_name: 'Vehicle',
-		cohort1_quality1: '1',
 		crew_description: 'Suppliers\nof Illicit\nGoods',
 		crew_xp_condition: 'Execute a successful smuggling or acquire new clients or contraband sources.',
 		hunting_grounds_type: 'Cargo Types:',
@@ -622,6 +621,8 @@ var handleFourBoxesFill = function(name) {
 };
 /* Action ratings */
 actionsFlat.forEach(handleFourBoxesFill);
+/* Crew Tier */
+['crew_tier'].forEach(handleFourBoxesFill);
 /* Items/Upgrades */
 var itemChecks = [
 	'item_1_check',
@@ -667,8 +668,6 @@ itemChecks.forEach(function(name) {
 		});
 	});
 });
-/* Quality and Tier */
-['crew_tier', 'cohort1_quality'].forEach(handleFourBoxesFill);
 
 /* PSEUDO-RADIOS: mutually exclusive checkboxes */
 var handlePseudoRadio = function(list) {
