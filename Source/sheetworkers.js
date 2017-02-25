@@ -1,4 +1,5 @@
 <script type="text/worker">
+
 /* DEFAULT FILLS FOR PLAYBOOKS AND CREWS
 /* Set some default fields when setting crew type or playbook */
 var crewData = {
@@ -541,6 +542,7 @@ watchedAttributes.forEach(function(name) {
 			}
 		});
 	});
+
 /* VICE CALCULATION */
 var actions = {
 	insight: [
@@ -585,6 +587,7 @@ var actions = {
 		});
 	};
 on(actions1Event, calculateVice);
+
 /* LEFT-FILL CHECKBOXES */
 var handleFourBoxesFill = function(name) {
 	on(`change:${name}1 change:${name}2 change:${name}3 change:${name}4`, function(event) {
@@ -666,46 +669,43 @@ itemChecks.forEach(function(name) {
 });
 /* Quality and Tier */
 ['crew_tier', 'cohort1_quality'].forEach(handleFourBoxesFill);
-/* PSEUDO-RADIOS: exclusive checkboxes */
-/* friend1 */
-var friends = ['friend1_up', 'friend1_down'],
-	friendsEvent = _.map(friends, str => `change:${str}`).join(' ');
-on(friendsEvent, function(event) {
-	getAttrs(friends, function(v) {
+
+/* PSEUDO-RADIOS: mutually exclusive checkboxes */
+var handlePseudoRadio = function(list) {
+	on(_.map(list, str => `change:${str}`).join(' '), function(event) {
+		getAttrs(list, function(v) {
 		if(v[event.sourceAttribute] === 'on') {
-			let setting = _.chain(friends)
+			let setting = _.chain(list)
 				.reject(str => (str === event.sourceAttribute))
-				.object([0])
+				.reduce(function(m,v) {
+					m[v] = '0';
+					return m;
+				},{})
 				.value();
 			setAttrs(setting);
 		}
 	});
-});
+	});
+};
+/* friend1 */
+var friend1 = ['friend1_up', 'friend1_down'];
+handlePseudoRadio(friend1);
+/* load */
+var loads = ['load_light', 'load_normal', 'load_heavy'];
+handlePseudoRadio(loads);
+
+/* REPEATING PSEUDO-RADIOS
 /* repeating_friend */
-var friendsRepeating = ['up', 'down'],
-	friendsRepeatingPrefixed = _.map(friendsRepeating, str => `repeating_friend_${str}`),
-	friendsRepeatingEvent = _.map(friendsRepeating, str => `change:repeating_friend:${str}`).join(' ');
-on(friendsRepeatingEvent, function(event) {
-	getAttrs(friendsRepeatingPrefixed, function(v) {
+var friendRepeating = ['up', 'down'],
+	friendRepeatingPrefixed = _.map(friendRepeating, str => `repeating_friend_${str}`),
+	friendRepeatingEvent = _.map(friendRepeating, str => `change:repeating_friend:${str}`).join(' ');
+on(friendRepeatingEvent, function(event) {
+	getAttrs(friendRepeatingPrefixed, function(v) {
 		let sanitizedSource = _.reject(event.sourceAttribute.split('_'),(v,i)=> i==2).join('_');
 		if(v[sanitizedSource] === 'on') {
-			let setting = _.chain(friendsRepeatingPrefixed)
+			let setting = _.chain(friendRepeatingPrefixed)
 				.reject(str => (str === sanitizedSource))
 				.object([0])
-				.value();
-			setAttrs(setting);
-		}
-	});
-});
-/* load */
-var loads = ['load_light', 'load_normal', 'load_heavy'],
-	loadsEvent = _.map(loads, str => `change:${str}`).join(' ');
-on(loadsEvent, function(event) {
-	getAttrs(loads, function(v) {
-		if(v[event.sourceAttribute] === 'on') {
-			let setting = _.chain(loads)
-				.reject(str => (str === event.sourceAttribute))
-				.object([0,0])
 				.value();
 			setAttrs(setting);
 		}

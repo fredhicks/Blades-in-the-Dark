@@ -487,7 +487,7 @@
 						<textarea spellcheck="false" class="sheet-abilityname" name="attr_ability1_name" placeholder="Ability Name"></textarea>
 						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_ability1_description" placeholder="Ability description"></textarea>
 				</div>
-				<fieldset class="repeating_ability">
+				<fieldset class="repeating_crew_ability">
 					<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" name="attr_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
@@ -746,7 +746,7 @@
 				<div class="sheet-cohort-title sheet-col100"> 
 					<div>
 						<input class="sheet-hidden" value="Cohort" name=attr_cohort1_name"/>
-						<button type="roll" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd-tier}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/f0cY0ZI.png}}{{rolltypetext=Cohort Quality}}{{roll1value=[[@{cohort1_quality1}d6]]}}{{roll2value=[[@{cohort1_quality2}d6]]}}{{roll3value=[[@{cohort1_quality3}d6]]}}{{roll4value=[[@{cohort1_quality4}d6]]}}{{bonusdice=[[?{Bonus dice|0|1|2|3|4|5|6}]]}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'><span class="sheet-label" name="attr_cohort1_name"></span></button>
+						<button type="roll" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd-tier}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/f0cY0ZI.png}}{{rolltypetext=Cohort Quality}}{{roll1value=[[@{cohort1_quality1}d6]]}}{{roll2value=[[@{cohort1_quality2}d6]]}}{{roll3value=[[@{cohort1_quality3}d6]]}}{{roll4value=[[@{cohort1_quality4}d6]]}}{{bonusdice=[[?{Bonus dice|0|1|2|3|4|5|6}]]}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}{{notes=@{cohort1_description}}}'><span class="sheet-label" name="attr_cohort1_name"></span></button>
 					</div>
 					<div class="sheet-quality">
 						<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_cohort1_quality1"/>
@@ -799,7 +799,7 @@
 					<div class="sheet-rep-block sheet-cohort">
 						<div class="sheet-cohort-title sheet-col100"> 
 							<div>
-								<button type="roll" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd-tier}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/f0cY0ZI.png}}{{rolltypetext=Cohort Quality}}{{roll1value=[[@{quality1}d6]]}}{{roll2value=[[@{quality2}d6]]}}{{roll3value=[[@{quality3}d6]]}}{{roll4value=[[@{quality4}d6]]}}{{bonusdice=[[?{Bonus dice|0|1|2|3|4|5|6}]]}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Cohort</span></button>
+								<button type="roll" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd-tier}{{charname=@{character_name}}}{{rolltypeimage=http://i.imgur.com/f0cY0ZI.png}}{{rolltypetext=Cohort Quality}}{{roll1value=[[@{quality1}d6]]}}{{roll2value=[[@{quality2}d6]]}}{{roll3value=[[@{quality3}d6]]}}{{roll4value=[[@{quality4}d6]]}}{{bonusdice=[[?{Bonus dice|0|1|2|3|4|5|6}]]}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}{{notes=@{description}}}'>Cohort</span></button>
 							</div>
 							<div class="sheet-quality">
 								<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_quality1"/>
@@ -852,11 +852,15 @@
 			<div class="sheet-col100 sheet-contacts">
 				<div class="sheet-specialheader sheet-col100 sheet-label">Contacts</div>
 				<div class="sheet-greyholder sheet-col100">
-				<div class="sheet-friend sheet-contact sheet-rep-block">
+				<div class="sheet-contact sheet-rep-block">
+					<input type="checkbox" name="attr_contact1_check" class="sheet-checkbox"/>
+					<span></span>
 					<input type="text" placeholder="Contact name" name="attr_contact1_name"/>
 				</div>
 				<fieldset class="repeating_contact">
-					<div class="sheet-friend sheet-contact sheet-rep-block">
+					<div class="sheet-contact sheet-rep-block">
+						<input type="checkbox" name="attr_check" class="sheet-checkbox"/>
+						<span></span>
 						<input type="text" placeholder="Contact name" name="attr_name"/>
 					</div>
 				</fieldset>
@@ -866,7 +870,7 @@
 		<!-- Clocks -->
 		<div class="sheet-col97 sheet-clocks">
 			<div class="sheet-specialheader sheet-col100 sheet-label">Clocks</div>
-			<fieldset class="repeating_clock">
+			<fieldset class="repeating_crew_clock">
 				<div class="sheet-clock">
 					<input type="text" placeholder="Clock Name" name="attr_name" class="sheet-label"/>
 					<div class="sheet-clockprogress">

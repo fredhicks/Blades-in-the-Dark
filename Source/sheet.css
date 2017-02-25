@@ -326,21 +326,20 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-contacts {
 	margin-top: 20px;
 }
+.sheet-contact input[type=text],
 .sheet-friend input[type=text] {
 	font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-	color: #6c6c6c;
 	font-size: 95%;
-	line-height: 122%;
-	font-variant: normal;
-	font-weight: 400;
 	height: 33px;
-	width: 137px;
 	padding: 0 0 4px 3px;
 }
-.sheet-friend.sheet-contact input[type=text] {
+.sheet-friend input[type=text] {
+	color: #6c6c6c;
+	width: 137px;
+}
+.sheet-contact input[type=text] {
 	color: black;
-	width: 95%;
-	font-weight: 800;
+	width: calc(100% - 15px);
 }
 /* INFO BOXES */
 .sheet-gatherinfo, .sheet-teamwork {
@@ -921,7 +920,7 @@ input.sheet-stresstooth:checked ~ input.sheet-stresstooth.sheet-turf6 + span::be
 	background-image: url('http://i.imgur.com/gAgcV8Z.png');
 }
 /* SPECIAL ABILITIES*/
-.sheet-specialability, .sheet-friend {
+.sheet-specialability, .sheet-friend, .sheet-contact {
 	padding-top: 5px;
 	padding-left: 4px;
 	border-bottom: 1px solid #b3b4b6;
@@ -1524,6 +1523,9 @@ input.sheet-checkbox.sheet-claimbridge:checked + span::before {
 input.sheet-frienddown:checked ~ input[type=text] {
 	color: black;
 }
+.sheet-contact input.sheet-checkbox:checked ~ input[type=text] {
+	font-weight: 800;
+}
 /* specific adjustments */
 .sheet-hold5.sheet-quality input.sheet-checkbox.sheet-circlebox-small + span::before {
 	margin-right: 3px;
@@ -1547,10 +1549,8 @@ input.sheet-frienddown:checked ~ input[type=text] {
 input.sheet-checkbox.sheet-friendup {
 	margin-bottom: 12px;
 }
-input.sheet-checkbox.sheet-friendup {
-	margin: 0 -14px 0 3px;
-}
-.sheet-friend input.sheet-checkbox + span::before {
+.sheet-friend input.sheet-checkbox + span::before,
+.sheet-contact input.sheet-checkbox + span::before  {
 	width: 0;
 	height: 0;
 	background-color: #d6d8d9 !important;
@@ -1570,6 +1570,17 @@ input.sheet-checkbox.sheet-friendup {
 }
 .sheet-friend input.sheet-friendup:checked + span::before {
 	border-color: transparent transparent red transparent;
+}
+.sheet-contact input.sheet-checkbox {
+	margin-bottom: 5px;
+}
+.sheet-contact input.sheet-checkbox + span::before {
+	border-width: 5px 0 5px 10px;
+	margin-bottom: 2px;
+	border-color: transparent transparent transparent #ffffff;
+}
+.sheet-contact input.sheet-checkbox:checked + span::before {
+	border-color: transparent transparent transparent #000000;
 }
 /* ACTION RATINGS */
 .sheet-attribute, .sheet-cohort {
