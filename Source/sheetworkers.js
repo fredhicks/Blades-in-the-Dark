@@ -668,3 +668,4 @@ itemChecks.forEach(function(name) {
 		});
 	});
 });
+</script>

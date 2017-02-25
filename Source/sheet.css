@@ -1387,17 +1387,9 @@ button[type=roll].sheet-rollbutton {
 	font-size: 92%;
 	line-height: 9px;
 }
-button[type=roll].sheet-attributebutton, button[type=roll].sheet-cohortbutton {
-	font-size: 98%;
-	line-height: 9px;
-	color: white;
-}
 button[type=roll].sheet-tierbutton {
 	font-size: inherit;
 	letter-spacing: inherit;
-	color: inherit;
-}
-button[type=roll].sheet-cohortbutton span {
 	color: inherit;
 }
 button[type=roll].sheet-actionbutton {
