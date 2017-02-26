@@ -3,12 +3,16 @@
 This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## TODO
-* ADD: support for Ghost, Hull, and Vampire playbooks
+* ADD: full support for Hull and Vampire playbooks
 * ADD: faction/status section
-* fix font size for weak/impaired/broken/armor on windows/linux
 * Maybe: change checked ~ red to checked ~ bold
 
 ## Changelog
+
+### 0.3
+* Full support for Ghost playbook
+* Partial support Hull and Vampire playbooks: different traumata and replacements for vice
+* Stress has now more room to breathe when you don't have extra boxes
 
 ### 0.2.4
 * Recovery clock is now a 4-tick clock

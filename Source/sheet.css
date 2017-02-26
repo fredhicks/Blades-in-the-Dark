@@ -108,7 +108,13 @@ input.sheet-settings-checkbox:checked ~ .sheet-settings {
 	width: 30%;
 	color: black;
 	font-size: 80%;
+	padding-left: 1px;
 	border: 1px solid lightgray;
+}
+.sheet-settings select {
+	width: 80px;
+	margin: 0 4px 0 0;
+	height: 18px;
 }
 /* SETTINGS FOR HIDING STUFF ON THE SHEET */
 input.sheet-itemhider + div.sheet-item {
@@ -129,11 +135,22 @@ input.sheet-xp-hider + li {
 input.sheet-xp-hider:checked + li {
 	display: list-item;
 }
-/* DEITY DISPLAY (set via sheet workers) */
 .sheet-show-deity {
 	display: none;
 }
 input.sheet-show-deity:checked ~ div.sheet-show-deity {
+	display: block;
+}
+.sheet-traumata > input + div {
+	display: none;
+}
+.sheet-traumata > input:checked + div {
+	display: block;
+}
+input.sheet-vicehider + div {
+	display: none;
+}
+input.sheet-vicehider:checked + div {
 	display: block;
 }
 /* GENERALITIES */
@@ -635,6 +652,9 @@ span.sheet-inherit {
 }
 .sheet-header label {
 	font-size: 71%;
+}
+span.sheet-viceblurb {
+	font-size: 85%;
 }
 /* CLOCKS */
 .sheet-clock input.sheet-label {
@@ -1311,6 +1331,15 @@ input.sheet-radiobox:hover + span::before {
 }
 .sheet-crewcoin .sheet-zeroholder {
 	margin: 19px 0 0 -10px;
+}
+.sheet-stress2 input.sheet-tooth + span::before {
+	margin-right: 7px;
+}
+.sheet-stress2 input[name="attr_setting_extra_stress1"]:checked ~ input.sheet-tooth + span::before {
+	margin-right: 6px;
+}
+.sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked ~ input.sheet-tooth + span::before {
+	margin-right: 4px;
 }
 /* small fixes */
 .sheet-rep .sheet-black-on-grey {
