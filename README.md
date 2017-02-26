@@ -3,14 +3,15 @@
 This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## TODO
-* ADD: full support for Hull and Vampire playbooks
+* ADD: full support for Hull playbook
 * ADD: faction/status section
-* Maybe: change checked ~ red to checked ~ bold
 
 ## Changelog
 
 ### 0.3.1
 * Added option to show longer xp bars (for vampires)
+* Added vampire strictures
+* fixed overflow error in traumata box
 
 ### 0.3
 * Full support for Ghost playbook

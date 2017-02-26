@@ -147,10 +147,10 @@ input.sheet-show-deity:checked ~ div.sheet-show-deity {
 .sheet-traumata > input:checked + div {
 	display: block;
 }
-input.sheet-vicehider + div {
+input.sheet-hidediv + div {
 	display: none;
 }
-input.sheet-vicehider:checked + div {
+input.sheet-hidediv:checked + div {
 	display: block;
 }
 /* GENERALITIES */
@@ -1247,7 +1247,7 @@ input.sheet-radiobox:hover + span::before {
 	height: 25px;
 }
 .sheet-stress1 {
-	width: 57px;
+	width: 53px;
 }
 .sheet-stress2 {
 	width: 142px;
@@ -1256,8 +1256,11 @@ input.sheet-radiobox:hover + span::before {
 	width: 68px;
 }
 .sheet-stress4 {
-	width: calc(100% - 268px);
+	width: calc(100% - 264px);
 	padding-top: 1px;
+}
+.sheet-stress4 div {
+	width: 110%;
 }
 .sheet-traumaholder, .sheet-wantedholder {
 	height: 13px;
@@ -1777,6 +1780,14 @@ div.sheet-cohort-condition4 {
 	position: absolute;
 	margin: 1px 0 0 1px;
 	line-height: 0;
+}
+/* STRICTURES */
+.sheet-strictures div {
+	font-size: 88%;
+}
+.sheet-strictures div .sheet-label {
+	font-weight: 600;
+	margin: 0 3px;
 }
 /* Alchemicals */
 input.sheet-alchemicals-checkbox {

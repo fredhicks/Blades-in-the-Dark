@@ -43,7 +43,7 @@
 				<input type="text" name="attr_background"/>
 				<label>Background</label>
 			</div>
-			<input type="checkbox" class="sheet-hidden sheet-vicehider" name="attr_setting_vice_type" value="normal" checked/>
+			<input type="checkbox" class="sheet-hidden sheet-hidediv" name="attr_setting_vice_type" value="normal" checked/>
 			<div class="sheet-col100">
 				<input type="text" name="attr_vice_purveyor"/>
 				<label class="sheet-col45">Vice / Purveyor</label>
@@ -53,17 +53,17 @@
 				<input type="checkbox" class="sheet-hidden" value="1" name="attr_vice3"/>
 				<input type="checkbox" class="sheet-hidden" value="1" name="attr_vice4"/>
 			</div>
-			<input type="checkbox" class="sheet-hidden sheet-vicehider" name="attr_setting_vice_type" value="ghost"/>
+			<input type="checkbox" class="sheet-hidden sheet-hidediv" name="attr_setting_vice_type" value="ghost"/>
 			<div class="sheet-col100">
 				<span class="sheet-italic sheet-viceblurb">You have an intense <span class="sheet-smallcaps">need</span>: life essence. To satisfy this need, possess a living victim and consume their spirit energy (this may be a downtime action). When you do so, clear half your <span class="sheet-smallcaps">drain</span> (round down).</span>
 			</div>
-			<input type="checkbox" class="sheet-hidden sheet-vicehider" name="attr_setting_vice_type" value="hull"/>
+			<input type="checkbox" class="sheet-hidden sheet-hidediv" name="attr_setting_vice_type" value="hull"/>
 			<div class="sheet-col100">
 				<input type="text" name="attr_hull_functions" placeholder="to guard — to destroy — to discover — to acquire — to labor at ... that which my master commands."/>
 				<label>Functions</label>
 				<span class="sheet-italic sheet-viceblurb">Your clockwork body runs on <span class="sheet-smallcaps">electroplasm</span>. Recharge your capacitors by connecting to an industrial-grade generator (downtime action). When you do this, clear 5 <span class="sheet-smallcaps">drain</span>.</span>
 			</div>
-			<input type="checkbox" class="sheet-hidden sheet-vicehider" name="attr_setting_vice_type" value="vampire"/>
+			<input type="checkbox" class="sheet-hidden sheet-hidediv" name="attr_setting_vice_type" value="vampire"/>
 			<div class="sheet-col100">
 				<span class="sheet-italic sheet-viceblurb">Your <span class="sheet-smallcaps">vice</span> is life essence, consumed from a living human. Use 1 downtime activity to <span class="sheet-bold">hunt</span> prey and indulge your <span class="sheet-bold">vice</span>. Also, when you feed, erase all level 1 harm and mark 4 ticks on your healing clock.  is is the only way you can heal. How do you feed? What telltale sign do you leave on your victims?</span>
 			</div>
@@ -273,7 +273,7 @@
 					<div class="sheet-col100">
 						<div class="sheet-label sheet-specialarmorlabel">Special</div>
 						<div class="sheet-toothholder">
-							<input type="checkbox" name="attr_special_armor_1" class="sheet-tooth sheet-stresstooth"/>
+							<input type="checkbox" name="attr_armor_special" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
@@ -490,18 +490,58 @@
 				</div>
 			</div>
 			<!-- Gather Information-->
-			<div class="sheet-col50b sheet-gatherinfo">
-				<div class="sheet-plainheader sheet-label">Gather Information</div>
-				<div>
-					<ul>
-						<li><input type="text" name="attr_gatherinfo1" placeholder="What do they intend to do?"/></li>
-						<li><input type="text" name="attr_gatherinfo2" placeholder="How can I get them to [X]?"/></li>
-						<li><input type="text" name="attr_gatherinfo3" placeholder="What are they really feeling?"/></li>
-						<li><input type="text" name="attr_gatherinfo4" placeholder="What should I be worried about?"/></li>
-						<li><input type="text" name="attr_gatherinfo5" placeholder="Where's the weakness here?"/></li>
-						<li><input type="text" name="attr_gatherinfo6" placeholder="How can I find [X]?"/></li>
-						<li>What's really going on here?</li>
-					</ul>
+			<div class="sheet-col50b">
+				<div class="sheet-gatherinfo sheet-col100">
+					<div class="sheet-plainheader sheet-label">Gather Information</div>
+					<div>
+						<ul>
+							<li><input type="text" name="attr_gatherinfo1" placeholder="What do they intend to do?"/></li>
+							<li><input type="text" name="attr_gatherinfo2" placeholder="How can I get them to [X]?"/></li>
+							<li><input type="text" name="attr_gatherinfo3" placeholder="What are they really feeling?"/></li>
+							<li><input type="text" name="attr_gatherinfo4" placeholder="What should I lookout for?"/></li>
+							<li><input type="text" name="attr_gatherinfo5" placeholder="Where's the weakness here?"/></li>
+							<li><input type="text" name="attr_gatherinfo6" placeholder="How can I find [X]?"/></li>
+							<li>What's really going on here?</li>
+						</ul>
+					</div>
+				
+					</div>
+				<input type="checkbox" class="sheet-hidden sheet-hidediv" name="attr_setting_show_strictures"/>
+				<div class="sheet-strictures sheet-col100 sheet-def-margin">
+					<div class="sheet-plainheader sheet-label">Strictures</div>
+					<div>
+						<span class="sheet-italic">When you gain a new vampire trait (except veteran), add a stricture.</span>
+					</div>
+					<div>
+						<input type="checkbox" class="sheet-checkbox sheet-circlebox" name="attr_stricture_slumber"/>
+						<span></span>
+						<span class="sheet-label">Slumber: </span>
+						<span>In downtime, you must spend one activity resting in a dark, silent place (or else suffer 3 stress).</span>
+					</div>
+					<div>
+						<input type="checkbox" class="sheet-checkbox sheet-circlebox" name="attr_stricture_forbidden"/>
+						<span></span>
+						<span class="sheet-label">Forbidden: </span>
+						<span>You cannot enter a private residence without permission from the owner.</span>
+					</div>
+					<div>
+						<input type="checkbox" class="sheet-checkbox sheet-circlebox" name="attr_stricture_repelled"/>
+						<span></span>
+						<span class="sheet-label">Repelled: </span>
+						<span>Spiritbane charms can hold you at bay. (Take 2 stress to resist the repulsion.)</span>
+					</div>
+					<div>
+						<input type="checkbox" class="sheet-checkbox sheet-circlebox" name="attr_stricture_bestial"/>
+						<span></span>
+						<span class="sheet-label">Bestial: </span>
+						<span>When you suffer physical harm or overindulge your vice, your body twists into a horrific bestial form until you next feed without overindulging.</span>
+					</div>
+					<div>
+						<input type="checkbox" class="sheet-checkbox sheet-circlebox" name="attr_stricture_bound"/>
+						<span></span>
+						<span class="sheet-label">Bound: </span>
+						<span>Your spirit must remain in this body, or be destroyed.</span>
+					</div>
 				</div>
 			</div>
 		</div>
