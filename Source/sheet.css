@@ -375,7 +375,7 @@ span.sheet-inherit {
 	width: calc(100% - 15px);
 }
 /* INFO BOXES */
-.sheet-gatherinfo, .sheet-teamwork {
+.sheet-teamwork {
 	margin-top: 20px;
 }
 .sheet-gatherinfo ul {
@@ -429,7 +429,7 @@ span.sheet-inherit {
 	background-color: #d6d8d9;
 }
 .sheet-item input[type=text] {
-	width: calc(100% - 20px);
+	width: calc(100% - 21px);
 	height: 16px;
 	color: inherit;
 	margin-left: 5px;
@@ -437,7 +437,7 @@ span.sheet-inherit {
 	font-size: 83%;
 }
 .sheet-item textarea {
-	width: calc(100% - 20px);
+	width: calc(100% - 21px);
 	resize: none;
 	color: inherit;
 	position: relative;
@@ -451,13 +451,13 @@ span.sheet-inherit {
 	height: 36px;
 }
 .sheet-item.sheet-item2box input[type=text] {
-	width: calc(100% - 35px);
+	width: calc(100% - 37px);
 }
 .sheet-item.sheet-item3box input[type=text] {
-	width: calc(100% - 50px);
+	width: calc(100% - 53px);
 }
 .sheet-item.sheet-item4box input[type=text] {
-	width: calc(100% - 65px);
+	width: calc(100% - 69px);
 }
 .sheet-item.sheet-itembold input[type=text] {
 	font-weight: 800;
@@ -1048,7 +1048,7 @@ textarea.sheet-abilitydesc {
 	font-size: 88%;
 	font-weight: 800;
 	padding: 5px 0 0 5px;
-	width: calc(100% - 8px);
+	width: calc(100% - 10px);
 }
 .sheet-armor .sheet-label.sheet-specialarmorlabel {
 	padding-left: 50%;
@@ -1315,7 +1315,7 @@ input.sheet-radiobox:hover + span::before {
 	position: absolute;
 }
 .sheet-stress1 .sheet-zeroholder {
-	margin: -2px 0 0 40px;
+	margin: -2px 0 0 35px;
 }
 .sheet-stress3 .sheet-zeroholder {
 	margin-left: 0;
@@ -1336,10 +1336,10 @@ input.sheet-radiobox:hover + span::before {
 	margin: 19px 0 0 -10px;
 }
 .sheet-stress2 input.sheet-tooth + span::before {
-	margin-right: 7px;
+	margin-right: 6px;
 }
 .sheet-stress2 input[name="attr_setting_extra_stress1"]:checked ~ input.sheet-tooth + span::before {
-	margin-right: 6px;
+	margin-right: 5px;
 }
 .sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked ~ input.sheet-tooth + span::before {
 	margin-right: 4px;

@@ -203,7 +203,7 @@ var crewData = {
 		claim_1_name: 'Interrogation\nChamber',
 		claim_2_desc: '',
 		claim_2_name: '\nTurf',
-		claim_3_desc: '+2 coin for burglar\nor robbery',
+		claim_3_desc: '+2 coin for burglary\nor robbery',
 		claim_3_name: 'Loyal Fence',
 		claim_4_desc: '(Tier roll) - Heat =\ncoin in downtime',
 		claim_4_name: 'Gambling Den',

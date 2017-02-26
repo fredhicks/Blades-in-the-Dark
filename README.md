@@ -6,9 +6,14 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 * ADD: full support for Hull playbook
 * ADD: faction/status section
 * Add Elite indicator to Cohort and button to roll quality
-* Include proper graphic for Wanted roll
+* Add vice button to vampire vice
 
 ## Changelog
+
+### 0.3.2
+* Fixed several minor display issues
+* Try to fix some display issues in obscure configurations
+* The Entanglement/Wanted button now displays correctly
 
 ### 0.3.1
 * Added option to show longer xp bars (for vampires)
