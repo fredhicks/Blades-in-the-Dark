@@ -552,7 +552,7 @@ var crewData = {
 		setting_extra_stress1: 'on',
 		setting_extra_stress2: 'on',
 		setting_extra_stress3: 'on',
-// 		setting_vampirexp: 'on',
+ 		setting_vampirexp: 'on',
 		setting_showitem_0: '0',
 		setting_showitem_1: '0',
 		setting_showitem_2: '0',
@@ -767,9 +767,28 @@ itemChecks.forEach(function(name) {
 });
 
 /* Initialization */
+var conversionData = {},
+	conversionAttrs = _.union(_.keys(conversionData),_.values(conversionData));
+var runConversion = function () {
+	getAttrs(conversionAttrs, function (attrs) {
+		let setting = {};
+		conversionData.forEach(function(newAttr, oldAttr) {
+			if (_.has(attrs[oldAttr]) && attrs[oldAttr] !== '' && (!attrs[newAttr] || attrs[newAttr] === '0')) {
+				setting[newAttr] = attrs[oldAttr];
+				setting[oldAttr] = '';
+			}
+		});
+		setAttrs(setting);
+	});
+}
 on('sheet:opened', function() {
-	setAttrs({
-		version: '0.3'
+	getAttrs(['version'], function(v) {
+		if (!v.version) {
+			runConversion();
+		}
+		setAttrs({
+			version: '0.3'
+		});
 	});
 });
 </script>

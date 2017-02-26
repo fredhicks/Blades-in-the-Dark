@@ -550,26 +550,26 @@ span.sheet-inherit {
 .sheet-advancement {
 	margin-top: 10px;
 }
-.sheet-advancement-header div {
+.sheet-advancement-header > div {
 	float: left;
 	letter-spacing: 2px;
 	position: relative;
 }
 .sheet-advancement-markxp {
-	width: 30%;
+	width: 25%;
 }
 .sheet-advancement-tracker {
-	width: 70%;
+	width: 75%;
 	text-align: right;
 	height: 16px;
 }
-.sheet-advancement-label {
-	width: calc(100% - 114px);
+.sheet-advancement-tracker div {
+	float: right;
 }
 .sheet-advancement-xpholder {
-	width: 114px;
+	min-width: 120px;
 	text-align: right;
-	padding-right: 3px;
+	padding: 0 3px 0 5px;
 }
 .sheet-advancement-desc {
 	width: 99%;
@@ -1620,10 +1620,11 @@ input.sheet-checkbox.sheet-friendup {
 .sheet-attribute-title div:first-child {
 	width: 67px;
 	float: left;
+	position: absolute;
 }
 .sheet-attribute-xp-box {
 	float: right;
-	width: 88px;
+	width: 108px;
 	text-align: right;
 	padding-right: 3px;
 }

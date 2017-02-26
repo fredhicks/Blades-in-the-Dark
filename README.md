@@ -9,6 +9,9 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## Changelog
 
+### 0.3.1
+* Added option to show longer xp bars (for vampires)
+
 ### 0.3
 * Full support for Ghost playbook
 * Partial support Hull and Vampire playbooks: different traumata and replacements for vice
