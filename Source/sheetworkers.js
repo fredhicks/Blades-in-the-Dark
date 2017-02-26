@@ -766,51 +766,8 @@ itemChecks.forEach(function(name) {
 	});
 });
 
-/* Initialization */
-// var conversionData = {
-// 	ability1: 'ability1_check',
-// 	ability_name1: 'ability1_name',
-// 	ability_info1: 'ability1_description',
-// 	coin: 'stash',
-// 	heavy: 'armor_heavy',
-// 	special_armor1: 'armor_special',
-// 	vice: 'vice_purveyor',
-// 	xp: 'xp_condition'
-// 	},
-// 	numberConversionData = _.object(ationsFlat, actionsFlat),
-// 	conversionAttrs = _.union(_.keys(conversionData),_.values(conversionData))
-// 	numberConversionAttrs = _.union(_.keys(numberConversionData),_.values(numberConversionData)),
-// 	conversionDataDump = ['coin1', 'coin2', 'coin3', 'coin4', 'recovery1', 'recovery2', 'recovery3', 'recovery4', 'ability2', 'ability_name2', 'ability_info2', 'ability3', 'ability_name3', 'ability_info3', 'ability4', 'ability_name4', 'ability_info4', 'ability5', 'ability_name5', 'ability_info5', 'ability6', 'ability_name6', 'ability_info6', 'ability7', 'ability_name7', 'ability_info7', 'ability8', 'ability_name8', 'ability_info8'],
-// 	repeatingConversionData = {
-// 		repeating_ability: {
-// 			ability0: 'check',
-// 			ability_name0: 'name',
-// 			ability_info0: 'description'
-// 		}
-// 	};
-// var runConversion = function () {
-// 	getAttrs(conversionAttrs, function (attrs) {
-// 		let setting = {};
-// 		conversionData.forEach(function (newAttr, oldAttr) {
-// 			if (_.has(attrs[oldAttr]) && attrs[oldAttr] !== '' && (!attrs[newAttr] || attrs[newAttr] === '0')) {
-// 				setting[newAttr] = attrs[oldAttr];
-// 				setting[oldAttr] = '';
-// 			}
-// 		});
-// 		setAttrs(setting);
-// 	});
-// 	getAttrs(numberConversionAttrs, function(attrs) {
-// 		let setting = {};
-// 		numberConversionData.forEach(function (newAttr, oldAttr) {
-//
-// 		});
-// 	});
-// }
 on('sheet:opened', function() {
 	getAttrs(['version'], function(v) {
-// 		if (!v.version) {
-// 			runConversion();
-// 		}
 		setAttrs({
 			version: '0.3.1'
 		});
