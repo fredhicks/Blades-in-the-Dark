@@ -83,9 +83,8 @@ input.sheet-settings-checkbox:checked ~ .sheet-settings {
 	border-radius: 5px;
 }
 .sheet-settings > div {
-	width: 50%;
-	float: left;
 	padding: 2px;
+	border-bottom: 1px solid lightgray;
 }
 .sheet-settings input.sheet-checkbox.sheet-squarebox:checked + span::before {
 	background-color: black !important;
@@ -94,6 +93,24 @@ input.sheet-settings-checkbox:checked ~ .sheet-settings {
 	font-size: 80%;
 	padding-left: 3px;
 }
+.sheet-settings-load span {
+	font-size: 80%;
+	padding: 0 4px 0 0;
+}
+.sheet-settings input[type=number] {
+	padding: 0 2px;
+	margin-left: 8px;
+	box-shadow: none;
+	width: 30px;
+	font-size: 90%;
+}
+.sheet-settings input[type=text] {
+	width: 30%;
+	color: black;
+	font-size: 80%;
+	border: 1px solid lightgray;
+}
+/* SETTINGS FOR HIDING STUFF ON THE SHEET */
 input.sheet-itemhider + div.sheet-item {
 	display: none;
 }
@@ -112,19 +129,12 @@ input.sheet-xp-hider + li {
 input.sheet-xp-hider:checked + li {
 	display: list-item;
 }
-div.sheet-loadsettings {
-	width: 100%;
+/* DEITY DISPLAY (set via sheet workers) */
+.sheet-show-deity {
+	display: none;
 }
-.sheet-loadsettings span {
-	font-size: 80%;
-	padding: 0 4px 0 0;
-}
-input[type=number] {
-	padding: 0 2px;
-	margin-left: 8px;
-	box-shadow: none;
-	width: 30px;
-	font-size: 90%;
+input.sheet-show-deity:checked ~ div.sheet-show-deity {
+	display: block;
 }
 /* GENERALITIES */
 .charsheet {
@@ -190,6 +200,12 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-rep-block {
 	display: inline-block;
 	width: 100%;
+}
+span.sheet-inherit {
+	font-size: inherit;
+	color: inherit;
+	font-family: inherit;
+	font-weight: inherit;
 }
 /* USEFUL GENERAL LAYOUT*/
 .sheet-blackheader, .sheet-black-on-grey, .sheet-greyheader {
@@ -386,6 +402,7 @@ input[type="checkbox"], input[type="radio"] {
 .sheet-item {
 	display: inline-block;
 	width: 100%;
+	line-height: normal;
 	color: black;
 }
 .sheet-item.sheet-itemshort {
@@ -645,7 +662,7 @@ input[type="checkbox"], input[type="radio"] {
 	display: none;
 	margin-top: 10px;
 }
-input[value="4"]:checked ~ .sheet-4clock, input[value="6"]:checked ~ .sheet-6clock, input[value="8"]:checked ~ .sheet-8clock, input[value="12"]:checked ~ .sheet-12clock, .sheet-recovery .sheet-8clock {
+input[value="4"]:checked ~ .sheet-4clock, input[value="6"]:checked ~ .sheet-6clock, input[value="8"]:checked ~ .sheet-8clock, input[value="12"]:checked ~ .sheet-12clock, .sheet-recovery .sheet-4clock {
 	display: block;
 }
 .sheet-8clock input[value="0"]:checked ~ .sheet-clockpicture {
@@ -1212,15 +1229,14 @@ input.sheet-radiobox:hover + span::before {
 .sheet-stress1 {
 	width: 57px;
 }
-.sheet-stress3 {
-	width: 72px;
-}
 .sheet-stress2 {
-	width: 130px;
+	width: 142px;
+}
+.sheet-stress3 {
+	width: 68px;
 }
 .sheet-stress4 {
-	width: calc(100% - 259px);
-	padding-left: 5px;
+	width: calc(100% - 268px);
 	padding-top: 1px;
 }
 .sheet-traumaholder, .sheet-wantedholder {
@@ -1279,7 +1295,7 @@ input.sheet-radiobox:hover + span::before {
 	margin: -2px 0 0 40px;
 }
 .sheet-stress3 .sheet-zeroholder {
-	margin-left: 5px;
+	margin-left: 0;
 }
 .sheet-rep1 .sheet-zeroholder {
 	margin: -2px 0 0 17px;
@@ -1332,13 +1348,6 @@ input.sheet-radiobox:hover + span::before {
 	background-size: 100% 27px;
 	line-height: 137%;
 	height: 378px;
-}
-/* DEITY DISPLAY (set via sheet workers) */
-.sheet-show-deity {
-	display: none;
-}
-input.sheet-show-deity:checked ~ div.sheet-show-deity {
-	display: block;
 }
 /* LOAD CHECKBOXES */
 .sheet-loadboxholder {
@@ -1744,10 +1753,10 @@ input.sheet-alchemicals-checkbox {
 	width: 93px;
 	margin-right: -93px;
 }
-input.sheet-alchemicals-checkbox + div {
+input.sheet-alchemicals-checkbox + span {
 	display: inline-block;
 }
-input.sheet-alchemicals-checkbox:hover + div {
+input.sheet-alchemicals-checkbox:hover + span {
 	color: red;
 }
 .sheet-alchemicals-content {

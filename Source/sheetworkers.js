@@ -42,7 +42,6 @@ var crewData = {
 		crew_xp_condition: 'Execute a successful accident, disappearance, murder, or ransom operation.',
 		hunting_grounds_type: 'Hunting Grounds:',
 		hunting_grounds_description: 'Accident - Disappearance - Murder - Ransom',
-		show_deity: 0,
 		upgrade_1_desc: 'Hardened (+1 trauma box)',
 		upgrade_2_desc: 'Assassin rigging (2 free load of weapons or gear)',
 		upgrade_2_tall: 'on',
@@ -141,7 +140,7 @@ var crewData = {
 		crew_xp_condition: 'Advance the agenda of your deity or embody its precepts in action.',
 		hunting_grounds_type: 'Sacred Sites:',
 		hunting_grounds_description: 'Acquisition - Augury - Consecration - Sacrifice',
-		show_deity: 'on',
+		setting_show_deity: 'on',
 		upgrade_1_desc: 'Ordained (+1 trauma box)',
 		upgrade_2_desc: 'Cult rigging (2 free load of documents or implements)',
 		upgrade_2_tall: 'on',
@@ -191,7 +190,6 @@ var crewData = {
 		crew_xp_condition: 'Acquire product supply, execute clandestine/covert sales, or secure new territory.',
 		hunting_grounds_type: 'Sales Territory:',
 		hunting_grounds_description: 'Sale - Supply - Show of Force - Socialize',
-		show_deity: 0,
 		upgrade_1_desc: 'Composed (+1 stress box)',
 		upgrade_2_desc: 'Hawker\'s rigging (1 carried item is concealed and has no load)',
 		upgrade_2_tall: 'on',
@@ -240,7 +238,6 @@ var crewData = {
 		crew_xp_condition: 'Execute a successful espionage, sabotage, or theft operation.',
 		hunting_grounds_type: 'Hunting Grounds:',
 		hunting_grounds_description: 'Burglary - Espionage - Robbery - Sabotage',
-		show_deity: 0,
 		upgrade_1_desc: 'Steady (+1 stress box)',
 		upgrade_2_desc: 'Thief Rigging (2 free load of tools or gear)',
 		upgrade_2_tall: 'on',
@@ -291,7 +288,6 @@ var crewData = {
 		crew_xp_condition: 'Execute a successful smuggling or acquire new clients or contraband sources.',
 		hunting_grounds_type: 'Cargo Types:',
 		hunting_grounds_description: 'Arcane/Weird - Arms - Contraband - Passengers',
-		show_deity: 0,
 		upgrade_1_desc: 'Steady (+1 stress box)',
 		upgrade_2_desc: 'Smuggler\'s rigging (2 items carried are perfectly concealed)',
 		upgrade_2_tall: 'on',
@@ -321,6 +317,10 @@ var crewData = {
 		item_8_desc: 'Rage essence vial',
 		item_9_desc: 'Spiritbane charm',
 		playbook_description: 'A Dangerous &\nIntimidating\nFighter',
+		setting_showitem_0: '0',
+		setting_showitem_3: '0',
+		setting_showitem_4: '0',
+		setting_showitem_5: '0',
 		skirmish1: '1',
 		skirmish2: '1',
 		xp_condition: 'You addressed a challenge with violence or coercion.'
@@ -359,6 +359,10 @@ var crewData = {
 		item_7_desc: 'A trained hunting pet',
 		item_8_desc: 'Spiritbane charm',
 		playbook_description: 'A Deadly\nSharpshooter\nand Tracker',
+		setting_showitem_0: '0',
+		setting_showitem_3: '0',
+		setting_showitem_4: '0',
+		setting_showitem_9: '0',
 		survey1: '1',
 		xp_condition: 'You addressed a challenge with tracking or violence.'
 	},
@@ -396,6 +400,10 @@ var crewData = {
 		item_6_desc: 'Bandolier of alchemicals (3)',
 		item_7_desc: 'Blowgun & darts, syringes',
 		playbook_description: 'A Saboteur and\nTechnician',
+		setting_showitem_3: '0',
+		setting_showitem_4: '0',
+		setting_showitem_8: '0',
+		setting_showitem_9: '0',
 		tinker1: '1',
 		tinker2: '1',
 		wreck1: '1',
@@ -418,6 +426,10 @@ var crewData = {
 		playbook_description: 'A Stealthy\nInfiltrator\nand Burglar',
 		prowl1: '1',
 		prowl2: '1',
+		setting_showitem_0: '0',
+		setting_showitem_1: '0',
+		setting_showitem_2: '0',
+		setting_showitem_9: '0',
 		xp_condition: 'You addressed a challenge with stealth or evasion.'
 	},
 	slide: {
@@ -435,6 +447,10 @@ var crewData = {
 		item_8_desc: 'Trance powder',
 		item_9_desc: 'Spiritbane charm',
 		playbook_description: 'A Subtle\nManipulator\nand Spy',
+		setting_showitem_0: '0',
+		setting_showitem_1: '0',
+		setting_showitem_2: '0',
+		setting_showitem_5: '0',
 		sway1: '1',
 		sway2: '1',
 		xp_condition: 'You addressed a challenge with deception or in influence.'
@@ -455,6 +471,10 @@ var crewData = {
 		item_8_desc: 'Concealed palm pistol',
 		item_9_desc: 'Spiritbane charm',
 		playbook_description: 'A Devious\nMastermind',
+		setting_showitem_0: '0',
+		setting_showitem_1: '0',
+		setting_showitem_2: '0',
+		setting_showitem_6: '0',
 		study1: '1',
 		xp_condition: 'You addressed a challenge with calculation or conspiracy.'
 	},
@@ -474,6 +494,10 @@ var crewData = {
 		item_8_desc: 'Ghost key',
 		item_9_desc: 'Demonbane charm',
 		playbook_description: 'An Arcane\nAdept and\nChanneler',
+		setting_showitem_0: '0',
+		setting_showitem_3: '0',
+		setting_showitem_4: '0',
+		setting_showitem_5: '0',
 		study1: '1',
 		xp_condition: 'You addressed a challenge with knowledge or arcane power.'
 	}
@@ -507,22 +531,30 @@ var crewData = {
 on('change:crew_type change:playbook', function (event) {
 	getAttrs(['crew_type', 'playbook', 'changed_attributes'], function (attrValues) {
 		let changedAttributes = (attrValues.changed_attributes||'').split(','),
-			data;
+			data, baseData;
 		switch(event.sourceAttribute) {
 			case 'crew_type':
 				data = crewData[attrValues.crew_type.toLowerCase()];
+				baseData = crewAttributes;
 				break;
 			case 'playbook':
 				data = playbookData[attrValues.playbook.toLowerCase()];
+				baseData = playbookAttributes;
 		}
 		/* Change unset attributes to default */
 		if (data) {
-			let finalSettings = _.reduce(data, function(settings, value, name) {
+			let finalSettings = _.reduce(baseData, function(settings, name) {
+				if (!_.contains(changedAttributes, name)) {
+					settings[name] = '';
+				}
+				return settings;
+			}, {});
+			_.reduce(data, function(settings, value, name) {
 				if (!_.contains(changedAttributes, name)) {
 					settings[name] = value;
 				}
 				return settings;
-				}, {});
+				}, finalSettings);
 			setAttrs(finalSettings);
 		}
 	});
@@ -687,6 +719,13 @@ itemChecks.forEach(function(name) {
 				setAttrs(setting);
 			}
 		});
+	});
+});
+
+/* Initialization */
+on('sheet:opened', function() {
+	setAttrs({
+		version: '0.2.4'
 	});
 });
 </script>

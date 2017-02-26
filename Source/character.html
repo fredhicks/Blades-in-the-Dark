@@ -57,7 +57,7 @@
 		<div class="sheet-col100 sheet-stress sheet-def-margin">
 			<!-- Stress markers -->
 			<div class="sheet-blackheader sheet-stress1">
-				<div class="sheet-label">Stress</div>
+				<div class="sheet-label"><span class="sheet-inherit" name="attr_setting_stress_label"></span></div>
 				<div class="sheet-zeroholder">
 					<input type="radio" value="0" name="attr_stress" class="sheet-zero" checked/>
 					<span></span>
@@ -89,11 +89,14 @@
 				<input type="checkbox" name="attr_setting_extra_stress2" class="sheet-hidden sheet-toothhider"/>
 				<input type="radio" value="11" name="attr_stress" class="sheet-tooth sheet-stresstooth"/>
 				<span></span>
+				<input type="checkbox" name="attr_setting_extra_stress3" class="sheet-hidden sheet-toothhider"/>
+				<input type="radio" value="12" name="attr_stress" class="sheet-tooth sheet-stresstooth"/>
+				<span></span>
 			</div>
 			<!-- Trauma markers -->
 			<div class="sheet-stress3">
 				<div class="sheet-blackheader">
-					<div class="sheet-label">Trauma</div>
+					<div class="sheet-label"><span name="attr_setting_trauma_label" class="sheet-inherit"></span></div>
 				</div>
 				<div class="sheet-zeroholder">
 					<input type="radio" value="0" name="attr_trauma" class="sheet-zero" checked/>
@@ -181,7 +184,7 @@
 					<span class="sheet-bold sheet-label">Recovery</span>
 					<span> Get treatment in downtime to activate your healing project clock ►</span>
 					<br/>
-					<div class="sheet-clockprogress sheet-8clock">
+					<div class="sheet-clockprogress sheet-4clock">
 						<span class="sheet-bold sheet-label">Progress</span>
 						<input type="radio" name="attr_recovery" class="sheet-text-input" value="0" checked/>
 						<span>0</span>
@@ -191,16 +194,8 @@
 						<span>2</span>
 						<input type="radio" name="attr_recovery" class="sheet-text-input" value="3"/>
 						<span>3</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="4"/>
+						<input type="radio" name="attr_recovery" class="sheet-text-input sheet-last" value="4"/>
 						<span>4</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="5"/>
-						<span>5</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="6"/>
-						<span>6</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="7"/>
-						<span>7</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input sheet-last" value="8"/>
-						<span>8</span>
 						<div class="sheet-clockpicture"></div>
 					</div>
 				</div>
@@ -676,7 +671,7 @@
 			<!-- Alchemicals -->
 			<div class="sheet-col100 sheet-alchemicals sheet-def-margin">
 				<input type="checkbox" name="attr_show_alchemicals" class="sheet-alchemicals-checkbox"/>
-				<div class="sheet-label sheet-plainheader">Alchemicals</div>
+				<span class="sheet-label sheet-plainheader">Alchemicals</span>
 				<div class="sheet-alchemicals-content">
 					<div class="sheet-bandolier">
 						<span>Bandolier</span>
@@ -1080,7 +1075,7 @@
 					<div class="sheet-bonusdieplus">+</div>
 					<div class="sheet-bonusdietext">
 						<span class="sheet-smallcaps">Push yourself</span>
-						<span> (take 2 stress) -or- accept a </span>
+						<span> (take 2 <span name="attr_setting_stress_label" class="sheet-inherit"></span>) -or- accept a </span>
 						<span class="sheet-smallcaps">Devil's Bargain</span>
 					</div>
 				</div>
