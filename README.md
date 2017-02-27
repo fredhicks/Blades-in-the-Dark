@@ -6,9 +6,13 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 * ADD: full support for Hull playbook
 * ADD: faction/status section
 * Add Elite indicator to Cohort and button to roll quality
-* Add vice button to vampire vice
 
 ## Changelog
+
+### 0.3.3
+* Fixed display issues on Firefox/Windows
+* Vampires now have an Indulge Vice button
+* When turf boxes are checked, they now turn a darker shade
 
 ### 0.3.2
 * Fixed several minor display issues

@@ -876,7 +876,7 @@ input.sheet-regulartooth, input.sheet-regulartooth + span::before {
 input.sheet-tooth {
 	width: 12px;
 	margin-right: -12px;
-	position: relative;
+	position: absolute;
 	vertical-align: top;
 }
 input.sheet-tooth + span::before {
@@ -1088,7 +1088,7 @@ textarea.sheet-abilitydesc {
 .sheet-stash {
 	margin-top: 5px;
 	padding-left: 5px;
-	line-height: 0px;
+	line-height: 14px;
 }
 .sheet-stashzeroholder {
 	position: absolute;
@@ -1101,6 +1101,7 @@ textarea.sheet-abilitydesc {
 .sheet-crewcoin > div:nth-child(3) {
 	margin-top: 2px;
 	padding-left: 3px;
+	width: 110%;
 }
 .sheet-crewcoin > div:last-child {
 	font-size: 72%;
@@ -1127,7 +1128,7 @@ textarea.sheet-abilitydesc {
 input.sheet-radiobox {
 	width: 12px;
 	height: 12px;
-	position: relative;
+	position: absolute;
 	margin: 0 -12px 3px 0;
 }
 input.sheet-radiobox + span::before {
@@ -1478,7 +1479,7 @@ button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:
 }
 /* CHECKBOXES */
 input.sheet-checkbox {
-	position: relative;
+	position: absolute;
 	height: 12px;
 	width: 12px;
 	margin-right: -12px;
@@ -1782,6 +1783,9 @@ div.sheet-cohort-condition4 {
 	position: absolute;
 	margin: 1px 0 0 1px;
 	line-height: 0;
+}
+input:checked + .sheet-claimbox {
+	background-color:#c1c4c5;
 }
 /* STRICTURES */
 .sheet-strictures div {
