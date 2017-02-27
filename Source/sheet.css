@@ -1533,9 +1533,8 @@ input.sheet-checkbox:checked + span::before {
 	background-color: red !important;
 }
 input.sheet-checkbox.sheet-claimbridge {
-	width: 100%;
-	height: 100%;
-	margin-right: -100%;
+	width: 14px;
+	height: 14px;
 }
 input.sheet-checkbox.sheet-claimbridge + span::before {
 	margin: 0;
