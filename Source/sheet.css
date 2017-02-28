@@ -8,7 +8,6 @@
 input.sheet-settings-checkbox {
 	width: 20px;
 	height: 20px;
-	position: absolute;
 }
 input.sheet-settings-checkbox + span {
 	opacity: 0.3;
@@ -42,7 +41,6 @@ input.sheet-type-selector:checked ~ div.sheet-type-character {
 input.sheet-type-selector {
 	width: 170px;
 	height: 20px;
-	position: absolute;
 }
 input.sheet-type-selector + span {
 	border: solid 1px #a7a7a7;
@@ -74,7 +72,7 @@ input:checked + .sheet-settings {
 .sheet-settings {
 	display: none;
 	position: absolute;
-	margin-left: 510px;
+	margin-left: calc(100% - 360px);
 	width: 350px;
 	border: 1px solid black;
 	background: white;
@@ -157,7 +155,8 @@ input.sheet-hidediv:checked + div {
 /* GENERALITIES */
 .charsheet {
 	width: 860px;
-	padding: 0 !important;
+	position: absolute;
+	padding: 0 10px 0 0 !important;
 	margin: 0 !important;
 }
 button {
@@ -213,6 +212,7 @@ input[type="checkbox"], input[type="radio"] {
 	z-index: 1;
 	margin: 0;
 	padding: 0;
+	position: absolute;
 }
 .sheet-hidden {
 	display: none !important;
@@ -289,7 +289,7 @@ span.sheet-inherit {
 	background-color: #d6d8d9;
 }
 /* COLUMN LAYOUT */
-.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70, .sheet-col54b, .sheet-col52b, .sheet-col18 {
+.sheet-col55, .sheet-col45, .sheet-col50a, .sheet-col50b, .sheet-col94, .sheet-col100, .sheet-col97, .sheet-col68, .sheet-col30, .sheet-col50, .sheet-col2, .sheet-col70, .sheet-col52b, .sheet-col18 {
 	float: left;
 }
 .sheet-col2 {
@@ -307,10 +307,6 @@ span.sheet-inherit {
 .sheet-col52b {
 	width: 52%;
 	margin-left: 3%;
-}
-.sheet-col54b {
-	width: 54%;
-	margin-left: 1%;
 }
 .sheet-col55 {
 	width: 55%;
@@ -519,7 +515,7 @@ span.sheet-inherit {
 	font-weight: 800;
 }
 .sheet-loadheader {
-	padding: 2px 0 0 3px;
+	padding: 4px 0 0 3px;
 }
 .sheet-loadheader2 {
 	margin-top: 5px;
@@ -678,10 +674,10 @@ span.sheet-viceblurb {
 	background-image: url('http://i.imgur.com/ji8z8CE.png');
 }
 .sheet-recovery .sheet-clockpicture {
-	margin-left: 260px;
+	margin-left: 30.5%;
 }
 .sheet-clock .sheet-clockpicture {
-	margin-left: 316px;
+	margin-left: 85%;
 }
 .sheet-4clock, .sheet-6clock, .sheet-8clock, .sheet-12clock {
 	display: none;
@@ -824,7 +820,6 @@ input[value="12"]:checked ~ .sheet-12clock,
 }
 /* TEXT INPUTS FOR TRAUMA AND CLOCKS */
 input.sheet-text-input {
-	position: absolute;
 	height: 11px;
 }
 input.sheet-text-input[type="checkbox"] {
@@ -882,7 +877,6 @@ input.sheet-regulartooth, input.sheet-regulartooth + span {
 }
 input.sheet-tooth {
 	width: 12px;
-	position: absolute;
 }
 input.sheet-tooth + span {
 	width: 8px;
@@ -925,7 +919,6 @@ input.sheet-regulartooth:checked ~ input.sheet-regulartooth[type="radio"] + span
 	background-image: url(http://i.imgur.com/m3eW79B.png);
 }
 input.sheet-zero {
-	position: absolute;
 	width: 13px;
 	height: 13px;
 }
@@ -944,6 +937,7 @@ input.sheet-zero[type="radio"]:checked + span {
 .sheet-turfbox input[type="radio"] {
 	display: block;
 	float: right;
+	position: initial;
 	width: 11px;
 }
 input[type="checkbox"].sheet-turf1:checked ~ input[type="radio"].sheet-turf1 + span,
@@ -1053,12 +1047,15 @@ textarea.sheet-abilitydesc {
 	padding: 5px 0 0 5px;
 	width: calc(100% - 10px);
 }
-.sheet-armor .sheet-label.sheet-specialarmorlabel {
-	padding-left: 50%;
+.sheet-armor .sheet-col50 {
+	margin-bottom: 4px;
+}
+.sheet-armor .sheet-col50:last-child {
+	float: right;
 }
 /* COIN */
 .sheet-coin-and-stash {
-	margin-top: 39px;
+	margin-top: 49px;
 }
 .sheet-coinrow {
 	font-size: 73%;	
@@ -1129,7 +1126,6 @@ textarea.sheet-abilitydesc {
 input.sheet-radiobox {
 	width: 12px;
 	height: 12px;
-	position: absolute;
 	margin: 0 -12px 3px 0;
 }
 input.sheet-radiobox + span {
@@ -1242,8 +1238,12 @@ input.sheet-radiobox:hover + span {
 	z-index: 20;
 }
 /* STRESS, REP, et cetera */
-.sheet-stress > div, .sheet-rep > div, .sheet-hold > div, .sheet-heat > div, .sheet-crewcoin > div:first-child > div {
+.sheet-hold, .sheet-stress > div, .sheet-rep > div, .sheet-hold > div, .sheet-heat > div, .sheet-crewcoin > div:first-child > div {
 	float: left;
+}
+.sheet-hold {
+	width: 255px;
+	margin-left: calc(55% - 255px);
 }
 .sheet-stress, .sheet-rep, .sheet-hold, .sheet-heat {
 	height: 25px;
@@ -1252,13 +1252,13 @@ input.sheet-radiobox:hover + span {
 	width: 53px;
 }
 .sheet-stress2 {
-	width: 142px;
+	width: calc(100% - 330px);
 }
 .sheet-stress3 {
 	width: 68px;
 }
 .sheet-stress4 {
-	width: calc(100% - 264px);
+	width: 209px;
 	padding-top: 1px;
 }
 .sheet-stress4 div {
@@ -1275,10 +1275,10 @@ input.sheet-radiobox:hover + span {
 	width: 35px;
 }
 .sheet-rep2 {
-	width: 135px;
+	width:  calc(100% - 78px);
 }
 .sheet-rep3 {
-	width: calc(100% - 170px);
+	width: 43px;
 }
 .sheet-turfbox {
 	display: block;
@@ -1297,15 +1297,15 @@ input.sheet-radiobox:hover + span {
 	width: 63px;
 }
 .sheet-hold5 {
-	width: calc(100% - 196px);
+	width: 59px;
 	height: 16px; 
 	padding-left: 2px;
 }
 .sheet-heat2 {
-	width: 107px;
+	width: calc(100% - 106px);
 }
 .sheet-heat3 {
-	width: calc(100% - 148px);
+	width: 65px;
 }
 .sheet-crewcoin1 {
 	width: 60px;
@@ -1393,7 +1393,6 @@ input.sheet-radiobox:hover + span {
 input.sheet-loadbox[type="checkbox"] {
 	width: 12px;
 	height: 12px;
-	position: absolute;
 }
 input.sheet-loadbox[type="checkbox"] + span {
 	display: inline-block;
@@ -1475,7 +1474,6 @@ button[type=roll].sheet-vicebutton:hover, button[type=roll].sheet-fortunebutton:
 }
 /* CHECKBOXES */
 input.sheet-checkbox {
-	position: absolute;
 	height: 12px;
 	width: 12px;
 }
@@ -1798,7 +1796,7 @@ input:checked + .sheet-claimbox {
 /* ALCHEMICALS */
 input.sheet-alchemicals-checkbox {
 	width: 93px;
-	position: absolute;
+	height: 15px;
 }
 input.sheet-alchemicals-checkbox + span {
 	display: inline-block;
