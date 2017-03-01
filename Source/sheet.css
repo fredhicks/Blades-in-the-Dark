@@ -1662,14 +1662,13 @@ input.sheet-checkbox.sheet-frienddown {
 	margin-right: 0px;
 }
 /* COHORTS */
-.sheet-cohort-title .sheet-label {
-	float: right;
-	font-size: 50%;
-	color: white;
-}
-.sheet-cohort-title div:first-child {
-	width: 85px;
+.sheet-cohort-title > div:first-child {
+	width: 120px;
 	float: left;
+}
+.sheet-cohort-title > div:last-child {
+	width: 44px;
+	float: right;
 }
 .sheet-cohort-title input[type=text] {
 	font-weight: 600;
@@ -1677,12 +1676,6 @@ input.sheet-checkbox.sheet-frienddown {
 	font-size: 90%;
 	background: transparent;
 	padding: 2px 0 0;
-}
-.sheet-cohort-title > .sheet-label:last-child {
-	margin-right: 2px;
-}
-.sheet-cohort-title .sheet-label:nth-last-child(3) {
-	margin: 0 2px;
 }
 .sheet-cohortbox {
 	float: right;
@@ -1887,4 +1880,50 @@ input.sheet-expand:checked ~ input[type=text] {
 }
 .sheet-faction input.sheet-expand:checked ~ textarea {
 	display: block;
+}
+/* DROPDOWN PSEUDO-SELECT */
+.sheet-cohort-dropdown, .sheet-cohort-dropdown-bg {
+	background-color: black;
+	position: absolute;
+	z-index: -1;
+	width: 44px;
+}
+.sheet-cohort-dropdown {
+	height: 20px;
+	text-align: right;
+	padding: 2px 4px 0 0;
+	line-Height: 13px;
+	z-index: 1;
+}
+.sheet-cohort-dropdown-bg {
+	display: none;
+	height: 47px;
+}
+.sheet-cohort-dropdown input[type=radio] {
+	width: 44px;
+	z-index: 10;
+}
+.sheet-cohort-dropdown input[type=radio],
+.sheet-cohort-dropdown input[type=radio] + span {
+	display: none;
+}
+.sheet-cohort-title .sheet-label {
+	font-size: 65%;
+	color: white;
+}
+.sheet-cohort-dropdown:hover input[type=radio],
+.sheet-cohort-dropdown:hover input[type=radio] + span {
+	display: inline;
+}
+.sheet-cohort-dropdown:hover .sheet-cohort-dropdown-bg {
+	display: block;
+}
+.sheet-cohort-dropdown:hover input[type=radio]:checked + span {
+	color: red;
+}
+.sheet-cohort-dropdown span:first-child {
+	display: inline-block;
+}
+.sheet-cohort-dropdown:hover span:first-child {
+	display: none;
 }

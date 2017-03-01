@@ -762,16 +762,17 @@
 					<div>
 						<input type="text" class="sheet-label" value="Cohort" name=attr_cohort1_name"/>
 					</div>
-					<div class="sheet-cohortbox">
-						<input type="radio" class="sheet-checkbox sheet-circlebox-small" value="expert" name="attr_cohort1_type"/>
-						<span></span>
+					<div>
+						<div class="sheet-cohort-dropdown">
+							<span class="sheet-label" name=attr_cohort1_type"></span>
+							<div class="sheet-cohort-dropdown-bg"></div>
+							<input type="radio" name="attr_cohort1_type" value="gang" checked/><span class="sheet-label">Gang</span>
+							<br/>
+							<input type="radio" name="attr_cohort1_type" value="elite" checked/><span class="sheet-label">Elite</span>
+							<br/>
+							<input type="radio" name="attr_cohort1_type" value="expert" checked/><span class="sheet-label">Expert</span>
+						</div>
 					</div>
-					<div class="sheet-label">Expert</div>
-					<div class="sheet-cohortbox">
-						<input type="radio" class="sheet-checkbox sheet-circlebox-small" value="gang" name="attr_cohort1_type"/>
-						<span></span>
-					</div>
-					<div class="sheet-label">Gang</div>
 				</div>
 				<div class="sheet-cohort-condition sheet-col100">
 					<div class="sheet-cohort-condition1">
