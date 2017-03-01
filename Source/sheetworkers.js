@@ -325,14 +325,12 @@ var crewData = {
 		xp_condition: 'You addressed a challenge with violence or coercion.'
 	},
 	ghost: {
-		attune1: '1',
 		gatherinfo1: 'What do they intend to do?',
 		gatherinfo2: 'How can I get them to [X]?',
 		gatherinfo3: 'What are they really feeling?',
 		gatherinfo4: 'What should I look out for?',
 		gatherinfo5: 'Where\'s the weakness here?',
 		gatherinfo6: 'How can I find [X]?',
-		hunt1: '1',
 		playbook_description: 'A spirit without a body',
 		setting_showitem_0: '0',
 		setting_showitem_1: '0',
@@ -378,7 +376,6 @@ var crewData = {
 		xp_condition: 'You addressed a challenge with tracking or violence.'
 	},
 	hull: {
-		attune1: '1',
 		gatherinfo1: 'What do they intend to do?',
 		gatherinfo2: 'How can I get them to [X]?',
 		gatherinfo3: 'What are they really feeling?',
@@ -402,7 +399,6 @@ var crewData = {
 		setting_trauma_name: 'Wear',
  		setting_traumata_set: 'hull',
 		setting_vice_type: 'hull',
-		skirmish1: '1',
 		xp_condition: 'You fulfilled your functions despite difficulty or danger.',
 		xp_condition2: 'You suppressed or ignored your former human beliefs, drives, heritage, or background.',
 		xp_condition3: 'You struggled with issues from your wear during the session.'
@@ -533,22 +529,18 @@ var crewData = {
 		xp_condition: 'You addressed a challenge with knowledge or arcane power.'
 	},
 	vampire: {
-		attune1: '1',
-		command1: '1',
 		gatherinfo1: 'What do they intend to do?',
 		gatherinfo2: 'How can I get them to [X]?',
 		gatherinfo3: 'What are they really feeling?',
 		gatherinfo4: 'What should I look out for?',
 		gatherinfo5: 'Where\'s the weakness here?',
 		gatherinfo6: 'How can I find [X]?',
-		hunt1: '1',
 		item_3_desc: 'Fine shadow cloak',
 		item_4_desc: 'Fine clothes and accoutrements',
 		item_5_desc: 'Fine personal weapon',
 		item_7_desc: 'Demonbane charm',
 		item_8_desc: 'Spiritbane charm',
 		playbook_description: 'A spirit animating an undead body',
-		prowl1: '1',
 		setting_extra_stress1: 'on',
 		setting_extra_stress2: 'on',
 		setting_extra_stress3: 'on',
@@ -561,8 +553,6 @@ var crewData = {
  		setting_show_strictures: 'on',
  		setting_traumata_set: 'normal',
 		setting_vice_type: 'vampire',
-		skirmish1: '1',
-		sway1: '1',
 		trauma: '4',
 		xp_condition: 'You displayed your dominance or slayed without mercy.',
 		xp_condition2: 'You expressed your beliefs, drives, heritage, or background.',
@@ -682,6 +672,56 @@ on('change:wanted', function() {
 				setting.wanted1 = 1;
 		}
 		setAttrs(setting);
+	});
+});
+/* CALCULATE COHORT QUALITY */
+var calcCohortDots = function(t1, t2, t3, t4, imp, type, prefix) {
+	let numDots = parseInt(t1) + parseInt(t2) + parseInt(t3) + parseInt(t4);
+	if (imp === 'on') {
+		numDots = numDots - 1;
+	}
+	if (type === 'elite' || type === 'expert') {
+		numDots = numDots + 1;
+	}
+	let setting = {};
+	setting[`${prefix}die1`] = 0;
+	setting[`${prefix}die2`] = 0;
+	setting[`${prefix}die3`] = 0;
+	setting[`${prefix}die4`] = 0;
+	setting[`${prefix}die5`] = 0;
+	switch(numDots) {
+		case 5:
+			setting[`${prefix}die5`] = 1;
+		case 4:
+			setting[`${prefix}die4`] = 1;
+		case 3:
+			setting[`${prefix}die3`] = 1;
+		case 2:
+			setting[`${prefix}die2`] = 1;
+		case 1:
+			setting[`${prefix}die1`] = 1;
+	}
+	return setting;
+},
+	qualityAttrs = ['crew_tier1', 'crew_tier2', 'crew_tier3', 'crew_tier4', 'cohort1_impaired', 'cohort1_type'],
+	qualityEvent = _.map(qualityAttrs, str => `change:${str}`).join(' ');
+on(qualityEvent, function() {
+	getAttrs(qualityAttrs, function (attrs) {
+		setting = calcCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs.cohort1_impaired, attrs.cohort1_type, 'cohort1_');
+		setAttrs(setting);
+	});
+});
+var repeatingQualityAttrs = ['crew_tier1', 'crew_tier2', 'crew_tier3', 'crew_tier4', 'repeating_cohort:impaired', 'repeating_cohort:type'],
+	repeatingQualityEvent = _.map(repeatingQualityAttrs, str => `change:${str}`).join(' ');
+on(repeatingQualityEvent + ' change:repeating_cohort:name', function() {
+	getSectionIDs('repeating_cohort', function(list) {
+		list.forEach(function(id) {
+			let attrList = _.map(repeatingQualityAttrs, str => str.replace(':', '_'+id+'_'));
+			getAttrs(attrList, function(attrs) {
+				let setting = calcCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs[attrList[4]], attrs[attrList[5]], `repeating_cohort_${id}_`);
+				setAttrs(setting);
+			});
+		});
 	});
 });
 

@@ -4,13 +4,14 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## TODO
 * ADD: full support for Hull playbook
-* ADD: roll button for cohorts
 
 ## Changelog
 
 ### 0.5
 * Added description field to Factions & Status section
 * Changed type choice for cohorts to a pseudo-select dropdown
+* Added button to roll cohort quality
+* Removed spirit playbook dots, since you're supposed to add them to existing dots
 
 ### 0.4.2
 * Added Georgia to list of header fonts for a better look on Windows

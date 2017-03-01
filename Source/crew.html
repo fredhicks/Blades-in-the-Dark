@@ -768,9 +768,9 @@
 							<div class="sheet-cohort-dropdown-bg"></div>
 							<input type="radio" name="attr_cohort1_type" value="gang" checked/><span class="sheet-label">Gang</span>
 							<br/>
-							<input type="radio" name="attr_cohort1_type" value="elite" checked/><span class="sheet-label">Elite</span>
+							<input type="radio" name="attr_cohort1_type" value="elite"/><span class="sheet-label">Elite</span>
 							<br/>
-							<input type="radio" name="attr_cohort1_type" value="expert" checked/><span class="sheet-label">Expert</span>
+							<input type="radio" name="attr_cohort1_type" value="expert"/><span class="sheet-label">Expert</span>
 						</div>
 					</div>
 				</div>
@@ -805,7 +805,13 @@
 					</div>
 				</div>
 				<div class="sheet-cohort-text sheet-col100">
-						<textarea spellcheck="false" name="attr_cohort1_description"></textarea>
+					<textarea spellcheck="false" name="attr_cohort1_description"></textarea>
+					<input type="text" class="sheet-hidden" name="attr_cohort1_die1" value="0"/>
+					<input type="text" class="sheet-hidden" name="attr_cohort1_die2" value="0"/>
+					<input type="text" class="sheet-hidden" name="attr_cohort1_die3" value="0"/>
+					<input type="text" class="sheet-hidden" name="attr_cohort1_die4" value="0"/>
+					<input type="text" class="sheet-hidden" name="attr_cohort1_die5" value="0"/>
+					<button type="roll" class="sheet-cohortbutton" value='&{template:bitd-cohort} {{charname=@{character_name}}} {{cohort=@{cohort1_name}}} {{roll1value=[[@{cohort1_die1}d6]]}}{{roll2value=[[@{cohort1_die2}d6]]}}{{roll3value=[[@{cohort1_die3}d6]]}}{{roll4value=[[@{cohort1_die4}d6]]}}{{roll5value=[[@{cohort1_die5}d6]]}}{{bonusdice=[[?{Bonus dice|0|1|2|3|4|5|6}]]}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll<br/>Quality</button>
 				</div>
 			</div>
 			<!-- Cohort repeating section -->
@@ -818,13 +824,13 @@
 							</div>
 							<div>
 								<div class="sheet-cohort-dropdown">
-									<span class="sheet-label" name="attr_type" value="gang"></span>
+									<span class="sheet-label" name="attr_type" value="gang">Gang</span>
 									<div class="sheet-cohort-dropdown-bg"></div>
 									<input type="radio" name="attr_type" value="gang" checked/><span class="sheet-label">Gang</span>
 									<br/>
-									<input type="radio" name="attr_type" value="elite" checked/><span class="sheet-label">Elite</span>
+									<input type="radio" name="attr_type" value="elite"/><span class="sheet-label">Elite</span>
 									<br/>
-									<input type="radio" name="attr_type" value="expert" checked/><span class="sheet-label">Expert</span>
+									<input type="radio" name="attr_type" value="expert"/><span class="sheet-label">Expert</span>
 								</div>
 							</div>
 						</div>
@@ -859,7 +865,13 @@
 							</div>
 						</div>
 						<div class="sheet-cohort-text sheet-col100">
-								<textarea spellcheck="false" name="attr_description"></textarea>
+							<input type="text" class="sheet-hidden" name="attr_die1" value="0"/>
+							<input type="text" class="sheet-hidden" name="attr_die2" value="0"/>
+							<input type="text" class="sheet-hidden" name="attr_die3" value="0"/>
+							<input type="text" class="sheet-hidden" name="attr_die4" value="0"/>
+							<input type="text" class="sheet-hidden" name="attr_die5" value="0"/>
+							<textarea spellcheck="false" name="attr_description"></textarea>
+							<button type="roll" class="sheet-cohortbutton" value='&{template:bitd-cohort} {{charname=@{character_name}}} {{cohort=@{name}}} {{roll1value=[[@{die1}d6]]}}{{roll2value=[[@{die2}d6]]}}{{roll3value=[[@{die3}d6]]}}{{roll4value=[[@{die4}d6]]}}{{roll5value=[[@{die5}d6]]}}{{bonusdice=[[?{Bonus dice|0|1|2|3|4|5|6}]]}}{{bonus1=[[1d6]]}}{{bonus2=[[1d6]]}}{{bonus3=[[1d6]]}}{{bonus4=[[1d6]]}}{{bonus5=[[1d6]]}}{{bonus6=[[1d6]]}}{{zerodice1=[[1d6]]}}{{zerodice2=[[1d6]]}}'>Roll<br/>Quality</button>
 						</div>
 					</div>
 				</fieldset>

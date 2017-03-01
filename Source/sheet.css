@@ -1444,7 +1444,7 @@ button[type=roll].sheet-actionbutton {
 	text-align: left;
 	width: 86px;
 }
-button[type=roll].sheet-vicebutton, button[type=roll].sheet-fortunebutton {
+button[type=roll].sheet-vicebutton, button[type=roll].sheet-fortunebutton, button[type=roll].sheet-cohortbutton {
 	color: #616161;
 	border-color: #b3b4b6;
 	border-radius: 0;
@@ -1463,6 +1463,15 @@ button[type=roll].sheet-fortunebutton {
 	float: left;
 	height: 38px;
 	margin: 10px 3px 0 0;
+}
+button[type=roll].sheet-cohortbutton {
+	padding: 1px;
+	margin-top: 3px;
+	width: 35px;
+	margin-left: -35px;
+	position: absolute;
+	line-height: 7px;
+	font-size: 65%;
 }
 button[type=roll].sheet-rollbutton:hover {
 	color: #ff4747;
