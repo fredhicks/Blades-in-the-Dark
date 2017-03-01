@@ -384,7 +384,7 @@ var crewData = {
 		gatherinfo6: 'How can I find [X]?',
 		playbook_description: 'A spirit animating a clockwork frame',
 		setting_load_h: '7',
-// 		setting_show_frame: 'on',
+ 		setting_show_frame: 'on',
 		setting_showitem_0: '0',
 		setting_showitem_1: '0',
 		setting_showitem_2: '0',
@@ -559,6 +559,7 @@ var crewData = {
 		xp_condition3: 'You struggled with issues from your vice, traumas, or strictures during the session.'
 	}
 	},
+	spiritPlaybooks = ['ghost', 'hull', 'vampire'],
 	crewAttributes = _.chain(crewData).map(o => _.keys(o)).flatten().uniq().value(),
 	playbookAttributes = _.chain(playbookData).map(o => _.keys(o)).flatten().uniq().value(),
 	watchedAttributes = _.union(crewAttributes, playbookAttributes);
@@ -577,12 +578,15 @@ on('change:crew_type change:playbook', function (event) {
 		}
 		/* Change unset attributes to default */
 		if (data) {
-			let finalSettings = _.reduce(baseData, function(settings, name) {
-				if (!_.contains(changedAttributes, name)) {
-					settings[name] = '';
-				}
-				return settings;
-			}, {});
+			let finalSettings = {};
+			if (event.sourceAttribute === 'crew_type' || !_.contains(spiritPlaybooks, attrValues.playbook.toLowerCase())) {
+				finalSettings = _.reduce(baseData, function(settings, name) {
+					if (!_.contains(changedAttributes, name)) {
+						settings[name] = '';
+					}
+					return settings;
+				}, {});
+			}
 			_.reduce(data, function(settings, value, name) {
 				if (!_.contains(changedAttributes, name)) {
 					settings[name] = value;

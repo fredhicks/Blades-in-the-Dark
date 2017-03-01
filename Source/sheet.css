@@ -140,12 +140,6 @@ input.sheet-xp-hider:checked + li {
 input.sheet-show-deity:checked ~ div.sheet-show-deity {
 	display: block;
 }
-.sheet-traumata > input + div {
-	display: none;
-}
-.sheet-traumata > input:checked + div {
-	display: block;
-}
 input.sheet-hidediv + div {
 	display: none;
 }
@@ -1686,13 +1680,6 @@ input.sheet-checkbox.sheet-frienddown {
 	background: transparent;
 	padding: 2px 0 0;
 }
-.sheet-cohortbox {
-	float: right;
-	padding-left: 1px;
-	width: 13px;
-	height: 16px;
-	background: #d6d8d9;
-}
 .sheet-cohort-condition > div, .sheet-cohort-condition .sheet-label {
 	float: left;
 }
@@ -1935,4 +1922,18 @@ input.sheet-expand:checked ~ input[type=text] {
 }
 .sheet-cohort-dropdown:hover span:first-child {
 	display: none;
+}
+/* FRAME */
+.sheet-frame {
+	margin-top: 4px;
+}
+.sheet-frame input.sheet-label {
+	font-weight: 600;
+	color: black;
+}
+.sheet-frame textarea {
+	font-size: 83%;
+	color: black;
+	resize: vertical;
+	height: 40px;
 }
