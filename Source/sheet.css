@@ -1841,8 +1841,10 @@ input.sheet-alchemicals-checkbox:checked ~ .sheet-alchemicals-content {
 .sheet-factions input[type=number] {
 	border: none;
 	font-weight: 600;
-	padding: 0;
-	width: 15%;
+	color: black;
+	width: 17%;
+	padding: 0 1px 0 0;
+	text-align: right;
 	box-shadow: none;
 	-moz-appearance: textfield;
 }
@@ -1851,6 +1853,35 @@ input.sheet-alchemicals-checkbox:checked ~ .sheet-alchemicals-content {
 	-moz-appearance: number-input;
 }
 .sheet-factions input[type=text] {
-	width: 85%;
+	width: 83%;
+	color: black;
 	font-size: 90%;
+}
+input.sheet-expand {
+	width: 8px;
+	margin-top: 7px;
+	margin-left: -2px;
+	height: 8px;
+}
+input.sheet-expand + span::before {
+	margin-top: 3px;
+	margin-left: -2px;
+	position: absolute;
+	content: "▶";
+	font-size: 8px;
+	width: 12px;
+	height: 12px;
+}
+input.sheet-expand:checked + span::before {
+	content: "▼";
+}
+.sheet-faction textarea {
+	display: none;
+	resize: vertical;
+	font-size: 90%;
+	height: 35px;
+	color: black;
+}
+.sheet-faction input.sheet-expand:checked ~ textarea {
+	display: block;
 }
