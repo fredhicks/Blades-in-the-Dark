@@ -1900,7 +1900,7 @@ input.sheet-expand:checked ~ input[type=text] {
 	height: 47px;
 }
 .sheet-cohort-dropdown input[type=radio] {
-	width: 44px;
+	width: 30px;
 	z-index: 10;
 }
 .sheet-cohort-dropdown input[type=radio],
