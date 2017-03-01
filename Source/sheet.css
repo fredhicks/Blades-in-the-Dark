@@ -1842,7 +1842,7 @@ input.sheet-alchemicals-checkbox:checked ~ .sheet-alchemicals-content {
 	border: none;
 	font-weight: 600;
 	color: black;
-	width: 17%;
+	width: 19%;
 	padding: 0 1px 0 0;
 	text-align: right;
 	box-shadow: none;
@@ -1853,7 +1853,7 @@ input.sheet-alchemicals-checkbox:checked ~ .sheet-alchemicals-content {
 	-moz-appearance: number-input;
 }
 .sheet-factions input[type=text] {
-	width: 83%;
+	width: 81%;
 	color: black;
 	font-size: 90%;
 }
@@ -1874,6 +1874,9 @@ input.sheet-expand + span::before {
 }
 input.sheet-expand:checked + span::before {
 	content: "▼";
+}
+input.sheet-expand:checked ~ input[type=text] {
+	font-weight: 600;
 }
 .sheet-faction textarea {
 	display: none;
