@@ -1441,7 +1441,7 @@ button[type=roll].sheet-attributebutton {
 	color: white;
 }
 button[type=roll].sheet-cohortbutton {
-	font-size: 80%;
+	font-size: 85%;
 	line-height: 9px;
 	color: white;
 }
@@ -1750,14 +1750,14 @@ div.sheet-cohort-condition4 {
 .sheet-cohort-edgeflaw input[type=text] {
 	width: calc(100% - 38px);
 	color: black;
-	font-size: 90%;
+	font-size: inherit;
 	height: 13px;
 	line-height: 0px;
 }
 .sheet-cohort-text textarea {
 	resize: vertical;
 	color: black;
-	font-size: 80%;
+	font-size: 70%;
 	line-height: 122%;
 	font-family: Georgia, Times, "Times New Roman", serif;
 	height: 50px;
@@ -1992,6 +1992,7 @@ input.sheet-expand:checked + span::before {
 }
 .sheet-faction input[type=number] {
 	border: none;
+	background: transparent;
 	color: black;
 	padding: 0;
 	font-size: 90%;
