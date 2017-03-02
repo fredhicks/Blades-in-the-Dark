@@ -1937,6 +1937,7 @@ input.sheet-alchemicals-checkbox:checked ~ .sheet-alchemicals-content {
 	font-size: 200%;
 	color: black;
 	font-weight: 600;
+	width: 60%;
 }
 .sheet-factions-header {
 	width: 100%;
@@ -2041,4 +2042,23 @@ input.sheet-expand:checked + span::before {
 .sheet-warblurb li {
 	margin-bottom: .5em;
 	padding-left: 1em;
+}
+/* Generate button */
+div.sheet-faction-generatebutton {
+	float: right;
+	text-align: right;
+	margin-right: 1%;
+}
+.sheet-faction-generatebutton input {
+	width: 105px;
+	height: 16px;
+}
+.sheet-faction-generatebutton input + span {
+	padding: 3px;
+	color: #666;
+	border: 1px solid #666;
+}
+.sheet-faction-generatebutton input:hover + span {
+	color: red;
+	border-color: red;
 }

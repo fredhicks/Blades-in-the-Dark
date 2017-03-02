@@ -661,6 +661,348 @@ var actions = {
 	};
 on(actions1Event, calculateVice);
 
+/* FACTIONS AUTOFILL */
+var factionsData = {
+		factions1: [
+			{
+				name: 'The Unseen',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'The Hive',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'The Circle of Flame',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'The Silver Nails',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'Lord Scurlock',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'The Crows',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'The Lampblacks',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'The Red Sashes',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'The Dimmer Sisters',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'The Grinders',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'The Billhooks',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'The Wraiths',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'The Gray Cloaks',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Ulf Ironborn',
+				tier: 'I',
+				hold: 'S'
+			},
+			{
+				name: 'The Foghounds',
+				tier: 'I',
+				hold: 'W'
+			},
+			{
+				name: 'The Lost',
+				tier: 'I',
+				hold: 'W'
+			}
+		],
+		factions2: [
+			{
+				name: 'Imperial Military',
+				tier: 'VI',
+				hold: 'S'
+			},
+			{
+				name: 'City Council',
+				tier: 'V',
+				hold: 'S'
+			},
+			{
+				name: 'Ministry of Preservation',
+				tier: 'V',
+				hold: 'S'
+			},
+			{
+				name: 'Leviathan Hunters',
+				tier: 'V',
+				hold: 'S'
+			},
+			{
+				name: 'Ironhook Prison',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'Sparkwrights',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'Spirit Wardens',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'Bluecoats',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'Inspectors',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'Iruvian Consulate',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'Skovlan Consulate',
+				tier: 'III',
+				hold: 'W'
+			},
+			{
+				name: 'The Brigade',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Severosi Consulate',
+				tier: 'I',
+				hold: 'S'
+			},
+			{
+				name: 'Dagger Isles Consulate',
+				tier: 'I',
+				hold: 'S'
+			}
+		],
+		factions3: [
+			{
+				name: 'The Foundation',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'Dockers',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'Gondoliers',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'Sailors',
+				tier: 'III',
+				hold: 'W'
+			},
+			{
+				name: 'Laborers',
+				tier: 'III',
+				hold: 'W'
+			},
+			{
+				name: 'Cabbies',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'Cyphers',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Ink Rakes',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'Rail Jacks',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'Servants',
+				tier: 'II',
+				hold: 'W'
+			}
+		],
+		factions4: [
+			{
+				name: 'The Church of Ecstasy',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'The Horde',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'The Path of Echoes',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'The Forgotten Gods',
+				tier: 'III',
+				hold: 'W'
+			},
+			{
+				name: 'The Reconciled',
+				tier: 'III',
+				hold: 'S'
+			},
+			{
+				name: 'Skovlander Refugees',
+				tier: 'III',
+				hold: 'W'
+			},
+			{
+				name: 'The Weeping Lady',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Deathlands Scavengers',
+				tier: 'II',
+				hold: 'W'
+			}
+		],
+		factions5: [
+			{
+				name: 'Whitecrown',
+				tier: 'V',
+				hold: 'S'
+			},
+			{
+				name: 'Brightstone',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'Charterhall',
+				tier: 'IV',
+				hold: 'S'
+			},
+			{
+				name: 'Six Towers',
+				tier: 'III',
+				hold: 'W'
+			},
+			{
+				name: 'Silkshore',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Nightmarket',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Crow\'s Foot',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'The Docks',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Barrowcleft',
+				tier: 'II',
+				hold: 'S'
+			},
+			{
+				name: 'Coalridge',
+				tier: 'II',
+				hold: 'W'
+			},
+			{
+				name: 'Charhollow',
+				tier: 'I',
+				hold: 'S'
+			},
+			{
+				name: 'Dunslough',
+				tier: 'I',
+				hold: 'W'
+			}
+		]
+	};
+on('change:generate_factions', function(event) {
+	if (event.sourceType === 'sheetworker') return;
+	setAttrs({
+		generate_factions: 0
+	});
+	_.each(factionsData, function (dataList, sectionName) {
+		getSectionIDs(`repeating_${sectionName}`, function(idList) {
+			let rowNameAttributes = _.map(idList, id => `repeating_${sectionName}_${id}_name`);
+			getAttrs(rowNameAttributes, function (attrs) {
+				let existingRows = _.values(attrs);
+				let setting = _.chain(dataList)
+					.reject(o => _.contains(existingRows, o.name))
+					.map(function(o) {
+						let rowID = generateRowID();
+						return _.reduce(o, function(m,v,k) {
+							m[`repeating_${sectionName}_${rowID}_${k}`] = v;
+							return m;
+						}, {})
+					})
+					.reduce(function(m,o) {
+						return _.extend(m,o);
+					},{})
+					.value();
+				setAttrs(setting);
+			});
+		});
+	});
+});
+
 /* CALCULATE WANTED */
 on('change:wanted', function() {
 	getAttrs(['wanted'], function(v) {
@@ -861,7 +1203,8 @@ on('sheet:opened', function() {
 	});
 	/* Set version */
 	setAttrs({
-		version: '0.7'
+		version: '0.7',
+		character_sheet: 'Blades in the Dark v0.7'
 	});
 });
 </script>
