@@ -1429,6 +1429,11 @@ button[type=roll].sheet-attributebutton {
 	line-height: 9px;
 	color: white;
 }
+button[type=roll].sheet-cohortbutton {
+	font-size: 80%;
+	line-height: 9px;
+	color: white;
+}
 button[type=roll].sheet-actionbutton {
 	font-size: 95%;
 	letter-spacing: 1px;
@@ -1438,7 +1443,7 @@ button[type=roll].sheet-actionbutton {
 	text-align: left;
 	width: 86px;
 }
-button[type=roll].sheet-vicebutton, button[type=roll].sheet-fortunebutton, button[type=roll].sheet-cohortbutton {
+button[type=roll].sheet-vicebutton, button[type=roll].sheet-fortunebutton {
 	color: #616161;
 	border-color: #b3b4b6;
 	border-radius: 0;
@@ -1457,15 +1462,6 @@ button[type=roll].sheet-fortunebutton {
 	float: left;
 	height: 38px;
 	margin: 10px 3px 0 0;
-}
-button[type=roll].sheet-cohortbutton {
-	padding: 1px;
-	margin-top: 3px;
-	width: 35px;
-	margin-left: -35px;
-	position: absolute;
-	line-height: 7px;
-	font-size: 65%;
 }
 button[type=roll].sheet-rollbutton:hover {
 	color: #ff4747;
@@ -1618,10 +1614,9 @@ input.sheet-checkbox.sheet-frienddown {
 	margin-bottom: 14px;
 }
 .sheet-attribute-title, .sheet-cohort-title {
-	float: left;
 	height: 21px;
 	background-color: black;
-	padding-left: 7px;
+	padding-left: 3px;
 }
 .sheet-attribute-title div:first-child {
 	width: 67px;
@@ -1666,19 +1661,45 @@ input.sheet-checkbox.sheet-frienddown {
 }
 /* COHORTS */
 .sheet-cohort-title > div:first-child {
-	width: 120px;
+	width: calc(100% - 40px);
 	float: left;
 }
 .sheet-cohort-title > div:last-child {
-	width: 44px;
+	width: 40px;
 	float: right;
+	text-align: right;
+	padding-right: 3px;
 }
 .sheet-cohort-title input[type=text] {
 	font-weight: 600;
 	width: 100%;
-	font-size: 90%;
+	font-size: 85%;
 	background: transparent;
 	padding: 2px 0 0;
+	color: white;
+}
+.sheet-cohort-info {
+	background: black;
+	height: 13px;
+}
+.sheet-cohort-info .sheet-label {
+	font-size: 65%;
+	color: white;
+}
+.sheet-cohort-info > div:first-child {
+	float: left;
+	height: 13px;
+	width: 41px;
+}
+.sheet-cohort-info > div:last-child {
+	float: left;
+	width: calc(100% - 41px);
+	padding-left: 4px;
+	height: 13px;
+	line-height: 12px;
+}
+.sheet-cohort-info input[type=text] {
+	line-height: 12px;
 }
 .sheet-cohort-condition > div, .sheet-cohort-condition .sheet-label {
 	float: left;
@@ -1704,13 +1725,31 @@ div.sheet-cohort-condition4 {
 	float: right;
 	font-weight: 800;
 }
+.sheet-cohort-edgeflaw {
+	margin: 2px 0;
+	color: black;
+	font-size: 70%;
+	line-height: 13px;
+}
+.sheet-cohort-edgeflaw .sheet-label {
+	display: inline-block;
+	line-height: 10px;
+	width: 38px;
+}
+.sheet-cohort-edgeflaw input[type=text] {
+	width: calc(100% - 38px);
+	color: black;
+	font-size: 90%;
+	height: 13px;
+	line-height: 0px;
+}
 .sheet-cohort-text textarea {
 	resize: vertical;
 	color: black;
-	font-size: 85%;
+	font-size: 80%;
 	line-height: 122%;
 	font-family: Georgia, Times, "Times New Roman", serif;
-	height: 74px;
+	height: 50px;
 	border-bottom: 1px solid lightgray;
 }
 /* CLAIMS */
@@ -1882,18 +1921,20 @@ input.sheet-expand:checked ~ input[type=text] {
 	background-color: black;
 	position: absolute;
 	z-index: -1;
-	width: 44px;
+	width: 41px;
 }
 .sheet-cohort-dropdown {
-	height: 20px;
-	text-align: right;
-	padding: 2px 4px 0 0;
-	line-Height: 13px;
+	height: 13px;
+	text-align: left;
+	line-height: 10px;
 	z-index: 1;
+}
+.sheet-cohort-dropdown:hover {
+	line-height: 12px;
 }
 .sheet-cohort-dropdown-bg {
 	display: none;
-	height: 47px;
+	height: 42px;
 }
 .sheet-cohort-dropdown input[type=radio] {
 	width: 30px;
@@ -1903,13 +1944,10 @@ input.sheet-expand:checked ~ input[type=text] {
 .sheet-cohort-dropdown input[type=radio] + span {
 	display: none;
 }
-.sheet-cohort-title .sheet-label {
-	font-size: 65%;
-	color: white;
-}
 .sheet-cohort-dropdown:hover input[type=radio],
 .sheet-cohort-dropdown:hover input[type=radio] + span {
 	display: inline;
+	padding-left: 2px;
 }
 .sheet-cohort-dropdown:hover .sheet-cohort-dropdown-bg {
 	display: block;
@@ -1919,6 +1957,7 @@ input.sheet-expand:checked ~ input[type=text] {
 }
 .sheet-cohort-dropdown span:first-child {
 	display: inline-block;
+	padding-left: 2px;
 }
 .sheet-cohort-dropdown:hover span:first-child {
 	display: none;
