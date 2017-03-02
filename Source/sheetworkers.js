@@ -548,7 +548,12 @@ var crewData = {
 		setting_showitem_0: '0',
 		setting_showitem_1: '0',
 		setting_showitem_2: '0',
+		setting_showitem_3: 'on',
+		setting_showitem_4: 'on',
+		setting_showitem_5: 'on',
 		setting_showitem_6: '0',
+		setting_showitem_7: 'on',
+		setting_showitem_8: 'on',
 		setting_showitem_9: '0',
  		setting_show_strictures: 'on',
  		setting_traumata_set: 'normal',
@@ -812,6 +817,13 @@ itemChecks.forEach(function(name) {
 });
 
 on('sheet:opened', function() {
+	getAttrs(['sheet_type'], function(v) {
+		if (v.sheet_type === '0' || v.sheet_type === 0) {
+			setAttrs({
+				sheet_type: 'character'
+			});
+		}
+	});
 	setAttrs({
 		version: '0.5'
 	});

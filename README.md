@@ -3,7 +3,7 @@
 This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## TODO
-* Add a factions/status overlay
+* Add a faction mode
 
 ## Changelog
 
