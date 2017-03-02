@@ -2,10 +2,11 @@
 
 This is a character sheet for Blades in the Dark for use on Roll20.
 
-## TODO
-* Add a faction mode
-
 ## Changelog
+
+### 0.7
+* Faction mode added
+* Old "Factions & Status" section is removed, all the content added to a notes box
 
 ### 0.6
 * Further improvements to cohort section
