@@ -817,6 +817,7 @@ itemChecks.forEach(function(name) {
 });
 
 on('sheet:opened', function() {
+	/* Make sure sheet_type is never 0 */
 	getAttrs(['sheet_type'], function(v) {
 		if (v.sheet_type === '0' || v.sheet_type === 0) {
 			setAttrs({
@@ -824,8 +825,43 @@ on('sheet:opened', function() {
 			});
 		}
 	});
+	/* Convert legacy status section */
+	getAttrs(['version'], function(v) {
+		if (v.version && v.version.split('.')[0] === '0' && parseInt(v.version.split('.')[1]) < 7) {
+			getSectionIDs('repeating_faction', function(list) {
+				let sectionList = _.union(['faction1', 'faction2'],	_.map(list, str => `repeating_faction_${str}`)),
+					attrList = _.chain(sectionList)
+					.map(str => [`${str}_name`, `${str}_status`, `${str}_description`])
+					.flatten().value();
+				getAttrs(attrList, function (attrs) {
+					let output = _.map(sectionList, function(str) {
+						return 'Name: ' + attrs[`${str}_name`] + '\n' +
+							'Status: ' + (attrs[`${str}_status`] || '') + '\n' +
+							'Notes: ' + (attrs[`${str}_description`] || '') + '\n';
+					}).join('\n');
+					setAttrs({
+						faction_notes: output
+					});
+					setAttrs({
+						faction1_name: '',
+						faction1_status: '',
+						faction1_description: '',
+						faction1_expand: '',
+						faction2_name: '',
+						faction2_status: '',
+						faction2_description: '',
+						faction2_expand: ''
+					});
+					_.each(list, function(id) {
+						removeRepeatingRow(`repeating_faction_${id}`);
+					});
+				});
+			});
+		}
+	});
+	/* Set version */
 	setAttrs({
-		version: '0.5'
+		version: '0.7'
 	});
 });
 </script>
