@@ -3,8 +3,36 @@
 /* Set some default fields when setting crew type or playbook */
 var crewData = {
 	assassins: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Deadly',
+				description: 'Each PC may add +1 action rating to Hunt, Prowl, or Skirmish (up to a max rating of 3).'
+			},
+			{
+				name: 'Crow\'s Veil',
+				description: 'Due to hard-won experience or occult ritual, your activities are hidden from the notice of the death-seeker crows. You don\'t take extra heat when killing is involved on a score.'
+			},
+			{
+				name: 'Emberdeath',
+				description: 'Due to hard-won experience or occult ritual, you know the arcane method to destroy a living victim\'s spirit at the moment you kill them. Take 3 stress to channel electroplasmic energy from the ghost field to disintegrate the spirit and dead body in a shower of sparking embers.'
+			},
+			{
+				name: 'No Traces',
+				description: 'When you keep an operation quiet or make it look like an accident, you get half the rep value of the target (round up) instead of zero. When you end downtime with zero heat, take +1 rep.'
+			},
+			{
+				name: 'Patron',
+				description: 'When you advance your Tier, it costs half the coin it normally would. Who is your patron? Why do they help you?'
+			},
+			{
+				name: 'Predators',
+				description: 'When you use stealth or subterfuge to commit murder, take +1d to the engagement roll.'
+			},
+			{
+				name: 'Vipers',
+				description: 'When you acquire or craft poisons, you get +1 result level to your roll. When you employ a poison, you are specially prepared to be immune to its effects.'
+			}
+		],
 		base: {
 			claim_1_desc: '+1 scale for your\nSkulks cohorts',
 			claim_1_name: 'Training\nRooms',
@@ -54,12 +82,46 @@ var crewData = {
 			upgrade_20_check: 'on',		/* Insight */
 			upgrade_21_check: 'on'		/* Prowess */
 		},
-		contacts: {
-		},
+		contacts: [
+			'Trev, a gang boss',
+			'Lydra, a deal broker',
+			'Irimina, a vicious noble',
+			'Karlos, a bounty hunter',
+			'Exeter, a spirit warden',
+			'Sevoy, a merchant lord'
+		]
 	},
 	bravos: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Dangerous',
+				description: 'Each PC may add +1 action rating to Hunt, Skirmish, or Wreck (up to a max rating of 3).'
+			},
+			{
+				name: 'Blood Brothers',
+				description: 'When you fight alongside your cohorts in combat, they get +1d for teamwork rolls (setup and group actions). All of your cohorts get the thugs type for free (if they\'re already thugs, add another type).'
+			},
+			{
+				name: 'Door Kickers',
+				description: 'When you execute an assault plan, take +1d to the engagement roll.'
+			},
+			{
+				name: 'Fiends',
+				description: 'Fear is as good as respect. You may count each wanted level as if it was turf.'
+			},
+			{
+				name: 'Forged in the Fire',
+				description: 'Each PC has been toughened by cruel experience. You get +1d to resistance rolls.'
+			},
+			{
+				name: 'Patron',
+				description: 'When you advance your Tier, it costs half the coin it normally would. Who is your patron? Why do they help you?'
+			},
+			{
+				name: 'War Dogs',
+				description: 'When you’re at war (-3 faction status), your crew does not suffer -1 hold and PCs still get two downtime activities, instead of just one.'
+			}
+		],
 		base: {
 			claim_1_desc: '+1 scale for your\nSkulks cohorts',
 			claim_1_name: 'Barracks',
@@ -106,12 +168,46 @@ var crewData = {
 			upgrade_5_desc: 'Elite Thugs',
 			upgrade_21_check: 'on'		/* Prowess */
 		},
-		contacts: {
-		}
+		contacts: [
+			'Meg, a pit-fighter',
+			'Conway, a bluecoat',
+			'Keller, a blacksmith',
+			'Tomas, a physicker',
+			'Walker, a ward boss',
+			'Lutes, a tavern owner'
+		]
 	},
 	cult: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Chosen',
+				description: 'Each PC may add +1 action rating to Attune, Study, or Sway (up to a max rating of 3).'
+			},
+			{
+				name: 'Anointed',
+				description: 'You get +1d to resistance rolls against supernatural threats. You get +1d to healing rolls when you have supernatural harm.'
+			},
+			{
+				name: 'Bound in Darkness',
+				description: 'You may use teamwork with any cult member, regardless of the distance separating you. By taking 1 stress, your whispered message is heard by every cultist.'
+			},
+			{
+				name: 'Conviction',
+				description: 'Each PC gains an additional Vice: Worship. When you indulge this vice and bring a pleasing sacrifice, you don\'t overindulge if you clear excess stress. In addition, your deity will assist any one action roll you make—from now until you indulge this vice again.'
+			},
+			{
+				name: 'Glory Incarnate',
+				description: 'Your deity sometimes manifests in the physical world. This can be a great boon, but the priorities and values of a god are not those of mortals. You have been warned.'
+			},
+			{
+				name: 'Sealed in Blood',
+				description: 'Each human sacrifice yields -3 stress cost for any ritual you perform.'
+			},
+			{
+				name: 'Zealotry',
+				description: 'Your cohorts have abandoned their reason to devote themselves to the cult. They will undertake any service, no matter how dangerous or strange. They gain +1d to rolls against enemies of the faith.'
+			}
+		],
 		base: {
 			claim_1_desc: '+1 scale for your\nAdepts cohorts',
 			claim_1_name: 'Cloister',
@@ -160,12 +256,46 @@ var crewData = {
 			upgrade_5_desc: 'Elite Thugs',
 			upgrade_22_check: 'on'		/* Resolve */
 		},
-		contacts: {
-		}
+		contacts: [
+			'Gagan, an academic',
+			'Adikin, an occultist',
+			'Hutchins, an antiquarian',
+			'Moriya, a spirit trafficker',
+			'Mateas Kline, a noble',
+			'Bennett, an astronomer'
+		]
 	},
 	hawkers: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Silver Tongues',
+				description: 'Each PC may add +1 action rating to Command, Consort, or Sway (up to a max rating of 3).'
+			},
+			{
+				name: 'Accord',
+				description: 'Sometimes friends are as good as territory. You may count up to three +3 faction statuses you hold as if they are turf.'
+			},
+			{
+				name: 'The Good Stuff',
+				description: 'Your merchandise is exquisite. The product quality is equal to your Tier+2. When you deal with a crew or faction, the GM will tell you who among them is hooked on your product (one, a few, many, or all).'
+			},
+			{
+				name: 'Ghost Market',
+				description: 'Through arcane ritual or hard-won experience, you have discovered how to prepare your product for sale to ghosts and/or demons. They do not pay in coin. What do they pay with?'
+			},
+			{
+				name: 'High Society',
+				description: 'It\'s all about who you know. Take -1 heat during downtime and +1d to gather info about the city\'s elite.'
+			},
+			{
+				name: 'Hooked',
+				description: 'Your gang members use your product. Add the savage, unreliable, or wild flaw to your gangs to give them +1 quality.'
+			},
+			{
+				name: 'Patron',
+				description: 'When you advance your Tier, it costs half the coin it normally would. Who is your patron? Why do they help you?'
+			}
+		],
 		base: {
 			claim_1_desc: '',
 			claim_1_name: '\nTurf',
@@ -215,12 +345,46 @@ var crewData = {
 			upgrade_14_check: 'on',	/* Secure */
 			upgrade_22_check: 'on'		/* Resolve */
 		},
-		contacts: {
-		}
+		contacts: [
+			'Rolan Wott, a magistrate',
+			'Laroze, a bluecoat',
+			'Lydra, a deal broker',
+			'Hosley, a smuggler',
+			'Anya, a dilettante',
+			'Marlo, a gang boss'
+		]
 	},
 	shadows: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Everyone Steals',
+				description: 'Each PC may add +1 action rating to Prowl, Finesse, or Tinker (up to a max rating of 3).'
+			},
+			{
+				name: 'Ghost Echoes',
+				description: 'From weird experience or occult ritual, all crew members gain the ability to see and interact with the ghostly structures, streets, and objects within the echo of Doskvol that exists in the ghost field.'
+			},
+			{
+				name: 'Pack Rats',
+				description: 'Your lair is a jumble of stolen items. When you roll to acquire an asset, take +1d.'
+			},
+			{
+				name: 'Patron',
+				description: 'When you advance your Tier, it costs half the coin it normally would. Who is your patron? Why do they help you?'
+			},
+			{
+				name: 'Second Story',
+				description: 'When you execute a clandestine infiltration, you get +1d to the engagement roll.'
+			},
+			{
+				name: 'Slippery',
+				description: 'When you roll entanglements, roll twice and keep the one you want. When you reduce heat on the crew, take +1d.'
+			},
+			{
+				name: 'Synchronized',
+				description: 'When you perform a group action, you may count multiple 6s from different rolls as a critical success.'
+			}
+		],
 		base: {
 			claim_1_desc: '+1d to Command\nand Sway on site',
 			claim_1_name: 'Interrogation\nChamber',
@@ -267,12 +431,46 @@ var crewData = {
 			upgrade_10_check: 'on',		/* Hidden */
 			upgrade_21_check: 'on'		/* Prowess */
 		},
-		contacts: {
-		}
+		contacts: [
+			'Dowler, an explorer',
+			'Laroze, a bluecoat',
+			'Amancio, a deal broker',
+			'Fitz, a collector',
+			'Adelaide Phroaig, a noble',
+			'Rigney, a tavern owner'
+		]
 	},
 	smugglers: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Like Part of the Family',
+				description: 'Create one of your vehicles as a cohort (use the vehicle edges and flaws, below). Its quality is equal to your Tier +1.'
+			},
+			{
+				name: 'All Hands',
+				description: 'During downtime, one of your cohorts may perform a downtime activity for the crew to acquire an asset, reduce heat, or work on a long-term project.'
+			},
+			{
+				name: 'Ghost Passage',
+				description: 'From harsh experience or occult ritual, all crew members become immune to possession by spirits, but may choose to "carry" a second ghost as a passenger within their body.'
+			},
+			{
+				name: 'Just Passing Through',
+				description: 'During downtime, take -1 heat. When your heat is 4 or less, you get +1d to deceive people when you pass yourselves off as ordinary citizens.'
+			},
+			{
+				name: 'Leverage',
+				description: 'Your crew supplies contraband for other factions. Your success is good for them. Whenever you gain rep, gain +1 rep.'
+			},
+			{
+				name: 'Reavers',
+				description: 'When you go into conflict aboard a vehicle, you gain +1 effect for vehicle damage and speed. Your vehicle gains armor.'
+			},
+			{
+				name: 'Renegades',
+				description: 'Each PC may add +1 action rating to Finesse, Prowl, or Skirmish (up to a max rating of 3).'
+			}
+		],
 		base: {
 			claim_1_desc: '',
 			claim_1_name: '\nTurf',
@@ -326,8 +524,14 @@ var crewData = {
 			upgrade_8_desc: 'Vehicle',	/* change Boat to Vehicle */
 			upgrade_21_check: 'on'					/* Prowess */
 		},
-		contacts: {
-		}
+		contacts: [
+			'Elynn, a dock worker',
+			'Rolan, a drug dealer',
+			'Sera, an arms dealer',
+			'Nyelle, a spirit trafficker',
+			'Decker, an anarchist',
+			'Esme, a tavern owner'
+		]
 	}
 	},
 	playbookData = {
