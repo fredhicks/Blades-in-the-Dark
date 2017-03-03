@@ -153,7 +153,6 @@ input.sheet-hidediv:checked + div {
 	width: 860px;
 	position: absolute;
 	padding: 0 10px 0 0 !important;
-	margin: 0 !important;
 }
 button {
 	text-shadow: none !important;
@@ -1775,6 +1774,9 @@ div.sheet-cohort-condition4 {
 }
 .sheet-lairbox {
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: #808080;
 }
 .sheet-lairbox .sheet-label {
