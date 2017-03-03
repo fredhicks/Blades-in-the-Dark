@@ -1292,6 +1292,28 @@ var actions = {
 on(actions1Event, calculateVice);
 
 /* FACTIONS AUTOFILL */
+var fillRepeatingSectionFromData = function(sectionName, dataList) {
+	getSectionIDs(`repeating_${sectionName}`, function(idList) {
+		let rowNameAttributes = _.map(idList, id => `repeating_${sectionName}_${id}_name`);
+		getAttrs(rowNameAttributes, function (attrs) {
+			let existingRows = _.values(attrs);
+			let setting = _.chain(dataList)
+				.reject(o => _.contains(existingRows, o.name))
+				.map(function(o) {
+					let rowID = generateRowID();
+					return _.reduce(o, function(m,v,k) {
+						m[`repeating_${sectionName}_${rowID}_${k}`] = v;
+						return m;
+					}, {})
+				})
+				.reduce(function(m,o) {
+					return _.extend(m,o);
+				},{})
+				.value();
+			setAttrs(setting);
+		});
+	});
+};
 var factionsData = {
 		factions1: [
 			{
@@ -1606,26 +1628,44 @@ var factionsData = {
 	};
 on('change:generate_factions', function(event) {
 	_.each(factionsData, function (dataList, sectionName) {
-		getSectionIDs(`repeating_${sectionName}`, function(idList) {
-			let rowNameAttributes = _.map(idList, id => `repeating_${sectionName}_${id}_name`);
-			getAttrs(rowNameAttributes, function (attrs) {
-				let existingRows = _.values(attrs);
-				let setting = _.chain(dataList)
-					.reject(o => _.contains(existingRows, o.name))
-					.map(function(o) {
-						let rowID = generateRowID();
-						return _.reduce(o, function(m,v,k) {
-							m[`repeating_${sectionName}_${rowID}_${k}`] = v;
-							return m;
-						}, {})
-					})
-					.reduce(function(m,o) {
-						return _.extend(m,o);
-					},{})
-					.value();
-				setAttrs(setting);
+		fillRepeatingSectionFromData(sectionName, dataList);
+	});
+});
+
+/* GENERATE ABILITIES */
+on('change:generate_abilities', function() {
+	getAttrs(['generate_source'], function (v) {
+		let prefix, data;
+		if (_.has(crewData, v.generate_source)) {
+			sectionName = 'crewability';
+			dataList = crewData[v.generate_source].abilities;
+		}	else if (_.has(playbookData, v.generate_source)) {
+			sectionName = 'ability';
+			dataList = playbookData[v.generate_source].abilities;
+		};
+		fillRepeatingSectionFromData(sectionName, dataList);
+	});
+});
+/* GENERATE FRIENDS */
+on('change:generate_friends', function() {
+	getAttrs(['generate_source'], function (v) {
+		let prefix, data;
+		if (_.has(crewData, v.generate_source)) {
+			sectionName = 'contact';
+			dataList = _.map(crewData[v.generate_source].contacts, function (n) {
+				return {
+					name: n
+				};
 			});
-		});
+		}	else if (_.has(playbookData, v.generate_source)) {
+			sectionName = 'friend';
+			dataList = _.map(playbookData[v.generate_source].friends, function (n) {
+				return {
+					name: n
+				};
+			});
+		};
+		fillRepeatingSectionFromData(sectionName, dataList);
 	});
 });
 
@@ -1831,8 +1871,8 @@ on('sheet:opened', function() {
 	});
 	/* Set version */
 	setAttrs({
-		version: '0.7',
-		character_sheet: 'Blades in the Dark v0.7'
+		version: '0.8',
+		character_sheet: 'Blades in the Dark v0.8'
 	});
 });
 </script>

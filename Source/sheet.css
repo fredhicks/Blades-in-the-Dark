@@ -2065,3 +2065,18 @@ div.sheet-faction-generatebutton {
 	color: red;
 	border-color: red;
 }
+input.sheet-generatebutton {
+	width: 110px;
+	height: 18px;
+}
+input.sheet-generatebutton + span {
+	padding: 3px;
+	color: #666;	
+	margin: 0 4px;
+	font-size: 80%;
+	border: 1px solid #666;
+}
+input.sheet-generatebutton:hover + span {
+	color: red;
+	border-color: red;
+}
