@@ -1,5 +1,5 @@
 <script type="text/worker">
-/* DEFAULT FILLS FOR PLAYBOOKS AND CREWS
+/* DEFAULT FILLS FOR PLAYBOOKS AND CREWS */
 /* Set some default fields when setting crew type or playbook */
 var crewData = {
 	assassins: {
@@ -37,7 +37,6 @@ var crewData = {
 		claim_bridge_9_14: 0,
 		claim_bridge_12_13: 0,
 		claim_bridge_13_14: 0,
-		cohort1_name: 'Cohort',
 		crew_description: 'Murderers\nfor Hire',
 		crew_xp_condition: 'Execute a successful accident, disappearance, murder, or ransom operation.',
 		hunting_grounds_type: 'Hunting Grounds:',
@@ -84,8 +83,7 @@ var crewData = {
 		claim_bridge_3_4: 0,
 		claim_bridge_2_7: 0,
 		claim_bridge_12_13: 0,
-		cohort1_name: 'Thugs',
-		cohort1_type: 'gang',
+		cohort1_subtype: 'Thugs',
 		crew_description: 'Mercenaries,\nThugs &\nKillers',
 		crew_xp_condition: 'Execute a successful battle, extortion, sabotage, or smash & grab operation.',
 		hunting_grounds_type: 'Hunting Grounds:',
@@ -133,8 +131,7 @@ var crewData = {
 		claim_bridge_6_11: 0,
 		claim_bridge_12_13: 0,
 		claim_bridge_13_14: 0,
-		cohort1_name: 'Adepts',
-		cohort1_type: 'gang',
+		cohort1_subtype: 'Adepts',
 		crew_description: 'Acolytes\nof a Deity',
 		crew_xp_condition: 'Advance the agenda of your deity or embody its precepts in action.',
 		hunting_grounds_type: 'Sacred Sites:',
@@ -183,7 +180,6 @@ var crewData = {
 		claim_bridge_10_15: 0,
 		claim_bridge_12_13: 0,
 		claim_bridge_13_14: 0,
-		cohort1_name: 'Cohort',
 		crew_description: 'Vice\nDealers',
 		crew_xp_condition: 'Acquire product supply, execute clandestine/covert sales, or secure new territory.',
 		hunting_grounds_type: 'Sales Territory:',
@@ -231,7 +227,6 @@ var crewData = {
 		claim_bridge_2_7: 0,
 		claim_bridge_9_14: 0,
 		claim_bridge_12_13: 0,
-		cohort1_name: 'Cohort',
 		crew_description: 'Thieves,\nSpies, and\nSaboteurs',
 		crew_xp_condition: 'Execute a successful espionage, sabotage, or theft operation.',
 		hunting_grounds_type: 'Hunting Grounds:',
@@ -279,8 +274,9 @@ var crewData = {
 		claim_bridge_6_7: 0,
 		claim_bridge_12_13: 0,
 		claim_bridge_13_14: 0,
-		cohort1_description: 'Type: Boat - Carriage - Other',
 		cohort1_name: 'Vehicle',
+		cohort1_subtype: 'Boat - Carriage - Other',
+		cohort1_type: 'expert',
 		crew_description: 'Suppliers\nof Illicit\nGoods',
 		crew_xp_condition: 'Execute a successful smuggling or acquire new clients or contraband sources.',
 		hunting_grounds_type: 'Cargo Types:',
@@ -580,7 +576,7 @@ on('change:crew_type change:playbook', function (event) {
 			case 'playbook':
 				data = playbookData[attrValues.playbook.toLowerCase()];
 				baseData = playbookAttributes;
-		}
+		};
 		/* Change unset attributes to default */
 		if (data) {
 			let finalSettings = {};
@@ -588,21 +584,21 @@ on('change:crew_type change:playbook', function (event) {
 				finalSettings = _.reduce(baseData, function(settings, name) {
 					if (!_.contains(changedAttributes, name)) {
 						settings[name] = '';
-					}
+					};
 					return settings;
 				}, {});
-			}
+			};
 			_.reduce(data, function(settings, value, name) {
 				if (!_.contains(changedAttributes, name)) {
 					settings[name] = value;
-				}
+				};
 				return settings;
 				}, finalSettings);
 			setAttrs(finalSettings);
-		}
+		};
 	});
 });
-/* Watch for changes in auto-set attributes and don't touch them */
+/* Watch for changes in auto-set attributes */
 watchedAttributes.forEach(function(name) {
 		on(`change:${name}`, function(eventInfo) {
 			if (eventInfo.sourceType === 'player') {
@@ -638,7 +634,7 @@ var actions = {
 	]
 },
 	actions1 = _.mapObject(actions, array => _.map(array, str => str + '1')),
-	actionsFlat = _.chain(actions).map(x => x).flatten().value()
+	actionsFlat = _.chain(actions).map(x => x).flatten().value(),
 	actions1Flat = _.map(actionsFlat, str => str + '1'),
 	actions1Event = _.map(actions1Flat, str => `change:${str}`).join(' '),
 	calculateVice = function() {
@@ -975,10 +971,6 @@ var factionsData = {
 		]
 	};
 on('change:generate_factions', function(event) {
-	if (event.sourceType === 'sheetworker') return;
-	setAttrs({
-		generate_factions: 0
-	});
 	_.each(factionsData, function (dataList, sectionName) {
 		getSectionIDs(`repeating_${sectionName}`, function(idList) {
 			let rowNameAttributes = _.map(idList, id => `repeating_${sectionName}_${id}_name`);
@@ -1021,19 +1013,20 @@ on('change:wanted', function() {
 				setting.wanted2 = 1;
 			case '1':
 				setting.wanted1 = 1;
-		}
+		};
 		setAttrs(setting);
 	});
 });
+
 /* CALCULATE COHORT QUALITY */
 var calcCohortDots = function(t1, t2, t3, t4, imp, type, prefix) {
 	let numDots = parseInt(t1) + parseInt(t2) + parseInt(t3) + parseInt(t4);
 	if (imp === 'on') {
 		numDots = numDots - 1;
-	}
+	};
 	if (type === 'elite' || type === 'expert') {
 		numDots = numDots + 1;
-	}
+	};
 	let setting = {};
 	setting[`${prefix}die1`] = 0;
 	setting[`${prefix}die2`] = 0;
@@ -1051,7 +1044,7 @@ var calcCohortDots = function(t1, t2, t3, t4, imp, type, prefix) {
 			setting[`${prefix}die2`] = 1;
 		case 1:
 			setting[`${prefix}die1`] = 1;
-	}
+	};
 	return setting;
 },
 	qualityAttrs = ['crew_tier1', 'crew_tier2', 'crew_tier3', 'crew_tier4', 'cohort1_impaired', 'cohort1_type'],
@@ -1090,9 +1083,9 @@ var handleFourBoxesFill = function(name) {
 						setting[`${rName}2`] = '1';
 					case '2':
 						setting[`${rName}1`] = '1';
-				}
+				};
 				setAttrs(setting);
-			}
+			};
 			if (v[event.sourceAttribute] === '0') {
 				let setting = {};
 				switch(event.sourceAttribute.slice(-1)) {
@@ -1102,9 +1095,9 @@ var handleFourBoxesFill = function(name) {
 						setting[`${rName}3`] = '0';
 					case '3':
 						setting[`${rName}4`] = '0';
-				}
+				};
 				setAttrs(setting);
-			}
+			};
 		});
 	});
 };
@@ -1137,9 +1130,9 @@ itemChecks.forEach(function(name) {
 						setting[`${name}_b`] = 'on';
 					case 'b':
 						setting[`${name}`] = 'on';
-				}
+				};
 				setAttrs(setting);
-			}
+			};
 			if (v[event.sourceAttribute] === '0') {
 				let setting = {};
 				switch(event.sourceAttribute.slice('-1')) {
@@ -1151,13 +1144,14 @@ itemChecks.forEach(function(name) {
 						setting[`${name}_d`] = 0;
 					case 'd':
 						setting[`${name}_e`] = 0;
-				}
+				};
 				setAttrs(setting);
-			}
+			};
 		});
 	});
 });
 
+/* INITIALISATION AND UPGRADES */
 on('sheet:opened', function() {
 	/* Make sure sheet_type is never 0 */
 	getAttrs(['sheet_type'], function(v) {
