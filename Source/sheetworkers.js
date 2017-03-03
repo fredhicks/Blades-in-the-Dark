@@ -332,8 +332,40 @@ var crewData = {
 	},
 	playbookData = {
 	cutter: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Battleborn',
+				description: 'You may expend your special armor to reduce harm from an attack in combat or to push yourself during a fight.'
+			},
+			{
+				name: 'Bodyguard',
+				description: 'When you protect a teammate, take +1d to your resistance roll. When you gather info to anticipate possible threats in the current situation, you get +1 effect.'
+			},
+			{
+				name: 'Ghost Fighter',
+				description: 'You may imbue your hands, melee weapons, or tools with spirit energy. You gain potency in combat vs. the supernatural. You may grapple with spirits to restrain and capture them.'
+			},
+			{
+				name: 'Leader',
+				description: 'When you Command a cohort in combat, they continue to fight when they would otherwise break (they\'re not taken out when they suffer level 3 harm). They gain +1 effect and 1 armor.'
+			},
+			{
+				name: 'Mule',
+				description: 'Your load limits are higher. Light: 5. Normal: 7. Heavy: 8.'
+			},
+			{
+				name: 'Not to be Trifled With',
+				description: 'You can push yourself to do one of the following: perform a feat of physical force that verges on the superhuman — engage a small gang on equal footing in close combat.'
+			},
+			{
+				name: 'Savage',
+				description: 'When you unleash physical violence, it\'s especially frightening. When you Command a frightened target, take +1d.'
+			},
+			{
+				name: 'Vigorous',
+				description: 'You recover from harm faster. Permanently fill in one of your healing clock segments. Take +1d to healing treatment rolls.'
+			}
+		],
 		base: {
 			command1: '1',
 			gatherinfo1: 'How can I hurt them?',
@@ -359,12 +391,37 @@ var crewData = {
 			skirmish2: '1',
 			xp_condition: 'You addressed a challenge with violence or coercion.'
 		},
-		friends: {
-		}
+		friends: [
+			'Marlane, a pugilist',
+			'Chael, a vicious thug',
+			'Mercy, a cold killer',
+			'Grace, an extortionist',
+			'Sawtooth, a physicker'
+		]
 	},
 	ghost: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Ghost Form',
+				description: 'You are now a concentration of electroplasmic vapor which resembles your living body and clothes. You may weakly interact with the physical world and vice versa. You\'re vulnerable to arcane powers and electroplasmic effects. You move about by floating and may fly swiftly without tiring. You may slowly flow through small openings as a vapor. You chill the area around you and are terrifying for the living to behold. You are affected by spiritbane charms (take 2 drain to overcome the repulsion). Whenever you would take stress, take drain instead. When you would take trauma, take gloom instead.'
+			},
+			{
+				name: 'Dissipate',
+				description: 'You can disperse the electroplasmic vapor of your ghostly form in order to pass through solid objects for a moment. Take 1 drain when you dissipate, plus 1 drain for each feature: It lasts longer (a minute — an hour — a day) — you also become invisible — anything that passes through your form becomes dangerously electrified or frozen.'
+			},
+			{
+				name: 'Manifest',
+				description: 'Take 1 drain to flow through the electroplasmic pathways of the ghost field in order to instantly travel to any place you knew intimately in life, or to answer the summoning call of a compel.'
+			},
+			{
+				name: 'Poltergeist',
+				description: 'Take 1 drain to strongly interact with the physical world for a few moments (as if you had a normal body). Extend the reach and magnitude of your interaction to include telekinetic force and electroplasmic discharges by taking more drain (2-6).'
+			},
+			{
+				name: 'Possess',
+				description: 'You may attune to the ghost field in order to take control of a living body. When your control is challenged, you must re-attune (risking electroplasmic harm) or leave the body. Your control is challenged when: you consume spirit energy from the host — when arcane powers act against you — when the host\'s will is driven to desperation. You may easily and indefinitely possess a hull or hollow which has been ritually prepared for you (change your playbook to Hull or Vampire, respectively).'
+			}
+		],
 		base: {
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
@@ -391,12 +448,39 @@ var crewData = {
 			xp_condition2: 'You expressed your your outrage or anger, or settled scores from your heritage or background.',
 			xp_condition3: 'You struggled with issues from your need or glooms during the session.'
 		},
-		friends: {
-		}
+		friends: []
 	},
 	hound: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Sharpshooter',
+				description: 'You can push yourself to do one of the following: make a ranged attack at extreme distance beyond what’s normal for the weapon — unleash a barrage of rapid fire to suppress the enemy.'
+			},
+			{
+				name: 'Focused',
+				description: 'You may expend your special armor to resist a consequence of surprise or mental harm (fear, confusion, losing track of someone) or to push yourself for ranged combat or tracking.'
+			},
+			{
+				name: 'Ghost Hunter',
+				description: 'Your hunting pet is imbued with spirit energy. It gains potency when tracking or fighting the supernatural, and gains an arcane ability: ghost-form, mind-link, or arrow-swift. Take this ability again to choose an additional arcane ability for your pet.'
+			},
+			{
+				name: 'Scout',
+				description: 'When you gather info to locate a target, you get +1 effect. When you hide in a prepared position or use camou age, you get +1d to rolls to avoid detection.'
+			},
+			{
+				name: 'Survivor',
+				description: 'From hard won experience or occult ritual, you are immune to the poisonous miasma of the deathlands and are able to subsist on the strange flora and fauna there. You get +1 stress box.'
+			},
+			{
+				name: 'Tough as Nails',
+				description: 'Penalties from harm are one level less severe (though level 4 harm is still fatal).'
+			},
+			{
+				name: 'Vengeful',
+				description: 'You gain an additional xp trigger: You got payback against someone who harmed you or someone you care about. If your crew helped you get payback, also mark crew xp.'
+			}
+		],
 		base: {
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
@@ -422,12 +506,45 @@ var crewData = {
 			survey1: '1',
 			xp_condition: 'You addressed a challenge with tracking or violence.'
 		},
-		friends: {
-		}
+		friends: [
+			'Steiner, an assassin',
+			'Celene, a sentinel',
+			'Melvir, a physicker',
+			'Veleris, a spy',
+			'Casta, a bounty hunter'
+		]
 	},
 	hull: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Automaton',
+				description: 'You are a spirit animating a clockwork body. You have human-like strength and senses, by default. Your hull has natural armor (this doesn\'t count for your load). Your former human feelings, interests, and connections are only dim memories. You now exist to fulfill your functions. Choose three. You may be rebuilt if damaged or destroyed. If your soul vessel is shattered, you are freed from servitude and become a Ghost. Whenever you would take stress, take drain instead.'
+			},
+			{
+				name: 'Overcharge',
+				description: 'Take 1 drain to perform a feat of extreme strength or speed (run faster than a horse, rend metal with bare hands, etc.). This factors into effect.'
+			},
+			{
+				name: 'Compartments',
+				description: 'Your items are built-in to your frame and may recess beneath panels out of sight. Your frame can now carry +2 load.'
+			},
+			{
+				name: 'Electroplasmic Projectors',
+				description: 'You may release some of your plasmic energy as an electrical shock around you or as a directed beam. You may also use this ability to create a lightning barrier to repel or trap a spirit. Take 1 drain for each level of magnitude.'
+			},
+			{
+				name: 'Interface',
+				description: 'You may attune to the local electroplasmic power field to control it or something connected to it (including another hull).'
+			},
+			{
+				name: 'Secondary Hull',
+				description: 'Choose an additional frame and its starting feature. You may transfer your consciousness between your frames at will.'
+			},
+			{
+				name: 'Frame Upgrade',
+				description: 'Choose an additional frame feature. This upgrade may be taken up to four times.'
+			}
+		],
 		base: {
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
@@ -456,12 +573,43 @@ var crewData = {
 			xp_condition2: 'You suppressed or ignored your former human beliefs, drives, heritage, or background.',
 			xp_condition3: 'You struggled with issues from your wear during the session.'
 		},
-		friends: {
-		}
+		friends: []
 	},
 	leech: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Alchemist',
+				description: 'When you invent or craft a creation with alchemical features, take +1 result level to your roll. You begin with one special formula already known.'
+			},
+			{
+				name: 'Analyst',
+				description: 'During downtime, you get two ticks to distribute among any long term project clocks that involve investigation or learning a new formula or design plan.'
+			},
+			{
+				name: 'Artificer',
+				description: 'When you invent or craft a creation with spark-craft features, take +1 result level to your roll. You begin with one special design already known.'
+			},
+			{
+				name: 'Fortitude',
+				description: 'You may expend your special armor to resist a consequence of fatigue, weakness, or chemical effects, or to push yourself when working with technical skill or handling alchemicals.'
+			},
+			{
+				name: 'Ghost Ward',
+				description: 'You know how to Wreck an area with arcane substances and methods so it is either anathema or enticing to spirits (your choice).'
+			},
+			{
+				name: 'Physicker',
+				description: 'You can Tinker with bones, blood, and bodily humours to treat wounds or stabilize the dying. You may study a malady or corpse. Everyone in your crew gets +1d to their healing treatment rolls.'
+			},
+			{
+				name: 'Saboteur',
+				description: 'When you Wreck, the work is much quieter than it should be and the damage is hidden from casual inspection.'
+			},
+			{
+				name: 'Venomous',
+				description: 'Choose a drug or poison (from your bandolier stock) to which you have become immune. You can push yourself to secrete it through your skin or saliva or exhale it as a vapor.'
+			}
+		],
 		base: {
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
@@ -487,12 +635,49 @@ var crewData = {
 			wreck1: '1',
 			xp_condition: 'You addressed a challenge with technical skill or mayhem.'
 		},
-		friends: {
-		}
+		friends: [
+			'Stazia, an apothecary',
+			'Veldren, a psychonaut',
+			'Eckerd, a corpse thief',
+			'Jul, a blood dealer',
+			'Malista, a priestess'
+		]
 	},
 	lurk: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Infiltrator',
+				description: 'You are not a ected by quality or Tier when you bypass security measures.'
+			},
+			{
+				name: 'Ambush',
+				description: 'When you attack from hiding or spring a trap, you get +1d.'
+			},
+			{
+				name: 'Daredevil',
+				description: 'When you roll a desperate action, you get +1d to your roll if you also take -1d to any resistance rolls against consequences from your action.'
+			},
+			{
+				name: 'The Devil\'s Footsteps',
+				description: 'When you push yourself, choose one of the following additional benefits: perform a feat of athletics that verges on the superhuman — maneuver to confuse your enemies so they mistakenly attack each other.'
+			},
+			{
+				name: 'Expertise',
+				description: 'Choose one of your action ratings. When you lead a group action using that action, you can suffer only 1 stress at most regardless of the number of failed rolls.'
+			},
+			{
+				name: 'Ghost Veil',
+				description: 'You may shift partially into the ghost field, becoming shadowy and insubstantial for a few moments. Take 2 stress when you shift, plus 1 stress for each extra feature: It lasts for a few minutes rather than moments — you are invisible rather than shadowy — you may float through the air like a ghost'
+			},
+			{
+				name: 'Reflexes',
+				description: 'When there\'s a question about who acts first, the answer is you (two characters with Reflexes act simultaneously).'
+			},
+			{
+				name: 'Shadow',
+				description: 'You may expend your special armor to resist a consequence from detection or security measures, or to push yourself for a feat of athletics or stealth.'
+			}
+		],
 		base: {
 			finesse1: '1',
 			gatherinfo1: 'What do they intend to do?',
@@ -518,12 +703,49 @@ var crewData = {
 			setting_vice_type: 'normal',
 			xp_condition: 'You addressed a challenge with stealth or evasion.'
 		},
-		friends: {
-		}
+		friends: [
+			'Telda, a beggar',
+			'Darmot, a bluecoat',
+			'Frake, a locksmith',
+			'Roslyn Kellis, a noble',
+			'Petra, a city clerk'
+		]
 	},
 	slide: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Rook\'s Gambit',
+				description: 'Take 2 stress to roll your best action rating while performing a different action. Say how you adapt your skill to this use.'
+			},
+			{
+				name: 'Cloak & Dagger',
+				description: 'When you use a disguise or other form of covert misdirection, you get +1d to rolls to confuse or deflect suspicion. When you throw off your disguise, the resulting surprise gives you the initiative in the situation.'
+			},
+			{
+				name: 'Ghost Voice',
+				description: 'You know the secret method to interact with a ghost or demon as if it was a normal human, regardless of how wild or feral it appears. You gain potency when communicating with the supernatural.'
+			},
+			{
+				name: 'Like Looking into a Mirror',
+				description: 'You can always tell when someone is lying to you.'
+			},
+			{
+				name: 'A Little Something on the Side',
+				description: 'At the end of each downtime phase, you earn +2 stash.'
+			},
+			{
+				name: 'Mesmerism',
+				description: 'When you Sway someone, you may cause them to forget that it\'s happened until they next interact with you.'
+			},
+			{
+				name: 'Subterfuge',
+				description: 'You may expend your special armor to resist a consequence from suspicion or persuasion, or to push yourself for subterfuge.'
+			},
+			{
+				name: 'Trust in Me',
+				description: 'You get +1d vs. a target with whom you have an intimate relationship.'
+			}
+		],
 		base: {
 			consort1: '1',
 			gatherinfo1: 'What do they intend to do?',
@@ -549,12 +771,49 @@ var crewData = {
 			sway2: '1',
 			xp_condition: 'You addressed a challenge with deception or in influence.'
 		},
-		friends: {
-		}
+		friends: [
+			'Bryl, a drug dealer',
+			'Bazso Baz, a gang leader',
+			'Klyra, a tavern owner',
+			'Nyryx, a prostitute',
+			'Harker, a jail-bird'
+		]
 	},
 	spider: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Foresight',
+				description: 'Two times per score you can assist a teammate without paying stress. Tell us how you prepared for this.'
+			},
+			{
+				name: 'Calculating',
+				description: 'Due to your careful planning, during downtime, you may give yourself or another crew member +1 downtime action.'
+			},
+			{
+				name: 'Connected',
+				description: 'During downtime, you get +1 result level when you acquire an asset or reduce heat.'
+			},
+			{
+				name: 'Functioning Vice',
+				description: 'When you indulge your vice, you may adjust the dice outcome by 1 or 2 (up or down). An ally who joins in your vice may do the same.'
+			},
+			{
+				name: 'Ghost Contract',
+				description: 'When you shake on a deal, you and your partner — human or otherwise — both bear a mark of your oath. If either breaks the contract, they take level 3 harm, "Cursed".'
+			},
+			{
+				name: 'Jail Bird',
+				description: 'When incarcerated, your wanted level counts as 1 less, your Tier as 1 more, and you gain +1 faction status with a faction you help on the inside (in addition to your incarceration roll).'
+			},
+			{
+				name: 'Mastermind',
+				description: 'You may expend your special armor to protect a teammate, or to push yourself when you gather information or work on a long-term project.'
+			},
+			{
+				name: 'Weaving the Web',
+				description: 'You gain +1d to Consort when you gather information on a target for a score. You get +1d to the engagement roll for that operation.'
+			}
+		],
 		base: {
 			consort1: '1',
 			consort2: '1',
@@ -580,12 +839,49 @@ var crewData = {
 			study1: '1',
 			xp_condition: 'You addressed a challenge with calculation or conspiracy.'
 		},
-		friends: {
-		}
+		friends: [
+			'Salia, an information broker',
+			'Augus, a master architect',
+			'Jennah, a servant',
+			'Riven, a chemist',
+			'Jeren, a bluecoat archivist'
+		]
 	},
 	whisper: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Compel',
+				description: 'You can Attune to the ghost field to force a nearby ghost to appear and obey a command you give it. You are not supernaturally terrified by a ghost you summon or compel (though your allies may be).'
+			},
+			{
+				name: 'Ghost Mind',
+				description: 'You’re always aware of supernatural entities in your presence. Take +1d when you gather info about the supernatural.'
+			},
+			{
+				name: 'Iron Will',
+				description: ' You\'re immune to the terror that some supernatural entities inflict on sight. Take +1d to resistance rolls with Resolve.'
+			},
+			{
+				name: 'Occultist',
+				description: 'You know the secret ways to Consort with ancient powers, forgotten gods or demons. Once you\'ve consorted with one, you get +1d to command cultists who worship it.'
+			},
+			{
+				name: 'Ritual',
+				description: 'You can Study an occult ritual (or create a new one) to summon a supernatural effect or being. You know the arcane methods to perform ritual sorcery. You begin with one ritual already learned.'
+			},
+			{
+				name: 'Strange Methods',
+				description: 'When you invent or craft a creation with arcane features, take +1 result level to your roll. You begin with one arcane design already known.'
+			},
+			{
+				name: 'Tempest',
+				description: 'You can push yourself to do one of the following: unleash a stroke of lightning as a weapon — summon a storm in your immediate vicinity (torrential rain, roaring winds, heavy fog, chilling frost/snow, etc.).'
+			},
+			{
+				name: 'Warded',
+				description: 'You may expend your special armor to resist a supernatural consequence, or to push yourself when you deal with arcane forces.'
+			}
+		],
 		base: {
 			attune1: '1',
 			attune2: '1',
@@ -611,12 +907,41 @@ var crewData = {
 			study1: '1',
 			xp_condition: 'You addressed a challenge with knowledge or arcane power.'
 		},
-		friends: {
-		}
+		friends: [
+			'Nyryx, a possessor ghost',
+			'Scurlock, a vampire',
+			'Setarra, a demon',
+			'Quellyn, a witch',
+			'Flint, a spirit trafficker'
+		]
 	},
 	vampire: {
-		abilities: {
-		},
+		abilities: [
+			{
+				name: 'Undead',
+				description: 'You are a spirit which animates an undead body. Your trauma is maxed out. Choose four trauma conditions which reflect your vampiric nature. Arcane attacks are potent against you. If you suffer fatal harm or trauma, your undead spirit is overwhelmed. You take level 3 harm: "Incapacitated" until you feed enough to recover. If you suffer arcane harm while in this state, you are destroyed utterly. Your XP tracks are longer (you now advance more slowly). You have more stress boxes.'
+			},
+			{
+				name: 'Terrible Power',
+				description: 'Take 1 stress to perform a feat of superhuman strength or speed (run faster than a carriage, break stone with bare hands, leap onto the roof of a building, etc.). This factors into effect.'
+			},
+			{
+				name: 'Arcane Sight',
+				description: 'Take 1 stress to sense beyond human limits. "Hear" a subject\'s true thoughts or feelings, see in pitch darkness, sense the presence of invisible things, intuit the location of a hidden object, etc.'
+			},
+			{
+				name: 'A Void in the Echo',
+				description: 'You are invisible to spirits and may not be harmed by them. Take 2 stress to cause living things to avert their gaze and fail to observe you for a few moments.'
+			},
+			{
+				name: 'Dark Talent',
+				description: 'Choose Insight, Prowess, or Resolve.Your max rating for actions under that attribute becomes 5. When you take this ability, add +1 dot to the resistance rating of the attribute you\'ve chosen.'
+			},
+			{
+				name: 'Sinister Guile',
+				description: 'During downtime, choose one: Get a free additional downtime activity, or take +1d to all downtime activity rolls.'
+			}
+		],
 		base: {
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
@@ -652,8 +977,13 @@ var crewData = {
 			xp_condition2: 'You expressed your beliefs, drives, heritage, or background.',
 			xp_condition3: 'You struggled with issues from your vice, traumas, or strictures during the session.'
 		},
-		friends: {
-		}
+		friends: [
+			'Rutherford, a butler',
+			'Lylandra, a consort',
+			'Kira, a bodyguard',
+			'Otto, a coachman',
+			'Edrik, an envoy'
+		]
 	}
 	},
 	spiritPlaybooks = ['ghost', 'hull', 'vampire'],
