@@ -1278,7 +1278,7 @@ var actions = {
 					return _.chain(array)
 						.map(str => values[str])
 						.reduce((s,v) => s + parseInt(v||0), 0)
-						.value()
+						.value();
 				})
 				.min().value(),
 				setting = {};
@@ -1304,7 +1304,7 @@ var fillRepeatingSectionFromData = function(sectionName, dataList) {
 					return _.reduce(o, function(m,v,k) {
 						m[`repeating_${sectionName}_${rowID}_${k}`] = v;
 						return m;
-					}, {})
+					}, {});
 				})
 				.reduce(function(m,o) {
 					return _.extend(m,o);
@@ -1634,7 +1634,7 @@ on('change:generate_factions', function(event) {
 /* GENERATE ABILITIES */
 on('change:generate_abilities', function() {
 	getAttrs(['generate_source'], function (v) {
-		let prefix, data;
+		let sectionName, dataList;
 		if (_.has(crewData, v.generate_source)) {
 			sectionName = 'crewability';
 			dataList = crewData[v.generate_source].abilities;
@@ -1648,7 +1648,7 @@ on('change:generate_abilities', function() {
 /* GENERATE FRIENDS */
 on('change:generate_friends', function() {
 	getAttrs(['generate_source'], function (v) {
-		let prefix, data;
+		let sectionName, dataList;
 		if (_.has(crewData, v.generate_source)) {
 			sectionName = 'contact';
 			dataList = _.map(crewData[v.generate_source].contacts, function (n) {
@@ -1724,7 +1724,7 @@ var calcCohortDots = function(t1, t2, t3, t4, imp, type, prefix) {
 	qualityEvent = _.map(qualityAttrs, str => `change:${str}`).join(' ');
 on(qualityEvent, function() {
 	getAttrs(qualityAttrs, function (attrs) {
-		setting = calcCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs.cohort1_impaired, attrs.cohort1_type, 'cohort1_');
+		let setting = calcCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs.cohort1_impaired, attrs.cohort1_type, 'cohort1_');
 		setAttrs(setting);
 	});
 });
