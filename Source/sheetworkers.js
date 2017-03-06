@@ -1317,9 +1317,7 @@ var fillRepeatingSectionFromData = function(sectionName, dataList) {
 	emptyFirstRowIfUnnamed = function(sectionName) {
 		getSectionIDs(`repeating_${sectionName}`, function(idList) {
 			let id = idList[0];
-			log('ID= '+ id);
 			getAttrs([`repeating_${sectionName}_${id}_name`], function(v) {
-				log('NAME= ' + v[`repeating_${sectionName}_${id}_name`]);
 				if (!v[`repeating_${sectionName}_${id}_name`]) {
 					removeRepeatingRow(`repeating_${sectionName}_${id}`);
 				};
