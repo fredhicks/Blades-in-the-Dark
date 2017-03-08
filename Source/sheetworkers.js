@@ -1634,8 +1634,6 @@ var actions1 = _.mapObject(actionData, array => _.map(array, str => str + '1')),
 	calculateResistance = function(name) {
 		getAttrs(actions1[name], function(attrs) {
 			let numDice = _.chain(attrs).values().reduce((s,v) => s + parseInt(v||0), 0).value();
-			log(name);
-			log(_.values(attrs));
 			setDiceFromTotal(name, numDice);
 		});
 	},
