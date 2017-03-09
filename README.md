@@ -4,6 +4,10 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## Changelog
 
+## 0.10
+* Negative bonus dice (up to -2) can now be selected.
+* Unified roll templates (this should be totally under-the-hood).
+
 ### 0.9
 * Sheet-worker-based solution to displaying a row for abilities/friends/crew abilities/contacts by default
 
