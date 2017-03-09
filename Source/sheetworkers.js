@@ -1715,24 +1715,26 @@ var calculateCohortDots = function(t1, t2, t3, t4, imp, type, prefix) {
 	setDiceFromTotal(`${prefix}die`, numDots, true);
 },
 	qualityAttrs = ['crew_tier1', 'crew_tier2', 'crew_tier3', 'crew_tier4', 'cohort1_impaired', 'cohort1_type'],
-	qualityEvent = _.map(qualityAttrs, str => `change:${str}`).join(' ');
-on(qualityEvent, function() {
-	getAttrs(qualityAttrs, function (attrs) {
-		calculateCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs.cohort1_impaired, attrs.cohort1_type, 'cohort1_');
-	});
-});
+	qualityEvent = _.map(qualityAttrs, str => `change:${str}`).join(' '),
+	calculateCohort1Dice = function() {
+		getAttrs(qualityAttrs, function (attrs) {
+			calculateCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs.cohort1_impaired, attrs.cohort1_type, 'cohort1_');
+		});
+	};
+on(qualityEvent, calculateCohort1Dice);
 var repeatingQualityAttrs = ['crew_tier1', 'crew_tier2', 'crew_tier3', 'crew_tier4', 'repeating_cohort:impaired', 'repeating_cohort:type'],
-	repeatingQualityEvent = _.map(repeatingQualityAttrs, str => `change:${str}`).join(' ');
-on(repeatingQualityEvent + ' change:repeating_cohort:name change:repeating_cohort:subtype change:repeating_cohort:edges change:repeating_cohort:flaws change:repeating_cohort:description', function() {
-	getSectionIDs('repeating_cohort', function(list) {
-		list.forEach(function(id) {
-			let attrList = _.map(repeatingQualityAttrs, str => str.replace(':', `_${id}_`));
-			getAttrs(attrList, function(attrs) {
-				calculateCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs[attrList[4]], attrs[attrList[5]], `repeating_cohort_${id}_`);
+	repeatingQualityEvent = _.map(repeatingQualityAttrs, str => `change:${str}`).join(' '),
+	calculateRepeatingCohortDice = function() {
+		getSectionIDs('repeating_cohort', function(list) {
+			list.forEach(function(id) {
+				let attrList = _.map(repeatingQualityAttrs, str => str.replace(':', `_${id}_`));
+				getAttrs(attrList, function(attrs) {
+					calculateCohortDots(attrs.crew_tier1, attrs.crew_tier2, attrs.crew_tier3, attrs.crew_tier4, attrs[attrList[4]], attrs[attrList[5]], `repeating_cohort_${id}_`);
+				});
 			});
 		});
-	});
-});
+	};
+on(repeatingQualityEvent + ' change:repeating_cohort:name change:repeating_cohort:subtype change:repeating_cohort:edges change:repeating_cohort:flaws change:repeating_cohort:description', calculateRepeatingCohortDice);
 
 /* LEFT-FILL CHECKBOXES */
 var handleFourBoxesFill = function(name) {
@@ -1902,14 +1904,14 @@ on('sheet:opened', function() {
 			});
 		};
 		// Upgrade to 0.10: Make sure that resistance values are calculated correctly.
-		if (v.version && v.version.split('.')[0] === '0' && parseInt(v.version.split('.')[1]) < 10) {
+		if (v.version && parseInt(v.version.split('.')[0]) < 1) {
 			_.each(_.keys(actionData), calculateResistance);
 			calculateVice();
 		};
 		// Set version number
 		setAttrs({
-			version: '0.10',
-			character_sheet: 'Blades in the Dark v0.10'
+			version: '1.0',
+			character_sheet: 'Blades in the Dark v1.0'
 		});
 	});
 });
