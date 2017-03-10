@@ -146,9 +146,18 @@ input.sheet-hidediv:checked + div {
 }
 /* GENERALITIES */
 .charsheet {
-	width: 860px;
-	position: absolute;
+	min-width: 860px;
+	position: relative;
 	padding: 0 10px 0 0 !important;
+}
+/* Flexwidth */
+.sheet-container {
+	position: relative;
+	width: 860px;
+}
+input:checked + .sheet-container {
+	min-width: 860px;
+	width: initial;
 }
 button {
 	text-shadow: none !important;
