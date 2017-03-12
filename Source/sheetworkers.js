@@ -571,6 +571,7 @@ var crewData = {
 		],
 		base: {
 			command1: '1',
+			friends_title: 'Dangerous Friends',
 			gatherinfo1: 'How can I hurt them?',
 			gatherinfo2: 'Who\'s most afraid of me?',
 			gatherinfo3: 'Who\'s most dangerous here?',
@@ -626,6 +627,7 @@ var crewData = {
 			}
 		],
 		base: {
+			friends_title: 'Enemies & Rivals',
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
 			gatherinfo3: 'What are they really feeling?',
@@ -685,6 +687,7 @@ var crewData = {
 			}
 		],
 		base: {
+			friends_title: 'Deadly Friends',
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
 			gatherinfo3: 'What are they really feeling?',
@@ -814,6 +817,7 @@ var crewData = {
 			}
 		],
 		base: {
+			friends_title: 'Clever Friends',
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
 			gatherinfo3: 'Are they telling the truth?',
@@ -882,6 +886,7 @@ var crewData = {
 			}
 		],
 		base: {
+			friends_title: 'Shady Friends',
 			finesse1: '1',
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
@@ -950,6 +955,7 @@ var crewData = {
 			}
 		],
 		base: {
+			friends_title: 'Sly Friends',
 			consort1: '1',
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
@@ -1020,6 +1026,7 @@ var crewData = {
 		base: {
 			consort1: '1',
 			consort2: '1',
+			friends_title: 'Shrewd Friends',
 			gatherinfo1: 'What do they want most?',
 			gatherinfo2: 'What should I look out for?',
 			gatherinfo3: 'Where\'s the leverage here?',
@@ -1088,6 +1095,7 @@ var crewData = {
 		base: {
 			attune1: '1',
 			attune2: '1',
+			friends_title: 'Strange Friends',
 			gatherinfo1: 'What is arcane or weird here?',
 			gatherinfo2: 'What echoes in the ghost field?',
 			gatherinfo3: 'What is hidden or lost here?',
@@ -1146,6 +1154,7 @@ var crewData = {
 			}
 		],
 		base: {
+			friends_title: 'Dark Servants',
 			gatherinfo1: 'What do they intend to do?',
 			gatherinfo2: 'How can I get them to [X]?',
 			gatherinfo3: 'What are they really feeling?',

@@ -10,6 +10,7 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 * Invisible dice will no longer be rolled; the sheet will now work properly with 3D dice
 * Unified roll templates (this should be invisible to the user)
 * Added setting for flexible sheet width
+* The Friends section now has the correct title based on playbook
 
 ### 0.9
 * Sheet-worker-based solution to displaying a row for abilities/friends/crew abilities/contacts by default
