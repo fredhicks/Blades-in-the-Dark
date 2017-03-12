@@ -235,11 +235,13 @@ input[type=number]:focus {
 	display: inline-block;
 	width: 100%;
 }
-span.sheet-inherit {
+span.sheet-inherit, input.sheet-inherit {
 	font-size: inherit;
 	color: inherit;
 	font-family: inherit;
 	font-weight: inherit;
+	text-transform: inherit;
+	letter-spacing: inherit;
 }
 /* USEFUL GENERAL LAYOUT*/
 .sheet-blackheader, .sheet-black-on-grey, .sheet-greyheader {
@@ -285,9 +287,8 @@ span.sheet-inherit {
 	font-size: 74%;
 	letter-spacing: 1px;
 	padding-left: 5px;
-	padding-top: 11px;
+	padding-top: 2px;
 	font-weight: 600;
-	line-height: 0px;
 }
 .sheet-greyholder {
 	background-color: #d6d8d9;
