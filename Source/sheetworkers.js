@@ -1695,10 +1695,18 @@ on('change:generate_friends', function() {
 		let sectionName, dataList;
 		if (_.has(crewData, v.generate_source)) {
 			sectionName = 'contact';
-			dataList = _.map(crewData[v.generate_source].contacts, n => {name: n});
+			dataList = _.map(crewData[v.generate_source].contacts, function(n) {
+				return {
+					name: n
+				};
+			});
 		}	else if (_.has(playbookData, v.generate_source)) {
 			sectionName = 'friend';
-			dataList = _.map(playbookData[v.generate_source].friends, n => {name: n});
+			dataList = _.map(playbookData[v.generate_source].friends, function(n) {
+				return {
+					name: n
+				};
+			});
 		};
 		emptyFirstRowIfUnnamed(sectionName);
 		fillRepeatingSectionFromData(sectionName, dataList);
