@@ -72,7 +72,7 @@ input:checked + .sheet-settings {
 .sheet-settings {
 	display: none;
 	position: absolute;
-	margin-left: calc(100% - 360px);
+	margin-left: calc(100% - 350px);
 	width: 350px;
 	border: 1px solid black;
 	background: white;
@@ -403,7 +403,7 @@ span.sheet-inherit, input.sheet-inherit {
 	padding: 0;
 }
 .sheet-gatherinfo li {
-	margin-bottom: 4px;
+	margin-bottom: 1px;
 	font-style: italic;
 	padding-left: 11px;
 	font-size: 86%;
@@ -883,6 +883,7 @@ input.sheet-text-input:checked:hover + span {
 input.sheet-text-input + span::after {
 	content: "—";
 	padding: 0 2px;
+	color: black !important;
 }
 input.sheet-text-input.sheet-last + span::after {
 	content: "";
@@ -1223,7 +1224,8 @@ input.sheet-radiobox:hover + span {
 	float: left;
 	padding: 5px;
 	font-size: 80%;
-	line-height: 122%;
+	line-height: 133%;
+	text-align: center;
 }
 /* REPEATING SECTION CONTROLS */
 .charsheet button.repcontrol_edit, .charsheet button.repcontrol_add {
@@ -1389,7 +1391,7 @@ textarea.sheet-notes {
 	font-family: "Shadows Into Light", cursive;
 	color: #c43c35;
 	font-size: 155%;
-	width: 356px;
+	width: 97%;
 	resize: vertical;
 	background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
 	background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
