@@ -1676,19 +1676,11 @@ on('change:generate_friends', function () {
 		let sectionName, dataList;
 		if (_.has(crewData, v.generate_source)) {
 			sectionName = 'contact';
-			dataList = _.map(crewData[v.generate_source].contacts, function (n) {
-				return {
-					name: n
-				};
-			});
+			dataList = _.map(crewData[v.generate_source].contacts, n => ({ name: n }));
 		}
 		else if (_.has(playbookData, v.generate_source)) {
 			sectionName = 'friend';
-			dataList = _.map(playbookData[v.generate_source].friends, function (n) {
-				return {
-					name: n
-				};
-			});
+			dataList = _.map(playbookData[v.generate_source].friends, n => ({ name: n }));
 		};
 		emptyFirstRowIfUnnamed(sectionName);
 		fillRepeatingSectionFromData(sectionName, dataList);
@@ -1907,8 +1899,8 @@ on('sheet:opened', function () {
 		};
 		// Set version number
 		setAttrs({
-			version: '1.0',
-			character_sheet: 'Blades in the Dark v1.0'
+			version: '1.0.1',
+			character_sheet: 'Blades in the Dark v1.0.1'
 		});
 	});
 });
