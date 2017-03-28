@@ -1071,17 +1071,16 @@ textarea.sheet-abilitydesc {
 }
 .sheet-armor .sheet-col50 {
 	margin-bottom: 4px;
-}
-.sheet-armor .sheet-col50:last-child {
-	float: right;
-}
+	width: 55%;
+	margin-left: 45%;
+}	
 /* COIN */
 .sheet-coin-and-stash {
-	margin-top: 49px;
+	margin-top: 5px;
+	width: 102%;
 }
 .sheet-coinrow {
-	font-size: 73%;	
-	height: 17px;	
+	font-size: 73%;
 	font-weight: 800;
 }
 .sheet-coinrow > div:first-child {
@@ -1099,25 +1098,24 @@ textarea.sheet-abilitydesc {
 }
 .sheet-coin div:last-child {
 	float: right;
-	width: 54px;
+	width: 56px;
 }
 .sheet-coin div:nth-child(2) {
-	padding-left: 2px;
+	position: absolute;
+	margin-left: 31px;
 }
 /* STASH */
 .sheet-stash {
-	margin-top: 5px;
+	margin-top: 2px;
 	padding-left: 5px;
-	line-height: 14px;
+	line-height: 19px;
+	width: 103%;
 }
 .sheet-stashzeroholder {
 	position: absolute;
-	margin: 20px 0 0 -8px;
+	margin: 22px 0 0 -7px;
 }
 /* CREW COIN */
-.sheet-crewcoin {
-	height: 60px;
-}
 .sheet-crewcoin > div:nth-child(3) {
 	margin-top: 2px;
 	padding-left: 3px;
@@ -1135,25 +1133,16 @@ textarea.sheet-abilitydesc {
 	width: 1px;
 	margin: 0 5px 0 3px;
 }
-.sheet-crewcoin input.sheet-radiobox:checked ~ input.sheet-radiobox.sheet-vaultcoin + span {
-	border: 1px solid #c6c7c9;
-}
-.sheet-crewcoin input.sheet-radiobox + span {
-	margin: 0 3px 2px 0;
-}
-.sheet-crewcoin input.sheet-radiobox {
-	margin: 0 -12px 8px 0;
-}
 /* LEFT-FILLED RADIO BOXES */
 input.sheet-radiobox {
 	width: 12px;
 	height: 12px;
-	margin: 0 -12px 3px 0;
+	margin-top: 3px;
 }
 input.sheet-radiobox + span {
 	width: 9px;
 	height: 9px;
-	margin: 0 2px 0 0;
+	margin: 0 3px 0 0;
 	display: inline-block;
 }
 input.sheet-radiobox:hover + span {
@@ -1178,15 +1167,25 @@ input.sheet-radiobox:hover + span {
 	background-color: black;
 	border: 1px solid black;
 }
-.sheet-stash input.sheet-radiobox.sheet-endbox {
-	margin-left: 5px;
+.sheet-stash input.sheet-radiobox.sheet-last {
+	margin-left: 2px;
 	width: 13px;
 	height: 13px;
 }
-.sheet-stash input.sheet-radiobox.sheet-endbox + span {
+.sheet-stash input.sheet-radiobox.sheet-last + span {
 	width: 10px;
 	height: 10px;
 	border: 1px solid black !important;
+	margin-left: 2px;
+}
+input.sheet-radiobox.sheet-last + span {
+	margin-right: 0;
+}
+.sheet-crewcoin input.sheet-radiobox:checked ~ input.sheet-radiobox.sheet-vaultcoin + span {
+	border: 1px solid #c6c7c9;
+}
+.sheet-crewcoin input.sheet-radiobox + span {
+	margin-bottom: 2px;
 }
 /* HUNTING GROUNDS */
 .sheet-hunting-grounds input[type="text"] {
@@ -1272,6 +1271,7 @@ input.sheet-radiobox:hover + span {
 }
 .sheet-stress1 {
 	width: 53px;
+	padding-left: 3px;
 }
 .sheet-stress2 {
 	width: calc(100% - 330px);
@@ -1297,7 +1297,8 @@ input.sheet-radiobox:hover + span {
 	width: 35px;
 }
 .sheet-rep2 {
-	width:  calc(100% - 78px);
+	width: calc(100% - 78px);
+	position: relative;
 }
 .sheet-rep3 {
 	width: 43px;
@@ -1305,9 +1306,8 @@ input.sheet-radiobox:hover + span {
 .sheet-turfbox {
 	display: block;
 	position: absolute;
-	float: right;
 	z-index: 2;
-	margin-left: 63px;
+	width: 100%;
 }
 .sheet-hold1, .sheet-hold4, .sheet-heat1 {
 	width: 41px;
@@ -1342,13 +1342,13 @@ input.sheet-radiobox:hover + span {
 	margin: -2px 0 0 35px;
 }
 .sheet-stress3 .sheet-zeroholder {
-	margin-left: 0;
+	margin-left: 1px;
 }
 .sheet-rep1 .sheet-zeroholder {
 	margin: -2px 0 0 17px;
 }
 .sheet-rep3 .sheet-zeroholder {
-	margin: 13px 0 0 -3px;
+	margin: 13px 0 0 2px;
 }
 .sheet-heat1 .sheet-zeroholder {
 	margin: -2px 0 0 23px;
@@ -1360,13 +1360,26 @@ input.sheet-radiobox:hover + span {
 	margin: 19px 0 0 -10px;
 }
 .sheet-stress2 input.sheet-tooth + span {
-	margin-right: 6px;
+	margin-right: calc((100% - 72px)/8);
 }
 .sheet-stress2 input[name="attr_setting_extra_stress1"]:checked ~ input.sheet-tooth + span {
-	margin-right: 5px;
+	margin-right: calc((100% - 80px)/9);
 }
 .sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked ~ input.sheet-tooth + span {
-	margin-right: 4px;
+	margin-right: calc((100% - 88px)/10);
+}
+.sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked + input[name="attr_setting_extra_stress3"]:checked ~ input.sheet-tooth + span {
+	margin-right: calc((100% - 96px)/11);
+}
+.sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked + input[name="attr_setting_extra_stress3"]:checked + input[name="attr_setting_extra_stress4"]:checked ~ input.sheet-tooth + span {
+	margin-right: calc((100% - 104px)/12);
+}
+input[name="attr_setting_extra_stress1"]:not(:checked) ~ input.sheet-tooth[value="9"] + span,
+input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:not(:checked) ~ input.sheet-tooth[value="10"] + span,
+input[name="attr_setting_extra_stress2"]:checked + input[name="attr_setting_extra_stress3"]:not(:checked) ~ input.sheet-tooth[value="11"] + span,
+input[name="attr_setting_extra_stress3"]:checked + input[name="attr_setting_extra_stress4"]:not(:checked) ~ input.sheet-tooth[value="12"] + span,
+input[name="attr_setting_extra_stress4"]:checked ~ input.sheet-tooth[value="13"] + span {
+	margin-right: 0 !important;
 }
 /* small fixes */
 .sheet-rep .sheet-black-on-grey {
@@ -1378,7 +1391,10 @@ input.sheet-radiobox:hover + span {
 	width: 11px;
 }
 .sheet-rep input.sheet-tooth + span {
-	margin-right: 3px;
+	margin-right: calc((100% - 96px)/11);
+}
+.sheet-heat2 input.sheet-tooth + span {
+	margin-right: calc((100% - 72px)/8);
 }
 .sheet-hold .sheet-black-on-grey {
 	width: calc(100% - 8px);
