@@ -1517,14 +1517,14 @@ var crewData = {
 	},
 	spiritPlaybooks = ['ghost', 'hull', 'vampire'];
 /* UTILITY FUNCTIONS */
-var setDiceFromTotal = function (name, numDice, upToFive) {
+var setDiceFromTotal = function (name, numDice, upToFive, value = 1) {
 		let setting = {};
-		setting[`${name}1`] = (numDice > 0) ? 1 : 0;
-		setting[`${name}2`] = (numDice > 1) ? 1 : 0;
-		setting[`${name}3`] = (numDice > 2) ? 1 : 0;
-		setting[`${name}4`] = (numDice > 3) ? 1 : 0;
+		setting[`${name}1`] = (numDice > 0) ? value : 0;
+		setting[`${name}2`] = (numDice > 1) ? value : 0;
+		setting[`${name}3`] = (numDice > 2) ? value : 0;
+		setting[`${name}4`] = (numDice > 3) ? value : 0;
 		if (upToFive) {
-			setting[`${name}5`] = (numDice > 4) ? 1 : 0;
+			setting[`${name}5`] = (numDice > 4) ? value : 0;
 		};
 		setAttrs(setting);
 	},
@@ -1688,6 +1688,12 @@ on('change:generate_friends', function () {
 on('change:wanted', function () {
 	getAttrs(['wanted'], function (v) {
 		setDiceFromTotal('wanted', parseInt(v.wanted));
+	});
+});
+/* EXTRA STRESS BOXES */
+on('change:setting_extra_stress', function () {
+	getAttrs(['setting_extra_stress'], function (v) {
+		setDiceFromTotal('setting_extra_stress', parseInt(v.setting_extra_stress), true, 'on');
 	});
 });
 /* CALCULATE COHORT QUALITY */
@@ -1897,8 +1903,8 @@ on('sheet:opened', function () {
 		};
 		// Set version number
 		setAttrs({
-			version: '1.0.2',
-			character_sheet: 'Blades in the Dark v1.0.2'
+			version: '1.1',
+			character_sheet: 'Blades in the Dark v1.1'
 		});
 	});
 });

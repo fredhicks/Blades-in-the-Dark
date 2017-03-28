@@ -1088,7 +1088,7 @@ textarea.sheet-abilitydesc {
 	border-right: 1px solid #8c8c8c;
 	color: black;
 }
-.sheet-coinrow div{
+.sheet-coinrow div {
 	float: left;
 }
 .sheet-coinrow > div:last-child {
@@ -1365,20 +1365,24 @@ input.sheet-radiobox.sheet-last + span {
 .sheet-stress2 input[name="attr_setting_extra_stress1"]:checked ~ input.sheet-tooth + span {
 	margin-right: calc((100% - 80px)/9);
 }
-.sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked ~ input.sheet-tooth + span {
+.sheet-stress2 input[name="attr_setting_extra_stress2"]:checked ~ input.sheet-tooth + span {
 	margin-right: calc((100% - 88px)/10);
 }
-.sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked + input[name="attr_setting_extra_stress3"]:checked ~ input.sheet-tooth + span {
+.sheet-stress2 input[name="attr_setting_extra_stress3"]:checked ~ input.sheet-tooth + span {
 	margin-right: calc((100% - 96px)/11);
 }
-.sheet-stress2 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:checked + input[name="attr_setting_extra_stress3"]:checked + input[name="attr_setting_extra_stress4"]:checked ~ input.sheet-tooth + span {
+.sheet-stress2 input[name="attr_setting_extra_stress4"]:checked ~ input.sheet-tooth + span {
 	margin-right: calc((100% - 104px)/12);
+}
+.sheet-stress2 input[name="attr_setting_extra_stress5"]:checked ~ input.sheet-tooth + span {
+	margin-right: calc((100% - 112px)/13);
 }
 input[name="attr_setting_extra_stress1"]:not(:checked) ~ input.sheet-tooth[value="9"] + span,
 input[name="attr_setting_extra_stress1"]:checked + input[name="attr_setting_extra_stress2"]:not(:checked) ~ input.sheet-tooth[value="10"] + span,
 input[name="attr_setting_extra_stress2"]:checked + input[name="attr_setting_extra_stress3"]:not(:checked) ~ input.sheet-tooth[value="11"] + span,
 input[name="attr_setting_extra_stress3"]:checked + input[name="attr_setting_extra_stress4"]:not(:checked) ~ input.sheet-tooth[value="12"] + span,
-input[name="attr_setting_extra_stress4"]:checked ~ input.sheet-tooth[value="13"] + span {
+input[name="attr_setting_extra_stress4"]:checked + input[name="attr_setting_extra_stress5"]:not(:checked) ~ input.sheet-tooth[value="13"] + span,
+input[name="attr_setting_extra_stress5"]:checked ~ input.sheet-tooth[value="14"] + span {
 	margin-right: 0 !important;
 }
 /* small fixes */

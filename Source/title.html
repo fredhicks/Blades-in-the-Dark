@@ -41,25 +41,21 @@
 		<input type="checkbox" class="sheet-generatebutton" name="attr_generate_friends"/>
 		<span>Add friends/contacts</span>
 	</div>
-	<div class="sheet-col50">
-		<input type="checkbox" name="attr_setting_extra_stress1" class="sheet-checkbox sheet-squarebox"/>
-		<span></span>
-		<span>Show an extra stress box</span>
-	</div>
-	<div class="sheet-col50">
-		<input type="checkbox" name="attr_setting_extra_stress2" class="sheet-checkbox sheet-squarebox"/>
-		<span></span>
-		<span>Show another stress box</span>
-	</div>
-	<div class="sheet-col50">
-		<input type="checkbox" name="attr_setting_extra_stress3" class="sheet-checkbox sheet-squarebox"/>
-		<span></span>
-		<span>Show yet another stress box</span>
-	</div>
-	<div class="sheet-col50">
-		<input type="checkbox" name="attr_setting_extra_stress4" class="sheet-checkbox sheet-squarebox"/>
-		<span></span>
-		<span>Show even more stress</span>
+	<div class="sheet-col100">
+		<input type="checkbox" name="attr_setting_extra_stress1" class="sheet-hidden"/>
+		<input type="checkbox" name="attr_setting_extra_stress2" class="sheet-hidden"/>
+		<input type="checkbox" name="attr_setting_extra_stress3" class="sheet-hidden"/>
+		<input type="checkbox" name="attr_setting_extra_stress4" class="sheet-hidden"/>
+		<input type="checkbox" name="attr_setting_extra_stress5" class="sheet-hidden"/>
+		<select name="attr_setting_extra_stress" title="Stress Boxes">
+			<option value="0" selected>9</option>
+			<option value="1">10</option>
+			<option value="2">11</option>
+			<option value="3">12</option>
+			<option value="4">13</option>
+			<option value="5">14</option>
+		</select>
+		<span>Number of stress boxes</span>
 	</div>
 	<div class="sheet-col50">
 		<input type="checkbox" name="attr_setting_extra_trauma" class="sheet-checkbox sheet-squarebox"/>
