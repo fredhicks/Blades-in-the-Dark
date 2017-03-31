@@ -6,7 +6,8 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ### 1.1
 * Some small visual changes, mostly around boxes for stress/rep/heat/coin/stash
-* Maximum number of stress boxes increase to 14
+* Maximum number of stress boxes increased to 14
+* Image hosting moved to Github
 
 ### 1.0.2
 * Small styling tweaks
