@@ -750,8 +750,8 @@ var crewData = {
 				gatherinfo5: 'Where\'s the weakness here?',
 				gatherinfo6: 'How can I find [X]?',
 				playbook_description: 'A spirit without a body',
-				setting_stress_name: 'Drain',
-				setting_trauma_name: 'Gloom',
+				setting_stress_label: 'Drain',
+				setting_trauma_label: 'Gloom',
 				setting_traumata_set: 'ghost',
 				setting_vice_type: 'ghost',
 				xp_condition: 'You exacted vengeance upon those whom you deem deserving.',
@@ -888,8 +888,8 @@ var crewData = {
 				playbook_description: 'A spirit animating a clockwork frame',
 				setting_load_h: '7',
 				setting_show_frame: 'on',
-				setting_stress_name: 'Drain',
-				setting_trauma_name: 'Wear',
+				setting_stress_label: 'Drain',
+				setting_trauma_label: 'Wear',
 				setting_traumata_set: 'hull',
 				setting_vice_type: 'hull',
 				xp_condition: 'You fulfilled your functions despite difficulty or danger.',
@@ -1831,13 +1831,21 @@ on('change:crew_type change:playbook', function (event) {
 			if (crewData.hasOwnProperty(sourceName)) {
 				data = crewData[sourceName].base;
 				baseData = crewAttributes;
+				emptyFirstRowIfUnnamed('contact');
+				emptyFirstRowIfUnnamed('crewability');
+				fillRepeatingSectionFromData('contact', playbookData[sourceName].contacts.map(n => ({name: n})));
+				fillRepeatingSectionFromData('crewability', playbookData[sourceName].abilities);
 			};
 			break;
 		case 'playbook':
 			sourceName = attrValues.playbook.toLowerCase();
 			if (playbookData.hasOwnProperty(sourceName)) {
 				data = playbookData[sourceName].base;
+				emptyFirstRowIfUnnamed('friend');
+				emptyFirstRowIfUnnamed('ability');
 				fillRepeatingSectionFromData('playbookitem', playbookData[sourceName].items);
+				fillRepeatingSectionFromData('friend', playbookData[sourceName].friends.map(n => ({name: n})));
+				fillRepeatingSectionFromData('ability', playbookData[sourceName].abilities);
 				baseData = playbookAttributes;
 			};
 		};
