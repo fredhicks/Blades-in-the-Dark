@@ -975,7 +975,7 @@ var crewData = {
 		lurk: {
 			abilities: [{
 					name: 'Infiltrator',
-					description: 'You are not a ected by quality or Tier when you bypass security measures.'
+					description: 'You are not affected by quality or Tier when you bypass security measures.'
 				},
 				{
 					name: 'Ambush',
@@ -1715,6 +1715,75 @@ var crewData = {
 			'sway'
 		]
 	},
+	itemData = [{
+			name: 'A Blade or Two',
+			numboxes: '1'
+		},
+		{
+			name: 'Throwing Knives',
+			numboxes: '1'
+		},
+		{
+			name: 'A Pistol',
+			numboxes: '1',
+			short: 'on'
+		},
+		{
+			name: 'A 2nd Pistol',
+			numboxes: '1',
+			short: 'on'
+		},
+		{
+			name: 'A Large Weapon',
+			numboxes: '2'
+		},
+		{
+			name: 'An Unusual Weapon',
+			numboxes: '1'
+		},
+		{
+			name: 'Armor',
+			numboxes: '2',
+			short: 'on'
+		},
+		{
+			name: '+Heavy',
+			numboxes: '3',
+			short: 'on'
+		},
+		{
+			name: 'Burglary Gear',
+			numboxes: '1'
+		},
+		{
+			name: 'Climbing Gear',
+			numboxes: '2'
+		},
+		{
+			name: 'Arcane Implements',
+			numboxes: '1'
+		},
+		{
+			name: 'Documents',
+			numboxes: '1'
+		},
+		{
+			name: 'Subterfuge Supplies',
+			numboxes: '1'
+		},
+		{
+			name: 'Demolition Tools',
+			numboxes: '2'
+		},
+		{
+			name: 'Tinkering Tools',
+			numboxes: '1'
+		},
+		{
+			name: 'Lantern',
+			numboxes: '1'
+		}
+	],
 	spiritPlaybooks = ['ghost', 'hull', 'vampire'];
 /* NECESSARY DATA TRANSFORMATION */
 Object.keys(playbookData).forEach(playbook => {
@@ -1729,6 +1798,9 @@ Object.keys(crewData).forEach(crew => {
 	crewData[crew].contacts = crewData[crew].contacts.map(n => ({
 		name: n
 	}));
+});
+itemData.forEach(item => {
+	item.boxes_chosen = 'on';
 });
 /* UTILITY FUNCTIONS */
 var setDiceFromTotal = (name, numDice, upToFive, value) => {
@@ -1800,8 +1872,8 @@ on('change:crew_type change:playbook', event => {
 				baseData = crewAttributes;
 				emptyFirstRowIfUnnamed('contact');
 				emptyFirstRowIfUnnamed('crewability');
-				fillRepeatingSectionFromData('contact', playbookData[sourceName].contacts);
-				fillRepeatingSectionFromData('crewability', playbookData[sourceName].abilities);
+				fillRepeatingSectionFromData('contact', crewData[sourceName].contacts);
+				fillRepeatingSectionFromData('crewability', crewData[sourceName].abilities);
 			};
 			break;
 		case 'playbook':
@@ -1999,10 +2071,6 @@ actionsFlat.forEach(handleFourBoxesFill);
 handleFourBoxesFill('crew_tier');
 /* Items/Upgrades */
 var itemChecks = [
-	'item_14_check',
-	'item_16_check',
-	'item_18_check',
-	'item_22_check',
 	'upgrade_1_check',
 	'upgrade_24_check',
 	'bandolier1_check',
@@ -2062,13 +2130,14 @@ on('sheet:opened', () => {
 	});
 	/* Setup and upgrades */
 	getAttrs(['version'], v => {
-		// Setup initial rows in repeating sections
+		// Setup initial rows in repeating sections and generate standard items
 		if (!v.version) {
 			let setting = initialRows.reduce((memo, sectionName) => {
 				memo[`repeating_${sectionName}_${generateRowID()}_dummy`] = 1;
 				return memo;
 			}, {});
 			setAttrs(setting);
+			fillRepeatingSectionFromData('item', itemData);
 		};
 		// Upgrade to 0.7: Convert legacy faction repeating section to text
 		if (v.version && v.version.split('.')[0] === '0' && parseInt(v.version.split('.')[1]) < 7) {
@@ -2142,26 +2211,26 @@ on('sheet:opened', () => {
 					'item_1_check_b'
 				];
 			getAttrs(allAttrs, v => {
-				let itemData = [];
+				let items = [];
 				if (v['item_0_desc']) {
-					itemData.push({
+					items.push({
 						check_1: v['item_0_check'] || '0',
 						name: v['item_0_desc'],
 						numboxes: '1'
 					});
-					itemData.push({
+					items.push({
 						check_1: v['item_0_check_b'] || '0',
 						name: v['item_0_desc'],
 						numboxes: '1'
 					});
-					itemData.push({
+					items.push({
 						check_1: v['item_0_check_c'] || '0',
 						name: v['item_0_desc'],
 						numboxes: '1'
 					});
 				}
 				if (v['item_1_desc']) {
-					itemData.push({
+					items.push({
 						bold: 'on',
 						check_1: v['item_1_check'] || '0',
 						check_2: v['item_1_check_b'] || '0',
@@ -2171,7 +2240,7 @@ on('sheet:opened', () => {
 				}
 				['2', '3', '5', '6'].forEach(index => {
 					if (v[`item_${index}_desc`]) {
-						itemData.push({
+						items.push({
 							bold: (['2', '3'].includes(index) ? 'on' : '0'),
 							check_1: v[`item_${index}_check`] || '0',
 							name: v[`item_${index}_desc`],
@@ -2181,7 +2250,7 @@ on('sheet:opened', () => {
 				});
 				['4', '7', '8', '9'].forEach(index => {
 					if (v[`item_${index}_desc`]) {
-						itemData.push({
+						items.push({
 							bold: ((index === '4') ? 'on' : '0'),
 							check_1: v[`item_${index}_check`] || '0',
 							name: v[`item_${index}_desc`],
@@ -2189,10 +2258,10 @@ on('sheet:opened', () => {
 						});
 					}
 				});
-				itemData.forEach(obj => {
+				items.forEach(obj => {
 					obj['boxes_chosen'] = 'on';
 				});
-				fillRepeatingSectionFromData('playbookitem', itemData);
+				fillRepeatingSectionFromData('playbookitem', items);
 			});
 			getSectionIDs('repeating_item', idArray => {
 				let allAttrs = [
@@ -2213,10 +2282,121 @@ on('sheet:opened', () => {
 				});
 			});
 		};
+		// Upgrade to 1.5: Convert items
+		if (v.version && (parseInt(v.version.split('.')[0]) < 1 || (parseInt(v.version.split('.')[0]) === 1 && parseInt(v.version.split('.')[1]) < 5))) {
+			let indices = [...Array(25).keys()].slice(10),
+				allAttrs = [
+				...indices.map(n => `item_${n}_check`),
+				...indices.map(n => `item_${n}_desc`),
+				'item_14_check_b',
+				'item_16_check_b',
+				'item_16_check_c',
+				'item_16_check_d',
+				'item_16_check_e',
+				'item_18_check_b',
+				'item_22_check_b'
+				];
+			getAttrs(allAttrs, v => {
+				let items = [{
+						check_1: (v['item_10_check'] || '0'),
+						name: (v['item_10_desc'] || 'A Blade or Two'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_11_check'] || '0'),
+						name: (v['item_11_desc'] || 'Throwing Knives'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_12_check'] || '0'),
+						name: (v['item_12_desc'] || 'A Pistol'),
+						numboxes: '1',
+						short: 'on'
+					},
+					{
+						check_1: (v['item_13_check'] || '0'),
+						name: (v['item_13_desc'] || 'A 2nd Pistol'),
+						numboxes: '1',
+						short: 'on'
+					},
+					{
+						check_1: (v['item_14_check'] || '0'),
+						check_2: (v['item_14_check_b'] || '0'),
+						name: (v['item_14_desc'] || 'A Large Weapon'),
+						numboxes: '2'
+					},
+					{
+						check_1: (v['item_15_check'] || '0'),
+						name: (v['item_15_desc'] || 'An Unusual Weapon'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_16_check'] || '0'),
+						check_2: (v['item_16_check_b'] || '0'),
+						name: (v['item_16_desc'] || 'Armor'),
+						numboxes: '2',
+						short: 'on'
+					},
+					{
+						check_1: (v['item_16_check_c'] || '0'),
+						check_2: (v['item_16_check_d'] || '0'),
+						check_3: (v['item_16_check_e'] || '0'),
+						name: (v['item_16_desc_b'] || '+Heavy'),
+						numboxes: '3',
+						short: 'on'
+					},
+					{
+						check_1: (v['item_17_check'] || '0'),
+						name: (v['item_17_desc'] || 'Burglary Gear'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_18_check'] || '0'),
+						name: (v['item_18_desc'] || 'Climbing Gear'),
+						numboxes: '2'
+					},
+					{
+						check_1: (v['item_19_check'] || '0'),
+						name: (v['item_19_desc'] || 'Arcane Implements'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_20_check'] || '0'),
+						name: (v['item_20_desc'] || 'Documents'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_21_check'] || '0'),
+						name: (v['item_21_desc'] || 'Subterfuge Supplies'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_22_check'] || '0'),
+						check_2: (v['item_22_check_b'] || '0'),
+						name: (v['item_22_desc'] || 'Demolition Tools'),
+						numboxes: '2'
+					},
+					{
+						check_1: (v['item_23_check'] || '0'),
+						name: (v['item_23_desc'] || 'Tinkering Tools'),
+						numboxes: '1'
+					},
+					{
+						check_1: (v['item_24_check'] || '0'),
+						name: (v['item_24_desc'] || 'Lantern'),
+						numboxes: '1'
+					}
+				];
+				items.forEach(obj => {
+					obj['boxes_chosen'] = 'on';
+				});
+				fillRepeatingSectionFromData('item', items);
+			});
+		};
 		// Set version number
 		setAttrs({
-			version: '1.4',
-			character_sheet: 'Blades in the Dark v1.4'
+			version: '1.5',
+			character_sheet: 'Blades in the Dark v1.5'
 		});
 	});
 });
