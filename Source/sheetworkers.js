@@ -2073,13 +2073,13 @@ actionsFlat.forEach(handleFourBoxesFill);
 /* Crew Tier */
 handleFourBoxesFill('crew_tier');
 /* Items/Upgrades */
-var itemChecks = [
+var legacyChecks = [
 	'upgrade_1_check',
 	'upgrade_24_check',
 	'bandolier1_check',
 	'bandolier2_check'
 ];
-itemChecks.forEach(name => {
+legacyChecks.forEach(name => {
 	'use strict';
 	on(['', '_b', '_c', '_d', '_e'].map(x => `change:${name}${x}`).join(' '), event => {
 		getAttrs([event.sourceAttribute], v => {
@@ -2111,6 +2111,31 @@ itemChecks.forEach(name => {
 				};
 				setAttrs(setting);
 			};
+		});
+	});
+});
+['item', 'playbookitem'].forEach(sectionName => {
+	on([1, 2, 3].map(x => `change:repeating_${sectionName}:check_${x}`).join(' '), event => {
+		getAttrs([event.sourceAttribute], v => {
+			let rName = event.sourceAttribute.slice(0, -1),
+				setting = {};
+			if (v[event.sourceAttribute] === 'on') {
+				switch (event.sourceAttribute.slice(-1)) {
+				case '3':
+					setting[`${rName}2`] = 'on';
+				case '2':
+					setting[`${rName}1`] = 'on';
+				};
+			};
+			if (v[event.sourceAttribute] === '0') {
+				switch (event.sourceAttribute.slice(-1)) {
+				case '1':
+					setting[`${rName}2`] = '0';
+				case '2':
+					setting[`${rName}3`] = '0';
+				};
+			};
+			setAttrs(setting);
 		});
 	});
 });
@@ -2289,15 +2314,15 @@ on('sheet:opened', () => {
 		if (v.version && (parseInt(v.version.split('.')[0]) < 1 || (parseInt(v.version.split('.')[0]) === 1 && parseInt(v.version.split('.')[1]) < 5))) {
 			let indices = [...Array(25).keys()].slice(10),
 				allAttrs = [
-				...indices.map(n => `item_${n}_check`),
-				...indices.map(n => `item_${n}_desc`),
-				'item_14_check_b',
-				'item_16_check_b',
-				'item_16_check_c',
-				'item_16_check_d',
-				'item_16_check_e',
-				'item_18_check_b',
-				'item_22_check_b'
+					...indices.map(n => `item_${n}_check`),
+					...indices.map(n => `item_${n}_desc`),
+					'item_14_check_b',
+					'item_16_check_b',
+					'item_16_check_c',
+					'item_16_check_d',
+					'item_16_check_e',
+					'item_18_check_b',
+					'item_22_check_b'
 				];
 			getAttrs(allAttrs, v => {
 				let items = [{
