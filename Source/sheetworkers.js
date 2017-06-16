@@ -1310,7 +1310,7 @@ var crewData = {
 					numboxes: '0'
 				},
 				{
-					name: 'Spiritbane charm',
+					name: 'Demonbane charm',
 					numboxes: '0'
 				}
 			]
