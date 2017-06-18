@@ -196,6 +196,7 @@
     "rep": "Rep",
     "repelled:": "Repelled: ",
     "reputation": "Reputation",
+    "resist_instructions": "Suffer <em>6 stress minus the highest die result.</em> When you roll a critical on resistance, clear 1 stress.",
     "resolve": "Resolve",
     "roll": "Roll",
     "roll_fortune": "Roll Fortune",
@@ -269,6 +270,7 @@
     "vaults": "Vaults",
     "version": "Version ",
     "vice": "Vice",
+    "vice_instructions": "<em>Clear an amount of stress equal to the highest die result.</em> If the result of your vice roll means you clear more stress levels than you had marked, you <em>overindulge</em>.",
     "vice_purveyor": "Vice / Purveyor",
     "vicious": "Vicious",
     "vigilantes": "Vigilantes",
@@ -294,5 +296,6 @@
     "xp_specific": "Enter your playbook's specific way to mark XP here.",
     "xp_specific_extra": "Enter another specific way to mark XP here.",
     "xp_top": "At the end of each session, for each item below, mark 1 xp (or instead mark 2 xp if that item occurred multiple times).",
-    "xp_vice": "You struggled with issues from your vice or traumas during the session."
+    "xp_vice": "You struggled with issues from your vice or traumas during the session.",
+    "zerodice": "Zero Dice - take the lowest result above"
 }
