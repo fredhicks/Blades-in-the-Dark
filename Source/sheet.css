@@ -42,7 +42,6 @@ input.sheet-type-selector {
 span.sheet-type-selector {
 	border: solid 1px #a7a7a7;
 	text-align: center;
-	display: inline-block;
 	background: #cccccc;
 	color: #3f3f3f;
 	width: 170px;
@@ -52,18 +51,15 @@ span.sheet-type-selector {
 	letter-spacing: 1px;
 	font-family: serif;
 	font-weight: 600;
+	display: none;
 }
 input.sheet-type-selector:hover ~ span {
 	color: red;
 }
-input.sheet-type-selector[value="character"]:checked ~ span::before {
-	content: "Character Mode";
-}
-input.sheet-type-selector[value="crew"]:checked ~ span::before {
-	content: "Crew Mode";
-}
-input.sheet-type-selector[value="faction"]:checked ~ span::before {
-	content: "Faction Mode";
+input.sheet-type-selector[value="character"]:checked ~ span.sheet-type-selector-character,
+input.sheet-type-selector[value="crew"]:checked ~ span.sheet-type-selector-crew,
+input.sheet-type-selector[value="faction"]:checked ~ span.sheet-type-selector-faction {
+	display: inline-block;
 }
 /* SETTINGS */
 input:checked + .sheet-settings {
@@ -473,7 +469,7 @@ span.sheet-inherit, input.sheet-inherit {
 	top: 2px;
 	height: 18px;
 	font-size: 83%;
-	margin-left: 5px;
+	margin: 0 1px 0 4px;
 	color: black;
 }
 .sheet-item input.sheet-item-textarea-tall:checked + textarea {

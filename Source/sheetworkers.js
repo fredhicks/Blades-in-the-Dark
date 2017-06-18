@@ -1719,75 +1719,109 @@ var crewData = {
 		]
 	},
 	itemData = [{
-			name: 'A Blade or Two',
+			name: 'a_blade_or_two',
 			numboxes: '1'
 		},
 		{
-			name: 'Throwing Knives',
+			name: 'throwing_knives',
 			numboxes: '1'
 		},
 		{
-			name: 'A Pistol',
+			name: 'a_pistol',
 			numboxes: '1',
 			short: 'on'
 		},
 		{
-			name: 'A 2nd Pistol',
+			name: 'a_2nd_pistol',
 			numboxes: '1',
 			short: 'on'
 		},
 		{
-			name: 'A Large Weapon',
+			name: 'a_large_weapon',
 			numboxes: '2'
 		},
 		{
-			name: 'An Unusual Weapon',
+			name: 'an_unusual_weapon',
 			numboxes: '1'
 		},
 		{
-			name: 'Armor',
+			name: 'armor',
 			numboxes: '2',
 			short: 'on'
 		},
 		{
-			name: '+Heavy',
+			name: '+heavy',
 			numboxes: '3',
 			short: 'on'
 		},
 		{
-			name: 'Burglary Gear',
+			name: 'burglary_gear',
 			numboxes: '1'
 		},
 		{
-			name: 'Climbing Gear',
+			name: 'climbing_gear',
 			numboxes: '2'
 		},
 		{
-			name: 'Arcane Implements',
+			name: 'arcane_implements',
 			numboxes: '1'
 		},
 		{
-			name: 'Documents',
+			name: 'documents',
 			numboxes: '1'
 		},
 		{
-			name: 'Subterfuge Supplies',
+			name: 'subterfuge_supplies',
 			numboxes: '1'
 		},
 		{
-			name: 'Demolition Tools',
+			name: 'demolition_tools',
 			numboxes: '2'
 		},
 		{
-			name: 'Tinkering Tools',
+			name: 'tinkering_tools',
 			numboxes: '1'
 		},
 		{
-			name: 'Lantern',
+			name: 'lantern',
 			numboxes: '1'
 		}
 	],
-	spiritPlaybooks = ['ghost', 'hull', 'vampire'];
+	spiritPlaybooks = ['ghost', 'hull', 'vampire'],
+	defaultValues = {
+		cohort1_name: 'cohort',
+		contacts_title: 'contacts',
+		factions_title: 'factions_title',
+		factions1_header: 'factions1',
+		factions2_header: 'factions2',
+		factions3_header: 'factions3',
+		factions4_header: 'factions4',
+		factions5_header: 'factions5',
+		frame: 'frame',
+		friends_title: 'friends',
+		setting_stress_label: 'stress',
+		setting_trauma_label: 'trauma',
+		upgrade_6_desc: 'carriage',
+		upgrade_7_desc: 'documents',
+		upgrade_8_desc: 'boat',
+		upgrade_9_desc: 'gear',
+		upgrade_10_desc: 'hidden',
+		upgrade_11_desc: 'implements',
+		upgrade_12_desc: 'quarters',
+		upgrade_13_desc: 'supplies',
+		upgrade_14_desc: 'secure',
+		upgrade_15_desc: 'tools',
+		upgrade_16_desc: 'vault',
+		upgrade_17_desc: 'weapons',
+		upgrade_18_desc: 'workshop',
+		upgrade_20_desc: 'insight',
+		upgrade_21_desc: 'prowess',
+		upgrade_22_desc: 'resolve',
+		upgrade_23_desc: 'personal',
+		upgrade_24_desc: 'mastery',
+		xp_condition2: 'xp_beliefs',
+		xp_condition3: 'xp_vice'
+	};
 /* NECESSARY DATA TRANSFORMATION */
 Object.keys(playbookData).forEach(playbook => {
 	playbookData[playbook].items.forEach(item => {
@@ -1804,6 +1838,10 @@ Object.keys(crewData).forEach(crew => {
 });
 itemData.forEach(item => {
 	item.boxes_chosen = 'on';
+	item.name = getTranslationByKey(item.name);
+});
+Object.keys(defaultValues).forEach(k => {
+	defaultValues[k] = getTranslationByKey(defaultValues[k]);
 });
 /* UTILITY FUNCTIONS */
 var setDiceFromTotal = (name, numDice, upToFive, value) => {
@@ -2166,6 +2204,7 @@ on('sheet:opened', () => {
 			}, {});
 			setAttrs(setting);
 			fillRepeatingSectionFromData('item', itemData);
+			setAttrs(defaultValues);
 		};
 		// Upgrade to 0.7: Convert legacy faction repeating section to text
 		if (v.version && v.version.split('.')[0] === '0' && parseInt(v.version.split('.')[1]) < 7) {
@@ -2421,10 +2460,19 @@ on('sheet:opened', () => {
 				fillRepeatingSectionFromData('item', items);
 			});
 		};
+		if (v.version && (parseInt(v.version.split('.')[0]) < 1 || (parseInt(v.version.split('.')[0]) === 1 && parseInt(v.version.split('.')[1]) < 6))) {
+			getAttrs(Object.keys(defaultValues), v => {
+				let setting = {};
+				Object.keys(defaultValues).forEach(k => {
+					setting[k] = v[k] || defaultValues[k];
+				});
+				setAttrs(setting);
+			});
+		};
 		// Set version number
 		setAttrs({
-			version: '1.5',
-			character_sheet: 'Blades in the Dark v1.5'
+			version: '1.6',
+			character_sheet: 'Blades in the Dark v1.6'
 		});
 	});
 });
