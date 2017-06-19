@@ -628,1071 +628,903 @@ var crewData = {
 		}
 	},
 	playbookData = {
-		cutter: {
-			abilities: [{
-					name: 'Battleborn',
-					description: 'You may expend your special armor to reduce harm from an attack in combat or to push yourself during a fight.'
-				},
-				{
-					name: 'Bodyguard',
-					description: 'When you protect a teammate, take +1d to your resistance roll. When you gather info to anticipate possible threats in the current situation, you get +1 effect.'
-				},
-				{
-					name: 'Ghost Fighter',
-					description: 'You may imbue your hands, melee weapons, or tools with spirit energy. You gain potency in combat vs. the supernatural. You may grapple with spirits to restrain and capture them.'
-				},
-				{
-					name: 'Leader',
-					description: 'When you Command a cohort in combat, they continue to fight when they would otherwise break (they\'re not taken out when they suffer level 3 harm). They gain +1 effect and 1 armor.'
-				},
-				{
-					name: 'Mule',
-					description: 'Your load limits are higher. Light: 5. Normal: 7. Heavy: 8.'
-				},
-				{
-					name: 'Not to be Trifled With',
-					description: 'You can push yourself to do one of the following: perform a feat of physical force that verges on the superhuman — engage a small gang on equal footing in close combat.'
-				},
-				{
-					name: 'Savage',
-					description: 'When you unleash physical violence, it\'s especially frightening. When you Command a frightened target, take +1d.'
-				},
-				{
-					name: 'Vigorous',
-					description: 'You recover from harm faster. Permanently fill in one of your healing clock segments. Take +1d to healing treatment rolls.'
-				}
-			],
-			base: {
-				command1: '1',
-				friends_title: 'Dangerous Friends',
-				gatherinfo1: 'How can I hurt them?',
-				gatherinfo2: 'Who\'s most afraid of me?',
-				gatherinfo3: 'Who\'s most dangerous here?',
-				gatherinfo4: 'What do they intend to do?',
-				gatherinfo5: 'How can I get them to [X]?',
-				gatherinfo6: 'Are they telling the truth?',
-				playbook_description: 'A Dangerous &\nIntimidating\nFighter',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'normal',
-				skirmish1: '1',
-				skirmish2: '1',
-				xp_condition: 'You addressed a challenge with violence or coercion.'
+		"cutter": {
+			"base": {
+				"command1": "1",
+				"friends_title": "playbook_cutter_friends_title",
+				"gatherinfo1": "gatherinfo_how_can_I_hurt",
+				"gatherinfo2": "gatherinfo_whos_most_afraid",
+				"gatherinfo3": "gatherinfo_whos_most_dangerous",
+				"gatherinfo4": "gatherinfo_what_do_they_intend",
+				"gatherinfo5": "gatherinfo_how_can_I_get_them",
+				"gatherinfo6": "gatherinfo_are_they_telling",
+				"playbook_description": "playbook_cutter_description",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "normal",
+				"skirmish1": "1",
+				"skirmish2": "1",
+				"xp_condition": "playbook_cutter_xp_condition"
 			},
-			friends: [
-				'Marlane, a pugilist',
-				'Chael, a vicious thug',
-				'Mercy, a cold killer',
-				'Grace, an extortionist',
-				'Sawtooth, a physicker'
-			],
-			items: [{
-					bold: 'on',
-					name: 'Fine hand weapon',
-					numboxes: '1'
-				},
-				{
-					bold: 'on',
-					name: 'Fine heavy weapon',
-					numboxes: '2'
-				},
-				{
-					name: 'Scary weapon or tool',
-					numboxes: '1'
-				},
-				{
-					name: 'Manacles & chain',
-					numboxes: '0'
-				},
-				{
-					name: 'Rage essence vial',
-					numboxes: '0'
-				},
-				{
-					name: 'Spiritbane charm',
-					numboxes: '0'
-				}
-			]
+			"abilities": [{
+				"name": "playbook_ability_battleborn",
+				"description": "playbook_ability_battleborn_description"
+			}, {
+				"name": "playbook_ability_bodyguard",
+				"description": "playbook_ability_bodyguard_description"
+			}, {
+				"name": "playbook_ability_ghost_fighter",
+				"description": "playbook_ability_ghost_fighter_description"
+			}, {
+				"name": "playbook_ability_leader",
+				"description": "playbook_ability_leader_description"
+			}, {
+				"name": "playbook_ability_mule",
+				"description": "playbook_ability_mule_description"
+			}, {
+				"name": "playbook_ability_not_to_be_trifled_with",
+				"description": "playbook_ability_not_to_be_trifled_with_description"
+			}, {
+				"name": "playbook_ability_savage",
+				"description": "playbook_ability_savage_description"
+			}, {
+				"name": "playbook_ability_vigorous",
+				"description": "playbook_ability_vigorous_description"
+			}],
+			"items": [{
+				"bold": "on",
+				"name": "playbook_item_fine_hand_weapon",
+				"numboxes": "1"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_heavy_weapon",
+				"numboxes": "2"
+			}, {
+				"name": "playbook_item_scary_weapon_or_tool",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_manacles_&_chain",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_rage_essence_vial",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_spiritbane_charm",
+				"numboxes": "0"
+			}],
+			"friends": ["playbook_cutter_friend_0", "playbook_cutter_friend_1", "playbook_cutter_friend_2", "playbook_cutter_friend_3", "playbook_cutter_friend_4"]
 		},
-		ghost: {
-			abilities: [{
-					check: 'on',
-					name: 'Ghost Form',
-					description: 'You are now a concentration of electroplasmic vapor which resembles your living body and clothes. You may weakly interact with the physical world and vice versa. You\'re vulnerable to arcane powers and electroplasmic effects. You move about by floating and may fly swiftly without tiring. You may slowly flow through small openings as a vapor. You chill the area around you and are terrifying for the living to behold. You are affected by spiritbane charms (take 2 drain to overcome the repulsion). Whenever you would take stress, take drain instead. When you would take trauma, take gloom instead.'
-				},
-				{
-					name: 'Dissipate',
-					description: 'You can disperse the electroplasmic vapor of your ghostly form in order to pass through solid objects for a moment. Take 1 drain when you dissipate, plus 1 drain for each feature: It lasts longer (a minute — an hour — a day) — you also become invisible — anything that passes through your form becomes dangerously electrified or frozen.'
-				},
-				{
-					name: 'Manifest',
-					description: 'Take 1 drain to flow through the electroplasmic pathways of the ghost field in order to instantly travel to any place you knew intimately in life, or to answer the summoning call of a compel.'
-				},
-				{
-					name: 'Poltergeist',
-					description: 'Take 1 drain to strongly interact with the physical world for a few moments (as if you had a normal body). Extend the reach and magnitude of your interaction to include telekinetic force and electroplasmic discharges by taking more drain (2-6).'
-				},
-				{
-					name: 'Possess',
-					description: 'You may attune to the ghost field in order to take control of a living body. When your control is challenged, you must re-attune (risking electroplasmic harm) or leave the body. Your control is challenged when: you consume spirit energy from the host — when arcane powers act against you — when the host\'s will is driven to desperation. You may easily and indefinitely possess a hull or hollow which has been ritually prepared for you (change your playbook to Hull or Vampire, respectively).'
-				}
-			],
-			base: {
-				friends_title: 'Enemies & Rivals',
-				gatherinfo1: 'What do they intend to do?',
-				gatherinfo2: 'How can I get them to [X]?',
-				gatherinfo3: 'What are they really feeling?',
-				gatherinfo4: 'What should I look out for?',
-				gatherinfo5: 'Where\'s the weakness here?',
-				gatherinfo6: 'How can I find [X]?',
-				playbook_description: 'A spirit without a body',
-				setting_stress_label: 'Drain',
-				setting_trauma_label: 'Gloom',
-				setting_traumata_set: 'ghost',
-				setting_vice_type: 'ghost',
-				xp_condition: 'You exacted vengeance upon those whom you deem deserving.',
-				xp_condition2: 'You expressed your your outrage or anger, or settled scores from your heritage or background.',
-				xp_condition3: 'You struggled with issues from your need or glooms during the session.'
+		"ghost": {
+			"base": {
+				"friends_title": "playbook_ghost_friends_title",
+				"gatherinfo1": "gatherinfo_what_do_they_intend",
+				"gatherinfo2": "gatherinfo_how_can_I_get_them",
+				"gatherinfo3": "gatherinfo_what_are_they_really",
+				"gatherinfo4": "gatherinfo_what_should_I_look",
+				"gatherinfo5": "gatherinfo_wheres_the_weakness",
+				"gatherinfo6": "gatherinfo_how_can_I_find",
+				"playbook_description": "playbook_ghost_description",
+				"setting_stress_label": "drain",
+				"setting_trauma_label": "gloom",
+				"setting_traumata_set": "ghost",
+				"setting_vice_type": "ghost",
+				"xp_condition": "playbook_ghost_xp_condition",
+				"xp_condition2": "playbook_ghost_xp_condition2",
+				"xp_condition3": "playbook_ghost_xp_condition3"
 			},
-			items: [],
-			friends: []
+			"abilities": [{
+				"check": "on",
+				"name": "playbook_ability_ghost_form",
+				"description": "playbook_ability_ghost_form_description"
+			}, {
+				"name": "playbook_ability_dissipate",
+				"description": "playbook_ability_dissipate_description"
+			}, {
+				"name": "playbook_ability_manifest",
+				"description": "playbook_ability_manifest_description"
+			}, {
+				"name": "playbook_ability_poltergeist",
+				"description": "playbook_ability_poltergeist_description"
+			}, {
+				"name": "playbook_ability_possess",
+				"description": "playbook_ability_possess_description"
+			}],
+			"items": [],
+			"friends": []
 		},
-		hound: {
-			abilities: [{
-					name: 'Sharpshooter',
-					description: 'You can push yourself to do one of the following: make a ranged attack at extreme distance beyond what’s normal for the weapon — unleash a barrage of rapid fire to suppress the enemy.'
-				},
-				{
-					name: 'Focused',
-					description: 'You may expend your special armor to resist a consequence of surprise or mental harm (fear, confusion, losing track of someone) or to push yourself for ranged combat or tracking.'
-				},
-				{
-					name: 'Ghost Hunter',
-					description: 'Your hunting pet is imbued with spirit energy. It gains potency when tracking or fighting the supernatural, and gains an arcane ability: ghost-form, mind-link, or arrow-swift. Take this ability again to choose an additional arcane ability for your pet.'
-				},
-				{
-					name: 'Scout',
-					description: 'When you gather info to locate a target, you get +1 effect. When you hide in a prepared position or use camou age, you get +1d to rolls to avoid detection.'
-				},
-				{
-					name: 'Survivor',
-					description: 'From hard won experience or occult ritual, you are immune to the poisonous miasma of the deathlands and are able to subsist on the strange flora and fauna there. You get +1 stress box.'
-				},
-				{
-					name: 'Tough as Nails',
-					description: 'Penalties from harm are one level less severe (though level 4 harm is still fatal).'
-				},
-				{
-					name: 'Vengeful',
-					description: 'You gain an additional xp trigger: You got payback against someone who harmed you or someone you care about. If your crew helped you get payback, also mark crew xp.'
-				}
-			],
-			base: {
-				friends_title: 'Deadly Friends',
-				gatherinfo1: 'What do they intend to do?',
-				gatherinfo2: 'How can I get them to [X]?',
-				gatherinfo3: 'What are they really feeling?',
-				gatherinfo4: 'Where are they vulnerable?',
-				gatherinfo5: 'Where did [X] go?',
-				gatherinfo6: 'How can I find [X]?',
-				hunt1: '1',
-				hunt2: '1',
-				playbook_description: 'A Deadly\nSharpshooter\nand Tracker',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'normal',
-				survey1: '1',
-				xp_condition: 'You addressed a challenge with tracking or violence.'
+		"hound": {
+			"base": {
+				"friends_title": "playbook_hound_friends_title",
+				"gatherinfo1": "gatherinfo_what_do_they_intend",
+				"gatherinfo2": "gatherinfo_how_can_I_get_them",
+				"gatherinfo3": "gatherinfo_what_are_they_really",
+				"gatherinfo4": "gatherinfo_where_they_vulnerable",
+				"gatherinfo5": "gatherinfo_where_did_x_go",
+				"gatherinfo6": "gatherinfo_how_can_I_find",
+				"hunt1": "1",
+				"hunt2": "1",
+				"playbook_description": "playbook_hound_description",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "normal",
+				"survey1": "1",
+				"xp_condition": "playbook_hound_xp_condition"
 			},
-			friends: [
-				'Steiner, an assassin',
-				'Celene, a sentinel',
-				'Melvir, a physicker',
-				'Veleris, a spy',
-				'Casta, a bounty hunter'
-			],
-			items: [{
-					bold: 'on',
-					name: 'Fine pair of pistols',
-					numboxes: '1'
-				},
-				{
-					bold: 'on',
-					name: 'Fine long rifle',
-					numboxes: '2'
-				},
-				{
-					name: 'Electroplasmic ammunition',
-					numboxes: '1'
-				},
-				{
-					name: 'A trained hunting pet',
-					numboxes: '0'
-				},
-				{
-					name: 'Spyglass',
-					numboxes: '1'
-				},
-				{
-					name: 'Spiritbane charm',
-					numboxes: '0'
-				}
-			]
+			"abilities": [{
+				"name": "playbook_ability_sharpshooter",
+				"description": "playbook_ability_sharpshooter_description"
+			}, {
+				"name": "playbook_ability_focused",
+				"description": "playbook_ability_focused_description"
+			}, {
+				"name": "playbook_ability_ghost_hunter",
+				"description": "playbook_ability_ghost_hunter_description"
+			}, {
+				"name": "playbook_ability_scout",
+				"description": "playbook_ability_scout_description"
+			}, {
+				"name": "playbook_ability_survivor",
+				"description": "playbook_ability_survivor_description"
+			}, {
+				"name": "playbook_ability_tough_as_nails",
+				"description": "playbook_ability_tough_as_nails_description"
+			}, {
+				"name": "playbook_ability_vengeful",
+				"description": "playbook_ability_vengeful_description"
+			}],
+			"items": [{
+				"bold": "on",
+				"name": "playbook_item_fine_pair_of_pistols",
+				"numboxes": "1"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_long_rifle",
+				"numboxes": "2"
+			}, {
+				"name": "playbook_item_electroplasmic_ammunition",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_a_trained_hunting_pet",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_spyglass",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_spiritbane_charm",
+				"numboxes": "0"
+			}],
+			"friends": ["playbook_hound_friend_0", "playbook_hound_friend_1", "playbook_hound_friend_2", "playbook_hound_friend_3", "playbook_hound_friend_4"]
 		},
-		hull: {
-			abilities: [{
-					check: 'on',
-					name: 'Automaton',
-					description: 'You are a spirit animating a clockwork body. You have human-like strength and senses, by default. Your hull has natural armor (this doesn\'t count for your load). Your former human feelings, interests, and connections are only dim memories. You now exist to fulfill your functions. Choose three. You may be rebuilt if damaged or destroyed. If your soul vessel is shattered, you are freed from servitude and become a Ghost. Whenever you would take stress, take drain instead.'
-				},
-				{
-					name: 'Overcharge',
-					description: 'Take 1 drain to perform a feat of extreme strength or speed (run faster than a horse, rend metal with bare hands, etc.). This factors into effect.'
-				},
-				{
-					name: 'Compartments',
-					description: 'Your items are built-in to your frame and may recess beneath panels out of sight. Your frame can now carry +2 load.'
-				},
-				{
-					name: 'Electroplasmic Projectors',
-					description: 'You may release some of your plasmic energy as an electrical shock around you or as a directed beam. You may also use this ability to create a lightning barrier to repel or trap a spirit. Take 1 drain for each level of magnitude.'
-				},
-				{
-					name: 'Interface',
-					description: 'You may attune to the local electroplasmic power field to control it or something connected to it (including another hull).'
-				},
-				{
-					name: 'Secondary Hull',
-					description: 'Choose an additional frame and its starting feature. You may transfer your consciousness between your frames at will.'
-				},
-				{
-					name: 'Frame Upgrade',
-					description: 'Choose an additional frame feature. This upgrade may be taken up to four times.'
-				}
-			],
-			base: {
-				gatherinfo1: 'What do they intend to do?',
-				gatherinfo2: 'How can I get them to [X]?',
-				gatherinfo3: 'What are they really feeling?',
-				gatherinfo4: 'What should I look out for?',
-				gatherinfo5: 'Where\'s the weakness here?',
-				gatherinfo6: 'How can I find [X]?',
-				playbook_description: 'A spirit animating a clockwork frame',
-				setting_load_h: '7',
-				setting_show_frame: 'on',
-				setting_stress_label: 'Drain',
-				setting_trauma_label: 'Wear',
-				setting_traumata_set: 'hull',
-				setting_vice_type: 'hull',
-				xp_condition: 'You fulfilled your functions despite difficulty or danger.',
-				xp_condition2: 'You suppressed or ignored your former human beliefs, drives, heritage, or background.',
-				xp_condition3: 'You struggled with issues from your wear during the session.'
+		"hull": {
+			"base": {
+				"gatherinfo1": "gatherinfo_what_do_they_intend",
+				"gatherinfo2": "gatherinfo_how_can_I_get_them",
+				"gatherinfo3": "gatherinfo_what_are_they_really",
+				"gatherinfo4": "gatherinfo_what_should_I_look",
+				"gatherinfo5": "gatherinfo_wheres_the_weakness",
+				"gatherinfo6": "gatherinfo_how_can_I_find",
+				"playbook_description": "playbook_hull_description",
+				"setting_load_h": "7",
+				"setting_show_frame": "on",
+				"setting_stress_label": "drain",
+				"setting_trauma_label": "wear",
+				"setting_traumata_set": "hull",
+				"setting_vice_type": "hull",
+				"xp_condition": "playbook_hull_xp_condition",
+				"xp_condition2": "playbook_hull_xp_condition2",
+				"xp_condition3": "playbook_hull_xp_condition3"
 			},
-			items: [],
-			friends: []
+			"abilities": [{
+				"check": "on",
+				"name": "playbook_ability_automaton",
+				"description": "playbook_ability_automaton_description"
+			}, {
+				"name": "playbook_ability_overcharge",
+				"description": "playbook_ability_overcharge_description"
+			}, {
+				"name": "playbook_ability_compartments",
+				"description": "playbook_ability_compartments_description"
+			}, {
+				"name": "playbook_ability_electroplasmic_projectors",
+				"description": "playbook_ability_electroplasmic_projectors_description"
+			}, {
+				"name": "playbook_ability_interface",
+				"description": "playbook_ability_interface_description"
+			}, {
+				"name": "playbook_ability_secondary_hull",
+				"description": "playbook_ability_secondary_hull_description"
+			}, {
+				"name": "playbook_ability_frame_upgrade",
+				"description": "playbook_ability_frame_upgrade_description"
+			}],
+			"items": [],
+			"friends": []
 		},
-		leech: {
-			abilities: [{
-					name: 'Alchemist',
-					description: 'When you invent or craft a creation with alchemical features, take +1 result level to your roll. You begin with one special formula already known.'
-				},
-				{
-					name: 'Analyst',
-					description: 'During downtime, you get two ticks to distribute among any long term project clocks that involve investigation or learning a new formula or design plan.'
-				},
-				{
-					name: 'Artificer',
-					description: 'When you invent or craft a creation with spark-craft features, take +1 result level to your roll. You begin with one special design already known.'
-				},
-				{
-					name: 'Fortitude',
-					description: 'You may expend your special armor to resist a consequence of fatigue, weakness, or chemical effects, or to push yourself when working with technical skill or handling alchemicals.'
-				},
-				{
-					name: 'Ghost Ward',
-					description: 'You know how to Wreck an area with arcane substances and methods so it is either anathema or enticing to spirits (your choice).'
-				},
-				{
-					name: 'Physicker',
-					description: 'You can Tinker with bones, blood, and bodily humours to treat wounds or stabilize the dying. You may study a malady or corpse. Everyone in your crew gets +1d to their healing treatment rolls.'
-				},
-				{
-					name: 'Saboteur',
-					description: 'When you Wreck, the work is much quieter than it should be and the damage is hidden from casual inspection.'
-				},
-				{
-					name: 'Venomous',
-					description: 'Choose a drug or poison (from your bandolier stock) to which you have become immune. You can push yourself to secrete it through your skin or saliva or exhale it as a vapor.'
-				}
-			],
-			base: {
-				friends_title: 'Clever Friends',
-				gatherinfo1: 'What do they intend to do?',
-				gatherinfo2: 'How can I get them to [X]?',
-				gatherinfo3: 'Are they telling the truth?',
-				gatherinfo4: 'What can I tinker with here?',
-				gatherinfo5: 'What might happen if I [X]?',
-				gatherinfo6: 'How can I find [X]?',
-				playbook_description: 'A Saboteur and\nTechnician',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'normal',
-				tinker1: '1',
-				tinker2: '1',
-				wreck1: '1',
-				xp_condition: 'You addressed a challenge with technical skill or mayhem.'
+		"leech": {
+			"base": {
+				"friends_title": "playbook_leech_friends_title",
+				"gatherinfo1": "gatherinfo_what_do_they_intend",
+				"gatherinfo2": "gatherinfo_how_can_I_get_them",
+				"gatherinfo3": "gatherinfo_are_they_telling",
+				"gatherinfo4": "gatherinfo_what_can_I_tinker",
+				"gatherinfo5": "gatherinfo_what_might_happen",
+				"gatherinfo6": "gatherinfo_how_can_I_find",
+				"playbook_description": "playbook_leech_description",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "normal",
+				"tinker1": "1",
+				"tinker2": "1",
+				"wreck1": "1",
+				"xp_condition": "playbook_leech_xp_condition"
 			},
-			friends: [
-				'Stazia, an apothecary',
-				'Veldren, a psychonaut',
-				'Eckerd, a corpse thief',
-				'Jul, a blood dealer',
-				'Malista, a priestess'
-			],
-			items: [{
-					bold: 'on',
-					name: 'Fine tinkering tools',
-					numboxes: '1'
-				},
-				{
-					bold: 'on',
-					name: 'Fine wrecker tools',
-					numboxes: '2'
-				},
-				{
-					name: 'Blowgun & darts, syringes',
-					numboxes: '0'
-				},
-				{
-					name: 'Bandolier of alchemicals (3)',
-					numboxes: '1'
-				},
-				{
-					name: 'Bandolier of alchemicals (3)',
-					numboxes: '1'
-				},
-				{
-					name: 'Gadget',
-					numboxes: '1'
-				}
-			]
+			"abilities": [{
+				"name": "playbook_ability_alchemist",
+				"description": "playbook_ability_alchemist_description"
+			}, {
+				"name": "playbook_ability_analyst",
+				"description": "playbook_ability_analyst_description"
+			}, {
+				"name": "playbook_ability_artificer",
+				"description": "playbook_ability_artificer_description"
+			}, {
+				"name": "playbook_ability_fortitude",
+				"description": "playbook_ability_fortitude_description"
+			}, {
+				"name": "playbook_ability_ghost_ward",
+				"description": "playbook_ability_ghost_ward_description"
+			}, {
+				"name": "playbook_ability_physicker",
+				"description": "playbook_ability_physicker_description"
+			}, {
+				"name": "playbook_ability_saboteur",
+				"description": "playbook_ability_saboteur_description"
+			}, {
+				"name": "playbook_ability_venomous",
+				"description": "playbook_ability_venomous_description"
+			}],
+			"items": [{
+				"bold": "on",
+				"name": "playbook_item_fine_tinkering_tools",
+				"numboxes": "1"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_wrecker_tools",
+				"numboxes": "2"
+			}, {
+				"name": "playbook_item_blowgun_&_darts,_syringes",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_bandolier_of_alchemicals_(3)",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_bandolier_of_alchemicals_(3)",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_gadget",
+				"numboxes": "1"
+			}],
+			"friends": ["playbook_leech_friend_0", "playbook_leech_friend_1", "playbook_leech_friend_2", "playbook_leech_friend_3", "playbook_leech_friend_4"]
 		},
-		lurk: {
-			abilities: [{
-					name: 'Infiltrator',
-					description: 'You are not affected by quality or Tier when you bypass security measures.'
-				},
-				{
-					name: 'Ambush',
-					description: 'When you attack from hiding or spring a trap, you get +1d.'
-				},
-				{
-					name: 'Daredevil',
-					description: 'When you roll a desperate action, you get +1d to your roll if you also take -1d to any resistance rolls against consequences from your action.'
-				},
-				{
-					name: 'The Devil\'s Footsteps',
-					description: 'When you push yourself, choose one of the following additional benefits: perform a feat of athletics that verges on the superhuman — maneuver to confuse your enemies so they mistakenly attack each other.'
-				},
-				{
-					name: 'Expertise',
-					description: 'Choose one of your action ratings. When you lead a group action using that action, you can suffer only 1 stress at most regardless of the number of failed rolls.'
-				},
-				{
-					name: 'Ghost Veil',
-					description: 'You may shift partially into the ghost field, becoming shadowy and insubstantial for a few moments. Take 2 stress when you shift, plus 1 stress for each extra feature: It lasts for a few minutes rather than moments — you are invisible rather than shadowy — you may float through the air like a ghost'
-				},
-				{
-					name: 'Reflexes',
-					description: 'When there\'s a question about who acts first, the answer is you (two characters with Reflexes act simultaneously).'
-				},
-				{
-					name: 'Shadow',
-					description: 'You may expend your special armor to resist a consequence from detection or security measures, or to push yourself for a feat of athletics or stealth.'
-				}
-			],
-			base: {
-				friends_title: 'Shady Friends',
-				finesse1: '1',
-				gatherinfo1: 'What do they intend to do?',
-				gatherinfo2: 'How can I get them to [X]?',
-				gatherinfo3: 'What should I look out for?',
-				gatherinfo4: 'What\'s the best way in?',
-				gatherinfo5: 'Where can I hide here?',
-				gatherinfo6: 'How can I find [X]?',
-				playbook_description: 'A Stealthy\nInfiltrator\nand Burglar',
-				prowl1: '1',
-				prowl2: '1',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'normal',
-				xp_condition: 'You addressed a challenge with stealth or evasion.'
+		"lurk": {
+			"base": {
+				"friends_title": "playbook_lurk_friends_title",
+				"finesse1": "1",
+				"gatherinfo1": "gatherinfo_what_do_they_intend",
+				"gatherinfo2": "gatherinfo_how_can_I_get_them",
+				"gatherinfo3": "gatherinfo_what_should_I_look",
+				"gatherinfo4": "gatherinfo_whats_the_best_way",
+				"gatherinfo5": "gatherinfo_where_can_I_hide",
+				"gatherinfo6": "gatherinfo_how_can_I_find",
+				"playbook_description": "playbook_lurk_description",
+				"prowl1": "1",
+				"prowl2": "1",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "normal",
+				"xp_condition": "playbook_lurk_xp_condition"
 			},
-			friends: [
-				'Telda, a beggar',
-				'Darmot, a bluecoat',
-				'Frake, a locksmith',
-				'Roslyn Kellis, a noble',
-				'Petra, a city clerk'
-			],
-			items: [{
-					bold: 'on',
-					name: 'Fine lockpicks',
-					numboxes: '0'
-				},
-				{
-					bold: 'on',
-					name: 'Fine shadow cloak',
-					numboxes: '1'
-				},
-				{
-					name: 'Light climbing gear',
-					numboxes: '1'
-				},
-				{
-					name: 'Silence potion vial',
-					numboxes: '0'
-				},
-				{
-					name: 'Dark-sight goggles',
-					numboxes: '1'
-				},
-				{
-					name: 'Spiritbane charm',
-					numboxes: '0'
-				}
-			]
+			"abilities": [{
+				"name": "playbook_ability_infiltrator",
+				"description": "playbook_ability_infiltrator_description"
+			}, {
+				"name": "playbook_ability_ambush",
+				"description": "playbook_ability_ambush_description"
+			}, {
+				"name": "playbook_ability_daredevil",
+				"description": "playbook_ability_daredevil_description"
+			}, {
+				"name": "playbook_ability_the_devil's_footsteps",
+				"description": "playbook_ability_the_devil's_footsteps_description"
+			}, {
+				"name": "playbook_ability_expertise",
+				"description": "playbook_ability_expertise_description"
+			}, {
+				"name": "playbook_ability_ghost_veil",
+				"description": "playbook_ability_ghost_veil_description"
+			}, {
+				"name": "playbook_ability_reflexes",
+				"description": "playbook_ability_reflexes_description"
+			}, {
+				"name": "playbook_ability_shadow",
+				"description": "playbook_ability_shadow_description"
+			}],
+			"items": [{
+				"bold": "on",
+				"name": "playbook_item_fine_lockpicks",
+				"numboxes": "0"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_shadow_cloak",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_light_climbing_gear",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_silence_potion_vial",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_dark-sight_goggles",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_spiritbane_charm",
+				"numboxes": "0"
+			}],
+			"friends": ["playbook_lurk_friend_0", "playbook_lurk_friend_1", "playbook_lurk_friend_2", "playbook_lurk_friend_3", "playbook_lurk_friend_4"]
 		},
-		slide: {
-			abilities: [{
-					name: 'Rook\'s Gambit',
-					description: 'Take 2 stress to roll your best action rating while performing a different action. Say how you adapt your skill to this use.'
-				},
-				{
-					name: 'Cloak & Dagger',
-					description: 'When you use a disguise or other form of covert misdirection, you get +1d to rolls to confuse or deflect suspicion. When you throw off your disguise, the resulting surprise gives you the initiative in the situation.'
-				},
-				{
-					name: 'Ghost Voice',
-					description: 'You know the secret method to interact with a ghost or demon as if it was a normal human, regardless of how wild or feral it appears. You gain potency when communicating with the supernatural.'
-				},
-				{
-					name: 'Like Looking into a Mirror',
-					description: 'You can always tell when someone is lying to you.'
-				},
-				{
-					name: 'A Little Something on the Side',
-					description: 'At the end of each downtime phase, you earn +2 stash.'
-				},
-				{
-					name: 'Mesmerism',
-					description: 'When you Sway someone, you may cause them to forget that it\'s happened until they next interact with you.'
-				},
-				{
-					name: 'Subterfuge',
-					description: 'You may expend your special armor to resist a consequence from suspicion or persuasion, or to push yourself for subterfuge.'
-				},
-				{
-					name: 'Trust in Me',
-					description: 'You get +1d vs. a target with whom you have an intimate relationship.'
-				}
-			],
-			base: {
-				friends_title: 'Sly Friends',
-				consort1: '1',
-				gatherinfo1: 'What do they intend to do?',
-				gatherinfo2: 'How can I get them to [X]?',
-				gatherinfo3: 'Are they telling the truth?',
-				gatherinfo4: 'What are they really feeling?',
-				gatherinfo5: 'What do they really care about?',
-				gatherinfo6: 'How can I blend in here?',
-				playbook_description: 'A Subtle\nManipulator\nand Spy',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'normal',
-				sway1: '1',
-				sway2: '1',
-				xp_condition: 'You addressed a challenge with deception or in influence.'
+		"slide": {
+			"base": {
+				"friends_title": "playbook_slide_friends_title",
+				"consort1": "1",
+				"gatherinfo1": "gatherinfo_what_do_they_intend",
+				"gatherinfo2": "gatherinfo_how_can_I_get_them",
+				"gatherinfo3": "gatherinfo_are_they_telling",
+				"gatherinfo4": "gatherinfo_what_are_they_really",
+				"gatherinfo5": "gatherinfo_what_do_they_really",
+				"gatherinfo6": "gatherinfo_how_can_I_blend",
+				"playbook_description": "playbook_slide_description",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "normal",
+				"sway1": "1",
+				"sway2": "1",
+				"xp_condition": "playbook_slide_xp_condition"
 			},
-			friends: [
-				'Bryl, a drug dealer',
-				'Bazso Baz, a gang leader',
-				'Klyra, a tavern owner',
-				'Nyryx, a prostitute',
-				'Harker, a jail-bird'
-			],
-			items: [{
-					bold: 'on',
-					name: 'Fine clothes & jewelry',
-					numboxes: '0'
-				},
-				{
-					bold: 'on',
-					name: 'Fine disguise kit',
-					numboxes: '1'
-				},
-				{
-					bold: 'on',
-					name: 'Fine loaded dice, trick cards',
-					numboxes: '0'
-				},
-				{
-					name: 'Trance powder',
-					numboxes: '0'
-				},
-				{
-					name: 'A cane-sword',
-					numboxes: '1'
-				},
-				{
-					name: 'Spiritbane charm',
-					numboxes: '0'
-				}
-			]
+			"abilities": [{
+				"name": "playbook_ability_rook's_gambit",
+				"description": "playbook_ability_rook's_gambit_description"
+			}, {
+				"name": "playbook_ability_cloak_&_dagger",
+				"description": "playbook_ability_cloak_&_dagger_description"
+			}, {
+				"name": "playbook_ability_ghost_voice",
+				"description": "playbook_ability_ghost_voice_description"
+			}, {
+				"name": "playbook_ability_like_looking_into_a_mirror",
+				"description": "playbook_ability_like_looking_into_a_mirror_description"
+			}, {
+				"name": "playbook_ability_a_little_something_on_the_side",
+				"description": "playbook_ability_a_little_something_on_the_side_description"
+			}, {
+				"name": "playbook_ability_mesmerism",
+				"description": "playbook_ability_mesmerism_description"
+			}, {
+				"name": "playbook_ability_subterfuge",
+				"description": "playbook_ability_subterfuge_description"
+			}, {
+				"name": "playbook_ability_trust_in_me",
+				"description": "playbook_ability_trust_in_me_description"
+			}],
+			"items": [{
+				"bold": "on",
+				"name": "playbook_item_fine_clothes_&_jewelry",
+				"numboxes": "0"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_disguise_kit",
+				"numboxes": "1"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_loaded_dice,_trick_cards",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_trance_powder",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_a_cane-sword",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_spiritbane_charm",
+				"numboxes": "0"
+			}],
+			"friends": ["playbook_slide_friend_0", "playbook_slide_friend_1", "playbook_slide_friend_2", "playbook_slide_friend_3", "playbook_slide_friend_4"]
 		},
-		spider: {
-			abilities: [{
-					name: 'Foresight',
-					description: 'Two times per score you can assist a teammate without paying stress. Tell us how you prepared for this.'
-				},
-				{
-					name: 'Calculating',
-					description: 'Due to your careful planning, during downtime, you may give yourself or another crew member +1 downtime action.'
-				},
-				{
-					name: 'Connected',
-					description: 'During downtime, you get +1 result level when you acquire an asset or reduce heat.'
-				},
-				{
-					name: 'Functioning Vice',
-					description: 'When you indulge your vice, you may adjust the dice outcome by 1 or 2 (up or down). An ally who joins in your vice may do the same.'
-				},
-				{
-					name: 'Ghost Contract',
-					description: 'When you shake on a deal, you and your partner — human or otherwise — both bear a mark of your oath. If either breaks the contract, they take level 3 harm, "Cursed".'
-				},
-				{
-					name: 'Jail Bird',
-					description: 'When incarcerated, your wanted level counts as 1 less, your Tier as 1 more, and you gain +1 faction status with a faction you help on the inside (in addition to your incarceration roll).'
-				},
-				{
-					name: 'Mastermind',
-					description: 'You may expend your special armor to protect a teammate, or to push yourself when you gather information or work on a long-term project.'
-				},
-				{
-					name: 'Weaving the Web',
-					description: 'You gain +1d to Consort when you gather information on a target for a score. You get +1d to the engagement roll for that operation.'
-				}
-			],
-			base: {
-				consort1: '1',
-				consort2: '1',
-				friends_title: 'Shrewd Friends',
-				gatherinfo1: 'What do they want most?',
-				gatherinfo2: 'What should I look out for?',
-				gatherinfo3: 'Where\'s the leverage here?',
-				gatherinfo4: 'How can I discover [X]?',
-				gatherinfo5: 'What do they intend to do?',
-				gatherinfo6: 'How can I get them to [X]?',
-				playbook_description: 'A Devious\nMastermind',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'normal',
-				study1: '1',
-				xp_condition: 'You addressed a challenge with calculation or conspiracy.'
+		"spider": {
+			"base": {
+				"consort1": "1",
+				"consort2": "1",
+				"friends_title": "playbook_spider_friends_title",
+				"gatherinfo1": "gatherinfo_what_do_they_want",
+				"gatherinfo2": "gatherinfo_what_should_I_look",
+				"gatherinfo3": "gatherinfo_wheres_the_leverage",
+				"gatherinfo4": "gatherinfo_how_can_I_discover",
+				"gatherinfo5": "gatherinfo_what_do_they_intend",
+				"gatherinfo6": "gatherinfo_how_can_I_get_them",
+				"playbook_description": "playbook_spider_description",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "normal",
+				"study1": "1",
+				"xp_condition": "playbook_spider_xp_condition"
 			},
-			friends: [
-				'Salia, an information broker',
-				'Augus, a master architect',
-				'Jennah, a servant',
-				'Riven, a chemist',
-				'Jeren, a bluecoat archivist'
-			],
-			items: [{
-					bold: 'on',
-					name: 'Fine cover identity',
-					numboxes: '0'
-				},
-				{
-					bold: 'on',
-					name: 'Fine bottle of whiskey',
-					numboxes: '1'
-				},
-				{
-					name: 'Blueprints',
-					numboxes: '1'
-				},
-				{
-					name: 'Vial of slumber essence',
-					numboxes: '0'
-				},
-				{
-					name: 'Concealed palm pistol',
-					numboxes: '0'
-				},
-				{
-					name: 'Spiritbane charm',
-					numboxes: '0'
-				}
-			]
+			"abilities": [{
+				"name": "playbook_ability_foresight",
+				"description": "playbook_ability_foresight_description"
+			}, {
+				"name": "playbook_ability_calculating",
+				"description": "playbook_ability_calculating_description"
+			}, {
+				"name": "playbook_ability_connected",
+				"description": "playbook_ability_connected_description"
+			}, {
+				"name": "playbook_ability_functioning_vice",
+				"description": "playbook_ability_functioning_vice_description"
+			}, {
+				"name": "playbook_ability_ghost_contract",
+				"description": "playbook_ability_ghost_contract_description"
+			}, {
+				"name": "playbook_ability_jail_bird",
+				"description": "playbook_ability_jail_bird_description"
+			}, {
+				"name": "playbook_ability_mastermind",
+				"description": "playbook_ability_mastermind_description"
+			}, {
+				"name": "playbook_ability_weaving_the_web",
+				"description": "playbook_ability_weaving_the_web_description"
+			}],
+			"items": [{
+				"bold": "on",
+				"name": "playbook_item_fine_cover_identity",
+				"numboxes": "0"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_bottle_of_whiskey",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_blueprints",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_vial_of_slumber_essence",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_concealed_palm_pistol",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_spiritbane_charm",
+				"numboxes": "0"
+			}],
+			"friends": ["playbook_spider_friend_0", "playbook_spider_friend_1", "playbook_spider_friend_2", "playbook_spider_friend_3", "playbook_spider_friend_4"]
 		},
-		whisper: {
-			abilities: [{
-					name: 'Compel',
-					description: 'You can Attune to the ghost field to force a nearby ghost to appear and obey a command you give it. You are not supernaturally terrified by a ghost you summon or compel (though your allies may be).'
-				},
-				{
-					name: 'Ghost Mind',
-					description: 'You’re always aware of supernatural entities in your presence. Take +1d when you gather info about the supernatural.'
-				},
-				{
-					name: 'Iron Will',
-					description: ' You\'re immune to the terror that some supernatural entities inflict on sight. Take +1d to resistance rolls with Resolve.'
-				},
-				{
-					name: 'Occultist',
-					description: 'You know the secret ways to Consort with ancient powers, forgotten gods or demons. Once you\'ve consorted with one, you get +1d to command cultists who worship it.'
-				},
-				{
-					name: 'Ritual',
-					description: 'You can Study an occult ritual (or create a new one) to summon a supernatural effect or being. You know the arcane methods to perform ritual sorcery. You begin with one ritual already learned.'
-				},
-				{
-					name: 'Strange Methods',
-					description: 'When you invent or craft a creation with arcane features, take +1 result level to your roll. You begin with one arcane design already known.'
-				},
-				{
-					name: 'Tempest',
-					description: 'You can push yourself to do one of the following: unleash a stroke of lightning as a weapon — summon a storm in your immediate vicinity (torrential rain, roaring winds, heavy fog, chilling frost/snow, etc.).'
-				},
-				{
-					name: 'Warded',
-					description: 'You may expend your special armor to resist a supernatural consequence, or to push yourself when you deal with arcane forces.'
-				}
-			],
-			base: {
-				attune1: '1',
-				attune2: '1',
-				friends_title: 'Strange Friends',
-				gatherinfo1: 'What is arcane or weird here?',
-				gatherinfo2: 'What echoes in the ghost field?',
-				gatherinfo3: 'What is hidden or lost here?',
-				gatherinfo4: 'What do they intend to do?',
-				gatherinfo5: 'What drives them to do this?',
-				gatherinfo6: 'How can I reveal [X]?',
-				playbook_description: 'An Arcane\nAdept and\nChanneler',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'normal',
-				study1: '1',
-				xp_condition: 'You addressed a challenge with knowledge or arcane power.'
+		"whisper": {
+			"base": {
+				"attune1": "1",
+				"attune2": "1",
+				"friends_title": "playbook_whisper_friends_title",
+				"gatherinfo1": "gatherinfo_what_is_arcane",
+				"gatherinfo2": "gatherinfo_what_echoes",
+				"gatherinfo3": "gatherinfo_what_is_hidden",
+				"gatherinfo4": "gatherinfo_what_do_they_intend",
+				"gatherinfo5": "gatherinfo_what_drives_them",
+				"gatherinfo6": "gatherinfo_reveal",
+				"playbook_description": "playbook_whisper_description",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "normal",
+				"study1": "1",
+				"xp_condition": "playbook_whisper_xp_condition"
 			},
-			friends: [
-				'Nyryx, a possessor ghost',
-				'Scurlock, a vampire',
-				'Setarra, a demon',
-				'Quellyn, a witch',
-				'Flint, a spirit trafficker'
-			],
-			items: [{
-					bold: 'on',
-					name: 'Fine lightning hook',
-					numboxes: '1'
-				},
-				{
-					bold: 'on',
-					name: 'Fine spirit mask',
-					numboxes: '1'
-				},
-				{
-					name: 'Electroplasm vials',
-					numboxes: '0'
-				},
-				{
-					name: 'Spirit bottles (2)',
-					numboxes: '1'
-				},
-				{
-					name: 'Ghost key',
-					numboxes: '0'
-				},
-				{
-					name: 'Demonbane charm',
-					numboxes: '0'
-				}
-			]
+			"abilities": [{
+				"name": "playbook_ability_compel",
+				"description": "playbook_ability_compel_description"
+			}, {
+				"name": "playbook_ability_ghost_mind",
+				"description": "playbook_ability_ghost_mind_description"
+			}, {
+				"name": "playbook_ability_iron_will",
+				"description": "playbook_ability_iron_will_description"
+			}, {
+				"name": "playbook_ability_occultist",
+				"description": "playbook_ability_occultist_description"
+			}, {
+				"name": "playbook_ability_ritual",
+				"description": "playbook_ability_ritual_description"
+			}, {
+				"name": "playbook_ability_strange_methods",
+				"description": "playbook_ability_strange_methods_description"
+			}, {
+				"name": "playbook_ability_tempest",
+				"description": "playbook_ability_tempest_description"
+			}, {
+				"name": "playbook_ability_warded",
+				"description": "playbook_ability_warded_description"
+			}],
+			"items": [{
+				"bold": "on",
+				"name": "playbook_item_fine_lightning_hook",
+				"numboxes": "1"
+			}, {
+				"bold": "on",
+				"name": "playbook_item_fine_spirit_mask",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_electroplasm_vials",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_spirit_bottles_(2)",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_ghost_key",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_demonbane_charm",
+				"numboxes": "0"
+			}],
+			"friends": ["playbook_whisper_friend_0", "playbook_whisper_friend_1", "playbook_whisper_friend_2", "playbook_whisper_friend_3", "playbook_whisper_friend_4"]
 		},
-		vampire: {
-			abilities: [{
-					check: 'on',
-					name: 'Undead',
-					description: 'You are a spirit which animates an undead body. Your trauma is maxed out. Choose four trauma conditions which reflect your vampiric nature. Arcane attacks are potent against you. If you suffer fatal harm or trauma, your undead spirit is overwhelmed. You take level 3 harm: "Incapacitated" until you feed enough to recover. If you suffer arcane harm while in this state, you are destroyed utterly. Your XP tracks are longer (you now advance more slowly). You have more stress boxes.'
-				},
-				{
-					name: 'Terrible Power',
-					description: 'Take 1 stress to perform a feat of superhuman strength or speed (run faster than a carriage, break stone with bare hands, leap onto the roof of a building, etc.). This factors into effect.'
-				},
-				{
-					name: 'Arcane Sight',
-					description: 'Take 1 stress to sense beyond human limits. "Hear" a subject\'s true thoughts or feelings, see in pitch darkness, sense the presence of invisible things, intuit the location of a hidden object, etc.'
-				},
-				{
-					name: 'A Void in the Echo',
-					description: 'You are invisible to spirits and may not be harmed by them. Take 2 stress to cause living things to avert their gaze and fail to observe you for a few moments.'
-				},
-				{
-					name: 'Dark Talent',
-					description: 'Choose Insight, Prowess, or Resolve.Your max rating for actions under that attribute becomes 5. When you take this ability, add +1 dot to the resistance rating of the attribute you\'ve chosen.'
-				},
-				{
-					name: 'Sinister Guile',
-					description: 'During downtime, choose one: Get a free additional downtime activity, or take +1d to all downtime activity rolls.'
-				}
-			],
-			base: {
-				friends_title: 'Dark Servants',
-				gatherinfo1: 'What do they intend to do?',
-				gatherinfo2: 'How can I get them to [X]?',
-				gatherinfo3: 'What are they really feeling?',
-				gatherinfo4: 'What should I look out for?',
-				gatherinfo5: 'Where\'s the weakness here?',
-				gatherinfo6: 'How can I find [X]?',
-				playbook_description: 'A spirit animating an undead body',
-				setting_extra_stress: '3',
-				setting_vampirexp: 'on',
-				setting_show_strictures: 'on',
-				setting_traumata_set: 'normal',
-				setting_vice_type: 'vampire',
-				trauma: '4',
-				xp_condition: 'You displayed your dominance or slayed without mercy.',
-				xp_condition2: 'You expressed your beliefs, drives, heritage, or background.',
-				xp_condition3: 'You struggled with issues from your vice, traumas, or strictures during the session.'
+		"vampire": {
+			"base": {
+				"friends_title": "playbook_vampire_friends_title",
+				"gatherinfo1": "gatherinfo_what_do_they_intend",
+				"gatherinfo2": "gatherinfo_how_can_I_get_them",
+				"gatherinfo3": "gatherinfo_what_are_they_really",
+				"gatherinfo4": "gatherinfo_what_should_I_look",
+				"gatherinfo5": "gatherinfo_wheres_the_weakness",
+				"gatherinfo6": "gatherinfo_how_can_I_find",
+				"playbook_description": "playbook_vampire_description",
+				"setting_extra_stress": "3",
+				"setting_vampirexp": "on",
+				"setting_show_strictures": "on",
+				"setting_traumata_set": "normal",
+				"setting_vice_type": "vampire",
+				"trauma": "4",
+				"xp_condition": "playbook_vampire_xp_condition",
+				"xp_condition2": "playbook_vampire_xp_condition2",
+				"xp_condition3": "playbook_vampire_xp_condition3"
 			},
-			friends: [
-				'Rutherford, a butler',
-				'Lylandra, a consort',
-				'Kira, a bodyguard',
-				'Otto, a coachman',
-				'Edrik, an envoy'
-			],
-			items: [{
-					name: 'Fine clothes and accoutrements',
-					numboxes: '0'
-				},
-				{
-					name: 'Fine personal weapon',
-					numboxes: '1'
-				},
-				{
-					name: 'Fine shadow cloak',
-					numboxes: '1'
-				},
-				{
-					name: 'Demonbane charm',
-					numboxes: '0'
-				},
-				{
-					name: 'Spiritbane charm',
-					numboxes: '0'
-				}
-			]
+			"abilities": [{
+				"check": "on",
+				"name": "playbook_ability_undead",
+				"description": "playbook_ability_undead_description"
+			}, {
+				"name": "playbook_ability_terrible_power",
+				"description": "playbook_ability_terrible_power_description"
+			}, {
+				"name": "playbook_ability_arcane_sight",
+				"description": "playbook_ability_arcane_sight_description"
+			}, {
+				"name": "playbook_ability_a_void_in_the_echo",
+				"description": "playbook_ability_a_void_in_the_echo_description"
+			}, {
+				"name": "playbook_ability_dark_talent",
+				"description": "playbook_ability_dark_talent_description"
+			}, {
+				"name": "playbook_ability_sinister_guile",
+				"description": "playbook_ability_sinister_guile_description"
+			}],
+			"items": [{
+				"name": "playbook_item_fine_clothes_and_accoutrements",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_fine_personal_weapon",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_fine_shadow_cloak",
+				"numboxes": "1"
+			}, {
+				"name": "playbook_item_demonbane_charm",
+				"numboxes": "0"
+			}, {
+				"name": "playbook_item_spiritbane_charm",
+				"numboxes": "0"
+			}],
+			"friends": ["playbook_vampire_friend_0", "playbook_vampire_friend_1", "playbook_vampire_friend_2", "playbook_vampire_friend_3", "playbook_vampire_friend_4"]
 		}
 	},
 	factionsData = {
 		factions1: [{
-				name: 'The Unseen',
+				name: 'faction_the_unseen',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'The Hive',
+				name: 'faction_the_hive',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'The Circle of Flame',
+				name: 'faction_the_circle_of_flame',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'The Silver Nails',
+				name: 'faction_the_silver_nails',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'Lord Scurlock',
+				name: 'faction_lord_scurlock',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'The Crows',
+				name: 'faction_the_crows',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'The Lampblacks',
+				name: 'faction_the_lampblacks',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'The Red Sashes',
+				name: 'faction_the_red_sashes',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'The Dimmer Sisters',
+				name: 'faction_the_dimmer_sisters',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'The Grinders',
+				name: 'faction_the_grinders',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'The Billhooks',
+				name: 'faction_the_billhooks',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'The Wraiths',
+				name: 'faction_the_wraiths',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'The Gray Cloaks',
+				name: 'faction_the_gray_cloaks',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Ulf Ironborn',
+				name: 'faction_ulf_ironborn',
 				tier: 'I',
 				hold: 'S'
 			},
 			{
-				name: 'The Foghounds',
+				name: 'faction_the_foghounds',
 				tier: 'I',
 				hold: 'W'
 			},
 			{
-				name: 'The Lost',
+				name: 'faction_the_lost',
 				tier: 'I',
 				hold: 'W'
 			}
 		],
 		factions2: [{
-				name: 'Imperial Military',
+				name: 'faction_imperial_military',
 				tier: 'VI',
 				hold: 'S'
 			},
 			{
-				name: 'City Council',
+				name: 'faction_city_council',
 				tier: 'V',
 				hold: 'S'
 			},
 			{
-				name: 'Ministry of Preservation',
+				name: 'faction_ministry_of_preservation',
 				tier: 'V',
 				hold: 'S'
 			},
 			{
-				name: 'Leviathan Hunters',
+				name: 'faction_leviathan_hunters',
 				tier: 'V',
 				hold: 'S'
 			},
 			{
-				name: 'Ironhook Prison',
+				name: 'faction_ironhook_prison',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'Sparkwrights',
+				name: 'faction_sparkwrights',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'Spirit Wardens',
+				name: 'faction_spirit_wardens',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'Bluecoats',
+				name: 'faction_bluecoats',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'Inspectors',
+				name: 'faction_inspectors',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'Iruvian Consulate',
+				name: 'faction_iruvian_consulate',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'Skovlan Consulate',
+				name: 'faction_skovlan_consulate',
 				tier: 'III',
 				hold: 'W'
 			},
 			{
-				name: 'The Brigade',
+				name: 'faction_the_brigade',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Severosi Consulate',
+				name: 'faction_severosi_consulate',
 				tier: 'I',
 				hold: 'S'
 			},
 			{
-				name: 'Dagger Isles Consulate',
+				name: 'faction_dagger_isles_consulate',
 				tier: 'I',
 				hold: 'S'
 			}
 		],
 		factions3: [{
-				name: 'The Foundation',
+				name: 'faction_the_foundation',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'Dockers',
+				name: 'faction_dockers',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'Gondoliers',
+				name: 'faction_gondoliers',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'Sailors',
+				name: 'faction_sailors',
 				tier: 'III',
 				hold: 'W'
 			},
 			{
-				name: 'Laborers',
+				name: 'faction_laborers',
 				tier: 'III',
 				hold: 'W'
 			},
 			{
-				name: 'Cabbies',
+				name: 'faction_cabbies',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'Cyphers',
+				name: 'faction_cyphers',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Ink Rakes',
+				name: 'faction_ink_rakes',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'Rail Jacks',
+				name: 'faction_rail_jacks',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'Servants',
+				name: 'faction_servants',
 				tier: 'II',
 				hold: 'W'
 			}
 		],
 		factions4: [{
-				name: 'The Church of Ecstasy',
+				name: 'faction_the_church_of_ecstasy',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'The Horde',
+				name: 'faction_the_horde',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'The Path of Echoes',
+				name: 'faction_the_path_of_echoes',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'The Forgotten Gods',
+				name: 'faction_the_forgotten_gods',
 				tier: 'III',
 				hold: 'W'
 			},
 			{
-				name: 'The Reconciled',
+				name: 'faction_the_reconciled',
 				tier: 'III',
 				hold: 'S'
 			},
 			{
-				name: 'Skovlander Refugees',
+				name: 'faction_skovlander_refugees',
 				tier: 'III',
 				hold: 'W'
 			},
 			{
-				name: 'The Weeping Lady',
+				name: 'faction_the_weeping_lady',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Deathlands Scavengers',
+				name: 'faction_deathlands_scavengers',
 				tier: 'II',
 				hold: 'W'
 			}
 		],
 		factions5: [{
-				name: 'Whitecrown',
+				name: 'faction_whitecrown',
 				tier: 'V',
 				hold: 'S'
 			},
 			{
-				name: 'Brightstone',
+				name: 'faction_brightstone',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'Charterhall',
+				name: 'faction_charterhall',
 				tier: 'IV',
 				hold: 'S'
 			},
 			{
-				name: 'Six Towers',
+				name: 'faction_six_towers',
 				tier: 'III',
 				hold: 'W'
 			},
 			{
-				name: 'Silkshore',
+				name: 'faction_silkshore',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Nightmarket',
+				name: 'faction_nightmarket',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Crow\'s Foot',
+				name: 'faction_crow\'s_foot',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'The Docks',
+				name: 'faction_the_docks',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Barrowcleft',
+				name: 'faction_barrowcleft',
 				tier: 'II',
 				hold: 'S'
 			},
 			{
-				name: 'Coalridge',
+				name: 'faction_coalridge',
 				tier: 'II',
 				hold: 'W'
 			},
 			{
-				name: 'Charhollow',
+				name: 'faction_charhollow',
 				tier: 'I',
 				hold: 'S'
 			},
 			{
-				name: 'Dunslough',
+				name: 'faction_dunslough',
 				tier: 'I',
 				hold: 'W'
 			}
@@ -1823,25 +1655,60 @@ var crewData = {
 		xp_condition3: 'xp_vice'
 	};
 /* NECESSARY DATA TRANSFORMATION */
-Object.keys(playbookData).forEach(playbook => {
-	playbookData[playbook].items.forEach(item => {
-		item.boxes_chosen = 'on';
-	});
-	playbookData[playbook].friends = playbookData[playbook].friends.map(n => ({
-		name: n
-	}));
-});
 Object.keys(crewData).forEach(crew => {
 	crewData[crew].contacts = crewData[crew].contacts.map(n => ({
 		name: n
 	}));
 });
+/* Translate itemData */
 itemData.forEach(item => {
 	item.boxes_chosen = 'on';
 	item.name = getTranslationByKey(item.name);
 });
+/* Translate defaultValues */
 Object.keys(defaultValues).forEach(k => {
 	defaultValues[k] = getTranslationByKey(defaultValues[k]);
+});
+/* Translate factions */
+Object.keys(factionsData).forEach(x => {
+	factionsData[x].forEach(faction => {
+		faction.name = getTranslationByKey(faction.name);
+	});
+});
+/* Translate playbooks */
+Object.keys(playbookData).forEach(playbook => {
+	let base = playbookData[playbook].base,
+		translatedBaseAttributes = [
+			'friends_title',
+			'gatherinfo1',
+			'gatherinfo2',
+			'gatherinfo3',
+			'gatherinfo4',
+			'gatherinfo5',
+			'gatherinfo6',
+			'playbook_description',
+			'setting_stress_label',
+			'setting_trauma_label',
+			'xp_condition',
+			'xp_condition2',
+			'xp_condition3'
+		];
+	Object.keys(base).forEach(attr => {
+		if (translatedBaseAttributes.includes(attr)) {
+			base[attr] = getTranslationByKey(base[attr]);
+		}
+	});
+	playbookData[playbook].friends = playbookData[playbook].friends.map(n => ({
+		name: getTranslationByKey(n)
+	}));
+	playbookData[playbook].abilities.forEach(ability => {
+		ability.name = getTranslationByKey(ability.name);
+		ability.description = getTranslationByKey(ability.description);
+	});
+	playbookData[playbook].items.forEach(item => {
+		item.name = getTranslationByKey(item.name);
+		item.boxes_chosen = 'on';
+	});
 });
 /* UTILITY FUNCTIONS */
 var setDiceFromTotal = (name, numDice, upToFive, value) => {
@@ -2002,7 +1869,8 @@ on('change:generate_abilities', () => {
 		if (crewData.hasOwnProperty(v.generate_source)) {
 			sectionName = 'crewability';
 			dataList = crewData[v.generate_source].abilities;
-		} else if (playbookData.hasOwnProperty(v.generate_source)) {
+		}
+		else if (playbookData.hasOwnProperty(v.generate_source)) {
 			sectionName = 'ability';
 			dataList = playbookData[v.generate_source].abilities;
 		};
@@ -2018,7 +1886,8 @@ on('change:generate_friends', () => {
 		if (crewData.hasOwnProperty(v.generate_source)) {
 			sectionName = 'contact';
 			dataList = crewData[v.generate_source].contacts;
-		} else if (playbookData.hasOwnProperty(v.generate_source)) {
+		}
+		else if (playbookData.hasOwnProperty(v.generate_source)) {
 			sectionName = 'friend';
 			dataList = playbookData[v.generate_source].friends;
 		};
