@@ -1934,7 +1934,7 @@ on('change:crew_type change:playbook', event => {
 			let finalSettings = {};
 			if (!spiritPlaybooks.includes(sourceName)) {
 				baseData.filter(name => !changedAttributes.includes(name))
-					.forEach(name => (finalSettings[name] = ''));
+					.forEach(name => (finalSettings[name] = defaultValues[name] || ''));
 			};
 			Object.keys(data).filter(name => !changedAttributes.includes(name))
 				.forEach(name => (finalSettings[name] = data[name]));
@@ -2193,6 +2193,16 @@ on('sheet:opened', () => {
 				sheet_type: 'character'
 			});
 		}
+	});
+	/* Set up queries */
+	setAttrs({
+		bonusdice: `?{${getTranslationByKey('bonusdice')}}`,
+		bonusdice_long: `?{${getTranslationByKey('bonusdice')}|0|1|2|3|4|5|6|-1|-2|-3}`,
+		effect_query: getTranslationByKey('effect_query'),
+		notes_query: `?{${getTranslationByKey('notes')}|}`,
+		numberofdice: `?{${getTranslationByKey('numberofdice')}}`,
+		numberofdice_long: `?{${getTranslationByKey('numberofdice')}|0|1|2|3|4|5|6}`,
+		position_query: getTranslationByKey('position_query')
 	});
 	/* Setup and upgrades */
 	getAttrs(['version'], v => {
