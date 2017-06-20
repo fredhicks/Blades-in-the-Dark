@@ -98,7 +98,17 @@
 	padding-left: 30px;
 	padding-top: 7px;
 }
-
+.sheet-rolltemplate-bitd .sheet-roll-title span {
+	color: white;
+	letter-spacing: 3px;
+	line-height: 33px;
+	font-size: 24px;
+	font-family: "Hoefler Text",Georgia,"Baskerville Old Face",Garamond,"Times New Roman",serif;
+	text-transform: uppercase;
+}
+.sheet-rolltemplate-bitd .sheet-roll-fortune .sheet-roll-title span {
+	color: black;
+}
 /* Zerodice dice holder */
 .sheet-rolltemplate-bitd .sheet-zerodice1 {
 	position: relative;
