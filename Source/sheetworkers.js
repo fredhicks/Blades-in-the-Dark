@@ -2,28 +2,7 @@
 /* DATA */
 var crewData = {
 		assassins: {
-			abilities: [{
-				name: "crew_ability_deadly",
-				description: "crew_ability_deadly_description"
-			}, {
-				name: "crew_ability_crow's_veil",
-				description: "crew_ability_crow's_veil_description"
-			}, {
-				name: "crew_ability_emberdeath",
-				description: "crew_ability_emberdeath_description"
-			}, {
-				name: "crew_ability_no_traces",
-				description: "crew_ability_no_traces_description"
-			}, {
-				name: "crew_ability_patron",
-				description: "crew_ability_patron_description"
-			}, {
-				name: "crew_ability_predators",
-				description: "crew_ability_predators_description"
-			}, {
-				name: "crew_ability_vipers",
-				description: "crew_ability_vipers_description"
-			}],
+			abilities: ["deadly", "crow's_veil", "emberdeath", "no_traces", "patron", "predators", "vipers"],
 			base: {
 				claim_1_desc: "claim_training_rooms_description",
 				claim_1_name: "claim_training_rooms",
@@ -71,32 +50,10 @@ var crewData = {
 				upgrade_20_check: "on",
 				upgrade_21_check: "on",
 				xp_condition: "crew_assassins_xp_condition"
-			},
-			contacts: ["crew_assassins_contact_0", "crew_assassins_contact_1", "crew_assassins_contact_2", "crew_assassins_contact_3", "crew_assassins_contact_4", "crew_assassins_contact_5"]
+			}
 		},
 		bravos: {
-			abilities: [{
-				name: "crew_ability_dangerous",
-				description: "crew_ability_dangerous_description"
-			}, {
-				name: "crew_ability_blood_brothers",
-				description: "crew_ability_blood_brothers_description"
-			}, {
-				name: "crew_ability_door_kickers",
-				description: "crew_ability_door_kickers_description"
-			}, {
-				name: "crew_ability_fiends",
-				description: "crew_ability_fiends_description"
-			}, {
-				name: "crew_ability_forged_in_the_fire",
-				description: "crew_ability_forged_in_the_fire_description"
-			}, {
-				name: "crew_ability_patron",
-				description: "crew_ability_patron_description"
-			}, {
-				name: "crew_ability_war_dogs",
-				description: "crew_ability_war_dogs_description"
-			}],
+			abilities: ["dangerous", "blood_brothers", "door_kickers", "fiends", "forged_in_the_fire", "patron", "war_dogs"],
 			base: {
 				claim_1_desc: "claim_barracks_description",
 				claim_1_name: "claim_barracks",
@@ -139,32 +96,10 @@ var crewData = {
 				upgrade_5_desc: "crew_upgrade_elite_thugs",
 				upgrade_21_check: "on",
 				xp_condition: "crew_bravos_xp_condition"
-			},
-			contacts: ["crew_bravos_contact_0", "crew_bravos_contact_1", "crew_bravos_contact_2", "crew_bravos_contact_3", "crew_bravos_contact_4", "crew_bravos_contact_5"]
+			}
 		},
 		cult: {
-			abilities: [{
-				name: "crew_ability_chosen",
-				description: "crew_ability_chosen_description"
-			}, {
-				name: "crew_ability_anointed",
-				description: "crew_ability_anointed_description"
-			}, {
-				name: "crew_ability_bound_in_darkness",
-				description: "crew_ability_bound_in_darkness_description"
-			}, {
-				name: "crew_ability_conviction",
-				description: "crew_ability_conviction_description"
-			}, {
-				name: "crew_ability_glory_incarnate",
-				description: "crew_ability_glory_incarnate_description"
-			}, {
-				name: "crew_ability_sealed_in_blood",
-				description: "crew_ability_sealed_in_blood_description"
-			}, {
-				name: "crew_ability_zealotry",
-				description: "crew_ability_zealotry_description"
-			}],
+			abilities: ["chosen", "anointed", "bound_in_darkness", "conviction", "glory_incarnate", "sealed_in_blood", "zealotry"],
 			base: {
 				claim_1_desc: "claim_cloister_description",
 				claim_1_name: "claim_cloister",
@@ -209,32 +144,10 @@ var crewData = {
 				upgrade_5_desc: "crew_upgrade_elite_thugs",
 				upgrade_22_check: "on",
 				xp_condition: "crew_cult_xp_condition"
-			},
-			contacts: ["crew_cult_contact_0", "crew_cult_contact_1", "crew_cult_contact_2", "crew_cult_contact_3", "crew_cult_contact_4", "crew_cult_contact_5"]
+			}
 		},
 		hawkers: {
-			abilities: [{
-				name: "crew_ability_silver_tongues",
-				description: "crew_ability_silver_tongues_description"
-			}, {
-				name: "crew_ability_accord",
-				description: "crew_ability_accord_description"
-			}, {
-				name: "crew_ability_the_good_stuff",
-				description: "crew_ability_the_good_stuff_description"
-			}, {
-				name: "crew_ability_ghost_market",
-				description: "crew_ability_ghost_market_description"
-			}, {
-				name: "crew_ability_high_society",
-				description: "crew_ability_high_society_description"
-			}, {
-				name: "crew_ability_hooked",
-				description: "crew_ability_hooked_description"
-			}, {
-				name: "crew_ability_patron",
-				description: "crew_ability_patron_description"
-			}],
+			abilities: ["silver_tongues", "accord", "the_good_stuff", "ghost_market", "high_society", "hooked", "patron"],
 			base: {
 				claim_1_name: "claim_turf",
 				claim_2_desc: "claim_personal_clothier_description",
@@ -280,32 +193,10 @@ var crewData = {
 				upgrade_14_check: "on",
 				upgrade_22_check: "on",
 				xp_condition: "crew_hawkers_xp_condition"
-			},
-			contacts: ["crew_hawkers_contact_0", "crew_hawkers_contact_1", "crew_hawkers_contact_2", "crew_hawkers_contact_3", "crew_hawkers_contact_4", "crew_hawkers_contact_5"]
+			}
 		},
 		shadows: {
-			abilities: [{
-				name: "crew_ability_everyone_steals",
-				description: "crew_ability_everyone_steals_description"
-			}, {
-				name: "crew_ability_ghost_echoes",
-				description: "crew_ability_ghost_echoes_description"
-			}, {
-				name: "crew_ability_pack_rats",
-				description: "crew_ability_pack_rats_description"
-			}, {
-				name: "crew_ability_patron",
-				description: "crew_ability_patron_description"
-			}, {
-				name: "crew_ability_second_story",
-				description: "crew_ability_second_story_description"
-			}, {
-				name: "crew_ability_slippery",
-				description: "crew_ability_slippery_description"
-			}, {
-				name: "crew_ability_synchronized",
-				description: "crew_ability_synchronized_description"
-			}],
+			abilities: ["everyone_steals", "ghost_echoes", "pack_rats", "patron", "second_story", "slippery", "synchronized"],
 			base: {
 				claim_1_desc: "claim_interrogation_chamber_description",
 				claim_1_name: "claim_interrogation_chamber",
@@ -349,32 +240,10 @@ var crewData = {
 				upgrade_10_check: "on",
 				upgrade_21_check: "on",
 				xp_condition: "crew_shadows_xp_condition"
-			},
-			contacts: ["crew_shadows_contact_0", "crew_shadows_contact_1", "crew_shadows_contact_2", "crew_shadows_contact_3", "crew_shadows_contact_4", "crew_shadows_contact_5"]
+			}
 		},
 		smugglers: {
-			abilities: [{
-				name: "crew_ability_like_part_of_the_family",
-				description: "crew_ability_like_part_of_the_family_description"
-			}, {
-				name: "crew_ability_all_hands",
-				description: "crew_ability_all_hands_description"
-			}, {
-				name: "crew_ability_ghost_passage",
-				description: "crew_ability_ghost_passage_description"
-			}, {
-				name: "crew_ability_just_passing_through",
-				description: "crew_ability_just_passing_through_description"
-			}, {
-				name: "crew_ability_leverage",
-				description: "crew_ability_leverage_description"
-			}, {
-				name: "crew_ability_reavers",
-				description: "crew_ability_reavers_description"
-			}, {
-				name: "crew_ability_renegades",
-				description: "crew_ability_renegades_description"
-			}],
+			abilities: ["like_part_of_the_family", "all_hands", "ghost_passage", "just_passing_through", "leverage", "reavers", "renegades"],
 			base: {
 				claim_1_name: "claim_turf",
 				claim_2_desc: "claim_side_business_description",
@@ -424,35 +293,10 @@ var crewData = {
 				upgrade_8_desc: "vehicle",
 				upgrade_21_check: "on",
 				xp_condition: "crew_smugglers_xp_condition"
-			},
-			contacts: ["crew_smugglers_contact_0", "crew_smugglers_contact_1", "crew_smugglers_contact_2", "crew_smugglers_contact_3", "crew_smugglers_contact_4", "crew_smugglers_contact_5"]
+			}
 		},
 		vigilantes: {
-			abilities: [{
-				name: "crew_ability_as_good_as_your_word",
-				description: "crew_ability_as_good_as_your_word_description"
-			}, {
-				name: "crew_ability_avengers",
-				description: "crew_ability_avengers_description"
-			}, {
-				name: "crew_ability_thorn_in_your_side",
-				description: "crew_ability_thorn_in_your_side_description"
-			}, {
-				name: "crew_ability_misdirection",
-				description: "crew_ability_misdirection_description"
-			}, {
-				name: "crew_ability_uncanny_preparation",
-				description: "crew_ability_uncanny_preparation_description"
-			}, {
-				name: "crew_ability_moral_compass",
-				description: "crew_ability_moral_compass_description"
-			}, {
-				name: "crew_ability_favors",
-				description: "crew_ability_favors_description"
-			}, {
-				name: "crew_ability_roots",
-				description: "crew_ability_roots_description"
-			}],
+			abilities: ["as_good_as_your_word", "avengers", "thorn_in_your_side", "misdirection", "uncanny_preparation", "moral_compass", "favors", "roots"],
 			base: {
 				claim_1_desc: "claim_fierce_allies_description",
 				claim_1_name: "claim_fierce_allies",
@@ -501,37 +345,12 @@ var crewData = {
 				upgrade_5_desc: "crew_upgrade_spark-craft_technology",
 				upgrade_22_check: "on",
 				xp_condition: "crew_vigilantes_xp_condition"
-			},
-			contacts: ["crew_vigilantes_contact_0", "crew_vigilantes_contact_1", "crew_vigilantes_contact_2", "crew_vigilantes_contact_3", "crew_vigilantes_contact_4", "crew_vigilantes_contact_5"]
+			}
 		}
 	},
 	playbookData = {
 		cutter: {
-			abilities: [{
-				name: "playbook_ability_battleborn",
-				description: "playbook_ability_battleborn_description"
-			}, {
-				name: "playbook_ability_bodyguard",
-				description: "playbook_ability_bodyguard_description"
-			}, {
-				name: "playbook_ability_ghost_fighter",
-				description: "playbook_ability_ghost_fighter_description"
-			}, {
-				name: "playbook_ability_leader",
-				description: "playbook_ability_leader_description"
-			}, {
-				name: "playbook_ability_mule",
-				description: "playbook_ability_mule_description"
-			}, {
-				name: "playbook_ability_not_to_be_trifled_with",
-				description: "playbook_ability_not_to_be_trifled_with_description"
-			}, {
-				name: "playbook_ability_savage",
-				description: "playbook_ability_savage_description"
-			}, {
-				name: "playbook_ability_vigorous",
-				description: "playbook_ability_vigorous_description"
-			}],
+			abilities: ["battleborn", "bodyguard", "ghost_fighter", "leader", "mule", "not_to_be_trifled_with", "savage", "vigorous"],
 			base: {
 				command1: "1",
 				friends_title: "playbook_cutter_friends_title",
@@ -548,7 +367,6 @@ var crewData = {
 				skirmish2: "1",
 				xp_condition: "playbook_cutter_xp_condition"
 			},
-			friends: ["playbook_cutter_friend_0", "playbook_cutter_friend_1", "playbook_cutter_friend_2", "playbook_cutter_friend_3", "playbook_cutter_friend_4"],
 			items: [{
 				bold: "on",
 				name: "playbook_item_fine_hand_weapon",
@@ -572,23 +390,7 @@ var crewData = {
 			}]
 		},
 		ghost: {
-			abilities: [{
-				check: "on",
-				name: "playbook_ability_ghost_form",
-				description: "playbook_ability_ghost_form_description"
-			}, {
-				name: "playbook_ability_dissipate",
-				description: "playbook_ability_dissipate_description"
-			}, {
-				name: "playbook_ability_manifest",
-				description: "playbook_ability_manifest_description"
-			}, {
-				name: "playbook_ability_poltergeist",
-				description: "playbook_ability_poltergeist_description"
-			}, {
-				name: "playbook_ability_possess",
-				description: "playbook_ability_possess_description"
-			}],
+			abilities: ["ghost_form", "dissipate", "manifest", "poltergeist", "possess"],
 			base: {
 				friends_title: "playbook_ghost_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -606,32 +408,10 @@ var crewData = {
 				xp_condition2: "playbook_ghost_xp_condition2",
 				xp_condition3: "playbook_ghost_xp_condition3"
 			},
-			friends: [],
 			items: []
 		},
 		hound: {
-			abilities: [{
-				name: "playbook_ability_sharpshooter",
-				description: "playbook_ability_sharpshooter_description"
-			}, {
-				name: "playbook_ability_focused",
-				description: "playbook_ability_focused_description"
-			}, {
-				name: "playbook_ability_ghost_hunter",
-				description: "playbook_ability_ghost_hunter_description"
-			}, {
-				name: "playbook_ability_scout",
-				description: "playbook_ability_scout_description"
-			}, {
-				name: "playbook_ability_survivor",
-				description: "playbook_ability_survivor_description"
-			}, {
-				name: "playbook_ability_tough_as_nails",
-				description: "playbook_ability_tough_as_nails_description"
-			}, {
-				name: "playbook_ability_vengeful",
-				description: "playbook_ability_vengeful_description"
-			}],
+			abilities: ["sharpshooter", "focused", "ghost_hunter", "scout", "survivor", "tough_as_nails", "vengeful"],
 			base: {
 				friends_title: "playbook_hound_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -648,7 +428,6 @@ var crewData = {
 				survey1: "1",
 				xp_condition: "playbook_hound_xp_condition"
 			},
-			friends: ["playbook_hound_friend_0", "playbook_hound_friend_1", "playbook_hound_friend_2", "playbook_hound_friend_3", "playbook_hound_friend_4"],
 			items: [{
 				bold: "on",
 				name: "playbook_item_fine_pair_of_pistols",
@@ -672,29 +451,7 @@ var crewData = {
 			}]
 		},
 		hull: {
-			abilities: [{
-				check: "on",
-				name: "playbook_ability_automaton",
-				description: "playbook_ability_automaton_description"
-			}, {
-				name: "playbook_ability_overcharge",
-				description: "playbook_ability_overcharge_description"
-			}, {
-				name: "playbook_ability_compartments",
-				description: "playbook_ability_compartments_description"
-			}, {
-				name: "playbook_ability_electroplasmic_projectors",
-				description: "playbook_ability_electroplasmic_projectors_description"
-			}, {
-				name: "playbook_ability_interface",
-				description: "playbook_ability_interface_description"
-			}, {
-				name: "playbook_ability_secondary_hull",
-				description: "playbook_ability_secondary_hull_description"
-			}, {
-				name: "playbook_ability_frame_upgrade",
-				description: "playbook_ability_frame_upgrade_description"
-			}],
+			abilities: ["automaton", "overcharge", "compartments", "electroplasmic_projectors", "interface", "secondary_hull", "frame_upgrade"],
 			base: {
 				gatherinfo1: "gatherinfo_what_do_they_intend",
 				gatherinfo2: "gatherinfo_how_can_I_get_them",
@@ -713,35 +470,10 @@ var crewData = {
 				xp_condition2: "playbook_hull_xp_condition2",
 				xp_condition3: "playbook_hull_xp_condition3"
 			},
-			friends: [],
 			items: []
 		},
 		leech: {
-			abilities: [{
-				name: "playbook_ability_alchemist",
-				description: "playbook_ability_alchemist_description"
-			}, {
-				name: "playbook_ability_analyst",
-				description: "playbook_ability_analyst_description"
-			}, {
-				name: "playbook_ability_artificer",
-				description: "playbook_ability_artificer_description"
-			}, {
-				name: "playbook_ability_fortitude",
-				description: "playbook_ability_fortitude_description"
-			}, {
-				name: "playbook_ability_ghost_ward",
-				description: "playbook_ability_ghost_ward_description"
-			}, {
-				name: "playbook_ability_physicker",
-				description: "playbook_ability_physicker_description"
-			}, {
-				name: "playbook_ability_saboteur",
-				description: "playbook_ability_saboteur_description"
-			}, {
-				name: "playbook_ability_venomous",
-				description: "playbook_ability_venomous_description"
-			}],
+			abilities: ["alchemist", "analyst", "artificer", "fortitude", "ghost_ward", "physicker", "saboteur", "venomous"],
 			base: {
 				friends_title: "playbook_leech_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -758,7 +490,6 @@ var crewData = {
 				wreck1: "1",
 				xp_condition: "playbook_leech_xp_condition"
 			},
-			friends: ["playbook_leech_friend_0", "playbook_leech_friend_1", "playbook_leech_friend_2", "playbook_leech_friend_3", "playbook_leech_friend_4"],
 			items: [{
 				bold: "on",
 				name: "playbook_item_fine_tinkering_tools",
@@ -782,31 +513,7 @@ var crewData = {
 			}]
 		},
 		lurk: {
-			abilities: [{
-				name: "playbook_ability_infiltrator",
-				description: "playbook_ability_infiltrator_description"
-			}, {
-				name: "playbook_ability_ambush",
-				description: "playbook_ability_ambush_description"
-			}, {
-				name: "playbook_ability_daredevil",
-				description: "playbook_ability_daredevil_description"
-			}, {
-				name: "playbook_ability_the_devil's_footsteps",
-				description: "playbook_ability_the_devil's_footsteps_description"
-			}, {
-				name: "playbook_ability_expertise",
-				description: "playbook_ability_expertise_description"
-			}, {
-				name: "playbook_ability_ghost_veil",
-				description: "playbook_ability_ghost_veil_description"
-			}, {
-				name: "playbook_ability_reflexes",
-				description: "playbook_ability_reflexes_description"
-			}, {
-				name: "playbook_ability_shadow",
-				description: "playbook_ability_shadow_description"
-			}],
+			abilities: ["infiltrator", "ambush", "daredevil", "the_devil's_footsteps", "expertise", "ghost_veil", "reflexes", "shadow"],
 			base: {
 				friends_title: "playbook_lurk_friends_title",
 				finesse1: "1",
@@ -823,7 +530,6 @@ var crewData = {
 				setting_vice_type: "normal",
 				xp_condition: "playbook_lurk_xp_condition"
 			},
-			friends: ["playbook_lurk_friend_0", "playbook_lurk_friend_1", "playbook_lurk_friend_2", "playbook_lurk_friend_3", "playbook_lurk_friend_4"],
 			items: [{
 				bold: "on",
 				name: "playbook_item_fine_lockpicks",
@@ -847,31 +553,7 @@ var crewData = {
 			}]
 		},
 		slide: {
-			abilities: [{
-				name: "playbook_ability_rook's_gambit",
-				description: "playbook_ability_rook's_gambit_description"
-			}, {
-				name: "playbook_ability_cloak_&_dagger",
-				description: "playbook_ability_cloak_&_dagger_description"
-			}, {
-				name: "playbook_ability_ghost_voice",
-				description: "playbook_ability_ghost_voice_description"
-			}, {
-				name: "playbook_ability_like_looking_into_a_mirror",
-				description: "playbook_ability_like_looking_into_a_mirror_description"
-			}, {
-				name: "playbook_ability_a_little_something_on_the_side",
-				description: "playbook_ability_a_little_something_on_the_side_description"
-			}, {
-				name: "playbook_ability_mesmerism",
-				description: "playbook_ability_mesmerism_description"
-			}, {
-				name: "playbook_ability_subterfuge",
-				description: "playbook_ability_subterfuge_description"
-			}, {
-				name: "playbook_ability_trust_in_me",
-				description: "playbook_ability_trust_in_me_description"
-			}],
+			abilities: ["rook's_gambit", "cloak_&_dagger", "ghost_voice", "like_looking_into_a_mirror", "a_little_something_on_the_side", "mesmerism", "subterfuge", "trust_in_me"],
 			base: {
 				friends_title: "playbook_slide_friends_title",
 				consort1: "1",
@@ -888,7 +570,6 @@ var crewData = {
 				sway2: "1",
 				xp_condition: "playbook_slide_xp_condition"
 			},
-			friends: ["playbook_slide_friend_0", "playbook_slide_friend_1", "playbook_slide_friend_2", "playbook_slide_friend_3", "playbook_slide_friend_4"],
 			items: [{
 				bold: "on",
 				name: "playbook_item_fine_clothes_&_jewelry",
@@ -913,31 +594,7 @@ var crewData = {
 			}]
 		},
 		spider: {
-			abilities: [{
-				name: "playbook_ability_foresight",
-				description: "playbook_ability_foresight_description"
-			}, {
-				name: "playbook_ability_calculating",
-				description: "playbook_ability_calculating_description"
-			}, {
-				name: "playbook_ability_connected",
-				description: "playbook_ability_connected_description"
-			}, {
-				name: "playbook_ability_functioning_vice",
-				description: "playbook_ability_functioning_vice_description"
-			}, {
-				name: "playbook_ability_ghost_contract",
-				description: "playbook_ability_ghost_contract_description"
-			}, {
-				name: "playbook_ability_jail_bird",
-				description: "playbook_ability_jail_bird_description"
-			}, {
-				name: "playbook_ability_mastermind",
-				description: "playbook_ability_mastermind_description"
-			}, {
-				name: "playbook_ability_weaving_the_web",
-				description: "playbook_ability_weaving_the_web_description"
-			}],
+			abilities: ["foresight", "calculating", "connected", "functioning_vice", "ghost_contract", "jail_bird", "mastermind", "weaving_the_web"],
 			base: {
 				consort1: "1",
 				consort2: "1",
@@ -954,7 +611,6 @@ var crewData = {
 				study1: "1",
 				xp_condition: "playbook_spider_xp_condition"
 			},
-			friends: ["playbook_spider_friend_0", "playbook_spider_friend_1", "playbook_spider_friend_2", "playbook_spider_friend_3", "playbook_spider_friend_4"],
 			items: [{
 				bold: "on",
 				name: "playbook_item_fine_cover_identity",
@@ -978,31 +634,7 @@ var crewData = {
 			}]
 		},
 		whisper: {
-			abilities: [{
-				name: "playbook_ability_compel",
-				description: "playbook_ability_compel_description"
-			}, {
-				name: "playbook_ability_ghost_mind",
-				description: "playbook_ability_ghost_mind_description"
-			}, {
-				name: "playbook_ability_iron_will",
-				description: "playbook_ability_iron_will_description"
-			}, {
-				name: "playbook_ability_occultist",
-				description: "playbook_ability_occultist_description"
-			}, {
-				name: "playbook_ability_ritual",
-				description: "playbook_ability_ritual_description"
-			}, {
-				name: "playbook_ability_strange_methods",
-				description: "playbook_ability_strange_methods_description"
-			}, {
-				name: "playbook_ability_tempest",
-				description: "playbook_ability_tempest_description"
-			}, {
-				name: "playbook_ability_warded",
-				description: "playbook_ability_warded_description"
-			}],
+			abilities: ["compel", "ghost_mind", "iron_will", "occultist", "ritual", "strange_methods", "tempest", "warded"],
 			base: {
 				attune1: "1",
 				attune2: "1",
@@ -1019,7 +651,6 @@ var crewData = {
 				study1: "1",
 				xp_condition: "playbook_whisper_xp_condition"
 			},
-			friends: ["playbook_whisper_friend_0", "playbook_whisper_friend_1", "playbook_whisper_friend_2", "playbook_whisper_friend_3", "playbook_whisper_friend_4"],
 			items: [{
 				bold: "on",
 				name: "playbook_item_fine_lightning_hook",
@@ -1043,26 +674,7 @@ var crewData = {
 			}]
 		},
 		vampire: {
-			abilities: [{
-				check: "on",
-				name: "playbook_ability_undead",
-				description: "playbook_ability_undead_description"
-			}, {
-				name: "playbook_ability_terrible_power",
-				description: "playbook_ability_terrible_power_description"
-			}, {
-				name: "playbook_ability_arcane_sight",
-				description: "playbook_ability_arcane_sight_description"
-			}, {
-				name: "playbook_ability_a_void_in_the_echo",
-				description: "playbook_ability_a_void_in_the_echo_description"
-			}, {
-				name: "playbook_ability_dark_talent",
-				description: "playbook_ability_dark_talent_description"
-			}, {
-				name: "playbook_ability_sinister_guile",
-				description: "playbook_ability_sinister_guile_description"
-			}],
+			abilities: ["undead", "terrible_power", "arcane_sight", "a_void_in_the_echo", "dark_talent", "sinister_guile"],
 			base: {
 				friends_title: "playbook_vampire_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -1082,7 +694,6 @@ var crewData = {
 				xp_condition2: "playbook_vampire_xp_condition2",
 				xp_condition3: "playbook_vampire_xp_condition3"
 			},
-			friends: ["playbook_vampire_friend_0", "playbook_vampire_friend_1", "playbook_vampire_friend_2", "playbook_vampire_friend_3", "playbook_vampire_friend_4"],
 			items: [{
 				name: "playbook_item_fine_clothes_and_accoutrements",
 				numboxes: "0"
@@ -1554,13 +1165,13 @@ Object.keys(crewData).forEach(crew => {
 			base[attr] = getTranslationByKey(base[attr]);
 		}
 	});
-	crewData[crew].contacts = crewData[crew].contacts.map(n => ({
-		name: getTranslationByKey(n)
+	crewData[crew].contacts = [...Array(6).keys()].map(i => ({
+		name: getTranslationByKey(`crew_${crew}_contact_${i}`)
 	}));
-	crewData[crew].abilities.forEach(ability => {
-		ability.name = getTranslationByKey(ability.name);
-		ability.description = getTranslationByKey(ability.description);
-	});
+	crewData[crew].abilities = crewData[crew].abilities.map(name => ({
+		name: getTranslationByKey(`crew_ability_${name}`),
+		description: getTranslationByKey(`crew_ability_${name}_description`)
+	}));
 });
 /* Translate itemData */
 itemData.forEach(item => {
@@ -1600,13 +1211,15 @@ Object.keys(playbookData).forEach(playbook => {
 			base[attr] = getTranslationByKey(base[attr]);
 		}
 	});
-	playbookData[playbook].friends = playbookData[playbook].friends.map(n => ({
-		name: getTranslationByKey(n)
+	playbookData[playbook].friends = [...Array(5).keys()]
+		.filter(i => getTranslationByKey(`playbook_${playbook}_friend_${i}`))
+		.map(i => ({
+			name: getTranslationByKey(`playbook_${playbook}_friend_${i}`)
+		}));
+	playbookData[playbook].abilities = playbookData[playbook].abilities.map(name => ({
+		name: getTranslationByKey(`playbook_ability_${name}`),
+		description: getTranslationByKey(`playbook_ability_${name}_description`)
 	}));
-	playbookData[playbook].abilities.forEach(ability => {
-		ability.name = getTranslationByKey(ability.name);
-		ability.description = getTranslationByKey(ability.description);
-	});
 	playbookData[playbook].items.forEach(item => {
 		item.name = getTranslationByKey(item.name);
 		item.boxes_chosen = 'on';
