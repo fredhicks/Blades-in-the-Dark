@@ -40,17 +40,28 @@ var crewData = {
 				crew_xp_condition: "crew_assassins_xp_condition",
 				hunting_grounds_type: "crew_assassins_hunting_grounds_type",
 				hunting_grounds_description: "crew_assassins_hunting_grounds_description",
-				upgrade_1_desc: "crew_upgrade_hardened",
-				upgrade_2_desc: "crew_upgrade_assassin_rigging",
-				upgrade_2_tall: "on",
-				upgrade_3_desc: "crew_upgrade_ironhook_contacts",
-				upgrade_3_tall: "on",
-				upgrade_4_desc: "crew_upgrade_elite_skulks",
-				upgrade_5_desc: "crew_upgrade_elite_thugs",
-				upgrade_20_check: "on",
-				upgrade_21_check: "on",
+				upgrade_20_check_1: "on",
+				upgrade_21_check_1: "on",
 				xp_condition: "crew_assassins_xp_condition"
-			}
+			},
+			upgrades: [{
+				name: 'crew_upgrade_hardened',
+				numboxes: '3'
+			}, {
+				name: 'crew_upgrade_assassin_rigging',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_ironhook_contacts',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_elite_skulks',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_elite_thugs',
+				numboxes: '1',
+			}]
 		},
 		bravos: {
 			abilities: ["dangerous", "blood_brothers", "door_kickers", "fiends", "forged_in_the_fire", "patron", "war_dogs"],
@@ -87,16 +98,27 @@ var crewData = {
 				crew_xp_condition: "crew_bravos_xp_condition",
 				hunting_grounds_type: "crew_bravos_hunting_grounds_type",
 				hunting_grounds_description: "crew_bravos_hunting_grounds_description",
-				upgrade_1_desc: "crew_upgrade_hardened",
-				upgrade_2_desc: "crew_upgrade_bravos_rigging",
-				upgrade_2_tall: "on",
-				upgrade_3_desc: "crew_upgrade_ironhook_contacts",
-				upgrade_3_tall: "on",
-				upgrade_4_desc: "crew_upgrade_elite_rovers",
-				upgrade_5_desc: "crew_upgrade_elite_thugs",
-				upgrade_21_check: "on",
+				upgrade_21_check_1: "on",
 				xp_condition: "crew_bravos_xp_condition"
-			}
+			},
+			upgrades: [{
+				name: 'crew_upgrade_hardened',
+				numboxes: '3'
+			}, {
+				name: 'crew_upgrade_bravos_rigging',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_ironhook_contacts',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_elite_rovers',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_elite_thugs',
+				numboxes: '1',
+			}]
 		},
 		cult: {
 			abilities: ["chosen", "anointed", "bound_in_darkness", "conviction", "glory_incarnate", "sealed_in_blood", "zealotry"],
@@ -136,15 +158,26 @@ var crewData = {
 				hunting_grounds_type: "crew_cult_hunting_grounds_type",
 				hunting_grounds_description: "crew_cult_hunting_grounds_description",
 				setting_show_deity: "on",
-				upgrade_1_desc: "crew_upgrade_ordained",
-				upgrade_2_desc: "crew_upgrade_cult_rigging",
-				upgrade_2_tall: "on",
-				upgrade_3_desc: "crew_upgrade_ritual_sanctum_in_lair",
-				upgrade_4_desc: "crew_upgrade_elite_adepts",
-				upgrade_5_desc: "crew_upgrade_elite_thugs",
-				upgrade_22_check: "on",
+				upgrade_22_check_1: "on",
 				xp_condition: "crew_cult_xp_condition"
-			}
+			},
+			upgrades: [{
+				name: 'crew_upgrade_ordained',
+				numboxes: '3'
+			}, {
+				name: 'crew_upgrade_cult_rigging',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_ritual_sanctum_in_lair',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_elite_adepts',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_elite_thugs',
+				numboxes: '1',
+			}]
 		},
 		hawkers: {
 			abilities: ["silver_tongues", "accord", "the_good_stuff", "ghost_market", "high_society", "hooked", "patron"],
@@ -183,17 +216,28 @@ var crewData = {
 				crew_xp_condition: "crew_hawkers_xp_condition",
 				hunting_grounds_type: "crew_hawkers_hunting_grounds_type",
 				hunting_grounds_description: "crew_hawkers_hunting_grounds_description",
-				upgrade_1_desc: "crew_upgrade_composed",
-				upgrade_2_desc: "crew_upgrade_hawker's_rigging",
-				upgrade_2_tall: "on",
-				upgrade_3_desc: "crew_upgrade_ironhook_contacts",
-				upgrade_3_tall: "on",
-				upgrade_4_desc: "crew_upgrade_elite_rooks",
-				upgrade_5_desc: "crew_upgrade_elite_thugs",
-				upgrade_14_check: "on",
-				upgrade_22_check: "on",
+				upgrade_14_check_1: "on",
+				upgrade_22_check_1: "on",
 				xp_condition: "crew_hawkers_xp_condition"
-			}
+			},
+			upgrades: [{
+				name: 'crew_upgrade_composed',
+				numboxes: '3'
+			}, {
+				name: 'crew_upgrade_hawker\'s_rigging',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_ironhook_contacts',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_elite_rooks',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_elite_thugs',
+				numboxes: '1',
+			}]
 		},
 		shadows: {
 			abilities: ["everyone_steals", "ghost_echoes", "pack_rats", "patron", "second_story", "slippery", "synchronized"],
@@ -231,16 +275,27 @@ var crewData = {
 				crew_xp_condition: "crew_shadows_xp_condition",
 				hunting_grounds_type: "crew_shadows_hunting_grounds_type",
 				hunting_grounds_description: "crew_shadows_hunting_grounds_description",
-				upgrade_1_desc: "crew_upgrade_steady",
-				upgrade_2_desc: "crew_upgrade_thief_rigging",
-				upgrade_2_tall: "on",
-				upgrade_3_desc: "crew_upgrade_underground_maps_&_passkeys",
-				upgrade_4_desc: "crew_upgrade_elite_rooks",
-				upgrade_5_desc: "crew_upgrade_elite_skulks",
-				upgrade_10_check: "on",
-				upgrade_21_check: "on",
+				upgrade_10_check_1: "on",
+				upgrade_21_check_1: "on",
 				xp_condition: "crew_shadows_xp_condition"
-			}
+			},
+			upgrades: [{
+				name: 'crew_upgrade_steady',
+				numboxes: '3'
+			}, {
+				name: 'crew_upgrade_thief_rigging',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_underground_maps_&_passkeys',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_elite_rooks',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_elite_skulks',
+				numboxes: '1',
+			}]
 		},
 		smugglers: {
 			abilities: ["like_part_of_the_family", "all_hands", "ghost_passage", "just_passing_through", "leverage", "reavers", "renegades"],
@@ -275,25 +330,36 @@ var crewData = {
 				claim_bridge_12_13: 0,
 				claim_bridge_13_14: 0,
 				cohort1_name: "vehicle",
-				cohort1_subtype: "Boat - Carriage - Other",
+				cohort1_subtype: "boat_carriage_other",
 				cohort1_type: "expert",
 				crew_description: "crew_smugglers_description",
 				crew_xp_condition: "crew_smugglers_xp_condition",
 				hunting_grounds_type: "crew_smugglers_hunting_grounds_type",
 				hunting_grounds_description: "crew_smugglers_hunting_grounds_description",
-				upgrade_1_desc: "crew_upgrade_steady",
-				upgrade_2_desc: "crew_upgrade_smuggler's_rigging",
-				upgrade_2_tall: "on",
-				upgrade_3_desc: "crew_upgrade_camouflage",
-				upgrade_3_tall: "on",
-				upgrade_4_desc: "crew_upgrade_elite_rovers",
-				upgrade_5_desc: "crew_upgrade_barge",
-				upgrade_6_check: "on",
-				upgrade_6_desc: "vehicle",
-				upgrade_8_desc: "vehicle",
-				upgrade_21_check: "on",
+				upgrade_6_check_1: "on",
+				upgrade_6_name: "vehicle",
+				upgrade_8_name: "vehicle",
+				upgrade_21_check_1: "on",
 				xp_condition: "crew_smugglers_xp_condition"
-			}
+			},
+			upgrades: [{
+				name: 'crew_upgrade_steady',
+				numboxes: '3'
+			}, {
+				name: 'crew_upgrade_smuggler\'s_rigging',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_camouflage',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_elite_rovers',
+				numboxes: '1'
+			}, {
+				name: 'crew_upgrade_barge',
+				numboxes: '1',
+			}]
 		},
 		vigilantes: {
 			abilities: ["as_good_as_your_word", "avengers", "thorn_in_your_side", "misdirection", "uncanny_preparation", "moral_compass", "favors", "roots"],
@@ -336,16 +402,28 @@ var crewData = {
 				hunting_grounds_type: "crew_vigilantes_hunting_grounds_type",
 				hunting_grounds_description: "crew_vigilantes_hunting_grounds_description",
 				setting_show_origin: "on",
-				upgrade_1_desc: "crew_upgrade_unbroken",
-				upgrade_2_desc: "crew_upgrade_vigilantes_attire",
-				upgrade_2_tall: "on",
-				upgrade_3_desc: "crew_upgrade_irregulars",
-				upgrade_3_tall: "on",
-				upgrade_4_desc: "crew_upgrade_willing_to_fight",
-				upgrade_5_desc: "crew_upgrade_spark-craft_technology",
-				upgrade_22_check: "on",
+				upgrade_22_check_1: "on",
 				xp_condition: "crew_vigilantes_xp_condition"
-			}
+			},
+			upgrades: [{
+				name: 'crew_upgrade_unbroken',
+				numboxes: '3'
+			}, {
+				name: 'crew_upgrade_vigilantes_attire',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_irregulars',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_willing_to_fight',
+				numboxes: '1',
+				tall: 'on'
+			}, {
+				name: 'crew_upgrade_spark-craft_technology',
+				numboxes: '1',
+			}]
 		}
 	},
 	playbookData = {
@@ -1122,24 +1200,24 @@ var crewData = {
 		friends_title: 'friends',
 		setting_stress_label: 'stress',
 		setting_trauma_label: 'trauma',
-		upgrade_6_desc: 'carriage',
-		upgrade_7_desc: 'documents',
-		upgrade_8_desc: 'boat',
-		upgrade_9_desc: 'gear',
-		upgrade_10_desc: 'hidden',
-		upgrade_11_desc: 'implements',
-		upgrade_12_desc: 'quarters',
-		upgrade_13_desc: 'supplies',
-		upgrade_14_desc: 'secure',
-		upgrade_15_desc: 'tools',
-		upgrade_16_desc: 'vault',
-		upgrade_17_desc: 'weapons',
-		upgrade_18_desc: 'workshop',
-		upgrade_20_desc: 'insight',
-		upgrade_21_desc: 'prowess',
-		upgrade_22_desc: 'resolve',
-		upgrade_23_desc: 'personal',
-		upgrade_24_desc: 'mastery',
+		upgrade_6_name: 'carriage',
+		upgrade_7_name: 'documents',
+		upgrade_8_name: 'boat',
+		upgrade_9_name: 'gear',
+		upgrade_10_name: 'hidden',
+		upgrade_11_name: 'implements',
+		upgrade_12_name: 'quarters',
+		upgrade_13_name: 'supplies',
+		upgrade_14_name: 'secure',
+		upgrade_15_name: 'tools',
+		upgrade_16_name: 'vault',
+		upgrade_17_name: 'weapons',
+		upgrade_18_name: 'workshop',
+		upgrade_20_name: 'insight',
+		upgrade_21_name: 'prowess',
+		upgrade_22_name: 'resolve',
+		upgrade_23_name: 'personal',
+		upgrade_24_name: 'mastery',
 		xp_condition2: 'xp_beliefs',
 		xp_condition3: 'xp_vice'
 	};
@@ -1150,15 +1228,14 @@ Object.keys(crewData).forEach(crew => {
 		translatedBaseAttributes = [
 			...[...Array(16).keys()].slice(1).map(i => `claim_${i}_name`),
 			...[...Array(16).keys()].slice(1).map(i => `claim_${i}_desc`),
-			...[...Array(6).keys()].slice(1).map(i => `upgrade_${i}_desc`),
 			'cohort1_name',
 			'cohort1_subtype',
 			'crew_description',
 			'crew_xp_condition',
 			'hunting_grounds_type',
 			'hunting_grounds_description',
-			'upgrade_6_desc',
-			'upgrade_8_desc'
+			'upgrade_6_name',
+			'upgrade_8_name'
 		];
 	Object.keys(base).forEach(attr => {
 		if (translatedBaseAttributes.includes(attr)) {
@@ -1172,6 +1249,10 @@ Object.keys(crewData).forEach(crew => {
 		name: getTranslationByKey(`crew_ability_${name}`),
 		description: getTranslationByKey(`crew_ability_${name}_description`)
 	}));
+	crewData[crew].upgrades.forEach(upgrade => {
+		upgrade.name = getTranslationByKey(upgrade.name);
+		upgrade.boxes_chosen = 'on';
+	});
 });
 /* Translate itemData */
 itemData.forEach(item => {
@@ -1297,6 +1378,7 @@ on('change:crew_type change:playbook', event => {
 				emptyFirstRowIfUnnamed('crewability');
 				fillRepeatingSectionFromData('contact', crewData[sourceName].contacts);
 				fillRepeatingSectionFromData('crewability', crewData[sourceName].abilities);
+				fillRepeatingSectionFromData('upgrade', crewData[sourceName].upgrades);
 			};
 			break;
 		case 'playbook':
@@ -1458,20 +1540,21 @@ on(repeatingQualityEvent + ' ' + ['name', 'subtype', 'edges', 'flaws', 'descript
 	});
 });
 /* LEFT-FILL CHECKBOXES */
-var handleFourBoxesFill = name => {
+var handleFourBoxesFill = (name, activeValue) => {
 	'use strict';
+	activeValue = activeValue || '1';
 	on(`change:${name}1 change:${name}2 change:${name}3 change:${name}4`, event => {
 		getAttrs([event.sourceAttribute], v => {
 			let rName = event.sourceAttribute.slice(0, -1);
-			if (v[event.sourceAttribute] === '1') {
+			if (v[event.sourceAttribute] === activeValue) {
 				let setting = {};
 				switch (event.sourceAttribute.slice(-1)) {
 				case '4':
-					setting[`${rName}3`] = '1';
+					setting[`${rName}3`] = activeValue;
 				case '3':
-					setting[`${rName}2`] = '1';
+					setting[`${rName}2`] = activeValue;
 				case '2':
-					setting[`${rName}1`] = '1';
+					setting[`${rName}1`] = activeValue;
 				};
 				setAttrs(setting);
 			};
@@ -1494,10 +1577,9 @@ var handleFourBoxesFill = name => {
 actionsFlat.forEach(handleFourBoxesFill);
 /* Crew Tier */
 handleFourBoxesFill('crew_tier');
+handleFourBoxesFill('upgrade_24_check_', 'on');
 /* Items/Upgrades */
 var legacyChecks = [
-	'upgrade_1_check',
-	'upgrade_24_check',
 	'bandolier1_check',
 	'bandolier2_check'
 ];
@@ -1536,7 +1618,7 @@ legacyChecks.forEach(name => {
 		});
 	});
 });
-['item', 'playbookitem'].forEach(sectionName => {
+['item', 'playbookitem', 'upgrade'].forEach(sectionName => {
 	on([1, 2, 3].map(x => `change:repeating_${sectionName}:check_${x}`).join(' '), event => {
 		getAttrs([event.sourceAttribute], v => {
 			let rName = event.sourceAttribute.slice(0, -1),
@@ -1854,11 +1936,89 @@ on('sheet:opened', () => {
 				fillRepeatingSectionFromData('item', items);
 			});
 		};
+		// Upgrade to 1.6: Set defaults, convert upgrade names
 		if (v.version && (parseInt(v.version.split('.')[0]) < 1 || (parseInt(v.version.split('.')[0]) === 1 && parseInt(v.version.split('.')[1]) < 6))) {
-			getAttrs(Object.keys(defaultValues), v => {
+			let upgradeNums = [...Array(25).keys()].slice(1).filter(x => x !== 19),
+				upgradeAttrs = [
+					...upgradeNums.map(x => `upgrade_${x}_desc`),
+					...upgradeNums.map(x => `upgrade_${x}_check`),
+					'upgrade_1_check_b',
+					'upgrade_1_check_c',
+					'upgrade_2_tall',
+					'upgrade_3_tall',
+					'upgrade_6_check_b',
+					'upgrade_8_check_b',
+					'upgrade_14_check_b',
+					'upgrade_16_check_b',
+					'upgrade_24_check_b',
+					'upgrade_24_check_c',
+					'upgrade_24_check_d',
+					...Object.keys(defaultValues)
+				];
+			getAttrs(upgradeAttrs, v => {
+				// Repeating / specific upgrades
+				let upgrades = [{
+					check_1: v['upgrade_1_check'] || '0',
+					check_2: v['upgrade_1_check_b'] || '0',
+					check_3: v['upgrade_1_check_c'] || '0',
+					name: v['upgrade_1_desc'] || '',
+					numboxes: '3'
+				}, {
+					check_1: v['upgrade_2_check'] || '0',
+					name: v['upgrade_2_desc'] || '',
+					numboxes: '1',
+					tall: v['upgrade_2_tall'] || '0'
+				}, {
+					check_1: v['upgrade_3_check'] || '0',
+					name: v['upgrade_3_desc'] || '',
+					numboxes: '1',
+					tall: v['upgrade_3_tall'] || '0'
+				}, {
+					check_1: v['upgrade_4_check'] || '0',
+					name: v['upgrade_4_desc'] || '',
+					numboxes: '1'
+				}, {
+					check_1: v['upgrade_5_check'] || '0',
+					name: v['upgrade_5_desc'] || '',
+					numboxes: '1'
+				}];
+				upgrades.forEach(obj => {
+					obj['boxes_chosen'] = 'on';
+				});
+				getSectionIDs('upgrade', idList => {
+					let allAttrs = [
+						...idList.map(x => `repeating_upgrade_${x}_desc`),
+						...idList.map(x => `repeating_upgrade_${x}_check`),
+						...idList.map(x => `repeating_upgrade_${x}_check_b`)
+					];
+					getAttrs(allAttrs, v => {
+						let setting = {};
+						idList.forEach(id => {
+							setting[`repeating_upgrade_${id}_name`] = v[`repeating_upgrade_${id}_desc`] || '';
+							setting[`repeating_upgrade_${id}_check_1`] = v[`repeating_upgrade_${id}_check`] || '';
+							setting[`repeating_upgrade_${id}_check_2`] = v[`repeating_upgrade_${id}_check_b`] || '';
+							setting[`repeating_upgrade_${id}_numboxes`] = '2';
+							setting[`repeating_upgrade_${id}_boxes_chosen`] = 'on';
+						});
+						setAttrs(setting);
+						fillRepeatingSectionFromData('upgrade', upgrades);
+					});
+				});
+				// Common upgrades
 				let setting = {};
+				upgradeNums.slice(5).forEach(index => {
+					setting[`upgrade_${index}_name`] = v[`upgrade_${index}_desc`] || '';
+					setting[`upgrade_${index}_check_1`] = v[`upgrade_${index}_check`] || '0';
+				});
+				setting[`upgrade_6_check_2`] = v[`upgrade_6_check_b`] || '0';
+				setting[`upgrade_8_check_2`] = v[`upgrade_8_check_b`] || '0';
+				setting[`upgrade_14_check_2`] = v[`upgrade_14_check_b`] || '0';
+				setting[`upgrade_16_check_2`] = v[`upgrade_16_check_b`] || '0';
+				setting[`upgrade_24_check_2`] = v[`upgrade_24_check_b`] || '0';
+				setting[`upgrade_24_check_3`] = v[`upgrade_24_check_c`] || '0';
+				setting[`upgrade_24_check_4`] = v[`upgrade_24_check_d`] || '0';
 				Object.keys(defaultValues).forEach(k => {
-					setting[k] = v[k] || defaultValues[k];
+					setting[k] = v[k] || setting[k] || defaultValues[k];
 				});
 				setAttrs(setting);
 			});

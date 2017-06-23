@@ -510,7 +510,7 @@
 					<div class="sheet-specialability sheet-rep-block">
 						<input type="checkbox" name="attr_check" class="sheet-checkbox sheet-circlebox"/>
 						<span></span>
-						<textarea spellcheck="false"  class="sheet-abilityname" name="attr_name" placeholder="Ability Name" data-i18n-placeholder="ability_name"></textarea>
+						<textarea spellcheck="false" class="sheet-abilityname" name="attr_name" placeholder="Ability Name" data-i18n-placeholder="ability_name"></textarea>
 						<textarea spellcheck="false" class="sheet-abilitydesc" name="attr_description" placeholder="Ability description" data-i18n-placeholder="ability_description"></textarea>
 					</div>
 				</fieldset>
@@ -570,42 +570,42 @@
 			<div class="sheet-loadheader2 sheet-col100">
 				<span class="sheet-label" data-i18n="crew_upgrades">Crew Upgrades</span>
 			</div>
-			<div class="sheet-itemholder sheet-col100 sheet-white-repcontrol sheet-upgrades">
+			<div class="sheet-itemholder sheet-col100 sheet-upgrades">
+				<input type="checkbox" name="attr_setting_show_itemdesc" class="sheet-hidden"/>
 				<!-- Specific upgrades -->
-				<div class="sheet-playbookitems sheet-col100">
-					<div class="sheet-item sheet-item3box">
-						<input type="checkbox" name="attr_upgrade_1_check" class="sheet-checkbox sheet-squarebox"/>
-						<span></span>
-						<span class="sheet-floatingbar"></span>
-						<input type="checkbox" name="attr_upgrade_1_check_b" class="sheet-checkbox sheet-squarebox"/>
-						<span></span>
-						<span class="sheet-floatingbar"></span>
-						<input type="checkbox" name="attr_upgrade_1_check_c" class="sheet-checkbox sheet-squarebox"/>
-						<span></span>
-						<input type="text"  data-i18n-placeholder="three_slot_upgrade" placeholder="Three-slot upgrade" name="attr_upgrade_1_desc"/>
-					</div>
-					<div class="sheet-item">
-						<input type="checkbox" name="attr_upgrade_2_check" class="sheet-checkbox sheet-squarebox"/>
-						<span></span>
-						<input type="checkbox" name="attr_upgrade_2_tall" class="sheet-hidden sheet-item-textarea-tall"/>
-						<textarea spellcheck="false" placeholder="Upgrade" data-i18n-placeholder="upgrade" name="attr_upgrade_2_desc"></textarea>
-					</div>
-					<div class="sheet-item">
-						<input type="checkbox" name="attr_upgrade_3_check" class="sheet-checkbox sheet-squarebox"/>
-						<span></span>
-						<input type="checkbox" name="attr_upgrade_3_tall" class="sheet-hidden sheet-item-textarea-tall"/>
-						<textarea spellcheck="false" placeholder="Upgrade" data-i18n-placeholder="upgrade" name="attr_upgrade_3_desc"></textarea>
-					</div>
-					<div class="sheet-item">
-						<input type="checkbox" name="attr_upgrade_4_check" class="sheet-checkbox sheet-squarebox"/>
-						<span></span>
-						<input type="text" placeholder="Upgrade" data-i18n-placeholder="upgrade" name="attr_upgrade_4_desc"/>
-					</div>
-					<div class="sheet-item">
-						<input type="checkbox" name="attr_upgrade_5_check" class="sheet-checkbox sheet-squarebox"/>
-						<span></span>
-						<input type="text" placeholder="Upgrade" data-i18n-placeholder="upgrade" name="attr_upgrade_5_desc"/>
-					</div>
+				<div class="sheet-playbookitems sheet-small-repcontrol sheet-col100">
+					<fieldset class="repeating_upgrade">
+						<input type="checkbox" name="attr_boxes_chosen" class="sheet-hidden"/>
+						<div class="sheet-item">
+							<span data-i18n="how_many_boxes">How many boxes?</span>
+							<div class="sheet-numboxes-chooser">
+								<input type="number" name="attr_numboxes" min="1" max="3"/>
+								<input type="checkbox" name="attr_tall"/>
+								<span data-i18n="tall">tall</span>
+								<input type="checkbox" name="attr_boxes_chosen"/>
+								<span data-i18n="ok">OK</span>
+							</div>
+						</div>
+						<div class="sheet-item sheet-repeating-item">
+							<input type="checkbox" name="attr_tall" class="sheet-hidden"/>
+							<input type="checkbox" name="attr_numboxes" class="sheet-hidden" value="1" checked/>
+							<input type="checkbox" name="attr_numboxes" class="sheet-hidden" value="2"/>
+							<input type="checkbox" name="attr_numboxes" class="sheet-hidden" value="3"/>
+							<input type="checkbox" name="attr_check_1" class="sheet-checkbox sheet-squarebox"/>
+							<span></span>
+							<span class="sheet-floatingbar sheet-boxesgeq2"></span>
+							<input type="checkbox" name="attr_check_2" class="sheet-checkbox sheet-squarebox sheet-boxesgeq2"/>
+							<span class="sheet-boxesgeq2"></span>
+							<span class="sheet-floatingbar sheet-boxesgeq3 sheet-boxesgeq2"></span>
+							<input type="checkbox" name="attr_check_3" class="sheet-checkbox sheet-squarebox sheet-boxesgeq3 sheet-boxesgeq2"/>
+							<span class="sheet-boxesgeq3 sheet-boxesgeq2"></span>
+							<input type="checkbox" name="attr_tall" class="sheet-hidden sheet-item-textarea-tall"/>
+							<textarea spellcheck="false" data-i18n-placeholder="an_upgrade" placeholder="An upgrade" name="attr_name" class="sheet-upgradename"></textarea>
+							<input type="checkbox" name="attr_expand" class="sheet-expand"/>
+							<span></span>
+							<textarea spellcheck="false" name="attr_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
+						</div>
+					</fieldset>
 				</div>
 				<!-- Regular upgrades -->
 				<div class="sheet-regularitems sheet-col100">
@@ -616,77 +616,116 @@
 						<span class="sheet-label" data-i18n="quality">Quality</span>
 					</div>
 					<div class="sheet-item sheet-item2box sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_6_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_6_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="checkbox" name="attr_upgrade_6_check_b" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_6_check_2" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_6_desc"/>
+						<input type="text" name="attr_upgrade_6_name"/>
+						<input type="checkbox" name="attr_upgrade_6_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_6_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_7_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_7_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_7_desc"/>
+						<input type="text" name="attr_upgrade_7_name"/>
+						<input type="checkbox" name="attr_upgrade_7_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_7_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-item2box sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_8_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_8_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="checkbox" name="attr_upgrade_8_check_b" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_8_check_2" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_8_desc"/>
+						<input type="text" name="attr_upgrade_8_name"/>
+						<input type="checkbox" name="attr_upgrade_8_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_8_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_9_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_9_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_9_desc"/>
+						<input type="text" name="attr_upgrade_9_name"/>
+						<input type="checkbox" name="attr_upgrade_9_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_9_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_10_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_10_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_10_desc"/>
+						<input type="text" name="attr_upgrade_10_name"/>
+						<input type="checkbox" name="attr_upgrade_10_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_10_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_11_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_11_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_11_desc"/>
+						<input type="text" name="attr_upgrade_11_name"/>
+						<input type="checkbox" name="attr_upgrade_11_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_11_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_12_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_12_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_12_desc"/>
+						<input type="text" name="attr_upgrade_12_name"/>
+						<input type="checkbox" name="attr_upgrade_12_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_12_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_13_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_13_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_13_desc"/>
+						<input type="text" name="attr_upgrade_13_name"/>
+						<input type="checkbox" name="attr_upgrade_13_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_13_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-item2box sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_14_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_14_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="checkbox" name="attr_upgrade_14_check_b" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_14_check_2" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_14_desc"/>
+						<input type="text" name="attr_upgrade_14_name"/>
+						<input type="checkbox" name="attr_upgrade_14_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_14_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_15_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_15_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_15_desc"/>
+						<input type="text" name="attr_upgrade_15_name"/>
+						<input type="checkbox" name="attr_upgrade_15_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_15_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-item2box sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_16_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_16_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="checkbox" name="attr_upgrade_16_check_b" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_16_check_2" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_16_desc"/>
+						<input type="text" name="attr_upgrade_16_name"/>
+						<input type="checkbox" name="attr_upgrade_16_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_16_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_17_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_17_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_17_desc"/>
+						<input type="text" name="attr_upgrade_17_name"/>
+						<input type="checkbox" name="attr_upgrade_17_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_17_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_18_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_18_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_18_desc"/>
+						<input type="text" name="attr_upgrade_18_name"/>
+						<input type="checkbox" name="attr_upgrade_18_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_18_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
 					</div>
@@ -697,62 +736,68 @@
 						<span class="sheet-label" data-i18n="cohorts">Cohorts</span>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_20_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_20_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_20_desc"/>
+						<input type="text" name="attr_upgrade_20_name"/>
+						<input type="checkbox" name="attr_upgrade_20_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_20_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
 						<span class="sheet-label sheet-upgradecosts" data-i18n="upgrade_costs">Upgrade Costs</span>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_21_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_21_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_21_desc"/>
+						<input type="text" name="attr_upgrade_21_name"/>
+						<input type="checkbox" name="attr_upgrade_21_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_21_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
 						<span data-i18n="new_cohort">New Cohort: 2</span>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_22_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_22_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_22_desc"/>
+						<input type="text" name="attr_upgrade_22_name"/>
+						<input type="checkbox" name="attr_upgrade_22_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_22_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-itemshort">
 						<span data-i18n="add_type">Add Type: 2</span>
 					</div>
 					<div class="sheet-item sheet-itemshort">
-						<input type="checkbox" name="attr_upgrade_23_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_23_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_23_desc"/>
+						<input type="text" name="attr_upgrade_23_name"/>
+						<input type="checkbox" name="attr_upgrade_23_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_23_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
 					<div class="sheet-item sheet-item4box">
-						<input type="checkbox" name="attr_upgrade_24_check" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_24_check_1" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<span class="sheet-floatingbar"></span>
-						<input type="checkbox" name="attr_upgrade_24_check_b" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_24_check_2" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<span class="sheet-floatingbar"></span>
-						<input type="checkbox" name="attr_upgrade_24_check_c" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_24_check_3" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
 						<span class="sheet-floatingbar"></span>
-						<input type="checkbox" name="attr_upgrade_24_check_d" class="sheet-checkbox sheet-squarebox"/>
+						<input type="checkbox" name="attr_upgrade_24_check_4" class="sheet-checkbox sheet-squarebox"/>
 						<span></span>
-						<input type="text" name="attr_upgrade_24_desc"/>
+						<input type="text" name="attr_upgrade_24_name"/>
+						<input type="checkbox" name="attr_upgrade_24_expand" class="sheet-expand"/>
+						<span></span>
+						<textarea spellcheck="false" name="attr_upgrade_24_description" data-i18n-placeholder="description" placeholder="Description"></textarea>
 					</div>
-					<fieldset class="repeating_upgrade">
-						<div class="sheet-item sheet-item2box">
-							<input type="checkbox" name="attr_check" class="sheet-checkbox sheet-squarebox"/>
-							<span></span>
-							<input type="checkbox" name="attr_check_b" class="sheet-checkbox sheet-squarebox"/>
-							<span></span>
-							<input type="text" placeholder="Something Else?" name="attr_desc"/>
-						</div>
-					</fieldset>
 				</div>
 			</div>
 			<div class="sheet-hunting-grounds sheet-plainheader sheet-col100 sheet-def-margin">
 				<input type="text" class="sheet-label" name="attr_hunting_grounds_type" placeholder="Hunting Grounds:" data-i18n-placeholder="hunting_grounds:"/>
-				<textarea name="attr_hunting_grounds_description" data-i18n-placeholder="hunting_grounds_description" placeholder="Robbery"></textarea>
+				<textarea spellcheck="false" name="attr_hunting_grounds_description" data-i18n-placeholder="hunting_grounds_description" placeholder="Robbery"></textarea>
 			</div>
 		</div>
 		<!-- Cohorts and Contacts -->
