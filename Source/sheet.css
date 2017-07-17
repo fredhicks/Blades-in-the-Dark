@@ -1325,7 +1325,7 @@ input.sheet-radiobox.sheet-last + span {
 }
 .sheet-white-repcontrol button.repcontrol_edit, .sheet-white-repcontrol button.repcontrol_add {
 	background-color: white;
-	margin-top: 12px;
+	margin-top: 10px;
 }
 .sheet-small-repcontrol button.repcontrol_edit, .sheet-small-repcontrol button.repcontrol_add,
 .sheet-white-repcontrol button.repcontrol_edit, .sheet-white-repcontrol button.repcontrol_add {
@@ -1948,7 +1948,6 @@ input:checked + .sheet-claimbox {
 .sheet-claims div.repcontrol {
 	float: left;
 	width: 100%;
-	margin-top: 5px;
 }
 .sheet-claims div.repcontainer {
 	float: left;
@@ -1957,9 +1956,6 @@ input:checked + .sheet-claimbox {
 .sheet-claims div.repitem {
   display: inline-block;
   width: 100%;
-}
-.sheet-claims button.repcontrol_edit, .sheet-claims button.repcontrol_add {
-	padding: 4px 3px 0;
 }
 /* STRICTURES */
 .sheet-strictures div {
