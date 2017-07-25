@@ -5,7 +5,7 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 ## Changelog
 
 ### 1.9
-* Clock sides are now clickable
+* Clock segments are now clickable
 * Moved the healing clock to the other column of the harm/armor/coin container
 
 ### 1.8
