@@ -41,8 +41,7 @@ var crewData = {
 				hunting_grounds_type: "crew_assassins_hunting_grounds_type",
 				hunting_grounds_description: "crew_assassins_hunting_grounds_description",
 				upgrade_20_check_1: "on",
-				upgrade_21_check_1: "on",
-				xp_condition: "crew_assassins_xp_condition"
+				upgrade_21_check_1: "on"
 			},
 			upgrades: [{
 				name: 'crew_upgrade_hardened',
@@ -98,8 +97,7 @@ var crewData = {
 				crew_xp_condition: "crew_bravos_xp_condition",
 				hunting_grounds_type: "crew_bravos_hunting_grounds_type",
 				hunting_grounds_description: "crew_bravos_hunting_grounds_description",
-				upgrade_21_check_1: "on",
-				xp_condition: "crew_bravos_xp_condition"
+				upgrade_21_check_1: "on"
 			},
 			upgrades: [{
 				name: 'crew_upgrade_hardened',
@@ -158,8 +156,7 @@ var crewData = {
 				hunting_grounds_type: "crew_cult_hunting_grounds_type",
 				hunting_grounds_description: "crew_cult_hunting_grounds_description",
 				setting_show_deity: "on",
-				upgrade_22_check_1: "on",
-				xp_condition: "crew_cult_xp_condition"
+				upgrade_22_check_1: "on"
 			},
 			upgrades: [{
 				name: 'crew_upgrade_ordained',
@@ -217,8 +214,7 @@ var crewData = {
 				hunting_grounds_type: "crew_hawkers_hunting_grounds_type",
 				hunting_grounds_description: "crew_hawkers_hunting_grounds_description",
 				upgrade_14_check_1: "on",
-				upgrade_22_check_1: "on",
-				xp_condition: "crew_hawkers_xp_condition"
+				upgrade_22_check_1: "on"
 			},
 			upgrades: [{
 				name: 'crew_upgrade_composed',
@@ -276,8 +272,7 @@ var crewData = {
 				hunting_grounds_type: "crew_shadows_hunting_grounds_type",
 				hunting_grounds_description: "crew_shadows_hunting_grounds_description",
 				upgrade_10_check_1: "on",
-				upgrade_21_check_1: "on",
-				xp_condition: "crew_shadows_xp_condition"
+				upgrade_21_check_1: "on"
 			},
 			upgrades: [{
 				name: 'crew_upgrade_steady',
@@ -339,8 +334,7 @@ var crewData = {
 				upgrade_6_check_1: "on",
 				upgrade_6_name: "vehicle",
 				upgrade_8_name: "vehicle",
-				upgrade_21_check_1: "on",
-				xp_condition: "crew_smugglers_xp_condition"
+				upgrade_21_check_1: "on"
 			},
 			upgrades: [{
 				name: 'crew_upgrade_steady',
@@ -402,8 +396,7 @@ var crewData = {
 				hunting_grounds_type: "crew_vigilantes_hunting_grounds_type",
 				hunting_grounds_description: "crew_vigilantes_hunting_grounds_description",
 				setting_show_origin: "on",
-				upgrade_22_check_1: "on",
-				xp_condition: "crew_vigilantes_xp_condition"
+				upgrade_22_check_1: "on"
 			},
 			upgrades: [{
 				name: 'crew_upgrade_unbroken',
