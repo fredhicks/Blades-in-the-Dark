@@ -769,6 +769,7 @@ span.sheet-viceblurb {
 }
 .sheet-clockpicture {
 	position: absolute;
+	padding: 2px;
 	margin-top: -38px;
 	z-index: 1;
 	height: 44px;
@@ -785,6 +786,140 @@ span.sheet-viceblurb {
 	display: none;
 	margin-top: 10px;
 }
+/* Positioning inputs on clocks */
+.sheet-clockpicture input:checked {
+	display: none;
+}
+.sheet-4clock .sheet-clockpicture input {
+	height: 20px;
+	width: 20px;
+}
+.sheet-4clock .sheet-clockpicture input[value="1"] {
+	margin-left: 20px;
+}
+.sheet-4clock .sheet-clockpicture input[value="2"] {
+	margin: 20px 0 0 20px;
+}
+.sheet-4clock .sheet-clockpicture input[value="3"] {
+	margin-top: 20px;
+}
+.sheet-6clock .sheet-clockpicture input {
+	height: 17px;
+	width: 12px;
+}
+.sheet-6clock .sheet-clockpicture input[value="1"] {
+	margin-left: 21px;
+	transform: rotate(30deg);
+}
+.sheet-6clock .sheet-clockpicture input[value="2"] {
+	margin: 12px 0 0 25px;
+	transform: rotate(90deg);
+}
+.sheet-6clock .sheet-clockpicture input[value="3"] {
+	margin: 22px 0 0 21px;
+	transform: rotate(150deg);
+}
+.sheet-6clock .sheet-clockpicture input[value="4"] {
+	margin: 22px 0 0 8px;
+	transform: rotate(210deg);
+}
+.sheet-6clock .sheet-clockpicture input[value="5"] {
+	margin: 12px 0 0 1px;
+	transform: rotate(270deg);
+}
+.sheet-6clock .sheet-clockpicture input[value="6"] {
+	margin-left: 8px;
+	transform: rotate(330deg);
+}
+.sheet-8clock .sheet-clockpicture input {
+	height: 14px;
+	width: 10px;
+}
+.sheet-8clock .sheet-clockpicture input[value="1"] {
+	margin-left: 20px;
+	transform: rotate(22.5deg);
+}
+.sheet-8clock .sheet-clockpicture input[value="2"] {
+	margin: 8px 0 0 26px;
+	transform: rotate(67.5deg);
+}
+.sheet-8clock .sheet-clockpicture input[value="3"] {
+	margin: 18px 0 0 26px;
+	transform: rotate(112.5deg);
+}
+.sheet-8clock .sheet-clockpicture input[value="4"] {
+	margin: 25px 0 0 20px;
+	transform: rotate(157.5deg);
+}
+.sheet-8clock .sheet-clockpicture input[value="5"] {
+	margin: 25px 0 0 9px;
+	transform: rotate(202.5deg);
+}
+.sheet-8clock .sheet-clockpicture input[value="6"] {
+	margin: 18px 0 0 2px;
+	transform: rotate(247.5deg);
+}
+.sheet-8clock .sheet-clockpicture input[value="7"] {
+	margin: 8px 0 0 2px;
+	transform: rotate(292.5deg);
+}
+.sheet-8clock .sheet-clockpicture input[value="8"] {
+	margin-left: 9px;
+	transform: rotate(337.5deg);
+}
+.sheet-12clock .sheet-clockpicture input {
+	height: 12px;
+	width: 8px;
+}
+.sheet-12clock .sheet-clockpicture input[value="1"] {
+	margin-left: 20px;
+	transform: rotate(15deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="2"] {
+	margin: 4px 0 0 26px;
+	transform: rotate(45deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="3"] {
+	margin: 10px 0 0 29px;
+	transform: rotate(75deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="4"] {
+	margin: 18px 0 0 29px;
+	transform: rotate(105deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="5"] {
+	margin: 24px 0 0 26px;
+	transform: rotate(135deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="6"] {
+	margin: 28px 0 0 20px;
+	transform: rotate(165deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="7"] {
+	margin: 28px 0 0 12px;
+	transform: rotate(195deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="8"] {
+	margin: 24px 0 0 6px;
+	transform: rotate(225deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="9"] {
+	margin: 18px 0 0 3px;
+	transform: rotate(255deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="10"] {
+	margin: 10px 0 0 3px;
+	transform: rotate(295deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="11"] {
+	margin: 4px 0 0 6px;
+	transform: rotate(315deg);
+}
+.sheet-12clock .sheet-clockpicture input[value="12"] {
+	margin-left: 12px;
+	transform: rotate(345deg);
+}
+/* End positioning */
 input[value="4"]:checked ~ .sheet-4clock,
 input[value="6"]:checked ~ .sheet-6clock,
 input[value="8"]:checked ~ .sheet-8clock,
