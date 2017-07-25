@@ -203,9 +203,8 @@
 		</div>
 		<!-- Harm, Recovery, Armor, Coin -->
 		<div class="sheet-col100 sheet-def-margin">
-			<!-- Harm and Recovery -->
+			<!-- Harm -->
 			<div class="sheet-harm sheet-col68">
-				<!-- Harm -->
 				<div class="sheet-blackheader sheet-harmheader sheet-col100">
 					<div class="sheet-label" data-i18n="harm"></div>
 				</div>
@@ -213,7 +212,7 @@
 					<div class="sheet-label">3</div>
 					<div>
 						<div class="sheet-col100">
-							<input type="text" name="attr_harm3"/>
+							<textarea spellcheck="false" name="attr_harm3"></textarea>
 						</div>
 					</div>
 					<div class="sheet-label" data-i18n="need_help"></div>
@@ -222,10 +221,10 @@
 					<div class="sheet-label">2</div>
 					<div>
 						<div class="sheet-col50">
-							<input type="text" name="attr_harm2_1"/>
+							<textarea spellcheck="false" name="attr_harm2_1"></textarea>
 						</div>
 						<div class="sheet-col50">
-							<input type="text" name="attr_harm2_2"/>
+							<textarea spellcheck="false" name="attr_harm2_2"></textarea>
 						</div>
 					</div>
 					<div class="sheet-label" data-i18n="minus1d"></div>
@@ -234,60 +233,61 @@
 					<div class="sheet-label">1</div>
 					<div>
 						<div class="sheet-col50">
-							<input type="text" name="attr_harm1_1"/>
+							<textarea spellcheck="false" name="attr_harm1_1"></textarea>
 						</div>
 						<div class="sheet-col50">
-							<input type="text" name="attr_harm1_2"/>
+							<textarea spellcheck="false" name="attr_harm1_2"></textarea>
 						</div>
 					</div>
 					<div class="sheet-label" data-i18n="less_effect"></div>
 				</div>
-				<!-- Recovery -->
-				<div class="sheet-recovery">
-					<span class="sheet-bold sheet-label" data-i18n="recovery"></span>
-					<span data-i18n="recoveryblurb"></span>
-					<br/>
-					<div class="sheet-clockprogress sheet-4clock">
-						<span class="sheet-bold sheet-label" data-i18n="progress"></span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="0" checked/>
-						<span>0</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="1"/>
-						<span>1</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="2"/>
-						<span>2</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input" value="3"/>
-						<span>3</span>
-						<input type="radio" name="attr_recovery" class="sheet-text-input sheet-last" value="4"/>
-						<span>4</span>
-						<div class="sheet-clockpicture">
-								<input type="checkbox" name="attr_recovery" value="1"/>
-								<input type="checkbox" name="attr_recovery" value="2"/>
-								<input type="checkbox" name="attr_recovery" value="3"/>
-								<input type="checkbox" name="attr_recovery" value="4"/>
-						</div>
+			</div>
+			<!-- Armor, Healing and Coin -->
+			<div class="sheet-col32">
+				<!-- Healing -->
+				<div class="sheet-col45 sheet-healing sheet-4clock">
+					<div class="sheet-blackheader sheet-col100">
+						<div class="sheet-label" data-i18n="healing"></div>
+					</div>
+					<div class="sheet-col100">
+						<span class="sheet-italic" data-i18n="progress_clock"></span>
+					</div>
+					<input type="checkbox" name="attr_recovery" class="sheet-hidden" value="0" checked/>
+					<input type="checkbox" name="attr_recovery" class="sheet-hidden" value="1"/>
+					<input type="checkbox" name="attr_recovery" class="sheet-hidden" value="2"/>
+					<input type="checkbox" name="attr_recovery" class="sheet-hidden" value="3"/>
+					<input type="checkbox" name="attr_recovery" class="sheet-hidden" value="4"/>
+					<div class="sheet-zeroholder">
+						<input type="radio" value="0" name="attr_recovery" class="sheet-zero" checked/>
+						<span></span>
+					</div>
+					<div class="sheet-clockpicture">
+						<input type="radio" name="attr_recovery" value="1"/>
+						<input type="radio" name="attr_recovery" value="2"/>
+						<input type="radio" name="attr_recovery" value="3"/>
+						<input type="radio" name="attr_recovery" value="4"/>
 					</div>
 				</div>
-			</div>
-			<div class="sheet-col2 sheet-blackborder"></div>
-			<!-- Armor and Coin -->
-			<div class="sheet-col30 sheet-blackborder">
 				<!-- Armor -->
-				<div class="sheet-armor sheet-col100">
-					<div class="sheet-col50">
+				<div class="sheet-armor sheet-col55">
+					<div class="sheet-blackheader sheet-col100">
+						<div class="sheet-label" data-i18n="armor_uses"></div>
+					</div>
+					<div class="sheet-col100">
 						<div class="sheet-label" data-i18n="armor"></div>
 						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_armor" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-col50">
+					<div class="sheet-col100">
 						<div class="sheet-label" data-i18n="+heavy"></div>
 						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_armor_heavy" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-col50">
+					<div class="sheet-col100">
 						<div class="sheet-label sheet-specialarmorlabel" data-i18n="special"></div>
 						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_armor_special" class="sheet-tooth sheet-stresstooth"/>
@@ -320,7 +320,7 @@
 						<div class="sheet-col30 sheet-label" data-i18n="stash"></div>
 					</div>
 					<!-- Stash -->
-					<div class="stashzeroholder">
+					<div class="sheet-stashzeroholder">
 						<input type="radio" value="0" name="attr_stash" class="sheet-zero" checked/>
 						<span></span>
 					</div>
