@@ -1263,9 +1263,8 @@ textarea.sheet-abilitydesc {
 	border-left: 4px solid black;
 }
 /* HEALING AND ARMOR */
-.sheet-healing .sheet-blackheader .sheet-label, 
-.sheet-armor .sheet-blackheader .sheet-label {
-	font-size: 90%;
+.sheet-armor .sheet-blackheader {
+	padding-left: 0;
 }
 .sheet-healing .sheet-italic {
 	font-size: 73%;
@@ -1282,7 +1281,7 @@ textarea.sheet-abilitydesc {
 	color: black;
 	font-size: 88%;
 	font-weight: 800;
-	padding: 5px 0 0 5px;
+	padding: 5px 0 0 13px;
 	width: calc(100% - 10px);
 }
 .sheet-armor > div:nth-child(2), .sheet-armor > div:nth-child(3) {
