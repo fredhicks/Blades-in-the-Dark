@@ -1441,7 +1441,7 @@ input.sheet-radiobox.sheet-last + span {
 	text-align: center;
 }
 /* REPEATING SECTION CONTROLS */
-.charsheet button.repcontrol_edit, .charsheet button.repcontrol_add {
+button.repcontrol_edit, button.repcontrol_add {
 	padding: 6px;
 	background-image: none;
 	background-color: #d6d8d9;
@@ -2025,7 +2025,6 @@ div.sheet-cohort-condition4 {
 	resize: vertical;
 	font-size: 9px;
 	line-height: 11px;
-	font-family: Georgia, Times, "Times New Roman", serif;
 	height: 50px;
 	border-bottom: 1px solid lightgray;
 }
@@ -2079,7 +2078,6 @@ div.sheet-cohort-condition4 {
 	line-height: 10px;
 	height: 30px;
 	font-size: 8px;
-	font-family: Georgia, Times, "Times New Roman", serif;
 }
 .sheet-claimbox div:first-child {
 	float: left;
