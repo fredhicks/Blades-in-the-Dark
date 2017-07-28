@@ -2082,7 +2082,7 @@ div.sheet-cohort-condition4 {
 .sheet-claimbox div:first-child {
 	float: left;
 	position: absolute;
-	margin: 1px 0 0 1px;
+	margin: 56px 0 0 1px;
 	line-height: 0;
 }
 input:checked + .sheet-claimbox {
