@@ -1112,70 +1112,86 @@ const crewData = {
 	},
 	itemData = [{
 			name: 'a_blade_or_two',
+			description: 'a_blade_or_two_description',
 			numboxes: '1'
 		},
 		{
 			name: 'throwing_knives',
+			description: 'throwing_knives_description',
 			numboxes: '1'
 		},
 		{
 			name: 'a_pistol',
+			description: 'a_pistol_description',
 			numboxes: '1',
 			short: 'on'
 		},
 		{
 			name: 'a_2nd_pistol',
+			description: 'a_pistol_description',
 			numboxes: '1',
 			short: 'on'
 		},
 		{
 			name: 'a_large_weapon',
+			description: 'a_large_weapon_description',
 			numboxes: '2'
 		},
 		{
 			name: 'an_unusual_weapon',
+			description: 'an_unusual_weapon_description',
 			numboxes: '1'
 		},
 		{
 			name: 'armor',
+			description: 'armor_description',
 			numboxes: '2',
 			short: 'on'
 		},
 		{
 			name: '+heavy',
+			description: '+heavy_description',
 			numboxes: '3',
 			short: 'on'
 		},
 		{
 			name: 'burglary_gear',
+			description: 'burglary_gear_description',
 			numboxes: '1'
 		},
 		{
 			name: 'climbing_gear',
+			description: 'climbing_gear_description',
 			numboxes: '2'
 		},
 		{
 			name: 'arcane_implements',
+			description: 'arcane_implements_description',
 			numboxes: '1'
 		},
 		{
 			name: 'documents',
+			description: 'documents_description',
 			numboxes: '1'
 		},
 		{
 			name: 'subterfuge_supplies',
+			description: 'subterfuge_supplies_description',
 			numboxes: '1'
 		},
 		{
 			name: 'demolition_tools',
+			description: 'demolition_tools_description',
 			numboxes: '2'
 		},
 		{
 			name: 'tinkering_tools',
+			description: 'tinkering_tools_description',
 			numboxes: '1'
 		},
 		{
 			name: 'lantern',
+			description: 'lantern_description',
 			numboxes: '1'
 		}
 	],
@@ -1269,6 +1285,7 @@ Object.keys(crewData).forEach(crew => {
 itemData.forEach(item => {
 	item.boxes_chosen = 'on';
 	item.name = getTranslationByKey(item.name);
+	item.description = getTranslationByKey(item.description);
 });
 /* Translate defaultValues */
 Object.keys(defaultValues).forEach(k => {
@@ -1995,7 +2012,8 @@ on('sheet:opened', () => {
 			}
 			// Upgrade to 1.9: Add missing upgrade descriptions, convert bandolier checks
 			else if (versionMajor === 1 && versionMinor < 9) {
-				const upgradeNums = [...Array(25).keys()].slice(1).filter(x => x !== 19).slice(5),
+				const upgradeFunction = _.after(2, () => upgradeSheet('1.9')),
+					upgradeNums = [...Array(25).keys()].slice(1).filter(x => x !== 19).slice(5),
 					upgradeDescriptions = upgradeNums.map(x => `upgrade_${x}_description`),
 					attrs = [
 						...upgradeDescriptions,
@@ -2018,8 +2036,24 @@ on('sheet:opened', () => {
 					setting.bandolier2_check_2 = v.bandolier2_check_b || '0';
 					setting.bandolier2_check_3 = v.bandolier2_check_c || '0';
 					calculateStash();
-					setAttrs(setting, {}, () => upgradeSheet('1.9'));
-					console.log('Updating to 1.9');
+					setAttrs(setting, {}, upgradeFunction);
+				});
+				getSectionIDs('item', idArray => {
+					const attrs = [
+						...idArray.map(id => `repeating_item_${id}_name`),
+						...idArray.map(id => `repeating_item_${id}_description`)
+					];
+					getAttrs(attrs, v => {
+						const setting = {};
+						idArray.forEach(id => {
+							const k = _.findIndex(itemData, item => item.name === v[`repeating_item_${id}_name`]);
+							if (k >= 0 && !v[`repeating_item_${id}_description`]) {
+								setting[`repeating_item_${id}_description`] = itemData[k].description;
+							}
+						});
+						setAttrs(setting, {}, upgradeFunction);
+						console.log('Updating to 1.9');
+					});
 				});
 			}
 		};
