@@ -1656,7 +1656,10 @@ on('sheet:opened', () => {
 		notes_query: `?{${getTranslationByKey('notes')}|}`,
 		numberofdice: `?{${getTranslationByKey('numberofdice')}}`,
 		numberofdice_long: `?{${getTranslationByKey('numberofdice')}|0|1|2|3|4|5|6}`,
-		position_query: getTranslationByKey('position_query')
+		position_query: `?{Position|${getTranslationByKey('risky')},position=${getTranslationByKey('risky')}|` +
+			`${getTranslationByKey('controlled')},position=${getTranslationByKey('controlled')}|` +
+			`${getTranslationByKey('desperate')},position=${getTranslationByKey('desperate')}|` +
+			`${getTranslationByKey('fortune_roll')},position=}`
 	});
 	/* Setup and upgrades */
 	getAttrs(['version'], v => {

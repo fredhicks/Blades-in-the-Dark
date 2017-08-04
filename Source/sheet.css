@@ -16,7 +16,7 @@ input.sheet-settings-checkbox + span {
 	display:inline-block;
 }
 input.sheet-settings-checkbox:checked + span {
-		opacity: 1;
+	opacity: 1;
 }
 .sheet-settings-checkbox-holder {
 	float: right;
