@@ -1017,6 +1017,9 @@ input[value="12"]:checked ~ .sheet-12clock {
 .sheet-clockprogress {
 	margin-top: 10px;
 }
+.sheet-clockprogress span:first-child {
+	margin-right: 3px;
+}
 .sheet-clock {
 	background-color: #d6d8d9;
 	font-style: italic;
@@ -1044,18 +1047,11 @@ input.sheet-text-input.sheet-longoption[type=radio] {
 	width: 64px;
 }
 input.sheet-text-input + span {
-	line-height: 0;
-	font-weight: bold;
-	position: relative;
-	left: 2px;
+	font-weight: 700;
 }
 .sheet-traumata input.sheet-text-input + span {
 	text-transform: uppercase;
 	font-size: 8px;
-	top: -3px;
-}
-input.sheet-text-input.sheet-traumarow2 + span {
-	top: -8px;
 }
 input.sheet-text-input:hover + span {
 	color: #9c9c9c;
@@ -1463,7 +1459,7 @@ button.repcontrol_edit, button.repcontrol_add {
 	font-variant: small-cap;
 	font-weight: 800;
 }
-.charsheet button.repcontrol_edit:hover, .charsheet button.repcontrol_add:hover {
+button.repcontrol_edit:hover, button.repcontrol_add:hover {
 	color: #020202;
 	border-color: #020202;
 	background-color: #cccccc;
@@ -1515,10 +1511,14 @@ button.repcontrol_edit, button.repcontrol_add {
 }
 .sheet-stress4 {
 	width: 209px;
-	padding-top: 1px;
+	padding: 1px 0 0 3px;
 }
-.sheet-stress4 div {
+.sheet-stress4 > div {
 	width: 110%;
+	line-height: 11px;
+}
+.sheet-stress4 > div:not(:first-of-type) {
+	letter-spacing: 1px;
 }
 .sheet-traumaholder, .sheet-wantedholder {
 	height: 13px;
