@@ -23,11 +23,9 @@ input.sheet-settings-checkbox:checked + span {
 	margin-right: 20px;
 }
 .sheet-topholder {
-	margin-left: 55%;
-	width: 45%;
+	margin-left: calc(55% + 5px);
 	height: 18px;
 	position: relative;
-	padding-left: 5px;
 	top: -11px;
 }
 /* Type Selector */
@@ -1038,7 +1036,6 @@ input.sheet-text-input {
 }
 input.sheet-text-input[type=checkbox] {
 	width: 52px;
-	margin-top: 1px;
 }
 input.sheet-text-input[type=radio] {
 	width: 20px;
@@ -1048,10 +1045,6 @@ input.sheet-text-input.sheet-longoption[type=radio] {
 }
 input.sheet-text-input + span {
 	font-weight: 700;
-}
-.sheet-traumata input.sheet-text-input + span {
-	text-transform: uppercase;
-	font-size: 8px;
 }
 input.sheet-text-input:hover + span {
 	color: #9c9c9c;
@@ -1091,7 +1084,7 @@ input.sheet-tooth + span {
 input.sheet-tooth + span:last-child {
 	margin-right: 0 !important;
 }
-input.sheet-tooth:nth-last-child(2) {
+input.sheet-tooth:last-of-type {
 	width: 8px;
 }
 input.sheet-tooth:hover + span {
@@ -1515,7 +1508,9 @@ button.repcontrol_edit:hover, button.repcontrol_add:hover {
 }
 .sheet-stress4 > div {
 	width: 110%;
-	line-height: 11px;
+	line-height: 12px;
+	text-transform: uppercase;
+	font-size: 8px;
 }
 .sheet-stress4 > div:not(:first-of-type) {
 	letter-spacing: 1px;
