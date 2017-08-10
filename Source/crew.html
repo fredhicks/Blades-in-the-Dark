@@ -101,11 +101,11 @@
 			</div>
 			<!-- Hold -->
 			<div class="sheet-hold sheet-flex">
-				<div class="sheet-hold1 sheet-blackheader sheet-narrow">
+				<div class="sheet-blackheader sheet-narrow">
 					<div class="sheet-label" data-i18n="hold">Hold</div>
 				</div>
-				<div class="sheet-hold2 sheet-blackborder">
-					<div class="sheet-black-on-grey sheet-narrow">
+				<div class="sheet-blackborder">
+					<div class="sheet-black-on-grey">
 						<div class="sheet-label" data-i18n="weak">Weak</div>
 					</div>
 					<div class="sheet-toothholder">
@@ -113,8 +113,8 @@
 						<span></span>
 					</div>
 				</div>
-				<div class="sheet-hold3 sheet-blackborder">
-					<div class="sheet-black-on-grey sheet-narrow">
+				<div class="sheet-blackborder">
+					<div class="sheet-black-on-grey">
 						<div class="sheet-label" data-i18n="strong">Strong</div>
 					</div>
 					<div class="sheet-toothholder">
@@ -123,10 +123,10 @@
 					</div>
 				</div>
 				<!-- Tier -->
-				<div class="sheet-hold4 sheet-blackheader">
+				<div class="sheet-blackheader">
 					<button type="roll" name="roll_tier" class="sheet-rollbutton sheet-tierbutton" value='&{template:bitd} {{charname=@{character_name}}}{{resist=1}}{{short=1}}{{title-crew_tier=1}}{{title=^{crew_tier}}}{{subtitle=^{roll_their}}}{{bonusdice=[[@{bonusdice_long}]]}}{{roll1=[[[[{@{crew_tier1},@{crew_tier1}+@{bonusdice}}kl1]]d6]]}}{{roll2=[[[[{@{crew_tier2},@{crew_tier2}+@{bonusdice}+1}kl1]]d6]]}}{{roll3=[[[[{@{crew_tier3},@{crew_tier3}+@{bonusdice}+2}kl1]]d6]]}}{{roll4=[[@{crew_tier4}d6]]}}{{bonus1=[[[[{@{bonusdice},1}kl1]]d6]]}}{{bonus2=[[[[{@{bonusdice}-1,1}kl1]]d6]]}}{{bonus3=[[[[{@{bonusdice}-2,1}kl1]]d6]]}}{{bonus4=[[[[{@{bonusdice}-3,1}kl1]]d6]]}}{{bonus5=[[[[{@{bonusdice}-4,1}kl1]]d6]]}}{{bonus6=[[[[{@{bonusdice}-5,1}kl1]]d6]]}}{{zerodice=[[[[{-@{crew_tier1}-@{crew_tier2}-@{crew_tier3}-@{crew_tier4}-(@{bonusdice})+1,1}kl1]]d6]], [[[[{-@{crew_tier1}-@{crew_tier2}-@{crew_tier3}-@{crew_tier4}-(@{bonusdice})+1,1}kl1]]d6]]}}@{title_text}' data-i18n="tier">Tier</button>
 				</div>
-				<div class="sheet-hold5 sheet-tier">
+				<div class="sheet-tier">
 					<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_crew_tier1"/>
 					<span></span>
 					<input type="checkbox" class="sheet-checkbox sheet-circlebox-small" value="1" name="attr_crew_tier2"/>
@@ -527,7 +527,7 @@
 				</div>
 			</div>
 			<!-- Coin -->
-			<div class="sheet-crewcoin sheet-flex sheet-col52b">
+			<div class="sheet-crewcoin sheet-col52b">
 				<div class="sheet-col100 sheet-flex">
 					<div class="sheet-blackheader sheet-crewcoin1">
 						<div class="sheet-label" data-i18n="coin">Coin</div>
@@ -892,19 +892,15 @@
 		<!-- Cohorts and Contacts -->
 		<div class="sheet-col47 sheet-right-column sheet-small-margin">
 			<!-- First Cohort -->
-			<div class="sheet-cohort sheet-col100">
+			<div class="sheet-cohort">
+				<input type="text" class="sheet-hidden" name="attr_cohort1_die1" value="0"/>
+				<input type="text" class="sheet-hidden" name="attr_cohort1_die2" value="0"/>
+				<input type="text" class="sheet-hidden" name="attr_cohort1_die3" value="0"/>
+				<input type="text" class="sheet-hidden" name="attr_cohort1_die4" value="0"/>
+				<input type="text" class="sheet-hidden" name="attr_cohort1_die5" value="0"/>
 				<div class="sheet-cohort-title sheet-flex sheet-col100"> 
-					<div>
-						<input type="text" class="sheet-label" name=attr_cohort1_name"/>
-					</div>
-					<div>
-						<input type="text" class="sheet-hidden" name="attr_cohort1_die1" value="0"/>
-						<input type="text" class="sheet-hidden" name="attr_cohort1_die2" value="0"/>
-						<input type="text" class="sheet-hidden" name="attr_cohort1_die3" value="0"/>
-						<input type="text" class="sheet-hidden" name="attr_cohort1_die4" value="0"/>
-						<input type="text" class="sheet-hidden" name="attr_cohort1_die5" value="0"/>
-						<button type="roll" name="roll_cohort1" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd} {{resist=1}} {{short=1}} {{charname=@{cohort1_name}&thinsp;(@{cohort1_type},&thinsp;@{cohort1_subtype})}} {{title-cohort_quality=1}}{{title=^{cohort_quality}}}{{subtitle=^{roll_their}}}{{bonusdice=[[@{bonusdice_long}]]}}{{roll1=[[[[{@{cohort1_die1},@{cohort1_die1}+@{bonusdice}}kl1]]d6]]}}{{roll2=[[[[{@{cohort1_die2},@{cohort1_die2}+@{bonusdice}+1}kl1]]d6]]}}{{roll3=[[[[{@{cohort1_die3},@{cohort1_die3}+@{bonusdice}+2}kl1]]d6]]}}{{roll4=[[@{cohort1_die4}d6]]}}{{roll5=[[@{cohort1_die5}d6]]}}{{bonus1=[[[[{@{bonusdice},1}kl1]]d6]]}}{{bonus2=[[[[{@{bonusdice}-1,1}kl1]]d6]]}}{{bonus3=[[[[{@{bonusdice}-2,1}kl1]]d6]]}}{{bonus4=[[[[{@{bonusdice}-3,1}kl1]]d6]]}}{{bonus5=[[[[{@{bonusdice}-4,1}kl1]]d6]]}}{{bonus6=[[[[{@{bonusdice}-5,1}kl1]]d6]]}}{{zerodice=[[[[{-@{cohort1_die1}-@{cohort1_die2}-@{cohort1_die3}-@{cohort1_die4}-@{cohort1_die5}-(@{bonusdice})+1,1}kl1]]d6]], [[[[{-@{cohort1_die1}-@{cohort1_die2}-@{cohort1_die3}-@{cohort1_die4}-@{cohort1_die5}-(@{bonusdice})+1,1}kl1]]d6]]}}@{title_text}' data-i18n="roll">Roll</button>
-					</div>
+					<input type="text" class="sheet-label" name=attr_cohort1_name"/>
+					<button type="roll" name="roll_cohort1" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd} {{resist=1}} {{short=1}} {{charname=@{cohort1_name}&thinsp;(@{cohort1_type},&thinsp;@{cohort1_subtype})}} {{title-cohort_quality=1}}{{title=^{cohort_quality}}}{{subtitle=^{roll_their}}}{{bonusdice=[[@{bonusdice_long}]]}}{{roll1=[[[[{@{cohort1_die1},@{cohort1_die1}+@{bonusdice}}kl1]]d6]]}}{{roll2=[[[[{@{cohort1_die2},@{cohort1_die2}+@{bonusdice}+1}kl1]]d6]]}}{{roll3=[[[[{@{cohort1_die3},@{cohort1_die3}+@{bonusdice}+2}kl1]]d6]]}}{{roll4=[[@{cohort1_die4}d6]]}}{{roll5=[[@{cohort1_die5}d6]]}}{{bonus1=[[[[{@{bonusdice},1}kl1]]d6]]}}{{bonus2=[[[[{@{bonusdice}-1,1}kl1]]d6]]}}{{bonus3=[[[[{@{bonusdice}-2,1}kl1]]d6]]}}{{bonus4=[[[[{@{bonusdice}-3,1}kl1]]d6]]}}{{bonus5=[[[[{@{bonusdice}-4,1}kl1]]d6]]}}{{bonus6=[[[[{@{bonusdice}-5,1}kl1]]d6]]}}{{zerodice=[[[[{-@{cohort1_die1}-@{cohort1_die2}-@{cohort1_die3}-@{cohort1_die4}-@{cohort1_die5}-(@{bonusdice})+1,1}kl1]]d6]], [[[[{-@{cohort1_die1}-@{cohort1_die2}-@{cohort1_die3}-@{cohort1_die4}-@{cohort1_die5}-(@{bonusdice})+1,1}kl1]]d6]]}}@{title_text}' data-i18n="roll">Roll</button>
 				</div>
 				<div class="sheet-cohort-info sheet-flex sheet-col100">
 					<div>
@@ -918,33 +914,31 @@
 							<input type="radio" name="attr_cohort1_type" value="expert"/><span class="sheet-label" data-i18n="expert">Expert</span>
 						</div>
 					</div>
-					<div>
-						<input type="text" class="sheet-label" data-i18n-placeholder="gang_type" placeholder="Thugs" name="attr_cohort1_subtype"/>
-					</div>
+					<input type="text" class="sheet-label" data-i18n-placeholder="gang_type" placeholder="Thugs" name="attr_cohort1_subtype"/>
 				</div>
 				<div class="sheet-cohort-condition sheet-flex sheet-col100">
-					<div class="sheet-cohort-condition1 sheet-flex">
+					<div class="sheet-flex">
 						<div class="sheet-label" data-i18n="weak">Weak</div>
 						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_weak" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-cohort-condition2 sheet-flex">
+					<div class="sheet-flex">
 						<div class="sheet-label" data-i18n="impaired">Impaired</div>
 						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_impaired" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-cohort-condition3 sheet-flex">
+					<div class="sheet-flex">
 						<div class="sheet-label" data-i18n="broken">Broken</div>
 						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_broken" class="sheet-tooth sheet-stresstooth"/>
 							<span></span>
 						</div>
 					</div>
-					<div class="sheet-cohort-condition4 sheet-flex">
+					<div class="sheet-flex">
 						<div class="sheet-label" data-i18n="armor">Armor</div>
 						<div class="sheet-toothholder">
 							<input type="checkbox" name="attr_cohort1_armor" class="sheet-tooth sheet-stresstooth"/>
@@ -966,18 +960,14 @@
 			<div class="sheet-col100 sheet-white-repcontrol sheet-cohorts">
 				<fieldset class="repeating_cohort">
 					<div class="sheet-cohort">
+						<input type="text" class="sheet-hidden" name="attr_die1" value="0"/>
+						<input type="text" class="sheet-hidden" name="attr_die2" value="0"/>
+						<input type="text" class="sheet-hidden" name="attr_die3" value="0"/>
+						<input type="text" class="sheet-hidden" name="attr_die4" value="0"/>
+						<input type="text" class="sheet-hidden" name="attr_die5" value="0"/>
 						<div class="sheet-cohort-title sheet-flex sheet-col100"> 
-							<div>
-								<input type="text" class="sheet-label" name=attr_name"/>
-							</div>
-							<div>
-								<input type="text" class="sheet-hidden" name="attr_die1" value="0"/>
-								<input type="text" class="sheet-hidden" name="attr_die2" value="0"/>
-								<input type="text" class="sheet-hidden" name="attr_die3" value="0"/>
-								<input type="text" class="sheet-hidden" name="attr_die4" value="0"/>
-								<input type="text" class="sheet-hidden" name="attr_die5" value="0"/>
-								<button type="roll" name="roll_cohort" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd} {{resist=1}} {{short=1}} {{charname=@{name}&thinsp;(@{type},&thinsp;@{subtype})}}{{title-cohort_quality=1}}{{title=^{cohort_quality}}}{{subtitle=^{roll_their}}}{{bonusdice=[[@{bonusdice_long}]]}}{{roll1=[[[[{@{die1},@{die1}+@{bonusdice}}kl1]]d6]]}}{{roll2=[[[[{@{die2},@{die2}+@{bonusdice}+1}kl1]]d6]]}}{{roll3=[[[[{@{die3},@{die3}+@{bonusdice}+2}kl1]]d6]]}}{{roll4=[[@{die4}d6]]}}{{roll5=[[@{die5}d6]]}}{{bonus1=[[[[{@{bonusdice},1}kl1]]d6]]}}{{bonus2=[[[[{@{bonusdice}-1,1}kl1]]d6]]}}{{bonus3=[[[[{@{bonusdice}-2,1}kl1]]d6]]}}{{bonus4=[[[[{@{bonusdice}-3,1}kl1]]d6]]}}{{bonus5=[[[[{@{bonusdice}-4,1}kl1]]d6]]}}{{bonus6=[[[[{@{bonusdice}-5,1}kl1]]d6]]}}{{zerodice=[[[[{-@{die1}-@{die2}-@{die3}-@{die4}-@{die5}-(@{bonusdice})+1,1}kl1]]d6]], [[[[{-@{die1}-@{die2}-@{die3}-@{die4}-@{die5}-(@{bonusdice})+1,1}kl1]]d6]]}}@{title_text}' data-i18n="roll">Roll</button>
-							</div>
+							<input type="text" class="sheet-label" name=attr_name"/>
+							<button type="roll" name="roll_cohort" class="sheet-rollbutton sheet-cohortbutton" value='&{template:bitd} {{resist=1}} {{short=1}} {{charname=@{name}&thinsp;(@{type},&thinsp;@{subtype})}}{{title-cohort_quality=1}}{{title=^{cohort_quality}}}{{subtitle=^{roll_their}}}{{bonusdice=[[@{bonusdice_long}]]}}{{roll1=[[[[{@{die1},@{die1}+@{bonusdice}}kl1]]d6]]}}{{roll2=[[[[{@{die2},@{die2}+@{bonusdice}+1}kl1]]d6]]}}{{roll3=[[[[{@{die3},@{die3}+@{bonusdice}+2}kl1]]d6]]}}{{roll4=[[@{die4}d6]]}}{{roll5=[[@{die5}d6]]}}{{bonus1=[[[[{@{bonusdice},1}kl1]]d6]]}}{{bonus2=[[[[{@{bonusdice}-1,1}kl1]]d6]]}}{{bonus3=[[[[{@{bonusdice}-2,1}kl1]]d6]]}}{{bonus4=[[[[{@{bonusdice}-3,1}kl1]]d6]]}}{{bonus5=[[[[{@{bonusdice}-4,1}kl1]]d6]]}}{{bonus6=[[[[{@{bonusdice}-5,1}kl1]]d6]]}}{{zerodice=[[[[{-@{die1}-@{die2}-@{die3}-@{die4}-@{die5}-(@{bonusdice})+1,1}kl1]]d6]], [[[[{-@{die1}-@{die2}-@{die3}-@{die4}-@{die5}-(@{bonusdice})+1,1}kl1]]d6]]}}@{title_text}' data-i18n="roll">Roll</button>
 						</div>
 						<div class="sheet-cohort-info sheet-flex sheet-col100">
 							<div>
@@ -991,33 +981,31 @@
 									<input type="radio" name="attr_type" value="expert"/><span class="sheet-label" data-i18n="expert">Expert</span>
 								</div>
 							</div>
-							<div>
-								<input type="text" class="sheet-label" name="attr_subtype" data-i18n-placeholder="gang_type" placeholder="Thugs"/>
-							</div>
+							<input type="text" class="sheet-label" name="attr_subtype" data-i18n-placeholder="gang_type" placeholder="Thugs"/>
 						</div>
 						<div class="sheet-cohort-condition sheet-flex sheet-col100">
-							<div class="sheet-cohort-condition1 sheet-flex">
+							<div class="sheet-flex">
 								<div class="sheet-label" data-i18n="weak">Weak</div>
 								<div class="sheet-toothholder">
 									<input type="checkbox" name="attr_weak" class="sheet-tooth sheet-stresstooth"/>
 									<span></span>
 								</div>
 							</div>
-							<div class="sheet-cohort-condition2 sheet-flex">
+							<div class="sheet-flex">
 								<div class="sheet-label" data-i18n="impaired">Impaired</div>
 								<div class="sheet-toothholder">
 									<input type="checkbox" name="attr_impaired" class="sheet-tooth sheet-stresstooth"/>
 									<span></span>
 								</div>
 							</div>
-							<div class="sheet-cohort-condition3 sheet-flex">
+							<div class="sheet-flex">
 								<div class="sheet-label" data-i18n="broken">Broken</div>
 								<div class="sheet-toothholder">
 									<input type="checkbox" name="attr_broken" class="sheet-tooth sheet-stresstooth"/>
 									<span></span>
 								</div>
 							</div>
-							<div class="sheet-cohort-condition4 sheet-flex">
+							<div class="sheet-flex">
 								<div class="sheet-label" data-i18n="armor">Armor</div>
 								<div class="sheet-toothholder">
 									<input type="checkbox" name="attr_armor" class="sheet-tooth sheet-stresstooth"/>

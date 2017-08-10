@@ -253,10 +253,10 @@ input.sheet-inherit {
 	height: 16px;
 	letter-spacing: 1px;
 	line-height: 16px;
-	padding-left: 5px;
+	padding-left: 3px;
 }
 .sheet-blackheader.sheet-narrow,
-.sheet-black-on-grey.sheet-narrow {
+.sheet-black-on-grey {
 	padding-left: 2px;
 }
 .sheet-blackheader {
@@ -269,6 +269,7 @@ input.sheet-inherit {
 }
 .sheet-black-on-grey {
 	float: left;
+	text-align: center;
 	position: relative;
 	top: -3px;
 	z-index: -1;
@@ -311,6 +312,10 @@ input.sheet-inherit {
 }
 .sheet-tier {
 	background-color: #d6d8d9;
+	height: 16px;
+	width: 52px;
+	line-height: 0;
+	padding: 3px;
 }
 /* COLUMN LAYOUT */
 .sheet-flex {
@@ -1149,8 +1154,8 @@ input.sheet-zero[type=radio]:checked + span {
 .sheet-turfbox input[type=radio] {
 	display: block;
 	float: right;
-	position: initial;
-	width: 11px;
+	position: static;
+	width: calc(100%/12);
 }
 /* black tooth*/
 input[type=checkbox].sheet-turf1:checked ~ input[type=radio].sheet-turf1 + span,
@@ -1511,7 +1516,7 @@ button.repcontrol_add:hover {
 	justify-content: space-between;
 }
 .sheet-hold {
-	width: 255px;
+	width: 53%;
 }
 .sheet-stress,
 .sheet-rep,
@@ -1519,22 +1524,16 @@ button.repcontrol_add:hover {
 .sheet-heat {
 	height: 25px;
 }
-.sheet-stress1 {
-	width: 53px;
-	padding-left: 3px;
-}
 .sheet-stress2 {
 	width: 143px;
 }
 .sheet-stress3 {
 	width: 68px;
-}
-.sheet-stress4 {
-	width: 209px;
-	padding: 1px 0 0 3px;
+	text-align: center;
 }
 .sheet-stress4 > div {
 	width: 110%;
+	padding: 1px 0 0 3px;
 	line-height: 12px;
 	text-transform: uppercase;
 	font-size: 8px;
@@ -1548,14 +1547,11 @@ button.repcontrol_add:hover {
 	text-align: right;
 }
 .sheet-rep1 {
-	width: 35px;
+	width: 33px;
 }
 .sheet-rep2 {
-	width: calc(100% - 78px);
+	width: 135px;
 	position: relative;
-}
-.sheet-rep3 {
-	width: 43px;
 }
 .sheet-turfbox {
 	display: block;
@@ -1563,33 +1559,17 @@ button.repcontrol_add:hover {
 	z-index: 2;
 	width: 100%;
 }
-.sheet-hold1,
-.sheet-hold4,
-.sheet-heat1 {
-	width: 41px;
-}
-.sheet-hold2 {
-	width: 51px;
-}
-.sheet-hold3 {
-	width: 63px;
-}
-.sheet-hold5 {
-	width: 59px;
-	height: 16px;
-	padding-left: 2px;
+.sheet-hold > div,
+.sheet-heat > div,
+.sheet-rep > div,
+.sheet-crewcoin2 {
+	flex-grow: 1;
 }
 .sheet-heat2 {
-	width: calc(100% - 106px);
-}
-.sheet-heat3 {
-	width: 65px;
+	width: 107px;
 }
 .sheet-crewcoin1 {
-	width: 60px;
-}
-.sheet-crewcoin2 {
-	width: calc(100% - 60px);
+	width: 26%;
 }
 .sheet-zeroholder {
 	position: absolute;
@@ -1613,7 +1593,7 @@ button.repcontrol_add:hover {
 	margin-left: 5px;
 }
 .sheet-crewcoin .sheet-zeroholder {
-	margin: 19px 0 0 -10px;
+	margin: 3px 0 0 -10px;
 }
 .sheet-coin-and-stash .sheet-zeroholder {
 	margin: 3px 0 0 -6px;
@@ -1646,8 +1626,7 @@ input[name="attr_setting_extra_stress5"]:checked ~ input.sheet-tooth[value="14"]
 }
 /* small fixes */
 .sheet-rep .sheet-black-on-grey {
-	padding-right: 4px;
-	text-align: right;
+	padding: 0 2px;
 	width: 100%;
 }
 .sheet-rep input.sheet-tooth {
@@ -1738,7 +1717,6 @@ button[type=roll].sheet-attributebutton {
 button[type=roll].sheet-cohortbutton {
 	font-size: 11px;
 	color: white;
-	line-height: 7px;
 }
 button[type=roll].sheet-actionbutton {
 	font-size: 12.5px;
@@ -1779,9 +1757,6 @@ input.sheet-checkbox {
 	height: 12px;
 	width: 12px;
 }
-input.sheet-checkbox.sheet-circlebox-small {
-	margin-top: 2px;
-}
 input.sheet-checkbox.sheet-squarebox-small {
 	height: 10px;
 	width: 10px;
@@ -1819,9 +1794,8 @@ input.sheet-checkbox.sheet-circlebox-small + span {
 	height: 9px;
 	width: 9px;
 	background: white;
+	margin-top: 0;
 	vertical-align: middle;
-	margin-right: 2px;
-	margin-bottom: 3px;
 }
 input.sheet-checkbox + span:last-child {
 	margin-right: 0 !important;
@@ -1858,8 +1832,11 @@ input.sheet-frienddown:checked ~ input[type=text] {
 	color: black;
 }
 /* specific adjustments */
+.sheet-item input.sheet-checkbox.sheet-circlebox-small {
+	margin-top: 4px;
+}
 .sheet-tier input.sheet-checkbox.sheet-circlebox-small + span {
-	margin: 0 3px 2px 0;
+	margin-right: calc((100% - 44px)/3);
 }
 .sheet-specialability input.sheet-checkbox.sheet-circlebox + span {
 	border-radius: 30px;
@@ -1930,7 +1907,9 @@ input.sheet-checkbox.sheet-frienddown {
 	background-color: black;
 }
 .sheet-cohort-title {
-	padding: 4px 0 0 3px;
+	padding: 3px;
+	align-items: baseline;
+	justify-content: space-between;
 }
 .sheet-attribute-title div:first-child {
 	width: 67px;
@@ -1972,20 +1951,11 @@ input.sheet-checkbox.sheet-frienddown {
 .sheet-cohorts .repcontrol {
 	height: 28px;
 }
-.sheet-cohort-title > div:first-child {
-	width: calc(100% - 40px);
-}
-.sheet-cohort-title > div:last-child {
-	width: 40px;
-	text-align: right;
-	padding-right: 3px;
-}
 .sheet-cohort-title input[type=text] {
 	font-weight: 600;
-	width: 100%;
+	width: calc(100% - 40px);
 	font-size: 11px;
 	line-height: 0;
-	background: transparent;
 	color: white;
 }
 .sheet-cohort-info {
@@ -1996,37 +1966,23 @@ input.sheet-checkbox.sheet-frienddown {
 	font-size: 8.5px;
 	color: white;
 }
-.sheet-cohort-info > div:first-child {
-	height: 13px;
+.sheet-cohort-info > div {
 	width: 41px;
-}
-.sheet-cohort-info > div:last-child {
-	width: calc(100% - 41px);
-	padding-left: 4px;
-	height: 13px;
-	line-height: 12px;
 }
 .sheet-cohort-info input[type=text] {
 	line-height: 12px;
+	width: calc(100% - 41px);
+	padding-left: 4px;
 }
-.sheet-cohort-condition,
-.sheet-cohort-condition > div {
+.sheet-cohort-condition {
 	justify-content: space-between;
+	flex-wrap: nowrap;
 }
 .sheet-cohort-condition .sheet-label {
 	font-size: 7px;
+	margin-right: 2px;
 }
-.sheet-cohort-condition1 {
-	width: 19%;
-}
-.sheet-cohort-condition2 {
-	width: 28%;
-}
-.sheet-cohort-condition3 {
-	width: 24%;
-}
-div.sheet-cohort-condition4 {
-	width: 23%;
+div.sheet-cohort-condition :last-child {
 	font-weight: 800;
 }
 .sheet-cohort-edgeflaw {
@@ -2035,17 +1991,13 @@ div.sheet-cohort-condition4 {
 	align-items: baseline;
 }
 .sheet-cohort-edgeflaw .sheet-label {
-	display: inline-block;
 	margin-top: 5px;
-	line-height: 10px;
 	width: 38px;
 }
 .sheet-cohort-edgeflaw input[type=text] {
 	width: calc(100% - 38px);
 	font-size: inherit;
-	margin-top: 3px;
 	line-height: inherit;
-	vertical-align: top;
 }
 .sheet-cohort-text textarea {
 	font-size: 9px;
