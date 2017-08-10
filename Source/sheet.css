@@ -1143,7 +1143,7 @@ input.sheet-zero + span {
 	background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/zero.png);
 }
 input.sheet-zero[type=radio]:checked + span {
-	display: none;
+	opacity: 0;
 }
 /* TURF RADIOS */
 .sheet-turfbox input[type=radio] {
@@ -1289,18 +1289,19 @@ textarea.sheet-abilitydesc {
 	margin-left: 4%;
 }
 .sheet-coinrow {
-	height: 18px;
+	line-height: 13px;
 	align-items: baseline;
 }
 .sheet-coinrow .sheet-label {
 	font-size: 11px;
+	padding-top: 2px;
 	font-weight: 800;
 }
 .sheet-coin {
 	border-bottom: 1px solid #8c8c8c;
 	border-right: 1px solid #8c8c8c;
 	width: 70%;
-	padding-right: 3px;
+	padding: 0 3px 1px 0;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -1322,11 +1323,8 @@ button[type=roll].sheet-rollbutton.sheet-stashbutton {
 /* STASH */
 .sheet-stash {
 	padding: 4px 0 0 6px;
-	line-height: 9px;
-}
-.sheet-stashzeroholder {
-	position: absolute;
-	margin: 3px 0 0 -6px;
+	line-height: 19px;
+	margin-bottom: -10px;
 }
 /* CREW COIN */
 .sheet-crewcoin > div:nth-child(3) {
@@ -1355,9 +1353,6 @@ button[type=roll].sheet-rollbutton.sheet-stashbutton {
 	width: 13px;
 	height: 13px;
 }
-.sheet-stash input.sheet-radiobox {
-	margin-top: 2px;
-}
 input.sheet-radiobox + span {
 	display: inline-block;
 }
@@ -1370,6 +1365,7 @@ input.sheet-radiobox + span {
 .sheet-coin-and-stash input.sheet-radiobox + span {
 	width: 10px;
 	height: 10px;
+	vertical-align: top;
 }
 .sheet-coinrow input.sheet-radiobox + span {
 	margin-right: 4px;
@@ -1400,7 +1396,7 @@ input.sheet-radiobox:hover + span {
 	border: 1px solid black;
 }
 .sheet-stash input.sheet-radiobox:nth-of-type(10n+1) {
-	margin: 0 0 0 3px;
+	margin: -2px 0 0 3px;
 	width: 15px;
 	height: 15px;
 }
@@ -1409,6 +1405,8 @@ input.sheet-radiobox:hover + span {
 	height: 12px;
 	border: 1px solid black !important;
 	margin-left: 3px;
+	position:relative;
+	top: -2px;
 }
 .sheet-stash input.sheet-radiobox:nth-of-type(10n+1) + span,
 input.sheet-radiobox:last-of-type + span {
@@ -1616,6 +1614,9 @@ button.repcontrol_add:hover {
 }
 .sheet-crewcoin .sheet-zeroholder {
 	margin: 19px 0 0 -10px;
+}
+.sheet-coin-and-stash .sheet-zeroholder {
+	margin: 3px 0 0 -6px;
 }
 .sheet-stress2 input.sheet-tooth + span {
 	margin-right: calc((100% - 72px)/8);
