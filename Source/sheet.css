@@ -1295,7 +1295,7 @@ textarea.sheet-abilitydesc {
 }
 .sheet-coinrow {
 	line-height: 13px;
-	align-items: baseline;
+	align-items: flex-start;
 }
 .sheet-coinrow .sheet-label {
 	font-size: 11px;
