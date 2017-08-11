@@ -253,7 +253,7 @@ input.sheet-inherit {
 	height: 16px;
 	letter-spacing: 1px;
 	line-height: 16px;
-	padding-left: 3px;
+	padding: 0 2px 0 4px;
 }
 .sheet-blackheader.sheet-narrow,
 .sheet-black-on-grey {
@@ -313,7 +313,7 @@ input.sheet-inherit {
 .sheet-tier {
 	background-color: #d6d8d9;
 	height: 16px;
-	width: 52px;
+	width: 55px;
 	line-height: 0;
 	padding: 3px;
 }
@@ -1309,6 +1309,7 @@ textarea.sheet-abilitydesc {
 	border-bottom: 1px solid #8c8c8c;
 	border-right: 1px solid #8c8c8c;
 	width: 70%;
+	height: 19px;
 	padding: 0 3px 1px 0;
 	justify-content: space-between;
 	align-items: center;
