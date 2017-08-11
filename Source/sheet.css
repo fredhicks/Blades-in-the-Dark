@@ -320,6 +320,9 @@ input.sheet-inherit {
 /* COLUMN LAYOUT */
 .sheet-flex {
 	display: flex;
+}
+.sheet-flex-wrap {
+	display: flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
 }
@@ -1574,20 +1577,16 @@ button.repcontrol_add:hover {
 .sheet-zeroholder {
 	position: absolute;
 }
-.sheet-stress1 .sheet-zeroholder {
-	margin: -2px 0 0 35px;
-}
-.sheet-stress3 .sheet-zeroholder {
-	margin-left: 1px;
-}
-.sheet-rep1 .sheet-zeroholder {
-	margin: -2px 0 0 17px;
+.sheet-stress2 .sheet-zeroholder,
+.sheet-rep2 .sheet-zeroholder,
+.sheet-heat2 .sheet-zeroholder {
+	margin: 13px 0 0 -13px;
 }
 .sheet-rep3 .sheet-zeroholder {
 	margin: 13px 0 0 2px;
 }
-.sheet-heat1 .sheet-zeroholder {
-	margin: -2px 0 0 23px;
+.sheet-stress3 .sheet-zeroholder {
+	margin-left: 1px;
 }
 .sheet-heat3 .sheet-zeroholder {
 	margin-left: 5px;
@@ -2006,6 +2005,9 @@ div.sheet-cohort-condition :last-child {
 	border-bottom: 1px solid lightgray;
 }
 /* CLAIMS */
+.sheet-claimsrow {
+	align-items: center;
+}
 .sheet-claimbox {
 	background-color: #d6d8d9;
 	width: 18%;
@@ -2015,9 +2017,9 @@ div.sheet-cohort-condition :last-child {
 .sheet-claims-horisep {
 	height: 66px;
 }
-.sheet-claims-seprow,
-.sheet-claims-seprow div {
+.sheet-claims-seprow {
 	height: 14px;
+	justify-content: space-between;
 }
 .sheet-lairbox {
 	text-align: center;
@@ -2033,7 +2035,6 @@ div.sheet-cohort-condition :last-child {
 }
 .sheet-claims-horisep {
 	height: 14px;
-	margin-top: 26px;
 	width: 2.5%;
 }
 .sheet-claims-vertsep {

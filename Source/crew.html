@@ -2,14 +2,14 @@
 <input type="checkbox" name="attr_sheet_type" class="sheet-hidediv sheet-hidden" value="crew"/>
 <div class="sheet-type-crew sheet-flex">
 	<!-- Left column -->
-	<div class="sheet-col55 sheet-flex">
+	<div class="sheet-col55 sheet-flex-wrap">
 		<!-- Logo -->
 		<div class="sheet-col100 sheet-flex">
 			<div class="sheet-col55 sheet-bladeslogo"></div>
 			<div class="sheet-col45 sheet-crewheader sheet-label" data-i18n="crew_sheet">Crew sheet</div>
 		</div>
 		<!-- Header text fields -->
-		<div class="sheet-col100 sheet-header sheet-flex">
+		<div class="sheet-col100 sheet-header sheet-flex-wrap">
 			<div class="sheet-col55">
 				<input type="text" name="attr_crew_name"/>
 				<label data-i18n="name">Name</label>
@@ -43,12 +43,12 @@
 			<div class="sheet-rep sheet-flex sheet-col45">
 				<div class="sheet-rep1 sheet-blackheader">
 					<div class="sheet-label" data-i18n="rep">Rep</div>
+				</div>
+				<div class="sheet-rep2 sheet-blackborder">
 					<div class="sheet-zeroholder">
 						<input type="radio" value="0" name="attr_rep" class="sheet-zero" checked/>
 						<span></span>
 					</div>
-				</div>
-				<div class="sheet-rep2 sheet-blackborder">
 					<div class="sheet-turfbox">
 						<input type="radio" value="1" name="attr_turf"/>
 						<input type="radio" value="2" name="attr_turf"/>
@@ -139,8 +139,8 @@
 			</div>
 		</div>
 		<!-- Claims -->
-		<div class="sheet-col100 sheet-claims sheet-white-repcontrol">
-			<div class="sheet-col100 sheet-claimsrow sheet-flex">
+		<div class="sheet-claims sheet-white-repcontrol">
+			<div class="sheet-claimsrow sheet-flex">
 				<input type="checkbox" name="attr_claim_1_check" class="sheet-hidden"/>
 				<div class="sheet-claimbox">
 					<div>
@@ -203,33 +203,29 @@
 					<textarea spellcheck="false" name="attr_claim_5_desc" class="sheet-claim-desc"></textarea>
 				</div>
 			</div>
-			<div class="sheet-col100 sheet-claims-seprow sheet-flex">
+			<div class="sheet-claims-seprow sheet-flex">
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_1_6" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_2_7" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_3_8" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_4_9" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_5_10" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
 			</div>
-			<div class="sheet-col100 sheet-claimsrow sheet-flex">
+			<div class="sheet-claimsrow sheet-flex">
 				<input type="checkbox" name="attr_claim_6_check" class="sheet-hidden"/>
 				<div class="sheet-claimbox">
 					<div>
@@ -286,33 +282,29 @@
 					<textarea spellcheck="false" name="attr_claim_10_desc" class="sheet-claim-desc"></textarea>
 				</div>
 			</div>
-			<div class="sheet-col100 sheet-claims-seprow sheet-flex">
+			<div class="sheet-claims-seprow sheet-flex">
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_6_11" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_7_12" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_8_13" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_9_14" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
-				<div class="sheet-claims-horisep"></div>
 				<div class="sheet-claims-vertsep">
 					<input type="checkbox" name="attr_claim_bridge_10_15" class="sheet-checkbox sheet-claimbridge" checked/>
 					<span></span>
 				</div>
 			</div>
-			<div class="sheet-col100 sheet-claimsrow sheet-flex">
+			<div class="sheet-claimsrow sheet-flex">
 				<input type="checkbox" name="attr_claim_11_check" class="sheet-hidden"/>
 				<div class="sheet-claimbox">
 					<div>
@@ -376,33 +368,29 @@
 				</div>
 			</div>
 			<fieldset class="repeating_claim">
-				<div class="sheet-col100 sheet-claims-seprow sheet-flex">
+				<div class="sheet-claims-seprow sheet-flex">
 					<div class="sheet-claims-vertsep">
 						<input type="checkbox" name="attr_claim_bridge_top_1" class="sheet-checkbox sheet-claimbridge"/>
 						<span></span>
 					</div>
-					<div class="sheet-claims-horisep"></div>
 					<div class="sheet-claims-vertsep">
 						<input type="checkbox" name="attr_claim_bridge_top_2" class="sheet-checkbox sheet-claimbridge"/>
 						<span></span>
 					</div>
-					<div class="sheet-claims-horisep"></div>
 					<div class="sheet-claims-vertsep">
 						<input type="checkbox" name="attr_claim_bridge_top_3" class="sheet-checkbox sheet-claimbridge"/>
 						<span></span>
 					</div>
-					<div class="sheet-claims-horisep"></div>
 					<div class="sheet-claims-vertsep">
 						<input type="checkbox" name="attr_claim_bridge_top_4" class="sheet-checkbox sheet-claimbridge"/>
 						<span></span>
 					</div>
-					<div class="sheet-claims-horisep"></div>
 					<div class="sheet-claims-vertsep">
 						<input type="checkbox" name="attr_claim_bridge_top_5" class="sheet-checkbox sheet-claimbridge"/>
 						<span></span>
 					</div>
 				</div>
-				<div class="sheet-col100 sheet-claimsrow sheet-flex">
+				<div class="sheet-claimsrow sheet-flex">
 					<input type="checkbox" name="attr_claim_1_check" class="sheet-hidden"/>
 					<div class="sheet-claimbox">
 						<div>
@@ -474,12 +462,12 @@
 				<!-- Heat markers -->
 				<div class="sheet-heat1 sheet-blackheader">
 					<div class="sheet-label" data-i18n="heat">Heat</div>
+				</div>
+				<div class="sheet-heat2 sheet-blackborder">
 					<div class="sheet-zeroholder">
 						<input type="radio" value="0" name="attr_heat" class="sheet-zero" checked/>
 						<span></span>
 					</div>
-				</div>
-				<div class="sheet-heat2 sheet-blackborder">
 					<input type="checkbox" value="0" name="attr_heat" class="sheet-stresstooth sheet-hidden" checked/>
 					<input type="radio" value="1" name="attr_heat" class="sheet-tooth sheet-stresstooth"/>
 					<span></span>
@@ -597,7 +585,7 @@
 			</div>
 		</div>
 		<!-- Advancement -->
-		<div class="sheet-col100 sheet-flex sheet-def-margin">
+		<div class="sheet-col100 sheet-def-margin">
 			<div class="sheet-advancement-header sheet-flex sheet-blackheader">
 				<div class="sheet-advancement-markxp sheet-label" data-i18n="mark_xp:">Mark XP:</div>
 				<div class="sheet-advancement-tracker sheet-flex">
@@ -641,7 +629,7 @@
 		</div>
 	</div>
 	<!-- Right column-->
-	<div class="sheet-col45 sheet-flex sheet-right-column">
+	<div class="sheet-col45 sheet-flex-wrap sheet-right-column">
 		<!-- Crew Type -->
 		<div class="sheet-playbook sheet-flex">
 			<div class="sheet-playbook-title">
@@ -697,7 +685,7 @@
 					</fieldset>
 				</div>
 				<!-- Regular upgrades -->
-				<div class="sheet-regularitems sheet-flex sheet-col100">
+				<div class="sheet-regularitems sheet-flex-wrap sheet-col100">
 					<div class="sheet-item sheet-itemshort">
 						<span class="sheet-label" data-i18n="lair">Lair</span>
 					</div>
@@ -946,7 +934,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="sheet-cohort-edgeflaw sheet-flex sheet-col100">
+				<div class="sheet-cohort-edgeflaw sheet-flex-wrap sheet-col100">
 					<div class="sheet-label" data-i18n="edges">Edges</div>
 					<input type="text" name="attr_cohort1_edges"/>
 					<div class="sheet-label" data-i18n="flaws">Flaws</div>
@@ -1013,7 +1001,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="sheet-cohort-edgeflaw sheet-flex sheet-col100">
+						<div class="sheet-cohort-edgeflaw sheet-flex-wrap sheet-col100">
 							<div class="sheet-label" data-i18n="edges">Edges</div>
 							<input type="text" name="attr_edges"/>
 							<div class="sheet-label" data-i18n="flaws">Flaws</div>
