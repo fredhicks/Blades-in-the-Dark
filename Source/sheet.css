@@ -1206,48 +1206,42 @@ textarea.sheet-abilitydesc {
 .sheet-harmrow {
 	border-bottom: 1px solid black;
 }
-.sheet-harmrow,
-.sheet-harmrow div {
-	height: 53px;
-	overflow: hidden;
+.sheet-harmrow > div,
+.sheet-harmrow textarea {
+	height: 52px;
+}
+.sheet-harmrow > div:not(:nth-child(2)) {
+	background-color: #d6d8d9;
+	font-weight: 800;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .sheet-harmrow > div:first-child {
-	background-color: #d6d8d9;
 	width: 4%;
-	letter-spacing: 0;
-	font-weight: 800;
 	font-size: 13px;
-	line-height: inherit;
-	padding: 19px 3px 3px;
 }
 .sheet-harmrow > div:nth-child(2) {
 	width: 76%;
 }
 .sheet-harmrow > div:last-child {
-	background-color: #d6d8d9;
 	width: 20%;
 	color: #575859;
-	text-align: center;
 	font-size: 10px;
 	letter-spacing: 1px;
-	font-weight: 800;
-	line-height: 15px;
-	padding-top: 13px;
-}
-.sheet-harmrow > div:nth-child(2) > div:nth-child(2) {
-	border-left: 1px solid #d6d8d9;
+	line-height: 14px;
 }
 .sheet-harmrow textarea {
 	font-size: 12px;
-	margin: 10px 6px 0;
+	padding: 6px 6px 3px;
 	color: #c43c35;
 	resize: none;
-	height: 40px;
+	line-height: normal;
 	text-align: center;
-	width: calc(100% - 12px);
 }
-.sheet-harm > div.sheet-harmrow:nth-child(3) > div:last-child {
-	padding-top: 20px;
+.sheet-harmrow textarea:nth-child(2) {
+	border-left: 1px solid #d6d8d9;
 }
 /* HEALING AND ARMOR */
 .sheet-armor .sheet-blackheader,

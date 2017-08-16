@@ -1,4 +1,3 @@
-<script type="text/worker">
 "use strict";
 /* DATA */
 const crewData = {
@@ -1677,7 +1676,15 @@ on('sheet:opened', () => {
 				setAttrs(setting);
 				fillRepeatingSectionFromData('item', itemData);
 				/* Set translated default values */
-				setAttrs(defaultValues);
+				getAttrs(Object.keys(defaultValues), v => {
+					let setting = {};
+					Object.keys(defaultValues).forEach(k => {
+						if (v[k] !== defaultValues[k]) {
+							setting[k] = defaultValues[k];
+						}
+					});
+					setAttrs(setting);
+				});
 				console.log('Initialising new sheet');
 			}
 			// Upgrade to 0.7: Convert legacy faction repeating section to text
@@ -2115,4 +2122,3 @@ on('sheet:opened', () => {
 		});
 	});
 });
-</script>
