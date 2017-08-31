@@ -592,7 +592,7 @@ input.sheet-expand + span {
 .sheet-itemholder input.sheet-expand + span::before {
 	content: "◀";
 }
-.sheet-playbookitems input.sheet-expand ~ textarea {
+.sheet-itemholder .sheet-playbookitems input.sheet-expand ~ textarea {
 	border-top: 1px solid #a9a9a9;
 }
 .sheet-itemholder input.sheet-expand ~ textarea {
@@ -2103,7 +2103,7 @@ input.sheet-expand:checked + span::before {
 }
 input.sheet-expand:not(:checked) ~ textarea {
 	height: 0 !important;
-	border: none;
+	border: 0px solid transparent !important;
 }
 .sheet-faction input[type=number] {
 	border: none;
