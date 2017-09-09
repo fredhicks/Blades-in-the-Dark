@@ -83,7 +83,6 @@ input[type=radio] {
 	margin: 0;
 	padding: 0;
 	-moz-appearance: none;
-	-webkit-appearance: none;
 	position: relative;
 }
 input[type=checkbox] + span,
@@ -895,7 +894,7 @@ input.sheet-expand + span {
 }
 .sheet-10clock.sheet-clockpicture input {
 	height: 14px;
-	width: 10px;
+	width: 9px;
 }
 .sheet-10clock.sheet-clockpicture input[value="1"] {
 	transform: rotate(18deg);
@@ -903,35 +902,35 @@ input.sheet-expand + span {
 }
 .sheet-10clock.sheet-clockpicture input[value="2"] {
 	transform: rotate(54deg);
-	margin: 5px 0 0 26px;
+	margin: 5px 0 0 27px;
 }
 .sheet-10clock.sheet-clockpicture input[value="3"] {
 	transform: rotate(90deg);
-	margin: 12px 0 0 28px;
+	margin: 13px 0 0 30px;
 }
 .sheet-10clock.sheet-clockpicture input[value="4"] {
 	transform: rotate(126deg);
-	margin: 19px 0 0 26px;
+	margin: 21px 0 0 27px;
 }
 .sheet-10clock.sheet-clockpicture input[value="5"] {
 	transform: rotate(162deg);
-	margin: 24px 0 0 20px;
+	margin: 26px 0 0 20px;
 }
 .sheet-10clock.sheet-clockpicture input[value="6"] {
 	transform: rotate(198deg);
-	margin: 24px 0 0 12px;
+	margin: 26px 0 0 12px;
 }
 .sheet-10clock.sheet-clockpicture input[value="7"] {
 	transform: rotate(234deg);
-	margin: 19px 0 0 6px;
+	margin: 21px 0 0 5px;
 }
 .sheet-10clock.sheet-clockpicture input[value="8"] {
 	transform: rotate(270deg);
-	margin: 12px 0 0 4px;
+	margin: 13px 0 0 1px;
 }
 .sheet-10clock.sheet-clockpicture input[value="9"] {
 	transform: rotate(306deg);
-	margin: 5px 0 0 6px;
+	margin: 5px 0 0 5px;
 }
 .sheet-10clock.sheet-clockpicture input[value="10"] {
 	transform: rotate(342deg);
