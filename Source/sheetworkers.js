@@ -2315,8 +2315,8 @@ on('sheet:opened', () => {
 		v.version ? upgradeSheet(v.version) : initialiseSheet();
 		// Set version number
 		setAttrs({
-			version: '1.15',
-			character_sheet: 'Blades in the Dark v1.15'
+			version: '1.16',
+			character_sheet: 'Blades in the Dark v1.16'
 		});
 	});
 });

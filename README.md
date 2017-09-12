@@ -4,6 +4,12 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## Changelog
 
+### 1.16
+* Added a clocks repeating section to the faction sheet, and a real notes field
+* Disabled spell checking on all input fields
+* Added box-shadow effect to focused input fields (can be disabled in settings)
+* Bypassed unnecessary extra padding around the sheet
+
 ### 1.15
 * Added 10-clocks, courtesy of Chris McDonald
 * Fixed resistance bonuses erroneously applying to vice indulgence

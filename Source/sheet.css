@@ -2,15 +2,15 @@
 .charsheet {
 	color: #333;
 	font-size: 0;
-	position: relative;
-	top: -11px;
+	position: absolute;
+	margin-top: -11px;
+	left: 0;
 	cursor: default;
 	box-sizing: border-box;
-	min-width: 870px;
-	padding: 0 10px 0 0 !important;
+	padding: 0 10px 10px !important;
 	font-family: Georgia, "Bitstream Charter", "Times New Roman", serif;
 }
-div, span, textarea, input, ul, li, span, label {
+div, span, textarea, ul, li, span, label {
 	box-sizing: border-box;
 }
 button[type=roll] {
@@ -19,6 +19,7 @@ button[type=roll] {
 	box-shadow: none;
 	font-weight: bold;
 	font-family: inherit;
+	outline: none;
 	border-radius: 0;
 	transition: all 0.2s;
 }
@@ -38,7 +39,8 @@ label input[type=checkbox],
 label input[type=radio] {
 	position: absolute;
 }
-label:hover input + span {
+label:hover input[type=checkbox] + span,
+label:hover input[type=radio] + span {
 	opacity: 0.7;
 }
 input[type=text], textarea {
@@ -51,11 +53,17 @@ input[type=text], textarea {
 	margin: 0;
 	color: #333;
 	border-radius: 0;
-	transition: all 0.2s;
+	transition: all 0.2s, height 0.4s;
 }
 input[type=number] {
+	border-color: #ccc;
 	color: #333;
 	box-shadow: none;
+}
+input[name="attr_setting_focus_shadow"]:checked ~ div textarea:focus,
+input[name="attr_setting_focus_shadow"]:checked ~ div input[type=text]:focus,
+input[name="attr_setting_focus_shadow"]:checked ~ div input[type=number]:focus {
+	box-shadow: inset 0 0 1px 1px rgba(66,66,66,.3), 0 0 2px 1px rgba(66,66,66,.3);
 }
 textarea {
 	resize: vertical;
@@ -117,7 +125,8 @@ input[type=text].sheet-inherit {
 }
 .sheet-version-text {
 	color: #a8a8a8;
-	font-size: 12px;
+	font-size: 13px;
+	font-family: "Times New Roman", Times, serif;
 }
 .sheet-version-text span:first-child:after {
 	content: " ";
@@ -184,6 +193,9 @@ input[type=text].sheet-inherit {
 	line-height: 17px;
 	border-bottom: 1px solid #d3d3d3;
 }
+.sheet-settings label {
+	align-items: center;
+}
 .sheet-settings > div:first-child {
 	line-height: 0;
 }
@@ -223,11 +235,9 @@ input.sheet-toothhider:not(:checked) + input.sheet-tooth,
 input.sheet-toothhider:not(:checked) + input.sheet-tooth + span {
 	display: none;
 }
-input.sheet-xp-hider:not(:checked) + li {
-	display: none;
-}
-input.sheet-hidediv:not(:checked) + div,
-input.sheet-hidediv:not(:checked) + label {
+input.sheet-hider:not(:checked) + li,
+input.sheet-hider:not(:checked) + div,
+input.sheet-hider:not(:checked) + label {
 	display: none;
 }
 /* Sheet container */
@@ -235,10 +245,10 @@ input.sheet-hidediv:not(:checked) + label {
 	position: relative;
 }
 input:not(:checked) + .sheet-container {
-	width: 860px;
+	width: 870px;
 }
 input:checked + .sheet-container {
-	min-width: 860px;
+	min-width: 870px;
 	max-width: 1190px;
 }
 /* USEFUL GENERAL LAYOUT*/
@@ -320,6 +330,7 @@ input:checked + .sheet-container {
 	display: flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
+	align-items: flex-start;
 }
 .sheet-flex-center {
 	text-align: center;
@@ -464,10 +475,11 @@ textarea.sheet-smallcaps {
 	background: #d6d8d9;
 }
 .sheet-item .sheet-itemname {
-	width: calc(100% - 20px);
+	width: calc(100% - 18px);
 	height: 18px;
 	font-size: 11px;
-	margin: 0 1px 0 4px;
+	margin: 0 1px 0 2px;
+	padding-left: 2px;
 }
 .sheet-item textarea.sheet-itemname {
 	resize: none;
@@ -479,14 +491,14 @@ textarea.sheet-smallcaps {
 }
 .sheet-item.sheet-item2box .sheet-itemname,
 .sheet-repeating-item input[type=checkbox][value="2"]:checked ~ .sheet-itemname {
-	width: calc(100% - 35px);
+	width: calc(100% - 33px);
 }
 .sheet-item.sheet-item3box .sheet-itemname,
 .sheet-repeating-item input[type=checkbox][value="3"]:checked ~ .sheet-itemname {
-	width: calc(100% - 50px);
+	width: calc(100% - 48px);
 }
 .sheet-item.sheet-item4box .sheet-itemname {
-	width: calc(100% - 65px);
+	width: calc(100% - 63px);
 }
 .sheet-repeating-item input[type=checkbox][name="attr_bold"]:checked ~ .sheet-itemname {
 	font-weight: bold;
@@ -654,13 +666,17 @@ input.sheet-expand + span {
 .sheet-advancement-desc li,
 .sheet-warblurb li {
 	font-size: 12px;
-	line-height: 15px;
+	line-height: 14px;
 	width: 100%;
 }
 .sheet-advancement-desc li {
 	font-style: italic;
 	margin-bottom: 1em;
 	padding-left: 1.5em;
+}
+.sheet-advancement-desc input[type=text] {
+	margin: -2px 0;
+	padding: 2px 0;
 }
 .sheet-advancement-desc li:after,
 .sheet-warblurb li:after {
@@ -679,28 +695,24 @@ input.sheet-expand + span {
 }
 /* PLAYBOOK */
 .sheet-playbook {
-	padding-top: 5px;
+	align-items: center;
 	height: 50px;
 	background: #d6d8d9;
 }
-.sheet-playbook-title {
-	width: 70%;
-	height: 100%;
-	padding: 0 10px;
-}
-.sheet-playbook-desc {
-	width: 30%;
-	height: 100%;
-	padding-right: 3px;
-}
-.sheet-playbook-title input[type=text] {
-	letter-spacing: -2px;
+.sheet-playbook input[type=text] {
+	flex: 0 0 calc(66% - 10px);
+	margin: 0 2px;
+	padding-left: 5px;
+	letter-spacing: -1px;
 	font-size: 35px;
 	line-height: 40px;
 }
-.sheet-playbook-desc textarea {
-	height: 100%;
+.sheet-playbook textarea {
+	flex: 0 0 calc(34% + 3px);
+	height: 42px;
 	font-size: 10px;
+	margin-right: 3px;
+	padding-left: 3px;
 	letter-spacing: 1px;
 	color: #7f8184;
 	resize: none;
@@ -708,7 +720,7 @@ input.sheet-expand + span {
 }
 .sheet-playbook-reminder {
 	position: absolute;
-	border: 1px solid #000;
+	border: 1px solid #333;
 	background: #fff;
 	margin-top: 43px;
 	z-index: 3;
@@ -723,17 +735,20 @@ input.sheet-expand + span {
 	width: 100%;
 	border-bottom: 1px solid #000;
 	font-size: 14px;
-	padding: 3px 0 0;
+	padding: 3px 0 0 2px;
 	margin: 3px 0 0;
 	color: #c43c35;
 }
-.sheet-header > div .sheet-label {
+.sheet-header > div .sheet-label, .sheet-header > label .sheet-label {
 	font-size: 10px;
 	letter-spacing: 1px;
 	color: #222;
 	text-align: justify;
 	padding: 3px 0 2px;
 	line-height: 13px;
+}
+.sheet-header label {
+	flex-wrap: wrap;
 }
 .sheet-header-info {
 	letter-spacing: normal;
@@ -768,7 +783,7 @@ input.sheet-expand + span {
 }
 .sheet-clocks .repitem {
 	display: flex;
-	padding: 6px 2px 6px 6px;
+	padding: 4px 2px;
 	width: 49%;
 	margin: 4px 0;
 	background: #d6d8d9;
@@ -779,6 +794,7 @@ input.sheet-expand + span {
 }
 .sheet-clockpicture {
 	padding: 2px;
+	margin: 4px 0;
 	z-index: 1;
 	height: 44px;
 	width: 44px;
@@ -789,27 +805,40 @@ input.sheet-expand + span {
 .sheet-clocks textarea {
 	font-size: 11px;
 	letter-spacing: 1px;
+	padding: 2px 3px;
 	line-height: 12px;
 	flex: 1 1 auto;
-	margin-right: 4px;
-	height: 48px;
-	min-height: 48px;
+	margin-right: 2px;
+	height: 52px;
+	min-height: 52px;
 }
 .sheet-clocks .sheet-zeroholder {
-	margin-left: calc(100% - 53px);
-	margin-top: 38px;
+	margin-left: calc(100% - 49px);
+	margin-top: 40px;
 	z-index: 3;
 }
 .sheet-size-choice {
 	display: flex;
 	flex: 0 0 auto;
 	height: 48px;
+	margin: 2px 0;
 	width: 44px;
 	line-height: 12px;
 	font-size: 13px;
 	font-family: "Times New Roman", Times, serif;
 	align-content: space-evenly;
 	flex-wrap: wrap;
+}
+/* Faction clocks */
+.sheet-type-faction .sheet-clocks .repcontainer {
+	justify-content: flex-start;
+}
+.sheet-type-faction .sheet-clocks .repitem {
+	margin: 2px .8% 2px 0;
+	width: 32.8%;
+}
+.sheet-type-faction .sheet-clocks .repitem:nth-of-type(3n) {
+	margin-right: 0;
 }
 /* Positioning inputs on clocks */
 .sheet-clockpicture input[type=radio] {
@@ -1276,12 +1305,14 @@ textarea.sheet-abilityname {
 	resize: none;
 	height: 52px;
 	margin: 0 5px;
+	padding: 1px 0 0;
 	line-height: 17px;
 }
 textarea.sheet-abilitydesc {
 	width: 69%;
-	height: 53px;
-	min-height: 53px;
+	height: 54px;
+	min-height: 54px;
+	padding: 2px 0 0;
 	font-size: 12px;
 	line-height: 13px;
 }
@@ -1544,8 +1575,10 @@ button.repcontrol_add:hover {
 }
 .sheet-itemholder .repcontrol_move,
 .sheet-itemholder .repcontrol_del {
-	padding-top: 0;
-	padding-bottom: 0;
+	padding: 0px 7px;
+}
+.sheet-factions .repcontrol_move, .sheet-factions .repcontrol_del {
+	padding: 1px 7px;
 }
 /* STRESS, REP, et cetera */
 .sheet-rep-and-hold,
@@ -1658,12 +1691,12 @@ input[name="attr_setting_extra_trauma"]:not(:checked) ~ .sheet-tooth[value="4"] 
 	margin-right: -11px;
 }
 /* NOTES */
-textarea.sheet-notes {
-	margin: 20px 0 0 1%;
+.sheet-notes {
+	margin-left: 1%;
 	font-family: "Shadows Into Light", cursive;
 	color: #c43c35;
 	font-size: 20px;
-	width: 97%;
+	width: 98%;
 	background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
 	background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
 	background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
@@ -1672,6 +1705,9 @@ textarea.sheet-notes {
 	line-height: 27px;
 	height: 378px;
 	min-height: 378px;
+}
+.sheet-type-character .sheet-notes, .sheet-type-crew .sheet-notes {
+	margin-top: 15px;
 }
 /* LOAD CHECKBOXES */
 .sheet-loadheader input.sheet-checkbox + span {
@@ -1697,7 +1733,7 @@ button[type=roll].sheet-rollbutton {
 .sheet-action button[type=roll].sheet-rollbutton {
 	letter-spacing: 1px;
 	line-height: 9px;
-	width: 88px;
+	flex: 0 0 88px;
 	font-size: 13px;
 }
 .sheet-coinrow button[type=roll].sheet-rollbutton {
@@ -1801,7 +1837,7 @@ input.sheet-frienddown:checked ~ input[type=text],
 /* specific adjustments */
 .sheet-specialability input.sheet-checkbox,
 .sheet-specialability input.sheet-checkbox + span {
-	margin-top: 2px;
+	margin-top: 3px;
 }
 .sheet-specialability input.sheet-checkbox + span {
 	border-radius: 30px;
@@ -1960,17 +1996,19 @@ input.sheet-checkbox.sheet-frienddown {
 .sheet-cohort-edgeflaw {
 	font-size: 9px;
 	line-height: 10px;
-	margin: 5px 0;
+	margin: 2px 0;
 	align-items: baseline;
 }
 .sheet-cohort-edgeflaw .sheet-uppercase {
-	width: 38px;
+	width: 34px;
 }
 .sheet-cohort-edgeflaw input[type=text] {
-	width: calc(100% - 38px);
+	width: calc(100% - 34px);
+	padding: 2px 3px;
 }
 .sheet-cohort textarea {
 	font-size: 9px;
+	padding: 1px 0;
 	line-height: 12px;
 	height: 50px;
 	border-bottom: 1px solid #d3d3d3;
@@ -2110,11 +2148,12 @@ input.sheet-title-checkbox:hover + span {
 .sheet-type-faction .repcontrol {
 	height: 38px;
 }
-.sheet-type-faction > .sheet-col100 {
+.sheet-factions {
 	justify-content: space-between;
 }
 .sheet-factiontitle {
 	margin-bottom: 10px;
+	justify-content: space-between;
 	align-items: center;
 }
 .sheet-factiontitle input[type=text] {
@@ -2199,7 +2238,7 @@ input.sheet-expand:not(:checked) ~ textarea {
 }
 /* War blurb */
 .sheet-warblurb {
-	margin-top: 30px;
+	text-align: justify;
 }
 .sheet-warblurb .sheet-label {
 	font-size: 14px;

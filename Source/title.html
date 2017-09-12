@@ -76,6 +76,7 @@
 	<img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-lifestyle.png">
 	<img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-recovery.png">
 </div>
+<input type="checkbox" name="attr_setting_focus_shadow" class="sheet-hidden" value="1" checked>
 <input type="checkbox" name="attr_setting_flexwidth" class="sheet-hidden" value="1">
 <div class="sheet-container">
 <!--Title & Version-->
@@ -97,7 +98,7 @@
 		<span class="sheet-inherit" data-i18n="version">Version</span><span class="sheet-inherit" name="attr_version"></span>
 	</div>
 </div>
-<input type="checkbox" name="attr_show_settings" class="sheet-hidden sheet-hidediv" value="1">
+<input type="checkbox" name="attr_show_settings" class="sheet-hidden sheet-hider" value="1">
 <div class="sheet-settings sheet-flex-wrap">
 	<div>
 		<select name="attr_generate_source" title="Choose source">
@@ -131,123 +132,178 @@
 		</label>
 	</div>
 	<div>
-		<select name="attr_setting_extra_stress" title="Stress Boxes">
-			<option value="0" selected>9</option>
-			<option value="1">10</option>
-			<option value="2">11</option>
-			<option value="3">12</option>
-			<option value="4">13</option>
-			<option value="5">14</option>
-		</select>
-		<span data-i18n="number_stress_boxes">Number of stress boxes</span>
+		<label>
+			<select name="attr_setting_extra_stress" title="Stress Boxes">
+				<option value="0" selected>9</option>
+				<option value="1">10</option>
+				<option value="2">11</option>
+				<option value="3">12</option>
+				<option value="4">13</option>
+				<option value="5">14</option>
+			</select>
+			<span data-i18n="number_stress_boxes">Number of stress boxes</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_extra_trauma" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="show_extra_trauma_box">Show an extra trauma box</span>
+		<label>
+			<input type="checkbox" name="attr_setting_extra_trauma" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="show_extra_trauma_box">Show an extra trauma box</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_extra_xp" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="show_extra_xp_condition">Show an extra xp condition</span>
+		<label>
+			<input type="checkbox" name="attr_setting_extra_xp" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="show_extra_xp_condition">Show an extra xp condition</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_vampirexp" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="extra_xp_boxes">Extra xp boxes for vampires</span>
+		<label>
+			<input type="checkbox" name="attr_setting_vampirexp" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="extra_xp_boxes">Extra xp boxes for vampires</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_show_strictures" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="show_vampire_strictures">Show vampire strictures</span>
+		<label>
+			<input type="checkbox" name="attr_setting_show_strictures" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="show_vampire_strictures">Show vampire strictures</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_show_frame" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="show_frame_section">Show frame section (for hulls)</span>
+		<label>
+			<input type="checkbox" name="attr_setting_show_frame" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="show_frame_section">Show frame section (for hulls)</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_show_itemdesc" class="sheet-checkbox sheet-squarebox" value="1" checked>
-		<span></span>
-		<span data-i18n="show_item_description">Item/upgrade descriptions</span>
+		<label>
+			<input type="checkbox" name="attr_setting_show_itemdesc" class="sheet-checkbox sheet-squarebox" value="1" checked>
+			<span></span>
+			<span data-i18n="show_item_description">Item/upgrade descriptions</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_show_deity" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="show_deity_fields">Show deity fields for crew</span>
+		<label>
+			<input type="checkbox" name="attr_setting_show_deity" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="show_deity_fields">Show deity fields for crew</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_show_origin" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="show_origin_field">Show origin field for crew</span>
+		<label>
+			<input type="checkbox" name="attr_setting_show_origin" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="show_origin_field">Show origin field for crew</span>
+		</label>
 	</div>
 	<div>
-		<input type="text" name="attr_setting_stress_label" value="Stress">
-		<span></span>
-		<span data-i18n="stress_label">Label to use for stress</span>
+		<label>
+			<input type="text" spellcheck="false" name="attr_setting_stress_label" value="Stress">
+			<span></span>
+			<span data-i18n="stress_label">Label to use for stress</span>
+		</label>
 	</div>
 	<div>
-		<input type="text" name="attr_setting_trauma_label" value="Trauma">
-		<span></span>
-		<span data-i18n="trauma_label">Label to use for trauma</span>
+		<label>
+			<input type="text" spellcheck="false" name="attr_setting_trauma_label" value="Trauma">
+			<span></span>
+			<span data-i18n="trauma_label">Label to use for trauma</span>
+		</label>
 	</div>
 	<div>
 		<span data-i18n="dark_talent">Vampire's Dark Talent:</span>
 		<span></span>
-		<input type="checkbox" name="attr_setting_dark_talent_insight" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="insight">Insight</span>
-		<input type="checkbox" name="attr_setting_dark_talent_prowess" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="prowess">Prowess</span>
-		<input type="checkbox" name="attr_setting_dark_talent_resolve" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="resolve">Resolve</span>
+		<label>
+			<input type="checkbox" name="attr_setting_dark_talent_insight" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="insight">Insight</span>
+		</label>
+		<label>
+			<input type="checkbox" name="attr_setting_dark_talent_prowess" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="prowess">Prowess</span>
+		</label>
+		<label>
+			<input type="checkbox" name="attr_setting_dark_talent_resolve" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="resolve">Resolve</span>
+		</label>
 	</div>
 	<div>
 		<span data-i18n="resistance_bonus">Resistance bonus:</span>
-		<input type="number" name="attr_setting_resbonus_insight" value="0">
-		<span data-i18n="insight">Insight</span>
-		<input type="number" name="attr_setting_resbonus_prowess" value="0">
-		<span data-i18n="prowess">Prowess</span>
-		<input type="number" name="attr_setting_resbonus_resolve" value="0">
-		<span data-i18n="resolve">Resolve</span>
+		<label>
+			<input type="number" name="attr_setting_resbonus_insight" value="0">
+			<span data-i18n="insight">Insight</span>
+		</label>
+		<label>
+			<input type="number" name="attr_setting_resbonus_prowess" value="0">
+			<span data-i18n="prowess">Prowess</span>
+		</label>
+		<label>
+			<input type="number" name="attr_setting_resbonus_resolve" value="0">
+			<span data-i18n="resolve">Resolve</span>
+		</label>
 	</div>
 	<div>
 		<span data-i18n="load:">Load:</span>
-		<input type="number" name="attr_setting_load_l" value="3">
-		<span data-i18n="light">Light</span>
-		<input type="number" name="attr_setting_load_n" value="5">
-		<span data-i18n="normal">Normal</span>
-		<input type="number" name="attr_setting_load_h" value="6">
-		<span data-i18n="heavy">Heavy</span>
+		<label>
+			<input type="number" name="attr_setting_load_l" value="3">
+			<span data-i18n="light">Light</span>
+		</label>
+		<label>
+			<input type="number" name="attr_setting_load_n" value="5">
+			<span data-i18n="normal">Normal</span>
+		</label>
+		<label>
+			<input type="number" name="attr_setting_load_h" value="6">
+			<span data-i18n="heavy">Heavy</span>
+		</label>
 	</div>
 	<div>
-		<select name="attr_setting_traumata_set" title="Traumata">
-			<option value="normal" data-i18n="normal">Normal</option>
-			<option value="ghost" data-i18n="ghost">Ghost</option>
-			<option value="hull" data-i18n="hull">Hull</option>
-		</select>
-		<span data-i18n="traumata">Traumata</span>
+		<label>
+			<select name="attr_setting_traumata_set" title="Traumata">
+				<option value="normal" data-i18n="normal">Normal</option>
+				<option value="ghost" data-i18n="ghost">Ghost</option>
+				<option value="hull" data-i18n="hull">Hull</option>
+			</select>
+			<span data-i18n="traumata">Traumata</span>
+		</label>
 	</div>
 	<div>
-		<select name="attr_setting_vice_type" title="Vice">
-			<option value="normal" data-i18n="normal">Normal</option>
-			<option value="ghost" data-i18n="ghost">Ghost</option>
-			<option value="hull" data-i18n="hull">Hull</option>
-			<option value="vampire" data-i18n="vampire">Vampire</option>
-		</select>
-		<span data-i18n="vice">Vice</span>
+		<label>
+			<select name="attr_setting_vice_type" title="Vice">
+				<option value="normal" data-i18n="normal">Normal</option>
+				<option value="ghost" data-i18n="ghost">Ghost</option>
+				<option value="hull" data-i18n="hull">Hull</option>
+				<option value="vampire" data-i18n="vampire">Vampire</option>
+			</select>
+			<span data-i18n="vice">Vice</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_flexwidth" class="sheet-checkbox sheet-squarebox" value="1">
-		<span></span>
-		<span data-i18n="flexible_width">Flexible character sheet width (adapts to container)</span>
+		<label>
+			<input type="checkbox" name="attr_setting_flexwidth" class="sheet-checkbox sheet-squarebox" value="1">
+			<span></span>
+			<span data-i18n="flexible_width">Flexible character sheet width (adapts to container)</span>
+		</label>
 	</div>
 	<div>
-		<input type="checkbox" name="attr_setting_autofill" class="sheet-checkbox sheet-squarebox" value="1" checked>
-		<span></span>
-		<span data-i18n="fill_fields">Fill in sheet fields automatically upon entering or changing playbook or crew type</span>
+		<label>
+			<input type="checkbox" name="attr_setting_focus_shadow" class="sheet-checkbox sheet-squarebox" value="1" checked>
+			<span></span>
+			<span data-i18n="show_outline">Show outline for active input fields</span>
+		</label>
+	</div>
+	<div>
+		<label>
+			<input type="checkbox" name="attr_setting_autofill" class="sheet-checkbox sheet-squarebox" value="1" checked>
+			<span></span>
+			<span data-i18n="fill_fields">Fill in sheet fields automatically upon entering or changing playbook or crew type</span>
+		</label>
 	</div>
 	<input type="hidden" name="attr_changed_attributes" value="">
 	<input type="hidden" name="attr_bonusdice" value="?{Bonus dice|0|1|2|3|4|5|6|-1|-2|-3}">
