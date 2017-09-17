@@ -55,6 +55,9 @@ input[type=text], textarea {
 	border-radius: 0;
 	transition: all 0.2s, height 0.4s;
 }
+textarea:active {
+	transition: height 0s;
+}
 input[type=number] {
 	border-color: #ccc;
 	color: #333;
@@ -722,7 +725,7 @@ input.sheet-expand + span {
 	position: absolute;
 	border: 1px solid #333;
 	background: #fff;
-	margin-top: 43px;
+	margin-top: 50px;
 	z-index: 3;
 	border-radius: 5px;
 	width: 267px;
@@ -1810,15 +1813,14 @@ input.sheet-checkbox:checked + span {
 	background: #ff4747;
 }
 input.sheet-checkbox.sheet-claimbridge {
-	width: 12px;
-	height: 12px;
-	margin-right: -12px;
+	width: 100%;
+	margin-right: -100%;
+	vertical-align: top;
 }
 input.sheet-checkbox.sheet-claimbridge + span {
 	border: none;
 	vertical-align: top;
 	width: 100%;
-	height: 100%;
 	background: transparent;
 }
 input.sheet-checkbox.sheet-claimbridge:checked + span {
@@ -2020,6 +2022,9 @@ input.sheet-checkbox.sheet-frienddown {
 .sheet-claimsrow {
 	align-items: center;
 }
+.sheet-claimsrow > div {
+	flex: 0 0 auto;
+}
 .sheet-claimbox {
 	background: #d6d8d9;
 	width: 18.4%;
@@ -2042,13 +2047,11 @@ input.sheet-checkbox.sheet-frienddown {
 }
 .sheet-claims-horisep {
 	height: 12px;
-	line-height: 0;
-	flex: 1 1 auto;
+	width: 2%;
 }
 .sheet-claims-vertsep {
 	width: 12px;
-	line-height: 0;
-	margin: 0 calc(9% - 7px);
+	margin: 0 calc(9.2% - 6px);
 }
 .sheet-claimbox .sheet-label {
 	height: 30px;
