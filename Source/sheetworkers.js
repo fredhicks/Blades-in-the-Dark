@@ -2,7 +2,7 @@
 /* DATA */
 const crewData = {
 		assassins: {
-			abilities: ["deadly", "crow's_veil", "emberdeath", "no_traces", "patron", "predators", "vipers"],
+			abilities: ["deadly", "crow's_veil", "emberdeath", "no_traces", "patron", "predators", "vipers", "veteran"],
 			base: {
 				claim_1_desc: "claim_training_rooms_description",
 				claim_1_name: "claim_training_rooms",
@@ -63,7 +63,7 @@ const crewData = {
 			}]
 		},
 		bravos: {
-			abilities: ["dangerous", "blood_brothers", "door_kickers", "fiends", "forged_in_the_fire", "patron", "war_dogs"],
+			abilities: ["dangerous", "blood_brothers", "door_kickers", "fiends", "forged_in_the_fire", "patron", "war_dogs", "veteran"],
 			base: {
 				claim_1_desc: "claim_barracks_description",
 				claim_1_name: "claim_barracks",
@@ -119,7 +119,7 @@ const crewData = {
 			}]
 		},
 		cult: {
-			abilities: ["chosen", "anointed", "bound_in_darkness", "conviction", "glory_incarnate", "sealed_in_blood", "zealotry"],
+			abilities: ["chosen", "anointed", "bound_in_darkness", "conviction", "glory_incarnate", "sealed_in_blood", "zealotry", "veteran"],
 			base: {
 				claim_1_desc: "claim_cloister_description",
 				claim_1_name: "claim_cloister",
@@ -177,7 +177,7 @@ const crewData = {
 			}]
 		},
 		hawkers: {
-			abilities: ["silver_tongues", "accord", "the_good_stuff", "ghost_market", "high_society", "hooked", "patron"],
+			abilities: ["silver_tongues", "accord", "the_good_stuff", "ghost_market", "high_society", "hooked", "patron", "veteran"],
 			base: {
 				claim_1_name: "claim_turf",
 				claim_2_desc: "claim_personal_clothier_description",
@@ -236,7 +236,7 @@ const crewData = {
 			}]
 		},
 		shadows: {
-			abilities: ["everyone_steals", "ghost_echoes", "pack_rats", "patron", "second_story", "slippery", "synchronized"],
+			abilities: ["everyone_steals", "ghost_echoes", "pack_rats", "patron", "second_story", "slippery", "synchronized", "veteran"],
 			base: {
 				claim_1_desc: "claim_interrogation_chamber_description",
 				claim_1_name: "claim_interrogation_chamber",
@@ -293,7 +293,7 @@ const crewData = {
 			}]
 		},
 		smugglers: {
-			abilities: ["like_part_of_the_family", "all_hands", "ghost_passage", "just_passing_through", "leverage", "reavers", "renegades"],
+			abilities: ["like_part_of_the_family", "all_hands", "ghost_passage", "just_passing_through", "leverage", "reavers", "renegades", "veteran"],
 			base: {
 				claim_1_name: "claim_turf",
 				claim_2_desc: "claim_side_business_description",
@@ -356,7 +356,7 @@ const crewData = {
 			}]
 		},
 		vigilantes: {
-			abilities: ["as_good_as_your_word", "avengers", "thorn_in_your_side", "misdirection", "uncanny_preparation", "moral_compass", "favors", "roots"],
+			abilities: ["as_good_as_your_word", "avengers", "thorn_in_your_side", "misdirection", "uncanny_preparation", "moral_compass", "favors", "roots", "veteran"],
 			base: {
 				claim_1_desc: "claim_fierce_allies_description",
 				claim_1_name: "claim_fierce_allies",
@@ -421,7 +421,7 @@ const crewData = {
 	},
 	playbookData = {
 		cutter: {
-			abilities: ["battleborn", "bodyguard", "ghost_fighter", "leader", "mule", "not_to_be_trifled_with", "savage", "vigorous"],
+			abilities: ["battleborn", "bodyguard", "ghost_fighter", "leader", "mule", "not_to_be_trifled_with", "savage", "vigorous", "veteran"],
 			base: {
 				command1: "1",
 				friends_title: "playbook_cutter_friends_title",
@@ -461,7 +461,7 @@ const crewData = {
 			}]
 		},
 		ghost: {
-			abilities: ["ghost_form", "dissipate", "manifest", "poltergeist", "possess"],
+			abilities: ["ghost_form", "dissipate", "manifest", "poltergeist", "possess", "veteran"],
 			base: {
 				friends_title: "playbook_ghost_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -482,7 +482,7 @@ const crewData = {
 			items: []
 		},
 		hound: {
-			abilities: ["sharpshooter", "focused", "ghost_hunter", "scout", "survivor", "tough_as_nails", "vengeful"],
+			abilities: ["sharpshooter", "focused", "ghost_hunter", "scout", "survivor", "tough_as_nails", "vengeful", "veteran"],
 			base: {
 				friends_title: "playbook_hound_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -532,6 +532,7 @@ const crewData = {
 				gatherinfo6: "gatherinfo_how_can_I_find",
 				playbook_description: "playbook_hull_description",
 				setting_load_h: "7",
+				setting_extra_stress: "1",
 				setting_show_frame: "1",
 				setting_stress_label: "drain",
 				setting_trauma_label: "wear",
@@ -544,7 +545,7 @@ const crewData = {
 			items: []
 		},
 		leech: {
-			abilities: ["alchemist", "analyst", "artificer", "fortitude", "ghost_ward", "physicker", "saboteur", "venomous"],
+			abilities: ["alchemist", "analyst", "artificer", "fortitude", "ghost_ward", "physicker", "saboteur", "venomous", "veteran"],
 			base: {
 				friends_title: "playbook_leech_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -584,7 +585,7 @@ const crewData = {
 			}]
 		},
 		lurk: {
-			abilities: ["infiltrator", "ambush", "daredevil", "the_devil's_footsteps", "expertise", "ghost_veil", "reflexes", "shadow"],
+			abilities: ["infiltrator", "ambush", "daredevil", "the_devil's_footsteps", "expertise", "ghost_veil", "reflexes", "shadow", "veteran"],
 			base: {
 				friends_title: "playbook_lurk_friends_title",
 				finesse1: "1",
@@ -624,7 +625,7 @@ const crewData = {
 			}]
 		},
 		slide: {
-			abilities: ["rook's_gambit", "cloak_&_dagger", "ghost_voice", "like_looking_into_a_mirror", "a_little_something_on_the_side", "mesmerism", "subterfuge", "trust_in_me"],
+			abilities: ["rook's_gambit", "cloak_&_dagger", "ghost_voice", "like_looking_into_a_mirror", "a_little_something_on_the_side", "mesmerism", "subterfuge", "trust_in_me", "veteran"],
 			base: {
 				friends_title: "playbook_slide_friends_title",
 				consort1: "1",
@@ -665,7 +666,7 @@ const crewData = {
 			}]
 		},
 		spider: {
-			abilities: ["foresight", "calculating", "connected", "functioning_vice", "ghost_contract", "jail_bird", "mastermind", "weaving_the_web"],
+			abilities: ["foresight", "calculating", "connected", "functioning_vice", "ghost_contract", "jail_bird", "mastermind", "weaving_the_web", "veteran"],
 			base: {
 				consort1: "1",
 				consort2: "1",
@@ -745,7 +746,7 @@ const crewData = {
 			}]
 		},
 		vampire: {
-			abilities: ["undead", "terrible_power", "arcane_sight", "a_void_in_the_echo", "dark_talent", "sinister_guile"],
+			abilities: ["undead", "terrible_power", "arcane_sight", "a_void_in_the_echo", "dark_talent", "sinister_guile", "veteran"],
 			base: {
 				friends_title: "playbook_vampire_friends_title",
 				gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -1404,17 +1405,6 @@ const setAttrIfNeeded = (name, value) => {
 			setAttrs(setting);
 		});
 	},
-	setDiceFromTotal = (name, numDice, upToFive) => {
-		const setting = {};
-		setting[`${name}1`] = (numDice > 0) ? 1 : 0;
-		setting[`${name}2`] = (numDice > 1) ? 1 : 0;
-		setting[`${name}3`] = (numDice > 2) ? 1 : 0;
-		setting[`${name}4`] = (numDice > 3) ? 1 : 0;
-		if (upToFive) {
-			setting[`${name}5`] = (numDice > 4) ? 1 : 0;
-		}
-		setAttrs(setting);
-	},
 	calcTotalFromBoxes = name => {
 		getAttrs([1, 2, 3, 4, 5].map(x => `${name}${x}`), v => {
 			const total = [1, 2, 3, 4, 5].reduce((m, x) => m + (parseInt(v[`${name}${x}`]) || 0), 0);
@@ -1663,8 +1653,24 @@ on('change:generate_friends', () => {
 });
 /* EXTRA STRESS BOXES */
 on('change:setting_extra_stress', () => {
-	getAttrs(['setting_extra_stress'], v => {
-		setDiceFromTotal('setting_extra_stress', parseInt(v.setting_extra_stress), true);
+	const prefix = 'setting_extra_stress';
+	getAttrs([prefix], v => {
+		const bonus = parseInt(v.setting_extra_stress),
+			setting = {};
+		setting[`${prefix}1`] = (bonus > 0) ? 1 : 0;
+		setting[`${prefix}2`] = (bonus > 1) ? 1 : 0;
+		setting[`${prefix}3`] = (bonus > 2) ? 1 : 0;
+		setting[`${prefix}4`] = (bonus > 3) ? 1 : 0;
+		setting[`${prefix}5`] = (bonus > 4) ? 1 : 0;
+		setting.stress_max = 9 + bonus;
+		setAttrs(setting);
+	});
+});
+on('change:setting_extra_trauma', () => {
+	getAttrs(['setting_extra_trauma'], v => {
+		setAttrs({
+			trauma_max: 4 + parseInt(v.setting_extra_trauma)
+		});
 	});
 });
 /* CALCULATE COHORT QUALITY */

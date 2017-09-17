@@ -9,6 +9,7 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 * Disabled spell checking on all input fields
 * Added box-shadow effect to focused input fields (can be disabled in settings)
 * Bypassed unnecessary extra padding around the sheet
+* Added veteran special ability to all playbooks for clarity
 
 ### 1.15
 * Added 10-clocks, courtesy of Chris McDonald

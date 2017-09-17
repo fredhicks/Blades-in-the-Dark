@@ -54,6 +54,8 @@
 						<input type="radio" name="attr_turf" value="5">
 						<input type="radio" name="attr_turf" value="6">
 					</div>
+					<input type="hidden" name="attr_rep_max" value="12">
+					<input type="hidden" name="attr_turf_max" value="6">
 					<input type="checkbox" name="attr_turf" class="sheet-hidden" value="1">
 					<input type="checkbox" name="attr_turf" class="sheet-hidden" value="2">
 					<input type="checkbox" name="attr_turf" class="sheet-hidden" value="3">
@@ -99,7 +101,7 @@
 			</div>
 			<!-- Hold -->
 			<div class="sheet-hold sheet-flex">
-				<div class="sheet-blackheader sheet-narrow">
+				<div class="sheet-blackheader">
 					<div class="sheet-label" data-i18n="hold">Hold</div>
 				</div>
 				<label class="sheet-blackborder">
@@ -118,6 +120,7 @@
 				</label>
 				<!-- Tier -->
 				<div class="sheet-blackheader">
+					<input type="hidden" name="attr_crew_tier_max" value="4">
 					<input type="hidden" name="attr_crew_tier" value="0">
 					<button type="roll" name="roll_Tier" class="sheet-label sheet-inherit sheet-rollbutton" value='&{template:bitd} {{charname=@{character_name}}}{{resist=1}}{{short=1}}{{title-crew_tier=1}}{{title=^{crew_tier}}}{{subtitle=^{roll_their}}}{{roll1=[[[[{[[@{crew_tier}+@{bonusdice}}]],1}kl1]]d6]]}}{{roll2=[[[[{[[@{crew_tier}+@{bonusdice}-1}]],1}kl1]]d6]]}}{{roll3=[[[[{[[@{crew_tier}+@{bonusdice}-2}]],1}kl1]]d6]]}}{{roll4=[[[[{[[@{crew_tier}+@{bonusdice}-3}]],1}kl1]]d6]]}}{{roll5=[[[[{[[@{crew_tier}+@{bonusdice}-4}]],1}kl1]]d6]]}}{{roll6=[[[[{[[@{crew_tier}+@{bonusdice}-5}]],1}kl1]]d6]]}}{{roll7=[[[[{[[@{crew_tier}+@{bonusdice}-6}]],1}kl1]]d6]]}}{{roll8=[[[[{[[@{crew_tier}+@{bonusdice}-7}]],1}kl1]]d6]]}}{{roll9=[[[[{[[@{crew_tier}+@{bonusdice}-8}]],1}kl1]]d6]]}}{{roll10=[[[[{[[@{crew_tier}+@{bonusdice}-9}]],1}kl1]]d6]]}}{{roll11=[[[[{[[@{crew_tier}+@{bonusdice}-10}]],1}kl1]]d6]]}}{{zerodice=[[[[{[[1-@{crew_tier}-(@{bonusdice})]],1}kl1]]d6]], [[[[{[[1-@{crew_tier}-(@{bonusdice})]],1}kl1]]d6]]}}@{title_text}' data-i18n="tier">Tier</button>
 				</div>
@@ -459,6 +462,7 @@
 					<div class="sheet-label" data-i18n="heat">Heat</div>
 				</div>
 				<div class="sheet-heat2 sheet-blackborder sheet-flex">
+					<input type="hidden" name="attr_heat_max" value="9">
 					<input type="radio" name="attr_heat" class="sheet-tooth sheet-zero" value="0" checked>
 					<span></span>
 					<input type="radio" name="attr_heat" class="sheet-tooth sheet-stresstooth" value="1">
@@ -486,6 +490,7 @@
 						<button type="roll" name="roll_Wanted" class="sheet-label sheet-rollbutton sheet-inherit" value='&{template:bitd}{{charname=@{character_name}}}{{vice=1}}{{short=1}}{{title-entanglement=1}}{{title=^{entanglement}}}{{subtitle=^{wantedroll1}@{heat}&nbsp;^{heat}^{wantedroll2}}}{{roll1=[[[[{[[@{wanted}+@{bonusdice}}]],1}kl1]]d6]]}}{{roll2=[[[[{[[@{wanted}+@{bonusdice}-1}]],1}kl1]]d6]]}}{{roll3=[[[[{[[@{wanted}+@{bonusdice}-2}]],1}kl1]]d6]]}}{{roll4=[[[[{[[@{wanted}+@{bonusdice}-3}]],1}kl1]]d6]]}}{{roll5=[[[[{[[@{wanted}+@{bonusdice}-4}]],1}kl1]]d6]]}}{{roll6=[[[[{[[@{wanted}+@{bonusdice}-5}]],1}kl1]]d6]]}}{{roll7=[[[[{[[@{wanted}+@{bonusdice}-6}]],1}kl1]]d6]]}}{{roll8=[[[[{[[@{wanted}+@{bonusdice}-7}]],1}kl1]]d6]]}}{{roll9=[[[[{[[@{wanted}+@{bonusdice}-8}]],1}kl1]]d6]]}}{{roll10=[[[[{[[@{wanted}+@{bonusdice}-9}]],1}kl1]]d6]]}}{{roll11=[[[[{[[@{wanted}+@{bonusdice}-10}]],1}kl1]]d6]]}}{{zerodice=[[[[{[[1-@{wanted}-(@{bonusdice})]],1}kl1]]d6]], [[[[{[[1-@{wanted}-(@{bonusdice})]],1}kl1]]d6]]}}@{title_text}' data-i18n="wanted">Wanted</button>
 					</div>
 					<div class="sheet-wantedholder sheet-flex">
+						<input type="hidden" name="attr_wanted_max" value="4">
 						<input type="radio" name="attr_wanted" class="sheet-tooth sheet-zero" value="0" checked>
 						<span></span>
 						<input type="radio" name="attr_wanted" class="sheet-tooth sheet-regulartooth" value="1">
@@ -510,6 +515,7 @@
 					</div>
 				</div>
 				<div class="sheet-col100 sheet-flex">
+					<input type="hidden" name="attr_crewcoin_max" value="16">
 					<input type="radio" name="attr_crewcoin" class="sheet-zero" value="0" checked>
 					<span></span>
 					<input type="radio" name="attr_crewcoin" class="sheet-radiobox" value="1">
@@ -572,6 +578,7 @@
 				<div class="sheet-label" data-i18n="mark_xp:">Mark XP:</div>
 				<div class="sheet-label" data-i18n="crew_advancement">Crew Advancement </div>
 				<div class="sheet-advancement-xpholder sheet-flex">
+					<input type="hidden" name="attr_crew_xp_max" value="8">
 					<input type="radio" name="attr_crew_xp" class="sheet-tooth sheet-zero" value="0" checked>
 					<span></span>
 					<input type="radio" name="attr_crew_xp" class="sheet-tooth sheet-xptooth" value="1">

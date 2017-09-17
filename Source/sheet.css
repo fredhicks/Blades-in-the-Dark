@@ -255,8 +255,7 @@ input:checked + .sheet-container {
 	max-width: 1190px;
 }
 /* USEFUL GENERAL LAYOUT*/
-.sheet-rep .sheet-blackheader,
-.sheet-hold .sheet-blackheader {
+.sheet-rep-and-hold .sheet-blackheader:first-child {
 	padding-top: 3px;
 	line-height: 13px;
 }
@@ -272,7 +271,7 @@ input:checked + .sheet-container {
 	line-height: 15px;
 	padding: 1px 2px 0 4px;
 }
-.sheet-blackheader.sheet-narrow {
+.sheet-hold .sheet-blackheader {
 	padding-left: 2px;
 }
 .sheet-blackheader {
@@ -286,7 +285,7 @@ input:checked + .sheet-container {
 .sheet-black-on-grey {
 	text-align: center;
 	position: relative;
-	padding: 0 2px;
+	padding-left: 1px;
 	height: 13px;
 	line-height: 13px;
 	z-index: -1;
@@ -321,9 +320,10 @@ input:checked + .sheet-container {
 	background: #d6d8d9;
 	height: 16px;
 	width: 56px;
-	line-height: 0;
-	justify-content: space-evenly;
 	align-items: center;
+}
+.sheet-tier input[type=checkbox]:first-child {
+	margin-left: auto;
 }
 /* COLUMN LAYOUT */
 .sheet-flex {
@@ -1637,7 +1637,7 @@ button.repcontrol_add:hover {
 	width: 33px;
 }
 .sheet-rep2 {
-	width: 135px;
+	width: 134px;
 	position: relative;
 }
 .sheet-turfbox {
@@ -1805,8 +1805,7 @@ input.sheet-checkbox.sheet-squarebox + span {
 }
 input.sheet-checkbox.sheet-circlebox + span {
 	border-radius: 40px;
-	height: 10px;
-	width: 10px;
+	margin-right: auto;
 	background: #fff;
 }
 input.sheet-checkbox:checked + span {
