@@ -4,7 +4,17 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## Changelog
 
-### 1.16
+### 2.0
+* Added new model for action and tier dots that gets rid of the need for extra attributes
+* Refactored sheet workers and cleaned them up, using new worker features
+* Added setting to change the names of heat, wanted, and deity
+* Settings are now filtered by sheet type
+* Added buttons for adding playbook items and crew-specific upgrades
+* New option to make bonus dice a freeform input field
+* New option to ask for a consequence name when resisting
+* Roll template header changed to have character name and text inline
+* Fortune roll button added to factions sheet
+* Engagement roll button added to crew sheet
 * Added a clocks repeating section to the faction sheet, and a real notes field
 * Disabled spell checking on all input fields
 * Added box-shadow effect to focused input fields (can be disabled in settings)

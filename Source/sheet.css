@@ -188,7 +188,6 @@ input[type=text].sheet-inherit {
 .sheet-settings > div {
 	min-width: 50%;
 	flex-grow: 1;
-	display: flex;
 	align-items: center;
 	padding: 2px;
 	font-size: 10px;
@@ -199,7 +198,7 @@ input[type=text].sheet-inherit {
 .sheet-settings label {
 	align-items: center;
 }
-.sheet-settings > div:first-child {
+.sheet-settings > div.sheet-generaterow {
 	line-height: 0;
 }
 .sheet-settings input.sheet-checkbox[type=checkbox] + span {
@@ -232,6 +231,14 @@ input[type=text].sheet-inherit {
 	margin: 0 7px 0 0;
 	padding: 0;
 	height: 18px;
+}
+.sheet-setting-char, .sheet-setting-crew, .sheet-setting-faction {
+	display: none;
+}
+input[name="attr_sheet_type"][value="character"]:checked ~ .sheet-setting-char,
+input[name="attr_sheet_type"][value="crew"]:checked ~ .sheet-setting-crew,
+input[name="attr_sheet_type"][value="faction"]:checked ~ .sheet-setting-faction {
+	display: flex;
 }
 /* SETTINGS FOR HIDING STUFF ON THE SHEET */
 input.sheet-toothhider:not(:checked) + input.sheet-tooth,
@@ -322,7 +329,7 @@ input:checked + .sheet-container {
 	width: 56px;
 	align-items: center;
 }
-.sheet-tier input[type=checkbox]:first-child {
+.sheet-tier input[type=checkbox]:nth-child(2) {
 	margin-left: auto;
 }
 /* COLUMN LAYOUT */
@@ -703,7 +710,6 @@ input.sheet-expand + span {
 	background: #d6d8d9;
 }
 .sheet-playbook input[type=text] {
-	flex: 0 0 calc(66% - 10px);
 	margin: 0 2px;
 	padding-left: 5px;
 	letter-spacing: -1px;
@@ -711,7 +717,6 @@ input.sheet-expand + span {
 	line-height: 40px;
 }
 .sheet-playbook textarea {
-	flex: 0 0 calc(34% + 3px);
 	height: 42px;
 	font-size: 10px;
 	margin-right: 3px;
@@ -720,6 +725,18 @@ input.sheet-expand + span {
 	color: #7f8184;
 	resize: none;
 	line-height: 14px;
+}
+.sheet-type-character .sheet-playbook input[type=text] {
+	flex: 0 0 calc(64% - 10px);
+}
+.sheet-type-crew .sheet-playbook input[type=text] {
+	flex: 0 0 calc(74% - 7px);
+}
+.sheet-type-character .sheet-playbook textarea {
+	flex: 0 0 calc(36% + 3px);
+}
+.sheet-type-crew .sheet-playbook textarea {
+	flex: 0 0 26%;
 }
 .sheet-playbook-reminder {
 	position: absolute;
@@ -1735,8 +1752,8 @@ button[type=roll].sheet-rollbutton {
 }
 .sheet-action button[type=roll].sheet-rollbutton {
 	letter-spacing: 1px;
-	line-height: 9px;
-	flex: 0 0 88px;
+	line-height: 13px;
+	flex: 0 0 86px;
 	font-size: 13px;
 }
 .sheet-coinrow button[type=roll].sheet-rollbutton {
@@ -1746,28 +1763,36 @@ button[type=roll].sheet-rollbutton {
 .sheet-blackheader button[type=roll].sheet-rollbutton {
 	margin:auto;
 }
-button[type=roll].sheet-vicebutton,
-button[type=roll].sheet-fortunebutton {
+button[type=roll].sheet-borderbutton {
 	color: #616161;
 	font-size: 13px;
 	border-color: #b3b4b6;
-	padding: 4px;
 }
 button[type=roll].sheet-vicebutton {
 	float: right;
 	margin: 5px 3px -5px auto;
 	line-height: 13px;
+	padding: 4px;
 }
 button[type=roll].sheet-fortunebutton {
 	width: 100%;
-	height: 38px;
+	height: 30px;
 	margin: 10px 0 0;
+}
+.sheet-type-faction button[type=roll].sheet-fortunebutton {
+	width: 100px;
+	margin: 0;
+}
+button[type=roll].sheet-engagementbutton {
+	width: calc(100% - 20px);
+	padding: 2px 5px;
+	height: 30px;
+	margin: 10px 10px 0;
 }
 button[type=roll].sheet-rollbutton:hover {
 	color: #ff4747;
 }
-button[type=roll].sheet-vicebutton:hover,
-button[type=roll].sheet-fortunebutton:hover {
+button[type=roll].sheet-borderbutton:hover {
 	color: #020202;
 	border-color: #020202;
 }
@@ -1844,16 +1869,38 @@ input.sheet-frienddown:checked ~ input[type=text],
 	border-radius: 30px;
 	background: #fff;
 }
+.sheet-actions input.sheet-checkbox {
+	height: 20px;
+	width: 16px;
+	margin-right: -14px;
+}
 .sheet-actions input.sheet-checkbox + span {
 	border-radius: 50px;
-	background: #c6c7c9;
 	height: 11px;
 	width: 11px;
 	border: none;
+	margin-right: auto;
 }
-.sheet-specialability input.sheet-checkbox:checked + span,
-.sheet-actions input.sheet-checkbox:checked + span {
+.sheet-action input.sheet-checkbox + span:first-of-type {
+	margin-right: 6px;
+}
+.sheet-specialability input.sheet-checkbox:checked + span {
 	background: #ff4747;
+}
+/* Fake radios */
+input.sheet-checkbox.sheet-fakeradio + span {
+	background: #ff4747;
+}
+.sheet-actions input.sheet-fakeradio:checked ~ input.sheet-checkbox.sheet-fakeradio + span {
+	background: #c6c7c9;
+}
+.sheet-tier input.sheet-fakeradio:checked ~ input.sheet-checkbox.sheet-fakeradio + span {
+	background: #fff;
+}
+/* HIDER*/
+input.sheet-dothider:not(:checked) + input[type=checkbox],
+input.sheet-dothider:not(:checked) + input[type=checkbox] + span {
+	display: none;
 }
 /* Friend triangles */
 input.sheet-checkbox.sheet-friendup {
@@ -1919,26 +1966,21 @@ input.sheet-checkbox.sheet-frienddown {
 	padding-left: 2px;
 }
 .sheet-action {
-	width: 100%;
-	justify-content: space-between;
 	height: 22px;
+	align-items: center;
 }
 .sheet-action:first-child {
 	height: 34px;
-}
-.sheet-action:first-child > label,
-.sheet-action:first-child button[type=roll].sheet-rollbutton {
 	padding-top: 12px;
 }
-.sheet-action > label {
-	width: 20px;
-	align-items: center;
-	justify-content: center;
-}
-.sheet-action > label:first-child {
+.sheet-divider {
+	margin-right: auto;
 	border-right: 1px solid #000;
-	height: 100%;
-	justify-content: start;
+	height: inherit;
+}
+.sheet-action:first-child .sheet-divider {
+	position: relative;
+	top: -6px;
 }
 /* COHORTS */
 .sheet-cohorts .repcontrol {
@@ -2155,11 +2197,11 @@ input.sheet-title-checkbox:hover + span {
 }
 .sheet-factiontitle {
 	margin-bottom: 10px;
-	justify-content: space-between;
 	align-items: center;
 }
 .sheet-factiontitle input[type=text] {
 	font-size: 26px;
+	margin-right: auto;
 	width: 60%;
 }
 .sheet-factions-header {
@@ -2263,8 +2305,11 @@ label.sheet-generatebutton:hover input + span {
 }
 .sheet-type-faction label.sheet-generatebutton {
 	font-size: 13px;
-	padding: 3px;
-	line-height: 15px;
+	padding: 0 6px;
+	align-items: center;
+	margin: 0 6px;
+	font-weight: bold;
+	height: 30px;
 }
 .sheet-settings label.sheet-generatebutton {
 	padding: 2px;
