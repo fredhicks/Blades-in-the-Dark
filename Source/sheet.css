@@ -75,13 +75,11 @@ textarea {
 li {
 	position: relative;
 }
-li:after {
-	background: #333;
+li:before {
 	transform: rotate(45deg);
-	content: '';
-	display: block;
-	position: absolute;
+	content: '■';
 	left: 0;
+	position: absolute;
 }
 ul {
 	list-style: none;
@@ -424,12 +422,6 @@ textarea.sheet-smallcaps {
 	font-size: 11px;
 	height: 17px;
 }
-.sheet-gatherinfo li:after {
-	height: 4px;
-	width: 4px;
-	top: calc(0.5em - 2px);
-	margin-top: 4px;
-}
 .sheet-teamworkbox {
 	width: 95%;
 	padding: 5px;
@@ -671,7 +663,7 @@ input.sheet-expand + span {
 .sheet-advancement-desc {
 	width: 99%;
 	background: #d6d8d9;
-	padding: 15px 20px 4px 16px;
+	padding: 15px 20px 4px 11px;
 }
 .sheet-advancement-desc li,
 .sheet-warblurb li {
@@ -682,25 +674,20 @@ input.sheet-expand + span {
 .sheet-advancement-desc li {
 	font-style: italic;
 	margin-bottom: 1em;
-	padding-left: 1.5em;
+	padding-left: 1em;
 }
 .sheet-advancement-desc input[type=text] {
 	margin: -2px 0;
 	padding: 2px 0;
-}
-.sheet-advancement-desc li:after,
-.sheet-warblurb li:after {
-	height: .4em;
-	width: .4em;
-	top: .3em;
+	width: calc(100% + 18px);
 }
 .sheet-advancement-desc li.sheet-nondot,
 .sheet-warblurb li.sheet-nondot {
 	padding-left: 0;
 	font-style: normal;
 }
-.sheet-advancement-desc li.sheet-nondot:after,
-.sheet-warblurb li.sheet-nondot:after {
+.sheet-advancement-desc li.sheet-nondot:before,
+.sheet-warblurb li.sheet-nondot:before {
 	display: none;
 }
 /* PLAYBOOK */
@@ -2171,11 +2158,6 @@ input.sheet-title-checkbox:hover + span {
 	display: flex;
 	flex-flow: column wrap;
 	height: 115px;
-}
-.sheet-alchemicals li:after {
-	height: 4px;
-	width: 4px;
-	top: .7em;
 }
 .sheet-alchemicals li {
 	padding-left: 10px;
