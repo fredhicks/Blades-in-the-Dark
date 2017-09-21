@@ -76,7 +76,7 @@ li {
 	position: relative;
 }
 li:before {
-	transform: rotate(45deg);
+	transform: rotate(45deg) scale(0.9);
 	content: '■';
 	left: 0;
 	position: absolute;
