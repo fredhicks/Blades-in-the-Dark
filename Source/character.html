@@ -673,31 +673,13 @@
 					<div class="sheet-frame sheet-small-margin">
 						<input type="text" spellcheck="false" name="attr_frame" class="sheet-smallcaps" value="Frame">
 						<textarea spellcheck="false" name="attr_frame_description" data-i18n-placeholder="frame_description" placeholder="Frame description"></textarea>
-						<div class="sheet-item">
-							<input type="checkbox" name="attr_frame_feature_1_check" class="sheet-checkbox sheet-circlebox" value="1">
-							<span></span>
-							<input type="text" spellcheck="false" name="attr_frame_feature_1_desc" class="sheet-itemname" data-i18n-placeholder="frame_feature" placeholder="Frame feature">
-						</div>
-						<div class="sheet-item">
-							<input type="checkbox" name="attr_frame_feature_2_check" class="sheet-checkbox sheet-circlebox" value="1">
-							<span></span>
-							<input type="text" spellcheck="false" name="attr_frame_feature_2_desc" class="sheet-itemname" data-i18n-placeholder="frame_feature" placeholder="Frame feature">
-						</div>
-						<div class="sheet-item">
-							<input type="checkbox" name="attr_frame_feature_3_check" class="sheet-checkbox sheet-circlebox" value="1">
-							<span></span>
-							<input type="text" spellcheck="false" name="attr_frame_feature_3_desc" class="sheet-itemname" data-i18n-placeholder="frame_feature" placeholder="Frame feature">
-						</div>
-						<div class="sheet-item">
-							<input type="checkbox" name="attr_frame_feature_4_check" class="sheet-checkbox sheet-circlebox" value="1">
-							<span></span>
-							<input type="text" spellcheck="false" name="attr_frame_feature_4_desc" class="sheet-itemname" data-i18n-placeholder="frame_feature" placeholder="Frame feature">
-						</div>
-						<div class="sheet-item">
-							<input type="checkbox" name="attr_frame_feature_5_check" class="sheet-checkbox sheet-circlebox" value="1">
-							<span></span>
-							<input type="text" spellcheck="false" name="attr_frame_feature_5_desc" class="sheet-itemname" data-i18n-placeholder="frame_feature" placeholder="Frame feature">
-						</div>
+						<fieldset class="repeating_framefeature">
+							<div class="sheet-item">
+								<input type="checkbox" name="attr_check" class="sheet-checkbox sheet-circlebox" value="1">
+								<span></span>
+								<input type="text" spellcheck="false" name="attr_name" class="sheet-itemname" data-i18n-placeholder="frame_feature" placeholder="Frame feature">
+							</div>
+						</fieldset>
 					</div>
 				</div>
 				<!-- Regular items -->

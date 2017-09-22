@@ -1687,8 +1687,7 @@ on('change:setting_consequence_query sheet:opened', () => {
 	getAttrs(['setting_consequence_query', 'consequence_query'], v => {
 		const setting = {
 			consequence_query: (v.setting_consequence_query === '1') ?
-				`?{${getTranslationByKey('consequence')}|${getTranslationByKey('a_consequence')}}` :
-				getTranslationByKey('a_consequence')
+				`?{${getTranslationByKey('consequence')}|${getTranslationByKey('a_consequence')}}` : getTranslationByKey('a_consequence')
 		};
 		if (v.consequence_query === setting.consequence_query) delete setting.consequence_query;
 		setAttrs(setting);
@@ -2257,22 +2256,34 @@ on('sheet:opened', () => {
 				}
 				// Upgrade to 2.0: Rename trauma attributes
 				else if (versionMajor === 1) {
-					getAttrs([...traumaDataFlat, 'changed_attributes'], v => {
-						const changedAttrs = new Set(v.changed_attributes.split(',')),
+					const attrs = [
+						...traumaDataFlat,
+						'changed_attributes',
+						...[1, 2, 3, 4, 5].map(x => `frame_feature_${x}_check`),
+						...[1, 2, 3, 4, 5].map(x => `frame_feature_${x}_desc`)
+					];
+					getAttrs(attrs, v => {
+						const upgradeFunction = _.after(2, () => upgradeSheet('2.0')),
+							frameData = [1, 2, 3, 4, 5].map(k => ({
+								check: v[`frame_feature_${k}_check`] || '',
+								name: v[`frame_feature_${k}_desc`] || ''
+							})).filter(o => o.check || o.name),
+							changedAttrs = new Set(v.changed_attributes.split(',')),
 							setting = traumaDataFlat.reduce((m, name) => {
 								if (v[name] === '1') m[`trauma_${name}`] === '1';
 								return m;
 							}, {});
-						actionDataFlat.filter(n => changedAttrs.has(`${n}1`) || changedAttrs.has(`${n}2`))
+						actionsFlat.filter(n => changedAttrs.has(`${n}1`) || changedAttrs.has(`${n}2`))
 							.forEach(name => changedAttrs.add(name));
 						setting.changed_attributes = [...changedAttrs].join(',');
 						console.log('Updating to 2.0');
-						setAttrs(setting, {}, () => upgradeSheet('2.0'));
+						fillRepeatingSectionFromData('framefeature', frameData, false, false, upgradeFunction);
+						setAttrs(setting, {}, upgradeFunction);
 					});
 				}
 			},
 			initialiseSheet = () => {
-				const setting = ['ability', 'friend', 'crewability', 'contact', 'playbookitem', 'upgrade']
+				const setting = ['ability', 'friend', 'crewability', 'contact', 'playbookitem', 'upgrade', 'framefeature']
 					.reduce((memo, sectionName) => {
 						memo[`repeating_${sectionName}_${generateRowID()}_autogen`] = 1;
 						return memo;
