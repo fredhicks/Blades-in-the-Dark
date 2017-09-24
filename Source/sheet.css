@@ -290,6 +290,7 @@ input:checked + .sheet-container {
 .sheet-black-on-grey {
 	text-align: center;
 	position: relative;
+	flex-grow: 1;
 	padding-left: 1px;
 	height: 13px;
 	line-height: 13px;
@@ -622,24 +623,13 @@ input.sheet-expand + span {
 	background: #b3b4b6;
 	height: 20px;
 	font-size: 10px;
+	padding: 3px 2px 1px 4px;
+	align-items: center;
 }
-.sheet-loadheader {
-	padding: 3px 4px 1px;
-}
-.sheet-loadheader, .sheet-loadheader label {
+.sheet-loadheader label {
 	align-items: center;
 	line-height: 11px;
-	margin: auto;
-}
-.sheet-itemheader {
-	line-height: 18px;
-	padding: 1px 4px;
-}
-.sheet-itemheader .sheet-label,
-.sheet-loadheader .sheet-label {
-	margin-right: 4px;
-}
-.sheet-loadheader em {
+	margin-left: auto;
 	text-transform: lowercase;
 }
 .sheet-loadnumber {
@@ -647,6 +637,22 @@ input.sheet-expand + span {
 	font-family: "Times New Roman", Times, serif;
 	font-size: 12px;
 	margin: 0 3px 0 4px;
+}
+.sheet-itemheader > :first-child {
+	margin-right: 4px;
+}
+.sheet-itemheader:not(:hover) .sheet-text-button {
+	display: none;
+}
+.sheet-itemheader .sheet-text-button {
+	margin-left: auto;
+}
+.sheet-itemheader label.sheet-text-button input[type=checkbox] + span {
+	opacity: 1;
+	color: #333;
+}
+.sheet-itemheader label.sheet-text-button:hover input[type=checkbox] + span {
+	color: #ff4747;
 }
 /* ADVANCEMENT BOX*/
 .sheet-advancement-header  {
@@ -694,6 +700,7 @@ input.sheet-expand + span {
 .sheet-playbook {
 	align-items: center;
 	height: 50px;
+	position: relative;
 	background: #d6d8d9;
 }
 .sheet-playbook input[type=text] {
@@ -729,7 +736,7 @@ input.sheet-expand + span {
 	position: absolute;
 	border: 1px solid #333;
 	background: #fff;
-	margin-top: 50px;
+	top: 48px;
 	z-index: 3;
 	border-radius: 5px;
 	width: 267px;
@@ -1174,13 +1181,13 @@ input[name="attr_progress"][value="12"]:checked ~ .sheet-12clock.sheet-clockpict
 	background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/clocks/clock12-12.png);
 }
 /* TEXT INPUTS FOR TRAUMA AND CLOCKS */
-label.sheet-text-button input:checked + span {
+.sheet-text-button input:checked + span {
 	color: #ff4747;
 }
-label.sheet-text-button {
+.sheet-text-button {
 	font-weight: bold;
 }
-.sheet-size-choice > label.sheet-text-button {
+.sheet-size-choice > .sheet-text-button {
 	height: 17px;
 	padding: 3px;
 	flex: 0 0 40%;
@@ -1601,36 +1608,29 @@ button.repcontrol_add:hover {
 .sheet-heat {
 	height: 25px;
 }
+.sheet-stress1 {
+	flex: 1 0 auto;
+}
 .sheet-stress2 {
-	width: 143px;
+	flex: 2 0 136px;
 	position: relative;
 }
 .sheet-stress3 {
-	width: 68px;
+	flex: 1 0 68px;
 	text-align: center;
 }
 .sheet-stress4 {
-	width: 200px;
-}
-.sheet-stress4 > div {
-	padding: 1px 0 0 3px;
+	flex: 2 0 221px;
 	line-height: 13px;
+	font-size: 9px;
+	padding: 1px 0 0 3px;
 	text-transform: uppercase;
-	justify-content: space-between;
-	font-size: 8px;
 }
-.sheet-stress4 > div > span {
-	text-align: center;
-	flex: 1 0;
+.sheet-stress4 div {
+	justify-content: space-between;
 }
 .sheet-stress4 > div:not(:first-of-type) {
 	letter-spacing: 1px;
-}
-.sheet-stress4 > div > span {
-	min-width: 11.5px;
-}
-.sheet-stress4 > div:last-of-type > span {
-	min-width: calc((100% - 150px)/3);
 }
 .sheet-traumaholder,
 .sheet-wantedholder {
@@ -1654,8 +1654,8 @@ button.repcontrol_add:hover {
 .sheet-rep3 :last-child {
 	margin-left: 2px;
 }
-.sheet-stress > div,
 .sheet-hold > div,
+.sheet-hold > label,
 .sheet-heat > div,
 .sheet-rep > div,
 .sheet-crewcoin2 {
@@ -2192,7 +2192,6 @@ input.sheet-title-checkbox:hover + span {
 	align-items: center;
 	line-height: 14px;
 	background: #ccc;
-	padding: 5px 0;
 }
 .sheet-factions-header input[type=text] {
 	padding-left: 3px;

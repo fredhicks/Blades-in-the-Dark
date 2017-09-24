@@ -1265,9 +1265,7 @@ const crewData = {
 			setting_load_h: "6",
 			setting_show_frame: "0",
 			setting_show_strictures: "0",
-			setting_stress_label: "Stress",
-			setting_trauma_label: "Trauma",
-			setting_traumata_set: " normal",
+			setting_traumata_set: "normal",
 			setting_vampirexp: "0",
 			setting_vice_type: "normal",
 			skirmish: "0",
@@ -1277,8 +1275,6 @@ const crewData = {
 			tinker: "0",
 			trauma: "0",
 			wreck: "0",
-			xp_condition2: "You expressed your beliefs, drives, heritage, or background.",
-			xp_condition3: "You struggled with issues from your vice or traumas during the session."
 		},
 		crew: {
 			claim_bridge_2_3: "1",
@@ -1296,8 +1292,6 @@ const crewData = {
 			setting_show_deity: "0",
 			setting_show_origin: "0",
 			upgrade_6_check_1: "0",
-			upgrade_6_name: getTranslationByKey("carriage"),
-			upgrade_8_name: getTranslationByKey("boat"),
 			upgrade_10_check_1: "0",
 			upgrade_14_check_1: "0",
 			upgrade_20_check_1: "0",
@@ -1664,6 +1658,26 @@ handleBoxesFill('bandolier2_check_');
 			setAttrs(setting);
 		}
 	});
+});
+/* Item reset button */
+on('change:reset_items', () => {
+	const clearChecks = sectionName => {
+		getSectionIDs(`repeating_${sectionName}`, idArray => {
+			const setting = [
+				...idArray.map(id => `repeating_${sectionName}_${id}_check_1`),
+				...idArray.map(id => `repeating_${sectionName}_${id}_check_2`),
+				...idArray.map(id => `repeating_${sectionName}_${id}_check_3`)
+			].reduce((m, name) => {
+				m[name] = 0;
+				return m;
+			}, {});
+			setAttrs(setting);
+		});
+	};
+	setAttrs({
+		load: 0
+	});
+	['item', 'playbookitem'].forEach(clearChecks);
 });
 /* Bonus dice via dropdown or text input */
 on('change:setting_text_bonus_query sheet:opened', () => {

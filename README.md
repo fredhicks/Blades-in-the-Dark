@@ -15,6 +15,7 @@ This is a character sheet for Blades in the Dark for use on Roll20.
     * Engagement roll button added to crew sheet
     * Added a clocks repeating section to the faction sheet, and a real notes field
     * Box-shadow effect to focused input fields (can be disabled in settings)
+    * Button to reset items and load with one click
 * Changes
     * New model for action and tier dots that gets rid of the need for extra attributes
     * Refactored sheet workers and cleaned them up using new features
