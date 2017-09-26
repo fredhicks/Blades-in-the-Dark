@@ -25,6 +25,7 @@ This is a character sheet for Blades in the Dark for use on Roll20.
     * Bypassed unnecessary extra padding around the sheet
     * Veteran special ability added to all playbooks for clarity
     * Frame features are now a repeating section, as they should be
+    * Improved spacing for action dots when expanding the sheet
 
 ### 1.15
 * Added 10-clocks, courtesy of Chris McDonald

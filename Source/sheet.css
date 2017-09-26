@@ -1620,10 +1620,10 @@ button.repcontrol_add:hover {
 	text-align: center;
 }
 .sheet-stress4 {
-	flex: 2 0 221px;
+	flex: 2 0 217px;
 	line-height: 13px;
 	font-size: 9px;
-	padding: 1px 0 0 3px;
+	padding: 1px 0 0 2px;
 	text-transform: uppercase;
 }
 .sheet-stress4 div {
@@ -1866,10 +1866,19 @@ input.sheet-frienddown:checked ~ input[type=text],
 	height: 11px;
 	width: 11px;
 	border: none;
-	margin-right: auto;
+	margin-right: calc(7px + (100% - 173px)/8);
 }
 .sheet-action input.sheet-checkbox + span:first-of-type {
 	margin-right: 6px;
+}
+.sheet-action .sheet-darktalent:checked ~ input.sheet-checkbox + span:first-of-type {
+	margin-right: 4px;
+}
+.sheet-actions .sheet-darktalent:checked ~ input.sheet-checkbox + span:not(:first-of-type) {
+	margin-right: calc(3px + (100% - 171px)/10);
+}
+.sheet-actions .sheet-darktalent:checked ~ input.sheet-checkbox + span:last-of-type {
+	margin-right: calc(4px + (100% - 171px)/10);
 }
 .sheet-specialability input.sheet-checkbox:checked + span {
 	background: #ff4747;
@@ -1885,8 +1894,8 @@ input.sheet-checkbox.sheet-fakeradio + span {
 	background: #fff;
 }
 /* HIDER*/
-input.sheet-dothider:not(:checked) + input[type=checkbox],
-input.sheet-dothider:not(:checked) + input[type=checkbox] + span {
+input.sheet-darktalent:not(:checked) ~ input[type=checkbox]:last-of-type,
+input.sheet-darktalent:not(:checked) ~ input[type=checkbox]:last-of-type + span {
 	display: none;
 }
 /* Friend triangles */
@@ -1961,9 +1970,12 @@ input.sheet-checkbox.sheet-frienddown {
 	padding-top: 12px;
 }
 .sheet-divider {
-	margin-right: auto;
+	margin-right: calc(5px + (100% - 173px)/12);
 	border-right: 1px solid #000;
 	height: inherit;
+}
+.sheet-darktalent:checked ~ .sheet-divider {
+	margin-right: calc(3px + (100% - 173px)/15)
 }
 .sheet-action:first-child .sheet-divider {
 	position: relative;

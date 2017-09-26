@@ -2269,7 +2269,7 @@ on('sheet:opened', () => {
 					console.log('Updating to 1.15');
 				}
 				// Upgrade to 2.0: Rename trauma attributes
-				else if (versionMajor === 1) {
+				else if (versionMajor < 2) {
 					const attrs = [
 						...traumaDataFlat,
 						'changed_attributes',
@@ -2284,7 +2284,7 @@ on('sheet:opened', () => {
 							})).filter(o => o.check || o.name),
 							changedAttrs = new Set(v.changed_attributes.split(',')),
 							setting = traumaDataFlat.reduce((m, name) => {
-								if (v[name] === '1') m[`trauma_${name}`] === '1';
+								if (String(v[name]) === '1') m[`trauma_${name}`] = '1';
 								return m;
 							}, {});
 						actionsFlat.filter(n => changedAttrs.has(`${n}1`) || changedAttrs.has(`${n}2`))
