@@ -54,3 +54,46 @@
 		{{#notes}}<div class="sheet-roll-notes">{{notes}}</div>{{/notes}}
 	</div>
 </rolltemplate>
+<!-- BROADCAST -->
+<rolltemplate class="sheet-rolltemplate-bitd-broadcast">
+	<div class="sheet-roll-header">
+		<div>{{charname}}</div>
+		<div>{{type}}</div>
+	</div>
+	{{#content}}
+	<div class="sheet-roll-title">{{title}}</div>
+	<div class="sheet-roll-content">{{content}}</div>
+	{{/content}}
+	{{#clock}}
+	<div class="sheet-roll-flex">
+		<div class="sheet-roll-clock-{{clocksize}}-{{clockprogress}}"></div>
+		<div class="sheet-roll-title">{{title}}</div>
+	</div>
+	{{/clock}}
+	{{#harm}}
+	<img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-harm.png">
+	<table class="sheet-roll-harm">
+		<tr>
+			<td>3</td>
+			<td class="sheet-roll-harm-inner">{{harm3}}</td>
+			<td data-i18n="need_help">Need help</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>
+				<div class="sheet-roll-harm-inner">{{harm2_1}}</div>
+				<div class="sheet-roll-harm-inner">{{harm2_2}}</div>
+			</td>
+			<td data-i18n="minus1d">-1D</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>
+				<div class="sheet-roll-harm-inner">{{harm1_1}}</div>
+				<div class="sheet-roll-harm-inner">{{harm1_2}}</div>
+			</td>
+			<td data-i18n="less_effect">Less Effect</td>
+		</tr>
+	</table>
+	{{/harm}}
+</rolltemplate>
