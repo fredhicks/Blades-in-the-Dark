@@ -268,6 +268,9 @@
 	padding: 5px;
 	border: 1px solid #fff;
 }
+.sheet-rolltemplate-bitd-broadcast .sheet-roll-harm td:first-child {
+	width: 10px;
+}
 .sheet-rolltemplate-bitd-broadcast .sheet-roll-harm td:nth-child(2n+1) {
 	font-weight: bold;
 }
