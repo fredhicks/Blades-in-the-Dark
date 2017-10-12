@@ -271,6 +271,9 @@
 .sheet-rolltemplate-bitd-broadcast .sheet-roll-harm td:nth-child(2n+1) {
 	font-weight: bold;
 }
+.sheet-rolltemplate-bitd-broadcast .sheet-roll-harm td:nth-child(2) {
+	padding: 5px 0;
+}
 .sheet-rolltemplate-bitd-broadcast .sheet-roll-harm td:last-child {
 	width: 60px;
 	letter-spacing: 0.5px;
@@ -278,6 +281,14 @@
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-roll-harm-inner {
 	color: #e74a10;
+	padding: 0 5px;
+}
+.sheet-rolltemplate-bitd-broadcast .sheet-roll-harm-inner:first-child:not(:last-child) {
+	padding-bottom: 2.5px;
+	border-bottom: 1px solid #fff;
+}
+.sheet-rolltemplate-bitd-broadcast .sheet-roll-harm-inner:last-child:not(:first-child) {
+	padding-top: 2.5px;
 }
 .sheet-rolltemplate-bitd-broadcast [class^="sheet-roll-clock"] {
 	width: 88px;
