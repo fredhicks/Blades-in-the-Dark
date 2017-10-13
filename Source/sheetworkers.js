@@ -1573,7 +1573,7 @@ Object.keys(actionData).forEach(attrName => {
 	on(actionData[attrName].map(x => `change:${x}`).join(' '), () => calculateResistance(attrName));
 	on(`change:setting_dark_talent_${attrName}`, () => {
 		getAttrs([`setting_dark_talent_${attrName}`, `setting_resbonus_${attrName}`], v => {
-			const resistanceBonus = (parseInt(v[(`setting_resbonus_${attrName}`]) || 0) +
+			const resistanceBonus = (parseInt(v[`setting_resbonus_${attrName}`]) || 0) +
 				((v[`setting_dark_talent_${attrName}`] === '1') ? 1 : -1);
 			setAttr(`setting_resbonus_${attrName}`, resistanceBonus);
 		});
