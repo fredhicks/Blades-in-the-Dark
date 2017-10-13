@@ -1431,7 +1431,7 @@ const mySetAttrs = (attrs, options, callback) => {
 			getAttrs([event.sourceAttribute], v => {
 				const rName = event.sourceAttribute.slice(0, -1),
 					setting = {};
-				if (v[event.sourceAttribute] === '1') {
+				if (String(v[event.sourceAttribute]) === '1') {
 					switch (event.sourceAttribute.slice(-1)) {
 					case '4':
 						setting[`${rName}3`] = 1;
@@ -1441,7 +1441,7 @@ const mySetAttrs = (attrs, options, callback) => {
 						setting[`${rName}1`] = 1;
 					}
 				}
-				if (v[event.sourceAttribute] === '0') {
+				if (String(v[event.sourceAttribute]) === '0') {
 					switch (event.sourceAttribute.slice(-1)) {
 					case '1':
 						setting[`${rName}2`] = 0;
@@ -1574,7 +1574,7 @@ Object.keys(actionData).forEach(attrName => {
 	on(`change:setting_dark_talent_${attrName}`, () => {
 		getAttrs([`setting_dark_talent_${attrName}`, `setting_resbonus_${attrName}`], v => {
 			const resistanceBonus = (parseInt(v[`setting_resbonus_${attrName}`]) || 0) +
-				((v[`setting_dark_talent_${attrName}`] === '1') ? 1 : -1);
+				((String(v[`setting_dark_talent_${attrName}`]) === '1') ? 1 : -1);
 			setAttr(`setting_resbonus_${attrName}`, resistanceBonus);
 		});
 	});
@@ -1686,7 +1686,7 @@ on('change:repeating_upgrade:boxes_chosen', () => {
 on('change:setting_text_bonus_query sheet:opened', () => {
 	getAttrs(['setting_text_bonus_query', 'bonusdice', 'numberofdice'], v => {
 		const setting = {};
-		if (v.setting_text_bonus_query === '1') {
+		if (String(v.setting_text_bonus_query) === '1') {
 			setting.bonusdice = `(?{${getTranslationByKey('bonusdice')}|0})`;
 			setting.numberofdice = `(?{${getTranslationByKey('numberofdice')}|0})`;
 		}
@@ -1702,9 +1702,9 @@ on('change:setting_text_bonus_query sheet:opened', () => {
 /* Resistance query */
 on('change:setting_consequence_query sheet:opened', () => {
 	getAttrs(['setting_consequence_query'], v => {
-		const consequenceQuery = (v.setting_consequence_query === '1') ?
-				`?{${getTranslationByKey('consequence')}|${getTranslationByKey('a_consequence')}}` :
-				getTranslationByKey('a_consequence');
+		const consequenceQuery = (String(v.setting_consequence_query) === '1') ?
+			`?{${getTranslationByKey('consequence')}|${getTranslationByKey('a_consequence')}}` :
+			getTranslationByKey('a_consequence');
 		setAttr('consequence_query', consequenceQuery);
 	});
 });
