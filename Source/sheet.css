@@ -1085,59 +1085,57 @@ textarea.sheet-smallcaps {
 .sheet-clock-container .sheet-input-progress[value="0"]:checked ~ .sheet-clock {
   background: white;
 }
-.sheet-4clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
+.sheet-4clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock,
+.sheet-8clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
+.sheet-12clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
   background-image: linear-gradient(180deg, transparent 50%, white 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-4clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
+.sheet-4clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
+.sheet-6clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock,
+.sheet-8clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
+.sheet-10clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock
+.sheet-12clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
 	background-image: linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-4clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
+.sheet-4clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock,
+.sheet-8clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock,
+.sheet-12clock .sheet-input-progress[value="9"]:checked ~ .sheet-clock {
   background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-4clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
+.sheet-4clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
+.sheet-6clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock,
+.sheet-8clock .sheet-input-progress[value="8"]:checked ~ .sheet-clock,
+.sheet-10clock .sheet-input-progress[value="10"]:checked ~ .sheet-clock,
+.sheet-12clock .sheet-input-progress[value="12"]:checked ~ .sheet-clock {
   background: red;
 }
-.sheet-6clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
+.sheet-6clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock,
+.sheet-12clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
 }
-.sheet-6clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
+.sheet-6clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
+.sheet-12clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
 }
-.sheet-6clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
-	background-image: linear-gradient(90deg, white 50%, red 50%);
-}
-.sheet-6clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
+.sheet-6clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
+.sheet-12clock .sheet-input-progress[value="8"]:checked ~ .sheet-clock {
   background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-6clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
+.sheet-6clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock,
+.sheet-12clock .sheet-input-progress[value="10"]:checked ~ .sheet-clock {
   background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
-.sheet-6clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
-  background: red;
 }
 .sheet-8clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(135deg, red 50%, white 50%);
 }
-.sheet-8clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(180deg, transparent 50%, white 50%), linear-gradient(90deg, white 50%, red 50%);
-}
 .sheet-8clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(225deg, red 50%, white 50%);
-}
-.sheet-8clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
-	background-image: linear-gradient(90deg, white 50%, red 50%);
 }
 .sheet-8clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
   background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-8clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
 .sheet-8clock .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
   background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
-.sheet-8clock .sheet-input-progress[value="8"]:checked ~ .sheet-clock {
-  background: red;
 }
 .sheet-10clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(126deg, red 50%, white 50%);
@@ -1151,9 +1149,6 @@ textarea.sheet-smallcaps {
 .sheet-10clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(234deg, red 50%, white 50%);
 }
-.sheet-10clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
-	background-image: linear-gradient(90deg, white 50%, red 50%);
-}
 .sheet-10clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
   background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
@@ -1166,44 +1161,17 @@ textarea.sheet-smallcaps {
 .sheet-10clock .sheet-input-progress[value="9"]:checked ~ .sheet-clock {
   background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-10clock .sheet-input-progress[value="10"]:checked ~ .sheet-clock {
-  background: red;
-}
 .sheet-12clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(120deg, red 50%, white 50%);
-}
-.sheet-12clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
-}
-.sheet-12clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(180deg, transparent 50%, white 50%), linear-gradient(90deg, white 50%, red 50%);
-}
-.sheet-12clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
 }
 .sheet-12clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(240deg, red 50%, white 50%);
 }
-.sheet-12clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
-	background-image: linear-gradient(90deg, white 50%, red 50%);
-}
 .sheet-12clock .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
   background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-12clock .sheet-input-progress[value="8"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
-.sheet-12clock .sheet-input-progress[value="9"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
-.sheet-12clock .sheet-input-progress[value="10"]:checked ~ .sheet-clock {
-  background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
 .sheet-12clock .sheet-input-progress[value="11"]:checked ~ .sheet-clock {
   background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
-.sheet-12clock .sheet-input-progress[value="12"]:checked ~ .sheet-clock {
-  background: red;
 }
 /* TEXT INPUTS FOR TRAUMA AND CLOCKS */
 .sheet-text-button input:checked + span {
@@ -1279,11 +1247,29 @@ input.sheet-zero {
 	vertical-align: top;
 }
 .sheet-zero + span {
-	width: 10px;
-	height: 13px;
-	margin-right: 3px;
-	vertical-align: top;
-	background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/zero.png);
+  height: 11px;
+  width: 11px;
+  margin-top: 1px;
+  margin-right: 3px;
+  vertical-align: top;
+  border: 1px solid #000;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+}
+.sheet-zero + span::before, .sheet-zero + span::after {
+  position: absolute;
+  width: 1px;
+  content: "";
+  left: 0;
+  background: #000;
+  height: 11px;
+}
+.sheet-zero + span::after {
+  transform: translate(4px,-1px) rotate(135deg);
+}
+.sheet-zero + span::before {
+  transform: translate(4px,-1px) rotate(45deg);
 }
 .sheet-zero[type=radio]:checked + span {
 	opacity: 0;
@@ -2020,7 +2006,6 @@ input.sheet-checkbox.sheet-squarebox-small, .sheet-checkbox.sheet-squarebox-smal
 	line-height: 13px;
 }
 .sheet-cohort-info input[type=text] {
-	width: auto;
 	flex: 1 1 0;
 	padding: 0 3px;
 }
