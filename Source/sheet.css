@@ -1217,6 +1217,8 @@ input.sheet-tooth {
 }
 .sheet-tooth + span {
 	width: 8px;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 .sheet-tooth + span:last-child {
 	margin-right: 0 !important;
