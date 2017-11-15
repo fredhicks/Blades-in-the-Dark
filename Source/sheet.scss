@@ -809,6 +809,7 @@ textarea.sheet-smallcaps {
   height: 44px;
   width: 2px;
   position: absolute;
+  display: none;
   left: 0;
   top: 0;
   background: black;
@@ -896,295 +897,318 @@ textarea.sheet-smallcaps {
 	display: none;
 }
 /* Positioning inputs on clocks */
-.sheet-clock-container input {
-	position: absolute;
-}
-.sheet-clock-container input:checked {
+.sheet-clocks .sheet-clock-container {
 	display: none;
 }
-.sheet-clock-container .sheet-zero {
-	z-index: 3;
+.sheet-clock-container {
+	input {
+		position: absolute;
+		display: none;
+	}
+	.sheet-zero {
+		z-index: 3;
+	}
+	.sheet-zero, .sheet-zero + span {
+		position: absolute;
+		top: 37px;
+		left: -5px;
+	}
+	.sheet-all, .sheet-zero {
+		display: block;
+	}
 }
-.sheet-clock-container .sheet-zero, .sheet-clock-container .sheet-zero + span {
-	position: absolute;
-	top: 37px;
-	left: -5px;
+.sheet-size[value="4"]:checked ~ .sheet-clock-container, .sheet-4clock {
+	input:not(.sheet-zero) {
+		height: 20px;
+		width: 20px;
+	}
+	input[value="1"] {
+		margin-left: 20px;
+	}
+	input[value="2"] {
+		margin: 20px 0 0 20px;
+	}
+	input[value="3"] {
+		margin-top: 20px;
+	}
 }
-.sheet-4clock input:not(.sheet-zero) {
-	height: 20px;
-	width: 20px;
+.sheet-size[value="6"]:checked ~ .sheet-clock-container {
+	input:not(.sheet-zero) {
+		height: 17px;
+		width: 12px;
+	}
+	input[value="1"] {
+		margin-left: 21px;
+		transform: rotate(30deg);
+	}
+	input[value="2"] {
+		margin: 12px 0 0 25px;
+		transform: rotate(90deg);
+	}
+	input[value="3"] {
+		margin: 22px 0 0 21px;
+		transform: rotate(150deg);
+	}
+	input[value="4"] {
+		margin: 22px 0 0 8px;
+		transform: rotate(210deg);
+	}
+	input[value="5"] {
+		margin: 12px 0 0 1px;
+		transform: rotate(270deg);
+	}
+	input[value="6"] {
+		margin-left: 8px;
+		transform: rotate(330deg);
+	}
 }
-.sheet-4clock input[value="1"] {
-	margin-left: 20px;
+.sheet-size[value="8"]:checked ~ .sheet-clock-container {
+	input:not(.sheet-zero) {
+		height: 14px;
+		width: 10px;
+	}
+	input[value="1"] {
+		margin-left: 20px;
+		transform: rotate(22.5deg);
+	}
+	input[value="2"] {
+		margin: 8px 0 0 26px;
+		transform: rotate(67.5deg);
+	}
+	input[value="3"] {
+		margin: 18px 0 0 26px;
+		transform: rotate(112.5deg);
+	}
+	input[value="4"] {
+		margin: 25px 0 0 20px;
+		transform: rotate(157.5deg);
+	}
+	input[value="5"] {
+		margin: 25px 0 0 9px;
+		transform: rotate(202.5deg);
+	}
+	input[value="6"] {
+		margin: 18px 0 0 2px;
+		transform: rotate(247.5deg);
+	}
+	input[value="7"] {
+		margin: 8px 0 0 2px;
+		transform: rotate(292.5deg);
+	}
+	input[value="8"] {
+		margin-left: 9px;
+		transform: rotate(337.5deg);
+	}
 }
-.sheet-4clock input[value="2"] {
-	margin: 20px 0 0 20px;
+.sheet-size[value="10"]:checked ~ .sheet-clock-container {
+	input:not(.sheet-zero) {
+		height: 14px;
+		width: 9px;
+	}
+	input[value="1"] {
+		transform: rotate(18deg);
+		margin-left: 20px;
+	}
+	input[value="2"] {
+		transform: rotate(54deg);
+		margin: 5px 0 0 27px;
+	}
+	input[value="3"] {
+		transform: rotate(90deg);
+		margin: 13px 0 0 30px;
+	}
+	input[value="4"] {
+		transform: rotate(126deg);
+		margin: 21px 0 0 27px;
+	}
+	input[value="5"] {
+		transform: rotate(162deg);
+		margin: 26px 0 0 20px;
+	}
+	input[value="6"] {
+		transform: rotate(198deg);
+		margin: 26px 0 0 12px;
+	}
+	input[value="7"] {
+		transform: rotate(234deg);
+		margin: 21px 0 0 5px;
+	}
+	input[value="8"] {
+		transform: rotate(270deg);
+		margin: 13px 0 0 1px;
+	}
+	input[value="9"] {
+		transform: rotate(306deg);
+		margin: 5px 0 0 5px;
+	}
+	input[value="10"] {
+		transform: rotate(342deg);
+		margin-left: 12px;
+	}
 }
-.sheet-4clock input[value="3"] {
-	margin-top: 20px;
-}
-.sheet-6clock input:not(.sheet-zero) {
-	height: 17px;
-	width: 12px;
-}
-.sheet-6clock input[value="1"] {
-	margin-left: 21px;
-	transform: rotate(30deg);
-}
-.sheet-6clock input[value="2"] {
-	margin: 12px 0 0 25px;
-	transform: rotate(90deg);
-}
-.sheet-6clock input[value="3"] {
-	margin: 22px 0 0 21px;
-	transform: rotate(150deg);
-}
-.sheet-6clock input[value="4"] {
-	margin: 22px 0 0 8px;
-	transform: rotate(210deg);
-}
-.sheet-6clock input[value="5"] {
-	margin: 12px 0 0 1px;
-	transform: rotate(270deg);
-}
-.sheet-6clock input[value="6"] {
-	margin-left: 8px;
-	transform: rotate(330deg);
-}
-.sheet-8clock input:not(.sheet-zero) {
-	height: 14px;
-	width: 10px;
-}
-.sheet-8clock input[value="1"] {
-	margin-left: 20px;
-	transform: rotate(22.5deg);
-}
-.sheet-8clock input[value="2"] {
-	margin: 8px 0 0 26px;
-	transform: rotate(67.5deg);
-}
-.sheet-8clock input[value="3"] {
-	margin: 18px 0 0 26px;
-	transform: rotate(112.5deg);
-}
-.sheet-8clock input[value="4"] {
-	margin: 25px 0 0 20px;
-	transform: rotate(157.5deg);
-}
-.sheet-8clock input[value="5"] {
-	margin: 25px 0 0 9px;
-	transform: rotate(202.5deg);
-}
-.sheet-8clock input[value="6"] {
-	margin: 18px 0 0 2px;
-	transform: rotate(247.5deg);
-}
-.sheet-8clock input[value="7"] {
-	margin: 8px 0 0 2px;
-	transform: rotate(292.5deg);
-}
-.sheet-8clock input[value="8"] {
-	margin-left: 9px;
-	transform: rotate(337.5deg);
-}
-.sheet-10clock input:not(.sheet-zero) {
-	height: 14px;
-	width: 9px;
-}
-.sheet-10clock input[value="1"] {
-	transform: rotate(18deg);
-	margin-left: 20px;
-}
-.sheet-10clock input[value="2"] {
-	transform: rotate(54deg);
-	margin: 5px 0 0 27px;
-}
-.sheet-10clock input[value="3"] {
-	transform: rotate(90deg);
-	margin: 13px 0 0 30px;
-}
-.sheet-10clock input[value="4"] {
-	transform: rotate(126deg);
-	margin: 21px 0 0 27px;
-}
-.sheet-10clock input[value="5"] {
-	transform: rotate(162deg);
-	margin: 26px 0 0 20px;
-}
-.sheet-10clock input[value="6"] {
-	transform: rotate(198deg);
-	margin: 26px 0 0 12px;
-}
-.sheet-10clock input[value="7"] {
-	transform: rotate(234deg);
-	margin: 21px 0 0 5px;
-}
-.sheet-10clock input[value="8"] {
-	transform: rotate(270deg);
-	margin: 13px 0 0 1px;
-}
-.sheet-10clock input[value="9"] {
-	transform: rotate(306deg);
-	margin: 5px 0 0 5px;
-}
-.sheet-10clock input[value="10"] {
-	transform: rotate(342deg);
-	margin-left: 12px;
-}
-.sheet-12clock input:not(.sheet-zero) {
-	height: 12px;
-	width: 8px;
-}
-.sheet-12clock input[value="1"] {
-	margin-left: 20px;
-	transform: rotate(15deg);
-}
-.sheet-12clock input[value="2"] {
-	margin: 4px 0 0 26px;
-	transform: rotate(45deg);
-}
-.sheet-12clock input[value="3"] {
-	margin: 10px 0 0 29px;
-	transform: rotate(75deg);
-}
-.sheet-12clock input[value="4"] {
-	margin: 18px 0 0 29px;
-	transform: rotate(105deg);
-}
-.sheet-12clock input[value="5"] {
-	margin: 24px 0 0 26px;
-	transform: rotate(135deg);
-}
-.sheet-12clock input[value="6"] {
-	margin: 28px 0 0 20px;
-	transform: rotate(165deg);
-}
-.sheet-12clock input[value="7"] {
-	margin: 28px 0 0 12px;
-	transform: rotate(195deg);
-}
-.sheet-12clock input[value="8"] {
-	margin: 24px 0 0 6px;
-	transform: rotate(225deg);
-}
-.sheet-12clock input[value="9"] {
-	margin: 18px 0 0 3px;
-	transform: rotate(255deg);
-}
-.sheet-12clock input[value="10"] {
-	margin: 10px 0 0 3px;
-	transform: rotate(295deg);
-}
-.sheet-12clock input[value="11"] {
-	margin: 4px 0 0 6px;
-	transform: rotate(315deg);
-}
-.sheet-12clock input[value="12"] {
-	margin-left: 12px;
-	transform: rotate(345deg);
+.sheet-size[value="12"]:checked ~ .sheet-clock-container {
+	input:not(.sheet-zero) {
+		height: 12px;
+		width: 8px;
+	}
+	input[value="1"] {
+		margin-left: 20px;
+		transform: rotate(15deg);
+	}
+	input[value="2"] {
+		margin: 4px 0 0 26px;
+		transform: rotate(45deg);
+	}
+	input[value="3"] {
+		margin: 10px 0 0 29px;
+		transform: rotate(75deg);
+	}
+	input[value="4"] {
+		margin: 18px 0 0 29px;
+		transform: rotate(105deg);
+	}
+	input[value="5"] {
+		margin: 24px 0 0 26px;
+		transform: rotate(135deg);
+	}
+	input[value="6"] {
+		margin: 28px 0 0 20px;
+		transform: rotate(165deg);
+	}
+	input[value="7"] {
+		margin: 28px 0 0 12px;
+		transform: rotate(195deg);
+	}
+	input[value="8"] {
+		margin: 24px 0 0 6px;
+		transform: rotate(225deg);
+	}
+	input[value="9"] {
+		margin: 18px 0 0 3px;
+		transform: rotate(255deg);
+	}
+	input[value="10"] {
+		margin: 10px 0 0 3px;
+		transform: rotate(295deg);
+	}
+	input[value="11"] {
+		margin: 4px 0 0 6px;
+		transform: rotate(315deg);
+	}
+	input[value="12"] {
+		margin-left: 12px;
+		transform: rotate(345deg);
+	}
 }
 /* End positioning */
-.sheet-input-size:checked  ~ .sheet-size-choice,
-.sheet-clocks .sheet-broadcast-button,
-.sheet-input-size[value="4"]:not(:checked) ~ .sheet-4clock,
-.sheet-input-size[value="6"]:not(:checked) ~ .sheet-6clock,
-.sheet-input-size[value="8"]:not(:checked) ~ .sheet-8clock,
-.sheet-input-size[value="10"]:not(:checked) ~ .sheet-10clock,
-.sheet-input-size[value="12"]:not(:checked) ~ .sheet-12clock {
+.sheet-size[value="4"]:checked ~ .sheet-clock-container .sheet-4clock,
+.sheet-size[value="6"]:checked ~ .sheet-clock-container .sheet-6clock,
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-8clock,
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-10clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-12clock {
+	display: block;
+}
+.sheet-size:checked  ~ .sheet-size-choice,
+.sheet-clocks .sheet-broadcast-button {
 	display: none;
 }
-.sheet-input-size:checked ~ .sheet-broadcast-button {
+.sheet-size:checked ~ .sheet-broadcast-button,
+.sheet-size:checked ~ .sheet-clock-container {
 	display: block;
 }
 .sheet-clock-container .sheet-input-progress[value="0"]:checked ~ .sheet-clock {
   background: white;
 }
 .sheet-4clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock,
-.sheet-8clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
+.sheet-size[value="4"]:checked ~ .sheet-clock-container .sheet-input-progress[value="1"]:checked ~ .sheet-clock,
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
   background-image: linear-gradient(180deg, transparent 50%, white 50%), linear-gradient(90deg, white 50%, red 50%);
 }
 .sheet-4clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
-.sheet-6clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock,
-.sheet-8clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
-.sheet-10clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
+.sheet-size[value="4"]:checked ~ .sheet-clock-container .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
+.sheet-size[value="6"]:checked ~ .sheet-clock-container .sheet-input-progress[value="3"]:checked ~ .sheet-clock,
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="5"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
 	background-image: linear-gradient(90deg, white 50%, red 50%);
 }
 .sheet-4clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock,
-.sheet-8clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="9"]:checked ~ .sheet-clock {
+.sheet-size[value="4"]:checked ~ .sheet-clock-container .sheet-input-progress[value="3"]:checked ~ .sheet-clock,
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="6"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="9"]:checked ~ .sheet-clock {
   background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
 .sheet-4clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
-.sheet-6clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock,
-.sheet-8clock .sheet-input-progress[value="8"]:checked ~ .sheet-clock,
-.sheet-10clock .sheet-input-progress[value="10"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="12"]:checked ~ .sheet-clock {
+.sheet-size[value="4"]:checked ~ .sheet-clock-container .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
+.sheet-size[value="6"]:checked ~ .sheet-clock-container .sheet-input-progress[value="6"]:checked ~ .sheet-clock,
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="8"]:checked ~ .sheet-clock,
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="10"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="12"]:checked ~ .sheet-clock {
   background: red;
 }
-.sheet-6clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
+.sheet-size[value="6"]:checked ~ .sheet-clock-container .sheet-input-progress[value="1"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
 }
-.sheet-6clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
+.sheet-size[value="6"]:checked ~ .sheet-clock-container .sheet-input-progress[value="2"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
 }
-.sheet-6clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="8"]:checked ~ .sheet-clock {
+.sheet-size[value="6"]:checked ~ .sheet-clock-container .sheet-input-progress[value="4"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="8"]:checked ~ .sheet-clock {
   background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-6clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock,
-.sheet-12clock .sheet-input-progress[value="10"]:checked ~ .sheet-clock {
+.sheet-size[value="6"]:checked ~ .sheet-clock-container .sheet-input-progress[value="5"]:checked ~ .sheet-clock,
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="10"]:checked ~ .sheet-clock {
   background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-8clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(135deg, red 50%, white 50%);
 }
-.sheet-8clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(225deg, red 50%, white 50%);
 }
-.sheet-8clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
   background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-8clock .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
+.sheet-size[value="8"]:checked ~ .sheet-clock-container .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
   background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-10clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(126deg, red 50%, white 50%);
 }
-.sheet-10clock .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="2"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(162deg, red 50%, white 50%);
 }
-.sheet-10clock .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="3"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(198deg, red 50%, white 50%);
 }
-.sheet-10clock .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="4"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(234deg, red 50%, white 50%);
 }
-.sheet-10clock .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="6"]:checked ~ .sheet-clock {
   background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-10clock .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
   background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-10clock .sheet-input-progress[value="8"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="8"]:checked ~ .sheet-clock {
   background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-10clock .sheet-input-progress[value="9"]:checked ~ .sheet-clock {
+.sheet-size[value="10"]:checked ~ .sheet-clock-container .sheet-input-progress[value="9"]:checked ~ .sheet-clock {
   background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-12clock .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="1"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(120deg, red 50%, white 50%);
 }
-.sheet-12clock .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="5"]:checked ~ .sheet-clock {
   background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(240deg, red 50%, white 50%);
 }
-.sheet-12clock .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="7"]:checked ~ .sheet-clock {
   background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
-.sheet-12clock .sheet-input-progress[value="11"]:checked ~ .sheet-clock {
+.sheet-size[value="12"]:checked ~ .sheet-clock-container .sheet-input-progress[value="11"]:checked ~ .sheet-clock {
   background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
 /* TEXT INPUTS FOR TRAUMA AND CLOCKS */
@@ -1287,7 +1311,7 @@ input.sheet-zero {
 .sheet-zero + span::before {
   transform: translate(4px,-1px) rotate(45deg);
 }
-.sheet-zero[type=radio]:checked + span {
+.sheet-zero:checked + span {
 	visibility: hidden;
 }
 .sheet-coin .sheet-zero + span {
@@ -1558,9 +1582,9 @@ input.sheet-zero {
 	line-height: 22px;
 }
 .sheet-hunting-grounds .sheet-auto-expand {
-	font-size: inherit;
-	min-height: 36px;
-	line-height: 18px;
+	font-size: 12px;
+	min-height: 32px;
+	line-height: 16px;
 }
 /* BONUS DIE SECTION */
 .sheet-bonusdie .sheet-label {
@@ -1727,9 +1751,6 @@ input.sheet-zero {
 	color: #c43c35;
 	font-size: 20px;
 	width: 98%;
-	background-image: -webkit-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-	background-image: -moz-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
-	background-image: -o-linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
 	background-image: linear-gradient(top, transparent, transparent 26px, #a7a7a7 0);
 	background-size: 100% 27px;
 	line-height: 27px;
@@ -2471,77 +2492,54 @@ button[type=roll].sheet-broadcast-button {
 	.sheet-greyheader,
 	.sheet-black-on-grey,
 	.sheet-playbook input[type="text"],
-	.sheet-plainheader:not(.sheet-hunting-grounds),
+	.sheet-plainheader,
 	.sheet-itemheader :first-child,
 	.sheet-loadheader :first-child,
 	.sheet-attribute-title button[type=roll].sheet-rollbutton,
 	.sheet-bonusdie > .sheet-label:first-child,
 	.sheet-cohort-title,
 	.sheet-claimbox .sheet-label,
+	.sheet-lairbox,
 	.sheet-crewheader,
 	.sheet-factiontitle input[type="text"],
 	.sheet-factions-header input[type="text"] {
-		font-family: Kirsty, serif;
+		font-family: Kirsty, Georgia, serif;
 	}
-
-	.sheet-playbook input[type="text"] {
-		font-size: 40px;
-	}
-
-	.sheet-factiontitle input[type="text"] {
-		font-size: 32px;
-	}
-
-	.sheet-factions-header input[type="text"] {
-		font-size: 14px;
-		font-weight: 400;
-	}
-
-	.sheet-crewheader {
-		font-size: 29px;
-		letter-spacing: 0;
-	}
-
-	.sheet-attribute-title button[type=roll].sheet-rollbutton {
-		font-size: 15px;
-		font-weight: 400;
-	}
-
-	.sheet-blackheader, .sheet-greyheader, .sheet-black-on-grey {
-		.sheet-label, button[type="roll"].sheet-label {
-			font-size: 1.1em;
-			font-weight: 400;
-		}
-	}
-
-	.sheet-specialheader {
-		font-size: 12px;
-		font-weight: 400;
-	}
-
-	.sheet-plainheader:not(.sheet-hunting-grounds) {
-		font-size: 13px;
-		font-weight: 400;
-	}
-
-	.sheet-itemheader :first-child, .sheet-loadheader :first-child {
-		font-size: 1.2em;
-		font-weight: 400;
-	}
-
-	.sheet-bonusdie > .sheet-label:first-child {
-		font-size: 14px;
-		font-weight: 400;
-	}
-
-	.sheet-cohort-title {
-		font-size: 13px;
-		font-weight: 400;
-	}
-
 	.sheet-claimbox .sheet-label {
 		font-size: 10px;
 		font-weight: 400;
 	}
-
+	.sheet-specialheader, .sheet-itemheader :first-child, .sheet-loadheader :first-child {
+		font-size: 12px;
+		font-weight: 400;
+	}
+	.sheet-plainheader, .sheet-cohort-title {
+		font-size: 13px;
+		font-weight: 400;
+	}
+	.sheet-factions-header input[type="text"],
+	.sheet-bonusdie > .sheet-label:first-child {
+		font-size: 14px;
+		font-weight: 400;
+	}
+	.sheet-attribute-title button[type=roll].sheet-rollbutton, .sheet-lairbox {
+		font-size: 15px;
+		font-weight: 400;
+	}
+	.sheet-crewheader {
+		font-size: 29px;
+		letter-spacing: 0;
+	}
+	.sheet-factiontitle input[type="text"] {
+		font-size: 32px;
+	}
+	.sheet-playbook input[type="text"] {
+		font-size: 40px;
+	}
+	.sheet-blackheader, .sheet-greyheader, .sheet-black-on-grey {
+		.sheet-label, button[type="roll"].sheet-label {
+			font-size: 12px;
+			font-weight: 400;
+		}
+	}
 }
