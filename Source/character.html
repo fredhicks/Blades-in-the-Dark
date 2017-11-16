@@ -304,8 +304,9 @@
 					<div class="sheet-col100 sheet-healing-progress">
 						<em data-i18n="progress_clock" data-i18n-title="recoveryblurb" title="Get treatment in downtime to activate your healing project clock">progress clock</em>
 					</div>
+					<input type="hidden" class="sheet-size" value="4">
 					<input type="hidden" name="attr_recovery_max" value="4">
-					<div class="sheet-clock-container sheet-4clock">
+					<div class="sheet-clock-container">
 						<div class="sheet-spoke-0 sheet-all"></div>
 						<div class="sheet-spoke-90 sheet-all"></div>
 						<input type="radio" name="attr_recovery" class="sheet-zero sheet-input-progress" value="0" checked>
@@ -1261,11 +1262,7 @@
 		<div class="sheet-col100 sheet-clocks sheet-white-repcontrol sheet-def-margin">
 			<div class="sheet-specialheader sheet-label" data-i18n="clocks">Clocks</div>
 			<fieldset class="repeating_clock">
-				<input type="checkbox" name="attr_size" class="sheet-hidden sheet-size" value="4">
-				<input type="checkbox" name="attr_size" class="sheet-hidden sheet-size" value="6">
-				<input type="checkbox" name="attr_size" class="sheet-hidden sheet-size" value="8">
-				<input type="checkbox" name="attr_size" class="sheet-hidden sheet-size" value="10">
-				<input type="checkbox" name="attr_size" class="sheet-hidden sheet-size" value="12">
+				<input type="hidden" name="attr_size" class="sheet-size" value="">
 				<div class="sheet-auto-expand sheet-smallcaps">
 					<span name="attr_name"></span>
 					<textarea spellcheck="false" name="attr_name" data-i18n-placeholder="clock_name" placeholder="Clock Name"></textarea>
