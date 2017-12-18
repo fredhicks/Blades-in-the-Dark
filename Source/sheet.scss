@@ -567,14 +567,14 @@ textarea.sheet-smallcaps {
 .sheet-numboxes2:checked ~ .sheet-boxesgeq3 {
 	display: none;
 }
-.sheet-itemholder .repitem .sheet-boxes-chosen:checked + div,
-.sheet-itemholder .repitem .sheet-boxes-chosen:not(:checked) + div ~ div {
-	display: none;
+.sheet-itemholder .repitem .sheet-boxes-chosen {
+	&:checked + div, &:not(:checked) + div ~ div {
+		display: none;
+	}
 }
 .sheet-numboxes-chooser {
 	padding: 1px 0;
 	font-size: 11px;
-
 	input[type=number] {
 		margin-left: auto;
 		height: 18px;
@@ -656,21 +656,23 @@ textarea.sheet-smallcaps {
 	font-size: 12px;
 	margin: 0 3px 0 4px;
 }
-.sheet-itemheader > .sheet-label {
-	margin-right: 4px;
-}
-.sheet-itemheader:not(:hover) .sheet-text-button {
-	display: none;
-}
-.sheet-itemheader .sheet-text-button {
-	margin-left: auto;
-}
-.sheet-itemheader .sheet-text-button input[type=checkbox] + span {
-	opacity: 1;
-	color: $fontblack;
-}
-.sheet-itemheader .sheet-text-button:hover input[type=checkbox] + span {
-	color: $red;
+.sheet-itemheader {
+	> .sheet-label {
+		margin-right: 4px;
+	}
+	&:not(:hover) .sheet-text-button {
+		display: none;
+	}
+	.sheet-text-button {
+		margin-left: auto;
+		input[type=checkbox] + span {
+			opacity: 1;
+			color: $fontblack;
+		}
+		&:hover input[type=checkbox] + span {
+			color: $red;
+		}
+	}
 }
 /* ADVANCEMENT BOX*/
 .sheet-advancement-header  {
@@ -684,34 +686,33 @@ textarea.sheet-smallcaps {
 	font-size: 0;
 	margin-left: 8px;
 }
+.sheet-advancement-desc, .sheet-warblurb {
+	li {
+		font-size: 12px;
+		line-height: 15px;
+		width: 100%;
+		&.sheet-nondot {
+			padding-left: 0;
+			font-style: normal;
+			&::before {
+				display: none;
+			}
+		}
+	}
+}
 .sheet-advancement-desc {
 	width: 99%;
 	background: $lightgrey;
 	padding: 15px 20px 4px 11px;
-}
-.sheet-advancement-desc li,
-.sheet-warblurb li {
-	font-size: 12px;
-	line-height: 15px;
-	width: 100%;
-}
-.sheet-advancement-desc li {
-	font-style: italic;
-	margin-bottom: 1em;
-	padding-left: 1em;
-}
-.sheet-advancement-desc .sheet-auto-expand {
-	min-height: 15px;
-	padding: 0 2px;
-}
-.sheet-advancement-desc li.sheet-nondot,
-.sheet-warblurb li.sheet-nondot {
-	padding-left: 0;
-	font-style: normal;
-}
-.sheet-advancement-desc li.sheet-nondot::before,
-.sheet-warblurb li.sheet-nondot::before {
-	display: none;
+	li {
+		font-style: italic;
+		margin-bottom: 1em;
+		padding-left: 1em;
+	}
+	.sheet-auto-expand {
+		min-height: 15px;
+		padding: 0 2px;
+	}
 }
 /* PLAYBOOK */
 .sheet-playbook {
@@ -719,51 +720,54 @@ textarea.sheet-smallcaps {
 	height: 50px;
 	position: relative;
 	background: $lightgrey;
+	input[type=text] {
+		flex: 0 0 auto;
+		margin: 0 2px;
+		padding-left: 5px;
+		letter-spacing: -1px;
+		font-size: 35px;
+		line-height: 40px;
+	}
+	textarea {
+		height: 42px;
+		flex: 0 0 auto;
+		font-size: 10px;
+		padding-left: 3px;
+		letter-spacing: 1px;
+		color: $headergrey;
+		resize: none;
+		line-height: 14px;
+	}
+	.sheet-reminder {
+		position: absolute;
+		border: 1px solid $fontblack;
+		background: white;
+		top: 48px;
+		z-index: 3;
+		border-radius: 5px;
+		width: 267px;
+		font-size: 12px;
+		text-align: center;
+		padding: 3px;
+	}
 }
-.sheet-playbook input[type=text] {
-	margin: 0 2px;
-	padding-left: 5px;
-	letter-spacing: -1px;
-	font-size: 35px;
-	line-height: 40px;
+.sheet-type-character .sheet-playbook {
+	input[type=text] {
+		width: calc(64% - 10px);
+	}
+	textarea {
+		width: calc(36% + 6px);
+	}
 }
-.sheet-playbook textarea {
-	height: 42px;
-	font-size: 10px;
-	padding-left: 3px;
-	letter-spacing: 1px;
-	color: $headergrey;
-	resize: none;
-	line-height: 14px;
+.sheet-type-crew .sheet-playbook {
+	input[type=text] {
+		width: calc(74% - 7px);
+	}
+	textarea {
+		width: calc(26% + 3px);
+	}
 }
-.sheet-type-character .sheet-playbook input[type=text] {
-	flex: 0 0 auto;
-	width: calc(64% - 10px);
-}
-.sheet-type-crew .sheet-playbook input[type=text] {
-	flex: 0 0 auto;
-	width: calc(74% - 7px);
-}
-.sheet-type-character .sheet-playbook textarea {
-	flex: 0 0 auto;
-	width: calc(36% + 6px);
-}
-.sheet-type-crew .sheet-playbook textarea {
-	flex: 0 0 auto;
-	width: calc(26% + 3px);
-}
-.sheet-playbook-reminder {
-	position: absolute;
-	border: 1px solid $fontblack;
-	background: white;
-	top: 48px;
-	z-index: 3;
-	border-radius: 5px;
-	width: 267px;
-	font-size: 12px;
-	text-align: center;
-	padding: 3px;
-}
+
 /* HEADER */
 .sheet-header {
 	label {
@@ -1425,7 +1429,7 @@ input.sheet-zero {
 	align-items: center;
 }
 .sheet-abilityname {
-	width: calc(27% - 22px);
+	width: calc(28% - 22px);
 	font-size: 13px;
 	min-height: 17px;
 	margin: 0 auto;
@@ -1433,7 +1437,7 @@ input.sheet-zero {
 	padding: 0 1px;
 }
 .sheet-abilitydesc {
-	width: 73%;
+	width: 72%;
 	min-height: 32px;
 	font-size: 12px;
 	line-height: 14px;
@@ -1647,10 +1651,10 @@ input.sheet-zero {
 }
 /* HUNTING GROUNDS */
 .sheet-hunting-grounds {
-	input[type=text] {
-		line-height: 22px;
+	.sheet-plainheader {
+		min-height: 24px;
 	}
-	.sheet-auto-expand {
+	.sheet-description {
 		font-size: 12px;
 		min-height: 32px;
 		line-height: 16px;

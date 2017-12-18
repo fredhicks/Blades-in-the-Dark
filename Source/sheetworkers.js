@@ -1526,6 +1526,7 @@ const crewAttributes = [...new Set([].concat(...Object.keys(crewData).map(x => O
 		'xp_condition2',
 		'xp_condition3',
 		'crew_xp_condition',
+		'hunting_grounds_type',
 		'hunting_grounds_description',
 		'cohort1_edges',
 		'cohort1_flaws',
