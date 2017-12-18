@@ -1539,13 +1539,18 @@ const crewAttributes = [...new Set([].concat(...Object.keys(crewData).map(x => O
 		'playbookitem',
 		'upgrade'
 	],
-	spiritPlaybooks = ['ghost', 'hull', 'vampire'];
+	spiritPlaybooks = ['ghost', 'hull', 'vampire'],
+	translatedLanguages = ['ko'],
+	translatedNames = [...Object.keys(playbookData), ...Object.keys(crewData)].reduce((m, keyName) => {
+		if (getTranslationByKey(keyName)) m[getTranslationByKey(keyName).toLowerCase()] = keyName;
+		return m;
+	}, {});
 /* EVENT HANDLERS */
 /* Set default fields when setting crew type or playbook */
 on('change:crew_type change:playbook', event => {
 	getAttrs(['playbook', 'crew_type', 'changed_attributes', 'setting_autofill', ...watchedAttributes], v => {
 		const changedAttributes = (v.changed_attributes || '').split(','),
-			sourceName = (event.sourceAttribute === 'crew_type' ? v.crew_type : v.playbook).toLowerCase(),
+			sourceName = translatedNames[(event.sourceAttribute === 'crew_type' ? v.crew_type : v.playbook).toLowerCase()],
 			fillBaseData = (data, defaultAttrNames) => {
 				if (data) {
 					const finalSettings = defaultAttrNames.filter(name => !changedAttributes.includes(name))
@@ -1771,6 +1776,8 @@ on('sheet:opened', () => {
 		});
 		mySetAttrs(setting);
 	});
+	/* Translated title text */
+	setAttr('title_text', translatedLanguages.includes(getTranslationLanguage()) ? '{{title-text=1}}' : '');
 	/* Setup and upgrades */
 	getAttrs(['version'], v => {
 		const upgradeSheet = version => {
