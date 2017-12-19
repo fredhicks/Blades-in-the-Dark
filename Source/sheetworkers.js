@@ -1570,7 +1570,7 @@ on('change:crew_type change:playbook', event => {
 					mySetAttrs(finalSettings);
 				}
 			};
-		if (sourceName) {
+		if (event.sourceAttribute === 'crew_type' ? v.crew_type : v.playbook) {
 			setAttr('show_playbook_reminder', '0');
 		}
 		if (v.setting_autofill !== '1') return;
@@ -1738,7 +1738,7 @@ on('change:setting_consequence_query sheet:opened', () => {
 	getAttrs(['setting_consequence_query'], v => {
 		const consequenceQuery = (String(v.setting_consequence_query) === '1') ?
 			`?{${getTranslationByKey('consequence')}|${getTranslationByKey('a_consequence')}}` :
-			getTranslationByKey('a_consequence');
+			'^{a_consequence}';
 		setAttr('consequence_query', consequenceQuery);
 	});
 });
