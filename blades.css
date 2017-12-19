@@ -736,6 +736,7 @@ textarea.sheet-smallcaps {
   letter-spacing: 1px;
   color: #7f8184;
   resize: none;
+  overflow: hidden;
   line-height: 14px;
 }
 .sheet-playbook .sheet-reminder {
