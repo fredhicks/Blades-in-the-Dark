@@ -14,16 +14,6 @@ $headertext: #c43c35;
 $broadcastcolor: #777;
 $lairboxcolor: #808080;
 
-@font-face {
-  font-family: 'Hanna';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://fonts.gstatic.com/ea/hanna/v3/BM-HANNA.eot') format('embedded-opentype'),
-       url('https://fonts.gstatic.com/ea/hanna/v3/BM-HANNA.woff2') format('woff2'),
-       url('https://fonts.gstatic.com/ea/hanna/v3/BM-HANNA.woff') format('woff'),
-       url('https://fonts.gstatic.com/ea/hanna/v3/BM-HANNA.ttf') format('truetype');
-}
-
 /* GENERALITIES */
 .charsheet {
 	color: $fontblack;
@@ -121,6 +111,7 @@ $lairboxcolor: #808080;
 		position: relative;
 		&::before {
 			transform: rotate(45deg) scale(0.9);
+			font-family: Georgia, serif;
 			content: '■';
 			left: 0;
 			top: -.1em;
@@ -697,8 +688,8 @@ textarea.sheet-smallcaps {
 }
 .sheet-advancement-desc, .sheet-warblurb {
 	li {
-		font-size: 12px;
-		line-height: 15px;
+		font-size: 13px;
+		line-height: 16px;
 		width: 100%;
 		&.sheet-nondot {
 			padding-left: 0;
@@ -719,7 +710,7 @@ textarea.sheet-smallcaps {
 		padding-left: 1em;
 	}
 	.sheet-auto-expand {
-		min-height: 15px;
+		min-height: 16px;
 		padding: 0 2px;
 	}
 }
@@ -2362,6 +2353,7 @@ input.sheet-title-checkbox {
 	}
 	.sheet-alchemicals-expand + span::before {
 		content: '■';
+		font-family: serif;
 	}
 	.sheet-alchemicals-expand:checked + span {
 		color: $red;
@@ -2639,8 +2631,172 @@ button[type=roll].sheet-broadcast-button {
 
 /* Adjustments for Korean */
 .charsheet.lang-ko {
-	font-family: Hanna, Dotum, Georgia, "Bitstream Charter", "Times New Roman", serif;
+	font-family: "Malgun Gothic", Dotum, Georgia, "Bitstream Charter", "Times New Roman", serif;
 	.sheet-kirsty-option {
 		display: none;
+	}
+
+	.sheet-settings {
+		label.sheet-generatebutton {
+			font-size: 12px;
+		}
+		> div {
+			font-size: 11px;
+		}
+	}
+
+	.sheet-header {
+		.sheet-title {
+			font-size: 13px;
+		}
+		.sheet-info {
+			font-size: 11px;
+		}
+		.sheet-smallcaps {
+			font-size: 1em;
+		}
+		em {
+			font-style: normal;
+		}
+	}
+	.sheet-stress4 {
+		font-size: 12px;
+	}
+	.sheet-harmrow .sheet-harmeffect {
+		font-size: 12px;
+	}
+	.sheet-healing-progress {
+		font-size: 11px;
+	}
+	.sheet-armor label {
+		font-size: 12px;
+	}
+	.sheet-coinrow {
+		.sheet-label, button[type="roll"].sheet-rollbutton {
+			font-size: 12px;
+		}
+	}
+	.sheet-specialheader {
+		font-size: 13px;
+	}
+	.sheet-abilityname {
+		font-size: 14px;
+	}
+	.sheet-abilitydesc {
+		font-family: 13px;
+		line-height: 16px;
+		min-height: 36px;
+	}
+	.sheet-plainheader {
+		font-size: 14px;
+	}
+	.sheet-teamworkbox {
+		font-size: 13px;
+	}
+	.sheet-gatherinfo li {
+		font-size: 12px;
+	}
+	.sheet-strictures {
+		font-size: 12px;
+	}
+	.sheet-playbook textarea {
+		font-size: 12px;
+	}
+	.sheet-loadheader {
+		.sheet-loadnumber {
+			font-family: inherit;
+		}
+		em {
+			font-style: normal
+		}
+	}
+	.sheet-itemheader, .sheet-loadheader {
+		font-size: 12px;
+		padding: 1px 2px 0 4px;
+		height: auto;
+	}
+	.sheet-numboxes-chooser {
+		font-size: 10px;
+	}
+	.sheet-item .sheet-itemname, .sheet-item .sheet-label {
+		font-size: 12px;
+	}
+	.sheet-item .sheet-label.sheet-upgradecosts {
+		font-size: 9px;
+	}
+	.sheet-itemholder .sheet-expand ~ textarea {
+		font-size: 11px;
+	}
+	.sheet-bandoliers-name {
+		font-size: 13px;
+	}
+	.sheet-bandolier-desc {
+		font-size: 11px;
+		em {
+			font-style: normal;
+		}
+	}
+	.sheet-attribute-title button[type="roll"].sheet-rollbutton {
+		font-size: 15px;
+	}
+	.sheet-action button[type="roll"].sheet-rollbutton {
+		font-size: 15px;
+	}
+	button[type="roll"].sheet-borderbutton {
+		font-size: 15px;
+	}
+	.sheet-bonusdietext, .sheet-bonusdie .sheet-label {
+		font-size: 13px;
+	}
+	.sheet-friend-contact .sheet-auto-expand {
+		font-size: 13px;
+	}
+	.sheet-clocks .sheet-auto-expand {
+		font-size: 12px;
+	}
+	.sheet-crewcoin-desc em {
+		font-style: normal;
+	}
+	.sheet-claimbox {
+		textarea.sheet-label {
+			font-size: 12px;
+		}
+		textarea.sheet-claim-desc {
+			overflow: hidden;
+			height: 54px;
+			line-height: 12px;
+			font-size: 11px;
+		}
+	}
+	.sheet-claimbox, .sheet-lairbox {
+		height: 84px;
+	}
+	.sheet-cohort-title {
+		font-size: 12px;
+	}
+	.sheet-cohort-info {
+		height: 15px;
+		font-size: 11px;
+	}
+	.sheet-cohort-condition-name {
+		font-size: 12px;
+	}
+	.sheet-cohort-edgeflaw {
+		font-size: 11px;
+	}
+	.sheet-cohort-description {
+		font-size: 11px;
+	}
+	.sheet-factions-header span {
+		font-size: 9px;
+	}
+	.sheet-faction-name, input[type=text].sheet-faction-name {
+		width: 60%;
+	}
+	.sheet-faction-tier, input[type=text].sheet-faction-tier {
+		width: 12%;
+	}
+	.sheet-faction-hold, input[type=text].sheet-faction-hold {
+		width: 13%;
 	}
 }

@@ -899,6 +899,7 @@
     "resolve": "Resolve",
     "resolve_description": "Resist consequences from mental strain or willpower.",
     "risky": "Risky",
+    "roll-inf": "roll",
     "roll-l": "roll",
     "roll_engagement": "Roll Engagement",
     "roll_for": "roll for",
