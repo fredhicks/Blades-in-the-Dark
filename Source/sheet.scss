@@ -7,7 +7,7 @@ $boxgrey: #838587;
 $stashcolor: #8c8c8c;
 $headergrey: #7f8184;
 $lightblack: #6c6c6c;
-$coinbcolor: #717275;
+$coincolor: #717275;
 $tablegrey: #575859;
 $fontblack: #333;
 $red: #f00;
@@ -1467,7 +1467,7 @@ input.sheet-zero {
 		height: 52px;
 		font-size: 12px;
 		padding: 10px 4px 3px;
-		color: $headergrey;
+		color: $headertext;
 		width: 0;
 		flex-grow: 1;
 		resize: none;
@@ -1825,7 +1825,7 @@ input.sheet-zero {
 .sheet-notes {
 	margin-left: 1%;
 	font-family: "Shadows Into Light", cursive;
-	color: $headergrey;
+	color: $headertext;
 	font-size: 20px;
 	width: 98%;
 	background: linear-gradient(transparent 26px,#a7a7a7 1px) 0 0 / 100% 27px;
@@ -1867,7 +1867,7 @@ button[type=roll].sheet-rollbutton {
 }
 .sheet-coinrow button[type=roll].sheet-rollbutton {
 	font-size: 11px;
-	color: $coinbcolor;
+	color: $coincolor;
 }
 .sheet-blackheader button[type=roll].sheet-rollbutton {
 	margin:auto;
