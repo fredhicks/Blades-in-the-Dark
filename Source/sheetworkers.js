@@ -1,6 +1,6 @@
 "use strict";
 /* DATA */
-const sheetVersion = "2.5",
+const sheetVersion = "2.6",
 	crewData = {
 		assassins: {
 			base: {
