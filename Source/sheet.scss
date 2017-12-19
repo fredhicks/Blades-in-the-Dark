@@ -2627,3 +2627,10 @@ button[type=roll].sheet-broadcast-button {
 		}
 	}
 }
+
+/* Adjustments for Korean */
+.charsheet.lang-ko {
+	.sheet-kirsty-option {
+		display: none;
+	}
+}
