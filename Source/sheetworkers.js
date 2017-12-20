@@ -1542,7 +1542,6 @@ const crewAttributes = [...new Set([].concat(...Object.keys(crewData).map(x => O
 		'upgrade'
 	],
 	spiritPlaybooks = ['ghost', 'hull', 'vampire'],
-	translatedLanguages = ['ko'],
 	translatedNames = [...Object.keys(playbookData), ...Object.keys(crewData)].reduce((m, keyName) => {
 		if (getTranslationByKey(keyName)) m[getTranslationByKey(keyName).toLowerCase()] = keyName;
 		return m;
@@ -1779,7 +1778,8 @@ on('sheet:opened', () => {
 		mySetAttrs(setting);
 	});
 	/* Translated title text */
-	setAttr('title_text', translatedLanguages.includes(getTranslationLanguage()) ? '{{title-text=1}}' : '');
+	if (getTranslationLanguage() === 'ko') setAttr('title_text', '{{title-text=1}} {{korean=1}}');
+	else setAttr('title_text', '');
 	/* Setup and upgrades */
 	getAttrs(['version'], v => {
 		const upgradeSheet = version => {
