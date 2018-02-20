@@ -268,7 +268,7 @@ $lairboxcolor: #808080;
 	}
 }
 /* SETTINGS FOR HIDING STUFF ON THE SHEET */
-.sheet-toothhider:not(:checked) + {
+.sheet-toothhider:not(:checked) ~ {
 	.sheet-tooth, .sheet-tooth + span {
 		display: none;
 	}

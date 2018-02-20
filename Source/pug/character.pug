@@ -218,7 +218,7 @@
 					input.tooth.zero(type='radio', name='attr_playbook_xp', value='0', checked)
 					span
 					each num in [1,2,3,4,5,6,7,8,9,10]
-						if (num > 8)
+						if (num === 9)
 							input.hidden.toothhider(type='checkbox', name='attr_setting_vampirexp', value='1')
 						input.tooth.xptooth(type='radio', name='attr_playbook_xp', value=num)
 						span
@@ -440,7 +440,7 @@
 							input.tooth.zero(type='radio', name=`attr_${attrLow}_xp`, value='0', checked)
 							span
 							each num in [1,2,3,4,5,6,7,8]
-								if (num > 6)
+								if (num === 7)
 									input.hidden.toothhider(type='checkbox', name='attr_setting_vampirexp', value='1')
 								input.tooth.xptooth(type='radio', name=`attr_${attrLow}_xp`, value=num)
 								span
