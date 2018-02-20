@@ -1,0 +1,151 @@
+//- Mixins for code reuse
+mixin autoexpand(classes, name, placeholder, i18nplaceholder, content)
+	div(class=['auto-expand', classes])
+		span(name=`attr_${name}`)=content
+		textarea(spellcheck='false' name=`attr_${name}` placeholder=placeholder data-i18n-placeholder=i18nplaceholder)=content
+
+mixin rollbutton(classes, name, i18nlabel, templatedata, stat, i18ntitle)
+	button(
+		class=classes,
+		type="roll",
+		name=`roll_${name}`,
+		data-i18n=i18nlabel,
+		data-i18n-title=i18ntitle
+		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} {{roll1=[[[[{[[${stat}+@{bonusdice}}]],1}kl1]]d6]]}} {{roll2=[[[[{[[${stat}+@{bonusdice}-1}]],1}kl1]]d6]]}} {{roll3=[[[[{[[${stat}+@{bonusdice}-2}]],1}kl1]]d6]]}} {{roll4=[[[[{[[${stat}+@{bonusdice}-3}]],1}kl1]]d6]]}} {{roll5=[[[[{[[${stat}+@{bonusdice}-4}]],1}kl1]]d6]]}} {{roll6=[[[[{[[${stat}+@{bonusdice}-5}]],1}kl1]]d6]]}} {{roll7=[[[[{[[${stat}+@{bonusdice}-6}]],1}kl1]]d6]]}} {{roll8=[[[[{[[${stat}+@{bonusdice}-7}]],1}kl1]]d6]]}} {{roll9=[[[[{[[${stat}+@{bonusdice}-8}]],1}kl1]]d6]]}} {{roll10=[[[[{[[${stat}+@{bonusdice}-9}]],1}kl1]]d6]]}} {{roll11=[[[[{[[${stat}+@{bonusdice}-10}]],1}kl1]]d6]]}} {{roll12=[[[[{[[${stat}+@{bonusdice}-11}]],1}kl1]]d6]]}} {{zerodice=[[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]], [[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]]}} @{title_text}`
+	)
+		block
+
+mixin fortunebutton(classes, name, i18nlabel, templatedata, useNotes)
+	button(
+		class=classes,
+		type="roll",
+		name=`roll_${name}`,
+		data-i18n=i18nlabel,
+		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} {{roll1=[[[[{@{numberofdice},1}kl1]]d6]]}} {{roll2=[[[[{[[@{numberofdice}]]-1,1}kl1]]d6]]}} {{roll3=[[[[{[[@{numberofdice}-2]],1}kl1]]d6]]}} {{roll4=[[[[{[[@{numberofdice}-3]],1}kl1]]d6]]}} {{roll5=[[[[{[[@{numberofdice}-4]],1}kl1]]d6]]}} {{roll6=[[[[{[[@{numberofdice}-5]],1}kl1]]d6]]}} {{zerodice=[[[[{[[1-(@{numberofdice})]],1}kl1]]d6]], [[[[{[[1-(@{numberofdice})]],1}kl1]]d6]]}} ${useNotes ? '{{notes=@{notes_query}}} ' : ''}@{title_text}`
+	)
+		block
+
+mixin makecohort(prefix, isCharacter)
+	.cohort
+		input(type='hidden', name=`attr_${prefix}dice`, value=isCharacter ? '1' : '0')
+		input(type='hidden', name=`attr_${prefix}verb`, value=isCharacter ? '^{rolls_their-l}' : '^{roll_their-l}')
+		.cohort-title.flex.col100.label
+			input.inherit(type='text', spellcheck='false', name=`attr_${prefix}name`, value='Cohort')
+			+rollbutton('inherit rollbutton', `${prefix}roll`, 'roll-inf', '{{resist=1}} {{short=1}} {{charname=@{'+prefix+'name} (^{@{'+prefix+'type}}, @{'+prefix+'subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{'+prefix+'verb}}})', `@{${prefix}dice}`) roll
+		.cohort-info.flex.col100.uppercase
+			.cohort-dropdown
+				div
+					span(name=`attr_${prefix}type`, data-i18n-dynamic)
+				div
+					input(type='radio', name=`attr_${prefix}type`, value='gang', checked=!isCharacter)
+					span(data-i18n='gang') Gang
+				div
+					input(type='radio', name=`attr_${prefix}type`, value='elite')
+					span(data-i18n='elite') Elite
+				div
+					input(type='radio', name=`attr_${prefix}type`, value='expert', checked=isCharacter)
+					span(data-i18n='expert') Expert
+			input.inherit(type='text', spellcheck='false', name=`attr_${prefix}subtype`,
+				data-i18n-placeholder=isCharacter ? 'hunter' : 'gang_type', placeholder=isCharacter ? 'Hunter' : 'Thugs')
+			if (isCharacter)
+				.label.cohort-quality-label(data-i18n='quality_abbreviated') Q:
+				input.label(type='number', name=`attr_${prefix}quality`, min='0', max='5', value='1')
+		.cohort-condition.flex.col100
+			each name in ['Weak', 'Impaired', 'Broken', 'Armor']
+				label
+					span(class='cohort-condition-name ' + (name ==='Armor' ? 'label' : 'uppercase'), data-i18n=name.toLowerCase())=name
+					input.tooth.stresstooth(type='checkbox', name=`attr_${prefix}${name.toLowerCase()}`, value='1')
+					span
+		each name in ['Edges', 'Flaws']
+			label.cohort-edgeflaw
+				span.uppercase(data-i18n=name.toLowerCase())=name
+				+autoexpand('', `${prefix}${name.toLowerCase()}`)
+		textarea.cohort-description(spellcheck='false', name=`attr_${prefix}description`)
+
+mixin makeclock(isFaction)
+	input.size(type='hidden', name='attr_size', value='')
+	+autoexpand('smallcaps', 'name', 'Clock Name', 'clock_name')
+	button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast}' + (!isFaction ? '{{charname=@{character_name}}} ' : '') + '{{title=@{name}}} {{clock=1}} {{clocksize=@{size}}} {{clockprogress=@{progress}}}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
+	.size-choice
+		each num in [4,6,8,10,12]
+			label.text-button
+				input(type='radio', name='attr_size', value=num)
+				span=num
+	.clock-container
+		.spoke-0.all
+		.spoke-30.sheet-12clock
+		.spoke-45.sheet-8clock
+		.spoke-36.sheet-10clock
+		.spoke-60.sheet-6clock.sheet-12clock
+		.spoke-72.sheet-10clock
+		.spoke-90.sheet-4clock.sheet-8clock.sheet-12clock
+		.spoke-108.sheet-10clock
+		.spoke-120.sheet-6clock.sheet-12clock
+		.spoke-135.sheet-8clock
+		.spoke-144.sheet-10clock
+		.spoke-150.sheet-12clock
+		input.zero.input-progress(type='radio', name='attr_progress', value='0', checked)
+		span
+		input.input-progress.all(type='radio', name='attr_progress', value='1')
+		input.input-progress.all(type='radio', name='attr_progress', value='2')
+		input.input-progress.all(type='radio', name='attr_progress', value='3')
+		input.input-progress.all(type='radio', name='attr_progress', value='4')
+		input.input-progress.sheet-6clock.sheet-8clock.sheet-10clock.sheet-12clock(type='radio', name='attr_progress', value='5')
+		input.input-progress.sheet-6clock.sheet-8clock.sheet-10clock.sheet-12clock(type='radio', name='attr_progress', value='6')
+		input.input-progress.sheet-8clock.sheet-10clock.sheet-12clock(type='radio', name='attr_progress', value='7')
+		input.input-progress.sheet-8clock.sheet-10clock.sheet-12clock(type='radio', name='attr_progress', value='8')
+		input.input-progress.sheet-10clock.sheet-12clock(type='radio', name='attr_progress', value='9')
+		input.input-progress.sheet-10clock.sheet-12clock(type='radio', name='attr_progress', value='10')
+		input.input-progress.sheet-12clock(type='radio', name='attr_progress', value='11')
+		input.input-progress.sheet-12clock(type='radio', name='attr_progress', value='12')
+		.clock
+
+//- Image preloading
+.preload
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/xptooth-red.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/xptooth-white.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-red.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-black.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-halfgrey.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-white.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/shorttooth-red.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/shorttooth-grey.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-insight.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-prowess.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-resolve.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-hunt.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-study.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-survey.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-tinker.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-finesse.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-prowl.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-skirmish.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-wreck.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-attune.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-command.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-consort.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-sway.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-fortune.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-vice.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-crew_tier.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-entanglement.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-cohort_quality.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-lifestyle.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-recovery.png")
+	img(src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-harm.png")
+
+//- Global setttings
+input.hidden.focus-shadow(type="checkbox" name="attr_setting_focus_shadow" value="1" checked)
+input.hidden.input-show-broadcast(type="checkbox" name="attr_setting_show_broadcast" value="1" checked)
+input.hidden.use-kirsty(type="checkbox" name="attr_setting_usekirsty" value="1")
+input.hidden.flexwidth(type="checkbox" name="attr_setting_flexwidth" value="1")
+input.hidden.show-itemdesc(type="checkbox" name="attr_setting_show_itemdesc" value="1" checked)
+
+//- Actual sheet
+.container
+	input.type(type="hidden" name="attr_sheet_type" value="character")
+	include pug/title.pug
+	include pug/character.pug
+	include pug/crew.pug
+	include pug/faction.pug
+

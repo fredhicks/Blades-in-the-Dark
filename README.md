@@ -4,6 +4,9 @@ This is a character sheet for Blades in the Dark for use on Roll20.
 
 ## Changelog
 
+### 2.7
+* Internal refactoring to use pug for generating the HTML
+
 ### 2.6
 * Updates to the sheet to make the Korean translation work
 

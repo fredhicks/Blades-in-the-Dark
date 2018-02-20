@@ -1,0 +1,497 @@
+-
+	const traumaData = {
+		normal: ['Cold', 'Haunted', 'Obsessed', 'Paranoid', 'Reckless', 'Soft', 'Unstable', 'Vicious'],
+		ghost: ['Chaotic', 'Destructive', 'Furious', 'Obsessive', 'Territorial', 'Savage'],
+		hull: ['Clanking', 'Leaking', 'Fixated', 'Smoking', 'Sparking', 'Unstable']
+	};
+	const stricturesData = {
+		Slumber: 'In downtime, you must spend one activity resting in a dark, silent place (or else suffer 3 stress).',
+		Forbidden: 'You cannot enter a private residence without permission from the owner.',
+		Repelled: 'Spiritbane charms can hold you at bay. (Take 2 stress to resist the repulsion.)',
+		Bestial: 'When you suffer physical harm or overindulge your vice, your body twists into a horrific bestial form until you next feed without overindulging.',
+		Bound: 'Your spirit must remain in this body, or be destroyed.'
+	}
+	const actionData = {
+		Insight: ['Hunt', 'Study', 'Survey', 'Tinker'],
+		Prowess: ['Finesse', 'Prowl', 'Skirmish', 'Wreck'],
+		Resolve: ['Attune', 'Command', 'Consort', 'Sway']
+	};
+
+//- Character Sheet
+.type-character.flex
+	//- Left column
+	.col55.flex-wrap
+		//- Logo, Header text fields
+		.col100.header.flex
+			.col55.bladeslogo
+			label.col45.header
+				input(type='text', spellcheck='false', name='attr_crew')
+				.label.text.title(data-i18n='crew') Crew
+			label.col55
+				input(type='text', spellcheck='false', name='attr_name')
+				.label.text.title(data-i18n='name') Name
+			label.col45
+				input(type='text', spellcheck='false', name='attr_alias')
+				.label.text.title(data-i18n='alias') Alias
+			label.col100
+				input(type='text', spellcheck='false', name='attr_look')
+				.label.text.title(data-i18n='look') Look
+			label.col55
+				+autoexpand('', 'heritage')
+				input(type='hidden', name='attr_heritage', value='')
+				.text
+					span.label.title(data-i18n='heritage') Heritage
+					span.uppercase.info(data-i18n='heritage_info') Akoros — The Dagger Isles — Iruvia Severos — Skovlan — Tycheros
+			label.col45
+				+autoexpand('', 'background')
+				input(type='hidden', name='attr_background', value='')
+				.text
+					span.label.title(data-i18n='background') Background
+					span.uppercase.info(data-i18n='background_info') Academic — Labor — Law Trade — Military — Noble — Underworld
+			input.vice-input(type='hidden', name='attr_setting_vice_type', value='normal')
+			label.col100.vice.normal
+				+autoexpand('', 'vice_purveyor')
+				input(type='hidden', name='attr_vice_purveyor', value='')
+				.text
+					span.label.title(data-i18n='vice_purveyor') Vice / Purveyor
+					span.uppercase.info(data-i18n='vice_info') Faith - Gambling - Luxury - Obligation - Pleasure - Stupor - Weird
+				+rollbutton('vicebutton borderbutton', 'Vice', 'indulge_vice', '{{{{subtitle=^{viceroll1}@{stress} @{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}') Indulge Vice
+				input(type='hidden', name='attr_vice', value='0')
+			.col100.vice.ghost
+				span.italic(data-i18n='ghost_viceblurb') You have an intense #[span.smallcaps need]: life essence. To satisfy this need, possess a living victim and consume their spirit energy (this may be a downtime action). When you do so, clear half your #[span.smallcaps drain] (round down).
+			.col100.vice.hull
+				label.flex-wrap
+					input(type='text', spellcheck='false', name='attr_hull_functions', data-i18n-placeholder='choose_3_functions', placeholder='choose 3 functions')
+					input(type='hidden', name='attr_hull_functions', value='')
+					.text
+						span.label.title(data-i18n='functions') Functions
+						span.uppercase.info(data-i18n='functions_info')
+							| to guard — to destroy — to discover — to acquire — to labor at ... that which my master commands.
+				span.italic(data-i18n='hull_viceblurb') Your clockwork body runs on #[span.smallcaps electroplasm]. Recharge your capacitors by connecting to an industrial-grade generator (downtime action). When you do this, clear #[strong 5 drain].
+			.col100.vice.vampire
+				span.italic(data-i18n='vampire_viceblurb') Your #[span.smallcaps vice] is life essence, consumed from a living human. Use 1 downtime activity to #[strong hunt] prey and indulge your #[strong vice]. Also, when you feed, erase all level 1 harm and mark 4 ticks on your healing clock. This is is the only way you can heal. How do you feed? What telltale sign do you leave on your victims?
+				+rollbutton('vicebutton borderbutton', 'Vice', 'indulge_vice', '{{{{subtitle=^{viceroll1}@{stress} @{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}') Indulge Vice
+		//- Stress and Trauma
+		.col100.flex.stress.def-margin
+			//- Stress markers
+			.stress1.blackheader
+				.label
+					span(name='attr_setting_stress_label')
+			.stress2.blackborder.flex
+				input(type='hidden', name='attr_stress_max', value='9')
+				input.tooth.zero(type='radio', name='attr_stress', value='0', checked)
+				span
+				each num in [...Array(15).keys()].slice(1)
+					if (num > 8 && num < 14)
+						input.hidden.extra-teeth(type='checkbox', name='attr_setting_extra_stress', value=num-9, checked)
+					input.tooth.stresstooth(type='radio', name='attr_stress', value=num)
+					span
+			//- Trauma markers
+			.stress3
+				.blackheader
+					.label
+						span(name='attr_setting_trauma_label')
+				.traumaholder.flex
+					input(type='hidden', name='attr_trauma_max', value='4')
+					input.tooth.zero(type='radio', name='attr_trauma', value='0', checked)
+					span
+					each num in [1,2,3,4,5]
+						if (num === 4)
+							input.hidden.extra-teeth(type='checkbox', name='attr_setting_extra_trauma', value='0', checked)
+						input.tooth.regulartooth(type='radio', name='attr_trauma', value=num)
+						span
+			//- Individual traumata
+			.stress4.blackborder
+				input.input(type='hidden', name='attr_setting_traumata_set', value='normal')
+				each traumas, type in traumaData
+					div(class=type)
+						.flex
+							each trauma, i in traumas.slice(0, traumas.length / 2)
+								label.text-button
+									input(type='checkbox', name=`attr_trauma_${trauma.toLowerCase()}`, value='1')
+									span(data-i18n=trauma.toLowerCase())= trauma
+								if (i < traumas.length / 2 - 1)
+									span —
+						.flex
+							each trauma, i in traumas.slice(traumas.length / 2)
+								label.text-button
+									input(type='checkbox', name=`attr_trauma_${trauma.toLowerCase()}`, value='1')
+									span(data-i18n=trauma.toLowerCase())= trauma
+								if (i < traumas.length / 2 - 1)
+									span —
+		//- Harm, Healing, Armor, Coin
+		.col100.flex.def-margin
+			//- Harm
+			.harm.col63
+				.blackheader.col100
+					.label(data-i18n='harm') Harm
+					button.broadcast-button(type='roll', name='roll_Harm', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{harm=1}} {{harm3=@{harm3}}} {{harm2_1=@{harm2_1}}} {{harm2_2=@{harm2_2}}} {{harm1_1=@{harm1_1}}} {{harm1_2=@{harm1_2}}} @{title_text}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
+				.harmbody
+					.flex-center.harmnumber 3
+					textarea.twocols(spellcheck='false', name='attr_harm3')
+					.flex-center.harmeffect(data-i18n='need_help') Need Help
+					.flex-center.harmnumber 2
+					textarea(spellcheck='false', name='attr_harm2_1')
+					textarea(spellcheck='false', name='attr_harm2_2')
+					.flex-center.harmeffect(data-i18n='minus1d') -1D
+					.flex-center.harmnumber 1
+					textarea(spellcheck='false', name='attr_harm1_1')
+					textarea(spellcheck='false', name='attr_harm1_2')
+					.flex-center.harmeffect(data-i18n='less_effect') Less Effect
+			//- Armor, Healing and Coin
+			.col37.flex-wrap
+				//- Healing
+				.col45.healing
+					.blackheader.col100
+						+fortunebutton('label rollbutton inherit', 'Recovery', 'healing', '{{resist=1}} {{short=1}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for-l}}}') Healing
+					.col100.healing-progress(data-i18n='progress_clock', data-i18n-title='recoveryblurb', title='Get treatment in downtime to activate your healing project clock') progress clock
+					input.size(type='hidden', value='4')
+					input(type='hidden', name='attr_recovery_max', value='4')
+					.clock-container
+						.spoke-0.all
+						.spoke-90.all
+						input.zero.input-progress(type='radio', name='attr_recovery', value='0', checked)
+						span
+						each num in [1,2,3,4]
+							input.input-progress.all(type='radio', name='attr_recovery', value=num, data-i18n-title='recoveryblurb', title='Get treatment in downtime to activate your healing project clock')
+						.clock
+				//- Armor
+				.armor.col55
+					.blackheader.col100
+						.label(data-i18n='armor_uses') Armor uses
+					label
+						input.checkbox.squarebox(type='checkbox', name='attr_armor', value='1')
+						span
+						span.label(data-i18n='armor') Armor
+					label
+						input.checkbox.squarebox(type='checkbox', name='attr_armor_heavy', value='1')
+						span
+						span.label(data-i18n='+heavy') +Heavy
+					label
+						input.checkbox.squarebox(type='checkbox', name='attr_armor_special', value='1')
+						span
+						span.label(data-i18n='special') Special
+				//- Coin and Stash
+				.col100.coin-and-stash
+					//- Coin
+					.col100.coinrow.flex
+						.coin.flex
+							input(type='hidden', name='attr_coin_max', value='4')
+							.label(data-i18n='coin') Coin
+							input.zero(type='radio', name='attr_coin', value='0', checked)
+							span
+							each num in [1,2,3,4]
+								input.radiobox(type='radio', name='attr_coin', value=num)
+								span
+						.stashbutton-holder
+							input(type='hidden', name='attr_stash_dice', value='0')
+							input(type='hidden', name='attr_stash_max', value='40')
+							+rollbutton('rollbutton label', 'Stash', 'stash', '{{resist=1}} {{short=1}} {{title-lifestyle=1}} {{title=^{stash}}} {{subtitle=^{rolls-l}}}', '@{stash_dice}') Stash
+					//- Stash
+					.col100.stash
+						input.zero(type='radio', name='attr_stash', value='0', checked)
+						span
+						each num in [...Array(41).keys()].slice(1)
+							input.radiobox(type='radio', name='attr_stash', value=num)
+							span
+							if (num % 10 === 0)
+								br
+		//- Special abilities
+		.col100.def-margin
+			.specialheader.col100.label(data-i18n='special_abilities') Special Abilities
+			.greyholder.col100
+				fieldset.repeating_ability
+					.specialability.flex
+						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
+						input.checkbox.circlebox(type='checkbox', name='attr_check', value='1')
+						span
+						+autoexpand('abilityname smallcaps', 'name', 'Ability name', 'ability_name')
+						+autoexpand('abilitydesc', 'description', 'Ability description', 'ability_description')
+		//- Advancement
+		.col100.def-margin
+			.advancement-header.flex.blackheader
+				.label.markxp(data-i18n='mark_xp:') Mark XP:
+				.label(data-i18n='playbook_advancement') Playbook Advancement
+				.xpholder.flex
+					input(type='hidden', name='attr_playbook_xp_max', value='8')
+					input.hidden.vampirexp(type='checkbox', name='attr_setting_vampirexp', value='1')
+					input.tooth.zero(type='radio', name='attr_playbook_xp', value='0', checked)
+					span
+					each num in [1,2,3,4,5,6,7,8,9,10]
+						if (num > 8)
+							input.hidden.toothhider(type='checkbox', name='attr_setting_vampirexp', value='1')
+						input.tooth.xptooth(type='radio', name='attr_playbook_xp', value=num)
+						span
+			ul.advancement-desc
+				li(data-i18n='xp_desperate') Every time you roll a desperate action, mark xp in that action's attribute.
+				li.nondot(data-i18n='xp_top') At the end of each session, for each item below, mark 1 xp (or instead mark 2 xp if that item occurred multiple times).
+				li
+					+autoexpand('', 'xp_condition', 'Enter your playbook\'s specific way to mark XP here.', 'xp_specific')
+				input.hidden.hider(type='checkbox', name='attr_setting_extra_xp', value='1')
+				li
+					+autoexpand('', 'xp_condition_extra', 'Enter another specific way to mark XP here.', 'xp_specific_extra')
+				li
+					+autoexpand('', 'xp_condition2', null, null, 'You expressed your beliefs, drives, heritage, or background.')
+				li
+					+autoexpand('', 'xp_condition3', null, null, 'You struggled with issues from your vice or traumas during the session.')
+		//- Teamwork
+		.col45.right-column.def-margin
+			.plainheader.label(data-i18n='teamwork') Teamwork
+			.teamworkbox(data-i18n='assist_a_teammate') #[strong Assist] a teammate
+			.teamworkbox(data-i18n='lead_a_group_action') Lead a #[strong group action]
+			.teamworkbox(data-i18n='protect_a_teammate') #[strong Protect] a teammate
+			.teamworkbox(data-i18n='set_up_a_teammate-N') #[strong Set up] a teammate
+		//- Gather Information
+		.col55.right-column.def-margin
+			.gatherinfo.col100
+				.plainheader.label(data-i18n='gather_information') Gather Information
+				div
+					ul
+						li
+							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo1', data-i18n-placeholder='gatherinfo_what_do_they_intend', placeholder='What do they intend to do?')
+						li
+							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo2', data-i18n-placeholder='gatherinfo_how_can_I_get_them', placeholder='How can I get them to [X]?')
+						li
+							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo3', data-i18n-placeholder='gatherinfo_what_are_they_really', placeholder='What are they really feeling?')
+						li
+							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo4', data-i18n-placeholder='gatherinfo_what_should_I_look', placeholder='What should I look out for?')
+						li
+							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo5', data-i18n-placeholder='gatherinfo_wheres_the_weakness', placeholder="Where's the weakness here?")
+						li
+							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo6', data-i18n-placeholder='gatherinfo_how_can_I_find', placeholder='How can I find [X]?')
+						li(data-i18n='gatherinfo_whats_going_on') What's really going on here?
+			input.hidden.hider(type='checkbox', name='attr_setting_show_strictures', value='1')
+			.strictures.col100.def-margin
+				.plainheader.label(data-i18n='strictures') Strictures
+				div
+					span.italic(data-i18n='stricturesblurb') When you gain a new vampire trait (except veteran), add a stricture.
+				each desc, name in stricturesData
+					div
+						label
+							input.checkbox.squarebox(type='checkbox', name=`attr_stricture_${name.toLowerCase()}`, value='1')
+							span
+							span.label(data-i18n=name.toLowerCase())= name
+						span(data-i18n=`strictures_${name.toLowerCase()}`)=desc
+	//- Right column
+	.col45.flex-wrap.right-column
+		//- Playbook
+		.playbook.flex
+			input.label(type='text', spellcheck='false', name='attr_playbook', data-i18n-placeholder='playbook', placeholder='playbook')
+			textarea.label(spellcheck='false', name='attr_playbook_description', data-i18n-placeholder='playbook_description', placeholder='A short playbook description')
+			input.hidden.hider(type='checkbox', name='attr_show_playbook_reminder', value='1', checked)
+			.reminder
+				span(data-i18n='autofill_reminder_playbook') To generate playbook abilities, items, and friends, enter the name of the playbook above:
+				br
+				span(data-i18n='list_playbooks') Cutter, Hound, Leech, Lurk, Slide, Spider, Whisper, Ghost, Hull, or Vampire.
+		//- Items and Planning
+		.col53.itemcolumn.small-margin
+			//- Load
+			.loadheader.flex.col100
+				.label(data-i18n='load') load
+				each val in ['light', 'normal', 'heavy']
+					label
+						input.checkbox(type='checkbox', name='attr_load', value=val)
+						span
+						span.loadnumber(name=`attr_setting_load_${val[0]}`)
+						span(data-i18n=val)=val
+			.itemheader.small-margin.col100.flex
+				.label(data-i18n='items') Items
+				span.italic(data-i18n='italics_dont_count') (italics don't count for load)
+				label.text-button
+					input(type='checkbox', name='attr_reset_items', value='1')
+					span(data-i18n='reset?') reset?
+			//- Items
+			.itemholder.col100.items
+				//- Playbook items
+				.playbookitems.col100.small-repcontrol
+					fieldset.repeating_playbookitem
+						input.hidden.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+						.item.numboxes-chooser
+							div(data-i18n='how_much_load') How much load?
+							input(type='number', name='attr_numboxes', min='0', max='3', value='0')
+							label
+								input(type='checkbox', name='attr_bold', value='1')
+								span(data-i18n='bold') bold
+							label
+								input.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+								span.okbutton(data-i18n='ok') OK
+						.item
+							input.hidden.input-bold(type='checkbox', name='attr_bold', value='1')
+							input.hidden.numboxes0.input-italic(type='checkbox', name='attr_numboxes', value='0', checked)
+							input.hidden.numboxes1(type='checkbox', name='attr_numboxes', value='1')
+							input.hidden.numboxes2(type='checkbox', name='attr_numboxes', value='2')
+							input.checkbox.squarebox(type='checkbox', name='attr_check_1', value='1')
+							span
+							span.floatingbar.boxesgeq2
+							input.checkbox.squarebox.boxesgeq2(type='checkbox', name='attr_check_2', value='1')
+							span.boxesgeq2
+							span.floatingbar.boxesgeq3.boxesgeq2
+							input.checkbox.squarebox.boxesgeq3.boxesgeq2(type='checkbox', name='attr_check_3', value='1')
+							span.boxesgeq3.boxesgeq2
+							+autoexpand('itemname', 'name', 'A useful item', 'item_name')
+						.item-description
+							input.expand(type='checkbox', name='attr_expand', value='1')
+							span
+							textarea(spellcheck='false', name='attr_description', data-i18n-placeholder='description', placeholder='Description')
+					input.hidden.hider(type='checkbox', name='attr_setting_show_frame', value='1')
+					.frame.small-margin
+						input.smallcaps(type='text', spellcheck='false', name='attr_frame', value='Frame')
+						textarea(spellcheck='false', name='attr_frame_description', data-i18n-placeholder='frame_description', placeholder='Frame description')
+						fieldset.repeating_framefeature
+							.item
+								input.checkbox.circlebox(type='checkbox', name='attr_check', value='1')
+								span
+								input.itemname(type='text', spellcheck='false', name='attr_name', data-i18n-placeholder='frame_feature', placeholder='Frame feature')
+				//- Regular items
+				.regularitems.white-repcontrol.col100
+					fieldset.repeating_item
+						input.hidden.input-short(type='checkbox', name='attr_short', value='1')
+						input.hidden.input-expand(type='checkbox', name='attr_expand', value='1')
+						.item-container
+							input.hidden.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+							.item.numboxes-chooser
+								div(data-i18n='how_much_load') How much load?
+								input(type='number', name='attr_numboxes', min='0', max='3', value='0')
+								label
+									input(type='checkbox', name='attr_short', value='1')
+									span(data-i18n='short') short
+								label
+									input.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+									span.okbutton(data-i18n='ok') OK
+							.item
+								input.hidden.numboxes0.input-italic(type='checkbox', name='attr_numboxes', value='0', checked)
+								input.hidden.numboxes1(type='checkbox', name='attr_numboxes', value='1')
+								input.hidden.numboxes2(type='checkbox', name='attr_numboxes', value='2')
+								input.checkbox.squarebox(type='checkbox', name='attr_check_1', value='1')
+								span
+								span.floatingbar.boxesgeq2
+								input.checkbox.squarebox.boxesgeq2(type='checkbox', name='attr_check_2', value='1')
+								span.boxesgeq2
+								span.floatingbar.boxesgeq3.boxesgeq2
+								input.checkbox.squarebox.boxesgeq3.boxesgeq2(type='checkbox', name='attr_check_3', value='1')
+								span.boxesgeq3.boxesgeq2
+								input.itemname(type='text', spellcheck='false', name='attr_name', data-i18n-placeholder='item_name', placeholder='A useful item')
+							.item-description
+								input.expand(type='checkbox', name='attr_expand', value='1')
+								span
+								textarea(spellcheck='false', name='attr_description', data-i18n-placeholder='description', placeholder='Description')
+			//- Alchemicals
+			.col100.def-margin
+				input.title-checkbox(type='checkbox', name='attr_show_alchemicals', value='1')
+				span.label.plainheader(data-i18n='alchemicals') Alchemicals
+				.alchemicals.white-repcontrol
+					.bandolier.item
+						span.bandoliers-name(data-i18n='bandoliers') Bandoliers
+						each bannum in [1,2]
+							each checknum in [1,2,3]
+								input.checkbox.squarebox(type='checkbox', name=`attr_bandolier${bannum}_check_${checknum}`, value='1')
+								span
+								if (checknum !== 3)
+									span.floatingbar
+					.bandolier-desc(data-i18n='when_you_use_bandolier') When you use a bandolier slot, choose an alchemical:
+					fieldset.repeating_alchemical
+						input.alchemicals-expand(type='checkbox', name='attr_expand')
+						span
+						+autoexpand('', 'name')
+						textarea.alchemicals-info(spellcheck='false', name='attr_description')
+			//- Planning and Load
+			.planning.col100.def-margin
+				input.title-checkbox(type='checkbox', name='attr_show_planning', value='1', checked)
+				span.label.plainheader(data-i18n='planning_load') Planning & Load
+				.planning-content
+					.planningdesc(data-i18n='planningdesc')
+						| Choose a plan, provide the #[strong.italic detail]. Choose your #[strong.italic load] limit for the operation.
+					.teamworkbox
+						span.bold(data-i18n='assault') Assault
+						span.italic(data-i18n='detail_assault') Point of attack
+					.teamworkbox
+						span.bold(data-i18n='occult') Occult
+						span.italic(data-i18n='detail_occult') Arcane power
+					.teamworkbox
+						span.bold(data-i18n='deception') Deception
+						span.italic(data-i18n='detail_deception') Method
+					.teamworkbox
+						span.bold(data-i18n='social') Social
+						span.italic(data-i18n='detail_social') Connection
+					.teamworkbox
+						span.bold(data-i18n='stealth') Stealth
+						span.italic(data-i18n='detail_stealth') Entry point
+					.teamworkbox
+						span.bold(data-i18n='transport') Transport
+						span.italic(data-i18n='detail_transport') Route
+		//- Action ratings
+		.col47.right-column.actioncolumn.small-margin
+			each actions, attribute in actionData
+				.attribute.col100
+					- const attrLow = attribute.toLowerCase();
+					.attribute-title.flex.col100
+						+rollbutton(
+							'rollbutton label',
+							attribute,
+							attrLow,
+							'{{resist=1}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-' + attrLow + '=1}} {{title=^{' + attrLow + '}}}',
+							`@{${attrLow}}+@{setting_resbonus_${attrLow}}`,
+							`${attrLow}_description`)
+							=attribute
+						input(type='hidden', name=`attr_${attrLow}`, value='0')
+						input(type='hidden', name=`attr_${attrLow}_xp_max`, value='6')
+						.attribute-xp-box.flex
+							input.hidden.vampirexp(type='checkbox', name='attr_setting_vampirexp', value='1')
+							input.tooth.zero(type='radio', name=`attr_${attrLow}_xp`, value='0', checked)
+							span
+							each num in [1,2,3,4,5,6,7,8]
+								if (num > 6)
+									input.hidden.toothhider(type='checkbox', name='attr_setting_vampirexp', value='1')
+								input.tooth.xptooth(type='radio', name=`attr_${attrLow}_xp`, value=num)
+								span
+					.actions.col100
+						each action in actions
+							- const actLow = action.toLowerCase();
+							.action.flex.col100
+								input.hidden.darktalent(type='checkbox', name=`attr_setting_dark_talent_${attrLow}`, value='1')
+								input.hidden.fakeradio(type='checkbox', name=`attr_${actLow}`, value='0', checked)
+								input.checkbox.circlebox.fakeradio(type='checkbox', name=`attr_${actLow}`, value='1')
+								span
+								.divider
+								each num in [2,3,4,5]
+									input.checkbox.circlebox.fakeradio(type='checkbox', name=name=`attr_${actLow}`, value=num)
+									span
+								+rollbutton('rollbutton label', action, actLow, '{{action=1}} {{subtitle=^{rolls-l}}} {{title-' + actLow + '=1}} {{title=^{' + actLow + '}}} {{@{position_query}}} {{effect=@{effect_query}}}', `@{${actLow}}`, `${actLow}_description`)=action
+			//- Cohort
+			input.hider.hidden(type='checkbox', name='attr_setting_show_cohort', value='1')
+			+makecohort('char_cohort_', true)
+			//- Bonus die box
+			.bonusdie.col100
+				.col100.label(data-i18n='bonus_die') Bonus Die
+				.col100.flex
+					.flex-center.bonusdieplus +
+					.bonusdietext
+						.label(data-i18n='push_yourself') Push yourself
+						span(data-i18n='push_yourself_desc1')  (take 2
+						span(name='attr_setting_stress_label')
+						span(data-i18n='push_yourself_desc2-N') ) - or - accept a
+						.label(data-i18n='devils_bargain') Devil's Bargain
+			//- Friends
+			.col100.def-margin
+				.specialheader.col100.label.flex
+					input.inherit(type='text', spellcheck='false', name='attr_friends_title', value='Friends')
+				.greyholder.col100
+					fieldset.repeating_friend
+						.friend-contact.friend.flex
+							input.hidden.friendup(type='checkbox', name='attr_status', value='up')
+							input.hidden.frienddown(type='checkbox', name='attr_status', value='down')
+							label.up
+								input.checkbox(type='checkbox', name='attr_status', value='up')
+								span
+							label.down
+								input.checkbox(type='checkbox', name='attr_status', value='down')
+								span
+							+autoexpand('', 'name', 'Friend name', 'friend_name')
+			//- Roll Fortune
+			+fortunebutton('fortunebutton borderbutton', 'Fortune', 'roll_fortune', '{{fortune=1}} {{subtitle=^{rolls-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true) Roll Fortune
+		//- Clocks
+		.col100.clocks.white-repcontrol.def-margin
+			.specialheader.label(data-i18n='clocks') Clocks
+			fieldset.repeating_clock
+				+makeclock
+		textarea.notes(spellcheck='false', name='attr_notes', data-i18n-placeholder='notes', placeholder='Notes')

@@ -1,6 +1,6 @@
 "use strict";
 /* DATA */
-const sheetVersion = "2.6",
+const sheetVersion = "2.7",
 	crewData = {
 		assassins: {
 			base: {
@@ -1541,6 +1541,9 @@ const crewAttributes = [...new Set([].concat(...Object.keys(crewData).map(x => O
 		'hunting_grounds_description',
 		'cohort1_edges',
 		'cohort1_flaws',
+		'heritage',
+		'background',
+		'vice_purveyor',
 	],
 	autogenSections = [
 		'ability',

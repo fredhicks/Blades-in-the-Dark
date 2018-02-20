@@ -1,0 +1,361 @@
+mixin claimbox(number)
+	input.hidden(type='checkbox', name=`attr_claim_${number}_check`, value='1')
+	.claimbox
+		label
+			input.checkbox.squarebox-small(type='checkbox', name=`attr_claim_${number}_check`, value='1')
+			span
+		textarea.label(spellcheck='false', name=`attr_claim_${number}_name`)
+		textarea.claim-desc(spellcheck='false', name=`attr_claim_${number}_desc`)
+
+mixin claimbridge(number, type)
+	label(class=['claimbridge', type === 'vert' ? 'claims-vertsep' : 'claims-horisep'])
+		input(type='checkbox', name=`attr_claim_bridge_${number}`, value='1', checked)
+		span
+
+mixin makeupgrade(number, numboxes, def, desc)
+	.col50
+		.item
+			input.checkbox.squarebox(type='checkbox', name=`attr_upgrade_${number}_check_1`, value='1')
+			span
+			if (numboxes === 2)
+				input.checkbox.squarebox(type='checkbox', name=`attr_upgrade_${number}_check_2`, value='1')
+				span
+			input.itemname(type='text', spellcheck='false', name=`attr_upgrade_${number}_name`, value=def)
+		.item-description
+			input.expand(type='checkbox', name=`attr_upgrade_${number}_expand`, value='1')
+			span
+			textarea(spellcheck='false', name=`attr_upgrade_${number}_description`, data-i18n-placeholder='description', placeholder='Description')
+				=desc
+
+//- Crew Sheet
+.type-crew.flex
+	//- Left column
+	.col55.flex-wrap
+		//- Logo, Header text fields
+		.col100.header.flex-wrap
+			.col55.bladeslogo
+			.col45.crewheader.label(data-i18n='crew_sheet') Crew sheet
+			label.col55
+				input(type='text', spellcheck='false', name='attr_crew_name')
+				.label.text.title(data-i18n='name') Name
+			label.col45
+				input(type='text', spellcheck='false', name='attr_reputation')
+				.label.text.title(data-i18n='reputation') Reputation
+			label.col100
+				input(type='text', spellcheck='false', name='attr_lair')
+				.label.text.title(data-i18n='lair') Lair
+			input.hidden.hider(type='checkbox', name='attr_setting_show_deity', value='1')
+			label.col55
+				input(type='text', spellcheck='false', name='attr_crew_deity')
+				.label.text.title
+					span(name='attr_setting_deity_label')
+			input.hidden.hider(type='checkbox', name='attr_setting_show_deity', value='1')
+			label.col45
+				input(type='text', spellcheck='false', name='attr_crew_deity_features', data-i18n-placeholder='choose_2_features', placeholder='choose 2 features')
+				input(type='hidden', name='attr_crew_deity_features', value='')
+				.text
+					span.label.title
+						span(name='attr_setting_deity_label')
+						span
+						span(data-i18n='features') Deity Features
+					span.uppercase.info(data-i18n='deity_features_info')
+						| Alluring — Cruel — Ferocious — Monstrous — Radiant — Sinister — Serene — Transcendent
+			input.hidden.hider(type='checkbox', name='attr_setting_show_origin', value='1')
+			label.col100
+				input(type='text', spellcheck='false', name='attr_origin')
+				.label.text.title(data-i18n='origin') Origin
+		//- Rep, Hold, and Tier
+		.col100.flex.rep-and-hold.def-margin
+			.rep.flex.col45
+				.rep1.blackheader
+					.label(data-i18n='rep') Rep
+				.rep2.blackborder.flex
+					.turfbox
+						each num in [1,2,3,4,5,6]
+							input(type='radio', name='attr_turf', value=num)
+					input(type='hidden', name='attr_rep_max', value='12')
+					input(type='hidden', name='attr_turf_max', value='6')
+					input.turf-input(type='hidden', name='attr_turf', value='0')
+					input.tooth.zero(type='radio', name='attr_rep', value='0', checked)
+					span
+					each num in [...Array(13).keys()].slice(1)
+						input(
+							class=['tooth', 'stresstooth', ...((num < 6) ? [] : [...Array(num-6).keys()].map(x => `turf${6-x}`))]
+							type='radio',
+							name='attr_rep',
+							value=num
+						)
+						span
+				.rep3.blackborder
+					.black-on-grey
+						.label(data-i18n='turf') Turf
+					.turfzero-holder
+						input.zero(type='radio', name='attr_turf', value='0', checked)
+						span
+			//- Hold
+			.hold.flex
+				.hold1.blackheader
+					.label(data-i18n='hold') Hold
+				label.blackborder
+					.black-on-grey
+						.label(data-i18n='weak') Weak
+					input.tooth.holdtooth(type='radio', name='attr_hold', value='weak')
+					span
+				label.blackborder
+					.black-on-grey
+						.label(data-i18n='strong') Strong
+					input.tooth.holdtooth(type='radio', name='attr_hold', value='strong', checked)
+					span
+				//- Tier
+				.blackheader
+					input(type='hidden', name='attr_crew_tier_max', value='4')
+					+rollbutton('label inherit rollbutton', 'Tier', 'tier', '{{resist=1}} {{short=1}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their-l}}}', '@{crew_tier}') Tier
+				.tier.flex
+					input.hidden.fakeradio(type='checkbox', name='attr_crew_tier', value='0', checked)
+					each num in [1,2,3,4]
+						input.checkbox.circlebox.fakeradio(type='checkbox', name='attr_crew_tier', value=num)
+						span
+		//- Claims
+		.claims.col100.white-repcontrol
+			.claimsrow.flex
+				each num in [1,2,3,4,5]
+					+claimbox(num)
+					if (num !== 5)
+						+claimbridge(`${num}_${num+1}`, 'hori')
+			.claims-seprow.flex
+				each num in [1,2,3,4,5]
+					+claimbridge(`${num}_${num+5}`, 'vert')
+			.claimsrow.flex
+				+claimbox(6)
+				+claimbridge('6_7', 'hori')
+				+claimbox(7)
+				+claimbridge('7_8', 'hori')
+				.lairbox.flex-center.uppercase(data-i18n='lair') Lair
+				+claimbridge('8_9', 'hori')
+				+claimbox(9)
+				+claimbridge('9_10', 'hori')
+				+claimbox(10)
+			.claims-seprow.flex
+				each num in [6,7,8,9,10]
+					+claimbridge(`${num}_${num+5}`, 'vert')
+			.claimsrow.flex
+				each num in [11,12,13,14,15]
+					+claimbox(num)
+					if (num !== 5)
+						+claimbridge(`${num}_${num+1}`, 'hori')
+			fieldset.repeating_claim
+				.claims-seprow.flex
+					each num in [1,2,3,4,5]
+						+claimbridge(`top_${num}`, 'vert')
+				.claimsrow.flex
+					each num in [1,2,3,4,5]
+						+claimbox(num)
+						if (num !== 5)
+							+claimbridge(`${num}_${num+1}`, 'hori')
+		//- Heat and Coin
+		.col100.flex.heat-and-vault.def-margin
+			//- Heat
+			.col45.flex.heat
+				//- Heat markers
+				.heat1.blackheader
+					.label
+						span(name='attr_setting_heat_label')
+				.heat2.blackborder.flex
+					input(type='hidden', name='attr_heat_max', value='9')
+					input.tooth.zero(type='radio', name='attr_heat', value='0', checked)
+					span
+					each num in [1,2,3,4,5,6,7,8,9]
+						input.tooth.stresstooth(type='radio', name='attr_heat', value=num)
+						span
+				//- Wanted Level
+				.heat3
+					.blackheader
+						+rollbutton('label rollbutton inherit', 'Wanted', null, '{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat} @{setting_heat_label}^{wantedroll2}}}', '@{wanted}')
+							span(name='attr_setting_wanted_label')
+					.wantedholder.flex
+						input(type='hidden', name='attr_wanted_max', value='4')
+						input.tooth.zero(type='radio', name='attr_wanted', value='0', checked)
+						span
+						each num in [1,2,3,4]
+							input.tooth.regulartooth(type='radio', name='attr_wanted', value=num)
+							span
+			//- Coin
+			.crewcoin.col52b
+				.col100.flex
+					.blackheader.crewcoin1
+						.label(data-i18n='coin') Coin
+					.greyheader.crewcoin2
+						.label(data-i18n='vaults') Vaults
+				.col100.flex.crewcoin-coins
+					input(type='hidden', name='attr_crewcoin_max', value='16')
+					input.zero(type='radio', name='attr_crewcoin', value='0', checked)
+					span
+					each num in [1,2,3,4]
+						input.radiobox(type='radio', name='attr_crewcoin', value=num)
+						span
+					.crewcoinbar
+					each num in [5,6,7,8]
+						input.radiobox.vaultcoin(type='radio', name='attr_crewcoin', value=num)
+						span
+					.crewcoinbar
+					each num in [9,10,11,12,13,14,15,16]
+						input.radiobox.vaultcoin(type='radio', name='attr_crewcoin', value=num)
+						span
+				.col100.crewcoin-desc(data-i18n='upon_crew_advance-N') Upon crew advance, each PC gets Stash = Tier+2
+		//- Special abilities
+		.col100.def-margin
+			.specialheader.col100.label(data-i18n='special_abilities') Special Abilities
+			.greyholder.col100
+				fieldset.repeating_crewability
+					.specialability.flex
+						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
+						input.checkbox.circlebox(type='checkbox', name='attr_check', value='1')
+						span
+						+autoexpand('abilityname smallcaps', 'name', 'Ability name', 'ability_name')
+						+autoexpand('abilitydesc', 'description', 'Ability description', 'ability_description')
+		//- Advancement
+		.col100.def-margin
+			.advancement-header.flex.blackheader
+				.label.markxp(data-i18n='mark_xp:') Mark XP:
+				.label(data-i18n='crew_advancement') Crew Advancement
+				.xpholder.flex
+					input(type='hidden', name='attr_crew_xp_max', value='8')
+					input.tooth.zero(type='radio', name='attr_crew_xp', value='0', checked)
+					span
+					each num in [1,2,3,4,5,6,7,8,9,10]
+						input.tooth.xptooth(type='radio', name='attr_crew_xp', value=num)
+						span
+			ul.advancement-desc
+				li.nondot(data-i18n='xp_top')
+					| At the end of each session, for each item below, mark 1 xp (or instead mark 2 xp if that item occurred multiple times).
+				li
+					+autoexpand('', 'crew_xp_condition', 'Enter your crew\'s specific way to mark XP here.', 'xp_crew_specific')
+				input.hidden.hider(type='checkbox', name='attr_setting_extra_xp', value='1')
+				li
+					+autoexpand('', 'xp_condition_extra', 'Enter another specific way to mark XP here.', 'xp_specific_extra')
+				li(data-i18n='xp_contend') Contend with challenges above your current station.
+				li(data-i18n='xp_bolster') Bolster your crew's reputation or develop a new one.
+				li(data-i18n='xp_express') Express the goals, drives, inner conflict, or essential nature of the crew.
+	//- Right column
+	.col45.flex-wrap.right-column
+		//- Crew Type
+		.playbook.flex
+			input.label(type='text', spellcheck='false', name='attr_crew_type', data-i18n-placeholder='crew', placeholder='Crew')
+			textarea.label(spellcheck='false', name='attr_crew_description', data-i18n-placeholder='crew_description', placeholder='A short crew description')
+			input.hidden.hider(type='checkbox', name='attr_show_playbook_reminder', value='1', checked)
+			.reminder
+				span(data-i18n='autofill_reminder_crew')
+					| To generate crew abilities, upgrades, contacts, and claims, enter the name of the crew type above:
+				br
+				span(data-i18n='list_crews') Assassins, Bravos, Cult, Hawkers, Shadows, Smugglers, or Vigilantes.
+		//- Upgrades and Hunting Grounds
+		.col53.small-margin
+			//- Upgrades
+			.itemheader.col100
+				span.label(data-i18n='crew_upgrades') Crew Upgrades
+			.itemholder.col100.upgrades
+				//- Specific upgrades
+				.playbookitems.small-repcontrol.col100
+					fieldset.repeating_upgrade
+						input.hidden.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+						.item.numboxes-chooser
+							div(data-i18n='how_many_boxes') How many boxes?
+							input(type='number', name='attr_numboxes', min='1', max='3', value='1')
+							label
+								input.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+								span.okbutton(data-i18n='ok') OK
+						.item
+							input.hidden.numboxes1(type='checkbox', name='attr_numboxes', value='1', checked)
+							input.hidden.numboxes2(type='checkbox', name='attr_numboxes', value='2')
+							input.checkbox.squarebox(type='checkbox', name='attr_check_1', value='1')
+							span
+							span.floatingbar.boxesgeq2
+							input.checkbox.squarebox.boxesgeq2(type='checkbox', name='attr_check_2', value='1')
+							span.boxesgeq2
+							span.floatingbar.boxesgeq3.boxesgeq2
+							input.checkbox.squarebox.boxesgeq3.boxesgeq2(type='checkbox', name='attr_check_3', value='1')
+							span.boxesgeq3.boxesgeq2
+							+autoexpand('itemname', 'name', 'An upgrade', 'an_upgrade')
+						.item-description
+							input.expand(type='checkbox', name='attr_expand', value='1')
+							span
+							textarea(spellcheck='false', name='attr_description', data-i18n-placeholder='description', placeholder='Description')
+				//- Regular upgrades
+				.regularitems.flex-wrap.col100
+					.item.col50
+						span.label(data-i18n='lair') Lair
+					.item.col50
+						span.label(data-i18n='quality') Quality
+					+makeupgrade(6, 2, 'Carriage', 'You have a carriage, two goats to pull it, and a stable. A second upgrade improves the carriage with armor and larger, swifter goats. Horses are very rare in Doskvol — most carriages in the city use the large Akorosian goat as their draft animal.')
+					+makeupgrade(7, 1, 'Documents', '+1 quality for Documents.')
+					+makeupgrade(8, 2, 'Boat', 'You have a boat, a dock on a waterway, and a small shack to store boating supplies. A second upgrade improves the boat with armor and more cargo capacity.')
+					+makeupgrade(9, 1, 'Gear', '+1 quality for Burglary Gear and Climbing Gear.')
+					+makeupgrade(10, 1, 'Hidden', 'Your lair has a secret location and is disguised to hide it from view. If your lair is discovered, use two downtime activities and pay coin equal to your Tier to relocate it and hide it once again.')
+					+makeupgrade(11, 1, 'Implements', '+1 quality for Arcane Implements.')
+					+makeupgrade(12, 1, 'Quarters', 'Your lair includes living quarters for the crew. Without this upgrade, each PC sleeps elsewhere, and is vulnerable when they do so.')
+					+makeupgrade(13, 1, 'Supplies', '+1 quality for Subterfuge Supplies.')
+					+makeupgrade(14, 2, 'Secure', 'Your lair has locks, alarms, and traps to thwart intruders. A second upgrade improves the defenses to include arcane measures that work against spirits. You might roll your crew\'s Tier if these measures are ever put to the test, to see how well they thwart an intruder.')
+					+makeupgrade(15, 1, 'Tools', '+1 quality for Demolition Tools and Tinkering Tools.')
+					+makeupgrade(16, 2, 'Vault', 'Your lair has a secure vault, increasing your storage capacity for coin to 8. A second upgrade increases your capacity to 16. A separate part of your vault can be used as a holding cell.')
+					+makeupgrade(17, 1, 'Weapons', '+1 quality for Weapons.')
+					+makeupgrade(18, 1, 'Workshop', 'Your lair has a workshop appointed with tools for tinkering and alchemy, as well as a small library of books, documents, and maps. You may accomplish long-term projects with these assets without leaving your lair.')
+					.item.col50
+					.item.upgradecaption.col50
+						span.label(data-i18n='training') Training
+					.item.upgradecaption.col50
+						span.label(data-i18n='cohorts') Cohorts
+					+makeupgrade(20, 1, 'Insight', 'Earn 2 xp when training insight during downtime.')
+					.item.col50
+						.label.upgradecosts(data-i18n='upgrade_costs') Upgrade Costs
+					+makeupgrade(21, 1, 'Prowess', 'Earn 2 xp when training prowess during downtime.')
+					.item.col50
+						.upgradecosts(data-i18n='new_cohort') New Cohort: 2
+					+makeupgrade(22, 1, 'Resolve', 'Earn 2 xp when training resolve during downtime.')
+					.item.col50
+						.upgradecosts(data-i18n='add_type') Add Type: 2
+					+makeupgrade(23, 1, 'Personal', 'Earn 2 xp when training playbook during downtime.')
+					.col100
+						.item
+							each num in [1,2,3,4]
+								input.checkbox.squarebox(type='checkbox', name=`attr_upgrade_24_check_${num}`, value='1')
+								span
+								if (num < 4)
+									span.floatingbar
+							input.itemname(type='text', spellcheck='false', name='attr_upgrade_24_name', value='Mastery')
+						.item-description
+							input.expand(type='checkbox', name='attr_upgrade_24_expand', value='1')
+							span
+							textarea(spellcheck='false', name='attr_upgrade_24_description', data-i18n-placeholder='description', placeholder='Description')
+								| Your crew has access to master level training. You may advance your PCs' action ratings to 4 (until you unlock this upgrade, PC action ratings are capped at 3). This costs four upgrade boxes to unlock.
+			.hunting-grounds.col100.def-margin
+				+autoexpand('plainheader label', 'hunting_grounds_type', 'Hunting Grounds', 'hunting_grounds')
+				+autoexpand('description', 'hunting_grounds_description', 'Robbery', 'hunting_grounds_description')
+			+fortunebutton('engagementbutton borderbutton', 'Engagement', 'roll_engagement', '{{action=1}} {{short=1}} {{small-title=1}} {{subtitle=^{roll_for}}} {{title-engagement=1}} {{title=^{engagement}}}') Roll Engagement
+		//- Cohorts and Contacts
+		.col47.right-column.small-margin
+			//- First Cohort
+			+makecohort('cohort1_')
+			//- Cohort repeating section
+			.col100.white-repcontrol.cohorts
+				fieldset.repeating_cohort
+					+makecohort('')
+			//- Contacts
+			.col100.def-margin
+				.specialheader.col100.label.flex
+					input.inherit(type='text', spellcheck='false', name='attr_contacts_title', value='Contacts')
+				.greyholder.col100
+					fieldset.repeating_contact
+						.friend-contact.contact.flex
+							input.hidden.contact-check(type='checkbox', name='attr_check', value='1')
+							label
+								input.checkbox(type='checkbox', name='attr_check', value='1')
+								span
+							+autoexpand('', 'name', 'Contact name', 'contact_name')
+			//- Roll Fortune
+			+fortunebutton('fortunebutton borderbutton', 'Fortune_crew', 'roll_fortune', '{{fortune=1}} {{subtitle=^{roll-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true) Roll Fortune
+		//- Clocks
+		.col100.clocks.white-repcontrol.def-margin
+			.specialheader.label(data-i18n='clocks') Clocks
+			fieldset.repeating_crewclock
+				+makeclock
+		textarea.notes(spellcheck='false', name='attr_crew_notes', data-i18n-placeholder='notes', placeholder='Notes')
