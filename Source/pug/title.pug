@@ -1,244 +1,202 @@
 //- Title & Version
 .topholder.flex
 	.type-selector.label
-		input.hidden.sheet-3waybox(type="checkbox" name="attr_sheet_type" value="faction")
-		input.sheet-3waybox(type="radio" name="attr_sheet_type" value="character" checked)
-		input.sheet-3waybox(type="radio" name="attr_sheet_type" value="crew")
-		input.sheet-3waybox(type="radio" name="attr_sheet_type" value="faction")
-		span(data-i18n="character_mode") Character Mode
-		span(data-i18n="crew_mode") Crew Mode
-		span(data-i18n="faction_mode") Faction Mode
+		input.hidden.sheet-3waybox(type='checkbox', name='attr_sheet_type', value='faction')
+		input.sheet-3waybox(type='radio', name='attr_sheet_type', value='character', checked)
+		input.sheet-3waybox(type='radio', name='attr_sheet_type', value='crew')
+		input.sheet-3waybox(type='radio', name='attr_sheet_type', value='faction')
+		span(data-i18n='character_mode') Character Mode
+		span(data-i18n='crew_mode') Crew Mode
+		span(data-i18n='faction_mode') Faction Mode
 	label.settings-checkbox
-		input(type="checkbox" name="attr_show_settings" value="1")
-		span y
+		+checkbox('show_settings') y
 	.version
-		span.version-text(data-i18n="version") Version
-		span(name="attr_version")
-input.hidden.hider(type="checkbox" name="attr_show_settings" value="1")
+		span.version-text(data-i18n='version') Version
+		span(name='attr_version')
++hidden-input('show_settings')(value='0').hider
 .settings.flex-wrap
-	input.type(type="hidden" name="attr_sheet_type" value="character")
 	.setting-char.generaterow
-		select(name="attr_generate_source_character" title="Choose source")
+		select(name='attr_generate_source_character', title='Choose source')
 			optgroup
-				option(value="cutter" data-i18n="cutter" selected) Cutter
-				option(value="hound" data-i18n="hound") Hound
-				option(value="leech" data-i18n="leech") Leech
-				option(value="lurk" data-i18n="lurk") Lurk
-				option(value="slide" data-i18n="slide") Slide
-				option(value="spider" data-i18n="spider") Spider
-				option(value="whisper" data-i18n="whisper") Whisper
-			optgroup(label="Spirit Playbooks" data-i18n-label="spirit_playbooks")
-				option(value="ghost" data-i18n="ghost") Ghost
-				option(value="hull" data-i18n="hull") Hull
-				option(value="vampire" data-i18n="vampire") Vampire
+				option(value='cutter', data-i18n='cutter', selected) Cutter
+				option(value='hound', data-i18n='hound') Hound
+				option(value='leech', data-i18n='leech') Leech
+				option(value='lurk', data-i18n='lurk') Lurk
+				option(value='slide', data-i18n='slide') Slide
+				option(value='spider', data-i18n='spider') Spider
+				option(value='whisper', data-i18n='whisper') Whisper
+			optgroup(label='Spirit Playbooks', data-i18n-label='spirit_playbooks')
+				option(value='ghost', data-i18n='ghost') Ghost
+				option(value='hull', data-i18n='hull') Hull
+				option(value='vampire', data-i18n='vampire') Vampire
 		label.generatebutton
-			input(type="checkbox" name="attr_generate_ability")
-			span(data-i18n="add_abilities") Add abilities
+			+checkbox('generate_ability')(i18n='add_abilities') Add abilities
 		label.generatebutton
-			input(type="checkbox" name="attr_generate_friend")
-			span(data-i18n="add_friends") Add friends
+			+checkbox('generate_friend')(i18n='add_friends') Add friends
 		label.generatebutton
-			input(type="checkbox" name="attr_generate_playbookitem")
-			span(data-i18n="add_items") Add items
+			+checkbox('generate_playbookitem')(i18n='add_items') Add items
 	.setting-crew.generaterow
-		select(name="attr_generate_source_crew" title="Choose source")
-			option(value="assassins" data-i18n="assassins" selected) Assassins
-			option(value="bravos" data-i18n="bravos") Bravos
-			option(value="cult" data-i18n="cult") Cult
-			option(value="hawkers" data-i18n="hawkers") Hawkers
-			option(value="shadows" data-i18n="shadows") Shadows
-			option(value="smugglers" data-i18n="smugglers") Smugglers
-			option(value="vigilantes" data-i18n="vigilantes") Vigilantes
+		select(name='attr_generate_source_crew', title='Choose source')
+			option(value='assassins', data-i18n='assassins', selected) Assassins
+			option(value='bravos', data-i18n='bravos') Bravos
+			option(value='cult', data-i18n='cult') Cult
+			option(value='hawkers', data-i18n='hawkers') Hawkers
+			option(value='shadows', data-i18n='shadows') Shadows
+			option(value='smugglers', data-i18n='smugglers') Smugglers
+			option(value='vigilantes', data-i18n='vigilantes') Vigilantes
 		label.generatebutton
-			input(type="checkbox" name="attr_generate_crewability")
-			span(data-i18n="add_abilities") Add abilities
+			+checkbox('generate_crewability')(i18n='add_abilities') Add abilities
 		label.generatebutton
-			input(type="checkbox" name="attr_generate_contact")
-			span(data-i18n="add_contacts") Add contacts
+			+checkbox('generate_contact')(i18n='add_contacts') Add contacts
 		label.generatebutton
-			input(type="checkbox" name="attr_generate_upgrade")
-			span(data-i18n="add_upgrades") Add upgrades
+			+checkbox('generate_upgrade')(i18n='add_upgrades') Add upgrades
 	.setting-faction.generaterow
 		label.generatebutton
-			input(type="checkbox" name="attr_generate_factions")
-			span(data-i18n="generate_factions") Generate Factions
+			+checkbox('generate_factions')(i18n='generate_factions') Generate Factions
 	.setting-char
 		label
-			select(name="attr_setting_extra_stress" title="Stress Boxes")
-				option(value="0" selected) 9
-				option(value="1") 10
-				option(value="2") 11
-				option(value="3") 12
-				option(value="4") 13
-				option(value="5") 14
-			span(data-i18n="number_stress_boxes") Number of stress boxes
+			select(name='attr_setting_extra_stress', title='Stress Boxes')
+				option(value='0', selected) 9
+				option(value='1') 10
+				option(value='2') 11
+				option(value='3') 12
+				option(value='4') 13
+				option(value='5') 14
+			span(data-i18n='number_stress_boxes') Number of stress boxes
 	.setting-char
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_extra_trauma" value="1")
-			span
-			span(data-i18n="show_extra_trauma_box") Show an extra trauma box
+			+checkbox('setting_extra_trauma').checkbox.squarebox
+			span(data-i18n='show_extra_trauma_box') Show an extra trauma box
 	.setting-char.setting-crew
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_extra_xp" value="1")
-			span
-			span(data-i18n="show_extra_xp_condition") Show an extra xp condition
+			+checkbox('setting_extra_xp').checkbox.squarebox
+			span(data-i18n='show_extra_xp_condition') Show an extra xp condition
 	.setting-char
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_vampirexp" value="1")
-			span
-			span(data-i18n="extra_xp_boxes") Extra xp boxes for vampires
+			+checkbox('setting_vampirexp').checkbox.squarebox
+			span(data-i18n='extra_xp_boxes') Extra xp boxes for vampires
 	.setting-char
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_show_strictures" value="1")
-			span
-			span(data-i18n="show_vampire_strictures") Show vampire strictures
+			+checkbox('setting_show_strictures').checkbox.squarebox
+			span(data-i18n='show_vampire_strictures') Show vampire strictures
 	.setting-char
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_show_frame" value="1")
-			span
-			span(data-i18n="show_frame_section") Show frame section (for hulls)
+			+checkbox('setting_show_frame').checkbox.squarebox
+			span(data-i18n='show_frame_section') Show frame section (for hulls)
 	.setting-char.setting-crew
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_show_itemdesc" value="1" checked)
-			span
-			span(data-i18n="show_item_description") Item/upgrade descriptions
+			+checkbox('setting_show_itemdesc')(checked).checkbox.squarebox
+			span(data-i18n='show_item_description') Item/upgrade descriptions
 	.setting-char
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_show_cohort" value="1")
-			span
-			span(data-i18n="show_cohort_section") Show cohort section on character sheet
+			+checkbox('setting_show_cohort').checkbox.squarebox
+			span(data-i18n='show_cohort_section') Show cohort section on character sheet
 	.setting-crew
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_show_deity" value="1")
-			span
-			span(data-i18n="show_deity") Show deity fields
+			+checkbox('setting_show_deity').checkbox.squarebox
+			span(data-i18n='show_deity') Show deity fields
 	.setting-crew
 		label
-			input(type="text" spellcheck="false" name="attr_setting_deity_label" value="Deity")
-			span
-			span(data-i18n="deity_label") Label to use for Deity
+			+text-input('setting_deity_label')(value='Deity')
+			span(data-i18n='deity_label') Label to use for Deity
 	.setting-char
 		label
-			input(type="text" spellcheck="false" name="attr_setting_stress_label" value="Stress")
-			span
-			span(data-i18n="stress_label") Label to use for stress
+			+text-input('setting_stress_label')(value='Stress')
+			span(data-i18n='stress_label') Label to use for stress
 	.setting-char
 		label
-			input(type="text" spellcheck="false" name="attr_setting_trauma_label" value="Trauma")
-			span
-			span(data-i18n="trauma_label") Label to use for trauma
+			+text-input('setting_trauma_label')(value='Trauma')
+			span(data-i18n='trauma_label') Label to use for trauma
 	.setting-crew
 		label
-			input(type="text" spellcheck="false" name="attr_setting_heat_label" value="Heat")
-			span
-			span(data-i18n="heat_label") Label to use for Heat
+			+text-input('setting_heat_label')(value='Heat')
+			span(data-i18n='heat_label') Label to use for Heat
 	.setting-crew
 		label
-			input(type="text" spellcheck="false" name="attr_setting_wanted_label" value="Wanted")
-			span
-			span(data-i18n="wanted_label") Label to use for Wanted
+			+text-input('setting_wanted_label')(value='Wanted')
+			span(data-i18n='wanted_label') Label to use for Wanted
 	.setting-crew
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_show_origin" value="1")
-			span
-			span(data-i18n="show_origin") Show origin field
+			+checkbox('setting_show_origin').checkbox.squarebox
+			span(data-i18n='show_origin') Show origin field
 	.setting-char
-		span(data-i18n="dark_talent") Vampire's Dark Talent:
+		span(data-i18n='dark_talent') Vampire's Dark Talent:
 		span
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_dark_talent_insight" value="1")
-			span
-			span(data-i18n="insight") Insight
+			+checkbox('setting_dark_talent_insight').checkbox.squarebox
+			span(data-i18n='insight') Insight
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_dark_talent_prowess" value="1")
-			span
-			span(data-i18n="prowess") Prowess
+			+checkbox('setting_dark_talent_prowess').checkbox.squarebox
+			span(data-i18n='prowess') Prowess
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_dark_talent_resolve" value="1")
-			span
-			span(data-i18n="resolve") Resolve
+			+checkbox('setting_dark_talent_resolve').checkbox.squarebox
+			span(data-i18n='resolve') Resolve
 	.setting-char
-		span(data-i18n="resistance_bonus") Resistance bonus:
+		span(data-i18n='resistance_bonus') Resistance bonus:
 		label
-			input(type="number" name="attr_setting_resbonus_insight" value="0")
-			span(data-i18n="insight") Insight
+			+number-input('setting_resbonus_insight')(value='0')
+			span(data-i18n='insight') Insight
 		label
-			input(type="number" name="attr_setting_resbonus_prowess" value="0")
-			span(data-i18n="prowess") Prowess
+			+number-input('setting_resbonus_prowess')(value='0')
+			span(data-i18n='prowess') Prowess
 		label
-			input(type="number" name="attr_setting_resbonus_resolve" value="0")
-			span(data-i18n="resolve") Resolve
+			+number-input('setting_resbonus_resolve')(value='0')
+			span(data-i18n='resolve') Resolve
 	.setting-char
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_consequence_query" value="1")
-			span
-			span(data-i18n="query_for_consequence") Query for consequence name when resisting
-		input(type="hidden" name="attr_consequence_query" value="^{a_consequence}")
+			+checkbox('setting_consequence_query').checkbox.squarebox
+			span(data-i18n='query_for_consequence') Query for consequence name when resisting
 	.setting-char
-		span(data-i18n="load:") Load:
+		span(data-i18n='load:') Load:
 		label
-			input(type="number" name="attr_setting_load_l" value="3")
-			span(data-i18n="light") Light
+			+number-input('setting_load_l')(value='3')
+			span(data-i18n='light') Light
 		label
-			input(type="number" name="attr_setting_load_n" value="5")
-			span(data-i18n="normal") Normal
+			+number-input('setting_load_n')(value='5')
+			span(data-i18n='normal') Normal
 		label
-			input(type="number" name="attr_setting_load_h" value="6")
-			span(data-i18n="heavy") Heavy
+			+number-input('setting_load_h')(value='6')
+			span(data-i18n='heavy') Heavy
 	.setting-char
 		label
-			select(name="attr_setting_traumata_set" title="Traumata")
-				option(value="normal" data-i18n="normal" selected) Normal
-				option(value="ghost" data-i18n="ghost") Ghost
-				option(value="hull" data-i18n="hull") Hull
-			span(data-i18n="traumata") Traumata
+			select(name='attr_setting_traumata_set', title='Traumata')
+				option(value='normal', data-i18n='normal', selected) Normal
+				option(value='ghost', data-i18n='ghost') Ghost
+				option(value='hull', data-i18n='hull') Hull
+			span(data-i18n='traumata') Traumata
 	.setting-char
 		label
-			select(name="attr_setting_vice_type" title="Vice")
-				option(value="normal" data-i18n="normal" selected) Normal
-				option(value="ghost" data-i18n="ghost") Ghost
-				option(value="hull" data-i18n="hull") Hull
-				option(value="vampire" data-i18n="vampire") Vampire
-			span(data-i18n="vice") Vice
+			select(name='attr_setting_vice_type', title='Vice')
+				option(value='normal', data-i18n='normal', selected) Normal
+				option(value='ghost', data-i18n='ghost') Ghost
+				option(value='hull', data-i18n='hull') Hull
+				option(value='vampire', data-i18n='vampire') Vampire
+			span(data-i18n='vice') Vice
 	.setting-char.setting-crew.setting-faction
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_flexwidth" value="1")
-			span
-			span(data-i18n="flexible_width") Flexible character sheet width (adapts to container)
+			+checkbox('setting_flexwidth').checkbox.squarebox
+			span(data-i18n='flexible_width') Flexible character sheet width (adapts to container)
 	.setting-char.setting-crew.setting-faction
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_focus_shadow" value="1" checked)
-			span
-			span(data-i18n="show_outline") Show outline for active input fields
+			+checkbox('setting_focus_shadow')(checked).checkbox.squarebox
+			span(data-i18n='show_outline') Show outline for active input fields
 	.setting-char.setting-crew.setting-faction
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_text_bonus_query" value="1")
-			span
-			span(data-i18n="text_input_bonusdice") Show a text input instead of a dropdown when querying for bonus dice
+			+checkbox('setting_text_bonus_query').checkbox.squarebox
+			span(data-i18n='text_input_bonusdice') Show a text input instead of a dropdown when querying for bonus dice
 	.setting-char.setting-crew.setting-faction
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_show_broadcast" value="1" checked)
-			span
-			span(data-i18n="show_broadcast") Show broadcast buttons for sending information to chat
+			+checkbox('setting_show_broadcast')(checked).checkbox.squarebox
+			span(data-i18n='show_broadcast') Show broadcast buttons for sending information to chat
 	.setting-char.setting-crew
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_autofill" value="1" checked)
-			span
-			span(data-i18n="fill_fields") Fill in sheet fields automatically upon entering or changing playbook or crew type
+			+checkbox('setting_autofill')(checked).checkbox.squarebox
+			span(data-i18n='fill_fields') Fill in sheet fields automatically upon entering or changing playbook or crew type
 	.setting-char.setting-crew.setting-faction.kirsty-option
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_usekirsty" value="1")
-			span
-			span(data-i18n="use_kirsty") Use Kirsty font if installed (only check if you have Kirsty)
+			+checkbox('setting_usekirsty').checkbox.squarebox
+			span(data-i18n='use_kirsty') Use Kirsty font if installed (only check if you have Kirsty)
 	.setting-faction
 		label
-			input.checkbox.squarebox(type="checkbox" name="attr_setting_clocks_only" value="1")
-			span
-			span(data-i18n="clocks_only") Show clocks only
-	input(type="hidden" name="attr_changed_attributes" value="")
-	input(type="hidden" name="attr_bonusdice" value="?{Bonus dice|0|1|2|3|4|5|6|-1|-2|-3}")
-	input(type="hidden" name="attr_numberofdice" value="?{Number of dice|0|1|2|3|4|5|6}")
-	input(type="hidden" name="attr_notes_query" value="?{Notes}")
-	input(type="hidden" name="attr_position_query" value="?{Position|Risky,position=Risky|Controlled,position=Controlled|Desperate,position=Desperate|Fortune roll,position=}")
-	input(type="hidden" name="attr_effect_query" value="?{Effect|Standard|Limited|Great|Extreme|Zero}")
-	input(type="hidden" name="attr_title_text" value="")
+			+checkbox('setting_clocks_only').checkbox.squarebox
+			span(data-i18n='clocks_only') Show clocks only

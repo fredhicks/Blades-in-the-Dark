@@ -1,76 +1,94 @@
 //- Mixins for code reuse
-mixin autoexpand(classes, name, placeholder, i18nplaceholder, content)
-	div(class=['auto-expand', classes])
-		span(name=`attr_${name}`)=content
-		textarea(spellcheck='false' name=`attr_${name}` placeholder=placeholder data-i18n-placeholder=i18nplaceholder)=content
-
-mixin rollbutton(classes, name, i18nlabel, templatedata, stat, i18ntitle)
-	button(
-		class=classes,
-		type="roll",
-		name=`roll_${name}`,
-		data-i18n=i18nlabel,
-		data-i18n-title=i18ntitle
-		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} {{roll1=[[[[{[[${stat}+@{bonusdice}}]],1}kl1]]d6]]}} {{roll2=[[[[{[[${stat}+@{bonusdice}-1}]],1}kl1]]d6]]}} {{roll3=[[[[{[[${stat}+@{bonusdice}-2}]],1}kl1]]d6]]}} {{roll4=[[[[{[[${stat}+@{bonusdice}-3}]],1}kl1]]d6]]}} {{roll5=[[[[{[[${stat}+@{bonusdice}-4}]],1}kl1]]d6]]}} {{roll6=[[[[{[[${stat}+@{bonusdice}-5}]],1}kl1]]d6]]}} {{roll7=[[[[{[[${stat}+@{bonusdice}-6}]],1}kl1]]d6]]}} {{roll8=[[[[{[[${stat}+@{bonusdice}-7}]],1}kl1]]d6]]}} {{roll9=[[[[{[[${stat}+@{bonusdice}-8}]],1}kl1]]d6]]}} {{roll10=[[[[{[[${stat}+@{bonusdice}-9}]],1}kl1]]d6]]}} {{roll11=[[[[{[[${stat}+@{bonusdice}-10}]],1}kl1]]d6]]}} {{roll12=[[[[{[[${stat}+@{bonusdice}-11}]],1}kl1]]d6]]}} {{zerodice=[[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]], [[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]]}} @{title_text}`
-	)
+mixin checkbox(name, extraclass)
+	input(type='checkbox', class=[attributes.class, extraclass || ''], name=`attr_${name}`, value=attributes.value||'1', checked=attributes.checked)
+	span(class=extraclass, data-i18n!=attributes.i18n)
 		block
 
-mixin fortunebutton(classes, name, i18nlabel, templatedata, useNotes)
+mixin radio(name)
+	input(type='radio', class!=attributes.class, name=`attr_${name}`, value!=attributes.value, checked=attributes.checked)
+	span(data-i18n!=attributes.i18n)
+		block
+
+mixin text-input(name)
+	input(type='text', spellcheck='false', name=`attr_${name}`)&attributes(attributes)
+
+mixin number-input(name)
+	input(type='number', name=`attr_${name}`)&attributes(attributes)
+
+mixin textarea(name)
+	textarea(spellcheck='false', name=`attr_${name}`)&attributes(attributes)
+		block
+
+mixin hidden-input(name)
+	input(type='hidden', name=`attr_${name}`)&attributes(attributes)
+
+mixin hidden-checkbox(name)
+	- classes = attributes.class;
+	- delete attributes.class;
+	input(type='checkbox', name=`attr_${name}`, class=['hidden', classes])&attributes(attributes)
+
+mixin autoexpand(name)
+	div(class=['auto-expand', attributes.class])
+		span(name=`attr_${name}`)= content
+		+textarea(name)(placeholder!=attributes.placeholder, data-i18n-placeholder!=attributes.i18nplaceholder)
+			block
+
+mixin roll(name, templatedata, stat)
 	button(
-		class=classes,
-		type="roll",
+		type='roll',
 		name=`roll_${name}`,
-		data-i18n=i18nlabel,
+		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} {{roll1=[[[[{[[${stat}+@{bonusdice}}]],1}kl1]]d6]]}} {{roll2=[[[[{[[${stat}+@{bonusdice}-1}]],1}kl1]]d6]]}} {{roll3=[[[[{[[${stat}+@{bonusdice}-2}]],1}kl1]]d6]]}} {{roll4=[[[[{[[${stat}+@{bonusdice}-3}]],1}kl1]]d6]]}} {{roll5=[[[[{[[${stat}+@{bonusdice}-4}]],1}kl1]]d6]]}} {{roll6=[[[[{[[${stat}+@{bonusdice}-5}]],1}kl1]]d6]]}} {{roll7=[[[[{[[${stat}+@{bonusdice}-6}]],1}kl1]]d6]]}} {{roll8=[[[[{[[${stat}+@{bonusdice}-7}]],1}kl1]]d6]]}} {{roll9=[[[[{[[${stat}+@{bonusdice}-8}]],1}kl1]]d6]]}} {{roll10=[[[[{[[${stat}+@{bonusdice}-9}]],1}kl1]]d6]]}} {{roll11=[[[[{[[${stat}+@{bonusdice}-10}]],1}kl1]]d6]]}} {{roll12=[[[[{[[${stat}+@{bonusdice}-11}]],1}kl1]]d6]]}} {{zerodice=[[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]], [[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]]}} @{title_text}`
+	)&attributes(attributes)
+		block
+
+mixin fortuneroll(name, templatedata, useNotes)
+	button(
+		type='roll',
+		name=`roll_${name}`,
 		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} {{roll1=[[[[{@{numberofdice},1}kl1]]d6]]}} {{roll2=[[[[{[[@{numberofdice}]]-1,1}kl1]]d6]]}} {{roll3=[[[[{[[@{numberofdice}-2]],1}kl1]]d6]]}} {{roll4=[[[[{[[@{numberofdice}-3]],1}kl1]]d6]]}} {{roll5=[[[[{[[@{numberofdice}-4]],1}kl1]]d6]]}} {{roll6=[[[[{[[@{numberofdice}-5]],1}kl1]]d6]]}} {{zerodice=[[[[{[[1-(@{numberofdice})]],1}kl1]]d6]], [[[[{[[1-(@{numberofdice})]],1}kl1]]d6]]}} ${useNotes ? '{{notes=@{notes_query}}} ' : ''}@{title_text}`
-	)
+	)&attributes(attributes)
 		block
 
 mixin makecohort(prefix, isCharacter)
 	.cohort
-		input(type='hidden', name=`attr_${prefix}dice`, value=isCharacter ? '1' : '0')
-		input(type='hidden', name=`attr_${prefix}verb`, value=isCharacter ? '^{rolls_their-l}' : '^{roll_their-l}')
+		+hidden-input(`${prefix}dice`)(value=isCharacter ? '1' : '0')
+		+hidden-input(`${prefix}verb`)(value=isCharacter ? '^{rolls_their-l}' : '^{roll_their-l}')
 		.cohort-title.flex.col100.label
-			input.inherit(type='text', spellcheck='false', name=`attr_${prefix}name`, value='Cohort')
-			+rollbutton('inherit rollbutton', `${prefix}roll`, 'roll-inf', '{{resist=1}} {{short=1}} {{charname=@{'+prefix+'name} (^{@{'+prefix+'type}}, @{'+prefix+'subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{'+prefix+'verb}}})', `@{${prefix}dice}`) roll
+			+text-input(`${prefix}name`)(value='Cohort').inherit
+			+roll(`${prefix}roll`, '{{resist=1}} {{short=1}} {{charname=@{'+prefix+'name} (^{@{'+prefix+'type}}, @{'+prefix+'subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{'+prefix+'verb}}})', `@{${prefix}dice}`)(data-i18n='roll-inf').inherit.rollbutton roll
 		.cohort-info.flex.col100.uppercase
 			.cohort-dropdown
 				div
 					span(name=`attr_${prefix}type`, data-i18n-dynamic)
 				div
-					input(type='radio', name=`attr_${prefix}type`, value='gang', checked=!isCharacter)
-					span(data-i18n='gang') Gang
+					+radio(`${prefix}type`)(value='gang', checked=!isCharacter, i18n='gang') Gang
 				div
-					input(type='radio', name=`attr_${prefix}type`, value='elite')
-					span(data-i18n='elite') Elite
+					+radio(`${prefix}type`)(value='elite', i18n='elite') Elite
 				div
-					input(type='radio', name=`attr_${prefix}type`, value='expert', checked=isCharacter)
-					span(data-i18n='expert') Expert
-			input.inherit(type='text', spellcheck='false', name=`attr_${prefix}subtype`,
-				data-i18n-placeholder=isCharacter ? 'hunter' : 'gang_type', placeholder=isCharacter ? 'Hunter' : 'Thugs')
+					+radio(`${prefix}type`)(value='expert', checked=isCharacter, i18n='expert') Expert
+			+text-input(`${prefix}subtype`)(data-i18n-placeholder=isCharacter ? 'hunter' : 'gang_type', placeholder=isCharacter ? 'Hunter' : 'Thugs').sheet-inherit
 			if (isCharacter)
 				.label.cohort-quality-label(data-i18n='quality_abbreviated') Q:
-				input.label(type='number', name=`attr_${prefix}quality`, min='0', max='5', value='1')
+				+number-input(`${prefix}quality`)(min='0', max='5', value='1').label
 		.cohort-condition.flex.col100
 			each name in ['Weak', 'Impaired', 'Broken', 'Armor']
 				label
 					span(class='cohort-condition-name ' + (name ==='Armor' ? 'label' : 'uppercase'), data-i18n=name.toLowerCase())=name
-					input.tooth.stresstooth(type='checkbox', name=`attr_${prefix}${name.toLowerCase()}`, value='1')
-					span
+					+checkbox(prefix + name.toLowerCase()).tooth.stresstooth
 		each name in ['Edges', 'Flaws']
 			label.cohort-edgeflaw
 				span.uppercase(data-i18n=name.toLowerCase())=name
-				+autoexpand('', `${prefix}${name.toLowerCase()}`)
-		textarea.cohort-description(spellcheck='false', name=`attr_${prefix}description`)
+				+autoexpand(`${prefix}${name.toLowerCase()}`)
+		+textarea(`${prefix}description`).cohort-description
 
 mixin makeclock(isFaction)
-	input.size(type='hidden', name='attr_size', value='')
-	+autoexpand('smallcaps', 'name', 'Clock Name', 'clock_name')
+	+hidden-input('size')(value='').size
+	+autoexpand('name')(placeholder='Clock Name', i18nplaceholder='clock_name').smallcaps
 	button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast}' + (!isFaction ? '{{charname=@{character_name}}} ' : '') + '{{title=@{name}}} {{clock=1}} {{clocksize=@{size}}} {{clockprogress=@{progress}}}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
 	.size-choice
 		each num in [4,6,8,10,12]
 			label.text-button
-				input(type='radio', name='attr_size', value=num)
-				span=num
+				+radio('size')(value=num)=num
 	.clock-container
 		.spoke-0.all
 		.spoke-30.sheet-12clock
@@ -84,8 +102,7 @@ mixin makeclock(isFaction)
 		.spoke-135.sheet-8clock
 		.spoke-144.sheet-10clock
 		.spoke-150.sheet-12clock
-		input.zero.input-progress(type='radio', name='attr_progress', value='0', checked)
-		span
+		+radio('progress')(value='0', checked).zero.input-progress
 		input.input-progress.all(type='radio', name='attr_progress', value='1')
 		input.input-progress.all(type='radio', name='attr_progress', value='2')
 		input.input-progress.all(type='radio', name='attr_progress', value='3')
@@ -111,20 +128,52 @@ mixin makeclock(isFaction)
 		img(src=`https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-${title}.png`)
 
 //- Global setttings
-input.hidden.focus-shadow(type="checkbox" name="attr_setting_focus_shadow" value="1" checked)
-input.hidden.input-show-broadcast(type="checkbox" name="attr_setting_show_broadcast" value="1" checked)
-input.hidden.use-kirsty(type="checkbox" name="attr_setting_usekirsty" value="1")
-input.hidden.flexwidth(type="checkbox" name="attr_setting_flexwidth" value="1")
-input.hidden.show-itemdesc(type="checkbox" name="attr_setting_show_itemdesc" value="1" checked)
++hidden-input('setting_focus_shadow')(value='1').focus-shadow
++hidden-input('setting_show_broadcast')(value='1').show-broadcast
++hidden-input('setting_show_itemdesc')(value='1').show-itemdesc
++hidden-input('setting_usekirsty')(value='0').use-kirsty
++hidden-input('setting_flexwidth')(value='0').flexwidth
++hidden-input('changed_attributes')(value='')
++hidden-input('bonusdice')(value='?{Bonus dice|0|1|2|3|4|5|6|-1|-2|-3}')
++hidden-input('numberofdice')(value='?{Number of dice|0|1|2|3|4|5|6}')
++hidden-input('notes_query')(value='?{Notes}')
++hidden-input('position_query')(value='?{Position|Risky,position=Risky|Controlled,position=Controlled|Desperate,position=Desperate|Fortune roll,position=}')
++hidden-input('effect_query')(value='?{Effect|Standard|Limited|Great|Extreme|Zero}')
++hidden-input('title_text')(value='')
++hidden-input('consequence_query')(value='^{a_consequence}')
+
+
+//- Hidden maxima
++hidden-input('stress_max')(value='9')
++hidden-input('trauma_max')(value='4')
++hidden-input('coin_max')(value='4')
++hidden-input('stash_max')(value='40')
++hidden-input('playbook_xp_max')(value='8')
++hidden-input('rep_max')(value='12')
++hidden-input('turf_max')(value='6')
++hidden-input('crew_tier_max')(value='4')
++hidden-input('heat_max')(value='9')
++hidden-input('wanted_max')(value='4')
++hidden-input('crewcoin_max')(value='16')
++hidden-input('crew_xp_max')(value='8')
 
 //- Actual sheet
 .container
-	input.type(type="hidden" name="attr_sheet_type" value="character")
+	+hidden-input('sheet_type')(value='character').type
 	include pug/title.pug
 	include pug/character.pug
 	include pug/crew.pug
 	include pug/faction.pug
 
+//- Strange syntax is meant fo force a line break
+|
+|
 include pug/rolltemplate.pug
-
-script(type="text/worker")
+|
+|
+script(type='text/worker')
+	|
+	|
+	include:babel(presets=['minify']) sheetworkers.js
+	|
+	|

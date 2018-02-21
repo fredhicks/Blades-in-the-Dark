@@ -5,9 +5,7 @@ rolltemplate.sheet-rolltemplate-bitd
 		.sheet-roll-title
 			| {{#title-text}}
 			span(class='{{#small-title}}roll-small-title{{/small-title}}') {{title}}
-			| {{/title-text}}
-			| {{^title-text}}
-			| {{#rolltypetext}}[{{rolltypetext}}]({{rolltypeimage}}){{/rolltypetext}}
+			| {{/title-text}}{{^title-text}}{{#rolltypetext}}[{{rolltypetext}}]({{rolltypeimage}}){{/rolltypetext}}
 			each title in templateTitles
 				= `{{#title-${title}}}`
 				img(src=`https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-${title}.png`)
@@ -24,20 +22,16 @@ rolltemplate.sheet-rolltemplate-bitd
 			| {{/rollGreater() zerodice 0}}
 		| {{#position}}
 		.sheet-roll-position {{position}}
-		| {{/position}}
-		| {{#effect}}
+		| {{/position}}{{#effect}}
 		.sheet-roll-effect {{effect}}
-		| {{/effect}}
-		| {{#resist}}{{^short}}
+		| {{/effect}}{{#resist}}{{^short}}
 		.sheet-roll-instructions(data-i18n='resist_instructions')
 			| Suffer #[strong 6 stress minus the highest die result]. When you roll a critical on resistance, clear 1 stress.
-		| {{/short}}{{/resist}}
-		| {{#vice}}{{^short}}
+		| {{/short}}{{/resist}}{{#vice}}{{^short}}
 		.sheet-roll-instructions(data-i18n='vice_instructions')
 			strong Clear an amount of stress equal to the highest die result.
 			|  If the result of your vice roll means you clear more stress levels than you had marked, you #[strong overindulge].
-		| {{/short}}{{/vice}}
-		| {{#notes}}
+		| {{/short}}{{/vice}}{{#notes}}
 		.sheet-roll-notes {{notes}}
 		| {{/notes}}
 
@@ -50,8 +44,7 @@ rolltemplate.sheet-rolltemplate-bitd-broadcast
 		| {{#content}}
 		.sheet-roll-title {{title}}
 		.sheet-roll-content {{content}}
-		| {{/content}}
-		| {{#clock}}
+		| {{/content}}{{#clock}}
 		.sheet-roll-flex
 			.sheet-roll-clock(class='sheet-roll-size-{{clocksize}} sheet-roll-progress-{{clockprogress}}')
 				.sheet-roll-spoke.sheet-roll-spoke-0
@@ -67,12 +60,9 @@ rolltemplate.sheet-rolltemplate-bitd-broadcast
 				.sheet-roll-spoke.sheet-roll-spoke-120
 				.sheet-roll-spoke.sheet-roll-spoke-150
 			.sheet-roll-title {{title}}
-		| {{/clock}}
-		| {{#harm}}
-		| {{#title-text}}
+		| {{/clock}}{{#harm}}{{#title-text}}
 		.sheet-roll-title(data-i18n='harm') Harm
-		| {{/title-text}}
-		| {{^title-text}}
+		| {{/title-text}}{{^title-text}}
 		img(src='https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-harm.png')
 		| {{/title-text}}
 		table.sheet-roll-harm
@@ -84,13 +74,11 @@ rolltemplate.sheet-rolltemplate-bitd-broadcast
 			tr
 				td 2
 				td
-					| {{#harm2_1}} #[.sheet-roll-harm-inner {{harm2_1}}] {{/harm2_1}}
-					| {{#harm2_2}} #[.sheet-roll-harm-inner {{harm2_2}}] {{/harm2_2}}
+					| {{#harm2_1}} #[.sheet-roll-harm-inner {{harm2_1}}] {{/harm2_1}}{{#harm2_2}} #[.sheet-roll-harm-inner {{harm2_2}}] {{/harm2_2}}
 				td(data-i18n='minus1d') -1D
 			tr
 				td 1
 				td
-					| {{#harm1_1}} #[.sheet-roll-harm-inner {{harm1_1}}] {{/harm1_1}}
-					| {#harm1_2}} #[.sheet-roll-harm-inner {{harm1_2}}] {{/harm1_2}}
+					| {{#harm1_1}} #[.sheet-roll-harm-inner {{harm1_1}}] {{/harm1_1}}{#harm1_2}} #[.sheet-roll-harm-inner {{harm1_2}}] {{/harm1_2}}
 				td(data-i18n='less_effect') Less Effect
 		| {{/harm}}

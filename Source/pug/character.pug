@@ -25,44 +25,44 @@
 		.col100.header.flex
 			.col55.bladeslogo
 			label.col45.header
-				input(type='text', spellcheck='false', name='attr_crew')
+				+text-input('crew')
 				.label.text.title(data-i18n='crew') Crew
 			label.col55
-				input(type='text', spellcheck='false', name='attr_name')
+				+text-input('name')
 				.label.text.title(data-i18n='name') Name
 			label.col45
-				input(type='text', spellcheck='false', name='attr_alias')
+				+text-input('alias')
 				.label.text.title(data-i18n='alias') Alias
 			label.col100
-				input(type='text', spellcheck='false', name='attr_look')
+				+text-input('look')
 				.label.text.title(data-i18n='look') Look
 			label.col55
-				+autoexpand('', 'heritage')
-				input(type='hidden', name='attr_heritage', value='')
+				+autoexpand('heritage')
+				+hidden-input('heritage')(value='')
 				.text
 					span.label.title(data-i18n='heritage') Heritage
 					span.uppercase.info(data-i18n='heritage_info') Akoros — The Dagger Isles — Iruvia Severos — Skovlan — Tycheros
 			label.col45
-				+autoexpand('', 'background')
-				input(type='hidden', name='attr_background', value='')
+				+autoexpand('background')
+				+hidden-input('background')(value='')
 				.text
 					span.label.title(data-i18n='background') Background
 					span.uppercase.info(data-i18n='background_info') Academic — Labor — Law Trade — Military — Noble — Underworld
-			input.vice-input(type='hidden', name='attr_setting_vice_type', value='normal')
+			+hidden-input('setting_vice_type')(value='normal').vice-input
 			label.col100.vice.normal
-				+autoexpand('', 'vice_purveyor')
-				input(type='hidden', name='attr_vice_purveyor', value='')
+				+autoexpand('vice_purveyor')
+				+hidden-input('vice_purveyor')(value='')
 				.text
 					span.label.title(data-i18n='vice_purveyor') Vice / Purveyor
 					span.uppercase.info(data-i18n='vice_info') Faith - Gambling - Luxury - Obligation - Pleasure - Stupor - Weird
-				+rollbutton('vicebutton borderbutton', 'Vice', 'indulge_vice', '{{{{subtitle=^{viceroll1}@{stress} @{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}') Indulge Vice
-				input(type='hidden', name='attr_vice', value='0')
+				+roll('Vice', '{{{{subtitle=^{viceroll1}@{stress} @{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}')(data-i18n='indulge_vice').vicebutton.borderbutton Indulge Vice
+				+hidden-input('vice')(value='0')
 			.col100.vice.ghost
 				span.italic(data-i18n='ghost_viceblurb') You have an intense #[span.smallcaps need]: life essence. To satisfy this need, possess a living victim and consume their spirit energy (this may be a downtime action). When you do so, clear half your #[span.smallcaps drain] (round down).
 			.col100.vice.hull
 				label.flex-wrap
-					input(type='text', spellcheck='false', name='attr_hull_functions', data-i18n-placeholder='choose_3_functions', placeholder='choose 3 functions')
-					input(type='hidden', name='attr_hull_functions', value='')
+					+text-input('hull_functions')(data-i18n-placeholder='choose_3_functions', placeholder='choose 3 functions')
+					+hidden-input('hull_functions')(value='')
 					.text
 						span.label.title(data-i18n='functions') Functions
 						span.uppercase.info(data-i18n='functions_info')
@@ -70,7 +70,7 @@
 				span.italic(data-i18n='hull_viceblurb') Your clockwork body runs on #[span.smallcaps electroplasm]. Recharge your capacitors by connecting to an industrial-grade generator (downtime action). When you do this, clear #[strong 5 drain].
 			.col100.vice.vampire
 				span.italic(data-i18n='vampire_viceblurb') Your #[span.smallcaps vice] is life essence, consumed from a living human. Use 1 downtime activity to #[strong hunt] prey and indulge your #[strong vice]. Also, when you feed, erase all level 1 harm and mark 4 ticks on your healing clock. This is is the only way you can heal. How do you feed? What telltale sign do you leave on your victims?
-				+rollbutton('vicebutton borderbutton', 'Vice', 'indulge_vice', '{{{{subtitle=^{viceroll1}@{stress} @{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}') Indulge Vice
+				+roll('Vice', '{{{{subtitle=^{viceroll1}@{stress} @{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}')(data-i18n='indulge_vice').vicebutton.borderbutton Indulge Vice
 		//- Stress and Trauma
 		.col100.flex.stress.def-margin
 			//- Stress markers
@@ -78,45 +78,37 @@
 				.label
 					span(name='attr_setting_stress_label')
 			.stress2.blackborder.flex
-				input(type='hidden', name='attr_stress_max', value='9')
-				input.tooth.zero(type='radio', name='attr_stress', value='0', checked)
-				span
+				+radio('stress')(value='0', checked).tooth.zero
 				each num in [...Array(15).keys()].slice(1)
 					if (num > 8 && num < 14)
-						input.hidden.extra-teeth(type='checkbox', name='attr_setting_extra_stress', value=num-9, checked)
-					input.tooth.stresstooth(type='radio', name='attr_stress', value=num)
-					span
+						+hidden-checkbox('setting_extra_stress')(value=num-9, checked=(num === 9)).extra-teeth
+					+radio('stress')(value=num).tooth.stresstooth
 			//- Trauma markers
 			.stress3
 				.blackheader
 					.label
 						span(name='attr_setting_trauma_label')
 				.traumaholder.flex
-					input(type='hidden', name='attr_trauma_max', value='4')
-					input.tooth.zero(type='radio', name='attr_trauma', value='0', checked)
-					span
+					+radio('trauma')(value='0', checked).tooth.zero
 					each num in [1,2,3,4,5]
 						if (num === 4)
-							input.hidden.extra-teeth(type='checkbox', name='attr_setting_extra_trauma', value='0', checked)
-						input.tooth.regulartooth(type='radio', name='attr_trauma', value=num)
-						span
+							+hidden-checkbox('setting_extra_trauma')(value='0').extra-teeth
+						+radio('trauma')(value=num).tooth.regulartooth
 			//- Individual traumata
 			.stress4.blackborder
-				input.input(type='hidden', name='attr_setting_traumata_set', value='normal')
+				+hidden-input('setting_traumata_set')(value='normal').input
 				each traumas, type in traumaData
 					div(class=type)
 						.flex
 							each trauma, i in traumas.slice(0, traumas.length / 2)
 								label.text-button
-									input(type='checkbox', name=`attr_trauma_${trauma.toLowerCase()}`, value='1')
-									span(data-i18n=trauma.toLowerCase())= trauma
+									+checkbox(`trauma_${trauma.toLowerCase()}`)(i18n=trauma.toLowerCase())= trauma
 								if (i < traumas.length / 2 - 1)
 									span —
 						.flex
 							each trauma, i in traumas.slice(traumas.length / 2)
 								label.text-button
-									input(type='checkbox', name=`attr_trauma_${trauma.toLowerCase()}`, value='1')
-									span(data-i18n=trauma.toLowerCase())= trauma
+									+checkbox(`trauma_${trauma.toLowerCase()}`)(i18n=trauma.toLowerCase())= trauma
 								if (i < traumas.length / 2 - 1)
 									span —
 		//- Harm, Healing, Armor, Coin
@@ -128,30 +120,28 @@
 					button.broadcast-button(type='roll', name='roll_Harm', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{harm=1}} {{harm3=@{harm3}}} {{harm2_1=@{harm2_1}}} {{harm2_2=@{harm2_2}}} {{harm1_1=@{harm1_1}}} {{harm1_2=@{harm1_2}}} @{title_text}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
 				.harmbody
 					.flex-center.harmnumber 3
-					textarea.twocols(spellcheck='false', name='attr_harm3')
+					+textarea('harm3').twocols
 					.flex-center.harmeffect(data-i18n='need_help') Need Help
 					.flex-center.harmnumber 2
-					textarea(spellcheck='false', name='attr_harm2_1')
-					textarea(spellcheck='false', name='attr_harm2_2')
+					+textarea('harm2_1')
+					+textarea('harm2_2')
 					.flex-center.harmeffect(data-i18n='minus1d') -1D
 					.flex-center.harmnumber 1
-					textarea(spellcheck='false', name='attr_harm1_1')
-					textarea(spellcheck='false', name='attr_harm1_2')
+					+textarea('harm1_1')
+					+textarea('harm1_2')
 					.flex-center.harmeffect(data-i18n='less_effect') Less Effect
 			//- Armor, Healing and Coin
 			.col37.flex-wrap
 				//- Healing
 				.col45.healing
 					.blackheader.col100
-						+fortunebutton('label rollbutton inherit', 'Recovery', 'healing', '{{resist=1}} {{short=1}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for-l}}}') Healing
+						+fortuneroll('Recovery', '{{resist=1}} {{short=1}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for-l}}}')(data-i18n='healing').label.rollbutton.inherit Healing
 					.col100.healing-progress(data-i18n='progress_clock', data-i18n-title='recoveryblurb', title='Get treatment in downtime to activate your healing project clock') progress clock
-					input.size(type='hidden', value='4')
-					input(type='hidden', name='attr_recovery_max', value='4')
+					+hidden-input('recovery_max')(value='4').size
 					.clock-container
 						.spoke-0.all
 						.spoke-90.all
-						input.zero.input-progress(type='radio', name='attr_recovery', value='0', checked)
-						span
+						+radio('recovery')(value='0', checked).zero.input-progress
 						each num in [1,2,3,4]
 							input.input-progress.all(type='radio', name='attr_recovery', value=num, data-i18n-title='recoveryblurb', title='Get treatment in downtime to activate your healing project clock')
 						.clock
@@ -159,41 +149,27 @@
 				.armor.col55
 					.blackheader.col100
 						.label(data-i18n='armor_uses') Armor uses
-					label
-						input.checkbox.squarebox(type='checkbox', name='attr_armor', value='1')
-						span
-						span.label(data-i18n='armor') Armor
-					label
-						input.checkbox.squarebox(type='checkbox', name='attr_armor_heavy', value='1')
-						span
-						span.label(data-i18n='+heavy') +Heavy
-					label
-						input.checkbox.squarebox(type='checkbox', name='attr_armor_special', value='1')
-						span
-						span.label(data-i18n='special') Special
+					each val in ['Armor', '+Heavy', 'Special']
+						label
+							+checkbox(val.toLowerCase().replace('+', '')).checkbox.squarebox
+							span.label(data-i18n=val.toLowerCase())= val
 				//- Coin and Stash
 				.col100.coin-and-stash
 					//- Coin
 					.col100.coinrow.flex
 						.coin.flex
-							input(type='hidden', name='attr_coin_max', value='4')
 							.label(data-i18n='coin') Coin
-							input.zero(type='radio', name='attr_coin', value='0', checked)
-							span
+							+radio('coin')(value='0', checked).zero
 							each num in [1,2,3,4]
-								input.radiobox(type='radio', name='attr_coin', value=num)
-								span
+								+radio('coin')(value=num).radiobox
 						.stashbutton-holder
-							input(type='hidden', name='attr_stash_dice', value='0')
-							input(type='hidden', name='attr_stash_max', value='40')
-							+rollbutton('rollbutton label', 'Stash', 'stash', '{{resist=1}} {{short=1}} {{title-lifestyle=1}} {{title=^{stash}}} {{subtitle=^{rolls-l}}}', '@{stash_dice}') Stash
+							+hidden-input('stash_dice')(value='0')
+							+roll('Stash', '{{resist=1}} {{short=1}} {{title-lifestyle=1}} {{title=^{stash}}} {{subtitle=^{rolls-l}}}', '@{stash_dice}')(data-i18n='stash').rollbutton.label Stash
 					//- Stash
 					.col100.stash
-						input.zero(type='radio', name='attr_stash', value='0', checked)
-						span
+						+radio('stash')(value='0', checked).zero
 						each num in [...Array(41).keys()].slice(1)
-							input.radiobox(type='radio', name='attr_stash', value=num)
-							span
+							+radio('stash')(value=num).radiobox
 							if (num % 10 === 0)
 								br
 		//- Special abilities
@@ -203,37 +179,33 @@
 				fieldset.repeating_ability
 					.specialability.flex
 						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
-						input.checkbox.circlebox(type='checkbox', name='attr_check', value='1')
-						span
-						+autoexpand('abilityname smallcaps', 'name', 'Ability name', 'ability_name')
-						+autoexpand('abilitydesc', 'description', 'Ability description', 'ability_description')
+						+checkbox('check').checkbox.circlebox
+						+autoexpand('name')(placeholder='Ability name', i18nplaceholder='ability_name').abilityname.smallcaps
+						+autoexpand('description')(placeholder='Ability description', i18nplaceholder='ability_description').abilitydesc
 		//- Advancement
 		.col100.def-margin
 			.advancement-header.flex.blackheader
 				.label.markxp(data-i18n='mark_xp:') Mark XP:
 				.label(data-i18n='playbook_advancement') Playbook Advancement
 				.xpholder.flex
-					input(type='hidden', name='attr_playbook_xp_max', value='8')
-					input.hidden.vampirexp(type='checkbox', name='attr_setting_vampirexp', value='1')
-					input.tooth.zero(type='radio', name='attr_playbook_xp', value='0', checked)
-					span
+					+hidden-input('setting_vampirexp')(value='0').vampirexp
+					+radio('playbook_xp')(value='0', checked).tooth.zero
 					each num in [1,2,3,4,5,6,7,8,9,10]
 						if (num === 9)
-							input.hidden.toothhider(type='checkbox', name='attr_setting_vampirexp', value='1')
-						input.tooth.xptooth(type='radio', name='attr_playbook_xp', value=num)
-						span
+							+hidden-input('setting_vampirexp')(value='0').toothhider
+						+radio('playbook_xp')(value=num).tooth.xptooth
 			ul.advancement-desc
 				li(data-i18n='xp_desperate') Every time you roll a desperate action, mark xp in that action's attribute.
 				li.nondot(data-i18n='xp_top') At the end of each session, for each item below, mark 1 xp (or instead mark 2 xp if that item occurred multiple times).
 				li
-					+autoexpand('', 'xp_condition', 'Enter your playbook\'s specific way to mark XP here.', 'xp_specific')
-				input.hidden.hider(type='checkbox', name='attr_setting_extra_xp', value='1')
+					+autoexpand('xp_condition')(placeholder='Enter your playbook\'s specific way to mark XP here.', i18nplaceholder='xp_specific')
+				+hidden-input('setting_extra_xp')(value='0').hider
 				li
-					+autoexpand('', 'xp_condition_extra', 'Enter another specific way to mark XP here.', 'xp_specific_extra')
+					+autoexpand('xp_condition_extra')(placeholder='Enter another specific way to mark XP here.', i18nplaceholder='xp_specific_extra')
 				li
-					+autoexpand('', 'xp_condition2', null, null, 'You expressed your beliefs, drives, heritage, or background.')
+					+autoexpand('xp_condition2') You expressed your beliefs, drives, heritage, or background.
 				li
-					+autoexpand('', 'xp_condition3', null, null, 'You struggled with issues from your vice or traumas during the session.')
+					+autoexpand('xp_condition3') You struggled with issues from your vice or traumas during the session.
 		//- Teamwork
 		.col45.right-column.def-margin
 			.plainheader.label(data-i18n='teamwork') Teamwork
@@ -248,19 +220,19 @@
 				div
 					ul
 						li
-							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo1', data-i18n-placeholder='gatherinfo_what_do_they_intend', placeholder='What do they intend to do?')
+							+text-input('gatherinfo1')(data-i18n-placeholder='gatherinfo_what_do_they_intend', placeholder='What do they intend to do?').inherit
 						li
-							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo2', data-i18n-placeholder='gatherinfo_how_can_I_get_them', placeholder='How can I get them to [X]?')
+							+text-input('gatherinfo2')(data-i18n-placeholder='gatherinfo_how_can_I_get_them', placeholder='How can I get them to [X]?').inherit
 						li
-							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo3', data-i18n-placeholder='gatherinfo_what_are_they_really', placeholder='What are they really feeling?')
+							+text-input('gatherinfo3')(data-i18n-placeholder='gatherinfo_what_are_they_really', placeholder='What are they really feeling?').inherit
 						li
-							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo4', data-i18n-placeholder='gatherinfo_what_should_I_look', placeholder='What should I look out for?')
+							+text-input('gatherinfo4')(data-i18n-placeholder='gatherinfo_what_should_I_look', placeholder='What should I look out for?').inherit
 						li
-							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo5', data-i18n-placeholder='gatherinfo_wheres_the_weakness', placeholder="Where's the weakness here?")
+							+text-input('gatherinfo5')(data-i18n-placeholder='gatherinfo_wheres_the_weakness', placeholder='Where\'s the weakness here?').inherit
 						li
-							input.inherit(type='text', spellcheck='false', name='attr_gatherinfo6', data-i18n-placeholder='gatherinfo_how_can_I_find', placeholder='How can I find [X]?')
+							+text-input('gatherinfo6')(data-i18n-placeholder='gatherinfo_how_can_I_find', placeholder='How can I find [X]?').inherit
 						li(data-i18n='gatherinfo_whats_going_on') What's really going on here?
-			input.hidden.hider(type='checkbox', name='attr_setting_show_strictures', value='1')
+			+hidden-input('setting_show_strictures')(value='0').hider
 			.strictures.col100.def-margin
 				.plainheader.label(data-i18n='strictures') Strictures
 				div
@@ -268,17 +240,16 @@
 				each desc, name in stricturesData
 					div
 						label
-							input.checkbox.squarebox(type='checkbox', name=`attr_stricture_${name.toLowerCase()}`, value='1')
-							span
+							+checkbox(`stricture_${name.toLowerCase()}`).checkbox.squarebox
 							span.label(data-i18n=name.toLowerCase())= name
 						span(data-i18n=`strictures_${name.toLowerCase()}`)=desc
 	//- Right column
 	.col45.flex-wrap.right-column
 		//- Playbook
 		.playbook.flex
-			input.label(type='text', spellcheck='false', name='attr_playbook', data-i18n-placeholder='playbook', placeholder='playbook')
-			textarea.label(spellcheck='false', name='attr_playbook_description', data-i18n-placeholder='playbook_description', placeholder='A short playbook description')
-			input.hidden.hider(type='checkbox', name='attr_show_playbook_reminder', value='1', checked)
+			+text-input('playbook')(data-i18n-placeholder='playbook', placeholder='playbook').label
+			+textarea('playbook_description')(data-i18n-placeholder='playbook_description', placeholder='A short playbook description').label
+			+hidden-input('show_playbook_reminder')(value='1').hider
 			.reminder
 				span(data-i18n='autofill_reminder_playbook') To generate playbook abilities, items, and friends, enter the name of the playbook above:
 				br
@@ -290,91 +261,72 @@
 				.label(data-i18n='load') load
 				each val in ['light', 'normal', 'heavy']
 					label
-						input.checkbox(type='checkbox', name='attr_load', value=val)
-						span
+						+checkbox('load')(value=val).checkbox
 						span.loadnumber(name=`attr_setting_load_${val[0]}`)
 						span(data-i18n=val)=val
 			.itemheader.small-margin.col100.flex
 				.label(data-i18n='items') Items
 				span.italic(data-i18n='italics_dont_count') (italics don't count for load)
 				label.text-button
-					input(type='checkbox', name='attr_reset_items', value='1')
-					span(data-i18n='reset?') reset?
+					+checkbox('reset_items')(i18n='reset?') reset?
 			//- Items
 			.itemholder.col100.items
 				//- Playbook items
 				.playbookitems.col100.small-repcontrol
 					fieldset.repeating_playbookitem
-						input.hidden.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+						+hidden-input('boxes_chosen')(value='0').boxes-chosen
 						.item.numboxes-chooser
 							div(data-i18n='how_much_load') How much load?
-							input(type='number', name='attr_numboxes', min='0', max='3', value='0')
+							+number-input('numboxes')(min='0', max='3', value='0')
 							label
-								input(type='checkbox', name='attr_bold', value='1')
-								span(data-i18n='bold') bold
+								+checkbox('bold')(i18n='bold') bold
 							label
-								input.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
-								span.okbutton(data-i18n='ok') OK
+								+checkbox('boxes_chosen')(i18n='ok') OK
 						.item
-							input.hidden.input-bold(type='checkbox', name='attr_bold', value='1')
-							input.hidden.numboxes0.input-italic(type='checkbox', name='attr_numboxes', value='0', checked)
-							input.hidden.numboxes1(type='checkbox', name='attr_numboxes', value='1')
-							input.hidden.numboxes2(type='checkbox', name='attr_numboxes', value='2')
-							input.checkbox.squarebox(type='checkbox', name='attr_check_1', value='1')
-							span
+							+hidden-input('bold')(value='0').input-bold
+							+hidden-input('numboxes')(value='0').numboxes
+							+checkbox('check_1').checkbox.squarebox
 							span.floatingbar.boxesgeq2
-							input.checkbox.squarebox.boxesgeq2(type='checkbox', name='attr_check_2', value='1')
-							span.boxesgeq2
+							+checkbox('check_2', 'boxesgeq2').checkbox.squarebox
 							span.floatingbar.boxesgeq3.boxesgeq2
-							input.checkbox.squarebox.boxesgeq3.boxesgeq2(type='checkbox', name='attr_check_3', value='1')
-							span.boxesgeq3.boxesgeq2
-							+autoexpand('itemname', 'name', 'A useful item', 'item_name')
+							+checkbox('check_3', 'boxesgeq2 boxesgeq3').checkbox.squarebox
+							+autoexpand('name')(placeholder='A useful item', i18nplaceholder='item_name').itemname
 						.item-description
-							input.expand(type='checkbox', name='attr_expand', value='1')
-							span
-							textarea(spellcheck='false', name='attr_description', data-i18n-placeholder='description', placeholder='Description')
-					input.hidden.hider(type='checkbox', name='attr_setting_show_frame', value='1')
+							+checkbox('expand').expand
+							+textarea('description')(data-i18n-placeholder='description', placeholder='Description')
+					+hidden-input('setting_show_frame')(value='0').hider
 					.frame.small-margin
-						input.smallcaps(type='text', spellcheck='false', name='attr_frame', value='Frame')
-						textarea(spellcheck='false', name='attr_frame_description', data-i18n-placeholder='frame_description', placeholder='Frame description')
+						+text-input('frame')(value='Frame').smallcaps
+						+textarea('frame_description')(data-i18n-placeholder='frame_description', placeholder='Frame description')
 						fieldset.repeating_framefeature
 							.item
-								input.checkbox.circlebox(type='checkbox', name='attr_check', value='1')
-								span
-								input.itemname(type='text', spellcheck='false', name='attr_name', data-i18n-placeholder='frame_feature', placeholder='Frame feature')
+								+checkbox('check').checkbox.circlebox
+								+text-input('name')(data-i18n-placeholder='frame_feature', placeholder='Frame feature').itemname
 				//- Regular items
 				.regularitems.white-repcontrol.col100
 					fieldset.repeating_item
-						input.hidden.input-short(type='checkbox', name='attr_short', value='1')
-						input.hidden.input-expand(type='checkbox', name='attr_expand', value='1')
+						+hidden-input('short')(value='0').input-short
+						+hidden-input('expand')(value='0').input-expand
 						.item-container
-							input.hidden.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+							+hidden-input('boxes_chosen')(value='0').boxes-chosen
 							.item.numboxes-chooser
 								div(data-i18n='how_much_load') How much load?
-								input(type='number', name='attr_numboxes', min='0', max='3', value='0')
+								+number-input('numboxes')(min='0', max='3', value='0')
 								label
-									input(type='checkbox', name='attr_short', value='1')
-									span(data-i18n='short') short
+									+checkbox('short')(i18n='short') short
 								label
-									input.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
-									span.okbutton(data-i18n='ok') OK
+									+checkbox('boxes_chosen')(i18n='ok') OK
 							.item
-								input.hidden.numboxes0.input-italic(type='checkbox', name='attr_numboxes', value='0', checked)
-								input.hidden.numboxes1(type='checkbox', name='attr_numboxes', value='1')
-								input.hidden.numboxes2(type='checkbox', name='attr_numboxes', value='2')
-								input.checkbox.squarebox(type='checkbox', name='attr_check_1', value='1')
-								span
+								+hidden-input('numboxes')(value='0').numboxes
+								+checkbox('check_1').checkbox.squarebox
 								span.floatingbar.boxesgeq2
-								input.checkbox.squarebox.boxesgeq2(type='checkbox', name='attr_check_2', value='1')
-								span.boxesgeq2
+								+checkbox('check_2', 'boxesgeq2').checkbox.squarebox
 								span.floatingbar.boxesgeq3.boxesgeq2
-								input.checkbox.squarebox.boxesgeq3.boxesgeq2(type='checkbox', name='attr_check_3', value='1')
-								span.boxesgeq3.boxesgeq2
-								input.itemname(type='text', spellcheck='false', name='attr_name', data-i18n-placeholder='item_name', placeholder='A useful item')
+								+checkbox('check_3', 'boxesgeq2 boxesgeq3').checkbox.squarebox
+								+text-input('name')(data-i18n-placeholder='item_name', placeholder='A useful item').itemname
 							.item-description
-								input.expand(type='checkbox', name='attr_expand', value='1')
-								span
-								textarea(spellcheck='false', name='attr_description', data-i18n-placeholder='description', placeholder='Description')
+								+checkbox('expand').expand
+								+textarea('description')(data-i18n-placeholder='description', placeholder='Description')
 			//- Alchemicals
 			.col100.def-margin
 				input.title-checkbox(type='checkbox', name='attr_show_alchemicals', value='1')
@@ -384,20 +336,18 @@
 						span.bandoliers-name(data-i18n='bandoliers') Bandoliers
 						each bannum in [1,2]
 							each checknum in [1,2,3]
-								input.checkbox.squarebox(type='checkbox', name=`attr_bandolier${bannum}_check_${checknum}`, value='1')
-								span
+								+checkbox(`bandolier${bannum}_check_${checknum}`).checkbox.squarebox
 								if (checknum !== 3)
 									span.floatingbar
 					.bandolier-desc(data-i18n='when_you_use_bandolier') When you use a bandolier slot, choose an alchemical:
 					fieldset.repeating_alchemical
-						input.alchemicals-expand(type='checkbox', name='attr_expand')
-						span
-						+autoexpand('', 'name')
-						textarea.alchemicals-info(spellcheck='false', name='attr_description')
+						+checkbox('expand').alchemicals-expand
+						+autoexpand('name')
+						+textarea('description').alchemicals-info
 			//- Planning and Load
 			.planning.col100.def-margin
 				input.title-checkbox(type='checkbox', name='attr_show_planning', value='1', checked)
-				span.label.plainheader(data-i18n='planning_load') Planning & Load
+				span.label.plainheader(data-i18n='planning_load') Planning &amp; Load
 				.planning-content
 					.planningdesc(data-i18n='planningdesc')
 						| Choose a plan, provide the #[strong.italic detail]. Choose your #[strong.italic load] limit for the operation.
@@ -425,40 +375,33 @@
 				.attribute.col100
 					- const attrLow = attribute.toLowerCase();
 					.attribute-title.flex.col100
-						+rollbutton(
-							'rollbutton label',
-							attribute,
-							attrLow,
+						+roll(attribute,
 							'{{resist=1}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-' + attrLow + '=1}} {{title=^{' + attrLow + '}}}',
-							`@{${attrLow}}+@{setting_resbonus_${attrLow}}`,
-							`${attrLow}_description`)
-							=attribute
-						input(type='hidden', name=`attr_${attrLow}`, value='0')
-						input(type='hidden', name=`attr_${attrLow}_xp_max`, value='6')
+							`@{${attrLow}}+@{setting_resbonus_${attrLow}}`
+							)(data-i18n=attrLow, data-i18n-title=`${attrLow}_description`).rollbutton.label
+							= attribute
+						+hidden-input(`${attrLow}`)(value='0')
+						+hidden-input(`${attrLow}_xp_max`)(value='6')
 						.attribute-xp-box.flex
-							input.hidden.vampirexp(type='checkbox', name='attr_setting_vampirexp', value='1')
-							input.tooth.zero(type='radio', name=`attr_${attrLow}_xp`, value='0', checked)
-							span
+							+hidden-input('setting_vampirexp')(value='0').vampirexp
+							+radio(`${attrLow}_xp`)(value='0', checked).tooth.zero
 							each num in [1,2,3,4,5,6,7,8]
 								if (num === 7)
-									input.hidden.toothhider(type='checkbox', name='attr_setting_vampirexp', value='1')
-								input.tooth.xptooth(type='radio', name=`attr_${attrLow}_xp`, value=num)
-								span
+									+hidden-input('setting_vampirexp')(value='0').toothhider
+								+radio(`${attrLow}_xp`)(value=num).tooth.xptooth
 					.actions.col100
 						each action in actions
 							- const actLow = action.toLowerCase();
 							.action.flex.col100
-								input.hidden.darktalent(type='checkbox', name=`attr_setting_dark_talent_${attrLow}`, value='1')
-								input.hidden.fakeradio(type='checkbox', name=`attr_${actLow}`, value='0', checked)
-								input.checkbox.circlebox.fakeradio(type='checkbox', name=`attr_${actLow}`, value='1')
-								span
+								+hidden-input(`setting_dark_talent_${attrLow}`)(value='0').darktalent
+								+hidden-checkbox(actLow)(value='0', checked).fakeradio
+								+checkbox(actLow)(value='1').checkbox.circlebox.fakeradio
 								.divider
 								each num in [2,3,4,5]
-									input.checkbox.circlebox.fakeradio(type='checkbox', name=name=`attr_${actLow}`, value=num)
-									span
-								+rollbutton('rollbutton label', action, actLow, '{{action=1}} {{subtitle=^{rolls-l}}} {{title-' + actLow + '=1}} {{title=^{' + actLow + '}}} {{@{position_query}}} {{effect=@{effect_query}}}', `@{${actLow}}`, `${actLow}_description`)=action
+									+checkbox(actLow)(value=num).checkbox.circlebox.fakeradio
+								+roll(action, '{{action=1}} {{subtitle=^{rolls-l}}} {{title-' + actLow + '=1}} {{title=^{' + actLow + '}}} {{@{position_query}}} {{effect=@{effect_query}}}', `@{${actLow}}`)(data-i18n=actLow, data-i18n-title=`${actLow}_description`).rollbutton.label= action
 			//- Cohort
-			input.hider.hidden(type='checkbox', name='attr_setting_show_cohort', value='1')
+			+hidden-input('setting_show_cohort')(value='0').hider
 			+makecohort('char_cohort_', true)
 			//- Bonus die box
 			.bonusdie.col100
@@ -474,24 +417,21 @@
 			//- Friends
 			.col100.def-margin
 				.specialheader.col100.label.flex
-					input.inherit(type='text', spellcheck='false', name='attr_friends_title', value='Friends')
+					+text-input('friends_title')(value='Friends').inherit
 				.greyholder.col100
 					fieldset.repeating_friend
 						.friend-contact.friend.flex
-							input.hidden.friendup(type='checkbox', name='attr_status', value='up')
-							input.hidden.frienddown(type='checkbox', name='attr_status', value='down')
+							+hidden-input('status')(value='0').friendstate
 							label.up
-								input.checkbox(type='checkbox', name='attr_status', value='up')
-								span
+								+checkbox('status')(value='up').checkbox
 							label.down
-								input.checkbox(type='checkbox', name='attr_status', value='down')
-								span
-							+autoexpand('', 'name', 'Friend name', 'friend_name')
+								+checkbox('status')(value='down').checkbox
+							+autoexpand('name')(placeholder='Friend name', i18nplaceholder='friend_name')
 			//- Roll Fortune
-			+fortunebutton('fortunebutton borderbutton', 'Fortune', 'roll_fortune', '{{fortune=1}} {{subtitle=^{rolls-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true) Roll Fortune
+			+fortuneroll('Fortune', '{{fortune=1}} {{subtitle=^{rolls-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton Roll Fortune
 		//- Clocks
 		.col100.clocks.white-repcontrol.def-margin
 			.specialheader.label(data-i18n='clocks') Clocks
 			fieldset.repeating_clock
 				+makeclock
-		textarea.notes(spellcheck='false', name='attr_notes', data-i18n-placeholder='notes', placeholder='Notes')
+		+textarea('notes')(data-i18n-placeholder='notes', placeholder='Notes').notes

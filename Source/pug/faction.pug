@@ -1,29 +1,27 @@
 mixin makefactions(number, title)
 	.factions-header.flex.uppercase
-		input.faction-name.label(type='text', spellcheck='false', name=`attr_factions${number}_header`, value=title)
+		+text-input(`factions${number}_header`)(value=title).faction-name.label
 		span.faction-tier(data-i18n='tier') Tier
 		span.faction-hold(data-i18n='hold') Hold
 		span.faction-status(data-i18n='status') Status
 	fieldset(class=`repeating_factions${number}`)
 		.faction
-			input.expand(type='checkbox', name='attr_expand', value='1')
-			span
-			input.faction-name(type='text', spellcheck='false', name='attr_name')
-			input.faction-tier(type='text', spellcheck='false', name='attr_tier')
-			input.faction-hold(type='text', spellcheck='false', name='attr_hold')
-			input.faction-status(type='number', name='attr_status')
-			textarea(spellcheck='false', name='attr_notes', data-i18n-placeholder='faction_notes', placeholder='Faction notes')
+			+checkbox('expand').expand
+			+text-input('name').faction-name
+			+text-input('tier').faction-tier
+			+text-input('hold').faction-hold
+			+number-input('status').faction-status
+			+textarea('notes')(data-i18n-placeholder='faction_notes', placeholder='Faction notes')
 
 //- Faction Sheet
 .type-faction.flex-wrap
-	input.hidden.input-clocks-only(type='checkbox', name='attr_setting_clocks_only', value='1')
+	+hidden-input('setting_clocks_only')(value='0').input-clocks-only
 	.factiontitle.flex.col100
-		input.label(type='text', spellcheck='false', name='attr_factions_title', value='Factions of Doskvol')
-		input.hidden.hider(type='checkbox', name='attr_show_faction_generatebutton', value='1', checked='')
+		+text-input('factions_title')(value='Factions of Doskvol').label
+		+hidden-input('show_faction_generatebutton')(value='1').hider
 		label.generatebutton
-			input(type='checkbox', name='attr_generate_factions')
-			span(data-i18n='generate_factions') Generate Factions
-		+fortunebutton('fortunebutton borderbutton', 'Fortune_faction', 'roll_fortune', '{{fortune=1}} {{title-fortune=1}} {{title=^{fortune}}} {{short=1}} {{character_name=}}', true) Roll Fortune
+			+checkbox('generate_factions')(i18n='generate_factions') Generate Factions
+		+fortuneroll('Fortune_faction', '{{fortune=1}} {{title-fortune=1}} {{title=^{fortune}}} {{short=1}} {{character_name=}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton Roll Fortune
 	.factions.flex
 		.col24b.white-repcontrol
 			+makefactions(1, 'Underworld')
@@ -47,4 +45,4 @@ mixin makefactions(number, title)
 		fieldset.repeating_factionclock
 			+makeclock
 	.col45.right-column
-		textarea.notes(spellcheck='false', name='attr_faction_notes', data-i18n-placeholder='notes', placeholder='Notes')
+		+textarea('faction_notes')(data-i18n-placeholder='notes', placeholder='Notes').notes

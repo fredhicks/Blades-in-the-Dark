@@ -1,31 +1,25 @@
 mixin claimbox(number)
-	input.hidden(type='checkbox', name=`attr_claim_${number}_check`, value='1')
+	+hidden-input(`claim_${number}_check`)(value='0')
 	.claimbox
 		label
-			input.checkbox.squarebox-small(type='checkbox', name=`attr_claim_${number}_check`, value='1')
-			span
-		textarea.label(spellcheck='false', name=`attr_claim_${number}_name`)
-		textarea.claim-desc(spellcheck='false', name=`attr_claim_${number}_desc`)
+			+checkbox(`claim_${number}_check`).checkbox.squarebox-small
+		+textarea(`claim_${number}_name`).label
+		+textarea(`claim_${number}_desc`).claim-desc
 
 mixin claimbridge(number, type)
 	label(class=['claimbridge', type === 'vert' ? 'claims-vertsep' : 'claims-horisep'])
-		input(type='checkbox', name=`attr_claim_bridge_${number}`, value='1', checked)
-		span
+		+checkbox(`claim_bridge_${number}`)(checked)
 
 mixin makeupgrade(number, numboxes, def, desc)
 	.col50
 		.item
-			input.checkbox.squarebox(type='checkbox', name=`attr_upgrade_${number}_check_1`, value='1')
-			span
+			+checkbox(`upgrade_${number}_check_1`).checkbox.squarebox
 			if (numboxes === 2)
-				input.checkbox.squarebox(type='checkbox', name=`attr_upgrade_${number}_check_2`, value='1')
-				span
-			input.itemname(type='text', spellcheck='false', name=`attr_upgrade_${number}_name`, value=def)
+				+checkbox(`upgrade_${number}_check_2`).checkbox.squarebox
+			+text-input(`upgrade_${number}_name`)(value=def).itemname
 		.item-description
-			input.expand(type='checkbox', name=`attr_upgrade_${number}_expand`, value='1')
-			span
-			textarea(spellcheck='false', name=`attr_upgrade_${number}_description`, data-i18n-placeholder='description', placeholder='Description')
-				=desc
+			+checkbox(`upgrade_${number}_expand`).expand
+			+textarea(`upgrade_${number}_description`)(data-i18n-placeholder='description', placeholder='Description')= desc
 
 //- Crew Sheet
 .type-crew.flex
@@ -36,33 +30,32 @@ mixin makeupgrade(number, numboxes, def, desc)
 			.col55.bladeslogo
 			.col45.crewheader.label(data-i18n='crew_sheet') Crew sheet
 			label.col55
-				input(type='text', spellcheck='false', name='attr_crew_name')
+				+text-input('crew_name')
 				.label.text.title(data-i18n='name') Name
 			label.col45
-				input(type='text', spellcheck='false', name='attr_reputation')
+				+text-input('reputation')
 				.label.text.title(data-i18n='reputation') Reputation
 			label.col100
-				input(type='text', spellcheck='false', name='attr_lair')
+				+text-input('lair')
 				.label.text.title(data-i18n='lair') Lair
-			input.hidden.hider(type='checkbox', name='attr_setting_show_deity', value='1')
+			+hidden-input('setting_show_deity')(value='0').hider
 			label.col55
-				input(type='text', spellcheck='false', name='attr_crew_deity')
+				+text-input('crew_deity')
 				.label.text.title
 					span(name='attr_setting_deity_label')
-			input.hidden.hider(type='checkbox', name='attr_setting_show_deity', value='1')
+			+hidden-input('setting_show_deity')(value='0').hider
 			label.col45
-				input(type='text', spellcheck='false', name='attr_crew_deity_features', data-i18n-placeholder='choose_2_features', placeholder='choose 2 features')
-				input(type='hidden', name='attr_crew_deity_features', value='')
+				+text-input('crew_deity_features')(data-i18n-placeholder='choose_2_features', placeholder='choose 2 features')
+				+hidden-input('crew_deity_features')(value='')
 				.text
 					span.label.title
-						span(name='attr_setting_deity_label')
-						span
-						span(data-i18n='features') Deity Features
+						span(name='attr_setting_deity_label').space-after
+						span(data-i18n='features') Features
 					span.uppercase.info(data-i18n='deity_features_info')
 						| Alluring — Cruel — Ferocious — Monstrous — Radiant — Sinister — Serene — Transcendent
-			input.hidden.hider(type='checkbox', name='attr_setting_show_origin', value='1')
+			+hidden-input('setting_show_origin')(value='0').hider
 			label.col100
-				input(type='text', spellcheck='false', name='attr_origin')
+				+text-input('origin')
 				.label.text.title(data-i18n='origin') Origin
 		//- Rep, Hold, and Tier
 		.col100.flex.rep-and-hold.def-margin
@@ -72,26 +65,16 @@ mixin makeupgrade(number, numboxes, def, desc)
 				.rep2.blackborder.flex
 					.turfbox
 						each num in [1,2,3,4,5,6]
-							input(type='radio', name='attr_turf', value=num)
-					input(type='hidden', name='attr_rep_max', value='12')
-					input(type='hidden', name='attr_turf_max', value='6')
-					input.turf-input(type='hidden', name='attr_turf', value='0')
-					input.tooth.zero(type='radio', name='attr_rep', value='0', checked)
-					span
+							+radio('turf')(value=num)
+					+hidden-input('turf')(value='0').turf-input
+					+radio('rep')(value='0', checked).tooth.zero
 					each num in [...Array(13).keys()].slice(1)
-						input(
-							class=['tooth', 'stresstooth', ...((num < 6) ? [] : [...Array(num-6).keys()].map(x => `turf${6-x}`))]
-							type='radio',
-							name='attr_rep',
-							value=num
-						)
-						span
+						+radio('rep')(class=['tooth', 'stresstooth', ...((num < 6) ? [] : [...Array(num-6).keys()].map(x => `turf${6-x}`))], value=num)
 				.rep3.blackborder
 					.black-on-grey
 						.label(data-i18n='turf') Turf
 					.turfzero-holder
-						input.zero(type='radio', name='attr_turf', value='0', checked)
-						span
+						+radio('turf')(value='0', checked).zero
 			//- Hold
 			.hold.flex
 				.hold1.blackheader
@@ -99,22 +82,18 @@ mixin makeupgrade(number, numboxes, def, desc)
 				label.blackborder
 					.black-on-grey
 						.label(data-i18n='weak') Weak
-					input.tooth.holdtooth(type='radio', name='attr_hold', value='weak')
-					span
+					+radio('hold')(value='weak').tooth.holdtooth
 				label.blackborder
 					.black-on-grey
 						.label(data-i18n='strong') Strong
-					input.tooth.holdtooth(type='radio', name='attr_hold', value='strong', checked)
-					span
+					+radio('hold')(value='strong', checked).tooth.holdtooth
 				//- Tier
 				.blackheader
-					input(type='hidden', name='attr_crew_tier_max', value='4')
-					+rollbutton('label inherit rollbutton', 'Tier', 'tier', '{{resist=1}} {{short=1}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their-l}}}', '@{crew_tier}') Tier
+					+roll('Tier', '{{resist=1}} {{short=1}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their-l}}}', '@{crew_tier}')(data-i18n='tier').label.inherit.rollbutton Tier
 				.tier.flex
-					input.hidden.fakeradio(type='checkbox', name='attr_crew_tier', value='0', checked)
+					+hidden-checkbox('crew_tier')(value='0', checked).fakeradio
 					each num in [1,2,3,4]
-						input.checkbox.circlebox.fakeradio(type='checkbox', name='attr_crew_tier', value=num)
-						span
+						+checkbox('crew_tier')(value=num).checkbox.circlebox.fakeradio
 		//- Claims
 		.claims.col100.white-repcontrol
 			.claimsrow.flex
@@ -161,24 +140,18 @@ mixin makeupgrade(number, numboxes, def, desc)
 					.label
 						span(name='attr_setting_heat_label')
 				.heat2.blackborder.flex
-					input(type='hidden', name='attr_heat_max', value='9')
-					input.tooth.zero(type='radio', name='attr_heat', value='0', checked)
-					span
+					+radio('heat')(value='0', checked).tooth.zero
 					each num in [1,2,3,4,5,6,7,8,9]
-						input.tooth.stresstooth(type='radio', name='attr_heat', value=num)
-						span
+						+radio('heat')(value=num).tooth.stresstooth
 				//- Wanted Level
 				.heat3
 					.blackheader
-						+rollbutton('label rollbutton inherit', 'Wanted', null, '{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat} @{setting_heat_label}^{wantedroll2}}}', '@{wanted}')
+						+roll('Wanted', '{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat} @{setting_heat_label}^{wantedroll2}}}', '@{wanted}').label.inherit.rollbutton
 							span(name='attr_setting_wanted_label')
 					.wantedholder.flex
-						input(type='hidden', name='attr_wanted_max', value='4')
-						input.tooth.zero(type='radio', name='attr_wanted', value='0', checked)
-						span
+						+radio('wanted')(value='0', checked).tooth.zero
 						each num in [1,2,3,4]
-							input.tooth.regulartooth(type='radio', name='attr_wanted', value=num)
-							span
+							+radio('wanted')(value=num).tooth.regulartooth
 			//- Coin
 			.crewcoin.col52b
 				.col100.flex
@@ -187,20 +160,15 @@ mixin makeupgrade(number, numboxes, def, desc)
 					.greyheader.crewcoin2
 						.label(data-i18n='vaults') Vaults
 				.col100.flex.crewcoin-coins
-					input(type='hidden', name='attr_crewcoin_max', value='16')
-					input.zero(type='radio', name='attr_crewcoin', value='0', checked)
-					span
+					+radio('crewcoin')(value='0', checked).zero
 					each num in [1,2,3,4]
-						input.radiobox(type='radio', name='attr_crewcoin', value=num)
-						span
+						+radio('crewcoin')(value=num).radiobox
 					.crewcoinbar
 					each num in [5,6,7,8]
-						input.radiobox.vaultcoin(type='radio', name='attr_crewcoin', value=num)
-						span
+						+radio('crewcoin')(value=num).radiobox.vaultcoin
 					.crewcoinbar
 					each num in [9,10,11,12,13,14,15,16]
-						input.radiobox.vaultcoin(type='radio', name='attr_crewcoin', value=num)
-						span
+						+radio('crewcoin')(value=num).radiobox.vaultcoin
 				.col100.crewcoin-desc(data-i18n='upon_crew_advance-N') Upon crew advance, each PC gets Stash = Tier+2
 		//- Special abilities
 		.col100.def-margin
@@ -209,30 +177,26 @@ mixin makeupgrade(number, numboxes, def, desc)
 				fieldset.repeating_crewability
 					.specialability.flex
 						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
-						input.checkbox.circlebox(type='checkbox', name='attr_check', value='1')
-						span
-						+autoexpand('abilityname smallcaps', 'name', 'Ability name', 'ability_name')
-						+autoexpand('abilitydesc', 'description', 'Ability description', 'ability_description')
+						+checkbox('check').checkbox.circlebox
+						+autoexpand('name')(placeholder='Ability name', i18nplaceholder='ability_name').abilityname.smallcaps
+						+autoexpand('description')(placeholder='Ability description', i18nplaceholder='ability_description').abilitydesc
 		//- Advancement
 		.col100.def-margin
 			.advancement-header.flex.blackheader
 				.label.markxp(data-i18n='mark_xp:') Mark XP:
 				.label(data-i18n='crew_advancement') Crew Advancement
 				.xpholder.flex
-					input(type='hidden', name='attr_crew_xp_max', value='8')
-					input.tooth.zero(type='radio', name='attr_crew_xp', value='0', checked)
-					span
+					+radio('crew_xp')(value='0', checked).tooth.zero
 					each num in [1,2,3,4,5,6,7,8,9,10]
-						input.tooth.xptooth(type='radio', name='attr_crew_xp', value=num)
-						span
+						+radio('crew_xp')(value=num).tooth.xptooth
 			ul.advancement-desc
 				li.nondot(data-i18n='xp_top')
 					| At the end of each session, for each item below, mark 1 xp (or instead mark 2 xp if that item occurred multiple times).
 				li
-					+autoexpand('', 'crew_xp_condition', 'Enter your crew\'s specific way to mark XP here.', 'xp_crew_specific')
-				input.hidden.hider(type='checkbox', name='attr_setting_extra_xp', value='1')
+					+autoexpand('crew_xp_condition')(placeholder='Enter your crew\'s specific way to mark XP here.', i18nplaceholder='xp_crew_specific')
+				+hidden-input('setting_extra_xp')(value='0').hider
 				li
-					+autoexpand('', 'xp_condition_extra', 'Enter another specific way to mark XP here.', 'xp_specific_extra')
+					+autoexpand('xp_condition_extra')(placeholder='Enter another specific way to mark XP here.', i18nplaceholder='xp_specific_extra')
 				li(data-i18n='xp_contend') Contend with challenges above your current station.
 				li(data-i18n='xp_bolster') Bolster your crew's reputation or develop a new one.
 				li(data-i18n='xp_express') Express the goals, drives, inner conflict, or essential nature of the crew.
@@ -240,9 +204,9 @@ mixin makeupgrade(number, numboxes, def, desc)
 	.col45.flex-wrap.right-column
 		//- Crew Type
 		.playbook.flex
-			input.label(type='text', spellcheck='false', name='attr_crew_type', data-i18n-placeholder='crew', placeholder='Crew')
-			textarea.label(spellcheck='false', name='attr_crew_description', data-i18n-placeholder='crew_description', placeholder='A short crew description')
-			input.hidden.hider(type='checkbox', name='attr_show_playbook_reminder', value='1', checked)
+			+text-input('crew_type')(data-i18n-placeholder='crew', placeholder='Crew').label
+			+textarea('crew_description')(data-i18n-placeholder='crew_description', placeholder='A short crew description').label
+			+hidden-input('show_playbook_reminder')(value='1').hider
 			.reminder
 				span(data-i18n='autofill_reminder_crew')
 					| To generate crew abilities, upgrades, contacts, and claims, enter the name of the crew type above:
@@ -257,29 +221,23 @@ mixin makeupgrade(number, numboxes, def, desc)
 				//- Specific upgrades
 				.playbookitems.small-repcontrol.col100
 					fieldset.repeating_upgrade
-						input.hidden.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
+						+hidden-input('boxes_chosen')(value='0').boxes-chosen
 						.item.numboxes-chooser
 							div(data-i18n='how_many_boxes') How many boxes?
-							input(type='number', name='attr_numboxes', min='1', max='3', value='1')
+							+number-input('numboxes')(min='1', max='3', value='1')
 							label
-								input.boxes-chosen(type='checkbox', name='attr_boxes_chosen', value='1')
-								span.okbutton(data-i18n='ok') OK
+								+checkbox('boxes_chosen')(i18n='ok') OK
 						.item
-							input.hidden.numboxes1(type='checkbox', name='attr_numboxes', value='1', checked)
-							input.hidden.numboxes2(type='checkbox', name='attr_numboxes', value='2')
-							input.checkbox.squarebox(type='checkbox', name='attr_check_1', value='1')
-							span
+							+hidden-input('numboxes')(value='1').numboxes
+							+checkbox('check_1').checkbox.squarebox
 							span.floatingbar.boxesgeq2
-							input.checkbox.squarebox.boxesgeq2(type='checkbox', name='attr_check_2', value='1')
-							span.boxesgeq2
+							+checkbox('check_2', 'boxesgeq2').checkbox.squarebox
 							span.floatingbar.boxesgeq3.boxesgeq2
-							input.checkbox.squarebox.boxesgeq3.boxesgeq2(type='checkbox', name='attr_check_3', value='1')
-							span.boxesgeq3.boxesgeq2
-							+autoexpand('itemname', 'name', 'An upgrade', 'an_upgrade')
+							+checkbox('check_3', 'boxesgeq2 boxesgeq3').checkbox.squarebox
+							+autoexpand('name')(placeholder='An upgrade', i18nplaceholder='an_upgrade').itemname
 						.item-description
-							input.expand(type='checkbox', name='attr_expand', value='1')
-							span
-							textarea(spellcheck='false', name='attr_description', data-i18n-placeholder='description', placeholder='Description')
+							+checkbox('expand').expand
+							+textarea('description')(data-i18n-placeholder='description', placeholder='Description')
 				//- Regular upgrades
 				.regularitems.flex-wrap.col100
 					.item.col50
@@ -317,20 +275,18 @@ mixin makeupgrade(number, numboxes, def, desc)
 					.col100
 						.item
 							each num in [1,2,3,4]
-								input.checkbox.squarebox(type='checkbox', name=`attr_upgrade_24_check_${num}`, value='1')
-								span
+								+checkbox(`upgrade_24_check_${num}`).checkbox.squarebox
 								if (num < 4)
 									span.floatingbar
-							input.itemname(type='text', spellcheck='false', name='attr_upgrade_24_name', value='Mastery')
+							+text-input('upgrade_24_name')(value='Mastery').itemname
 						.item-description
-							input.expand(type='checkbox', name='attr_upgrade_24_expand', value='1')
-							span
-							textarea(spellcheck='false', name='attr_upgrade_24_description', data-i18n-placeholder='description', placeholder='Description')
+							+checkbox('upgrade_24_expand').expand
+							+textarea('upgrade_24_description')(data-i18n-placeholder='description', placeholder='Description')
 								| Your crew has access to master level training. You may advance your PCs' action ratings to 4 (until you unlock this upgrade, PC action ratings are capped at 3). This costs four upgrade boxes to unlock.
 			.hunting-grounds.col100.def-margin
-				+autoexpand('plainheader label', 'hunting_grounds_type', 'Hunting Grounds', 'hunting_grounds')
-				+autoexpand('description', 'hunting_grounds_description', 'Robbery', 'hunting_grounds_description')
-			+fortunebutton('engagementbutton borderbutton', 'Engagement', 'roll_engagement', '{{action=1}} {{short=1}} {{small-title=1}} {{subtitle=^{roll_for}}} {{title-engagement=1}} {{title=^{engagement}}}') Roll Engagement
+				+autoexpand('hunting_grounds_type')(placeholder='Hunting Grounds', i18nplaceholder='hunting_grounds').plainheader.label
+				+autoexpand('hunting_grounds_description')(placeholder='Robbery', i18nplaceholder='hunting_grounds_description').description
+			+fortuneroll('Engagement', '{{action=1}} {{short=1}} {{small-title=1}} {{subtitle=^{roll_for}}} {{title-engagement=1}} {{title=^{engagement}}}')(data-i18n='roll_engagement').engagementbutton.borderbutton Roll Engagement
 		//- Cohorts and Contacts
 		.col47.right-column.small-margin
 			//- First Cohort
@@ -342,20 +298,19 @@ mixin makeupgrade(number, numboxes, def, desc)
 			//- Contacts
 			.col100.def-margin
 				.specialheader.col100.label.flex
-					input.inherit(type='text', spellcheck='false', name='attr_contacts_title', value='Contacts')
+					+text-input('contacts_title')(value='Contacts').inherit
 				.greyholder.col100
 					fieldset.repeating_contact
 						.friend-contact.contact.flex
-							input.hidden.contact-check(type='checkbox', name='attr_check', value='1')
+							+hidden-input('check')(value='0').friendstate
 							label
-								input.checkbox(type='checkbox', name='attr_check', value='1')
-								span
-							+autoexpand('', 'name', 'Contact name', 'contact_name')
+								+checkbox('check').checkbox
+							+autoexpand('name')(placeholder='Contact name', i18nplaceholder='contact_name')
 			//- Roll Fortune
-			+fortunebutton('fortunebutton borderbutton', 'Fortune_crew', 'roll_fortune', '{{fortune=1}} {{subtitle=^{roll-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true) Roll Fortune
+			+fortuneroll('Fortune_crew', '{{fortune=1}} {{subtitle=^{roll-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton Roll Fortune
 		//- Clocks
 		.col100.clocks.white-repcontrol.def-margin
 			.specialheader.label(data-i18n='clocks') Clocks
 			fieldset.repeating_crewclock
 				+makeclock
-		textarea.notes(spellcheck='false', name='attr_crew_notes', data-i18n-placeholder='notes', placeholder='Notes')
+		+textarea('crew_notes')(data-i18n-placeholder='notes', placeholder='Notes').notes
