@@ -141,7 +141,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 			.claimsrow.flex
 				each num in [11,12,13,14,15]
 					+claimbox(num)
-					if (num !== 5)
+					if (num !== 15)
 						+claimbridge(`${num}_${num+1}`, 'hori')
 			fieldset.repeating_claim
 				.claims-seprow.flex
