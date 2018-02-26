@@ -92,7 +92,7 @@
 					+radio('trauma')(value='0', checked).tooth.zero
 					each num in [1,2,3,4,5]
 						if (num === 4)
-							+hidden-checkbox('setting_extra_trauma')(value='0').extra-teeth
+							+hidden-checkbox('setting_extra_trauma')(value='0', checked).extra-teeth
 						+radio('trauma')(value=num).tooth.regulartooth
 			//- Individual traumata
 			.stress4.blackborder
