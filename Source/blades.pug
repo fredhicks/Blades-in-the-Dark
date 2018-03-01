@@ -29,7 +29,8 @@ mixin hidden-checkbox(name)
 
 mixin autoexpand(name)
 	div(class=['auto-expand', attributes.class])
-		span(name=`attr_${name}`)= content
+		span(name=`attr_${name}`)
+			block
 		+textarea(name)(placeholder!=attributes.placeholder, data-i18n-placeholder!=attributes.i18nplaceholder)
 			block
 
