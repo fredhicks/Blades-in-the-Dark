@@ -1,6 +1,6 @@
 "use strict";
 /* DATA */
-const sheetVersion = "2.7",
+const sheetVersion = "3.0",
 	crewData = {
 		assassins: {
 			base: {
@@ -446,6 +446,85 @@ const sheetVersion = "2.7",
 				numboxes: "0"
 			}]
 		},
+		faris: {
+			ability: ["leader", "ambitious", "battleborn", "expertise", "ghost_legion", "the_tiger's_fury", "vigorous", "veteran"],
+			base: {
+				char_cohort_name: "playbook_item_entourage",
+				char_cohort_quality: "1",
+				char_cohort_type: "gang",
+				char_cohort_subtype: "thugs",
+				command: "2",
+				friends_title: "playbook_faris_friends_title",
+				gatherinfo1: "gatherinfo_are_they_telling",
+				gatherinfo2: "gatherinfo_how_can_I_get_them",
+				gatherinfo3: "gatherinfo_what_do_they_really",
+				gatherinfo4: "gatherinfo_what_should_I_look",
+				gatherinfo5: "gatherinfo_where_they_vulnerable",
+				gatherinfo6: "gatherinfo_whos_most_afraid",
+				playbook_description: "playbook_faris_description",
+				setting_show_cohort: "1",
+				skirmish: "1",
+				xp_condition: "playbook_faris_xp_condition"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_heavy_weapon",
+				numboxes: "2"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_pair_of_pistols",
+				numboxes: "1"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_uniform",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_a_cane-sword",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_entourage",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_spiritbane_charm",
+				numboxes: "0"
+			}]
+		},
+		forger: {
+			ability: ["artificer", "analyst", "connected", "ghost_in_the_machine", "a_little_something_on_the_side", "machinist", "saboteur", "strange_methods", "veteran"],
+			base: {
+				friends_title: "playbook_forger_friends_title",
+				gatherinfo1: "gatherinfo_how_can_I_get_them",
+				gatherinfo2: "gatherinfo_what_are_they_really",
+				gatherinfo3: "gatherinfo_what_can_I_tinker",
+				gatherinfo4: "gatherinfo_what_do_they_intend",
+				gatherinfo5: "gatherinfo_what_do_they_want",
+				gatherinfo6: "gatherinfo_what_is_hidden",
+				playbook_description: "playbook_forger_description",
+				study: "1",
+				tinker: "2",
+				xp_condition: "playbook_forger_xp_condition"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_tinkering_tools",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_electroplasm_vials",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_forged_documents",
+				numboxes: "0"
+			},{
+				name: "playbook_item_protective_suit",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_silence_potion_vial",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_gadget",
+				numboxes: "1"
+			}]
+		},
 		ghost: {
 			ability: ["ghost_form", "dissipate", "manifest", "poltergeist", "possess", "veteran"],
 			base: {
@@ -530,6 +609,43 @@ const sheetVersion = "2.7",
 			},
 			playbookitem: []
 		},
+		janissary: {
+			ability: ["bodyguard", "ghost_fighter", "mule", "physicker", "security", "sending_a_message", "strategic_retreat", "tough_as_nails", "veteran"],
+			base: {
+				friends_title: "playbook_janissary_friends_title",
+				gatherinfo1: "gatherinfo_how_can_I_find",
+				gatherinfo2: "gatherinfo_what_are_they_really",
+				gatherinfo3: "gatherinfo_what_do_they_intend",
+				gatherinfo4: "gatherinfo_what_should_I_look",
+				gatherinfo5: "gatherinfo_whats_the_best_way",
+				gatherinfo6: "gatherinfo_whos_most_dangerous",
+				playbook_description: "playbook_janissary_description",
+				skirmish: "1",
+				survey: "2",
+				xp_condition: "playbook_janissary_xp_condition"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_hand_weapon",
+				numboxes: "1"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_long_rifle",
+				numboxes: "2"
+			}, {
+				name: "playbook_item_electroplasmic_ammunition",
+				numboxes: "1"
+			},{
+				name: "playbook_item_manacles_&_chain",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_spiritbane_charm",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_spyglass",
+				numboxes: "1"
+			}]
+		},
 		leech: {
 			ability: ["alchemist", "analyst", "artificer", "fortitude", "ghost_ward", "physicker", "saboteur", "venomous", "veteran"],
 			base: {
@@ -601,6 +717,122 @@ const sheetVersion = "2.7",
 				numboxes: "1"
 			}, {
 				name: "playbook_item_spiritbane_charm",
+				numboxes: "0"
+			}]
+		},
+		mirage: {
+			ability: ["ghost_image", "cloak_&_dagger", "fortune_teller", "like_a_star", "lost_&_found", "misdirection", "practiced", "snake_charmer", "veteran"],
+			base: {
+				attune: "1",
+				finesse: "2",
+				friends_title: "playbook_mirage_friends_title",
+				gatherinfo1: "gatherinfo_how_can_I_get_them",
+				gatherinfo2: "gatherinfo_what_are_they_really",
+				gatherinfo3: "gatherinfo_what_can_I_tinker",
+				gatherinfo4: "gatherinfo_what_do_they_intend",
+				gatherinfo5: "gatherinfo_what_do_they_want",
+				gatherinfo6: "gatherinfo_what_is_hidden",
+				playbook_description: "playbook_mirage_description",
+				xp_condition: "playbook_mirage_xp_condition"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_cover_identity",
+				numboxes: "0"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_disguise_kit",
+				numboxes: "1"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_loaded_dice,_trick_cards",
+				numboxes: "0"
+			},{
+				name: "playbook_item_ghost_key",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_spiritbane_charm",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_trance_powder",
+				numboxes: "0"
+			}]
+		},
+		rafiq: {
+			ability: ["eye_for_weakness", "cut-out", "functioning_vice", "ghost_friend", "hypnotic", "occultist", "trust_in_me", "veteran"],
+			base: {
+				char_cohort_name: "playbook_item_a_special_friend",
+				consort: "2",
+				friends_title: "playbook_rafiq_friends_title",
+				gatherinfo1: "gatherinfo_are_they_telling",
+				gatherinfo2: "gatherinfo_how_can_I_blend",
+				gatherinfo3: "gatherinfo_how_can_I_get_them",
+				gatherinfo4: "gatherinfo_what_are_they_really",
+				gatherinfo5: "gatherinfo_what_do_they_want",
+				gatherinfo6: "gatherinfo_where_they_vulnerable",
+				playbook_description: "playbook_rafiq_description",
+				setting_show_cohort: "1",
+				sway: "1",
+				xp_condition: "playbook_rafiq_xp_condition"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_bottle_of_whiskey",
+				numboxes: "1"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_clothes_&_jewelry",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_black_lotus_resin",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_concealed_palm_pistol",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_a_special_friend",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_spiritbane_charm",
+				numboxes: "0"
+			}]
+		},
+		rakshasa: {
+			ability: ["ghoul", "ambush", "the_black_speech", "ghost_hunter", "monstrous", "scout-N", "subterfuge_rakshasa", "veteran"],
+			base: {
+				char_cohort_name: "hunting_pet",
+				char_cohort_subtype: "hunter",
+				friends_title: "playbook_rakshasa_friends_title",
+				gatherinfo1: "gatherinfo_how_can_I_find",
+				gatherinfo2: "gatherinfo_what_drives_them",
+				gatherinfo3: "gatherinfo_whats_the_best_way",
+				gatherinfo4: "gatherinfo_where_they_vulnerable",
+				gatherinfo5: "gatherinfo_where_can_I_hide",
+				gatherinfo6: "gatherinfo_where_did_x_go",
+				hunt: "1",
+				playbook_description: "playbook_rakshasa_description",
+				prowl: "2",
+				setting_show_cohort: "1",
+				xp_condition: "playbook_rakshasa_xp_condition"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_shadow_cloak",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_dark-sight_goggles",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_light_climbing_gear",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_scary_weapon_or_tool",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_spiritbane_charm",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_a_trained_hunting_pet",
 				numboxes: "0"
 			}]
 		},
@@ -679,6 +911,83 @@ const sheetVersion = "2.7",
 				numboxes: "0"
 			}]
 		},
+		vampire: {
+			ability: ["undead", "terrible_power", "arcane_sight", "a_void_in_the_echo", "dark_talent-N", "sinister_guile", "veteran"],
+			base: {
+				friends_title: "playbook_vampire_friends_title",
+				gatherinfo1: "gatherinfo_what_do_they_intend",
+				gatherinfo2: "gatherinfo_how_can_I_get_them",
+				gatherinfo3: "gatherinfo_what_are_they_really",
+				gatherinfo4: "gatherinfo_what_should_I_look",
+				gatherinfo5: "gatherinfo_wheres_the_weakness",
+				gatherinfo6: "gatherinfo_how_can_I_find",
+				playbook_description: "playbook_vampire_description",
+				setting_extra_stress: "3",
+				setting_vampirexp: "1",
+				setting_show_strictures: "1",
+				setting_vice_type: "vampire",
+				trauma: "4",
+				xp_condition: "playbook_vampire_xp_condition",
+				xp_condition2: "playbook_vampire_xp_condition2",
+				xp_condition3: "playbook_vampire_xp_condition3"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_clothes_and_accoutrements",
+				numboxes: "0"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_personal_weapon",
+				numboxes: "1"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_shadow_cloak",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_demonbane_charm",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_spiritbane_charm",
+				numboxes: "0"
+			}]
+		},
+		vizier: {
+			ability: ["red_right_hand", "calculating", "compel", "ghost_mind", "like_looking_into_a_mirror", "prepared", "reflexes", "ritual", "veteran"],
+			base: {
+				attune: "1",
+				friends_title: "playbook_vizier_friends_title",
+				gatherinfo1: "gatherinfo_are_they_telling",
+				gatherinfo2: "gatherinfo_how_can_I_discover",
+				gatherinfo3: "gatherinfo_what_do_they_intend",
+				gatherinfo4: "gatherinfo_what_might_happen",
+				gatherinfo5: "gatherinfo_where_they_vulnerable",
+				gatherinfo6: "gatherinfo_wheres_the_leverage",
+				playbook_description: "playbook_vizier_description",
+				study: "2",
+				xp_condition: "playbook_vizier_xp_condition"
+			},
+			playbookitem: [{
+				bold: "1",
+				name: "playbook_item_fine_lightning_hook",
+				numboxes: "1"
+			}, {
+				bold: "1",
+				name: "playbook_item_fine_spirit_mask",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_demonbane_charm",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_electroplasm_vials",
+				numboxes: "0"
+			}, {
+				name: "playbook_item_spirit_bottles_(2)",
+				numboxes: "1"
+			}, {
+				name: "playbook_item_rare_book",
+				numboxes: "1"
+			}]
+		},
 		whisper: {
 			ability: ["compel", "ghost_mind", "iron_will", "occultist", "ritual", "strange_methods", "tempest", "warded"],
 			base: {
@@ -716,41 +1025,38 @@ const sheetVersion = "2.7",
 				numboxes: "0"
 			}]
 		},
-		vampire: {
-			ability: ["undead", "terrible_power", "arcane_sight", "a_void_in_the_echo", "dark_talent-N", "sinister_guile", "veteran"],
+		zindiq: {
+			ability: ["driven", "alchemist", "ghost_ward", "infiltrator", "mesmerism", "pyromancer", "revolutionary", "underworld_contacts"],
 			base: {
-				friends_title: "playbook_vampire_friends_title",
-				gatherinfo1: "gatherinfo_what_do_they_intend",
-				gatherinfo2: "gatherinfo_how_can_I_get_them",
-				gatherinfo3: "gatherinfo_what_are_they_really",
-				gatherinfo4: "gatherinfo_what_should_I_look",
-				gatherinfo5: "gatherinfo_wheres_the_weakness",
-				gatherinfo6: "gatherinfo_how_can_I_find",
-				playbook_description: "playbook_vampire_description",
-				setting_extra_stress: "3",
-				setting_vampirexp: "1",
-				setting_show_strictures: "1",
-				setting_vice_type: "vampire",
-				trauma: "4",
-				xp_condition: "playbook_vampire_xp_condition",
-				xp_condition2: "playbook_vampire_xp_condition2",
-				xp_condition3: "playbook_vampire_xp_condition3"
+				friends_title: "playbook_zindiq_friends_title",
+				gatherinfo1: "gatherinfo_how_can_I_hurt",
+				gatherinfo2: "gatherinfo_how_can_I_reveal",
+				gatherinfo3: "gatherinfo_what_can_I_tinker",
+				gatherinfo4: "gatherinfo_what_echoes",
+				gatherinfo5: "gatherinfo_what_is_arcane",
+				gatherinfo6: "gatherinfo_wheres_the_weakness",
+				playbook_description: "playbook_zindiq_description",
+				sway: "1",
+				wrecK: "2",
+				xp_condition: "playbook_zindiq_xp_condition"
 			},
 			playbookitem: [{
 				bold: "1",
-				name: "playbook_item_fine_clothes_and_accoutrements",
+				name: "playbook_item_fine_cover_identity",
 				numboxes: "0"
 			}, {
 				bold: "1",
-				name: "playbook_item_fine_personal_weapon",
+				name: "playbook_item_fine_wrecking_tools",
+				numboxes: "2"
+			}, {
+				name: "playbook_item_bandolier_of_alchemicals_(3)",
 				numboxes: "1"
 			}, {
-				bold: "1",
-				name: "playbook_item_fine_shadow_cloak",
+				name: "playbook_item_bandolier_of_alchemicals_(3)",
 				numboxes: "1"
 			}, {
-				name: "playbook_item_demonbane_charm",
-				numboxes: "0"
+				name: "playbook_item_blueprints",
+				numboxes: "1"
 			}, {
 				name: "playbook_item_spiritbane_charm",
 				numboxes: "0"
@@ -1175,6 +1481,7 @@ const sheetVersion = "2.7",
 		}
 	],
 	translatedDefaults = {
+		char_cohort_name: "cohort",
 		cohort1_name: "cohort",
 		contacts_title: "contacts",
 		factions_title: "factions_title",
@@ -1231,6 +1538,7 @@ const sheetVersion = "2.7",
 	},
 	defaultValues = {
 		attune: "0",
+		char_cohort_type: "expert",
 		claim_bridge_10_15: "1",
 		claim_bridge_12_13: "1",
 		claim_bridge_13_14: "1",
@@ -1596,7 +1904,7 @@ on('change:crew_type change:playbook', event => {
 			fillRepeatingSectionFromData('ability', playbookData[sourceName].ability, true);
 			fillRepeatingSectionFromData('playbookitem', playbookData[sourceName].playbookitem, true);
 			fillBaseData(playbookData[sourceName].base, playbookAttributes);
-			if (sourceName === 'leech') fillRepeatingSectionFromData('alchemical', alchemicalData);
+			if (sourceName === 'leech' || sourceName === 'zindiq') fillRepeatingSectionFromData('alchemical', alchemicalData);
 		}
 	});
 });
