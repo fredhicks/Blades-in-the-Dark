@@ -64,11 +64,11 @@ mixin makeupgrade(number, numboxes, def, desc)
 					.label(data-i18n='rep') Rep
 				.rep2.blackborder.flex
 					.turfbox
-						each num in [1,2,3,4,5,6]
+						each num in range(1,6)
 							+radio('turf')(value=num)
 					+hidden-input('turf')(value='0').turf-input
 					+radio('rep')(value='0', checked).tooth.zero
-					each num in [...Array(13).keys()].slice(1)
+					each num in range(1,12)
 						+radio('rep')(class=['tooth', 'stresstooth', ...((num < 6) ? [] : [...Array(num-6).keys()].map(x => `turf${6-x}`))], value=num)
 				.rep3.blackborder
 					.black-on-grey
@@ -92,17 +92,17 @@ mixin makeupgrade(number, numboxes, def, desc)
 					+roll('Tier', '{{resist=1}} {{short=1}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their-l}}}', '@{crew_tier}')(data-i18n='tier').label.inherit.rollbutton Tier
 				.tier.flex
 					+hidden-checkbox('crew_tier')(value='0', checked).fakeradio
-					each num in [1,2,3,4]
+					each num in range(1,4)
 						+checkbox('crew_tier')(value=num).checkbox.circlebox.fakeradio
 		//- Claims
 		.claims.col100.white-repcontrol
 			.claimsrow.flex
-				each num in [1,2,3,4,5]
+				each num in range(1,5)
 					+claimbox(num)
 					if (num !== 5)
 						+claimbridge(`${num}_${num+1}`, 'hori')
 			.claims-seprow.flex
-				each num in [1,2,3,4,5]
+				each num in range(1,5)
 					+claimbridge(`${num}_${num+5}`, 'vert')
 			.claimsrow.flex
 				+claimbox(6)
@@ -115,19 +115,19 @@ mixin makeupgrade(number, numboxes, def, desc)
 				+claimbridge('9_10', 'hori')
 				+claimbox(10)
 			.claims-seprow.flex
-				each num in [6,7,8,9,10]
+				each num in range(6,10)
 					+claimbridge(`${num}_${num+5}`, 'vert')
 			.claimsrow.flex
-				each num in [11,12,13,14,15]
+				each num in range(11,15)
 					+claimbox(num)
 					if (num !== 15)
 						+claimbridge(`${num}_${num+1}`, 'hori')
 			fieldset.repeating_claim
 				.claims-seprow.flex
-					each num in [1,2,3,4,5]
+					each num in range(1,5)
 						+claimbridge(`top_${num}`, 'vert')
 				.claimsrow.flex
-					each num in [1,2,3,4,5]
+					each num in range(1,5)
 						+claimbox(num)
 						if (num !== 5)
 							+claimbridge(`${num}_${num+1}`, 'hori')
@@ -141,7 +141,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 						span(name='attr_setting_heat_label')
 				.heat2.blackborder.flex
 					+radio('heat')(value='0', checked).tooth.zero
-					each num in [1,2,3,4,5,6,7,8,9]
+					each num in range(1,9)
 						+radio('heat')(value=num).tooth.stresstooth
 				//- Wanted Level
 				.heat3
@@ -150,7 +150,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 							span(name='attr_setting_wanted_label')
 					.wantedholder.flex
 						+radio('wanted')(value='0', checked).tooth.zero
-						each num in [1,2,3,4]
+						each num in range(1,4)
 							+radio('wanted')(value=num).tooth.regulartooth
 			//- Coin
 			.crewcoin.col52b
@@ -161,13 +161,13 @@ mixin makeupgrade(number, numboxes, def, desc)
 						.label(data-i18n='vaults') Vaults
 				.col100.flex.crewcoin-coins
 					+radio('crewcoin')(value='0', checked).zero
-					each num in [1,2,3,4]
+					each num in range(1,4)
 						+radio('crewcoin')(value=num).radiobox
 					.crewcoinbar
-					each num in [5,6,7,8]
+					each num in range(5,8)
 						+radio('crewcoin')(value=num).radiobox.vaultcoin
 					.crewcoinbar
-					each num in [9,10,11,12,13,14,15,16]
+					each num in range(9,16)
 						+radio('crewcoin')(value=num).radiobox.vaultcoin
 				.col100.crewcoin-desc(data-i18n='upon_crew_advance-N') Upon crew advance, each PC gets Stash = Tier+2
 		//- Special abilities
@@ -187,7 +187,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 				.label(data-i18n='crew_advancement') Crew Advancement
 				.xpholder.flex
 					+radio('crew_xp')(value='0', checked).tooth.zero
-					each num in [1,2,3,4,5,6,7,8,9,10]
+					each num in range(1,10)
 						+radio('crew_xp')(value=num).tooth.xptooth
 			ul.advancement-desc
 				li.nondot(data-i18n='xp_top')
@@ -274,7 +274,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 					+makeupgrade(23, 1, 'Personal', 'Earn 2 xp when training playbook during downtime.')
 					.col100
 						.item
-							each num in [1,2,3,4]
+							each num in range(1,4)
 								+checkbox(`upgrade_24_check_${num}`).checkbox.squarebox
 								if (num < 4)
 									span.floatingbar

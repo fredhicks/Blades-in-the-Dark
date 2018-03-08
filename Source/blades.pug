@@ -1,3 +1,5 @@
+-	const range = (start, end) => [...Array(end+1).keys()].slice(start);
+
 //- Mixins for code reuse
 mixin checkbox(name, extraclass)
 	input(type='checkbox', class=[attributes.class, extraclass || ''], name=`attr_${name}`, value=attributes.value||'1', checked=attributes.checked)
@@ -38,7 +40,9 @@ mixin roll(name, templatedata, stat)
 	button(
 		type='roll',
 		name=`roll_${name}`,
-		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} {{roll1=[[[[{[[${stat}+@{bonusdice}}]],1}kl1]]d6]]}} {{roll2=[[[[{[[${stat}+@{bonusdice}-1}]],1}kl1]]d6]]}} {{roll3=[[[[{[[${stat}+@{bonusdice}-2}]],1}kl1]]d6]]}} {{roll4=[[[[{[[${stat}+@{bonusdice}-3}]],1}kl1]]d6]]}} {{roll5=[[[[{[[${stat}+@{bonusdice}-4}]],1}kl1]]d6]]}} {{roll6=[[[[{[[${stat}+@{bonusdice}-5}]],1}kl1]]d6]]}} {{roll7=[[[[{[[${stat}+@{bonusdice}-6}]],1}kl1]]d6]]}} {{roll8=[[[[{[[${stat}+@{bonusdice}-7}]],1}kl1]]d6]]}} {{roll9=[[[[{[[${stat}+@{bonusdice}-8}]],1}kl1]]d6]]}} {{roll10=[[[[{[[${stat}+@{bonusdice}-9}]],1}kl1]]d6]]}} {{roll11=[[[[{[[${stat}+@{bonusdice}-10}]],1}kl1]]d6]]}} {{roll12=[[[[{[[${stat}+@{bonusdice}-11}]],1}kl1]]d6]]}} {{zerodice=[[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]], [[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]]}} @{title_text}`
+		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} ` +
+			range(1,12).map(x => `{{roll${x}=[[[[{[[${stat}+@{bonusdice}${(x==1) ? '' : `-${x-1}`}}]],1}kl1]]d6]]}}`).join(' ') +
+			` {{zerodice=[[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]], [[[[{[[1-(${stat})-(@{bonusdice})]],1}kl1]]d6]]}} @{title_text}`
 	)&attributes(attributes)
 		block
 
@@ -46,7 +50,10 @@ mixin fortuneroll(name, templatedata, useNotes)
 	button(
 		type='roll',
 		name=`roll_${name}`,
-		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} {{roll1=[[[[{@{numberofdice},1}kl1]]d6]]}} {{roll2=[[[[{[[@{numberofdice}]]-1,1}kl1]]d6]]}} {{roll3=[[[[{[[@{numberofdice}-2]],1}kl1]]d6]]}} {{roll4=[[[[{[[@{numberofdice}-3]],1}kl1]]d6]]}} {{roll5=[[[[{[[@{numberofdice}-4]],1}kl1]]d6]]}} {{roll6=[[[[{[[@{numberofdice}-5]],1}kl1]]d6]]}} {{zerodice=[[[[{[[1-(@{numberofdice})]],1}kl1]]d6]], [[[[{[[1-(@{numberofdice})]],1}kl1]]d6]]}} ${useNotes ? '{{notes=@{notes_query}}} ' : ''}@{title_text}`
+		value!=`&{template:bitd} {{charname=@{character_name}}} ${templatedata} ` +
+			range(1,6).map(x => `{{roll${x}=[[[[{[[@{numberofdice}${(x==1) ? '' : `-${x-1}`}]],1}kl1]]d6]]}}`).join(' ') +
+			' {{zerodice=[[[[{[[1-(@{numberofdice})]],1}kl1]]d6]], [[[[{[[1-(@{numberofdice})]],1}kl1]]d6]]}} ' +
+			(useNotes ? '{{notes=@{notes_query}}} ' : '') + '@{title_text}'
 	)&attributes(attributes)
 		block
 
