@@ -3,12 +3,12 @@
 //- Mixins for code reuse
 mixin checkbox(name, extraclass)
 	input(type='checkbox', class=[attributes.class, extraclass || ''], name=`attr_${name}`, value=attributes.value||'1', checked=attributes.checked)
-	span(class=extraclass, data-i18n!=attributes.i18n)
+	span(class=extraclass, data-i18n!=attributes['data-i18n'])
 		block
 
 mixin radio(name)
 	input(type='radio', class!=attributes.class, name=`attr_${name}`, value!=attributes.value, checked=attributes.checked)
-	span(data-i18n!=attributes.i18n)
+	span(data-i18n!=attributes['data-i18n'])
 		block
 
 mixin text-input(name)
@@ -33,7 +33,7 @@ mixin autoexpand(name)
 	div(class=['auto-expand', attributes.class])
 		span(name=`attr_${name}`)
 			block
-		+textarea(name)(placeholder!=attributes.placeholder, data-i18n-placeholder!=attributes.i18nplaceholder)
+		+textarea(name)(data-i18n-placeholder!=attributes['data-i18n-placeholder'])
 			block
 
 mixin roll(name, templatedata, stat)
@@ -55,7 +55,6 @@ mixin fortuneroll(name, templatedata, useNotes)
 			' {{zerodice=[[[[{[[1-(@{numberofdice})]],1}kl1]]d6]], [[[[{[[1-(@{numberofdice})]],1}kl1]]d6]]}} ' +
 			(useNotes ? '{{notes=@{notes_query}}} ' : '') + '@{title_text}'
 	)&attributes(attributes)
-		block
 
 mixin makecohort(prefix, isCharacter)
 	.cohort
@@ -63,36 +62,36 @@ mixin makecohort(prefix, isCharacter)
 		+hidden-input(`${prefix}verb`)(value=isCharacter ? '^{rolls_their-l}' : '^{roll_their-l}')
 		.cohort-title.flex.col100.label
 			+text-input(`${prefix}name`)(value='Cohort').inherit
-			+roll(`${prefix}roll`, '{{resist=1}} {{short=1}} {{charname=@{'+prefix+'name} (^{@{'+prefix+'type}}, @{'+prefix+'subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{'+prefix+'verb}}})', `@{${prefix}dice}`)(data-i18n='roll-inf').inherit.rollbutton roll
+			+roll(`${prefix}roll`, '{{resist=1}} {{short=1}} {{charname=@{'+prefix+'name} (^{@{'+prefix+'type}}, @{'+prefix+'subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{'+prefix+'verb}}})', `@{${prefix}dice}`)(data-i18n='roll-inf').inherit.rollbutton
 		.cohort-info.flex.col100.uppercase
 			.cohort-dropdown
 				div
 					span(name=`attr_${prefix}type`, data-i18n-dynamic)
 				div
-					+radio(`${prefix}type`)(value='gang', checked=!isCharacter, i18n='gang') Gang
+					+radio(`${prefix}type`)(value='gang', checked=!isCharacter, data-i18n='gang')
 				div
-					+radio(`${prefix}type`)(value='elite', i18n='elite') Elite
+					+radio(`${prefix}type`)(value='elite', data-i18n='elite')
 				div
-					+radio(`${prefix}type`)(value='expert', checked=isCharacter, i18n='expert') Expert
-			+text-input(`${prefix}subtype`)(data-i18n-placeholder=isCharacter ? 'hunter' : 'gang_type', placeholder=isCharacter ? 'Hunter' : 'Thugs').sheet-inherit
+					+radio(`${prefix}type`)(value='expert', checked=isCharacter, data-i18n='expert')
+			+text-input(`${prefix}subtype`)(data-i18n-placeholder=isCharacter ? 'hunter' : 'gang_type').sheet-inherit
 			if (isCharacter)
 				.label.cohort-quality-label(data-i18n='quality_abbreviated') Q:
 				+number-input(`${prefix}quality`)(min='0', max='5', value='1').label
 		.cohort-condition.flex.col100
-			each name in ['Weak', 'Impaired', 'Broken', 'Armor']
+			each name in ['weak', 'impaired', 'broken', 'armor']
 				label
-					span(class='cohort-condition-name ' + (name ==='Armor' ? 'label' : 'uppercase'), data-i18n=name.toLowerCase())=name
-					+checkbox(prefix + name.toLowerCase()).tooth.stresstooth
-		each name in ['Edges', 'Flaws']
+					span(class='cohort-condition-name ' + (name ==='armor' ? 'label' : 'uppercase'), data-i18n=name)
+					+checkbox(prefix + name).tooth.stresstooth
+		each name in ['edges', 'flaws']
 			label.cohort-edgeflaw
-				span.uppercase(data-i18n=name.toLowerCase())=name
-				+autoexpand(`${prefix}${name.toLowerCase()}`)
+				span.uppercase(data-i18n=name)
+				+autoexpand(prefix + name)
 		+textarea(`${prefix}description`).cohort-description
 
 mixin makeclock(isFaction)
 	+hidden-input('size')(value='').size
-	+autoexpand('name')(placeholder='Clock Name', i18nplaceholder='clock_name').smallcaps
-	button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast}' + (!isFaction ? '{{charname=@{character_name}}} ' : '') + '{{title=@{name}}} {{clock=1}} {{clocksize=@{size}}} {{clockprogress=@{progress}}}', data-i18n-title='send_details_to_chat', title='Send details to chat') :
+	+autoexpand('name')(data-i18n-placeholder='clock_name').smallcaps
+	button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast}' + (!isFaction ? '{{charname=@{character_name}}} ' : '') + '{{title=@{name}}} {{clock=1}} {{clocksize=@{size}}} {{clockprogress=@{progress}}}', data-i18n-title='send_details_to_chat') :
 	.size-choice
 		each num in [4,6,8,10,12]
 			label.text-button
