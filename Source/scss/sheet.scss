@@ -14,14 +14,7 @@ $redtext: #c43c35;
 
 /* GENERALITIES */
 .charsheet {
-	color: $fontblack;
-	font-size: 0;
-	position: relative;
-	top: -11px;
-	cursor: default;
-	box-sizing: border-box;
 	padding: 0 !important;
-	font-family: Georgia, "Bitstream Charter", "Times New Roman", serif;
 
 	div, span, textarea, ul, li, span, label {
 		box-sizing: border-box;
@@ -283,6 +276,11 @@ $redtext: #c43c35;
 /* Sheet container */
 .sheet-container {
 	position: relative;
+	top: -11px;
+	cursor: default;
+	color: $fontblack;
+	font-size: 0;
+	font-family: Georgia, "Bitstream Charter", "Times New Roman", serif;
 }
 .sheet-flexwidth {
 	&[value="0"] ~ .sheet-container {
@@ -907,7 +905,7 @@ textarea.sheet-smallcaps {
 	top: 0;
 	z-index: -1;
 }
-[class^="sheet-spoke"] {
+div[class^="sheet-spoke"] {
 	height: 44px;
 	width: 2px;
 	position: absolute;

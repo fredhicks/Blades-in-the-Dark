@@ -161,16 +161,16 @@ $broadcast-white: #ccc;
 	}
 	/* Zerodice dice holder */
 	.sheet-action .sheet-zerodice1 {
-		text-shadow: 0px 0px 6px rgb(255, 158, 0);
+		text-shadow: 0 0 6px rgb(255, 158, 0);
 		color: white;
 	}
 	.sheet-fortune .sheet-zerodice1 {
-		text-shadow: 0px 0px 6px rgb(136, 219, 215);
+		text-shadow: 0 0 6px rgb(136, 219, 215);
 		color: $fortunecolor-light;
 	}
 	.sheet-vice .sheet-zerodice1,
 	.sheet-resist .sheet-zerodice1 {
-		text-shadow: 0px 0px 6px rgb(9, 199, 208);
+		text-shadow: 0 0 6px rgb(9, 199, 208);
 		color: white;
 	}
 	/* Zerodice text */
@@ -182,16 +182,16 @@ $broadcast-white: #ccc;
 	}
 	.sheet-vice .sheet-zerodice2,
 	.sheet-resist .sheet-zerodice2 {
-		text-shadow: 0px 0px 6px rgb(9, 199, 208);
+		text-shadow: 0 0 6px rgb(9, 199, 208);
 		color: $resistcolor-light;
 	}
 	.sheet-action .sheet-zerodice2 {
-		text-shadow: 0px 0px 6px rgb(255, 158, 0);
+		text-shadow: 0 0 6px rgb(255, 158, 0);
 		color: $actioncolor-light
 	}
 	.sheet-fortune .sheet-zerodice2 {
 		width: 60%;
-		text-shadow: 0px 0px 6px rgb(136, 219, 215);
+		text-shadow: 0 0 6px rgb(136, 219, 215);
 		color: $fortunecolor-light;
 	}
 
@@ -224,7 +224,7 @@ $broadcast-white: #ccc;
 		line-height: 1.2;
 		font-size: 13px;
 		padding: 20px 0;
-		color: fortunegrey;
+		color: $fortunecolor;
 	}
 }
 
@@ -326,7 +326,7 @@ $broadcast-white: #ccc;
 		border-radius: 50%;
 		margin-right: 4px;
 	}
-	[class^='sheet-spoke'] {
+	div[class^='sheet-spoke'] {
 		height: 88px;
 		width: 4px;
 		position: absolute;
