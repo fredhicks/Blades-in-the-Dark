@@ -72,7 +72,7 @@ $redtext: #c43c35;
 	textarea {
 		resize: vertical;
 		display: block;
-		&:active {
+		&:active, &:focus {
 			transition: height 0s;
 		}
 	}
