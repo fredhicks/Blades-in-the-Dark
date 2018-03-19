@@ -11,7 +11,7 @@ mixin claimbridge(number, type)
 		+checkbox(`claim_bridge_${number}`)(checked)
 
 mixin makeupgrade(number, numboxes, def, desc)
-	.col50
+	div
 		.item
 			+checkbox(`upgrade_${number}_check_1`).checkbox.squarebox
 			if (numboxes === 2)
@@ -22,29 +22,29 @@ mixin makeupgrade(number, numboxes, def, desc)
 			+textarea(`upgrade_${number}_description`)(data-i18n-placeholder='description')= desc
 
 //- Crew Sheet
-.type-crew.flex
+.type-crew.grid
 	//- Left column
-	.col55.flex-wrap
+	.left-column
 		//- Logo, Header text fields
-		.col100.header.flex-wrap
-			.col55.bladeslogo
-			.col45.crewheader.label(data-i18n='crew_sheet')
-			label.col55
+		.header.grid
+			.bladeslogo
+			.crewheader.label(data-i18n='crew_sheet')
+			label
 				+text-input('crew_name')
 				.label.text.title(data-i18n='name')
-			label.col45
+			label
 				+text-input('reputation')
 				.label.text.title(data-i18n='reputation')
-			label.col100
+			label.sheet-2col
 				+text-input('lair')
 				.label.text.title(data-i18n='lair')
 			+hidden-input('setting_show_deity')(value='0').hider
-			label.col55
+			label
 				+text-input('crew_deity')
 				.label.text.title
 					span(name='attr_setting_deity_label')
 			+hidden-input('setting_show_deity')(value='0').hider
-			label.col45
+			label
 				+text-input('crew_deity_features')(data-i18n-placeholder='choose_2_features')
 				+hidden-input('crew_deity_features')(value='')
 				.text
@@ -53,11 +53,11 @@ mixin makeupgrade(number, numboxes, def, desc)
 						span(data-i18n='features')
 					span.uppercase.info(data-i18n='deity_features_info')
 			+hidden-input('setting_show_origin')(value='0').hider
-			label.col100
+			label.sheet-2col
 				+text-input('origin')
 				.label.text.title(data-i18n='origin')
 		//- Rep, Hold, and Tier
-		.col100.flex.rep-and-hold.def-margin
+		.rep-and-hold.flex.def-margin
 			.rep.flex.col45
 				.rep1.blackheader
 					.label(data-i18n='rep')
@@ -94,16 +94,16 @@ mixin makeupgrade(number, numboxes, def, desc)
 					each num in range(1,4)
 						+checkbox('crew_tier')(value=num).checkbox.circlebox.fakeradio
 		//- Claims
-		.claims.col100.white-repcontrol
-			.claimsrow.flex
+		.claims.white-repcontrol
+			.claimsbody
 				each num in range(1,5)
 					+claimbox(num)
 					if (num !== 5)
 						+claimbridge(`${num}_${num+1}`, 'hori')
-			.claims-seprow.flex
 				each num in range(1,5)
 					+claimbridge(`${num}_${num+5}`, 'vert')
-			.claimsrow.flex
+					if (num !== 5)
+						div
 				+claimbox(6)
 				+claimbridge('6_7', 'hori')
 				+claimbox(7)
@@ -113,27 +113,27 @@ mixin makeupgrade(number, numboxes, def, desc)
 				+claimbox(9)
 				+claimbridge('9_10', 'hori')
 				+claimbox(10)
-			.claims-seprow.flex
 				each num in range(6,10)
 					+claimbridge(`${num}_${num+5}`, 'vert')
-			.claimsrow.flex
+					if (num !== 10)
+						div
 				each num in range(11,15)
 					+claimbox(num)
 					if (num !== 15)
 						+claimbridge(`${num}_${num+1}`, 'hori')
 			fieldset.repeating_claim
-				.claims-seprow.flex
-					each num in range(1,5)
-						+claimbridge(`top_${num}`, 'vert')
-				.claimsrow.flex
-					each num in range(1,5)
-						+claimbox(num)
-						if (num !== 5)
-							+claimbridge(`${num}_${num+1}`, 'hori')
+				each num in range(1,5)
+					+claimbridge(`top_${num}`, 'vert')
+					if (num !== 5)
+						div
+				each num in range(1,5)
+					+claimbox(num)
+					if (num !== 5)
+						+claimbridge(`${num}_${num+1}`, 'hori')
 		//- Heat and Coin
-		.col100.flex.heat-and-vault.def-margin
+		.heat-and-vault.flex.def-margin
 			//- Heat
-			.col45.flex.heat
+			.heat.col45.flex
 				//- Heat markers
 				.heat1.blackheader
 					.label
@@ -145,7 +145,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 				//- Wanted Level
 				.heat3
 					.blackheader
-						+roll('Wanted', '{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat} @{setting_heat_label}^{wantedroll2}}}', '@{wanted}').label.inherit.rollbutton
+						+roll('Wanted', '{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat}&nbsp;@{setting_heat_label}^{wantedroll2}}}', '@{wanted}').label.inherit.rollbutton
 							span(name='attr_setting_wanted_label')
 					.wantedholder.flex
 						+radio('wanted')(value='0', checked).tooth.zero
@@ -170,9 +170,9 @@ mixin makeupgrade(number, numboxes, def, desc)
 						+radio('crewcoin')(value=num).radiobox.vaultcoin
 				.col100.crewcoin-desc(data-i18n='upon_crew_advance-N')
 		//- Special abilities
-		.col100.def-margin
-			.specialheader.col100.label(data-i18n='special_abilities')
-			.greyholder.col100
+		.specialabilities.def-margin
+			.specialheader.label(data-i18n='special_abilities')
+			.greyholder
 				fieldset.repeating_crewability
 					.specialability.flex
 						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}}', data-i18n-title='send_details_to_chat') :
@@ -180,7 +180,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 						+autoexpand('name')(data-i18n-placeholder='ability_name').abilityname.smallcaps
 						+autoexpand('description')(data-i18n-placeholder='ability_description').abilitydesc
 		//- Advancement
-		.col100.def-margin
+		.advancement.def-margin
 			.advancement-header.flex.blackheader
 				.label.markxp(data-i18n='mark_xp:')
 				.label(data-i18n='crew_advancement')
@@ -199,9 +199,9 @@ mixin makeupgrade(number, numboxes, def, desc)
 				li(data-i18n='xp_bolster')
 				li(data-i18n='xp_express')
 	//- Right column
-	.col45.flex-wrap.right-column
+	.right-column.grid
 		//- Crew Type
-		.playbook.flex
+		.playbook.sheet-2col.flex
 			+text-input('crew_type')(data-i18n-placeholder='crew').label
 			+textarea('crew_description')(data-i18n-placeholder='crew_description').label
 			+hidden-input('show_playbook_reminder')(value='1').hider
@@ -210,13 +210,13 @@ mixin makeupgrade(number, numboxes, def, desc)
 				br
 				span(data-i18n='list_crews')
 		//- Upgrades and Hunting Grounds
-		.col53.small-margin
+		.upgradecolumn
 			//- Upgrades
-			.itemheader.col100
+			.itemheader
 				span.label(data-i18n='crew_upgrades')
-			.itemholder.col100.upgrades
+			.itemholder.upgrades
 				//- Specific upgrades
-				.playbookitems.small-repcontrol.col100
+				.playbookitems.small-repcontrol
 					fieldset.repeating_upgrade
 						+hidden-input('boxes_chosen')(value='0').boxes-chosen
 						.item.numboxes-chooser
@@ -236,11 +236,9 @@ mixin makeupgrade(number, numboxes, def, desc)
 							+checkbox('expand').expand
 							+textarea('description')(data-i18n-placeholder='description')
 				//- Regular upgrades
-				.regularitems.flex-wrap.col100
-					.item.col50
-						span.label(data-i18n='lair')
-					.item.col50
-						span.label(data-i18n='quality')
+				.regularitems.upgrades.grid
+					.upgradecaption.label(data-i18n='lair')
+					.upgradecaption.label(data-i18n='quality')
 					+makeupgrade(6, 2, 'Carriage', 'You have a carriage, two goats to pull it, and a stable. A second upgrade improves the carriage with armor and larger, swifter goats. Horses are very rare in Doskvol — most carriages in the city use the large Akorosian goat as their draft animal.')
 					+makeupgrade(7, 1, 'Documents', '+1 quality for Documents.')
 					+makeupgrade(8, 2, 'Boat', 'You have a boat, a dock on a waterway, and a small shack to store boating supplies. A second upgrade improves the boat with armor and more cargo capacity.')
@@ -254,22 +252,17 @@ mixin makeupgrade(number, numboxes, def, desc)
 					+makeupgrade(16, 2, 'Vault', 'Your lair has a secure vault, increasing your storage capacity for coin to 8. A second upgrade increases your capacity to 16. A separate part of your vault can be used as a holding cell.')
 					+makeupgrade(17, 1, 'Weapons', '+1 quality for Weapons.')
 					+makeupgrade(18, 1, 'Workshop', 'Your lair has a workshop appointed with tools for tinkering and alchemy, as well as a small library of books, documents, and maps. You may accomplish long-term projects with these assets without leaving your lair.')
-					.item.col50
-					.item.upgradecaption.col50
-						span.label(data-i18n='training')
-					.item.upgradecaption.col50
-						span.label(data-i18n='cohorts')
+					div
+					.upgradecaption.label(data-i18n='training')
+					.upgradecaption.label(data-i18n='cohorts')
 					+makeupgrade(20, 1, 'Insight', 'Earn 2 xp when training insight during downtime.')
-					.item.col50
-						.label.upgradecosts(data-i18n='upgrade_costs')
+					.upgradecosts.label(data-i18n='upgrade_costs')
 					+makeupgrade(21, 1, 'Prowess', 'Earn 2 xp when training prowess during downtime.')
-					.item.col50
-						.upgradecosts(data-i18n='new_cohort')
+					.upgradecosts(data-i18n='new_cohort')
 					+makeupgrade(22, 1, 'Resolve', 'Earn 2 xp when training resolve during downtime.')
-					.item.col50
-						.upgradecosts(data-i18n='add_type')
+					.upgradecosts(data-i18n='add_type')
 					+makeupgrade(23, 1, 'Personal', 'Earn 2 xp when training playbook during downtime.')
-					.col100
+					.sheet-2col
 						.item
 							each num in range(1,4)
 								+checkbox(`upgrade_24_check_${num}`).checkbox.squarebox
@@ -280,23 +273,23 @@ mixin makeupgrade(number, numboxes, def, desc)
 							+checkbox('upgrade_24_expand').expand
 							+textarea('upgrade_24_description')(data-i18n-placeholder='description')
 								| Your crew has access to master level training. You may advance your PCs' action ratings to 4 (until you unlock this upgrade, PC action ratings are capped at 3). This costs four upgrade boxes to unlock.
-			.hunting-grounds.col100.def-margin
+			.hunting-grounds.def-margin
 				+autoexpand('hunting_grounds_type')(data-i18n-placeholder='hunting_grounds').plainheader.label
 				+autoexpand('hunting_grounds_description')(data-i18n-placeholder='hunting_grounds_description').description
 			+fortuneroll('Engagement', '{{action=1}} {{short=1}} {{small-title=1}} {{subtitle=^{roll_for}}} {{title-engagement=1}} {{title=^{engagement}}}')(data-i18n='roll_engagement').engagementbutton.borderbutton
 		//- Cohorts and Contacts
-		.col47.right-column.small-margin
+		.cohortcolumn
 			//- First Cohort
 			+makecohort('cohort1_')
 			//- Cohort repeating section
-			.col100.white-repcontrol.cohorts
+			.white-repcontrol.cohorts
 				fieldset.repeating_cohort
 					+makecohort('')
 			//- Contacts
-			.col100.def-margin
-				.specialheader.col100.label.flex
+			.def-margin
+				.specialheader.label.flex
 					+text-input('contacts_title')(value='Contacts').inherit
-				.greyholder.col100
+				.greyholder
 					fieldset.repeating_contact
 						.friend-contact.contact.flex
 							+hidden-input('check')(value='0').friendstate
@@ -306,8 +299,8 @@ mixin makeupgrade(number, numboxes, def, desc)
 			//- Roll Fortune
 			+fortuneroll('Fortune_crew', '{{fortune=1}} {{subtitle=^{roll-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton
 		//- Clocks
-		.col100.clocks.white-repcontrol.def-margin
+		.clocks.sheet-2col.white-repcontrol.small-margin
 			.specialheader.label(data-i18n='clocks')
 			fieldset.repeating_crewclock
 				+makeclock
-		+textarea('crew_notes')(data-i18n-placeholder='notes').notes
+		+textarea('crew_notes')(data-i18n-placeholder='notes').notes.sheet-2col.small-margin

@@ -1,7 +1,7 @@
 (function () {
 	"use strict";
 	/* DATA */
-	const sheetVersion = "3.0",
+	const sheetVersion = "3.1",
 		crewData = {
 			assassins: {
 				base: {
@@ -658,6 +658,7 @@
 					gatherinfo5: "gatherinfo_what_might_happen",
 					gatherinfo6: "gatherinfo_how_can_I_find",
 					playbook_description: "playbook_leech_description",
+					setting_show_bandolier: "1",
 					tinker: "2",
 					wreck: "1",
 					xp_condition: "playbook_leech_xp_condition"
@@ -1037,6 +1038,7 @@
 					gatherinfo5: "gatherinfo_what_is_arcane",
 					gatherinfo6: "gatherinfo_wheres_the_weakness",
 					playbook_description: "playbook_zindiq_description",
+					setting_show_bandolier: "1",
 					sway: "1",
 					wreck: "2",
 					xp_condition: "playbook_zindiq_xp_condition"
@@ -1493,6 +1495,7 @@
 			factions5_header: "factions5",
 			frame: "frame",
 			friends_title: "friends",
+			setting_alchemicals_label: "alchemicals",
 			setting_deity_label: "deity",
 			setting_heat_label: "heat",
 			setting_stress_label: "stress",
@@ -2160,6 +2163,13 @@
 							}
 							setAttr('crew_notes', v.notes || '');
 							upgradeSheet('2.4');
+						});
+					}
+					else if (versionMajor < 3 || (versionMajor === 3 && versionMinor < 1)) {
+						getAttrs(['playbook'], v => {
+							if (['leech', 'zindiq'].includes(v.playbook)) mySetAttrs({
+								setting_show_bandolier: "1"
+							}, {}, () => upgradeSheet(3.1));
 						});
 					}
 				},

@@ -60,10 +60,10 @@ mixin makecohort(prefix, isCharacter)
 	.cohort
 		+hidden-input(`${prefix}dice`)(value=isCharacter ? '1' : '0')
 		+hidden-input(`${prefix}verb`)(value=isCharacter ? '^{rolls_their-l}' : '^{roll_their-l}')
-		.cohort-title.flex.col100.label
+		.cohort-title.flex.label
 			+text-input(`${prefix}name`)(value='Cohort').inherit
 			+roll(`${prefix}roll`, '{{resist=1}} {{short=1}} {{charname=@{'+prefix+'name} (^{@{'+prefix+'type}}, @{'+prefix+'subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{'+prefix+'verb}}})', `@{${prefix}dice}`)(data-i18n='roll-inf').inherit.rollbutton
-		.cohort-info.flex.col100.uppercase
+		.cohort-info.flex.uppercase
 			.cohort-dropdown
 				div
 					span(name=`attr_${prefix}type`, data-i18n-dynamic)
@@ -77,7 +77,7 @@ mixin makecohort(prefix, isCharacter)
 			if (isCharacter)
 				.label.cohort-quality-label(data-i18n='quality_abbreviated') Q:
 				+number-input(`${prefix}quality`)(min='0', max='5', value='1').label
-		.cohort-condition.flex.col100
+		.cohort-condition.flex
 			each name in ['weak', 'impaired', 'broken', 'armor']
 				label
 					span(class='cohort-condition-name ' + (name ==='armor' ? 'label' : 'uppercase'), data-i18n=name)
@@ -180,3 +180,5 @@ include pug/rolltemplate.pug
 |
 script(type='text/worker')
 	include:babel(presets=['minify']) sheetworkers.js
+|
+|

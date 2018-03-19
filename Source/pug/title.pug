@@ -14,7 +14,7 @@
 		span.version-text(data-i18n='version')
 		span(name='attr_version')
 +hidden-input('show_settings')(value='0').hider
-.settings.flex-wrap
+.settings
 	.setting-char.generaterow
 		select(name='attr_generate_source_character')
 			optgroup(data-i18n-label='playbooks')
@@ -116,6 +116,14 @@
 		label
 			+text-input('setting_trauma_label')(value='Trauma')
 			span(data-i18n='trauma_label')
+	.setting-char
+		label
+			+text-input('setting_alchemicals_label')(value='Alchemicals')
+			span(data-i18n='alchemicals_label')
+	.setting-char
+		label
+			+checkbox('setting_show_bandolier').checkbox.squarebox
+			span(data-i18n='show_bandolier_slots')
 	.setting-crew
 		label
 			+text-input('setting_heat_label')(value='Heat')
