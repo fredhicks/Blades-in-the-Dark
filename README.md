@@ -12,7 +12,8 @@ scss --sourcemap=none --default-encoding=UTF-8 --unix-newlines --sourcemap=none 
 ### 3.1
 * Fixed font for the Korean localization
 * Alchemicals now have a renameable title, and bandoliers can be hidden
-* Use CSS grid for large-scale sheet layout
+* Restyled repeating section controls to use symbols instead of text
+* Use CSS grid for large-scale sheet layout, fixing some weird margins along the way
 
 ### 3.0
 * Large internal refactoring and cleanup: the sheet is now generated from pug code. There should be no functionality change from this, but it has probably introduced a few new bugs

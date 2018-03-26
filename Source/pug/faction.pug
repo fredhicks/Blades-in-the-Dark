@@ -23,7 +23,7 @@ mixin makefactions(number, title)
 		label.generatebutton
 			+checkbox('generate_factions')(data-i18n='generate_factions')
 		+fortuneroll('Fortune_faction', '{{fortune=1}} {{title-fortune=1}} {{title=^{fortune}}} {{short=1}} {{charname=}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton
-	.factions.sheet-2col.grid.white-repcontrol
+	.factions.sheet-2col.grid.free-repcontrol
 		+makefactions(1, 'Underworld').sheet-2row
 		+makefactions(2, 'Institutions').sheet-2row
 		+makefactions(3, 'Labor & Trade')
@@ -37,7 +37,7 @@ mixin makefactions(number, title)
 				li(data-i18n='warblurb3')
 				li(data-i18n='warblurb4')
 				li(data-i18n='warblurb5')
-	.clocks.white-repcontrol
+	.clocks.free-repcontrol
 		.specialheader.label(data-i18n='clocks')
 		fieldset.repeating_factionclock
 			+makeclock

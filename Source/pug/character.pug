@@ -262,7 +262,7 @@
 			//- Items
 			.itemholder.items
 				//- Playbook items
-				.playbookitems.small-repcontrol
+				.playbookitems.free-repcontrol
 					fieldset.repeating_playbookitem
 						+hidden-input('boxes_chosen')(value='0').boxes-chosen
 						.item.numboxes-chooser
@@ -293,7 +293,7 @@
 								+checkbox('check').checkbox.circlebox
 								+text-input('name')(data-i18n-placeholder='frame_feature').itemname
 				//- Regular items
-				.regularitems.white-repcontrol
+				.regularitems.free-repcontrol
 					fieldset.repeating_item
 						+hidden-input('short')(value='0').input-short
 						+hidden-input('expand')(value='0').input-expand
@@ -321,7 +321,7 @@
 			.def-margin
 				input.title-checkbox(type='checkbox', name='attr_show_alchemicals', value='1')
 				span.label.plainheader(name='attr_setting_alchemicals_label')
-				.alchemicals.white-repcontrol
+				.alchemicals.free-repcontrol
 					+hidden-input('setting_show_bandolier')(value='0').hider
 					.bandolier
 						.item
@@ -403,7 +403,7 @@
 						span(data-i18n='push_yourself_desc2-N')
 						.label(data-i18n='devils_bargain')
 			//- Friends
-			.def-margin
+			.friends
 				.specialheader.label.flex
 					+text-input('friends_title')(value='Friends').inherit
 				.greyholder
@@ -418,7 +418,7 @@
 			//- Roll Fortune
 			+fortuneroll('Fortune', '{{fortune=1}} {{subtitle=^{rolls-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton
 		//- Clocks
-		.clocks.sheet-2col.small-margin.white-repcontrol
+		.clocks.sheet-2col.free-repcontrol
 			.specialheader.label(data-i18n='clocks')
 			fieldset.repeating_clock
 				+makeclock

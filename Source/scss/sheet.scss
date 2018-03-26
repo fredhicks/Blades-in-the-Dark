@@ -1404,33 +1404,29 @@ input.sheet-zero {
 		order: 1;
 	}
 	button {
-		padding: 6px;
-		background-image: none;
-		background: $lightest;
+		background: transparent;
 		color: $lightblack;
 		border-radius: 0;
 		border-color: $darkgrey;
 		transition: all 0.2s;
-		font-family: inherit;
-		font-variant: small-caps;
+		font-family: pictos;
+		font-size: 0;
 		font-weight: bold;
+		padding: 5px 3px 2px;
+		line-height: 8px;
 		&:hover {
 			color: black;
 			border-color: black;
 			background: $lighter;
 		}
+		&.repcontrol_edit::after { content: "(" }
+		&.repcontrol_add::after { content: "&" }
+		&.repcontrol_edit::after, &.repcontrol_add::after { font-size: 12px }
 	}
 }
+.repcontainer.editmode + .repcontrol button.repcontrol_edit::after { content: ")" }
+.sheet-free-repcontrol .repcontrol{ margin-top: 3px }
 
-.sheet-white-repcontrol .repcontrol button.btn { background: white }
-.sheet-small-repcontrol, .sheet-white-repcontrol {
-	.repcontrol button {
-		margin-top: 5px;
-		font-size: 12px;
-		padding: 2px;
-	}
-}
-.sheet-cohorts.sheet-white-repcontrol .repcontrol button { margin-top: 0 }
 .itemcontrol { z-index: 20 }
 .sheet-itemholder .itemcontrol .btn {
 	padding: 0px 7px;
@@ -1563,11 +1559,10 @@ button[type=roll].sheet-vicebutton {
 button[type=roll].sheet-fortunebutton {
 	width: 100%;
 	height: 30px;
-	margin: 10px 0 0;
+	margin: 0;
 }
 .sheet-type-faction button[type=roll].sheet-fortunebutton {
 	width: 100px;
-	margin: 0;
 }
 button[type=roll].sheet-engagementbutton {
 	width: calc(100% - 20px);
@@ -1685,8 +1680,7 @@ input.sheet-checkbox.sheet-squarebox-small, .sheet-checkbox.sheet-squarebox-smal
 	.sheet-checkbox:checked + span { border-left-color: black }
 }
 /* ACTION RATINGS */
-.sheet-attribute,
-.sheet-cohort { margin-bottom: 10px }
+.sheet-actioncolumn > div, .sheet-cohortcolumn > div, .sheet-cohorts .repitem:not(:last-child) { margin-bottom: 10px }
 .sheet-attribute-title,
 .sheet-cohort-title {
 	height: 21px;
