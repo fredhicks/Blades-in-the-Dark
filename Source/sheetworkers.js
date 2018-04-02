@@ -925,6 +925,7 @@
 					gatherinfo6: "gatherinfo_how_can_I_find",
 					playbook_description: "playbook_vampire_description",
 					setting_extra_stress: "3",
+					setting_traumata_set: "vampire",
 					setting_vampirexp: "1",
 					setting_show_strictures: "1",
 					setting_vice_type: "vampire",
@@ -1396,7 +1397,8 @@
 		traumaData = {
 			normal: ['cold', 'haunted', 'obsessed', 'paranoid', 'reckless', 'soft', 'unstable', 'vicious'],
 			ghost: ['chaotic', 'destructive', 'furious', 'obsessive', 'territorial', 'savage'],
-			hull: ['clanking', 'leaking', 'fixated', 'smoking', 'sparking', 'unstable']
+			hull: ['clanking', 'leaking', 'fixated', 'smoking', 'sparking', 'unstable'],
+			vampire: ['cold', 'haunted', 'obsessed', 'paranoid', 'ruthless', 'secretive', 'unstable', 'vicious']
 		},
 		itemData = [{
 				name: "a_blade_or_two",

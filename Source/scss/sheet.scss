@@ -1455,7 +1455,8 @@ input.sheet-zero {
 	div { justify-content: space-between }
 	.sheet-input:not([value="normal"]) ~ .sheet-normal,
 	.sheet-input:not([value="ghost"]) ~ .sheet-ghost,
-	.sheet-input:not([value="hull"]) ~ .sheet-hull { display: none }
+	.sheet-input:not([value="hull"]) ~ .sheet-hull,
+	.sheet-input:not([value="vampire"]) ~ .sheet-vampire { display: none }
 	.sheet-ghost, .sheet-hull { letter-spacing: 1px }
 }
 .sheet-traumaholder, .sheet-wantedholder {
