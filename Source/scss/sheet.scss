@@ -267,7 +267,7 @@ $redtext: #c43c35;
 	grid-gap: 10px 5px;
 }
 .sheet-right-column {
-	grid: none / minmax(auto, 249px) calc(47% - 5px);
+	grid: none / minmax(202.5px, 248.5px) minmax(calc(47% - 5px), 277px);
 	grid-gap: 5px;
 	grid-auto-rows: min-content;
 }

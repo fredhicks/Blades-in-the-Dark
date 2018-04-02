@@ -1,7 +1,7 @@
 (function () {
 	"use strict";
 	/* DATA */
-	const sheetVersion = "3.1",
+	const sheetVersion = "3.2",
 		crewData = {
 			assassins: {
 				base: {
@@ -2171,7 +2171,14 @@
 						getAttrs(['playbook'], v => {
 							if (['leech', 'zindiq'].includes(v.playbook)) mySetAttrs({
 								setting_show_bandolier: "1"
-							}, {}, () => upgradeSheet(3.1));
+							}, {}, () => upgradeSheet('3.1'));
+						});
+					}
+					else if (versionMajor === 3 && versionMinor < 2) {
+						getAttrs(['playbook'], v => {
+							if (['vampire'].includes(v.playbook)) mySetAttrs({
+								setting_traumata_set: "vampire",
+							}, {}, () => upgradeSheet('3.2'));
 						});
 					}
 				},

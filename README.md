@@ -9,6 +9,9 @@ scss --sourcemap=none --default-encoding=UTF-8 --unix-newlines --sourcemap=none 
 
 ## Changelog
 
+### 3.2
+* Added proper vampire traumas (thanks Jeffrey Lamb)
+
 ### 3.1
 * Fixed font for the Korean localization
 * Alchemicals now have a renameable title, and bandoliers can be hidden
