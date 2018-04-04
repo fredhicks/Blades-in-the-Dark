@@ -1,14 +1,17 @@
 //- ROLL TEMPLATE
 rolltemplate.sheet-rolltemplate-bitd
 	div(class!='holder{{#action}} action{{/action}}{{#resist}} resist{{/resist}}{{#vice}} vice{{/vice}}{{#fortune}} fortune{{/fortune}}{{#short}} short{{/short}}{{#action}}{{^position}} short{{/position}}{{/action}}{{#korean}} korean{{/korean}}')
-		.header {{charname}} {{subtitle}}
+		| {{#charimage}}{{^clock}}
+		.char-image [Image]({{charimage}})
+		| {{/clock}}{{/charimage}}
+		div(class!='header{{#charimage}} narrow{{/charimage}}') {{charname}} {{subtitle}}
 		.title
 			| {{#title-text}}
 			span(class='{{#small-title}}small-title{{/small-title}}') {{title}}
 			| {{/title-text}}{{^title-text}}{{#rolltypetext}}[{{rolltypetext}}]({{rolltypeimage}}){{/rolltypetext}}
 			each title in templateTitles
 				= `{{#title-${title}}}`
-				img(src=`https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-${title}.png`)
+				img(data-i18n-alt=title, src=`https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-${title}.png`)
 				= `{{/title-${title}}}`
 			| {{/title-text}}
 		.dice
@@ -35,7 +38,10 @@ rolltemplate.sheet-rolltemplate-bitd
 //- BROADCAST
 rolltemplate.sheet-rolltemplate-bitd-broadcast
 	div(class='{{#korean}}korean{{/korean}}')
-		.header
+		| {{#charimage}}{{^clock}}
+		.char-image [Image]({{charimage}})
+		| {{/clock}}{{/charimage}}
+		div(class!='header{{#charimage}}{{^clock}} narrow{{/clock}}{{/charimage}}')
 			div {{charname}}
 			div {{type}}
 		| {{#content}}
@@ -60,7 +66,8 @@ rolltemplate.sheet-rolltemplate-bitd-broadcast
 		| {{/clock}}{{#harm}}{{#title-text}}
 		.title(data-i18n='harm')
 		| {{/title-text}}{{^title-text}}
-		img(src='https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-harm.png')
+		.title
+			img(src='https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-harm.png')
 		| {{/title-text}}
 		table.harm
 			tr

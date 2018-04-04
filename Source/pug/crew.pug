@@ -10,16 +10,16 @@ mixin claimbridge(number, type)
 	label(class=['claimbridge', type === 'vert' ? 'claims-vertsep' : 'claims-horisep'])
 		+checkbox(`claim_bridge_${number}`)(checked)
 
-mixin makeupgrade(number, numboxes, def, desc)
+mixin makeupgrade(label, numboxes, def, desc)
 	div
 		.item
-			+checkbox(`upgrade_${number}_check_1`).checkbox.squarebox
+			+checkbox(`upgrade_${label}_check_1`).checkbox.squarebox
 			if (numboxes === 2)
-				+checkbox(`upgrade_${number}_check_2`).checkbox.squarebox
-			+text-input(`upgrade_${number}_name`)(value=def).itemname
+				+checkbox(`upgrade_${label}_check_2`).checkbox.squarebox
+			+text-input(`upgrade_${label}_name`)(value=def).itemname
 		.item-description
-			+checkbox(`upgrade_${number}_expand`).expand
-			+textarea(`upgrade_${number}_description`)(data-i18n-placeholder='description')= desc
+			+checkbox(null).expand
+			+textarea(`upgrade_${label}_description`)(data-i18n-placeholder='description')= desc
 
 //- Crew Sheet
 .type-crew.grid
@@ -88,7 +88,8 @@ mixin makeupgrade(number, numboxes, def, desc)
 					+radio('hold')(value='strong', checked).tooth.holdtooth
 				//- Tier
 				.blackheader
-					+roll('Tier', '{{resist=1}} {{short=1}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their-l}}}', '@{crew_tier}')(data-i18n='tier').label.inherit.rollbutton
+					+roll('Tier', '{{resist=1}} {{short=1}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their}}} @{crew_tier_formula}')(data-i18n='tier').label.inherit.rollbutton
+					+hidden-input('crew_tier_formula')(value=zerodiceFormula)
 				.tier.flex
 					+hidden-checkbox('crew_tier')(value='0', checked).fakeradio
 					each num in range(1,4)
@@ -145,8 +146,9 @@ mixin makeupgrade(number, numboxes, def, desc)
 				//- Wanted Level
 				.heat3
 					.blackheader
-						+roll('Wanted', '{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat}&nbsp;@{setting_heat_label}^{wantedroll2}}}', '@{wanted}').label.inherit.rollbutton
+						+roll('Wanted', '{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat}&nbsp;@{setting_heat_label}^{wantedroll2}}} @{wanted_formula}').label.inherit.rollbutton
 							span(name='attr_setting_wanted_label')
+						+hidden-input('wanted_formula')(value=zerodiceFormula)
 					.wantedholder.flex
 						+radio('wanted')(value='0', checked).tooth.zero
 						each num in range(1,4)
@@ -175,7 +177,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 			.greyholder
 				fieldset.repeating_crewability
 					.specialability.flex
-						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}}', data-i18n-title='send_details_to_chat') :
+						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}} {{charimage=@{chat_image}}}', data-i18n-title='send_details_to_chat') :
 						+checkbox('check').checkbox.circlebox
 						+autoexpand('name')(data-i18n-placeholder='ability_name').abilityname.smallcaps
 						+autoexpand('description')(data-i18n-placeholder='ability_description').abilitydesc
@@ -233,45 +235,45 @@ mixin makeupgrade(number, numboxes, def, desc)
 							+checkbox('check_3', 'boxesgeq2 boxesgeq3').checkbox.squarebox
 							+autoexpand('name')(data-i18n-placeholder='an_upgrade').itemname
 						.item-description
-							+checkbox('expand').expand
+							+checkbox(null).expand
 							+textarea('description')(data-i18n-placeholder='description')
 				//- Regular upgrades
 				.regularitems.upgrades.grid
 					.upgradecaption.label(data-i18n='lair')
 					.upgradecaption.label(data-i18n='quality')
-					+makeupgrade(6, 2, 'Carriage', 'You have a carriage, two goats to pull it, and a stable. A second upgrade improves the carriage with armor and larger, swifter goats. Horses are very rare in Doskvol — most carriages in the city use the large Akorosian goat as their draft animal.')
-					+makeupgrade(7, 1, 'Documents', '+1 quality for Documents.')
-					+makeupgrade(8, 2, 'Boat', 'You have a boat, a dock on a waterway, and a small shack to store boating supplies. A second upgrade improves the boat with armor and more cargo capacity.')
-					+makeupgrade(9, 1, 'Gear', '+1 quality for Burglary Gear and Climbing Gear.')
-					+makeupgrade(10, 1, 'Hidden', 'Your lair has a secret location and is disguised to hide it from view. If your lair is discovered, use two downtime activities and pay coin equal to your Tier to relocate it and hide it once again.')
-					+makeupgrade(11, 1, 'Implements', '+1 quality for Arcane Implements.')
-					+makeupgrade(12, 1, 'Quarters', 'Your lair includes living quarters for the crew. Without this upgrade, each PC sleeps elsewhere, and is vulnerable when they do so.')
-					+makeupgrade(13, 1, 'Supplies', '+1 quality for Subterfuge Supplies.')
-					+makeupgrade(14, 2, 'Secure', 'Your lair has locks, alarms, and traps to thwart intruders. A second upgrade improves the defenses to include arcane measures that work against spirits. You might roll your crew\'s Tier if these measures are ever put to the test, to see how well they thwart an intruder.')
-					+makeupgrade(15, 1, 'Tools', '+1 quality for Demolition Tools and Tinkering Tools.')
-					+makeupgrade(16, 2, 'Vault', 'Your lair has a secure vault, increasing your storage capacity for coin to 8. A second upgrade increases your capacity to 16. A separate part of your vault can be used as a holding cell.')
-					+makeupgrade(17, 1, 'Weapons', '+1 quality for Weapons.')
-					+makeupgrade(18, 1, 'Workshop', 'Your lair has a workshop appointed with tools for tinkering and alchemy, as well as a small library of books, documents, and maps. You may accomplish long-term projects with these assets without leaving your lair.')
+					+makeupgrade('carriage', 2, 'Carriage', 'You have a carriage, two goats to pull it, and a stable. A second upgrade improves the carriage with armor and larger, swifter goats. Horses are very rare in Doskvol — most carriages in the city use the large Akorosian goat as their draft animal.')
+					+makeupgrade('documents', 1, 'Documents', '+1 quality for Documents.')
+					+makeupgrade('boat', 2, 'Boat', 'You have a boat, a dock on a waterway, and a small shack to store boating supplies. A second upgrade improves the boat with armor and more cargo capacity.')
+					+makeupgrade('gear', 1, 'Gear', '+1 quality for Burglary Gear and Climbing Gear.')
+					+makeupgrade('hidden', 1, 'Hidden', 'Your lair has a secret location and is disguised to hide it from view. If your lair is discovered, use two downtime activities and pay coin equal to your Tier to relocate it and hide it once again.')
+					+makeupgrade('implements', 1, 'Implements', '+1 quality for Arcane Implements.')
+					+makeupgrade('quarters', 1, 'Quarters', 'Your lair includes living quarters for the crew. Without this upgrade, each PC sleeps elsewhere, and is vulnerable when they do so.')
+					+makeupgrade('supplies', 1, 'Supplies', '+1 quality for Subterfuge Supplies.')
+					+makeupgrade('secure', 2, 'Secure', 'Your lair has locks, alarms, and traps to thwart intruders. A second upgrade improves the defenses to include arcane measures that work against spirits. You might roll your crew\'s Tier if these measures are ever put to the test, to see how well they thwart an intruder.')
+					+makeupgrade('tools', 1, 'Tools', '+1 quality for Demolition Tools and Tinkering Tools.')
+					+makeupgrade('vault', 2, 'Vault', 'Your lair has a secure vault, increasing your storage capacity for coin to 8. A second upgrade increases your capacity to 16. A separate part of your vault can be used as a holding cell.')
+					+makeupgrade('weapons', 1, 'Weapons', '+1 quality for Weapons.')
+					+makeupgrade('workshop', 1, 'Workshop', 'Your lair has a workshop appointed with tools for tinkering and alchemy, as well as a small library of books, documents, and maps. You may accomplish long-term projects with these assets without leaving your lair.')
 					div
 					.upgradecaption.label(data-i18n='training')
 					.upgradecaption.label(data-i18n='cohorts')
-					+makeupgrade(20, 1, 'Insight', 'Earn 2 xp when training insight during downtime.')
+					+makeupgrade('insight', 1, 'Insight', 'Earn 2 xp when training insight during downtime.')
 					.upgradecosts.label(data-i18n='upgrade_costs')
-					+makeupgrade(21, 1, 'Prowess', 'Earn 2 xp when training prowess during downtime.')
+					+makeupgrade('prowess', 1, 'Prowess', 'Earn 2 xp when training prowess during downtime.')
 					.upgradecosts(data-i18n='new_cohort')
-					+makeupgrade(22, 1, 'Resolve', 'Earn 2 xp when training resolve during downtime.')
+					+makeupgrade('resolve', 1, 'Resolve', 'Earn 2 xp when training resolve during downtime.')
 					.upgradecosts(data-i18n='add_type')
-					+makeupgrade(23, 1, 'Personal', 'Earn 2 xp when training playbook during downtime.')
+					+makeupgrade('personal', 1, 'Personal', 'Earn 2 xp when training playbook during downtime.')
 					.sheet-2col
 						.item
 							each num in range(1,4)
-								+checkbox(`upgrade_24_check_${num}`).checkbox.squarebox
+								+checkbox(`upgrade_mastery_check_${num}`).checkbox.squarebox
 								if (num < 4)
 									span.floatingbar
-							+text-input('upgrade_24_name')(value='Mastery').itemname
+							+text-input('upgrade_mastery_name')(value='Mastery').itemname
 						.item-description
-							+checkbox('upgrade_24_expand').expand
-							+textarea('upgrade_24_description')(data-i18n-placeholder='description')
+							+checkbox(null).expand
+							+textarea('upgrade_mastery_description')(data-i18n-placeholder='description')
 								| Your crew has access to master level training. You may advance your PCs' action ratings to 4 (until you unlock this upgrade, PC action ratings are capped at 3). This costs four upgrade boxes to unlock.
 			.hunting-grounds.def-margin
 				+autoexpand('hunting_grounds_type')(data-i18n-placeholder='hunting_grounds').plainheader.label
@@ -297,7 +299,7 @@ mixin makeupgrade(number, numboxes, def, desc)
 								+checkbox('check').checkbox
 							+autoexpand('name')(data-i18n-placeholder='contact_name')
 			//- Roll Fortune
-			+fortuneroll('Fortune_crew', '{{fortune=1}} {{subtitle=^{roll-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton
+			+fortuneroll('Fortune_crew', '{{fortune=1}} {{subtitle=^{roll}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton
 		//- Clocks
 		.clocks.sheet-2col.free-repcontrol
 			.specialheader.label(data-i18n='clocks')

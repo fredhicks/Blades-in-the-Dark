@@ -9,6 +9,13 @@ scss --sourcemap=none --default-encoding=UTF-8 --unix-newlines --sourcemap=none 
 
 ## Changelog
 
+### 3.3
+* New option to display a small character picture on all chat rolls
+* Number of dice rolled is now pre-calculated by sheet workers; this means that there's no more need for nested inline rolls in the roll buttons
+* Rename attributes corresponding to upgrades
+* Some tweaks around spirit playbook special abilities
+* Minor visual tweaks
+
 ### 3.2
 * Added proper vampire traumas (thanks Jeffrey Lamb)
 

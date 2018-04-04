@@ -50,8 +50,8 @@
 				.text
 					span.label.title(data-i18n='vice_purveyor')
 					span.uppercase.info(data-i18n='vice_info')
-				+roll('Vice', '{{{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}')(data-i18n='indulge_vice').vicebutton.borderbutton
-				+hidden-input('vice')(value='0')
+				+roll('Vice', '{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}} @{vice_formula}')(data-i18n='indulge_vice').vicebutton.borderbutton
+				+hidden-input('vice_formula')(value=zerodiceFormula)
 			.vice.ghost
 				span.italic(data-i18n='ghost_viceblurb')
 			.vice.hull
@@ -64,7 +64,7 @@
 				span.italic(data-i18n='hull_viceblurb')
 			.vice.vampire
 				span.italic(data-i18n='vampire_viceblurb')
-				+roll('Vice', '{{{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}}}}', '@{vice}')(data-i18n='indulge_vice').vicebutton.borderbutton
+				+roll('Vice', '{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}} @{vice_formula}')(data-i18n='indulge_vice').vicebutton.borderbutton
 		//- Stress and Trauma
 		.stress.flex.sheet-2col
 			//- Stress markers
@@ -111,7 +111,7 @@
 			.harm
 				.blackheader
 					.label(data-i18n='harm')
-					button.broadcast-button(type='roll', name='roll_Harm', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{harm=1}} {{harm3=@{harm3}}} {{harm2_1=@{harm2_1}}} {{harm2_2=@{harm2_2}}} {{harm1_1=@{harm1_1}}} {{harm1_2=@{harm1_2}}} @{title_text}', data-i18n-title='send_details_to_chat') :
+					button.broadcast-button(type='roll', name='roll_Harm', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{harm=1}} {{harm3=@{harm3}}} {{harm2_1=@{harm2_1}}} {{harm2_2=@{harm2_2}}} {{harm1_1=@{harm1_1}}} {{harm1_2=@{harm1_2}}} {{charimage=@{chat_image}}} @{title_text}', data-i18n-title='send_details_to_chat') :
 				.harmbody
 					.flex-center.harmnumber 3
 					+textarea('harm3').twocols
@@ -127,7 +127,7 @@
 			//- Healing
 			.healing
 				.blackheader
-					+fortuneroll('Recovery', '{{resist=1}} {{short=1}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for-l}}}')(data-i18n='healing').label.rollbutton.inherit
+					+fortuneroll('Recovery', '{{resist=1}} {{short=1}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for}}}')(data-i18n='healing').label.rollbutton.inherit
 				.col100.healing-progress(data-i18n='progress_clock', data-i18n-title='recoveryblurb')
 				+hidden-input('recovery_max')(value='4').size
 				.clock-container
@@ -155,8 +155,8 @@
 						each num in range(1,4)
 							+radio('coin')(value=num).radiobox
 					.stashbutton-holder
-						+hidden-input('stash_dice')(value='0')
-						+roll('Stash', '{{resist=1}} {{short=1}} {{title-lifestyle=1}} {{title=^{stash}}} {{subtitle=^{rolls-l}}}', '@{stash_dice}')(data-i18n='stash').rollbutton.label
+						+hidden-input('stash_formula')(value=zerodiceFormula)
+						+roll('Stash', '{{resist=1}} {{short=1}} {{title-lifestyle=1}} {{title=^{lifestyle}}} {{subtitle=^{rolls}}} @{stash_formula}')(data-i18n='stash').rollbutton.label
 				//- Stash
 				.stash
 					+radio('stash')(value='0', checked).zero
@@ -166,11 +166,12 @@
 							br
 		//- Special abilities
 		.specialabilities.sheet-2col
-			.specialheader.label(data-i18n='special_abilities')
+			.specialheader.label.flex
+				+text-input('special_abilities_title')(value='Special Abilities').inherit
 			.greyholder
 				fieldset.repeating_ability
 					.specialability.flex
-						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}}', data-i18n-title='send_details_to_chat') :
+						button.broadcast-button(type='roll', name='roll_Show', value='&{template:bitd-broadcast} {{charname=@{character_name}}} {{type=^{special_ability}}} {{title=@{name}}} {{content=@{description}}} {{charimage=@{chat_image}}}', data-i18n-title='send_details_to_chat') :
 						+checkbox('check').checkbox.circlebox
 						+autoexpand('name')(data-i18n-placeholder='ability_name').abilityname.smallcaps
 						+autoexpand('description')(data-i18n-placeholder='ability_description').abilitydesc
@@ -283,7 +284,7 @@
 							+checkbox('check_3', 'boxesgeq2 boxesgeq3').checkbox.squarebox
 							+autoexpand('name')(data-i18n-placeholder='item_name').itemname
 						.item-description
-							+checkbox('expand').expand
+							+checkbox(null).expand
 							+textarea('description')(data-i18n-placeholder='description')
 					+hidden-input('setting_show_frame')(value='0').hider
 					.frame.small-margin
@@ -334,7 +335,7 @@
 										span.floatingbar
 						.bandolier-desc(data-i18n='when_you_use_bandolier')
 					fieldset.repeating_alchemical
-						+checkbox('expand').alchemicals-expand
+						+checkbox(null).alchemicals-expand
 						+autoexpand('name')
 						+textarea('description').alchemicals-info
 			//- Planning and Load
@@ -367,10 +368,9 @@
 				.attribute
 					.attribute-title.flex
 						+roll(attribute[0].toUpperCase() + attribute.substring(1),
-							'{{resist=1}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-' + attribute + '=1}} {{title=^{' + attribute + '}}}',
-							`@{${attribute}}+@{setting_resbonus_${attribute}}`
-							)(data-i18n=attribute, data-i18n-title=`${attribute}_description`).rollbutton.label
+							'{{resist=1}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-' + attribute + '=1}} {{title=^{' + attribute + '}}} @{' + attribute + '_formula}')(data-i18n=attribute, data-i18n-title=`${attribute}_description`).rollbutton.label
 						+hidden-input(`${attribute}`)(value='0')
+						+hidden-input(`${attribute}_formula`)(value=zerodiceFormula)
 						+hidden-input(`${attribute}_xp_max`)(value='6')
 						.attribute-xp-box.flex
 							+hidden-input('setting_vampirexp')(value='0').vampirexp
@@ -382,13 +382,14 @@
 					.actions
 						each action in actions
 							.action.flex
+								+hidden-input(`${action}_formula`)(value=zerodiceFormula)
 								+hidden-input(`setting_dark_talent_${attribute}`)(value='0').darktalent
 								+hidden-checkbox(action)(value='0', checked).fakeradio
 								+checkbox(action)(value='1').checkbox.circlebox.fakeradio
 								.divider
 								each num in range(2,5)
 									+checkbox(action)(value=num).checkbox.circlebox.fakeradio
-								+roll(action[0].toUpperCase() + action.substring(1), '{{action=1}} {{subtitle=^{rolls-l}}} {{title-' + action + '=1}} {{title=^{' + action + '}}} {{@{position_query}}} {{effect=@{effect_query}}}', `@{${action}}`)(data-i18n=action, data-i18n-title=`${action}_description`).rollbutton.label
+								+roll(action[0].toUpperCase() + action.substring(1), '{{action=1}} {{subtitle=^{rolls}}} {{title-' + action + '=1}} {{title=^{' + action + `}}} {{@{position_query}}} {{effect=@{effect_query}}} @{${action}_formula}`)(data-i18n=action, data-i18n-title=`${action}_description`).rollbutton.label
 			//- Cohort
 			+hidden-input('setting_show_cohort')(value='0').hider
 			+makecohort('char_cohort_', true)
@@ -417,7 +418,7 @@
 								+checkbox('status')(value='down').checkbox
 							+autoexpand('name')(data-i18n-placeholder='friend_name')
 			//- Roll Fortune
-			+fortuneroll('Fortune', '{{fortune=1}} {{subtitle=^{rolls-l}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton
+			+fortuneroll('Fortune', '{{fortune=1}} {{subtitle=^{rolls}}} {{title-fortune=1}} {{title=^{fortune}}}', true)(data-i18n='roll_fortune').fortunebutton.borderbutton
 		//- Clocks
 		.clocks.sheet-2col.free-repcontrol
 			.specialheader.label(data-i18n='clocks')
