@@ -1853,13 +1853,15 @@
 				'crew_tier',
 				...prefixes.map(p => `${p}_impaired`),
 				...prefixes.map(p => `${p}_type`),
+				...prefixes.map(p => `${p}_roll_formula`),
 			];
 			getAttrs(sourceAttrs, v => {
 				const setting = {};
 				prefixes.forEach(prefix => {
 					const dice = (parseInt(v.crew_tier) || 0) - (parseInt(v[`${prefix}_impaired`]) || 0) +
-						((v[`${prefix}_type`] === 'elite' || v[`${prefix}_type`] === 'expert') ? 1 : 0);
-					setting[`${prefix}_roll_formula`] = buildRollFormula(dice);
+						((v[`${prefix}_type`] === 'elite' || v[`${prefix}_type`] === 'expert') ? 1 : 0),
+						formula = buildRollFormula(dice);
+					if (formula !== v[`${prefix}_roll_formula`]) setting[`${prefix}_roll_formula`] = formula;
 				});
 				setAttrs(setting);
 			});
@@ -2300,10 +2302,12 @@
 							});
 							calculateCohortDice([...idArray.map(id => `repeating_cohort_${id}`), 'cohort1']);
 						});
-						getAttrs([...actionsFlat, 'crew_tier', 'char_cohort_quality', 'char_cohort_impaired'], v => {
+						getAttrs([...actionsFlat, 'crew_tier', 'char_cohort_quality', 'char_cohort_impaired', 'setting_show_cohort'], v => {
 							[...actionsFlat, 'crew_tier'].forEach(name => setAttr(`${name}_formula`, buildRollFormula(v[name])));
-							const dice = (parseInt(v.char_cohort_quality) || 0) - (parseInt(v.char_cohort_impaired) || 0);
-							setAttr('char_cohort_roll_formula', buildRollFormula(dice));
+							if (v.setting_show_cohort === '1') {
+								const dice = (parseInt(v.char_cohort_quality) || 0) - (parseInt(v.char_cohort_impaired) || 0);
+								setAttr('char_cohort_roll_formula', buildRollFormula(dice));
+							}
 						});
 						Object.keys(actionData).forEach(calculateResistance);
 						calculateVice();
