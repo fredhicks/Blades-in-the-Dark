@@ -1779,8 +1779,8 @@
 			else return replaceEntities(' {{zerodice=[[d6]], [[d6]]}}');
 		},
 		buildRollFormula = base => {
-			return `?{${getTranslationByKey('bonusdice')}|` +
-				[0, 1, 2, 3, 4 , 5, 6, -1, -2, -3].map(n => `${n},${diceMagic(n + (parseInt(base) || 0))}`).join('|') +
+			return `?{@{bonusdice}|` +
+				[0,1,2,3,4,5,6,-1,-2,-3].map(n => `${n},${diceMagic(n + (parseInt(base) || 0))}`).join('|') +
 				'}';
 		},
 		buildNumdiceFormula = () => {
@@ -1846,8 +1846,12 @@
 				setAttr('vice_formula', buildRollFormula(total));
 			});
 		},
-		calculateStashFormula = () => getAttrs(['stash'], v => setAttr('stash_formula', buildRollFormula(Math.floor(parseInt(v.stash) / 10)))),
-		calculateWantedFormula = () => getAttrs(['wanted'], v => setAttr('wanted_formula', buildRollFormula(v.wanted))),
+		calculateStashFormula = () => getAttrs(['stash'], v => {
+			setAttr('stash_formula', buildRollFormula(Math.floor(parseInt(v.stash) / 10)));
+		}),
+		calculateWantedFormula = () => getAttrs(['wanted'], v => {
+			setAttr('wanted_formula', buildRollFormula(v.wanted));
+		}),
 		calculateCohortDice = prefixes => {
 			const sourceAttrs = [
 				'crew_tier',
@@ -1865,6 +1869,62 @@
 				});
 				setAttrs(setting);
 			});
+		},
+		handlePlaybookFill = event => {
+			getAttrs(['playbook', 'crew_type', 'changed_attributes', 'setting_autofill', ...watchedAttributes], v => {
+				const changedAttributes = (v.changed_attributes || '').split(','),
+					sourceName = translatedNames[(event.sourceAttribute === 'crew_type' ? v.crew_type : v.playbook).toLowerCase()],
+					fillBaseData = (data, defaultAttrNames) => {
+						if (data) {
+							const finalSettings = defaultAttrNames.filter(name => !changedAttributes.includes(name))
+								// do not reset attributes which have been changed by the user
+								.filter(name => !spiritPlaybooks.includes(sourceName) || !actionsFlat.includes(name))
+								// do not reset action dots if changing to a spirit playbook
+								.filter(name => v[name] !== (defaultValues[name] || ''))
+								// do not set attributes if current value is equal to sheet defaults
+								.reduce((m, name) => {
+									m[name] = defaultValues[name] || '';
+									return m;
+								}, {});
+							Object.keys(data).filter(name => !changedAttributes.includes(name))
+								.forEach(name => (finalSettings[name] = data[name]));
+							mySetAttrs(finalSettings);
+						}
+					};
+				if (event.sourceAttribute === 'crew_type' ? v.crew_type : v.playbook) {
+					setAttr('show_playbook_reminder', '0');
+				}
+				if (v.setting_autofill !== '1') return;
+				if (event.sourceAttribute === 'crew_type' && sourceName in crewData) {
+					fillRepeatingSectionFromData('contact', crewData[sourceName].contact, true);
+					fillRepeatingSectionFromData('crewability', crewData[sourceName].crewability, true);
+					fillRepeatingSectionFromData('upgrade', crewData[sourceName].upgrade, true);
+					fillBaseData(crewData[sourceName].base, crewAttributes);
+				}
+				if (event.sourceAttribute === 'playbook' && sourceName in playbookData) {
+					fillRepeatingSectionFromData('friend', playbookData[sourceName].friend, true);
+					fillRepeatingSectionFromData('ability', playbookData[sourceName].ability, true);
+					fillRepeatingSectionFromData('playbookitem', playbookData[sourceName].playbookitem, true);
+					fillBaseData(playbookData[sourceName].base, playbookAttributes);
+					if (sourceName === 'leech' || sourceName === 'zindiq') fillRepeatingSectionFromData('alchemical', alchemicalData);
+				}
+			});
+		},
+		recalculateDiceFormulas = () => {
+			getSectionIDs('repeating_cohort', idArray => {
+				calculateCohortDice([...idArray.map(id => `repeating_cohort_${id}`), 'cohort1']);
+			});
+			getAttrs([...actionsFlat, 'crew_tier', 'char_cohort_quality', 'char_cohort_impaired', 'setting_show_cohort'], v => {
+				[...actionsFlat, 'crew_tier'].forEach(name => setAttr(`${name}_formula`, buildRollFormula(v[name])));
+				if (v.setting_show_cohort === '1') {
+					const dice = (parseInt(v.char_cohort_quality) || 0) - (parseInt(v.char_cohort_impaired) || 0);
+					setAttr('char_cohort_roll_formula', buildRollFormula(dice));
+				}
+			});
+			Object.keys(actionData).forEach(calculateResistance);
+			calculateVice();
+			calculateStashFormula();
+			calculateWantedFormula();
 		};
 	/* CONSTANTS */
 	const crewAttributes = [...new Set([].concat(...Object.keys(crewData).map(x => Object.keys(crewData[x].base))))],
@@ -1914,46 +1974,7 @@
 		}, {});
 	/* EVENT HANDLERS */
 	/* Set default fields when setting crew type or playbook */
-	on('change:crew_type change:playbook', event => {
-		getAttrs(['playbook', 'crew_type', 'changed_attributes', 'setting_autofill', ...watchedAttributes], v => {
-			const changedAttributes = (v.changed_attributes || '').split(','),
-				sourceName = translatedNames[(event.sourceAttribute === 'crew_type' ? v.crew_type : v.playbook).toLowerCase()],
-				fillBaseData = (data, defaultAttrNames) => {
-					if (data) {
-						const finalSettings = defaultAttrNames.filter(name => !changedAttributes.includes(name))
-							// do not reset attributes which have been changed by the user
-							.filter(name => !spiritPlaybooks.includes(sourceName) || !actionsFlat.includes(name))
-							// do not reset action dots if changing to a spirit playbook
-							.filter(name => v[name] !== (defaultValues[name] || ''))
-							// do not set attributes if current value is equal to sheet defaults
-							.reduce((m, name) => {
-								m[name] = defaultValues[name] || '';
-								return m;
-							}, {});
-						Object.keys(data).filter(name => !changedAttributes.includes(name))
-							.forEach(name => (finalSettings[name] = data[name]));
-						mySetAttrs(finalSettings);
-					}
-				};
-			if (event.sourceAttribute === 'crew_type' ? v.crew_type : v.playbook) {
-				setAttr('show_playbook_reminder', '0');
-			}
-			if (v.setting_autofill !== '1') return;
-			if (event.sourceAttribute === 'crew_type' && sourceName in crewData) {
-				fillRepeatingSectionFromData('contact', crewData[sourceName].contact, true);
-				fillRepeatingSectionFromData('crewability', crewData[sourceName].crewability, true);
-				fillRepeatingSectionFromData('upgrade', crewData[sourceName].upgrade, true);
-				fillBaseData(crewData[sourceName].base, crewAttributes);
-			}
-			if (event.sourceAttribute === 'playbook' && sourceName in playbookData) {
-				fillRepeatingSectionFromData('friend', playbookData[sourceName].friend, true);
-				fillRepeatingSectionFromData('ability', playbookData[sourceName].ability, true);
-				fillRepeatingSectionFromData('playbookitem', playbookData[sourceName].playbookitem, true);
-				fillBaseData(playbookData[sourceName].base, playbookAttributes);
-				if (sourceName === 'leech' || sourceName === 'zindiq') fillRepeatingSectionFromData('alchemical', alchemicalData);
-			}
-		});
-	});
+	on('change:crew_type change:playbook', handlePlaybookFill);
 	/* Watch repeating rows for changes and set autogen to false if change happens*/
 	autogenSections.forEach(sectionName => {
 		on(`change:repeating_${sectionName}`, event => {
@@ -2111,35 +2132,36 @@
 		if (match) setAttr('chat_image', match[1]);
 	});
 	/* Number of dice prompt */
-	on('sheet:opened', () => setAttr('numberofdice', buildNumdiceFormula()));
+	on('sheet:opened', () => {
+		/* Set up translated attributes */
+		const translatedAttrs = {
+			bonusdice: getTranslationByKey('bonusdice'),
+			effect_query: getTranslationByKey('effect_query'),
+			notes_query: `?{${getTranslationByKey('notes')}}`,
+			numberofdice: buildNumdiceFormula(),
+			position_query: `?{${getTranslationByKey('position')}|` +
+				`${getTranslationByKey('risky')},position=${getTranslationByKey('risky')}|` +
+				`${getTranslationByKey('controlled')},position=${getTranslationByKey('controlled')}|` +
+				`${getTranslationByKey('desperate')},position=${getTranslationByKey('desperate')}|` +
+				`${getTranslationByKey('fortune_roll')},position=}`,
+			title_text: (getTranslationLanguage() === 'ko') ? '{{title-text=1}} {{korean=1}}' : '',
+		};
+		getAttrs(Object.keys(translatedAttrs), v => {
+			const setting = {};
+			Object.keys(translatedAttrs).forEach(name => {
+				if (v[name] !== translatedAttrs[name]) setting[name] = translatedAttrs[name];
+			});
+			mySetAttrs(setting);
+		});
+	});
 	/* INITIALISATION AND UPGRADES */
 	on('sheet:opened', () => {
-		getAttrs(['sheet_type', 'changed_attributes', 'crew_type', 'playbook'], v => {
+		getAttrs(['sheet_type', 'crew_type', 'playbook'], v => {
 			/* Make sure sheet_type is never 0 */
 			if (!['crew', 'faction'].includes(v.sheet_type)) setAttr('sheet_type', 'character');
 			/* Remove reminder box if we have playbook or crew name */
 			if (v.playbook || v.crew_type) setAttr('show_playbook_reminder', '0');
 		});
-		/* Set up translated queries */
-		const queries = {
-			effect_query: getTranslationByKey('effect_query'),
-			notes_query: `?{${getTranslationByKey('notes')}}`,
-			position_query: `?{${getTranslationByKey('position')}|` +
-				`${getTranslationByKey('risky')},position=${getTranslationByKey('risky')}|` +
-				`${getTranslationByKey('controlled')},position=${getTranslationByKey('controlled')}|` +
-				`${getTranslationByKey('desperate')},position=${getTranslationByKey('desperate')}|` +
-				`${getTranslationByKey('fortune_roll')},position=}`
-		};
-		getAttrs(Object.keys(queries), v => {
-			const setting = {};
-			Object.keys(queries).forEach(name => {
-				if (v[name] !== queries[name]) setting[name] = queries[name];
-			});
-			mySetAttrs(setting);
-		});
-		/* Translated title text */
-		if (getTranslationLanguage() === 'ko') setAttr('title_text', '{{title-text=1}} {{korean=1}}');
-		else setAttr('title_text', '');
 		/* Setup and upgrades */
 		getAttrs(['version'], v => {
 			const addVersion = (object, version) => {
@@ -2178,9 +2200,8 @@
 							mySetAttrs(setting, {}, upgradeFunction);
 						});
 					}
-					// Upgrade to 2.4: Enable pet for hounds, generate alchemicals for Leeches, recalculate resistance
+					// Upgrade to 2.4: Enable pet for hounds, generate alchemicals for Leeches
 					else if (versionMajor === 2 && versionMinor < 4) {
-						Object.keys(actionData).forEach(calculateResistance);
 						getAttrs(['playbook', 'notes', 'changed_attributes'], v => {
 							const setting = {};
 							if (v.playbook.toLowerCase() === 'leech') {
@@ -2300,19 +2321,8 @@
 								});
 								mySetAttrs(setting, {}, upgradeFunction);
 							});
-							calculateCohortDice([...idArray.map(id => `repeating_cohort_${id}`), 'cohort1']);
 						});
-						getAttrs([...actionsFlat, 'crew_tier', 'char_cohort_quality', 'char_cohort_impaired', 'setting_show_cohort'], v => {
-							[...actionsFlat, 'crew_tier'].forEach(name => setAttr(`${name}_formula`, buildRollFormula(v[name])));
-							if (v.setting_show_cohort === '1') {
-								const dice = (parseInt(v.char_cohort_quality) || 0) - (parseInt(v.char_cohort_impaired) || 0);
-								setAttr('char_cohort_roll_formula', buildRollFormula(dice));
-							}
-						});
-						Object.keys(actionData).forEach(calculateResistance);
-						calculateVice();
-						calculateStashFormula();
-						calculateWantedFormula();
+						recalculateDiceFormulas();
 					}
 				},
 				initialiseSheet = () => {
