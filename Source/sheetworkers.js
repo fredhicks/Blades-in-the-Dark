@@ -3,7 +3,7 @@
 (function () {
 	"use strict";
 	/* DATA */
-	const sheetVersion = "3.3",
+	const sheetVersion = "3.4",
 		crewData = {
 			assassins: {
 				base: {
@@ -1704,6 +1704,20 @@
 			item.boxes_chosen = '1';
 		});
 	});
+	const playbookAbilityMap = new Map([...Object.values(playbookData).map(x => x.ability).reduce((m, v) => {
+		v.forEach(a => m.add(a));
+		return m;
+	}, new Set())].map(x => {
+		console.log(x);
+		return [x.name.toLowerCase(), x.description];
+	}));
+	const crewAbilityMap = new Map([...Object.values(crewData).map(x => x.crewability).reduce((m, v) => {
+		v.forEach(a => m.add(a));
+		return m;
+	}, new Set())].map(x => {
+		console.log(x);
+		return [x.name.toLowerCase(), x.description];
+	}));
 	/* FUNCTIONS */
 	const mySetAttrs = (attrs, options, callback) => {
 			const finalAttrs = Object.keys(attrs).reduce((m, k) => {
@@ -1910,6 +1924,24 @@
 				}
 			});
 		},
+		fillPlaybookAbility = () => {
+			const prefix = 'repeating_ability';
+			getAttrs([`${prefix}_name`, `${prefix}_description`], v => {
+				if (!v[`${prefix}_description`]) {
+					const description = playbookAbilityMap.get((v[`${prefix}_name`] || '').toLowerCase());
+					if (description) setAttr(`${prefix}_description`, description);
+				}
+			});
+		},
+		fillCrewAbility = () => {
+			const prefix = 'repeating_crewability';
+			getAttrs([`${prefix}_name`, `${prefix}_description`], v => {
+				if (!v[`${prefix}_description`]) {
+					const description = crewAbilityMap.get((v[`${prefix}_name`] || '').toLowerCase());
+					if (description) setAttr(`${prefix}_description`, description);
+				}
+			});
+		},
 		recalculateDiceFormulas = () => {
 			getSectionIDs('repeating_cohort', idArray => {
 				calculateCohortDice([...idArray.map(id => `repeating_cohort_${id}`), 'cohort1']);
@@ -1975,6 +2007,9 @@
 	/* EVENT HANDLERS */
 	/* Set default fields when setting crew type or playbook */
 	on('change:crew_type change:playbook', handlePlaybookFill);
+	/* automatically fill abilities */
+	on('change:repeating_ability:name', fillPlaybookAbility);
+	on('change:repeating_crewability:name', fillCrewAbility);
 	/* Watch repeating rows for changes and set autogen to false if change happens*/
 	autogenSections.forEach(sectionName => {
 		on(`change:repeating_${sectionName}`, event => {
