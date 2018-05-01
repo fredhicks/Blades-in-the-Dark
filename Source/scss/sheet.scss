@@ -1140,6 +1140,35 @@ input.sheet-zero {
 .sheet-turf-input[value="6"] ~ input[type=radio].sheet-turf6 + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-black.png') }
 .sheet-tooth:checked ~ .sheet-stresstooth.sheet-turf6 + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-halfgrey.png') }
 /* SPECIAL ABILITIES*/
+.sheet-show-frienddesc[value='0'] ~ .sheet-container {
+	.sheet-friends, .sheet-contacts {
+		.sheet-expand, .sheet-expand + span, .sheet-description { display: none }
+	}
+}
+.sheet-friends, .sheet-contacts {
+	input.sheet-expand { top: 11px }
+	.sheet-expand + span { top: 8px }
+	input.sheet-expand, .sheet-expand + span { right: 3px }
+
+	.sheet-expand:not(:checked) + span::before { content: "◀" }
+	.sheet-expand:checked + span::before { content: "▼" }
+
+	.sheet-expand:not(:checked) ~ .sheet-description {
+		height: 0px !important;
+		border: none;
+		min-height: 0;
+		padding: 0;
+	}
+
+	.sheet-description {
+		font-size: 11px;
+		padding: 2px 3px;
+		line-height: 14px;
+		height: 46px;
+		min-height: 18px;
+		border-bottom: 1px solid #b4b4b4;
+	}
+}
 .sheet-specialability,
 .sheet-friend-contact {
 	border-bottom: 1px solid $darkgrey;

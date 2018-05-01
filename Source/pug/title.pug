@@ -100,6 +100,14 @@
 		label
 			+checkbox('setting_show_cohort').checkbox.squarebox
 			span(data-i18n='show_cohort_section')
+	.setting-char.setting-crew
+		label
+			+checkbox('setting_show_frienddesc')(checked).checkbox.squarebox
+			span(data-i18n='show_friend_contact_details')
+	.setting-char
+		label
+			+checkbox('setting_show_bandolier').checkbox.squarebox
+			span(data-i18n='show_bandolier_slots')
 	.setting-crew
 		label
 			+checkbox('setting_show_deity').checkbox.squarebox
@@ -120,10 +128,6 @@
 		label
 			+text-input('setting_alchemicals_label')(value='Alchemicals')
 			span(data-i18n='alchemicals_label')
-	.setting-char
-		label
-			+checkbox('setting_show_bandolier').checkbox.squarebox
-			span(data-i18n='show_bandolier_slots')
 	.setting-crew
 		label
 			+text-input('setting_heat_label')(value='Heat')

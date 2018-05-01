@@ -9,6 +9,9 @@ scss --sourcemap=none --default-encoding=UTF-8 --unix-newlines --sourcemap=none 
 
 ## Changelog
 
+### 3.5
+* Added notes for friends and contacts
+
 ### 3.4
 * Look up entered ability names and fill description automatically
 

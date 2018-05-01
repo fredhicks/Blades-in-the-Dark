@@ -3,7 +3,7 @@
 (function () {
 	"use strict";
 	/* DATA */
-	const sheetVersion = "3.4",
+	const sheetVersion = "3.5",
 		crewData = {
 			assassins: {
 				base: {
@@ -2358,6 +2358,11 @@
 							});
 						});
 						recalculateDiceFormulas();
+					}
+					else if (versionMajor === 3 && versionMinor < 5) {
+						const setting = {};
+						addVersion(setting, '3.5');
+						mySetAttrs(setting, {}, () => upgradeSheet('3.5'));
 					}
 				},
 				initialiseSheet = () => {
