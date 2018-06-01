@@ -4,7 +4,7 @@ This is the source code for the Blades in the Dark character sheet on Roll20. If
 
 ```
 pug Source/blades.pug -o .
-scss --sourcemap=none --default-encoding=UTF-8 --unix-newlines --sourcemap=none --no-cache --style compressed Source/blades.scss blades.css
+sass --no-source-map --style compressed Source/blades.scss blades.css
 ```
 
 ## Changelog
