@@ -11,7 +11,10 @@ $vicecolor-notes: #c9c9c9;
 $broadcast: #180d06;
 $broadcast-white: #ccc;
 
-.withoutavatars .sheet-rolltemplate-bitd .sheet-holder { margin-left: -15px }
+.withoutavatars {
+	.sheet-rolltemplate-bitd .sheet-holder { margin-left: -15px }
+	.sheet-rolltemplate-bitd-broadcast .sheet-holder { margin-left: -15px }
+}
 
 /* Container */
 .sheet-rolltemplate-bitd {
