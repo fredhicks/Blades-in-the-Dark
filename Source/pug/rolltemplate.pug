@@ -1,9 +1,9 @@
 //- ROLL TEMPLATE
 rolltemplate.sheet-rolltemplate-bitd
 	div(class!='holder{{#action}} action{{/action}}{{#resist}} resist{{/resist}}{{#vice}} vice{{/vice}}{{#fortune}} fortune{{/fortune}}{{#short}} short{{/short}}{{#action}}{{^position}} short{{/position}}{{/action}}{{#korean}} korean{{/korean}}')
-		| {{#charimage}}{{^clock}}
+		| {{#charimage}}
 		.char-image [Image]({{charimage}})
-		| {{/clock}}{{/charimage}}
+		| {{/charimage}}
 		div(class!='header{{#charimage}} narrow{{/charimage}}') {{charname}} {{subtitle}}
 		.title
 			| {{#title-text}}
