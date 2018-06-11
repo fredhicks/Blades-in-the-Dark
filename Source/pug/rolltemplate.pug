@@ -15,14 +15,16 @@ rolltemplate.sheet-rolltemplate-bitd
 				= `{{/title-${title}}}`
 			| {{/title-text}}
 		.dice
+			| {{^zerodice}}{{dice}}
+			//- Legacy rolls
 			each num in range(1,12)
 				= `{{#rollGreater() roll${num} 0}}{{roll${num}}}`
 				span.comma ,
 				= ` {{/rollGreater() roll${num} 0}}`
-			| {{#rollGreater() zerodice 0}}
+			| {{/zerodice}}{{#zerodice}}
 			.zerodice1 {{zerodice}}
-			.zerodice2(data-i18n='zerodice-N')
-			| {{/rollGreater() zerodice 0}}
+			.zerodice2(data-i18n='zerodice')
+			| {{/zerodice}}
 		| {{#position}}
 		.position {{position}}
 		| {{/position}}{{#effect}}

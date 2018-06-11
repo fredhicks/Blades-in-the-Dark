@@ -37,6 +37,11 @@ $broadcast-white: #ccc;
 	.sheet-holder.sheet-vice.sheet-short { height: 171px }
 	.sheet-holder.sheet-action.sheet-short { height: 195px }
 	.sheet-holder.sheet-fortune.sheet-short { min-height: 199px }
+	.sheet-action {
+		display: grid;
+		grid: auto / 133px 116px;
+		align-content: start;
+	}
 	.sheet-action,
 	.sheet-resist,
 	.sheet-vice { height: 258px }
@@ -53,6 +58,7 @@ $broadcast-white: #ccc;
 	.sheet-vice { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-vice.jpg') }
 	/* Header */
 	.sheet-header {
+		grid-column: span 2;
 		display: -webkit-box;
 		margin: 16px 0 0;
 		font-size: 15px;
@@ -94,6 +100,7 @@ $broadcast-white: #ccc;
 	}
 	/* Title */
 	.sheet-title {
+		grid-column: span 2;
 		color: white;
 		position: relative;
 		text-transform: uppercase;
@@ -120,18 +127,16 @@ $broadcast-white: #ccc;
 	.sheet-fortune .sheet-title { color: black }
 	.sheet-small-title { font-size: 28px }
 	/* Position and Effect */
-	.sheet-position { width: 133px }
 	.sheet-position,
 	.sheet-effect {
-			display: inline-block;
-			box-sizing: border-box;
-			color: white;
-			text-transform: uppercase;
-			font-size: 12px;
-			letter-spacing: 1px;
+		color: white;
+		text-transform: uppercase;
+		font-size: 12px;
+		letter-spacing: 1px;
 	}
 	/* Dice */
 	.sheet-dice {
+		grid-column: span 2;
 		height: 27px;
 		font-size: 19px;
 		line-height: 20px;

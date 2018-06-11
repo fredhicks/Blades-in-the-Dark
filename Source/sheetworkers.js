@@ -3,7 +3,7 @@
 (function () {
 	"use strict";
 	/* DATA */
-	const sheetVersion = "3.5",
+	const sheetVersion = "3.6",
 		crewData = {
 			assassins: {
 				base: {
@@ -41,8 +41,8 @@
 					claim_bridge_13_14: 0,
 					crew_description: "crew_assassins_description",
 					crew_xp_condition: "crew_assassins_xp_condition",
-					hunting_grounds_type: "crew_assassins_hunting_grounds_type-N",
-					hunting_grounds_description: "crew_assassins_hunting_grounds_description-N",
+					hunting_grounds_type: "crew_assassins_hunting_grounds_type",
+					hunting_grounds_description: "crew_assassins_hunting_grounds_description",
 					upgrade_insight_check_1: "1",
 					upgrade_prowess_check_1: "1"
 				},
@@ -96,8 +96,8 @@
 					cohort1_subtype: "thugs",
 					crew_description: "crew_bravos_description",
 					crew_xp_condition: "crew_bravos_xp_condition",
-					hunting_grounds_type: "crew_bravos_hunting_grounds_type-N",
-					hunting_grounds_description: "crew_bravos_hunting_grounds_description-N",
+					hunting_grounds_type: "crew_bravos_hunting_grounds_type",
+					hunting_grounds_description: "crew_bravos_hunting_grounds_description",
 					upgrade_prowess_check_1: "1"
 				},
 				crewability: ["dangerous", "blood_brothers", "door_kickers", "fiends", "forged_in_the_fire", "patron", "war_dogs", "veteran"],
@@ -152,12 +152,12 @@
 					cohort1_subtype: "adepts",
 					crew_description: "crew_cult_description",
 					crew_xp_condition: "crew_cult_xp_condition",
-					hunting_grounds_type: "crew_cult_hunting_grounds_type-N",
-					hunting_grounds_description: "crew_cult_hunting_grounds_description-N",
+					hunting_grounds_type: "crew_cult_hunting_grounds_type",
+					hunting_grounds_description: "crew_cult_hunting_grounds_description",
 					setting_show_deity: "1",
 					upgrade_resolve_check_1: "1"
 				},
-				crewability: ["chosen", "anointed", "bound_in_darkness", "conviction-N", "glory_incarnate", "sealed_in_blood", "zealotry", "veteran"],
+				crewability: ["chosen", "anointed", "bound_in_darkness", "conviction", "glory_incarnate", "sealed_in_blood", "zealotry", "veteran"],
 				upgrade: [{
 					name: "crew_upgrade_ordained",
 					numboxes: "3"
@@ -209,8 +209,8 @@
 					claim_bridge_13_14: 0,
 					crew_description: "crew_hawkers_description",
 					crew_xp_condition: "crew_hawkers_xp_condition",
-					hunting_grounds_type: "crew_hawkers_hunting_grounds_type-N",
-					hunting_grounds_description: "crew_hawkers_hunting_grounds_description-N",
+					hunting_grounds_type: "crew_hawkers_hunting_grounds_type",
+					hunting_grounds_description: "crew_hawkers_hunting_grounds_description",
 					upgrade_secure_check_1: "1",
 					upgrade_resolve_check_1: "1"
 				},
@@ -265,8 +265,8 @@
 					claim_bridge_12_13: 0,
 					crew_description: "crew_shadows_description",
 					crew_xp_condition: "crew_shadows_xp_condition",
-					hunting_grounds_type: "crew_shadows_hunting_grounds_type-N",
-					hunting_grounds_description: "crew_shadows_hunting_grounds_description-N",
+					hunting_grounds_type: "crew_shadows_hunting_grounds_type",
+					hunting_grounds_description: "crew_shadows_hunting_grounds_description",
 					upgrade_hidden_check_1: "1",
 					upgrade_prowess_check_1: "1"
 				},
@@ -321,12 +321,12 @@
 					claim_bridge_13_14: 0,
 					cohort1_description: "vehicle_edges_flaws",
 					cohort1_name: "vehicle",
-					cohort1_subtype: "boat_carriage_other-N",
+					cohort1_subtype: "boat_carriage_other",
 					cohort1_type: "expert",
 					crew_description: "crew_smugglers_description",
 					crew_xp_condition: "crew_smugglers_xp_condition",
-					hunting_grounds_type: "crew_smugglers_hunting_grounds_type-N",
-					hunting_grounds_description: "crew_smugglers_hunting_grounds_description-N",
+					hunting_grounds_type: "crew_smugglers_hunting_grounds_type",
+					hunting_grounds_description: "crew_smugglers_hunting_grounds_description",
 					upgrade_carriage_check_1: "1",
 					upgrade_carriage_name: "vehicle",
 					upgrade_boat_name: "vehicle",
@@ -387,8 +387,8 @@
 					cohort1_type: "expert",
 					crew_description: "crew_vigilantes_description",
 					crew_xp_condition: "crew_vigilantes_xp_condition",
-					hunting_grounds_type: "crew_vigilantes_hunting_grounds_type-N",
-					hunting_grounds_description: "crew_vigilantes_hunting_grounds_description-N",
+					hunting_grounds_type: "crew_vigilantes_hunting_grounds_type",
+					hunting_grounds_description: "crew_vigilantes_hunting_grounds_description",
 					setting_show_origin: "1",
 					upgrade_resolve_check_1: "1"
 				},
@@ -551,7 +551,7 @@
 				playbookitem: []
 			},
 			hound: {
-				ability: ["sharpshooter", "focused", "ghost_hunter", "scout-N", "survivor", "tough_as_nails", "vengeful", "veteran"],
+				ability: ["sharpshooter", "focused", "ghost_hunter", "scout", "survivor", "tough_as_nails", "vengeful", "veteran"],
 				base: {
 					char_cohort_name: "hunting_pet",
 					char_cohort_subtype: "hunter",
@@ -804,7 +804,7 @@
 				}]
 			},
 			rakshasa: {
-				ability: ["ghoul", "ambush", "the_black_speech", "ghost_hunter", "monstrous", "scout-N", "subterfuge_rakshasa", "veteran"],
+				ability: ["ghoul", "ambush", "the_black_speech", "ghost_hunter", "monstrous", "scout", "subterfuge_rakshasa", "veteran"],
 				base: {
 					char_cohort_name: "hunting_pet",
 					char_cohort_subtype: "hunter",
@@ -918,7 +918,7 @@
 				}]
 			},
 			vampire: {
-				ability: ["undead", "terrible_power", "arcane_sight", "a_void_in_the_echo", "dark_talent-N", "sinister_guile", "veteran"],
+				ability: ["undead", "terrible_power", "arcane_sight", "a_void_in_the_echo", "dark_talent", "sinister_guile", "veteran"],
 				base: {
 					friends_title: "playbook_vampire_friends_title",
 					gatherinfo1: "gatherinfo_what_do_they_intend",
@@ -1789,7 +1789,7 @@
 			};
 			const range = end => [...Array(end+1).keys()].slice(1);
 			if (num > 0)
-				return replaceEntities(range(num).reduce((m, k) => `${m} {{roll${k}=[[d6]]}}`, ''));
+				return replaceEntities(` {{dice=${range(num).map(() => `[[d6]]`).join(", ")}}}`);
 			else return replaceEntities(' {{zerodice=[[d6]], [[d6]]}}');
 		},
 		buildRollFormula = base => {
@@ -2359,10 +2359,12 @@
 						});
 						recalculateDiceFormulas();
 					}
-					else if (versionMajor === 3 && versionMinor < 5) {
+					// Upgrade to 3.6: recalulcate all formulas
+					else if (versionMajor === 3 && versionMinor < 6) {
 						const setting = {};
-						addVersion(setting, '3.5');
-						mySetAttrs(setting, {}, () => upgradeSheet('3.5'));
+						addVersion(setting, '3.6');
+						recalculateDiceFormulas();
+						mySetAttrs(setting, {}, () => upgradeSheet('3.6'));
 					}
 				},
 				initialiseSheet = () => {
