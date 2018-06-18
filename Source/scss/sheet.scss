@@ -13,7 +13,6 @@ $fontblack: #333;
 $redtext: #c43c35;
 
 /* GENERALITIES */
-.charsheet { padding: 0 }
 .charsheet {
 	padding: 0 !important;
 	position: relative;
@@ -773,10 +772,10 @@ div[class^="sheet-spoke"] {
 	flex-wrap: wrap;
 }
 /* Faction clocks */
-.sheet-input-clocks-only[value="0"] + .sheet-type-faction .sheet-clocks .repcontainer {
+.sheet-clocks-only[value="0"] ~ .sheet-container .sheet-type-faction .sheet-clocks .repcontainer {
 	grid-template-columns: 32.8% 32.8% 32.8%;
 }
-.sheet-input-clocks-only[value="1"] + .sheet-type-faction {
+.sheet-clocks-only[value="1"] ~ .sheet-container .sheet-type-faction {
 	.sheet-clocks {
 		grid-column: 1/3;
 		.repcontainer {
