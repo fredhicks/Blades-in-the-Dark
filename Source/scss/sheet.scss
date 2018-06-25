@@ -256,17 +256,17 @@ $redtext: #c43c35;
 	&:not([value="faction"]) ~ .sheet-type-faction { display: none }
 }
 .sheet-type-character, .sheet-type-crew, .sheet-type-faction {
-	grid: auto / 55% calc(45% - 5px);
+	grid: auto / 1.1fr .9fr;
 	grid-gap: 10px 5px;
 }
 /* USEFUL GENERAL LAYOUT*/
 .sheet-grid {
 	display: grid;
-	.sheet-2col { grid-column: 1/3 }
+	.sheet-2col { grid-column: span 2 }
 }
-.sheet-left-column {
-	grid: none / 45% calc(55% - 5px);
-	grid-auto-rows: min-content;
+.sheet-type-character .sheet-left-column {
+	grid: auto / 1.1fr .9fr;
+	align-content: start;
 	grid-gap: 10px 5px;
 }
 .sheet-right-column {
@@ -666,7 +666,7 @@ textarea.sheet-smallcaps {
 	.sheet-vice {
 		justify-content: space-between;
 		text-align: justify;
-		grid-column: 1/3;
+		grid-column: span 2;
 		line-height: 1.6;
 		font-size: 11px;
 		.sheet-smallcaps {
@@ -680,10 +680,9 @@ textarea.sheet-smallcaps {
 .sheet-clocks {
 	.repcontainer {
 		display: grid;
-		grid-template-columns: 49.5% 49.5%;
+		grid-template-columns: 1fr 1fr;
 		padding-top: 2px;
-		justify-content: space-between;
-		grid-row-gap: 4px;
+		grid-gap: 4px;
 	}
 	.repitem {
 		display: flex;
@@ -772,16 +771,16 @@ div[class^="sheet-spoke"] {
 	flex-wrap: wrap;
 }
 /* Faction clocks */
-.sheet-clocks-only[value="0"] ~ .sheet-container .sheet-type-faction .sheet-clocks .repcontainer {
-	grid-template-columns: 32.8% 32.8% 32.8%;
+.sheet-container .sheet-type-faction .sheet-clocks .repcontainer {
+	.sheet-clocks-only[value="0"] ~ & {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.sheet-clocks-only[value="1"] ~ & {
+		grid-template-columns: repeat(4, 1fr);
+	}
 }
 .sheet-clocks-only[value="1"] ~ .sheet-container .sheet-type-faction {
-	.sheet-clocks {
-		grid-column: 1/3;
-		.repcontainer {
-			grid-template-columns: 24.7% 24.7% 24.7% 24.7%;
-		}
-	}
+	grid: auto / auto;
 	.sheet-factiontitle, .sheet-factions, .sheet-notes { display: none }
 }
 .sheet-size[value="4"] ~ .sheet-clock-container {
@@ -1231,7 +1230,7 @@ input.sheet-zero {
 		line-height: 1;
 		font-size: 13px;
 	}
-	.sheet-twocols { grid-column: 2/4 }
+	.sheet-twocols { grid-column: span 2 }
 	textarea {
 		font-size: 12px;
 		padding: 10px 4px 3px;
@@ -1285,7 +1284,7 @@ input.sheet-zero {
 .sheet-coin-and-stash {
 	width: 96%;
 	margin-left: 4%;
-	grid-column: 2/4;
+	grid-column: span 2;
 }
 .sheet-coinrow .sheet-label {
 	font-size: 11px;
@@ -1984,9 +1983,9 @@ input.sheet-title-checkbox {
 }
 /* FACTIONS PAGE */
 .sheet-factions {
-	grid: auto auto /repeat(4, 24.25%);
-	grid-gap: 9px 1%;
-	.sheet-2row { grid-row: 1 / 3 }
+	grid: auto auto /repeat(4, 1fr);
+	grid-gap: 5px 10px;
+	.sheet-2row { grid-row: span 2 }
 }
 .sheet-factiontitle { align-items: center }
 .sheet-factiontitle input[type=text] {

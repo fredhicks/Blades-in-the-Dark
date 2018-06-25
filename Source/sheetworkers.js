@@ -1892,8 +1892,9 @@
 			});
 		},
 		cleanChatImage = event => {
-			const match = (event.newValue || "").match(/^(https:\/\/s3\.amazonaws\.com\/files\.d20\.io\/images\/.*\.(?:jpg|png))\?\d+$/);
-			if (match) setAttr("chat_image", match[1]);
+			const RE = /^(https:\/\/s3\.amazonaws\.com\/files\.d20\.io\/images\/.*)\/(?:med|max|original|thumb)\.(jpg|png)\?\d+$/;
+			const match = (event.newValue || "").match(RE);
+			if (match) setAttr("chat_image", `${match[1]}/thumb.${match[2]}`);
 		},
 		handlePlaybookFill = event => {
 			getAttrs(["playbook", "crew_type", "changed_attributes", "setting_autofill", ...watchedAttributes], v => {
