@@ -2242,8 +2242,16 @@
 					`${getTranslationByKey("controlled")},position=${getTranslationByKey("controlled")}|` +
 					`${getTranslationByKey("desperate")},position=${getTranslationByKey("desperate")}|` +
 					`${getTranslationByKey("fortune_roll")},position=}`,
-				title_text: (getTranslationLanguage() === "ko") ? "{{title-text=1}} {{korean=1}}" : "",
 			};
+			const lang = getTranslationLanguage();
+			switch(lang) {
+			case "ko":
+			case "fr":
+				translatedAttrs.title_text = `{{title-text=1}} {{language=i18n-${lang}}}`;
+				break;
+			default:
+				translatedAttrs.title_text = "";
+			}
 			getAttrs(Object.keys(translatedAttrs), v => {
 				const setting = {};
 				Object.keys(translatedAttrs).forEach(name => {

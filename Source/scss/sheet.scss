@@ -257,7 +257,7 @@ $redtext: #c43c35;
 	&:not([value="faction"]) ~ .sheet-type-faction { display: none }
 }
 .sheet-type-character, .sheet-type-crew, .sheet-type-faction {
-	grid: auto / 1.1fr .9fr;
+	grid: auto / 55% calc(45% - 5px);
 	grid-gap: 10px 5px;
 }
 /* USEFUL GENERAL LAYOUT*/
@@ -394,6 +394,7 @@ textarea.sheet-smallcaps {
 .sheet-item-container { flex-grow: 1 }
 .sheet-playbookitems { background: $lightest }
 .sheet-regularitems {
+	grid-template-columns: 50% 50%;
 	.repcontainer {
 		display: flex;
 		flex-wrap: wrap;
@@ -2294,4 +2295,19 @@ button[type=roll].sheet-broadcast-button {
 	.sheet-faction-name, input[type=text].sheet-faction-name { width: 60% }
 	.sheet-faction-tier, input[type=text].sheet-faction-tier { width: 12% }
 	.sheet-faction-hold, input[type=text].sheet-faction-hold { width: 13% }
+}
+
+.charsheet.lang-fr {
+	.sheet-abilityname {
+		min-height: 34px;
+	}
+	.sheet-heat {
+		width: 48%;
+		.sheet-blackheader {
+			letter-spacing: 0;
+		}
+	}
+	.sheet-crewcoin {
+		width: 51%;
+	}
 }

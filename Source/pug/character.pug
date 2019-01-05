@@ -48,7 +48,7 @@
 			.text
 				span.label.title(data-i18n="vice_purveyor")
 				span.uppercase.info(data-i18n="vice_info")
-			+roll("Vice", "{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}} @{vice_formula}")(data-i18n="indulge_vice").vicebutton.borderbutton
+			+roll("Vice", "{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{type=vice}} {{title-vice=1}} {{title=^{vice}}} @{vice_formula} {{instructions=^{vice_instructions}}}")(data-i18n="indulge_vice").vicebutton.borderbutton
 			+hidden-input("vice_formula")(value=zerodiceFormula)
 		.vice.ghost
 			span.italic(data-i18n="ghost_viceblurb")
@@ -62,7 +62,7 @@
 			span.italic(data-i18n="hull_viceblurb")
 		.vice.vampire
 			span.italic(data-i18n="vampire_viceblurb")
-			+roll("Vice", "{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{vice=1}} {{title-vice=1}} {{title=^{vice}}} @{vice_formula}")(data-i18n="indulge_vice").vicebutton.borderbutton
+			+roll("Vice", "{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{type=vice}} {{title-vice=1}} {{title=^{vice}}} @{vice_formula} {{instructions=^{vice_instructions}}}")(data-i18n="indulge_vice").vicebutton.borderbutton
 	//- Stress and Trauma
 	.stress.flex.sheet-2col
 		//- Stress markers
@@ -125,7 +125,7 @@
 		//- Healing
 		.healing
 			.blackheader
-				+fortuneroll("Recovery", "{{resist=1}} {{short=1}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for}}}")(data-i18n="healing").label.rollbutton.inherit
+				+fortuneroll("Recovery", "{{type=resist}} {{short=short}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for}}}")(data-i18n="healing").label.rollbutton.inherit
 			.col100.healing-progress(data-i18n="progress_clock", data-i18n-title="recoveryblurb")
 			+hidden-input("recovery_max")(value="4").size
 			.clock-container
@@ -154,7 +154,7 @@
 						+radio("coin")(value=num).radiobox
 				.stashbutton-holder
 					+hidden-input("stash_formula")(value=zerodiceFormula)
-					+roll("Stash", "{{resist=1}} {{short=1}} {{title-lifestyle=1}} {{title=^{lifestyle}}} {{subtitle=^{rolls}}} @{stash_formula}")(data-i18n="stash").rollbutton.label
+					+roll("Stash", "{{type=resist}} {{short=short}} {{title-lifestyle=1}} {{title=^{lifestyle}}} {{subtitle=^{rolls}}} @{stash_formula}")(data-i18n="stash").rollbutton.label
 			//- Stash
 			.stash
 				+radio("stash")(value="0", checked).zero
@@ -366,7 +366,7 @@
 			.attribute
 				.attribute-title.flex
 					+roll(attribute[0].toUpperCase() + attribute.substring(1),
-						"{{resist=1}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-" + attribute + "=1}} {{title=^{" + attribute + "}}} @{" + attribute + "_formula}")(data-i18n=attribute, data-i18n-title=`${attribute}_description`).rollbutton.label
+						"{{type=resist}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-" + attribute + "=1}} {{title=^{" + attribute + "}}} @{" + attribute + "_formula} {{instructions=^{resist_instructions}}}")(data-i18n=attribute, data-i18n-title=`${attribute}_description`).rollbutton.label
 					+hidden-input(`${attribute}`)(value="0")
 					+hidden-input(`${attribute}_formula`)(value=zerodiceFormula)
 					+hidden-input(`${attribute}_xp_max`)(value="6")
@@ -387,7 +387,7 @@
 							.divider
 							each num in range(2,5)
 								+checkbox(action)(value=num).checkbox.circlebox.fakeradio
-							+roll(action[0].toUpperCase() + action.substring(1), "{{action=1}} {{subtitle=^{rolls}}} {{title-" + action + "=1}} {{title=^{" + action + `}}} {{@{position_query}}} {{effect=@{effect_query}}} @{${action}_formula}`)(data-i18n=action, data-i18n-title=`${action}_description`).rollbutton.label
+							+roll(`${action[0].toUpperCase()}${action.substring(1)}`, "{{type=action}} {{subtitle=^{rolls}}} {{title-" + action + "=1}} {{title=^{" + action + `}}} {{@{position_query}}} {{effect=@{effect_query}}} @{${action}_formula}`)(data-i18n=action, data-i18n-title=`${action}_description`).rollbutton.label
 		//- Cohort
 		+hidden-input("setting_show_cohort")(value="0").hider
 		+makecohort("char_cohort_", true)
@@ -418,7 +418,7 @@
 					+checkbox(null).expand
 					+textarea("description")(data-i18n-placeholder="notes").description
 		//- Roll Fortune
-		+fortuneroll("Fortune", "{{fortune=1}} {{subtitle=^{rolls}}} {{title-fortune=1}} {{title=^{fortune}}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
+		+fortuneroll("Fortune", "{{type=fortune}} {{subtitle=^{rolls}}} {{title-fortune=1}} {{title=^{fortune}}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
 	//- Clocks
 	.clocks.sheet-2col.free-repcontrol
 		.specialheader.label(data-i18n="clocks")

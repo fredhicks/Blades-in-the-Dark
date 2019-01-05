@@ -19,7 +19,7 @@ mixin makefactions(number, title)
 	+hidden-input("show_faction_generatebutton")(value="1").hider
 	label.generatebutton
 		+checkbox("generate_factions")(data-i18n="generate_factions")
-	+fortuneroll("Fortune_faction", "{{fortune=1}} {{title-fortune=1}} {{title=^{fortune}}} {{short=1}} {{charname=}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
+	+fortuneroll("Fortune_faction", "{{type=fortune}} {{title-fortune=1}} {{title=^{fortune}}} {{short=1}} {{charname=}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
 .factions.sheet-2col.grid.free-repcontrol
 	+makefactions(1, "Underworld").sheet-2row
 	+makefactions(2, "Institutions").sheet-2row

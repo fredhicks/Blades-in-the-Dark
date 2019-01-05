@@ -1,13 +1,31 @@
 #!/usr/bin/env node
 const pug = require("pug"),
 	fs = require("fs"),
-	execSync = require("child_process").execSync;
+	sass = require("node-sass");
 
-const cssOutput = execSync("sass --no-source-map --style compressed Source/blades.scss").toString().replace(/^\uFEFF/, "");
-fs.writeFileSync("blades.css", cssOutput);
+const printOutput = (() => {
+	let counter = 0;
+	return () => {
+		if (counter == 1) {
+			console.log("Sheet build completed.");
+		} else counter++;
+	};
+})();
+
+// Build CSS
+sass.render({
+	file: "Source/blades.scss",
+	outputStyle: "compressed",
+}, (error, result) => {
+	if (!error) {
+		const cssOutput = result.css.toString("utf8").replace(/^@charset "UTF-8";\s*/, "").replace(/^\uFEFF/, "");
+		fs.writeFile("blades.css", cssOutput, printOutput);
+	} else {
+		console.log(`An error occured in the CSS build.\n${error.line}:${error.column} ${error.message}.`);
+	}
+});
 
 // Build HTML
 const htmlOutput = pug.renderFile("Source/blades.pug");
-fs.writeFileSync("blades.html", `${htmlOutput}\n`);
+fs.writeFile("blades.html", `${htmlOutput}\n`, printOutput);
 
-console.log("Sheet build completed.");

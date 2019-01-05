@@ -87,7 +87,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 				+radio("hold")(value="strong", checked).tooth.holdtooth
 			//- Tier
 			.blackheader
-				+roll("Tier", "{{resist=1}} {{short=1}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their}}} @{crew_tier_formula}")(data-i18n="tier").label.inherit.rollbutton
+				+roll("Tier", "{{type=resist}} {{short=short}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their}}} @{crew_tier_formula}")(data-i18n="tier").label.inherit.rollbutton
 				+hidden-input("crew_tier_formula")(value=zerodiceFormula)
 			.tier.flex
 				+hidden-checkbox("crew_tier")(value="0", checked).fakeradio
@@ -145,7 +145,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 			//- Wanted Level
 			.heat3
 				.blackheader
-					+roll("Wanted", "{{vice=1}} {{short=1}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat}&nbsp;@{setting_heat_label}^{wantedroll2}}} @{wanted_formula}").label.inherit.rollbutton
+					+roll("Wanted", "{{type=vice}} {{short=short}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat}&nbsp;@{setting_heat_label}^{wantedroll2}}} @{wanted_formula}").label.inherit.rollbutton
 						span(name="attr_setting_wanted_label")
 					+hidden-input("wanted_formula")(value=zerodiceFormula)
 				.wantedholder.flex
@@ -277,7 +277,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 		.hunting-grounds.def-margin
 			+autoexpand("hunting_grounds_type")(data-i18n-placeholder="hunting_grounds").plainheader.label
 			+autoexpand("hunting_grounds_description")(data-i18n-placeholder="hunting_grounds_description").description
-		+fortuneroll("Engagement", "{{action=1}} {{short=1}} {{small-title=1}} {{subtitle=^{roll_for}}} {{title-engagement=1}} {{title=^{engagement}}}")(data-i18n="roll_engagement").engagementbutton.borderbutton
+		+fortuneroll("Engagement", "{{type=action}} {{short=short}} {{small-title=small-title}} {{subtitle=^{roll_for}}} {{title-engagement=1}} {{title=^{engagement}}}")(data-i18n="roll_engagement").engagementbutton.borderbutton
 	//- Cohorts and Contacts
 	.cohortcolumn
 		//- First Cohort
@@ -300,7 +300,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 					+checkbox(null).expand
 					+textarea("description")(data-i18n-placeholder="notes").description
 		//- Roll Fortune
-		+fortuneroll("Fortune_crew", "{{fortune=1}} {{subtitle=^{roll}}} {{title-fortune=1}} {{title=^{fortune}}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
+		+fortuneroll("Fortune_crew", "{{type=fortune}} {{subtitle=^{roll}}} {{title-fortune=1}} {{title=^{fortune}}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
 	//- Clocks
 	.clocks.sheet-2col.free-repcontrol
 		.specialheader.label(data-i18n="clocks")
