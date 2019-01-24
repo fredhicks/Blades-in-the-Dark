@@ -243,6 +243,14 @@ $broadcast-white: #ccc;
 			}
 		}
 	}
+	.sheet-i18n-es {
+		&.sheet-action,
+		&.sheet-fortune {
+			.sheet-title, .sheet-small-title {
+				font-size: 32px;
+			}
+		}
+	}
 }
 
 /* BROADCAST TEMPLATE */

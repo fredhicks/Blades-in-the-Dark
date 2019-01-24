@@ -8,6 +8,7 @@ This is the source code for the Blades in the Dark character sheet on Roll20. If
 
 * Simplified the roll template code
 * Support for French translations added
+* Support for Spanish translations added
 
 ### 3.6
 

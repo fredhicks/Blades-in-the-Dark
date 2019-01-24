@@ -2311,3 +2311,28 @@ button[type=roll].sheet-broadcast-button {
 		width: 51%;
 	}
 }
+
+.charsheet.lang-es {
+	.sheet-crewheader {
+		font-size: 24px;
+	}
+	.sheet-playbook input[type=text] {
+		font-size: 32px;
+	}
+	.sheet-itemheader .sheet-italic {
+		line-height: 10px;
+	}
+	.sheet-harmbody .sheet-harmeffect {
+		font-size: 9px;
+		letter-spacing: 0;
+	}
+	.sheet-armor .sheet-label {
+		font-size: 10px;
+	}
+	.sheet-coinrow {
+		.sheet-label,
+		button[type=roll].sheet-rollbutton {
+			font-size: 10px;
+		}
+	}
+}

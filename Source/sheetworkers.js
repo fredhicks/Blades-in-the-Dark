@@ -3,7 +3,7 @@
 (function () {
 	"use strict";
 	/* DATA */
-	const sheetVersion = "3.6",
+	const sheetVersion = "3.7",
 		crewData = {
 			assassins: {
 				base: {
@@ -2245,8 +2245,9 @@
 			};
 			const lang = getTranslationLanguage();
 			switch(lang) {
-			case "ko":
 			case "fr":
+			case "ko":
+			case "es":
 				translatedAttrs.title_text = `{{title-text=1}} {{language=i18n-${lang}}}`;
 				break;
 			default:
