@@ -2100,7 +2100,7 @@
 					`${getTranslationByKey("risky")},position=${getTranslationByKey("risky")}|` +
 					`${getTranslationByKey("controlled")},position=${getTranslationByKey("controlled")}|` +
 					`${getTranslationByKey("desperate")},position=${getTranslationByKey("desperate")}|` +
-					`${getTranslationByKey("fortune_roll")},position=}`,
+					`${getTranslationByKey("fortune_roll")},short=short}`,
 			};
 			const lang = getTranslationLanguage();
 			switch(lang) {
