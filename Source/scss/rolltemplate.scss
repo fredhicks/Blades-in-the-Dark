@@ -12,7 +12,7 @@ $broadcast: #180d06;
 $broadcast-white: #ccc;
 
 /* Standard template */
-.sheet-rolltemplate-bitd, .sheet-rolltemplate-blades {
+.sheet-rolltemplate-blades {
 	.sheet-holder {
 		display: grid;
 		align-content: start;
@@ -231,8 +231,7 @@ $broadcast-white: #ccc;
 	}
 
 
-	.sheet-holder.sheet-i18n-ko,
-	.sheet-holder.sheet-korean {
+	.sheet-holder.sheet-i18n-ko {
 		font-family: "Malgun Gothic", Dotum, Georgia, "Bitstream Charter", "Times New Roman", serif;
 	}
 	.sheet-i18n-fr {
@@ -247,7 +246,13 @@ $broadcast-white: #ccc;
 		&.sheet-action,
 		&.sheet-fortune {
 			.sheet-title, .sheet-small-title {
-				font-size: 32px;
+				font-size: 30px;
+			}
+		}
+		&.sheet-resist.sheet-short {
+			grid: 35px 30px 67px auto/ auto;
+			.sheet-title {
+				line-height: 20px;
 			}
 		}
 	}
@@ -267,7 +272,7 @@ $broadcast-white: #ccc;
 	.withoutavatars & {
 		margin-left: -15px;
 	}
-	.sheet-i18n-ko, .sheet-korean {
+	.sheet-i18n-ko {
 		font-family: "Malgun Gothic", Dotum, Georgia, "Bitstream Charter", "Times New Roman", serif;
 	}
 	.sheet-header {

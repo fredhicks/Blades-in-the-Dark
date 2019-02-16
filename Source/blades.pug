@@ -60,7 +60,7 @@ mixin makecohort(prefix, isCharacter)
 		+hidden-input(`${prefix}roll_formula`)(value=zerodiceFormula)
 		.cohort-title.flex.label
 			+text-input(`${prefix}name`)(value="Cohort").inherit
-			+roll(`${prefix}roll`, "{{type=resist short}} {{charname=@{"+prefix+"name} (^{@{"+prefix+"type}}, @{"+prefix+"subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{"+prefix+"verb}}} @{"+prefix+"roll_formula}")(data-i18n="roll-inf").inherit.rollbutton
+			+roll(`${prefix}roll`, "{{type=resist}} {{short=short}} {{charname=@{"+prefix+"name} (^{@{"+prefix+"type}}, @{"+prefix+"subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{"+prefix+"verb}}} @{"+prefix+"roll_formula}")(data-i18n="roll-inf").inherit.rollbutton
 		.cohort-info.flex.uppercase
 			.cohort-dropdown
 				div

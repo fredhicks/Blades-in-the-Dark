@@ -1,9 +1,9 @@
-/* global on, setAttrs, getAttrs, getSectionIDs, getTranslationByKey, getTranslationLanguage, generateRowID, removeRepeatingRow, _ */
+/* global on, setAttrs, getAttrs, getSectionIDs, getTranslationByKey, getTranslationLanguage, generateRowID, removeRepeatingRow */
 
 (function () {
 	"use strict";
 	/* DATA */
-	const sheetVersion = "3.7",
+	const sheetVersion = "3.8",
 		crewData = {
 			assassins: {
 				base: {
@@ -1780,9 +1780,13 @@
 			});
 		},
 		diceMagic = num => {
-			const range = end => [...Array(end + 1).keys()].slice(1);
-			if (num > 0) return `dice=${range(num).map(() => "[[d6]]").join("&"+"#44"+"; ")}`;
-			else return "zerodice=[[d6]]&" + "#44" + "; [[d6]]";
+			if (num > 0) {
+				return `dice=${
+					[...Array(num).keys()].map(() => "[[d6]]").join("&"+"#44"+"; ")
+				}`;
+			} else {
+				return "zerodice=[[d6]]&" + "#44" + "; [[d6]]";
+			}
 		},
 		buildRollFormula = base => {
 			return ` {{?{@{bonusdice}|${
@@ -2017,163 +2021,18 @@
 							versionMinor = version && parseInt(version.split(".")[1]);
 						console.log(`Found version ${version}.`);
 						if (version !== sheetVersion) console.log("Performing sheet upgrade.");
-						// Upgrade to 2.0: Rename trauma attributes, frame feature migration
-						if (versionMajor < 2) {
-							const attrs = [
-								...traumaDataFlat,
-								"changed_attributes",
-								...[1, 2, 3, 4, 5].map(x => `frame_feature_${x}_check`),
-								...[1, 2, 3, 4, 5].map(x => `frame_feature_${x}_desc`)
-							];
-							getAttrs(attrs, v => {
-								const upgradeFunction = _.after(2, () => upgradeSheet("2.0")),
-									frameData = [1, 2, 3, 4, 5].map(k => ({
-										check: v[`frame_feature_${k}_check`] || "",
-										name: v[`frame_feature_${k}_desc`] || ""
-									})).filter(o => o.check || o.name),
-									changedAttrs = new Set(v.changed_attributes.split(",")),
-									setting = traumaDataFlat.reduce((m, name) => {
-										if (`${v[name]}` === "1") m[`trauma_${name}`] = "1";
-										return m;
-									}, {});
-								actionsFlat.filter(n => changedAttrs.has(`${n}1`) || changedAttrs.has(`${n}2`))
-									.forEach(name => changedAttrs.add(name));
-								setting.changed_attributes = [...changedAttrs].join(",");
-								fillRepeatingSectionFromData("framefeature", frameData, false, upgradeFunction);
-								addVersion(setting, "2.0");
-								mySetAttrs(setting, {}, upgradeFunction);
-							});
-						}
-						// Upgrade to 2.4: Enable pet for hounds, generate alchemicals for Leeches
-						else if (versionMajor === 2 && versionMinor < 4) {
-							getAttrs(["playbook", "notes", "changed_attributes"], v => {
-								const setting = {};
-								if (v.playbook.toLowerCase() === "leech") {
-									fillRepeatingSectionFromData("alchemical", alchemicalData);
-								}
-								if (v.playbook.toLowerCase() === "hound") {
-									Object.assign(setting, {
-										char_cohort_name: "Hunting Pet",
-										char_cohort_subtype: "Hunter",
-										setting_show_cohort: "1"
-									});
-								}
-								if (v.changed_attributes) {
-									const changedAttrs = v.changed_attributes.split(",");
-									actionsFlat.forEach(action => {
-										if (changedAttrs.some(x => x.indexOf(action) === 0)) {
-											changedAttrs.push(action);
-										}
-									});
-									setting.changed_attributes = [...new Set(changedAttrs)].join(",");
-								}
-								if (v.notes) setting.crew_notes = v.notes;
-								addVersion(setting, "2.4");
-								mySetAttrs(setting, {}, () => upgradeSheet("2.4"));
-							});
-						}
-						// Upgrade to 3.1: enable bandolier for leech and zindiq
-						else if (versionMajor < 3 || (versionMajor === 3 && versionMinor < 1)) {
-							getAttrs(["playbook"], v => {
-								const setting = {};
-								if (["leech", "zindiq"].includes(v.playbook)) setting.setting_show_bandolier = "1";
-								addVersion(setting, "3.1");
-								mySetAttrs(setting, {}, () => upgradeSheet("3.1"));
-							});
-						}
-						// Upgrade to 3.2: enable vampire trauma
-						else if (versionMajor === 3 && versionMinor < 2) {
-							getAttrs(["playbook"], v => {
-								const setting = {};
-								if (v.playbook === "vampire") setting.setting_traumata_set = "vampire";
-								addVersion(setting, "3.2");
-								mySetAttrs(setting, {}, () => upgradeSheet("3.2"));
-							});
-						}
-						// Upgrade to 3.3: convert upgrade attribute names, recalculate all formulas
-						else if (versionMajor === 3 && versionMinor < 3) {
-							const upgradeFunction = _.after(2, () => {
-								const setting = {};
-								addVersion(setting, "3.3");
-								mySetAttrs(setting, {}, () => upgradeSheet("3.3"));
-							});
-							const upgradeConversionData = {
-								"6": "carriage",
-								"7": "documents",
-								"8": "boat",
-								"9": "gear",
-								"10": "hidden",
-								"11": "implements",
-								"12": "quarters",
-								"13": "supplies",
-								"14": "secure",
-								"15": "tools",
-								"16": "vault",
-								"17": "weapons",
-								"18": "workshop",
-								"20": "insight",
-								"21": "prowess",
-								"22": "resolve",
-								"23": "personal",
-								"24": "mastery",
-							};
-							const hasTwoChecks = ["6", "8", "14", "16"];
-							const oldAttrs = [
-								...Object.keys(upgradeConversionData).map(x => `upgrade_${x}_name`),
-								...Object.keys(upgradeConversionData).map(x => `upgrade_${x}_description`),
-								...Object.keys(upgradeConversionData).map(x => `upgrade_${x}_check_1`),
-								...hasTwoChecks.map(x => `upgrade_${x}_check_2`),
-								"upgrade_24_check_2", "upgrade_24_check_3", "upgrade_24_check_4",
-								...Object.values(upgradeConversionData).map(x => `upgrade_${x}_name`),
-								...Object.values(upgradeConversionData).map(x => `upgrade_${x}_description`),
-								...Object.values(upgradeConversionData).map(x => `upgrade_${x}_check_1`),
-								...hasTwoChecks.map(x => `upgrade_${upgradeConversionData[x]}_check_2`),
-								"upgrade_mastery_check_2", "upgrade_mastery_check_3", "upgrade_mastery_check_4",
-								"special_abilities_title",
-							];
-							getAttrs(oldAttrs, v => {
-								const setting = {};
-								setting.special_abilities_title = translatedDefaults.special_abilities_title;
-								Object.entries(upgradeConversionData).forEach(([num, name]) => {
-									if (v[`upgrade_${num}_name`]) setting[`upgrade_${name}_name`] = v[`upgrade_${num}_name`];
-									if (v[`upgrade_${num}_description`]) setting[`upgrade_${name}_description`] = v[`upgrade_${num}_description`];
-									if (`${v[`upgrade_${num}_check_1`]}` === "1") setting[`upgrade_${name}_check_1`] = "1";
-									if (hasTwoChecks.includes(num) && `${v[`upgrade_${num}_check_2`]}` === "1")
-										setting[`upgrade_${name}_check_2`] = "1";
-									if (num === "24")
-										[2, 3, 4].forEach(s => {
-											if (`${v[`upgrade_24_check_${s}`]}` === "1") setting[`upgrade_mastery_check_${s}`] = "1";
-										});
-								});
-								Object.keys(setting).forEach(name => {
-									if (`${v[name]}` === setting[name]) delete setting[name];
-								});
-								mySetAttrs(setting, {}, upgradeFunction);
-							});
-							getSectionIDs("repeating_cohort", idArray => {
-								const prefixes = [
-									...idArray.map(id => `repeating_cohort_${id}`),
-									"cohort1", "char_cohort",
-								];
-								getAttrs([...prefixes.map(prefix => `${prefix}_type`), ...prefixes.map(prefix => `${prefix}_verb`)], v => {
-									const setting = {};
-									prefixes.forEach(prefix => {
-										setting[`${prefix}_verb`] = (v[`${prefix}_type`] === "expert") ? "^{rolls_their}" : "^{roll_their}";
-									});
-									Object.keys(setting).forEach(k => {
-										if (setting[k] === v[k]) delete setting[k];
-									});
-									mySetAttrs(setting, {}, upgradeFunction);
-								});
-							});
-							recalculateDiceFormulas();
-						}
-						// Upgrade to 3.6: recalulcate all formulas
-						else if (versionMajor === 3 && versionMinor < 6) {
+						// Upgrade to 3.6: recalculate all formulas
+						if (versionMajor === 3 && versionMinor < 6) {
 							const setting = {};
 							addVersion(setting, "3.6");
 							recalculateDiceFormulas();
 							mySetAttrs(setting, {}, () => upgradeSheet("3.6"));
+						}
+						// Fall back to upgrading to the newest version.
+						else {
+							const setting = {};
+							addVersion(setting, sheetVersion);
+							mySetAttrs(setting);
 						}
 					},
 					initialiseSheet = () => {
