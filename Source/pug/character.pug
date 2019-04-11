@@ -6,11 +6,6 @@
 		vampire: ["cold", "haunted", "obsessed", "paranoid", "ruthless", "secretive", "unstable", "vicious"]
 	};
 	const strictures = ["slumber", "forbidden", "repelled", "bestial", "bound"];
-	const actionData = {
-		insight: ["hunt", "study", "survey", "tinker"],
-		prowess: ["finesse", "prowl", "skirmish", "wreck"],
-		resolve: ["attune", "command", "consort", "sway"]
-	};
 
 //- Left column
 .left-column.grid
@@ -89,8 +84,8 @@
 		//- Individual traumata
 		.stress4.blackborder
 			+hidden-input("setting_traumata_set")(value="normal").input
-			each traumas, type in traumaData
-				div(class=type)
+			each traumas, category in traumaData
+				div(class=category)
 					.flex
 						each trauma, i in traumas.slice(0, traumas.length / 2)
 							label.text-button
@@ -365,11 +360,17 @@
 		each actions, attribute in actionData
 			.attribute
 				.attribute-title.flex
-					+roll(attribute[0].toUpperCase() + attribute.substring(1),
-						"{{type=resist}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-" + attribute + "=1}} {{title=^{" + attribute + "}}} @{" + attribute + "_formula} {{instructions=^{resist_instructions}}}")(data-i18n=attribute, data-i18n-title=`${attribute}_description`).rollbutton.label
+					+roll(TitleCase(attribute),
+						"{{type=resist}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-" + attribute + "=1}} " +
+						"{{title=^{" + attribute + "}}} @{" + attribute + "_formula} {{instructions=^{resist_instructions}}} " +
+						`@{${attribute}_roll_mods}`
+					)(data-i18n-title=`${attribute}_description`).rollbutton.label
+						span(data-i18n=attribute).default-label.inherit
+						span(name=`attr_${attribute}_label`).custom-label.inherit
 					+hidden-input(`${attribute}`)(value="0")
 					+hidden-input(`${attribute}_formula`)(value=zerodiceFormula)
 					+hidden-input(`${attribute}_xp_max`)(value="6")
+					+hidden-input(`${attribute}_roll_mods`)(value="")
 					.attribute-xp-box.flex
 						+hidden-input("setting_vampirexp")(value="0").vampirexp
 						+radio(`${attribute}_xp`)(value="0", checked).tooth.zero
@@ -381,13 +382,19 @@
 					each action in actions
 						.action.flex
 							+hidden-input(`${action}_formula`)(value=zerodiceFormula)
+							+hidden-input(`${action}_roll_mods`)(value="")
 							+hidden-input(`setting_dark_talent_${attribute}`)(value="0").darktalent
 							+hidden-checkbox(action)(value="0", checked).fakeradio
 							+checkbox(action)(value="1").checkbox.circlebox.fakeradio
 							.divider
 							each num in range(2,5)
 								+checkbox(action)(value=num).checkbox.circlebox.fakeradio
-							+roll(`${action[0].toUpperCase()}${action.substring(1)}`, "{{type=action}} {{subtitle=^{rolls}}} {{title-" + action + "=1}} {{title=^{" + action + `}}} {{@{position_query}}} {{effect=@{effect_query}}} @{${action}_formula}`)(data-i18n=action, data-i18n-title=`${action}_description`).rollbutton.label
+							+roll(TitleCase(action),
+								"{{type=action}} {{subtitle=^{rolls}}} {{title-" + action + "=1}} {{title=^{" + action + "}}} " +
+								`{{@{position_query}}} {{effect=@{effect_query}}} @{${action}_formula} @{${action}_roll_mods}`
+							)(data-i18n-title=`${action}_description`).rollbutton.label
+								span(data-i18n=action).default-label.inherit
+								span(name=`attr_${action}_label`).custom-label.inherit
 		//- Cohort
 		+hidden-input("setting_show_cohort")(value="0").hider
 		+makecohort("char_cohort_", true)

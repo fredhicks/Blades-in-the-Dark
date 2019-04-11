@@ -2212,7 +2212,35 @@ button[type=roll].sheet-broadcast-button {
 	}
 }
 
-/* Adjustments for Korean */
+/* Custom action/attribute labels */
+.sheet-settings .sheet-custom-actions {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 5px;
+
+	label { grid-column: span 3; }
+	.sheet-custom-action-toggle[value="0"] ~ .sheet-container & .sheet-column {
+		cursor: pointer;
+		pointer-events: none;
+		opacity: 0.6;
+	}
+	.sheet-column {
+    display: grid;
+    grid: auto / 1fr 1fr;
+		grid-gap: 2px;
+		.sheet-attribute-label {
+			font-weight: bold;
+			grid-column: span 2;
+		}
+	}
+}
+.sheet-custom-action-toggle[value="0"] ~ .sheet-container .sheet-custom-label,
+.sheet-custom-action-toggle[value="1"] ~ .sheet-container .sheet-default-label {
+	display: none;
+}
+
+/* Adjustments for non-English languages */
 .charsheet.lang-ko {
 	font-family: "Malgun Gothic", Dotum, Georgia, "Bitstream Charter", "Times New Roman", serif;
 	.sheet-kirsty-option { display: none }
@@ -2319,6 +2347,46 @@ button[type=roll].sheet-broadcast-button {
 	}
 	.sheet-playbook input[type=text] {
 		font-size: 32px;
+	}
+	.sheet-itemheader .sheet-italic {
+		line-height: 10px;
+	}
+	.sheet-coinrow button[type=roll].sheet-rollbutton {
+		padding: 2px 0 0 6px;
+	}
+	.sheet-harmbody .sheet-harmeffect {
+		font-size: 9px;
+		letter-spacing: 0;
+	}
+	.sheet-armor .sheet-label {
+		font-size: 10px;
+	}
+	.sheet-coinrow {
+		.sheet-label,
+		button[type=roll].sheet-rollbutton {
+			font-size: 10px;
+		}
+	}
+}
+
+.charsheet.lang-pt {
+	.sheet-crewheader {
+		font-size: 24px;
+	}
+	.sheet-heat3 button[type=roll].sheet-rollbutton {
+		max-width: 56px;
+	}
+	.sheet-healing .sheet-healing-progress {
+		line-height: 10px
+	}
+	.sheet-playbook input[type=text] {
+		font-size: 32px;
+	}
+	.sheet-coinrow button[type=roll].sheet-rollbutton {
+		padding: 2px 0 0 6px;
+	}
+	.sheet-advancement-header {
+		font-size: 10px;
 	}
 	.sheet-itemheader .sheet-italic {
 		line-height: 10px;

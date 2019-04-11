@@ -221,3 +221,12 @@
 		label
 			+checkbox("setting_clocks_only").checkbox.squarebox
 			span(data-i18n="clocks_only")
+	.setting-char.custom-actions
+		label
+			+checkbox("setting_custom_actions").checkbox.squarebox
+			span(data-i18n="custom_action_labels")
+		each actions, attribute in actionData
+			.column
+				+text-input(`${attribute}_label`)(value=TitleCase(attribute)).attribute-label
+				each action in actions
+					+text-input(`${action}_label`)(value=TitleCase(action)).action-label

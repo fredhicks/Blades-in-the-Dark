@@ -124,6 +124,16 @@ mixin makeclock(isFaction)
 
 -	const templateTitles = ["insight", "prowess", "resolve", "hunt", "study", "survey", "tinker", "finesse", "prowl", "skirmish", "wreck", "attune", "command", "consort", "sway", "fortune", "vice", "crew_tier", "entanglement", "cohort_quality", "lifestyle", "recovery", "engagement"];
 -	const teeth = ["xptooth-red", "xptooth-white", "stresstooth-red", "stresstooth-black", "stresstooth-halfgrey", "stresstooth-white", "shorttooth-red", "shorttooth-grey"];
+-
+	const actionData = {
+		insight: ["hunt", "study", "survey", "tinker"],
+		prowess: ["finesse", "prowl", "skirmish", "wreck"],
+		resolve: ["attune", "command", "consort", "sway"]
+	};
+
+	function TitleCase(str) {
+		return `${str[0].toUpperCase()}${str.substring(1)}`;
+	}
 
 //- Image preloading
 .preload
@@ -163,6 +173,7 @@ div
 +hidden-input("setting_usekirsty")(value="0").use-kirsty
 +hidden-input("setting_flexwidth")(value="0").flexwidth
 +hidden-input("setting_clocks_only")(value="0").clocks-only
++hidden-input("setting_custom_actions")(value="0").custom-action-toggle
 
 //- Actual sheet
 .container
