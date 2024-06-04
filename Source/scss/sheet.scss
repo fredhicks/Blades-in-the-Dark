@@ -39,12 +39,15 @@ $redtext: #c43c35;
 	}
 
 	label {
+		--dark-secondarytext: #{$fontblack};
+		color: $fontblack;
+	}
+
+	label {
 		margin: 0;
 		padding: 0;
 		display: flex;
 		width: auto;
-		--dark-secondarytext: #{$fontblack};
-		color: $fontblack;
 		font: inherit;
 
 		input[type=checkbox], input[type=radio] { position: absolute }
@@ -108,22 +111,24 @@ $redtext: #c43c35;
 		}
 	}
 
-	button[type=roll].sheet-inherit, input[type=text].sheet-inherit {
+	button[type=roll].inherit, input[type=text].inherit {
 		font: inherit;
 		color: inherit;
 		text-transform: inherit;
 		letter-spacing: inherit;
 	}
-	.sheet-space-after::after { content: ' ' }
+	.space-after::after { content: ' ' }
 }
-.sheet-focus-shadow[value="1"] ~ .sheet-container {
-	textarea, input[type=text], input[type=number] {
-		&:focus { box-shadow: inset 0 0 1px 1px rgba(66,66,66,.3), 0 0 2px 1px rgba(66,66,66,.3) }
+.charsheet {
+	.focus-shadow[value="1"] ~ .container {
+		textarea, input[type=text], input[type=number] {
+			&:focus { box-shadow: inset 0 0 1px 1px rgba(66,66,66,.3), 0 0 2px 1px rgba(66,66,66,.3) }
+		}
 	}
 }
-.sheet-hidden { display: none !important }
+.charsheet .hidden { display: none !important }
 /* Preloading graphics*/
-.sheet-preload {
+.charsheet .preload {
 	opacity: 0;
 	position: absolute;
 	img {
@@ -132,16 +137,16 @@ $redtext: #c43c35;
 	}
 }
 /* Version text */
-.sheet-topholder {
+.charsheet .topholder {
 	line-height: 22px;
 	margin: 0 0 7px calc(55% + 5px);
-	.sheet-version {
+	.version {
 		color: $versiongrey;
 		font-size: 13px;
 		font-family: "Times New Roman", Times, serif;
 	}
-	.sheet-version-text::after { content: " " }
-	.sheet-settings-checkbox {
+	.version-text::after { content: " " }
+	.settings-checkbox {
 		margin-right: 10px;
 		width: 20px;
 		height: 20px;
@@ -154,7 +159,7 @@ $redtext: #c43c35;
 	}
 }
 /* Type Selector */
-.sheet-type-selector {
+.charsheet .type-selector {
 	display: flex;
 	margin-right: auto;
 	background: $lighter;
@@ -172,18 +177,18 @@ $redtext: #c43c35;
 		height: 20px;
 	}
 	&:hover { color: red }
-	.sheet-3waybox:not(:checked) + .sheet-3waybox,
+	.threewaybox:not(:checked) + .threewaybox,
 	input[value="character"]:not(:checked) ~ span[data-i18n="character_mode"],
 	input[value="crew"]:not(:checked) ~ span[data-i18n="crew_mode"],
 	input[value="faction"][type=radio]:not(:checked) ~ span[data-i18n="faction_mode"] { display: none }
 }
 /* SETTINGS */
-.sheet-type {
-	&[value="character"] ~ .sheet-settings > :not(.sheet-setting-char),
-	&[value="crew"] ~ .sheet-settings > :not(.sheet-setting-crew),
-	&[value="faction"] ~ .sheet-settings > :not(.sheet-setting-faction) { display: none }
+.charsheet .type {
+	&[value="character"] ~ .settings > :not(.setting-char),
+	&[value="crew"] ~ .settings > :not(.setting-crew),
+	&[value="faction"] ~ .settings > :not(.setting-faction) { display: none }
 }
-.sheet-settings {
+.charsheet .settings {
 	position: absolute;
 	right: 0;
 	width: 415px;
@@ -206,11 +211,11 @@ $redtext: #c43c35;
 		line-height: 17px;
 		border-bottom: 1px solid $lightest;
 
-		&.sheet-generaterow { line-height: 0 }
+		&.generaterow { line-height: 0 }
 	}
 	label { align-items: center; }
-	.sheet-checkbox + span { margin-right: 6px }
-	.sheet-checkbox:checked + span { background: black }
+	.checkbox + span { margin-right: 6px }
+	.checkbox:checked + span { background: black }
 	:not(input) + span { padding-right: 4px }
 	input[type=number] {
 		padding: 0 2px;
@@ -226,7 +231,7 @@ $redtext: #c43c35;
 		line-height: 16px;
 		border-radius: 3px;
 		border: 1px solid $lightest;
-		&.sheet-wide {
+		&.wide {
 			width: 200px;
 			margin-right: 8px;
 		}
@@ -240,966 +245,1032 @@ $redtext: #c43c35;
 
 }
 /* SETTINGS FOR HIDING STUFF ON THE SHEET */
-.sheet-toothhider[value="0"] ~ {
-	.sheet-tooth, .sheet-tooth + span { display: none }
+.charsheet .toothhider[value="0"] ~ {
+	.tooth, .tooth + span { display: none }
 }
-.sheet-hider[value="0"] + {
+.charsheet .hider[value="0"] + {
 	li, div, label { display: none }
 }
 /* Sheet container */
-.sheet-container {
+.charsheet .container {
 	position: relative;
 	min-width: 860px;
 	max-width: 1190px;
 }
-.sheet-flexwidth[value="0"] ~ .sheet-container { width: 860px }
-.sheet-type {
-	&:not([value="character"]) ~ .sheet-type-character,
-	&:not([value="crew"]) ~ .sheet-type-crew,
-	&:not([value="faction"]) ~ .sheet-type-faction { display: none }
+.charsheet .flexwidth[value="0"] ~ .container { width: 860px }
+.charsheet .type {
+	&:not([value="character"]) ~ .type-character,
+	&:not([value="crew"]) ~ .type-crew,
+	&:not([value="faction"]) ~ .type-faction { display: none }
 }
-.sheet-type-character, .sheet-type-crew, .sheet-type-faction {
-	grid: auto / 55% calc(45% - 5px);
-	grid-gap: 10px 5px;
+.charsheet {
+	.type-character, .type-crew, .type-faction {
+		grid: auto / 55% calc(45% - 5px);
+		grid-gap: 10px 5px;
+	}
 }
 /* USEFUL GENERAL LAYOUT*/
-.sheet-grid {
+.charsheet .grid {
 	display: grid;
 	.sheet-2col { grid-column: span 2 }
 }
-.sheet-type-character .sheet-left-column {
+.charsheet .type-character .left-column {
 	grid: auto / 1.1fr .9fr;
 	align-content: start;
 	grid-gap: 10px 5px;
 }
-.sheet-right-column {
+.charsheet .right-column {
 	grid: none / minmax(202.5px, 248.5px) minmax(calc(47% - 5px), 277px);
 	grid-gap: 5px;
 	grid-auto-rows: min-content;
 }
-.sheet-blackheader {
-	background: black;
-	color: white;
-	&.sheet-rep1, &.sheet-hold1 {
-		padding-top: 3px;
-		line-height: 13px;
-	}
-	&.sheet-hold1 { padding-left: 2px }
-}
-.sheet-blackheader, .sheet-black-on-grey, .sheet-greyheader {
-	font-size: 11px;
-	letter-spacing: 1px;
-}
-.sheet-blackheader, .sheet-greyheader {
-	height: 16px;
-	line-height: 15px;
-	padding: 1px 2px 0 4px;
-}
-.sheet-black-on-grey, .sheet-greyheader { background: $darkgrey }
-.sheet-black-on-grey {
-	text-align: center;
-	position: relative;
-	flex-grow: 1;
-	padding-left: 1px;
-	height: 13px;
-	line-height: 13px;
-	z-index: -1;
-}
-.sheet-plainheader {
-	width: 100%;
-	border-top: 2px solid black;
-	font-size: 12px;
-	line-height: 22px;
-}
-.sheet-specialheader {
-	background: $darkgrey;
-	height: 20px;
-	font-size: 11px;
-	line-height: 20px;
-	letter-spacing: 1px;
-	padding: 0 5px;
-	input[type=text] {
-		margin: 0 -5px;
-		padding: 0 5px;
-		width: calc(100% + 10px);
-	}
-}
-.sheet-italic { font-style: italic }
-.sheet-bold { font-weight: bold }
-.sheet-greyholder { background: $lightest }
-.sheet-def-margin { margin-top: 10px }
-.sheet-small-margin { margin-top: 5px }
-.sheet-blackborder { border-top: 3px solid black }
-.sheet-tier {
-	background: $lightest;
-	height: 16px;
-	width: 56px;
-	align-items: center;
-	input[value="1"] { margin-left: auto }
-	.sheet-checkbox + span { margin-right: auto }
-}
-/* COLUMN LAYOUT */
-.sheet-flex { display: flex }
-.sheet-flex-center {
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.sheet-col50 { width: 50% }
-.sheet-col52b { width: 52% }
-.sheet-col45{ width: 45% }
-.sheet-col100 { width: 100% }
-/* FONT STYLES */
-.sheet-label,
-input[type=text].sheet-label,
-textarea.sheet-label,
-button[type=roll].sheet-label {
-	text-transform: uppercase;
-	font-weight: bold;
-}
-.sheet-uppercase { text-transform: uppercase }
-.sheet-smallcaps,
-input[type=text].sheet-smallcaps,
-textarea.sheet-smallcaps {
-	font-variant: small-caps;
-	font-weight: bold;
-}
-/* INFO BOXES */
-.sheet-gatherinfo {
-	ul { padding: 0 }
-	li {
-		margin-bottom: 1px;
-		font-style: italic;
-		padding-left: 11px;
-		font-size: 11px;
-		height: 17px;
-	}
-}
-.sheet-teamworkbox {
-	width: 95%;
-	padding: 5px;
-	margin-bottom: 5px;
-	background: $lightest;
-	font-size: 12px;
-	line-height: 15px;
-}
-.sheet-planning .sheet-teamworkbox .sheet-bold::after { content: ": " }
-.sheet-planningdesc {
-	font-size: 12px;
-	line-height: 15px;
-	text-align: justify;
-	margin: 0 5% 5px 0;
-}
-/* ITEMS/UPGRADES */
-.sheet-itemholder > div { padding: 5px }
-.sheet-item-container { flex-grow: 1 }
-.sheet-playbookitems { background: $lightest }
-.sheet-regularitems {
-	grid-template-columns: 50% 50%;
-	.repcontainer {
-		display: flex;
-		flex-wrap: wrap;
-		align-content: flex-start;
-	}
-	.repitem {
-		display: flex;
-		flex-grow: 1;
-	}
-	.sheet-input-short[value="1"] + .sheet-input-expand[value="0"] ~ .sheet-item-container { width: 96px }
-}
-.sheet-upgrades > div { position: relative }
-.sheet-item {
-	display: flex;
-	align-items: start;
-
-	.sheet-itemname {
-		height: 18px;
-		font-size: 11px;
-		margin: 0 1px 0 2px;
-		padding-left: 2px;
-		flex: auto;
-		min-width: 0;
-
-		&.sheet-auto-expand {
-			min-height: 16px;
-			height: auto;
-			line-height: 16px;
-			margin: 1px 0;
-			padding: 0 7px 0 2px;
+.charsheet {
+	.blackheader {
+		background: black;
+		color: white;
+		&.rep1, &.hold1 {
+			padding-top: 3px;
+			line-height: 13px;
 		}
+		&.hold1 { padding-left: 2px }
 	}
-
-	.sheet-checkbox, .sheet-checkbox + span { margin-top: 3px }
-
-	.sheet-input-bold[value="1"] ~ .sheet-itemname { font-weight: bold }
-	.sheet-numboxes[value="0"] ~ .sheet-itemname { font-style: italic }
-}
-.sheet-upgradecaption {
-	font-size: 11px;
-	letter-spacing: 1px;
-}
-.sheet-upgradecosts {
-	font-size: 11px;
-	padding-left: 3px;
-	&.sheet-label {
-		font-size: 8px;
+	.blackheader, .black-on-grey, .greyheader {
+		.label, button[type=roll].label {
+			font-size: 11px;
+			line-height: 15px;
+			color: inherit;
+		}
 		letter-spacing: 1px;
 	}
+	.blackheader, .greyheader {
+		height: 16px;
+		line-height: 15px;
+		padding: 1px 2px 0 4px;
+		.label {
+			padding-left: 1px;
+			padding-right: 1px;
+			line-height: inherit;
+		}
+	}
+	.black-on-grey, .greyheader { background: $darkgrey }
+	.black-on-grey, .black-on-grey .label {
+		text-align: center;
+		position: relative;
+		flex-grow: 1;
+		padding-left: 1px;
+		padding-right: 1px;
+		height: 13px;
+		line-height: 13px;
+		z-index: -1;
+	}
+	.plainheader {
+		width: 100%;
+		border-top: 2px solid black;
+		font-size: 12px;
+		line-height: 22px;
+	}
+	.specialheader {
+		background: $darkgrey;
+		height: 20px;
+		font-size: 11px;
+		line-height: 20px;
+		letter-spacing: 1px;
+		padding: 0 5px;
+		input[type=text] {
+			margin: 0 -5px;
+			padding: 0 5px;
+			width: calc(100% + 10px);
+		}
+	}
+	.italic { font-style: italic }
+	.bold { font-weight: bold }
+	.greyholder { background: $lightest }
+	.def-margin { margin-top: 10px }
+	.small-margin { margin-top: 5px }
+	.blackborder { border-top: 3px solid black }
+	.tier {
+		background: $lightest;
+		height: 16px;
+		width: 56px;
+		align-items: center;
+		input[value="1"] { margin-left: auto }
+		.checkbox + span { margin-right: auto }
+	}
 }
-.sheet-floatingbar {
-	width: 3px;
-	height: 2px;
-	margin: 8px 0 0 -3px;
-	flex: 0 0 auto;
-	background: $greyborder;
+/* COLUMN LAYOUT */
+.charsheet {
+	.flex { display: flex }
+	.flex-center {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.col50 { width: 50% }
+	.col52b { width: 52% }
+	.col45{ width: 45% }
+	.col100 { width: 100% }
+}
+/* FONT STYLES */
+.charsheet {
+	.label,
+	input[type=text].label,
+	textarea.label,
+	button[type=roll].label {
+		text-transform: uppercase;
+		font-weight: bold;
+		color: inherit;
+	}
+	.uppercase { text-transform: uppercase }
+	.smallcaps,
+	input[type=text].smallcaps,
+	textarea.smallcaps {
+		font-variant: small-caps;
+		font-weight: bold;
+	}
+}
+/* INFO BOXES */
+.charsheet {
+	.gatherinfo {
+		ul { padding: 0 }
+		li {
+			margin-bottom: 1px;
+			font-style: italic;
+			padding-left: 11px;
+			font-size: 11px;
+			height: 17px;
+		}
+	}
+	.teamworkbox {
+		width: 95%;
+		padding: 5px;
+		margin-bottom: 5px;
+		background: $lightest;
+		font-size: 12px;
+		line-height: 15px;
+	}
+	.planning .teamworkbox .bold::after { content: ": " }
+	.planningdesc {
+		font-size: 12px;
+		line-height: 15px;
+		text-align: justify;
+		margin: 0 5% 5px 0;
+	}
+}
+/* ITEMS/UPGRADES */
+.charsheet {
+	.itemholder > div { padding: 5px }
+	.item-container { flex-grow: 1 }
+	.playbookitems { background: $lightest }
+	.regularitems {
+		grid-template-columns: 50% 50%;
+		.repcontainer {
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+		}
+		.repitem {
+			display: flex;
+			flex-grow: 1;
+		}
+		.input-short[value="1"] + .input-expand[value="0"] ~ .item-container { width: 96px }
+	}
+	.upgrades > div { position: relative }
+	.item {
+		display: flex;
+		align-items: start;
+
+		.itemname {
+			height: 18px;
+			font-size: 11px;
+			margin: 0 1px 0 2px;
+			padding-left: 2px;
+			flex: auto;
+			min-width: 0;
+
+			&.auto-expand {
+				min-height: 16px;
+				height: auto;
+				line-height: 16px;
+				margin: 1px 0;
+				padding: 0 7px 0 2px;
+			}
+		}
+
+		.checkbox, .checkbox + span { margin-top: 3px }
+
+		.input-bold[value="1"] ~ .itemname { font-weight: bold }
+		.numboxes[value="0"] ~ .itemname { font-style: italic }
+	}
+	.upgradecaption {
+		font-size: 11px;
+		letter-spacing: 1px;
+	}
+	.upgradecosts {
+		font-size: 11px;
+		padding-left: 3px;
+		&.label {
+			font-size: 8px;
+			letter-spacing: 1px;
+		}
+	}
+	.floatingbar {
+		width: 3px;
+		height: 2px;
+		margin: 8px 0 0 -3px;
+		flex: 0 0 auto;
+		background: $greyborder;
+	}
 }
 /* Repeating items*/
-.sheet-numboxes[value="0"] ~ .sheet-boxesgeq2,
-.sheet-numboxes[value="1"] ~ .sheet-boxesgeq2,
-.sheet-numboxes[value="2"] ~ .sheet-boxesgeq3 { display: none }
-.sheet-itemholder .repitem .sheet-boxes-chosen {
-	&[value="1"] + div, &[value="0"] + div ~ div { display: none }
-}
-.sheet-numboxes-chooser {
-	padding: 1px 0;
-	font-size: 11px;
-	input[type=number] {
-		margin-left: auto;
-		height: 18px;
-		padding: 0;
-		text-align: right;
-		width: 2.5em;
-		background: transparent;
+.charsheet {
+	.numboxes[value="0"] ~ .boxesgeq2,
+	.numboxes[value="1"] ~ .boxesgeq2,
+	.numboxes[value="2"] ~ .boxesgeq3 { display: none }
+	.itemholder .repitem .boxes-chosen {
+		&[value="1"] + div, &[value="0"] + div ~ div { display: none }
 	}
-	label {
-		height: 18px;
-		border: 1px solid $versiongrey;
-		margin-left: auto;
-		padding: 2px;
-		line-height: 12px;
+	.numboxes-chooser {
+		padding: 1px 0;
+		font-size: 11px;
+		input[type=number] {
+			margin-left: auto;
+			height: 18px;
+			padding: 0;
+			text-align: right;
+			width: 2.5em;
+			background: transparent;
+		}
+		label {
+			height: 18px;
+			border: 1px solid $versiongrey;
+			margin-left: auto;
+			padding: 2px;
+			line-height: 12px;
+		}
+		input:checked + span { font-weight: bold }
 	}
-	input:checked + span { font-weight: bold }
-}
-.sheet-show-itemdesc[value="0"] ~ div .sheet-item-description { display: none }
-.sheet-itemholder .sheet-expand {
-	top: 4px;
-	right: 1px;
-
-	+ span {
-		top: 1px;
+	.show-itemdesc[value="0"] ~ div .item-description { display: none }
+	.itemholder .expand {
+		top: 4px;
 		right: 1px;
-		&::before { content: "◀" }
+
+		+ span {
+			top: 1px;
+			right: 1px;
+			&::before { content: "◀" }
+		}
+		&:checked + span::before { content: "▼" }
+		~ textarea {
+			border-top: 1px solid $lightest;
+			line-height: 12px;
+			font-size: 10px;
+			height: 49px;
+		}
 	}
-	&:checked + span::before { content: "▼" }
-	~ textarea {
-		border-top: 1px solid $lightest;
-		line-height: 12px;
-		font-size: 10px;
-		height: 49px;
-	}
+	.itemholder .playbookitems .expand ~ textarea { border-color: $versiongrey }
 }
-.sheet-itemholder .sheet-playbookitems .sheet-expand ~ textarea { border-color: $versiongrey }
 /* LOGO */
-.sheet-bladeslogo {
+.charsheet .bladeslogo {
 	height: 43px;
 	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/logo.png');
 	background-size: 102% auto;
 	background-repeat: no-repeat;
 }
-.sheet-crewheader {
+.charsheet .crewheader {
 	color: $headergrey;
 	font-size: 28px;
 	align-self: flex-start;
 	letter-spacing: -2px;
 	line-height: 31px;
 }
+
 /* LOAD */
-.sheet-itemheader,
-.sheet-loadheader {
-	background: $darkgrey;
-	height: 20px;
-	font-size: 10px;
-	padding: 3px 2px 1px 4px;
-	align-items: center;
-}
-.sheet-loadheader label {
-	align-items: center;
-	line-height: 11px;
-	font-style: italic;
-	margin-left: auto;
-	text-transform: lowercase;
-}
-.sheet-loadnumber {
-	font-weight: bold;
-	font-family: "Times New Roman", Times, serif;
-	font-size: 12px;
-	margin: 0 3px 0 4px;
-}
-.sheet-itemheader {
-	> .sheet-label { margin-right: 4px }
-	&:not(:hover) .sheet-text-button { display: none }
-	.sheet-text-button {
-		margin-left: auto;
-		input[type=checkbox] + span {
-			opacity: 1;
-			color: $fontblack;
-		}
-		&:hover input[type=checkbox] + span { color: red }
-	}
-}
-/* ADVANCEMENT BOX*/
-.sheet-advancement-header { letter-spacing: 2px }
-.sheet-markxp { margin-right: auto }
-.sheet-xpholder {
-	letter-spacing: 0;
-	font-size: 0;
-	margin-left: 8px;
-}
-.sheet-advancement-desc, .sheet-warblurb {
-	li {
-		font-size: 13px;
-		line-height: 16px;
-		width: 100%;
-		&.sheet-nondot {
-			padding-left: 0;
-			font-style: normal;
-			&::before { display: none }
-		}
-	}
-}
-.sheet-advancement-desc {
-	width: 99%;
-	background: $lightest;
-	padding: 15px 10px 4px 11px;
-	li {
-		font-style: italic;
-		margin-bottom: .7em;
-		padding-left: 1em;
-	}
-	.sheet-auto-expand {
-		min-height: 16px;
-		padding: 0 2px;
-	}
-}
-/* PLAYBOOK */
-.sheet-playbook {
-	align-items: center;
-	height: 50px;
-	position: relative;
-	background: $lightest;
-	input[type=text] {
-		flex: 0 0 auto;
-		margin: 0 2px;
-		padding-left: 5px;
-		letter-spacing: -1px;
-		font-size: 35px;
-		line-height: 40px;
-	}
-	textarea {
-		height: 42px;
-		flex: 0 0 auto;
+.charsheet {
+	.itemheader,
+	.loadheader {
+		background: $darkgrey;
+		height: 20px;
 		font-size: 10px;
-		padding-left: 3px;
-		letter-spacing: 1px;
-		color: $headergrey;
-		resize: none;
-		overflow: hidden;
-		line-height: 14px;
+		padding: 3px 2px 1px 4px;
+		.label {
+			font-size: 10px;
+			padding: 0px;
+		}
+		align-items: center;
 	}
-	.sheet-reminder {
-		position: absolute;
-		border: 1px solid $fontblack;
-		background: white;
-		top: 48px;
-		z-index: 3;
-		border-radius: 5px;
-		width: 267px;
+	.loadheader label {
+		align-items: center;
+		line-height: 11px;
+		font-style: italic;
+		margin-left: auto;
+		text-transform: lowercase;
+	}
+	.loadnumber {
+		font-weight: bold;
+		font-family: "Times New Roman", Times, serif;
 		font-size: 12px;
-		text-align: center;
-		padding: 3px;
+		margin: 0 3px 0 4px;
+	}
+	.itemheader {
+		> .label { margin-right: 4px }
+		&:not(:hover) .text-button { display: none }
+		.text-button {
+			margin-left: auto;
+			input[type=checkbox] + span {
+				opacity: 1;
+				color: $fontblack;
+			}
+			&:hover input[type=checkbox] + span { color: red }
+		}
 	}
 }
-.sheet-type-character .sheet-playbook {
-	input[type=text] { width: calc(64% - 10px) }
-	textarea { width: calc(36% + 6px) }
+
+/* ADVANCEMENT BOX*/
+.charsheet {
+	.advancement-header { letter-spacing: 2px }
+	.markxp { margin-right: auto }
+	.xpholder {
+		letter-spacing: 0;
+		font-size: 0;
+		margin-left: 8px;
+	}
+	.advancement-desc, .warblurb {
+		li {
+			font-size: 13px;
+			line-height: 16px;
+			width: 100%;
+			&.nondot {
+				padding-left: 0;
+				font-style: normal;
+				&::before { display: none }
+			}
+		}
+	}
+	.advancement-desc {
+		width: 99%;
+		background: $lightest;
+		padding: 15px 10px 4px 11px;
+		li {
+			font-style: italic;
+			margin-bottom: .7em;
+			padding-left: 1em;
+		}
+		.auto-expand {
+			min-height: 16px;
+			padding: 0 2px;
+		}
+	}
 }
-.sheet-type-crew .sheet-playbook {
-	input[type=text] { width: calc(74% - 7px) }
-	textarea { width: calc(26% + 3px) }
+
+/* PLAYBOOK */
+.charsheet {
+	.playbook {
+		align-items: center;
+		height: 50px;
+		position: relative;
+		background: $lightest;
+		input[type=text] {
+			flex: 0 0 auto;
+			margin: 0 2px;
+			padding-left: 5px;
+			letter-spacing: -1px;
+			font-size: 35px;
+			line-height: 40px;
+		}
+		.label:empty {
+			display: inherit;
+		}
+		.label {
+			text-align: left;
+		}
+		textarea {
+			height: 42px;
+			flex: 0 0 auto;
+			font-size: 10px;
+			padding-left: 3px;
+			letter-spacing: 1px;
+			color: $headergrey;
+			resize: none;
+			overflow: hidden;
+			line-height: 14px;
+		}
+		.reminder {
+			position: absolute;
+			border: 1px solid $fontblack;
+			background: white;
+			top: 48px;
+			z-index: 3;
+			border-radius: 5px;
+			width: 267px;
+			font-size: 12px;
+			text-align: center;
+			padding: 3px;
+		}
+	}
+	.type-character .playbook {
+		input[type=text] { width: calc(64% - 10px) }
+		textarea { width: calc(36% + 6px) }
+	}
+	.type-crew .playbook {
+		input[type=text] { width: calc(74% - 7px) }
+		textarea { width: calc(26% + 3px) }
+	}
 }
 
 /* HEADER */
-.sheet-header {
-	grid: auto / 53.7% 45%;
-	grid-column-gap: 1.3%;
-	align-items: end;
-	label { flex-wrap: wrap }
-	input[type=text], .sheet-auto-expand {
-		width: 100%;
-		border-bottom: 1px solid black;
-		font-size: 14px;
-		line-height: 1.3;
-		text-align: left;
-		padding: 3px 0 0 2px;
-		margin: 3px 0 0;
-		min-height: 22px;
-		color: $redtext;
-	}
-	input[type="hidden"] {
-		&[value=""] + div > .sheet-title::after { content: ": " }
-		&:not([value=""]) + div > .sheet-info { display: none }
-	}
-	.sheet-text {
-		color: black;
-		text-align: justify;
-		padding: 3px 0 2px;
-		line-height: 13px;
-	}
-	.sheet-title {
-		font-size: 10px;
-		letter-spacing: 1px;
-	}
-	.sheet-info { font-size: 8px }
-	.sheet-vice-input {
-		&:not([value="normal"]) ~ .sheet-normal,
-		&:not([value="ghost"]) ~ .sheet-ghost,
-		&:not([value="hull"]) ~ .sheet-hull,
-		&:not([value="vampire"]) ~ .sheet-vampire { display: none }
-	}
-	.sheet-vice {
-		justify-content: space-between;
-		text-align: justify;
-		grid-column: span 2;
-		line-height: 1.6;
-		font-size: 11px;
-		.sheet-smallcaps {
-			font-size: 130%;
-			line-height: 0;
+.charsheet {
+	.header {
+		grid: auto / 53.7% 45%;
+		grid-column-gap: 1.3%;
+		align-items: end;
+		label { flex-wrap: wrap }
+		input[type=text], .auto-expand {
+			width: 100%;
+			border-bottom: 1px solid black;
+			font-size: 14px;
+			line-height: 1.3;
+			text-align: left;
+			padding: 3px 0 0 2px;
+			margin: 3px 0 0;
+			min-height: 22px;
+			color: $redtext;
+		}
+		input[type="hidden"] {
+			&[value=""] + div > .title::after { content: ": " }
+			&:not([value=""]) + div > .info { display: none }
+		}
+		.text {
+			color: black;
+			text-align: justify;
+			padding: 3px 0 2px;
+			.label {
+				padding: 3px 0 2px;
+			}
+			line-height: 13px;
+		}
+		.title {
+			font-size: 10px;
+			letter-spacing: 1px;
+		}
+		.info { font-size: 8px }
+		.vice-input {
+			&:not([value="normal"]) ~ .normal,
+			&:not([value="ghost"]) ~ .ghost,
+			&:not([value="hull"]) ~ .hull,
+			&:not([value="vampire"]) ~ .vampire { display: none }
+		}
+		.vice {
+			justify-content: space-between;
+			text-align: justify;
+			grid-column: span 2;
+			line-height: 1.6;
+			font-size: 11px;
+			.smallcaps {
+				font-size: 130%;
+				line-height: 0;
+			}
 		}
 	}
 }
 
 /* CLOCKS */
-.sheet-clocks {
-	.repcontainer {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		padding-top: 2px;
-		grid-gap: 4px;
+.charsheet {
+	.clocks {
+		.repcontainer {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			padding-top: 2px;
+			grid-gap: 4px;
+		}
+		.repitem {
+			display: flex;
+			padding: 4px 2px;
+			background: $lightest;
+			align-items: start;
+		}
+		.itemcontrol {
+			top: 0;
+			left: 0;
+		}
+		.auto-expand {
+			font-size: 11px;
+			letter-spacing: 1px;
+			padding: 2px 3px;
+			line-height: 12px;
+			flex: auto;
+			min-width: 0;
+			margin-right: 2px;
+			min-height: 28px;
+		}
 	}
-	.repitem {
-		display: flex;
-		padding: 4px 2px;
-		background: $lightest;
-		align-items: start;
+	.clock-container {
+		position: relative;
+		padding: 2px;
+		margin: 0 0 5px;
+		z-index: 1;
+		height: 44px;
+		width: 44px;
+		cursor: pointer;
+		flex: 0 0 auto;
+		input {
+			position: absolute;
+			display: none;
+		}
+		.zero { z-index: 3 }
+		.zero, .zero + span {
+			position: absolute;
+			top: 37px;
+			left: -5px;
+		}
+		.all, .zero { display: block }
 	}
-	.itemcontrol {
-		top: 0;
+	.clock {
+		border: 2px solid black;
+		border-radius: 50%;
+		background: white;
+		width: 100%;
+		height: 100%;
+		position: absolute;
 		left: 0;
+		top: 0;
+		z-index: -1;
 	}
-	.sheet-auto-expand {
-		font-size: 11px;
-		letter-spacing: 1px;
-		padding: 2px 3px;
-		line-height: 12px;
-		flex: auto;
-		min-width: 0;
-		margin-right: 2px;
-		min-height: 28px;
-	}
-}
-.sheet-clock-container {
-	position: relative;
-	padding: 2px;
-	margin: 0 0 5px;
-	z-index: 1;
-	height: 44px;
-	width: 44px;
-	cursor: pointer;
-	flex: 0 0 auto;
-	input {
+	div[class^="spoke"] {
+		height: 44px;
+		width: 2px;
 		position: absolute;
 		display: none;
+		left: 0;
+		top: 0;
+		background: black;
 	}
-	.sheet-zero { z-index: 3 }
-	.sheet-zero, .sheet-zero + span {
-		position: absolute;
-		top: 37px;
-		left: -5px;
+	.spoke-0 { transform: translateX(21px) }
+	.spoke-30 { transform: translateX(21px) rotate(30deg) }
+	.spoke-36 { transform: translateX(21px) rotate(36deg) }
+	.spoke-45 { transform: translateX(21px) rotate(45deg) }
+	.spoke-60 { transform: translateX(21px) rotate(60deg) }
+	.spoke-72 { transform: translateX(21px) rotate(72deg) }
+	.spoke-90 { transform: translateX(21px) rotate(90deg) }
+	.spoke-108 { transform: translateX(21px) rotate(108deg) }
+	.spoke-120 { transform: translateX(21px) rotate(120deg) }
+	.spoke-135 { transform: translateX(21px) rotate(135deg) }
+	.spoke-144 { transform: translateX(21px) rotate(144deg) }
+	.spoke-150 { transform: translateX(21px) rotate(150deg) }
+	.size-choice {
+		display: flex;
+		flex: 0 0 auto;
+		height: 45px;
+		margin: 2px 0;
+		width: 44px;
+		line-height: 12px;
+		font-size: 13px;
+		font-family: "Times New Roman", Times, serif;
+		align-content: space-evenly;
+		flex-wrap: wrap;
 	}
-	.sheet-all, .sheet-zero { display: block }
-}
-.sheet-clock {
-	border: 2px solid black;
-	border-radius: 50%;
-	background: white;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: -1;
-}
-div[class^="sheet-spoke"] {
-	height: 44px;
-	width: 2px;
-	position: absolute;
-	display: none;
-	left: 0;
-	top: 0;
-	background: black;
-}
-.sheet-spoke-0 { transform: translateX(21px) }
-.sheet-spoke-30 { transform: translateX(21px) rotate(30deg) }
-.sheet-spoke-36 { transform: translateX(21px) rotate(36deg) }
-.sheet-spoke-45 { transform: translateX(21px) rotate(45deg) }
-.sheet-spoke-60 { transform: translateX(21px) rotate(60deg) }
-.sheet-spoke-72 { transform: translateX(21px) rotate(72deg) }
-.sheet-spoke-90 { transform: translateX(21px) rotate(90deg) }
-.sheet-spoke-108 { transform: translateX(21px) rotate(108deg) }
-.sheet-spoke-120 { transform: translateX(21px) rotate(120deg) }
-.sheet-spoke-135 { transform: translateX(21px) rotate(135deg) }
-.sheet-spoke-144 { transform: translateX(21px) rotate(144deg) }
-.sheet-spoke-150 { transform: translateX(21px) rotate(150deg) }
-.sheet-size-choice {
-	display: flex;
-	flex: 0 0 auto;
-	height: 45px;
-	margin: 2px 0;
-	width: 44px;
-	line-height: 12px;
-	font-size: 13px;
-	font-family: "Times New Roman", Times, serif;
-	align-content: space-evenly;
-	flex-wrap: wrap;
-}
-/* Faction clocks */
-.sheet-container .sheet-type-faction .sheet-clocks .repcontainer {
-	.sheet-clocks-only[value="0"] ~ & {
-		grid-template-columns: repeat(3, 1fr);
-	}
-	.sheet-clocks-only[value="1"] ~ & {
-		grid-template-columns: repeat(4, 1fr);
-	}
-}
-.sheet-clocks-only[value="1"] ~ .sheet-container .sheet-type-faction {
-	grid: auto / auto;
-	.sheet-factiontitle, .sheet-factions, .sheet-notes { display: none }
-}
-.sheet-size[value="4"] ~ .sheet-clock-container {
-	input:not(.sheet-zero) {
-		height: 20px;
-		width: 20px;
-	}
-	input[value="1"] { margin-left: 20px }
-	input[value="2"] { margin: 20px 0 0 20px }
-	input[value="3"] { margin-top: 20px }
-}
-.sheet-size[value="6"] ~ .sheet-clock-container {
-	input:not(.sheet-zero) {
-		height: 17px;
-		width: 12px;
-	}
-	input[value="1"] {
-		margin-left: 21px;
-		transform: rotate(30deg);
-	}
-	input[value="2"] {
-		margin: 12px 0 0 25px;
-		transform: rotate(90deg);
-	}
-	input[value="3"] {
-		margin: 22px 0 0 21px;
-		transform: rotate(150deg);
-	}
-	input[value="4"] {
-		margin: 22px 0 0 8px;
-		transform: rotate(210deg);
-	}
-	input[value="5"] {
-		margin: 12px 0 0 1px;
-		transform: rotate(270deg);
-	}
-	input[value="6"] {
-		margin-left: 8px;
-		transform: rotate(330deg);
-	}
-}
-.sheet-size[value="8"] ~ .sheet-clock-container {
-	input:not(.sheet-zero) {
-		height: 14px;
-		width: 10px;
-	}
-	input[value="1"] {
-		margin-left: 20px;
-		transform: rotate(22.5deg);
-	}
-	input[value="2"] {
-		margin: 8px 0 0 26px;
-		transform: rotate(67.5deg);
-	}
-	input[value="3"] {
-		margin: 18px 0 0 26px;
-		transform: rotate(112.5deg);
-	}
-	input[value="4"] {
-		margin: 25px 0 0 20px;
-		transform: rotate(157.5deg);
-	}
-	input[value="5"] {
-		margin: 25px 0 0 9px;
-		transform: rotate(202.5deg);
-	}
-	input[value="6"] {
-		margin: 18px 0 0 2px;
-		transform: rotate(247.5deg);
-	}
-	input[value="7"] {
-		margin: 8px 0 0 2px;
-		transform: rotate(292.5deg);
-	}
-	input[value="8"] {
-		margin-left: 9px;
-		transform: rotate(337.5deg);
-	}
-}
-.sheet-size[value="10"] ~ .sheet-clock-container {
-	input:not(.sheet-zero) {
-		height: 14px;
-		width: 9px;
-	}
-	input[value="1"] {
-		transform: rotate(18deg);
-		margin-left: 20px;
-	}
-	input[value="2"] {
-		transform: rotate(54deg);
-		margin: 5px 0 0 27px;
-	}
-	input[value="3"] {
-		transform: rotate(90deg);
-		margin: 13px 0 0 30px;
-	}
-	input[value="4"] {
-		transform: rotate(126deg);
-		margin: 21px 0 0 27px;
-	}
-	input[value="5"] {
-		transform: rotate(162deg);
-		margin: 26px 0 0 20px;
-	}
-	input[value="6"] {
-		transform: rotate(198deg);
-		margin: 26px 0 0 12px;
-	}
-	input[value="7"] {
-		transform: rotate(234deg);
-		margin: 21px 0 0 5px;
-	}
-	input[value="8"] {
-		transform: rotate(270deg);
-		margin: 13px 0 0 1px;
-	}
-	input[value="9"] {
-		transform: rotate(306deg);
-		margin: 5px 0 0 5px;
-	}
-	input[value="10"] {
-		transform: rotate(342deg);
-		margin-left: 12px;
-	}
-}
-.sheet-size[value="12"] ~ .sheet-clock-container {
-	input:not(.sheet-zero) {
-		height: 12px;
-		width: 8px;
-	}
-	input[value="1"] {
-		margin-left: 20px;
-		transform: rotate(15deg);
-	}
-	input[value="2"] {
-		margin: 4px 0 0 26px;
-		transform: rotate(45deg);
-	}
-	input[value="3"] {
-		margin: 10px 0 0 29px;
-		transform: rotate(75deg);
-	}
-	input[value="4"] {
-		margin: 18px 0 0 29px;
-		transform: rotate(105deg);
-	}
-	input[value="5"] {
-		margin: 24px 0 0 26px;
-		transform: rotate(135deg);
-	}
-	input[value="6"] {
-		margin: 28px 0 0 20px;
-		transform: rotate(165deg);
-	}
-	input[value="7"] {
-		margin: 28px 0 0 12px;
-		transform: rotate(195deg);
-	}
-	input[value="8"] {
-		margin: 24px 0 0 6px;
-		transform: rotate(225deg);
-	}
-	input[value="9"] {
-		margin: 18px 0 0 3px;
-		transform: rotate(255deg);
-	}
-	input[value="10"] {
-		margin: 10px 0 0 3px;
-		transform: rotate(295deg);
-	}
-	input[value="11"] {
-		margin: 4px 0 0 6px;
-		transform: rotate(315deg);
-	}
-	input[value="12"] {
-		margin-left: 12px;
-		transform: rotate(345deg);
-	}
-}
-/* End positioning */
-.sheet-size[value="4"] ~ .sheet-clock-container .sheet-4clock,
-.sheet-size[value="6"] ~ .sheet-clock-container .sheet-6clock,
-.sheet-size[value="8"] ~ .sheet-clock-container .sheet-8clock,
-.sheet-size[value="10"] ~ .sheet-clock-container .sheet-10clock,
-.sheet-size[value="12"] ~ .sheet-clock-container .sheet-12clock { display: block }
 
-.sheet-size:not([value=""]) ~ .sheet-size-choice,
-.sheet-clocks .sheet-size[value=""] ~ .sheet-broadcast-button,
-.sheet-size[value=""] ~ .sheet-clock-container{ display: none }
+	/* Faction clocks */
+	.container .type-faction .clocks .repcontainer {
+		.clocks-only[value="0"] ~ & {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		.clocks-only[value="1"] ~ & {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	.clocks-only[value="1"] ~ .container .type-faction {
+		grid: auto / auto;
+		.factiontitle, .factions, .notes { display: none }
+	}
+	.size[value="4"] ~ .clock-container {
+		input:not(.zero) {
+			height: 20px;
+			width: 20px;
+		}
+		input[value="1"] { margin-left: 20px }
+		input[value="2"] { margin: 20px 0 0 20px }
+		input[value="3"] { margin-top: 20px }
+	}
+	.size[value="6"] ~ .clock-container {
+		input:not(.zero) {
+			height: 17px;
+			width: 12px;
+		}
+		input[value="1"] {
+			margin-left: 21px;
+			transform: rotate(30deg);
+		}
+		input[value="2"] {
+			margin: 12px 0 0 25px;
+			transform: rotate(90deg);
+		}
+		input[value="3"] {
+			margin: 22px 0 0 21px;
+			transform: rotate(150deg);
+		}
+		input[value="4"] {
+			margin: 22px 0 0 8px;
+			transform: rotate(210deg);
+		}
+		input[value="5"] {
+			margin: 12px 0 0 1px;
+			transform: rotate(270deg);
+		}
+		input[value="6"] {
+			margin-left: 8px;
+			transform: rotate(330deg);
+		}
+	}
+	.size[value="8"] ~ .clock-container {
+		input:not(.zero) {
+			height: 14px;
+			width: 10px;
+		}
+		input[value="1"] {
+			margin-left: 20px;
+			transform: rotate(22.5deg);
+		}
+		input[value="2"] {
+			margin: 8px 0 0 26px;
+			transform: rotate(67.5deg);
+		}
+		input[value="3"] {
+			margin: 18px 0 0 26px;
+			transform: rotate(112.5deg);
+		}
+		input[value="4"] {
+			margin: 25px 0 0 20px;
+			transform: rotate(157.5deg);
+		}
+		input[value="5"] {
+			margin: 25px 0 0 9px;
+			transform: rotate(202.5deg);
+		}
+		input[value="6"] {
+			margin: 18px 0 0 2px;
+			transform: rotate(247.5deg);
+		}
+		input[value="7"] {
+			margin: 8px 0 0 2px;
+			transform: rotate(292.5deg);
+		}
+		input[value="8"] {
+			margin-left: 9px;
+			transform: rotate(337.5deg);
+		}
+	}
+	.size[value="10"] ~ .clock-container {
+		input:not(.zero) {
+			height: 14px;
+			width: 9px;
+		}
+		input[value="1"] {
+			transform: rotate(18deg);
+			margin-left: 20px;
+		}
+		input[value="2"] {
+			transform: rotate(54deg);
+			margin: 5px 0 0 27px;
+		}
+		input[value="3"] {
+			transform: rotate(90deg);
+			margin: 13px 0 0 30px;
+		}
+		input[value="4"] {
+			transform: rotate(126deg);
+			margin: 21px 0 0 27px;
+		}
+		input[value="5"] {
+			transform: rotate(162deg);
+			margin: 26px 0 0 20px;
+		}
+		input[value="6"] {
+			transform: rotate(198deg);
+			margin: 26px 0 0 12px;
+		}
+		input[value="7"] {
+			transform: rotate(234deg);
+			margin: 21px 0 0 5px;
+		}
+		input[value="8"] {
+			transform: rotate(270deg);
+			margin: 13px 0 0 1px;
+		}
+		input[value="9"] {
+			transform: rotate(306deg);
+			margin: 5px 0 0 5px;
+		}
+		input[value="10"] {
+			transform: rotate(342deg);
+			margin-left: 12px;
+		}
+	}
+	.size[value="12"] ~ .clock-container {
+		input:not(.zero) {
+			height: 12px;
+			width: 8px;
+		}
+		input[value="1"] {
+			margin-left: 20px;
+			transform: rotate(15deg);
+		}
+		input[value="2"] {
+			margin: 4px 0 0 26px;
+			transform: rotate(45deg);
+		}
+		input[value="3"] {
+			margin: 10px 0 0 29px;
+			transform: rotate(75deg);
+		}
+		input[value="4"] {
+			margin: 18px 0 0 29px;
+			transform: rotate(105deg);
+		}
+		input[value="5"] {
+			margin: 24px 0 0 26px;
+			transform: rotate(135deg);
+		}
+		input[value="6"] {
+			margin: 28px 0 0 20px;
+			transform: rotate(165deg);
+		}
+		input[value="7"] {
+			margin: 28px 0 0 12px;
+			transform: rotate(195deg);
+		}
+		input[value="8"] {
+			margin: 24px 0 0 6px;
+			transform: rotate(225deg);
+		}
+		input[value="9"] {
+			margin: 18px 0 0 3px;
+			transform: rotate(255deg);
+		}
+		input[value="10"] {
+			margin: 10px 0 0 3px;
+			transform: rotate(295deg);
+		}
+		input[value="11"] {
+			margin: 4px 0 0 6px;
+			transform: rotate(315deg);
+		}
+		input[value="12"] {
+			margin-left: 12px;
+			transform: rotate(345deg);
+		}
+	}
+	/* End positioning */
+	.size[value="4"] ~ .clock-container .sheet-4clock,
+	.size[value="6"] ~ .clock-container .sheet-6clock,
+	.size[value="8"] ~ .clock-container .sheet-8clock,
+	.size[value="10"] ~ .clock-container .sheet-10clock,
+	.size[value="12"] ~ .clock-container .sheet-12clock { 
+		display: block 
+	}
 
-.sheet-clock-container .sheet-input-progress[value="0"]:checked ~ .sheet-clock { @include clock(0) }
-.sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress {
-	&[value="1"]:checked ~ .sheet-clock { @include clock(90) }
-	&[value="2"]:checked ~ .sheet-clock { @include clock(180) }
-	&[value="3"]:checked ~ .sheet-clock { @include clock(270) }
-	&[value="4"]:checked ~ .sheet-clock { @include clock(360) }
-}
-.sheet-size[value="6"] ~ .sheet-clock-container .sheet-input-progress {
-	&[value="1"]:checked ~ .sheet-clock { @include clock(60) }
-	&[value="2"]:checked ~ .sheet-clock { @include clock(120) }
-	&[value="3"]:checked ~ .sheet-clock { @include clock(180) }
-	&[value="4"]:checked ~ .sheet-clock { @include clock(240) }
-	&[value="5"]:checked ~ .sheet-clock { @include clock(300) }
-	&[value="6"]:checked ~ .sheet-clock { @include clock(360) }
-}
-.sheet-size[value="8"] ~ .sheet-clock-container .sheet-input-progress {
-	&[value="1"]:checked ~ .sheet-clock { @include clock(45) }
-	&[value="2"]:checked ~ .sheet-clock { @include clock(90) }
-	&[value="3"]:checked ~ .sheet-clock { @include clock(135) }
-	&[value="4"]:checked ~ .sheet-clock { @include clock(180) }
-	&[value="5"]:checked ~ .sheet-clock { @include clock(225) }
-	&[value="6"]:checked ~ .sheet-clock { @include clock(270) }
-	&[value="7"]:checked ~ .sheet-clock { @include clock(315) }
-	&[value="8"]:checked ~ .sheet-clock { @include clock(360) }
-}
-.sheet-size[value="10"] ~ .sheet-clock-container .sheet-input-progress {
-	&[value="1"]:checked ~ .sheet-clock { @include clock(36) }
-	&[value="2"]:checked ~ .sheet-clock { @include clock(72) }
-	&[value="3"]:checked ~ .sheet-clock { @include clock(108) }
-	&[value="4"]:checked ~ .sheet-clock { @include clock(144) }
-	&[value="5"]:checked ~ .sheet-clock { @include clock(180) }
-	&[value="6"]:checked ~ .sheet-clock { @include clock(216) }
-	&[value="7"]:checked ~ .sheet-clock { @include clock(252) }
-	&[value="8"]:checked ~ .sheet-clock { @include clock(288) }
-	&[value="9"]:checked ~ .sheet-clock { @include clock(324) }
-	&[value="10"]:checked ~ .sheet-clock { @include clock(360) }
-}
-.sheet-size[value="12"] ~ .sheet-clock-container .sheet-input-progress {
-	&[value="1"]:checked ~ .sheet-clock { @include clock(30) }
-	&[value="2"]:checked ~ .sheet-clock { @include clock(60) }
-	&[value="3"]:checked ~ .sheet-clock { @include clock(90) }
-	&[value="4"]:checked ~ .sheet-clock { @include clock(120) }
-	&[value="5"]:checked ~ .sheet-clock { @include clock(150) }
-	&[value="6"]:checked ~ .sheet-clock { @include clock(180) }
-	&[value="7"]:checked ~ .sheet-clock { @include clock(210) }
-	&[value="8"]:checked ~ .sheet-clock { @include clock(240) }
-	&[value="9"]:checked ~ .sheet-clock { @include clock(270) }
-	&[value="10"]:checked ~ .sheet-clock { @include clock(300) }
-	&[value="11"]:checked ~ .sheet-clock { @include clock(330) }
-	&[value="12"]:checked ~ .sheet-clock { @include clock(360) }
+	.size:not([value=""]) ~ .size-choice,
+	.clocks .size[value=""] ~ .broadcast-button,
+	.size[value=""] ~ .clock-container{ 
+		display: none 
+	}
+
+	.clock-container .input-progress[value="0"]:checked ~ .clock { @include clock(0) }
+	.size[value="4"] ~ .clock-container .input-progress {
+		&[value="1"]:checked ~ .clock { @include clock(90) }
+		&[value="2"]:checked ~ .clock { @include clock(180) }
+		&[value="3"]:checked ~ .clock { @include clock(270) }
+		&[value="4"]:checked ~ .clock { @include clock(360) }
+	}
+	.size[value="6"] ~ .clock-container .input-progress {
+		&[value="1"]:checked ~ .clock { @include clock(60) }
+		&[value="2"]:checked ~ .clock { @include clock(120) }
+		&[value="3"]:checked ~ .clock { @include clock(180) }
+		&[value="4"]:checked ~ .clock { @include clock(240) }
+		&[value="5"]:checked ~ .clock { @include clock(300) }
+		&[value="6"]:checked ~ .clock { @include clock(360) }
+	}
+	.size[value="8"] ~ .clock-container .input-progress {
+		&[value="1"]:checked ~ .clock { @include clock(45) }
+		&[value="2"]:checked ~ .clock { @include clock(90) }
+		&[value="3"]:checked ~ .clock { @include clock(135) }
+		&[value="4"]:checked ~ .clock { @include clock(180) }
+		&[value="5"]:checked ~ .clock { @include clock(225) }
+		&[value="6"]:checked ~ .clock { @include clock(270) }
+		&[value="7"]:checked ~ .clock { @include clock(315) }
+		&[value="8"]:checked ~ .clock { @include clock(360) }
+	}
+	.size[value="10"] ~ .clock-container .input-progress {
+		&[value="1"]:checked ~ .clock { @include clock(36) }
+		&[value="2"]:checked ~ .clock { @include clock(72) }
+		&[value="3"]:checked ~ .clock { @include clock(108) }
+		&[value="4"]:checked ~ .clock { @include clock(144) }
+		&[value="5"]:checked ~ .clock { @include clock(180) }
+		&[value="6"]:checked ~ .clock { @include clock(216) }
+		&[value="7"]:checked ~ .clock { @include clock(252) }
+		&[value="8"]:checked ~ .clock { @include clock(288) }
+		&[value="9"]:checked ~ .clock { @include clock(324) }
+		&[value="10"]:checked ~ .clock { @include clock(360) }
+	}
+	.size[value="12"] ~ .clock-container .input-progress {
+		&[value="1"]:checked ~ .clock { @include clock(30) }
+		&[value="2"]:checked ~ .clock { @include clock(60) }
+		&[value="3"]:checked ~ .clock { @include clock(90) }
+		&[value="4"]:checked ~ .clock { @include clock(120) }
+		&[value="5"]:checked ~ .clock { @include clock(150) }
+		&[value="6"]:checked ~ .clock { @include clock(180) }
+		&[value="7"]:checked ~ .clock { @include clock(210) }
+		&[value="8"]:checked ~ .clock { @include clock(240) }
+		&[value="9"]:checked ~ .clock { @include clock(270) }
+		&[value="10"]:checked ~ .clock { @include clock(300) }
+		&[value="11"]:checked ~ .clock { @include clock(330) }
+		&[value="12"]:checked ~ .clock { @include clock(360) }
+	}
+
 }
 /* TEXT INPUTS FOR TRAUMA AND CLOCKS */
-.sheet-text-button {
-	font-weight: bold;
-	input:checked + span { color: red }
+.charsheet {
+	.text-button {
+		font-weight: bold;
+		input:checked + span { color: red }
+	}
+	.size-choice > .text-button {
+		height: 17px;
+		padding: 3px;
+		flex: 0 0 40%;
+		margin: auto;
+		justify-content: center;
+	}
 }
-.sheet-size-choice > .sheet-text-button {
-	height: 17px;
-	padding: 3px;
-	flex: 0 0 40%;
-	margin: auto;
-	justify-content: center;
-}
+
 /* TEETH */
-input.sheet-stresstooth,
-input.sheet-xptooth,
-input.sheet-holdtooth,
-.sheet-stresstooth + span,
-.sheet-xptooth + span,
-.sheet-holdtooth + span { height: 25px }
-input.sheet-regulartooth,
-.sheet-regulartooth + span { height: 13px }
-input.sheet-tooth {
-	width: 12px;
-	margin-right: -12px;
-	&:last-of-type {
+.charsheet {
+	input.stresstooth,
+	input.xptooth,
+	input.holdtooth,
+	.stresstooth + span,
+	.xptooth + span,
+	.holdtooth + span { height: 25px }
+	input.regulartooth,
+	.regulartooth + span { height: 13px }
+	input.tooth {
+		width: 12px;
+		margin-right: -12px;
+		&:last-of-type {
+			width: 8px;
+			margin-right: -8px;
+		}
+	}
+	.tooth + span {
 		width: 8px;
-		margin-right: -8px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		&:last-child { margin-right: 0 !important }
 	}
-}
-.sheet-tooth + span {
-	width: 8px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	&:last-child { margin-right: 0 !important }
-}
-.sheet-tooth:hover + span { opacity: 0.7 }
-.sheet-xptooth + span {
-	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/xptooth-red.png');
-	margin-right: 4px;
-}
-.sheet-tooth:checked ~ .sheet-xptooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/xptooth-white.png') }
-.sheet-stresstooth[type=radio] + span,
-.sheet-stresstooth[type=checkbox]:checked + span,
-.sheet-holdtooth:checked + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-red.png') }
-.sheet-stresstooth[type=checkbox] + span,
-.sheet-tooth:checked ~ .sheet-stresstooth[type=radio] + span,
-.sheet-holdtooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-white.png') }
-.sheet-regulartooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/shorttooth-red.png') }
-.sheet-tooth:checked ~ .sheet-regulartooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/shorttooth-grey.png') }
-input.sheet-zero {
-	width: 13px;
-	height: 13px;
-	margin-right: -13px;
-	vertical-align: top;
-}
-.sheet-zero + span {
-	height: 11px;
-	width: 11px;
-	margin-top: 1px;
-	margin-right: 2px;
-	vertical-align: top;
-	border: 1px solid black;
-	background: white;
-	border-radius: 50%;
-	position: relative;
-}
-.sheet-zero + span::before, .sheet-zero + span::after {
-	position: absolute;
-	width: 1px;
-	content: "";
-	left: 0;
-	background: black;
-	height: 11px;
-}
-.sheet-zero + span::after { transform: translate(4px,-1px) rotate(135deg) }
-.sheet-zero + span::before { transform: translate(4px,-1px) rotate(45deg) }
-.sheet-zero:checked + span { visibility: hidden }
-.sheet-coin .sheet-zero + span {
-	position: relative;
-	bottom: 1px;
-	margin-right: auto;
-}
-.sheet-stash {
-	input.sheet-zero, .sheet-zero + span {
+	.tooth:hover + span { opacity: 0.7 }
+	.xptooth + span {
+		background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/xptooth-red.png');
+		margin-right: 4px;
+	}
+	.tooth:checked ~ .xptooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/xptooth-white.png') }
+	.stresstooth[type=radio] + span,
+	.stresstooth[type=checkbox]:checked + span,
+	.holdtooth:checked + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-red.png') }
+	.stresstooth[type=checkbox] + span,
+	.tooth:checked ~ .stresstooth[type=radio] + span,
+	.holdtooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-white.png') }
+	.regulartooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/shorttooth-red.png') }
+	.tooth:checked ~ .regulartooth + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/shorttooth-grey.png') }
+	input.zero {
+		width: 13px;
+		height: 13px;
+		margin-right: -13px;
+		vertical-align: top;
+	}
+	.zero + span {
+		height: 11px;
+		width: 11px;
+		margin-top: 1px;
+		margin-right: 2px;
+		vertical-align: top;
+		border: 1px solid black;
+		background: white;
+		border-radius: 50%;
+		position: relative;
+	}
+	.zero + span::before, .zero + span::after {
 		position: absolute;
-		left: -3px;
-		top: 3px;
+		width: 1px;
+		content: "";
+		left: 0;
+		background: black;
+		height: 11px;
+	}
+	.zero + span::after { transform: translate(4px,-1px) rotate(135deg) }
+	.zero + span::before { transform: translate(4px,-1px) rotate(45deg) }
+	.zero:checked + span { visibility: hidden }
+	.coin .zero + span {
+		position: relative;
+		bottom: 1px;
+		margin-right: auto;
+	}
+	.stash {
+		input.zero, .zero + span {
+			position: absolute;
+			left: -3px;
+			top: 3px;
+		}
+	}
+	.crewcoin {
+		input.zero, .zero + span {
+			position: absolute;
+			left: -9px;
+			top: 3px;
+		}
+	}
+	.stress2, .rep2, .heat2 {
+		input.zero, .zero + span {
+			position: absolute;
+			left: -13px;
+			top: 13px;
+		}
 	}
 }
-.sheet-crewcoin {
-	input.sheet-zero, .sheet-zero + span {
-		position: absolute;
-		left: -9px;
-		top: 3px;
-	}
-}
-.sheet-stress2, .sheet-rep2, .sheet-heat2 {
-	input.sheet-zero, .sheet-zero + span {
-		position: absolute;
-		left: -13px;
-		top: 13px;
-	}
-}
+
 /* TURF RADIOS */
-.sheet-turfbox input[type=radio] {
-	height: 12px;
-	width: calc(100%/12);
-}
-.sheet-turf-input[value="1"] ~ input[type=radio].sheet-turf1 + span,
-.sheet-turf-input[value="2"] ~ input[type=radio].sheet-turf2 + span,
-.sheet-turf-input[value="3"] ~ input[type=radio].sheet-turf3 + span,
-.sheet-turf-input[value="4"] ~ input[type=radio].sheet-turf4 + span,
-.sheet-turf-input[value="5"] ~ input[type=radio].sheet-turf5 + span,
-.sheet-turf-input[value="6"] ~ input[type=radio].sheet-turf6 + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-black.png') }
-.sheet-tooth:checked ~ .sheet-stresstooth.sheet-turf6 + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-halfgrey.png') }
-/* SPECIAL ABILITIES*/
-.sheet-show-frienddesc[value='0'] ~ .sheet-container {
-	.sheet-friends, .sheet-contacts {
-		.sheet-expand, .sheet-expand + span, .sheet-description { display: none }
+.charsheet {
+	.turfbox input[type=radio] {
+		height: 12px;
+		width: calc(100%/12);
 	}
-}
-.sheet-friends, .sheet-contacts {
-	input.sheet-expand { top: 11px }
-	.sheet-expand + span { top: 8px }
-	input.sheet-expand, .sheet-expand + span { right: 3px }
-
-	.sheet-expand:not(:checked) + span::before { content: "◀" }
-	.sheet-expand:checked + span::before { content: "▼" }
-
-	.sheet-expand:not(:checked) ~ .sheet-description {
-		height: 0px !important;
-		border: none;
-		min-height: 0;
-		padding: 0;
+	.turf-input[value="1"] ~ input[type=radio].turf1 + span,
+	.turf-input[value="2"] ~ input[type=radio].turf2 + span,
+	.turf-input[value="3"] ~ input[type=radio].turf3 + span,
+	.turf-input[value="4"] ~ input[type=radio].turf4 + span,
+	.turf-input[value="5"] ~ input[type=radio].turf5 + span,
+	.turf-input[value="6"] ~ input[type=radio].turf6 + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-black.png') }
+	.tooth:checked ~ .stresstooth.turf6 + span { background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/stresstooth-halfgrey.png') }
+	/* SPECIAL ABILITIES*/
+	.show-frienddesc[value='0'] ~ .container {
+		.friends, .contacts {
+			.expand, .expand + span, .description { display: none }
+		}
 	}
+	.friends, .contacts {
+		input.expand { top: 11px }
+		.expand + span { top: 8px }
+		input.expand, .expand + span { right: 3px }
 
-	.sheet-description {
-		font-size: 11px;
-		padding: 2px 3px;
+		.expand:not(:checked) + span::before { content: "◀" }
+		.expand:checked + span::before { content: "▼" }
+
+		.expand:not(:checked) ~ .description {
+			height: 0px !important;
+			border: none;
+			min-height: 0;
+			padding: 0;
+		}
+
+		.description {
+			font-size: 11px;
+			padding: 2px 3px;
+			line-height: 14px;
+			height: 46px;
+			min-height: 18px;
+			border-bottom: 1px solid #b4b4b4;
+		}
+	}
+	.specialability,
+	.friend-contact {
+		border-bottom: 1px solid $darkgrey;
+		width: 100%;
+		align-items: start;
+	}
+	.specialability { padding: 4px }
+	.friend-contact {
+		padding: 6px 4px;
+		align-items: center;
+	}
+	.abilityname {
+		width: calc(28% - 22px);
+		font-size: 13px;
+		min-height: 17px;
+		margin: 0 auto;
+		line-height: 17px;
+		padding: 0 1px;
+	}
+	.abilitydesc {
+		width: 72%;
+		min-height: 32px;
+		font-size: 12px;
 		line-height: 14px;
-		height: 46px;
-		min-height: 18px;
-		border-bottom: 1px solid #b4b4b4;
+		padding: 2px 1px;
+		text-align: justify;
 	}
 }
-.sheet-specialability,
-.sheet-friend-contact {
-	border-bottom: 1px solid $darkgrey;
-	width: 100%;
-	align-items: start;
-}
-.sheet-specialability { padding: 4px }
-.sheet-friend-contact {
-	padding: 6px 4px;
-	align-items: center;
-}
-.sheet-abilityname {
-	width: calc(28% - 22px);
-	font-size: 13px;
-	min-height: 17px;
-	margin: 0 auto;
-	line-height: 17px;
-	padding: 0 1px;
-}
-.sheet-abilitydesc {
-	width: 72%;
-	min-height: 32px;
-	font-size: 12px;
-	line-height: 14px;
-	padding: 2px 1px;
-	text-align: justify;
-}
+
 /* FRIENDS/CONTACTS */
-.sheet-friend-contact .sheet-auto-expand {
+.charsheet .friend-contact .auto-expand {
 	font-size: 12px;
 	color: $lighterblack;
 	min-height: 20px;
@@ -1207,330 +1278,357 @@ input.sheet-zero {
 	flex: 1 1 0;
 	padding: 2px 0 2px 3px;
 }
+
 /* HARM */
-.sheet-harm-coin { grid: auto auto / 63% 16% 21% }
-.sheet-harm {
-	position: relative;
-	grid-row: 1 / 3;
-}
-.sheet-harmbody {
-	display: grid;
-	grid: 52px / 12px auto auto 59px;
-	font-weight: 800;
-	text-transform: uppercase;
-	text-align: center;
-	div {
-		background: #d6d8d9;
-		border-bottom: 1px solid black;
+.charsheet {
+	.harm-coin { grid: auto auto / 63% 16% 21% }
+	.harm {
+		position: relative;
+		grid-row: 1 / 3;
 	}
-	.sheet-harmeffect {
-		width: 59px;
-		color: $lighterblack;
-		font-size: 10px;
-		letter-spacing: 1px;
-		line-height: 1.4;
-	}
-	.sheet-harmnumber {
-		line-height: 1;
-		font-size: 13px;
-	}
-	.sheet-twocols { grid-column: span 2 }
-	textarea {
-		font-size: 12px;
-		padding: 10px 4px 3px;
-		color: $redtext;
-		overflow: hidden;
-		height: 52px;
-		resize: none;
-		line-height: 16px;
+	.harmbody {
+		display: grid;
+		grid: 52px / 12px auto auto 59px;
+		font-weight: 800;
+		text-transform: uppercase;
 		text-align: center;
-		border-bottom: 1px solid black;
-		+ textarea { border-left: 1px solid $lightest }
+		div {
+			background: #d6d8d9;
+			border-bottom: 1px solid black;
+		}
+		.harmeffect {
+			width: 59px;
+			color: $lighterblack;
+			font-size: 10px;
+			letter-spacing: 1px;
+			line-height: 1.4;
+		}
+		.harmnumber {
+			line-height: 1;
+			font-size: 13px;
+		}
+		.twocols { grid-column: span 2 }
+		textarea {
+			font-size: 12px;
+			padding: 10px 4px 3px;
+			color: $redtext;
+			overflow: hidden;
+			height: 52px;
+			resize: none;
+			line-height: 16px;
+			text-align: center;
+			border-bottom: 1px solid black;
+			+ textarea { border-left: 1px solid $lightest }
+		}
 	}
 }
+
 /* HEALING AND ARMOR */
-.sheet-armor, .sheet-healing {
-	.sheet-blackheader {
-		text-align: center;
-		padding: 1px 0 0;
+.charsheet {
+	.armor, .healing {
+		.blackheader {
+			text-align: center;
+			padding: 1px 0 0;
+		}
+	}
+	.healing {
+		position: relative;
+		.healing-progress {
+			line-height: 14px;
+			text-align: center;
+			font-style: italic;
+			font-size: 9px;
+		}
+		.clock-container { margin: 0 auto }
+	}
+	.armor {
+		label {
+			margin: 3px 0 3px 10px;
+			height: 18px;
+			font-size: 11px;
+			text-align: center;
+			line-height: 18px;
+		}
+		.label {
+			flex-grow: 1;
+			order: 1;
+		}
+		input:checked ~ span { color: red }
+		.checkbox + span {
+			border: 1px solid black;
+			margin: 3px;
+			order: 2;
+		}
 	}
 }
-.sheet-healing {
-	position: relative;
-	.sheet-healing-progress {
-		line-height: 14px;
-		text-align: center;
-		font-style: italic;
-		font-size: 9px;
-	}
-	.sheet-clock-container { margin: 0 auto }
-}
-.sheet-armor {
-	label {
-		margin: 3px 0 3px 10px;
-		height: 18px;
-		font-size: 11px;
-		text-align: center;
-		line-height: 18px;
-	}
-	.sheet-label {
-		flex-grow: 1;
-		order: 1;
-	}
-	input:checked ~ span { color: red }
-	.sheet-checkbox + span {
-		border: 1px solid black;
-		margin: 3px;
-		order: 2;
-	}
-}
+
 /* COIN */
-.sheet-coin-and-stash {
-	width: 96%;
-	margin-left: 4%;
-	grid-column: span 2;
+.charsheet {
+	.coin-and-stash {
+		width: 96%;
+		margin-left: 4%;
+		grid-column: span 2;
+	}
+	.coinrow .label {
+		font-size: 11px;
+		margin-right: auto;
+	}
+	.coin {
+		border-bottom: 1px solid $greyborder;
+		border-right: 1px solid $greyborder;
+		width: 70%;
+		height: 19px;
+		padding: 1px 3px 0 0;
+		align-items: center;
+	}
+	.stashbutton-holder {
+		border-top: 1px solid $greyborder;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30%;
+		height: 19px;
+		padding-bottom: 1px;
+	}
 }
-.sheet-coinrow .sheet-label {
-	font-size: 11px;
-	margin-right: auto;
-}
-.sheet-coin {
-	border-bottom: 1px solid $greyborder;
-	border-right: 1px solid $greyborder;
-	width: 70%;
-	height: 19px;
-	padding: 1px 3px 0 0;
-	align-items: center;
-}
-.sheet-stashbutton-holder {
-	border-top: 1px solid $greyborder;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 30%;
-	height: 19px;
-	padding-bottom: 1px;
-}
+
 /* STASH */
-.sheet-stash {
+.charsheet .stash {
 	padding: 4px 0 0 10px;
 	line-height: 18px;
 	margin-bottom: -5px;
 	position: relative;
 }
+
 /* CREW COIN */
-.sheet-crewcoin-coins {
-	padding: 4px 0 0 3px;
-	position: relative;
-}
-.sheet-crewcoin-desc {
-	font-size: 10px;
-	line-height: 14px;
-	padding-left: 3px;
-	font-style: italic;
-}
-.sheet-crewcoinbar {
-	border-left: 1px solid $lighter;
-	height: 15px;
-	width: 3px;
-	margin: -1px auto 0;
-}
-/* LEFT-FILLED RADIO BOXES */
-.sheet-crewcoin {
-	input.sheet-radiobox {
-		width: 12px;
-		height: 12px;
-		margin-right: -12px;
+.charsheet {
+	.crewcoin-coins {
+		padding: 4px 0 0 3px;
+		position: relative;
 	}
-	.sheet-radiobox + span {
-		width: 11px;
-		height: 11px;
-		margin-right: auto;
+	.crewcoin-desc {
+		font-size: 10px;
+		line-height: 14px;
+		padding-left: 3px;
+		font-style: italic;
 	}
-	input:checked ~ .sheet-radiobox.sheet-vaultcoin + span { border-color: $lighter }
-}
-.sheet-coin-and-stash {
-	input.sheet-radiobox {
-		width: 13px;
-		height: 13px;
-		vertical-align: top;
-		margin-right: -13px;
-	}
-	.sheet-radiobox + span {
-		width: 12px;
-		height: 12px;
-		vertical-align: top;
-	}
-}
-.sheet-coinrow .sheet-radiobox + span { margin-right: auto }
-.sheet-radiobox:hover + span { opacity: 0.7 }
-.sheet-radiobox:last-of-type + span { margin-right: 0 }
-.sheet-coin, .sheet-crewcoin {
-	.sheet-radiobox + span {
-		background: red;
-		border: 1px solid black;
-	}
-	input:checked ~ .sheet-radiobox + span { background: white }
-}
-.sheet-stash {
-	.sheet-radiobox + span {
-		background: black;
-		margin-right: calc((100% - 126px)/9);
-	}
-	input:checked ~ .sheet-radiobox + span { background: $lighter }
-	input.sheet-radiobox:nth-of-type(10n+1) {
-		margin: -2px -17px 0 3px;
-		width: 15px;
+	.crewcoinbar {
+		border-left: 1px solid $lighter;
 		height: 15px;
-	}
-	.sheet-radiobox:nth-of-type(10n+1) + span {
-		width: 14px;
-		height: 14px;
-		border: 1px solid black;
-		margin-left: 3px;
-		margin-right: 0;
-		position:relative;
-		top: -2px;
+		width: 3px;
+		margin: -1px auto 0;
 	}
 }
+
+/* LEFT-FILLED RADIO BOXES */
+.charsheet {
+	.crewcoin {
+		input.radiobox {
+			width: 12px;
+			height: 12px;
+			margin-right: -12px;
+		}
+		.radiobox + span {
+			width: 11px;
+			height: 11px;
+			margin-right: auto;
+		}
+		input:checked ~ .radiobox.vaultcoin + span { border-color: $lighter }
+	}
+	.coin-and-stash {
+		input.radiobox {
+			width: 13px;
+			height: 13px;
+			vertical-align: top;
+			margin-right: -13px;
+		}
+		.radiobox + span {
+			width: 12px;
+			height: 12px;
+			vertical-align: top;
+		}
+	}
+	.coinrow .radiobox + span { margin-right: auto }
+	.radiobox:hover + span { opacity: 0.7 }
+	.radiobox:last-of-type + span { margin-right: 0 }
+	.coin, .crewcoin {
+		.radiobox + span {
+			background: red;
+			border: 1px solid black;
+		}
+		input:checked ~ .radiobox + span { background: white }
+	}
+	.stash {
+		.radiobox + span {
+			background: black;
+			margin-right: calc((100% - 126px)/9);
+		}
+		input:checked ~ .radiobox + span { background: $lighter }
+		input.radiobox:nth-of-type(10n+1) {
+			margin: -2px -17px 0 3px;
+			width: 15px;
+			height: 15px;
+		}
+		.radiobox:nth-of-type(10n+1) + span {
+			width: 14px;
+			height: 14px;
+			border: 1px solid black;
+			margin-left: 3px;
+			margin-right: 0;
+			position:relative;
+			top: -2px;
+		}
+	}
+}
+
 /* HUNTING GROUNDS */
-.sheet-hunting-grounds {
-	.sheet-plainheader {
+.charsheet .hunting-grounds {
+	.plainheader {
 		min-height: 20px;
 		line-height: 18px;
 	}
-	.sheet-description {
+	.description {
 		font-size: 12px;
 		min-height: 32px;
 		line-height: 16px;
 	}
 }
-/* BONUS DIE SECTION */
-.sheet-bonusdie .sheet-label { font-size: 12px }
-.sheet-bonusdieplus {
-	width: 10%;
-	background: black;
-	color: white;
-	font-size: 13px;
-	line-height: 1;
-	font-weight: bold;
-}
-.sheet-bonusdietext {
-	background: $lightest;
-	width: 90%;
-	padding: 3px;
-	font-size: 11px;
-	line-height: 14px;
-	text-align: center;
-}
-/* REPEATING SECTION CONTROLS */
-.repcontrol {
-	display: flex;
-	.repcontrol_edit {
-		margin-left: auto;
-		order: 1;
-	}
-	button {
-		background: transparent;
-		color: $lightblack;
-		border-radius: 0;
-		border-color: $darkgrey;
-		transition: all 0.2s;
-		font-family: pictos;
-		font-size: 0;
-		font-weight: bold;
-		padding: 5px 3px 2px;
-		line-height: 8px;
-		&:hover {
-			color: black;
-			border-color: black;
-			background: $lighter;
-		}
-		&.repcontrol_edit::after { content: "(" }
-		&.repcontrol_add::after { content: "&" }
-		&.repcontrol_edit::after, &.repcontrol_add::after { font-size: 12px }
-	}
-}
-.repcontainer.editmode + .repcontrol button.repcontrol_edit::after { content: ")" }
-.sheet-free-repcontrol .repcontrol{ margin-top: 3px }
 
-.itemcontrol { z-index: 20 }
-.sheet-itemholder .itemcontrol .btn {
-	padding: 0px 7px;
-	line-height: 16px;
+/* BONUS DIE SECTION */
+.charsheet {
+	.bonusdie .label { font-size: 12px }
+	.bonusdieplus {
+		width: 10%;
+		background: black;
+		color: white;
+		font-size: 13px;
+		line-height: 1;
+		font-weight: bold;
+	}
+	.bonusdietext {
+		background: $lightest;
+		width: 90%;
+		padding: 3px;
+		font-size: 11px;
+		line-height: 14px;
+		text-align: center;
+	}
 }
-.sheet-factions .itemcontrol .btn { padding: 1px 7px }
+
+/* REPEATING SECTION CONTROLS */
+.charsheet {
+	.repcontrol {
+		display: flex;
+		.repcontrol_edit {
+			margin-left: auto;
+			order: 1;
+		}
+		button {
+			background: transparent;
+			color: $lightblack;
+			border-radius: 0;
+			border-color: $darkgrey;
+			transition: all 0.2s;
+			font-family: pictos;
+			font-size: 0;
+			font-weight: bold;
+			padding: 5px 3px 2px;
+			line-height: 8px;
+			&:hover {
+				color: black;
+				border-color: black;
+				background: $lighter;
+			}
+			&.repcontrol_edit::after { content: "(" }
+			&.repcontrol_add::after { content: "&" }
+			&.repcontrol_edit::after, &.repcontrol_add::after { font-size: 12px }
+		}
+	}
+	.repcontainer.editmode + .repcontrol button.repcontrol_edit::after { content: ")" }
+	.free-repcontrol .repcontrol{ margin-top: 3px }
+
+	.itemcontrol { z-index: 20 }
+	.itemholder .itemcontrol .btn {
+		padding: 0px 7px;
+		line-height: 16px;
+	}
+	.factions .itemcontrol .btn { padding: 1px 7px }
+}
+
 /* STRESS, REP, et cetera */
-.sheet-rep-and-hold, .sheet-heat-and-vault { justify-content: space-between }
-.sheet-hold { width: 53% }
-.sheet-stress, .sheet-rep, .sheet-hold, .sheet-heat { height: 25px }
-.sheet-stress1 { flex: 1 0 auto }
-.sheet-stress2 {
-	flex: 2 1 136px;
-	position: relative;
+.charsheet {
+	.rep-and-hold, .heat-and-vault { justify-content: space-between }
+	.hold { width: 53% }
+	.stress, .rep, .hold, .heat { height: 25px }
+	.stress1 { flex: 1 0 auto }
+	.stress2 {
+		flex: 2 1 136px;
+		position: relative;
+	}
+	.stress3 {
+		flex: 1 0 68px;
+		text-align: center;
+	}
+	.stress4 {
+		flex: 2 0 217px;
+		line-height: 13px;
+		font-size: 9px;
+		padding: 1px 0 0 2px;
+		text-transform: uppercase;
+		div { justify-content: space-between }
+		.input:not([value="normal"]) ~ .normal,
+		.input:not([value="ghost"]) ~ .ghost,
+		.input:not([value="hull"]) ~ .hull,
+		.input:not([value="vampire"]) ~ .vampire { display: none }
+		.ghost, .hull { letter-spacing: 1px }
+	}
+	.traumaholder, .wantedholder {
+		height: 13px;
+		padding-left: 2px;
+	}
+	.rep1 { width: 33px }
+	.rep2 {
+		width: 134px;
+		position: relative;
+	}
+	.turfbox {
+		display: flex;
+		position: absolute;
+		flex-flow	: row-reverse;
+		z-index: 2;
+		width: 100%;
+	}
+	.turfzero-holder { margin-left: 2px }
+	.hold > div,
+	.hold > label,
+	.heat > div,
+	.rep > div,
+	.crewcoin2 { flex-grow: 1 }
+	.heat2 {
+		width: 107px;
+		position: relative;
+	}
+	.crewcoin1 { width: 26% }
+	.regulartooth + span,
+	.rep .tooth + span,
+	.heat2 .tooth + span,
+	.stress2 .tooth + span { margin-right: auto }
+	.extra-teeth:checked + .tooth {
+		+ span { margin-right: 0 }
+		~ .tooth, + span ~ span { display: none }
+	}
+	.vampirexp[value="1"] ~ .xptooth + span { margin-right: 2px }
+	.xpholder .vampirexp[value="0"] ~ .tooth[value="8"] + span,
+	.attribute-xp-box .vampirexp[value="0"] ~ .tooth[value="6"] + span { margin-right: 0 }
+	/* small fixes */
+	.rep input.tooth {
+		width: 11px;
+		margin-right: -11px;
+	}
 }
-.sheet-stress3 {
-	flex: 1 0 68px;
-	text-align: center;
-}
-.sheet-stress4 {
-	flex: 2 0 217px;
-	line-height: 13px;
-	font-size: 9px;
-	padding: 1px 0 0 2px;
-	text-transform: uppercase;
-	div { justify-content: space-between }
-	.sheet-input:not([value="normal"]) ~ .sheet-normal,
-	.sheet-input:not([value="ghost"]) ~ .sheet-ghost,
-	.sheet-input:not([value="hull"]) ~ .sheet-hull,
-	.sheet-input:not([value="vampire"]) ~ .sheet-vampire { display: none }
-	.sheet-ghost, .sheet-hull { letter-spacing: 1px }
-}
-.sheet-traumaholder, .sheet-wantedholder {
-	height: 13px;
-	padding-left: 2px;
-}
-.sheet-rep1 { width: 33px }
-.sheet-rep2 {
-	width: 134px;
-	position: relative;
-}
-.sheet-turfbox {
-	display: flex;
-	position: absolute;
-	flex-flow	: row-reverse;
-	z-index: 2;
-	width: 100%;
-}
-.sheet-turfzero-holder { margin-left: 2px }
-.sheet-hold > div,
-.sheet-hold > label,
-.sheet-heat > div,
-.sheet-rep > div,
-.sheet-crewcoin2 { flex-grow: 1 }
-.sheet-heat2 {
-	width: 107px;
-	position: relative;
-}
-.sheet-crewcoin1 { width: 26% }
-.sheet-regulartooth + span,
-.sheet-rep .sheet-tooth + span,
-.sheet-heat2 .sheet-tooth + span,
-.sheet-stress2 .sheet-tooth + span { margin-right: auto }
-.sheet-extra-teeth:checked + .sheet-tooth {
-	+ span { margin-right: 0 }
-	~ .sheet-tooth, + span ~ span { display: none }
-}
-.sheet-vampirexp[value="1"] ~ .sheet-xptooth + span { margin-right: 2px }
-.sheet-xpholder .sheet-vampirexp[value="0"] ~ .sheet-tooth[value="8"] + span,
-.sheet-attribute-xp-box .sheet-vampirexp[value="0"] ~ .sheet-tooth[value="6"] + span { margin-right: 0 }
-/* small fixes */
-.sheet-rep input.sheet-tooth {
-	width: 11px;
-	margin-right: -11px;
-}
+
 /* NOTES */
-.sheet-notes {
+.charsheet .notes {
 	margin-left: 1%;
 	font-family: "Shadows Into Light", cursive;
 	color: $redtext;
@@ -1541,867 +1639,907 @@ input.sheet-zero {
 	height: 378px;
 	min-height: 378px;
 }
+
 /* LOAD CHECKBOXES */
-.sheet-loadheader .sheet-checkbox + span {
+.charsheet .loadheader .checkbox + span {
 	border: 1px solid black;
 	transform: rotate(45deg);
 	width: 10px;
 	height: 10px;
 	background: white;
 }
+
 /* ROLL BUTTONS */
-button[type=roll].sheet-rollbutton {
-	display: flex;
-	border: none;
-	margin: 0;
-	padding: 0;
-}
-.sheet-attribute-title button[type=roll].sheet-rollbutton {
-	max-width: calc(100% - 97px);
-	line-height: inherit;
-	color: inherit;
-	font-size: 13px;
-}
-.sheet-action button[type=roll].sheet-rollbutton {
-	letter-spacing: 1px;
-	line-height: 13px;
-	flex: 0 0 86px;
-	font-size: 13px;
-}
-.sheet-coinrow button[type=roll].sheet-rollbutton {
-	font-size: 11px;
-	color: $lightblack;
-}
-.sheet-blackheader button[type=roll].sheet-rollbutton { margin:auto }
-button[type=roll].sheet-borderbutton {
-	color: $lightblack;
-	font-size: 13px;
-	border-color: $darkgrey;
-}
-button[type=roll].sheet-vicebutton {
-	float: right;
-	margin: 5px 3px -5px auto;
-	line-height: 13px;
-	padding: 4px;
-}
-button[type=roll].sheet-fortunebutton {
-	width: 100%;
-	height: 30px;
-	margin: 0;
-}
-.sheet-type-faction button[type=roll].sheet-fortunebutton {
-	width: 100px;
-}
-button[type=roll].sheet-engagementbutton {
-	width: calc(100% - 20px);
-	padding: 2px 5px;
-	height: 30px;
-	margin: 10px 10px 0;
-}
-button[type=roll].sheet-rollbutton:hover { color: red }
-button[type=roll].sheet-borderbutton:hover {
-	color: black;
-	border-color: black;
-}
-/* CHECKBOXES */
-.sheet-checkbox { margin-right: -12px }
-input.sheet-checkbox, .sheet-checkbox + span {
-	height: 12px;
-	width: 12px;
-	flex: 0 0 auto;
-}
-.sheet-checkbox + span { border: 1px solid $greyborder }
-.sheet-checkbox:checked + span { background: red }
-.sheet-checkbox:hover + span { opacity: 0.7 }
-.sheet-squarebox + span {
-	background: transparent;
-	margin-right: 3px;
-}
-.sheet-circlebox + span {
-	border-radius: 50%;
-	background: white;
-}
-input.sheet-checkbox.sheet-squarebox-small, .sheet-checkbox.sheet-squarebox-small + span {
-	height: 9px;
-	width: 9px;
-}
-.sheet-checkbox.sheet-squarebox-small:checked + span { background: black }
-.sheet-claimbridge { position: relative }
-.sheet-claimbridge input, .sheet-claimbridge span {
-	width: 100%;
-	height: 100%;
-}
-.sheet-claimbridge input:checked + span { background: $lightest }
-/* Change text colour when boxes are checked*/
-.sheet-specialability .sheet-checkbox:checked ~ .sheet-abilityname,
-.sheet-item .sheet-checkbox:checked ~ .sheet-itemname,
-.sheet-friend .sheet-friendstate[value="up"] ~ .sheet-auto-expand { color: red }
-.sheet-friend-contact .sheet-friendstate:not([value="0"]) ~ .sheet-auto-expand { font-weight: bold }
-.sheet-friend .sheet-friendstate[value="down"] ~ .sheet-auto-expand,
-.sheet-contact .sheet-friendstate[value="1"] ~ .sheet-auto-expand { color: $fontblack }
-/* specific adjustments */
-.sheet-specialability .sheet-checkbox,
-.sheet-specialability .sheet-checkbox + span { margin-top: 3px }
-.sheet-actions input.sheet-checkbox {
-	height: 20px;
-	width: 16px;
-	margin-right: -14px;
-}
-.sheet-actions .sheet-checkbox + span {
-	height: 11px;
-	width: 11px;
-	border: none;
-	margin-right: calc(7px + (100% - 173px)/8);
-}
-.sheet-action .sheet-checkbox + span:first-of-type { margin-right: 6px }
-.sheet-action .sheet-darktalent[value="1"] ~ .sheet-checkbox + span {
-	&:first-of-type { margin-right: 4px }
-	&:not(:first-of-type) { margin-right: calc(3px + (100% - 171px)/10) }
-	&:last-of-type { margin-right: calc(4px + (100% - 171px)/10) }
-}
-/* Fake radios */
-.sheet-checkbox.sheet-fakeradio + span { background: red }
-.sheet-action .sheet-fakeradio:checked ~ .sheet-fakeradio + span { background: $lighter }
-.sheet-tier .sheet-fakeradio:checked ~ .sheet-fakeradio + span { background: white }
-/* HIDER */
-.sheet-darktalent[value="0"] ~ input:last-of-type,
-.sheet-darktalent[value="0"] ~ input:last-of-type + span { display: none }
-/* Friend triangles */
-.sheet-friend-contact {
-	.sheet-checkbox + span {
-		width: 0;
-		height: 0;
-		background: transparent;
-		border-color: transparent;
-	}
-	label {
-		width: 12px;
-		height: 12px;
-		position: relative;
-	}
-}
-.sheet-friend label {
-	&.sheet-up {
-		margin-right: 1px;
-		top: -1px;
-		.sheet-checkbox + span {
-			border-width: 0 5px 10px;
-			border-bottom-color: white;
-		}
-		.sheet-checkbox:checked + span { border-bottom-color: red }
-	}
-	&.sheet-down {
-		top: 5px;
-		.sheet-checkbox + span {
-			border-width: 10px 5px 0;
-			border-top-color: white;
-		}
-		.sheet-checkbox:checked + span { border-top-color: black }
-	}
-}
-.sheet-contact label {
-	top: 1px;
-	.sheet-checkbox + span {
-		border-width: 5px 0 5px 10px;
-		border-left-color: white;
-	}
-	.sheet-checkbox:checked + span { border-left-color: black }
-}
-/* ACTION RATINGS */
-.sheet-actioncolumn > div, .sheet-cohortcolumn > div, .sheet-cohorts .repitem:not(:last-child) { margin-bottom: 10px }
-.sheet-attribute-title,
-.sheet-cohort-title {
-	height: 21px;
-	line-height: 21px;
-	color: white;
-	background: black;
-	padding: 0 3px;
-	align-items: center;
-	justify-content: space-between;
-}
-.sheet-attribute-xp-box {
-	width: 97px;
-	justify-content: flex-end;
-	height: 100%;
-}
-.sheet-actions { padding-left: 2px }
-.sheet-action {
-	height: 22px;
-	align-items: center;
-}
-.sheet-action:first-child {
-	height: 34px;
-	padding-top: 12px;
-}
-.sheet-divider {
-	margin-right: calc(5px + (100% - 173px)/12);
-	border-right: 1px solid black;
-	height: inherit;
-}
-.sheet-darktalent[value="1"] ~ .sheet-divider {
-	margin-right: calc(3px + (100% - 173px)/15)
-}
-.sheet-action:first-child .sheet-divider {
-	position: relative;
-	top: -6px;
-}
-/* COHORTS */
-.sheet-cohort-title {
-	font-size: 11px;
-	input[type=text] { width: calc(100% - 40px) }
-}
-.sheet-cohort-info {
-	background: black;
-	height: 13px;
-	font-size: 9px;
-	color: white;
-	line-height: 13px;
-	input[type=text] {
-		flex: 1 1 0;
-		padding: 0 3px;
-	}
-	input[type=number] {
-		flex: 0 0 auto;
-		color: inherit;
-		background: transparent;
-		border: none;
-		border-radius: 0;
-		padding: 0 0 0 4px;
-		line-height: inherit;
-		width: 13px;
-		-moz-appearance: textfield;
-		font-size: 11px;
-		font-family: "Times New Roman", Times, serif;
-		&::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
-			margin: 0;
-			-webkit-appearance: none;
-		}
-	}
-}
-.sheet-cohort-quality-label { flex: 0 0 auto }
-.sheet-cohort-condition { justify-content: space-between }
-.sheet-cohort-condition-name {
-	font-size: 7.5px;
-	margin-right: 2px;
-	z-index: -1;
-}
-.sheet-cohort-dropdown {
-	background: black;
-	position: relative;
-	z-index: 1;
-	width: 41px;
-	height: 13px;
-	padding-left: 3px;
-	flex: 0 0 auto;
-	overflow: hidden;
-	transition: all 0.2s;
-	&:hover {
-		height: 39px;
-		> div:first-child { display: none }
-	}
-	input[type=radio] {
-		width: 39px;
-		margin-right: -39px;
-		vertical-align: top;
-		height: 13px;
-		z-index: 10;
-		&:checked + span { color: red }
-	}
-}
-.sheet-cohort-edgeflaw {
-	font-size: 9px;
-	line-height: 10px;
-	margin: 2px 0;
-	align-items: start;
-	.sheet-uppercase {
-		width: 34px;
-		padding: 2px 0;
-	}
-	.sheet-auto-expand {
-		width: calc(100% - 34px);
-		min-height: 14px;
-		padding: 2px 3px;
-	}
-}
-.sheet-cohort-description {
-	font-size: 9px;
-	padding: 1px 0;
-	line-height: 12px;
-	height: 50px;
-	border-bottom: 1px solid $lightest;
-}
-/* CLAIMS */
-.sheet-claims { margin-top: 15px }
-.sheet-claimsbody, .sheet-claims .repitem {
-	display: grid;
-	grid-template-columns: repeat(4, 18.4% 2%) 18.4%;
-	align-items: center;
-	justify-items: center;
-}
-.sheet-claimbox, .sheet-lairbox { height: 66px }
-.sheet-lairbox {
-	background: $lightblack;
-	font-size: 13px;
-	width: 100%;
-	color: white;
-	letter-spacing: 1px;
-}
-.sheet-claims-horisep {
-	height: 12px;
-	width: 100%;
-	display: flex;
-}
-.sheet-claims-vertsep {
-	display: flex;
-	width: 12px;
-	height: 12px;
-}
-.sheet-claimbox {
-	background: $lightest;
-	position: relative;
-	transition: all 0.2s;
-	.sheet-label {
-		height: 30px;
-		padding: 4px 0 2px;
-		line-height: 12px;
-	}
-	textarea {
-		text-align: center;
-		font-size: 9px;
-		resize: none;
-		&.sheet-claim-desc {
-			height: 36px;
-			padding: 2px 2.5% 4px;
-			line-height: 10px;
-		}
-	}
-	label {
-		position: absolute;
-		bottom: 1px;
-		left: 1px;
-	}
-}
-input[value="1"] + .sheet-claimbox { background: $lighter }
-/* STRICTURES */
-.sheet-strictures {
-	font-size: 11px;
-	line-height: 1.6;
-	text-align: justify;
-	label {
-		margin-right: 3px;
-		display: inline-flex;
-		vertical-align: top;
-		align-items: center;
-	}
-	span.sheet-label::after { content: ":" }
-}
-/* ALCHEMICALS */
-.sheet-title-checkbox ~ div {
-	height: auto;
-	transition: all 0.2s;
-	overflow: hidden;
-}
-.sheet-title-checkbox:not(:checked) ~ div { height: 0 }
-input.sheet-title-checkbox {
-	width: 100%;
-	vertical-align: top;
-	margin-right: -100%;
-	height: 24px;
-}
-.sheet-title-checkbox:hover + span { color: red }
-.sheet-alchemicals {
-	padding: 0 5px;
-	line-height: 16px;
-}
-.sheet-bandolier-desc {
-	line-height: 12px;
-	margin-top: 2px;
-	font-size: 10px;
-	font-style: italic;
-}
-.sheet-bandoliers-name {
-	margin-right: 7px;
-	font-size: 12px;
-	line-height: 18px;
-}
-.sheet-bandolier input:nth-of-type(3) + span { margin-right: 8px }
-.sheet-alchemicals {
-	.repcontainer {
+.charsheet {
+	button[type=roll].rollbutton {
 		display: flex;
-		flex-flow: row wrap;
-	}
-	.repitem {
-		font-size: 11px;
-		width: 50%;
-	}
-	.sheet-auto-expand {
-		margin: 0 1px 0 7px;
-		padding: 1px;
-		min-height: 16px;
-		line-height: 14px;
-		width: calc(100% - 8px);
-	}
-	input.sheet-alchemicals-expand {
-		width: 10px;
-		position: absolute;
-		height: 16px;
-	}
-	.sheet-alchemicals-expand + span {
-		transform: rotate(45deg) scale(0.9);
-		position: absolute;
-	}
-	.sheet-alchemicals-expand:not(:checked) ~ .sheet-alchemicals-info { display: none }
-	.sheet-alchemicals-info {
-		position: relative;
-		font-size: 9px;
-		z-index: 2;
-		background: white;
-		line-height: 1.3;
-		height: 64px;
-		width: 200%;
-		padding: 2px;
-		border: 1px solid $lightest;
-	}
-	.repitem:nth-child(even) .sheet-alchemicals-info { left: -100% }
-	.sheet-alchemicals-expand + span::before {
-		content: '■';
-		font-family: serif;
-	}
-	.sheet-alchemicals-expand:checked + span { color: red }
-	.itemcontrol .btn {
-		padding: 0 4px;
-		font-size: 9px;
-		line-height: 14px;
-	}
-	.repcontrol_del { order: 1 }
-	.repcontainer.editmode .repitem .itemcontrol {
-		display: flex;
-		justify-content: space-between;
-		align-items: start;
-	}
-}
-/* FRAME */
-.sheet-frame textarea {
-	font-size: 11px;
-	height: 40px;
-}
-/* FACTIONS PAGE */
-.sheet-factions {
-	grid: auto auto /repeat(4, 1fr);
-	grid-gap: 5px 10px;
-	.sheet-2row { grid-row: span 2 }
-}
-.sheet-factiontitle { align-items: center }
-.sheet-factiontitle input[type=text] {
-	font-size: 26px;
-	margin-right: auto;
-	width: 60%;
-}
-.sheet-factions-header {
-	width: 100%;
-	height: 24px;
-	align-items: center;
-	line-height: 14px;
-	background: $lighter;
-}
-.sheet-factions-header input[type=text] { padding-left: 3px }
-.sheet-factions-header span { font-size: 7px }
-input.sheet-expand, .sheet-expand + span {
-	position: absolute;
-	width: 7px;
-	height: 10px;
-	font-size: 8px;
-}
-.sheet-type-faction .sheet-expand {
-	left: -7px;
-	top: 6px;
-	+ span {
-		top: 3px;
-		left: -7px;
-		&::before { content: "▶" }
-	}
-	&:checked + span::before { content: "▼" }
-}
-.sheet-faction {
-	border-bottom: 1px solid $lightest;
-	textarea {
-		border-top: 1px solid $lightest;
-		font-size: 11px;
-		line-height: 1.5;
-		height: 51px;
-	}
-	input[type=number] {
 		border: none;
-		background: transparent;
+		margin: 0;
 		padding: 0;
-		font-size: 12px;
 	}
-	input[type=text] {
-		border-right: 1px solid $lightest;
-		font-size: 12px;
-		padding: 2px 1px;
+	.attribute-title button[type=roll].rollbutton {
+		max-width: calc(100% - 97px);
+		line-height: inherit;
+		color: inherit;
+		font-size: 13px;
 	}
-}
-.sheet-expand:not(:checked) ~ textarea {
-	height: 0 !important;
-	border-width: 0;
-}
-/* Column widths */
-.sheet-faction-name, input[type=text].sheet-faction-name { width: 65% }
-.sheet-faction-tier, input[type=text].sheet-faction-tier {
-	width: 10%;
-	text-align: center;
-}
-.sheet-faction-hold, input[type=text].sheet-faction-hold {
-	width: 10%;
-	text-align: center;
-}
-.sheet-faction-status, input[type=number].sheet-faction-status {
-	width: 15%;
-	text-align: center;
-}
-/* War blurb */
-.sheet-warblurb {
-	text-align: justify;
-	.sheet-label { font-size: 14px }
-	li {
-		margin-bottom: .5em;
-		padding-left: 1em;
+	.action button[type=roll].rollbutton {
+		letter-spacing: 1px;
+		line-height: 13px;
+		flex: 0 0 86px;
+		font-size: 13px;
 	}
-}
-/* Generate button */
-label.sheet-generatebutton {
-	color: $lightblack;
-	border: 1px solid $darkgrey;
-	&:hover {
+	.coinrow button[type=roll].rollbutton {
+		font-size: 11px;
+		color: $lightblack;
+	}
+	.blackheader button[type=roll].rollbutton { margin:auto }
+	button[type=roll].borderbutton {
+		color: $lightblack;
+		font-size: 13px;
+		border-color: $darkgrey;
+	}
+	button[type=roll].vicebutton {
+		float: right;
+		margin: 5px 3px -5px auto;
+		line-height: 13px;
+		padding: 4px;
+	}
+	button[type=roll].fortunebutton {
+		width: 100%;
+		height: 30px;
+		margin: 0;
+	}
+	.type-faction button[type=roll].fortunebutton {
+		width: 100px;
+	}
+	button[type=roll].engagementbutton {
+		width: calc(100% - 20px);
+		padding: 2px 5px;
+		height: 30px;
+		margin: 10px 10px 0;
+	}
+	button[type=roll].rollbutton:hover { color: red }
+	button[type=roll].borderbutton:hover {
 		color: black;
 		border-color: black;
-		input + span { opacity: 1 }
 	}
 }
-.sheet-type-faction label.sheet-generatebutton {
-	font-size: 13px;
-	padding: 0 6px;
-	align-items: center;
-	margin: 0 6px;
-	font-weight: bold;
-	height: 30px;
-}
-.sheet-settings label.sheet-generatebutton {
-	padding: 2px;
-	line-height: 12px;
-	margin: 0 4px;
-	font-size: 11px;
-}
-/* Auto-expand textareas */
-.sheet-auto-expand {
-	position: relative;
-	cursor: text;
-	word-wrap: break-word;
-	span {
-		visibility: hidden;
-		white-space: pre-wrap;
-		display: block;
+
+/* CHECKBOXES */
+.charsheet {
+	.checkbox { margin-right: -12px }
+	input.checkbox, .checkbox + span {
+		height: 12px;
+		width: 12px;
+		flex: 0 0 auto;
 	}
-	textarea {
-		position: absolute;
-		overflow: hidden;
-		z-index: 1;
-		top: 0;
-		left: 0;
-		resize: none;
+	.checkbox + span { border: 1px solid $greyborder }
+	.checkbox:checked + span { background: red }
+	.checkbox:hover + span { opacity: 0.7 }
+	.squarebox + span {
+		background: transparent;
+		margin-right: 3px;
+	}
+	.circlebox + span {
+		border-radius: 50%;
+		background: white;
+	}
+	input.checkbox.squarebox-small, .checkbox.squarebox-small + span {
+		height: 9px;
+		width: 9px;
+	}
+	.checkbox.squarebox-small:checked + span { background: black }
+	.claimbridge { position: relative }
+	.claimbridge input, .claimbridge span {
+		width: 100%;
 		height: 100%;
-		word-wrap: break-word;
-		padding: inherit;
-		font: inherit;
-		color: inherit;
-		text-transform: inherit;
-		letter-spacing: inherit;
-		text-align: inherit;
+	}
+	.claimbridge input:checked + span { background: $lightest }
+	/* Change text colour when boxes are checked*/
+	.specialability .checkbox:checked ~ .abilityname,
+	.item .checkbox:checked ~ .itemname,
+	.friend .friendstate[value="up"] ~ .auto-expand { color: red }
+	.friend-contact .friendstate:not([value="0"]) ~ .auto-expand { font-weight: bold }
+	.friend .friendstate[value="down"] ~ .auto-expand,
+	.contact .friendstate[value="1"] ~ .auto-expand { color: $fontblack }
+	/* specific adjustments */
+	.specialability .checkbox,
+	.specialability .checkbox + span { margin-top: 3px }
+	.actions input.checkbox {
+		height: 20px;
+		width: 16px;
+		margin-right: -14px;
+	}
+	.actions .checkbox + span {
+		height: 11px;
+		width: 11px;
+		border: none;
+		margin-right: calc(7px + (100% - 173px)/8);
+	}
+	.action .checkbox + span:first-of-type { margin-right: 6px }
+	.action .darktalent[value="1"] ~ .checkbox + span {
+		&:first-of-type { margin-right: 4px }
+		&:not(:first-of-type) { margin-right: calc(3px + (100% - 171px)/10) }
+		&:last-of-type { margin-right: calc(4px + (100% - 171px)/10) }
+	}
+	/* Fake radios */
+	.checkbox.fakeradio + span { background: red }
+	.action .fakeradio:checked ~ .fakeradio + span { background: $lighter }
+	.tier .fakeradio:checked ~ .fakeradio + span { background: white }
+}
+
+/* HIDER */
+.charsheet {
+	.darktalent[value="0"] ~ input:last-of-type,
+	.darktalent[value="0"] ~ input:last-of-type + span { display: none }
+}
+
+/* Friend triangles */
+.charsheet {
+	.friend-contact {
+		.checkbox + span {
+			width: 0;
+			height: 0;
+			background: transparent;
+			border-color: transparent;
+		}
+		label {
+			width: 12px;
+			height: 12px;
+			position: relative;
+		}
+	}
+	.friend label {
+		&.up {
+			margin-right: 1px;
+			top: -1px;
+			.checkbox + span {
+				border-width: 0 5px 10px;
+				border-bottom-color: white;
+			}
+			.checkbox:checked + span { border-bottom-color: red }
+		}
+		&.down {
+			top: 5px;
+			.checkbox + span {
+				border-width: 10px 5px 0;
+				border-top-color: white;
+			}
+			.checkbox:checked + span { border-top-color: black }
+		}
+	}
+	.contact label {
+		top: 1px;
+		.checkbox + span {
+			border-width: 5px 0 5px 10px;
+			border-left-color: white;
+		}
+		.checkbox:checked + span { border-left-color: black }
 	}
 }
-/* Broadcast buttons */
-.sheet-show-broadcast[value="0"] ~ .sheet-container .sheet-broadcast-button { display: none }
-button[type=roll].sheet-broadcast-button {
-	font-family: pictos;
-	position: absolute;
-	border: none;
-	margin: 0;
-	padding: 0;
-	z-index: 3;
+
+/* ACTION RATINGS */
+.charsheet {
+	.actioncolumn > div, .cohortcolumn > div, .cohorts .repitem:not(:last-child) {
+		margin-bottom: 10px 
+	}
+	.attribute-title,
+	.cohort-title {
+		height: 21px;
+		line-height: 21px;
+		color: white;
+		background: black;
+		padding: 0 3px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.attribute-xp-box {
+		width: 97px;
+		justify-content: flex-end;
+		height: 100%;
+	}
+	.actions { padding-left: 2px }
+	.action {
+		height: 22px;
+		align-items: center;
+	}
+	.action:first-child {
+		height: 34px;
+		padding-top: 12px;
+	}
+	.divider {
+		margin-right: calc(5px + (100% - 173px)/12);
+		border-right: 1px solid black;
+		height: inherit;
+	}
+	.darktalent[value="1"] ~ .divider {
+		margin-right: calc(3px + (100% - 173px)/15)
+	}
+	.action:first-child .divider {
+		position: relative;
+		top: -6px;
+	}
 }
-.sheet-specialability button[type=roll].sheet-broadcast-button {
-	font-size: 12px;
-	line-height: 14px;
-	height: 14px;
-	width: 14px;
-	color: $lightblack;
-	left: 3px;
-	bottom: 7px;
+
+/* COHORTS */
+.charsheet {
+	.cohort-title {
+		font-size: 11px;
+		input[type=text] { width: calc(100% - 40px) }
+	}
+	.cohort-info {
+		background: black;
+		height: 13px;
+		font-size: 9px;
+		color: white;
+		line-height: 13px;
+		input[type=text] {
+			flex: 1 1 0;
+			padding: 0 3px;
+		}
+		input[type=number] {
+			flex: 0 0 auto;
+			color: inherit;
+			background: transparent;
+			border: none;
+			border-radius: 0;
+			padding: 0 0 0 4px;
+			line-height: inherit;
+			width: 13px;
+			-moz-appearance: textfield;
+			font-size: 11px;
+			font-family: "Times New Roman", Times, serif;
+			&::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+				margin: 0;
+				-webkit-appearance: none;
+			}
+		}
+	}
+	.cohort-quality-label { flex: 0 0 auto }
+	.cohort-condition { justify-content: space-between }
+	.cohort-condition-name {
+		font-size: 7.5px;
+		margin-right: 2px;
+		z-index: -1;
+	}
+	.cohort-dropdown {
+		background: black;
+		position: relative;
+		z-index: 1;
+		width: 41px;
+		height: 13px;
+		padding-left: 3px;
+		flex: 0 0 auto;
+		overflow: hidden;
+		transition: all 0.2s;
+		&:hover {
+			height: 39px;
+			> div:first-child { display: none }
+		}
+		input[type=radio] {
+			width: 39px;
+			margin-right: -39px;
+			vertical-align: top;
+			height: 13px;
+			z-index: 10;
+			&:checked + span { color: red }
+		}
+	}
+	.cohort-edgeflaw {
+		font-size: 9px;
+		line-height: 10px;
+		margin: 2px 0;
+		align-items: start;
+		.uppercase {
+			width: 34px;
+			padding: 2px 0;
+		}
+		.auto-expand {
+			width: calc(100% - 34px);
+			min-height: 14px;
+			padding: 2px 3px;
+		}
+	}
+	.cohort-description {
+		font-size: 9px;
+		padding: 1px 0;
+		line-height: 12px;
+		height: 50px;
+		border-bottom: 1px solid $lightest;
+	}
 }
-.sheet-clocks button[type=roll].sheet-broadcast-button {
-	font-size: 11px;
-	line-height: 11px;
-	height: 12px;
-	width: 12px;
-	color: $lightblack;
-	right: 0;
-	bottom: 2px;
+
+/* CLAIMS */
+.charsheet {
+	.claims { margin-top: 15px }
+	.claimsbody, .claims .repitem {
+		display: grid;
+		grid-template-columns: repeat(4, 18.4% 2%) 18.4%;
+		align-items: center;
+		justify-items: center;
+	}
+	.claimbox, .lairbox { height: 66px }
+	.lairbox {
+		background: $lightblack;
+		font-size: 13px;
+		width: 100%;
+		color: white;
+		letter-spacing: 1px;
+	}
+	.claims-horisep {
+		height: 12px;
+		width: 100%;
+		display: flex;
+	}
+	.claims-vertsep {
+		display: flex;
+		width: 12px;
+		height: 12px;
+	}
+	.claimbox {
+		background: $lightest;
+		position: relative;
+		transition: all 0.2s;
+		.label {
+			height: 30px;
+			padding: 4px 0 2px;
+			line-height: 12px;
+		}
+		textarea {
+			text-align: center;
+			font-size: 9px;
+			resize: none;
+			&.claim-desc {
+				height: 36px;
+				padding: 2px 2.5% 4px;
+				line-height: 10px;
+			}
+		}
+		label {
+			position: absolute;
+			bottom: 1px;
+			left: 1px;
+		}
+	}
+	input[value="1"] + .claimbox { background: $lighter }
 }
-.sheet-harm button[type=roll].sheet-broadcast-button {
-	color: white;
-	font-weight: normal;
-	font-size: 11px;
-	line-height: 11px;
-	right: 2px;
-	top: 1px;
+
+/* STRICTURES */
+.charsheet {
+	.strictures {
+		font-size: 11px;
+		line-height: 1.6;
+		text-align: justify;
+		label {
+			margin-right: 3px;
+			display: inline-flex;
+			vertical-align: top;
+			align-items: center;
+		}
+		span.label::after { content: ":" }
+	}
+}
+
+/* ALCHEMICALS */
+.charsheet {
+	.title-checkbox ~ div {
+		height: auto;
+		transition: all 0.2s;
+		overflow: hidden;
+	}
+	.title-checkbox:not(:checked) ~ div { height: 0 }
+	input.title-checkbox {
+		width: 100%;
+		vertical-align: top;
+		margin-right: -100%;
+		height: 24px;
+	}
+	.title-checkbox:hover + span { color: red }
+	.alchemicals {
+		padding: 0 5px;
+		line-height: 16px;
+	}
+	.bandolier-desc {
+		line-height: 12px;
+		margin-top: 2px;
+		font-size: 10px;
+		font-style: italic;
+	}
+	.bandoliers-name {
+		margin-right: 7px;
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.bandolier input:nth-of-type(3) + span { margin-right: 8px }
+	.alchemicals {
+		.repcontainer {
+			display: flex;
+			flex-flow: row wrap;
+		}
+		.repitem {
+			font-size: 11px;
+			width: 50%;
+		}
+		.auto-expand {
+			margin: 0 1px 0 7px;
+			padding: 1px;
+			min-height: 16px;
+			line-height: 14px;
+			width: calc(100% - 8px);
+		}
+		input.alchemicals-expand {
+			width: 10px;
+			position: absolute;
+			height: 16px;
+		}
+		.alchemicals-expand + span {
+			transform: rotate(45deg) scale(0.9);
+			position: absolute;
+		}
+		.alchemicals-expand:not(:checked) ~ .alchemicals-info { display: none }
+		.alchemicals-info {
+			position: relative;
+			font-size: 9px;
+			z-index: 2;
+			background: white;
+			line-height: 1.3;
+			height: 64px;
+			width: 200%;
+			padding: 2px;
+			border: 1px solid $lightest;
+		}
+		.repitem:nth-child(even) .alchemicals-info { left: -100% }
+		.alchemicals-expand + span::before {
+			content: '■';
+			font-family: serif;
+		}
+		.alchemicals-expand:checked + span { color: red }
+		.itemcontrol .btn {
+			padding: 0 4px;
+			font-size: 9px;
+			line-height: 14px;
+		}
+		.repcontrol_del { order: 1 }
+		.repcontainer.editmode .repitem .itemcontrol {
+			display: flex;
+			justify-content: space-between;
+			align-items: start;
+		}
+	}
+}
+
+/* FRAME */
+.charsheet {
+	.frame textarea {
+		font-size: 11px;
+		height: 40px;
+	}
+}
+
+/* FACTIONS PAGE */
+.charsheet {
+	.factions {
+		grid: auto auto /repeat(4, 1fr);
+		grid-gap: 5px 10px;
+		.sheet-2row { grid-row: span 2 }
+	}
+	.factiontitle { align-items: center }
+	.factiontitle input[type=text] {
+		font-size: 26px;
+		margin-right: auto;
+		width: 60%;
+	}
+	.factions-header {
+		width: 100%;
+		height: 24px;
+		align-items: center;
+		line-height: 14px;
+		background: $lighter;
+	}
+	.factions-header input[type=text] { padding-left: 3px }
+	.factions-header span { font-size: 7px }
+	input.expand, .expand + span {
+		position: absolute;
+		width: 7px;
+		height: 10px;
+		font-size: 8px;
+	}
+	.type-faction .expand {
+		left: -7px;
+		top: 6px;
+		+ span {
+			top: 3px;
+			left: -7px;
+			&::before { content: "▶" }
+		}
+		&:checked + span::before { content: "▼" }
+	}
+	.faction {
+		border-bottom: 1px solid $lightest;
+		textarea {
+			border-top: 1px solid $lightest;
+			font-size: 11px;
+			line-height: 1.5;
+			height: 51px;
+		}
+		input[type=number] {
+			border: none;
+			background: transparent;
+			padding: 0;
+			font-size: 12px;
+		}
+		input[type=text] {
+			border-right: 1px solid $lightest;
+			font-size: 12px;
+			padding: 2px 1px;
+		}
+	}
+	.expand:not(:checked) ~ textarea {
+		height: 0 !important;
+		border-width: 0;
+	}
+	/* Column widths */
+	.faction-name, input[type=text].faction-name { width: 65% }
+	.faction-tier, input[type=text].faction-tier {
+		width: 10%;
+		text-align: center;
+	}
+	.faction-hold, input[type=text].faction-hold {
+		width: 10%;
+		text-align: center;
+	}
+	.faction-status, input[type=number].faction-status {
+		width: 15%;
+		text-align: center;
+	}
+	/* War blurb */
+	.warblurb {
+		text-align: justify;
+		.label { font-size: 14px }
+		li {
+			margin-bottom: .5em;
+			padding-left: 1em;
+		}
+	}
+	/* Generate button */
+	label.generatebutton {
+		color: $lightblack;
+		border: 1px solid $darkgrey;
+		&:hover {
+			color: black;
+			border-color: black;
+			input + span { opacity: 1 }
+		}
+	}
+	.type-faction label.generatebutton {
+		font-size: 13px;
+		padding: 0 6px;
+		align-items: center;
+		margin: 0 6px;
+		font-weight: bold;
+		height: 30px;
+	}
+	.settings label.generatebutton {
+		padding: 2px;
+		line-height: 12px;
+		margin: 0 4px;
+		font-size: 11px;
+	}
+	/* Auto-expand textareas */
+	.auto-expand {
+		position: relative;
+		cursor: text;
+		word-wrap: break-word;
+		span {
+			visibility: hidden;
+			white-space: pre-wrap;
+			display: block;
+		}
+		textarea {
+			position: absolute;
+			overflow: hidden;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			resize: none;
+			height: 100%;
+			word-wrap: break-word;
+			padding: inherit;
+			font: inherit;
+			color: inherit;
+			text-transform: inherit;
+			letter-spacing: inherit;
+			text-align: inherit;
+		}
+	}
+	/* Broadcast buttons */
+	.show-broadcast[value="0"] ~ .container .broadcast-button { display: none }
+	button[type=roll].broadcast-button {
+		font-family: pictos;
+		position: absolute;
+		border: none;
+		margin: 0;
+		padding: 0;
+		z-index: 3;
+	}
+	.specialability button[type=roll].broadcast-button {
+		font-size: 12px;
+		line-height: 14px;
+		height: 14px;
+		width: 14px;
+		color: $lightblack;
+		left: 3px;
+		bottom: 7px;
+	}
+	.clocks button[type=roll].broadcast-button {
+		font-size: 11px;
+		line-height: 11px;
+		height: 12px;
+		width: 12px;
+		color: $lightblack;
+		right: 0;
+		bottom: 2px;
+	}
+	.harm button[type=roll].broadcast-button {
+		color: white;
+		font-weight: normal;
+		font-size: 11px;
+		line-height: 11px;
+		right: 2px;
+		top: 1px;
+	}
 }
 
 /* Kirsty */
-.sheet-use-kirsty[value="1"] ~ .sheet-container {
-	.sheet-specialheader,
-	.sheet-blackheader,
-	.sheet-greyheader,
-	.sheet-black-on-grey,
-	.sheet-playbook input[type="text"],
-	.sheet-plainheader,
-	.sheet-itemheader :first-child,
-	.sheet-loadheader :first-child,
-	.sheet-attribute-title button[type=roll].sheet-rollbutton,
-	.sheet-bonusdie > .sheet-label:first-child,
-	.sheet-cohort-title,
-	.sheet-claimbox .sheet-label,
-	.sheet-lairbox,
-	.sheet-crewheader,
-	.sheet-factiontitle input[type="text"],
-	.sheet-factions-header input[type="text"] { font-family: Kirsty, Georgia, serif }
-	.sheet-claimbox .sheet-label {
-		font-size: 10px;
-		font-weight: 400;
-	}
-	.sheet-specialheader, .sheet-itemheader :first-child, .sheet-loadheader :first-child {
-		font-size: 12px;
-		font-weight: 400;
-	}
-	.sheet-plainheader, .sheet-cohort-title {
-		font-size: 13px;
-		font-weight: 400;
-	}
-	.sheet-factions-header input[type="text"],
-	.sheet-bonusdie > .sheet-label:first-child {
-		font-size: 14px;
-		font-weight: 400;
-	}
-	.sheet-attribute-title button[type=roll].sheet-rollbutton, .sheet-lairbox {
-		font-size: 15px;
-		font-weight: 400;
-	}
-	.sheet-crewheader {
-		font-size: 29px;
-		letter-spacing: 0;
-	}
-	.sheet-factiontitle input[type="text"] { font-size: 32px }
-	.sheet-playbook input[type="text"] {
-		font-size: 40px;
-		letter-spacing: 0;
-	}
-	.sheet-blackheader, .sheet-greyheader, .sheet-black-on-grey {
-		.sheet-label, button[type="roll"].sheet-label {
+.charsheet {
+	.use-kirsty[value="1"] ~ .container {
+		.specialheader,
+		.blackheader,
+		.greyheader,
+		.black-on-grey,
+		.playbook input[type="text"],
+		.plainheader,
+		.itemheader :first-child,
+		.loadheader :first-child,
+		.attribute-title button[type=roll].rollbutton,
+		.bonusdie > .label:first-child,
+		.cohort-title,
+		.claimbox .label,
+		.lairbox,
+		.crewheader,
+		.factiontitle input[type="text"],
+		.factions-header input[type="text"] { font-family: Kirsty, Georgia, serif }
+		.claimbox .label {
+			font-size: 10px;
+			font-weight: 400;
+		}
+		.specialheader, .itemheader :first-child, .loadheader :first-child {
 			font-size: 12px;
 			font-weight: 400;
+		}
+		.plainheader, .cohort-title {
+			font-size: 13px;
+			font-weight: 400;
+		}
+		.factions-header input[type="text"],
+		.bonusdie > .label:first-child {
+			font-size: 14px;
+			font-weight: 400;
+		}
+		.attribute-title button[type=roll].rollbutton, .lairbox {
+			font-size: 15px;
+			font-weight: 400;
+		}
+		.crewheader {
+			font-size: 29px;
+			letter-spacing: 0;
+		}
+		.factiontitle input[type="text"] { font-size: 32px }
+		.playbook input[type="text"] {
+			font-size: 40px;
+			letter-spacing: 0;
+		}
+		.blackheader, .greyheader, .black-on-grey {
+			.label, button[type="roll"].label {
+				font-size: 12px;
+				font-weight: 400;
+			}
 		}
 	}
 }
 
 /* Custom action/attribute labels */
-.sheet-settings .sheet-custom-actions {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 5px;
+.charsheet {
+	.settings .custom-actions {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 5px;
 
-	label { grid-column: span 3; }
-	.sheet-custom-action-toggle[value="0"] ~ .sheet-container & .sheet-column {
-		cursor: pointer;
-		pointer-events: none;
-		opacity: 0.6;
-	}
-	.sheet-column {
-    display: grid;
-    grid: auto / 1fr 1fr;
-		grid-gap: 2px;
-		.sheet-attribute-label {
-			font-weight: bold;
-			grid-column: span 2;
+		label { grid-column: span 3; }
+		.custom-action-toggle[value="0"] ~ .container & .column {
+			cursor: pointer;
+			pointer-events: none;
+			opacity: 0.6;
+		}
+		.column {
+			display: grid;
+			grid: auto / 1fr 1fr;
+			grid-gap: 2px;
+			.attribute-label {
+				font-weight: bold;
+				grid-column: span 2;
+			}
 		}
 	}
-}
-.sheet-custom-action-toggle[value="0"] ~ .sheet-container .sheet-custom-label,
-.sheet-custom-action-toggle[value="1"] ~ .sheet-container .sheet-default-label {
-	display: none;
+	.custom-action-toggle[value="0"] ~ .container .custom-label,
+	.custom-action-toggle[value="1"] ~ .container .default-label {
+		display: none;
+	}
 }
 
 /* Adjustments for non-English languages */
 .charsheet.lang-ko {
 	font-family: "Malgun Gothic", Dotum, Georgia, "Bitstream Charter", "Times New Roman", serif;
-	.sheet-kirsty-option { display: none }
+	.kirsty-option { display: none }
 
-	.sheet-settings {
-		label.sheet-generatebutton { font-size: 12px }
+	.settings {
+		label.generatebutton { font-size: 12px }
 		> div { font-size: 11px }
 	}
 
-	.sheet-header {
-		.sheet-title { font-size: 13px }
-		.sheet-info { font-size: 11px }
-		.sheet-smallcaps { font-size: 1em }
-		.sheet-italic { font-style: normal }
+	.header {
+		.title { font-size: 13px }
+		.info { font-size: 11px }
+		.smallcaps { font-size: 1em }
+		.italic { font-style: normal }
 	}
-	.sheet-stress4 { font-size: 12px }
-	.sheet-harmrow .sheet-harmeffect { font-size: 12px }
-	.sheet-healing-progress { font-size: 11px }
-	.sheet-armor label { font-size: 12px }
-	.sheet-coinrow {
-		.sheet-label, button[type="roll"].sheet-rollbutton { font-size: 12px }
+	.stress4 { font-size: 12px }
+	.harmrow .harmeffect { font-size: 12px }
+	.healing-progress { font-size: 11px }
+	.armor label { font-size: 12px }
+	.coinrow {
+		.label, button[type="roll"].rollbutton { font-size: 12px }
 	}
-	.sheet-specialheader { font-size: 13px }
-	.sheet-abilityname { font-size: 14px }
-	.sheet-abilitydesc {
+	.specialheader { font-size: 13px }
+	.abilityname { font-size: 14px }
+	.abilitydesc {
 		font-family: 13px;
 		line-height: 16px;
 		min-height: 36px;
 	}
-	.sheet-plainheader { font-size: 14px }
-	.sheet-teamworkbox { font-size: 13px }
-	.sheet-gatherinfo li { font-size: 12px }
-	.sheet-strictures { font-size: 12px }
-	.sheet-playbook textarea { font-size: 12px }
-	.sheet-loadheader {
-		.sheet-loadnumber { font-family: inherit }
+	.plainheader { font-size: 14px }
+	.teamworkbox { font-size: 13px }
+	.gatherinfo li { font-size: 12px }
+	.strictures { font-size: 12px }
+	.playbook textarea { font-size: 12px }
+	.loadheader {
+		.loadnumber { font-family: inherit }
 		label {
 			font-style: normal
 		}
 	}
-	.sheet-itemheader, .sheet-loadheader {
+	.itemheader, .loadheader {
 		font-size: 12px;
 		padding: 1px 2px 0 4px;
 		height: auto;
 	}
-	.sheet-numboxes-chooser { font-size: 10px }
-	.sheet-item .sheet-itemname, .sheet-item .sheet-label { font-size: 12px }
-	.sheet-item .sheet-label.sheet-upgradecosts { font-size: 9px }
-	.sheet-itemholder .sheet-expand ~ textarea { font-size: 11px }
-	.sheet-bandoliers-name { font-size: 13px }
-	.sheet-bandolier-desc {
+	.numboxes-chooser { font-size: 10px }
+	.item .itemname, .item .label { font-size: 12px }
+	.item .label.upgradecosts { font-size: 9px }
+	.itemholder .expand ~ textarea { font-size: 11px }
+	.bandoliers-name { font-size: 13px }
+	.bandolier-desc {
 		font-size: 11px;
 		font-style: normal;
 	}
-	.sheet-attribute-title button[type="roll"].sheet-rollbutton { font-size: 15px }
-	.sheet-action button[type="roll"].sheet-rollbutton { font-size: 15px }
-	button[type="roll"].sheet-borderbutton { font-size: 15px }
-	.sheet-bonusdietext, .sheet-bonusdie .sheet-label { font-size: 13px }
-	.sheet-friend-contact .sheet-auto-expand { font-size: 13px }
-	.sheet-clocks .sheet-auto-expand { font-size: 12px }
-	.sheet-crewcoin-desc { font-style: normal }
-	.sheet-claimbox {
-		textarea.sheet-label { font-size: 12px }
-		textarea.sheet-claim-desc {
+	.attribute-title button[type="roll"].rollbutton { font-size: 15px }
+	.action button[type="roll"].rollbutton { font-size: 15px }
+	button[type="roll"].borderbutton { font-size: 15px }
+	.bonusdietext, .bonusdie .label { font-size: 13px }
+	.friend-contact .auto-expand { font-size: 13px }
+	.clocks .auto-expand { font-size: 12px }
+	.crewcoin-desc { font-style: normal }
+	.claimbox {
+		textarea.label { font-size: 12px }
+		textarea.claim-desc {
 			overflow: hidden;
 			height: 54px;
 			line-height: 12px;
 			font-size: 11px;
 		}
 	}
-	.sheet-claimbox, .sheet-lairbox { height: 84px }
-	.sheet-cohort-title { font-size: 12px }
-	.sheet-cohort-info {
+	.claimbox, .lairbox { height: 84px }
+	.cohort-title { font-size: 12px }
+	.cohort-info {
 		height: 15px;
 		font-size: 11px;
 	}
-	.sheet-cohort-condition-name { font-size: 12px }
-	.sheet-cohort-edgeflaw { font-size: 11px }
-	.sheet-cohort-description { font-size: 11px }
-	.sheet-factions-header span { font-size: 9px }
-	.sheet-faction-name, input[type=text].sheet-faction-name { width: 60% }
-	.sheet-faction-tier, input[type=text].sheet-faction-tier { width: 12% }
-	.sheet-faction-hold, input[type=text].sheet-faction-hold { width: 13% }
+	.cohort-condition-name { font-size: 12px }
+	.cohort-edgeflaw { font-size: 11px }
+	.cohort-description { font-size: 11px }
+	.factions-header span { font-size: 9px }
+	.faction-name, input[type=text].faction-name { width: 60% }
+	.faction-tier, input[type=text].faction-tier { width: 12% }
+	.faction-hold, input[type=text].faction-hold { width: 13% }
 }
 
 .charsheet.lang-fr {
-	.sheet-abilityname {
+	.abilityname {
 		min-height: 34px;
 	}
-	.sheet-heat {
+	.heat {
 		width: 48%;
-		.sheet-blackheader {
+		.blackheader {
 			letter-spacing: 0;
 		}
 	}
-	.sheet-crewcoin {
+	.crewcoin {
 		width: 51%;
 	}
 }
 
 .charsheet.lang-es {
-	.sheet-crewheader {
+	.crewheader {
 		font-size: 24px;
 	}
-	.sheet-playbook input[type=text] {
+	.playbook input[type=text] {
 		font-size: 32px;
 	}
-	.sheet-itemheader .sheet-italic {
+	.itemheader .italic {
 		line-height: 10px;
 	}
-	.sheet-coinrow button[type=roll].sheet-rollbutton {
+	.coinrow button[type=roll].rollbutton {
 		padding: 2px 0 0 6px;
 	}
-	.sheet-harmbody .sheet-harmeffect {
+	.harmbody .harmeffect {
 		font-size: 9px;
 		letter-spacing: 0;
 	}
-	.sheet-armor .sheet-label {
+	.armor .label {
 		font-size: 10px;
 	}
-	.sheet-coinrow {
-		.sheet-label,
-		button[type=roll].sheet-rollbutton {
+	.coinrow {
+		.label,
+		button[type=roll].rollbutton {
 			font-size: 10px;
 		}
 	}
 }
 
 .charsheet.lang-pt {
-	.sheet-crewheader {
+	.crewheader {
 		font-size: 24px;
 	}
-	.sheet-heat3 button[type=roll].sheet-rollbutton {
+	.heat3 button[type=roll].rollbutton {
 		max-width: 56px;
 	}
-	.sheet-healing .sheet-healing-progress {
+	.healing .healing-progress {
 		line-height: 10px
 	}
-	.sheet-playbook input[type=text] {
+	.playbook input[type=text] {
 		font-size: 32px;
 	}
-	.sheet-coinrow button[type=roll].sheet-rollbutton {
+	.coinrow button[type=roll].rollbutton {
 		padding: 2px 0 0 6px;
 	}
-	.sheet-advancement-header {
+	.advancement-header {
 		font-size: 10px;
 	}
-	.sheet-itemheader .sheet-italic {
+	.itemheader .italic {
 		line-height: 10px;
 	}
-	.sheet-harmbody .sheet-harmeffect {
+	.harmbody .harmeffect {
 		font-size: 9px;
 		letter-spacing: 0;
 	}
-	.sheet-armor .sheet-label {
+	.armor .label {
 		font-size: 10px;
 	}
-	.sheet-coinrow {
-		.sheet-label,
-		button[type=roll].sheet-rollbutton {
+	.coinrow {
+		.label,
+		button[type=roll].rollbutton {
 			font-size: 10px;
 		}
 	}

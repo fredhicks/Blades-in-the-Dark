@@ -71,7 +71,7 @@ mixin makecohort(prefix, isCharacter)
 					+radio(`${prefix}type`)(value="elite", data-i18n="elite")
 				div
 					+radio(`${prefix}type`)(value="expert", checked=isCharacter, data-i18n="expert")
-			+text-input(`${prefix}subtype`)(data-i18n-placeholder=isCharacter ? "hunter" : "gang_type").sheet-inherit
+			+text-input(`${prefix}subtype`)(data-i18n-placeholder=isCharacter ? "hunter" : "gang_type").inherit
 			if (isCharacter)
 				.label.cohort-quality-label(data-i18n="quality_abbreviated") Q:
 				+number-input(`${prefix}quality`)(min="0", max="5", value="1").label
