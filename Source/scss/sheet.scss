@@ -12,6 +12,33 @@ $fontblack: #333;
 /* red */
 $redtext: #c43c35;
 
+
+/* FRED'S NEW ADJUSTMENTS TO GET IT TO BEHAVE LIKE THE OLD THING */
+.charsheet {
+	.label {
+		padding: 0;
+		text-align: left;
+		&:empty {
+			display: unset;
+		}
+		border-radius: unset;
+	}
+	.claimbox {
+		line-height: 0;
+	}
+	.specialheader.label {
+		display: block;
+		padding-left: 4px;
+	}
+	.cohort-condition-name {
+		line-height: unset;
+	}
+	.faction-name.label {
+		line-height: unset;
+	}
+}
+
+
 /* GENERALITIES */
 .charsheet {
 	padding: 0 !important;
@@ -256,6 +283,8 @@ $redtext: #c43c35;
 	position: relative;
 	min-width: 860px;
 	max-width: 1190px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 .charsheet .flexwidth[value="0"] ~ .container { width: 860px }
 .charsheet .type {
@@ -321,7 +350,7 @@ $redtext: #c43c35;
 		padding-right: 1px;
 		height: 13px;
 		line-height: 13px;
-		z-index: -1;
+		z-index: 0; /* Was -1 but that made it invisible in non-legacy mode */
 	}
 	.plainheader {
 		width: 100%;
@@ -389,6 +418,7 @@ $redtext: #c43c35;
 		font-weight: bold;
 	}
 }
+
 /* INFO BOXES */
 .charsheet {
 	.gatherinfo {
@@ -794,7 +824,7 @@ $redtext: #c43c35;
 		position: absolute;
 		left: 0;
 		top: 0;
-		z-index: -1;
+		z-index: -1; /* Is this -1 okay? Other z-indexes at -1 have not been */
 	}
 	div[class^="spoke"] {
 		height: 44px;
@@ -1901,7 +1931,7 @@ $redtext: #c43c35;
 	.cohort-condition-name {
 		font-size: 7.5px;
 		margin-right: 2px;
-		z-index: -1;
+		z-index: 0; /* Was -1 in legacy version, but that means nothing can be seen in current version */
 	}
 	.cohort-dropdown {
 		background: black;

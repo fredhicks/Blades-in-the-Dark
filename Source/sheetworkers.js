@@ -686,7 +686,7 @@
   }
 
   /* DATA */
-  const sheetVersion = "3.9";
+  const sheetVersion = "3.10";
   const crewData = {
     assassins: {
       base: {
