@@ -1,43 +1,69 @@
 /* Variants of grey */
-$lightest: #d8d8d8;
+$lightest: #d8d8d8; // #d8d8d8
 $lighter: #c7c7c7;
-$darkgrey: #b4b4b4;
+$darkgrey: #b4b4b4; // #b4b4b4
 $versiongrey: #aaa;
 $greyborder: #8c8c8c;
 $headergrey: #808080;
 $lightblack: #777;
 $lighterblack: #555;
 $fontblack: #333;
+$blacktext: #000;
+$whitetext: #fff;
 
 /* red */
 $redtext: #c43c35;
 
+/* Attempt to support dark mode */
 
-/* FRED'S NEW ADJUSTMENTS TO GET IT TO BEHAVE LIKE THE OLD THING */
-.charsheet {
-	.label {
-		padding: 0;
-		text-align: left;
-		&:empty {
-			display: unset;
-		}
-		border-radius: unset;
-	}
-	.claimbox {
-		line-height: 0;
-	}
-	.specialheader.label {
-		display: block;
-		padding-left: 4px;
-	}
-	.cohort-condition-name {
-		line-height: unset;
-	}
-	.faction-name.label {
-		line-height: unset;
-	}
+:root {
+	--blades-lightest: #{$lightest};
+	--blades-lighter: #{$lighter};
+	--blades-darkgrey: #{$darkgrey};
+	--blades-versiongrey: #{$versiongrey};
+	--blades-greyborder: #{$greyborder};
+	--blades-headergrey: #{$headergrey};
+	--blades-lightblack: #{$lightblack};
+	--blades-lighterblack: #{$lighterblack};
+	--blades-fontblack: #{$fontblack};
+	--blades-redtext: #{$redtext};
+	--blades-blacktext: #{$blacktext};
+	--blades-whitetext: #{$whitetext};
 }
 
+/* DARK MODE colors */
+/* Remember tho, the background in dark mode is not black, it's #1f1f1f */
+
+$lightest_d: #474747; // #d8d8d8 in light mode
+$lighter_d: #585858; // #c7c7c7 in light mode
+$darkgrey_d: #6b6b6b; // #b4b4b4 in light mode
+$versiongrey_d: #555; // #aaa in light mode
+$greyborder_d: #737373; // #8c8c8c in light mode
+$headergrey_d: #7f7f7f; // #808080 in light mode
+$lightblack_d: #777; // #777 in light mode
+$lighterblack_d: #999; // #555 in light mode
+$fontblack_d: #ccc; // #333 in light mode
+$blacktext_d: #fff; // #000 in light mode
+$whitetext_d: #000; // #fff in light mode
+$redtext_d: #d43c35; // #c43c35 in light mode
+
+.sheet-darkmode {
+	--blades-lightest: #{$lightest_d};
+	--blades-lighter: #{$lighter_d};
+	--blades-darkgrey: #{$darkgrey_d};
+	--blades-versiongrey: #{$versiongrey_d};
+	--blades-greyborder: #{$greyborder_d};
+	--blades-headergrey: #{$headergrey_d};
+	--blades-lightblack: #{$lightblack_d};
+	--blades-lighterblack: #{$lighterblack_d};
+	--blades-fontblack: #{$fontblack_d};
+	--blades-redtext: #{$redtext_d};
+	--blades-blacktext: #{$blacktext_d};
+	--blades-whitetext: #{$whitetext_d};
+	.sheetform {
+		background-color: #1f1f1f;
+	}
+}
 
 /* GENERALITIES */
 .charsheet {
@@ -46,7 +72,7 @@ $redtext: #c43c35;
 	top: -11px;
 	line-height: 18px;
 	cursor: default;
-	color: $fontblack;
+	color: var(--blades-fontblack);
 	font-size: 0;
 	font-family: Georgia, "Bitstream Charter", "Times New Roman", serif;
 
@@ -66,8 +92,8 @@ $redtext: #c43c35;
 	}
 
 	label {
-		--dark-secondarytext: #{$fontblack};
-		color: $fontblack;
+		// --dark-secondarytext: #{$fontblack};
+		color: var(--blades-fontblack);
 	}
 
 	label {
@@ -92,7 +118,7 @@ $redtext: #c43c35;
 		width: 100%;
 		padding: 0;
 		margin: 0;
-		color: $fontblack;
+		color: var(--blades-fontblack);
 		border-radius: 0;
 		transition: all 0.2s, height 0.4s;
 	}
@@ -104,8 +130,8 @@ $redtext: #c43c35;
 	}
 
 	input[type=number] {
-		border-color: $lighter;
-		color: $fontblack;
+		border-color: var(--blades-lighter);
+		color: var(--blades-fontblack);
 		box-shadow: none;
 	}
 
@@ -131,7 +157,7 @@ $redtext: #c43c35;
 		&::before {
 			transform: rotate(45deg) scale(0.9);
 			font-family: Georgia, serif;
-			content: '■';
+			content: '\25a0';
 			left: 0;
 			top: -.1em;
 			position: absolute;
@@ -154,6 +180,7 @@ $redtext: #c43c35;
 	}
 }
 .charsheet .hidden { display: none !important }
+
 /* Preloading graphics*/
 .charsheet .preload {
 	opacity: 0;
@@ -163,12 +190,13 @@ $redtext: #c43c35;
 		height: 1px;
 	}
 }
+
 /* Version text */
 .charsheet .topholder {
 	line-height: 22px;
 	margin: 0 0 7px calc(55% + 5px);
 	.version {
-		color: $versiongrey;
+		color: var(--blades-versiongrey);
 		font-size: 13px;
 		font-family: "Times New Roman", Times, serif;
 	}
@@ -185,18 +213,19 @@ $redtext: #c43c35;
 		}
 	}
 }
+
 /* Type Selector */
 .charsheet .type-selector {
 	display: flex;
 	margin-right: auto;
-	background: $lighter;
-	border: 1px solid $versiongrey;
+	background: var(--blades-lighter);
+	border: 1px solid var(--blades-versiongrey);
 	letter-spacing: 1px;
 	line-height: 20px;
 	justify-content: center;
 	width: 170px;
 	font-size: 11px;
-	color: $lighterblack;
+	color: var(--blades-lighterblack);
 
 	input {
 		position: absolute;
@@ -209,6 +238,7 @@ $redtext: #c43c35;
 	input[value="crew"]:not(:checked) ~ span[data-i18n="crew_mode"],
 	input[value="faction"][type=radio]:not(:checked) ~ span[data-i18n="faction_mode"] { display: none }
 }
+
 /* SETTINGS */
 .charsheet .type {
 	&[value="character"] ~ .settings > :not(.setting-char),
@@ -219,8 +249,8 @@ $redtext: #c43c35;
 	position: absolute;
 	right: 0;
 	width: 415px;
-	border: 1px solid black;
-	background: white;
+	border: 1px solid var(--blades-blacktext);
+	background: var(--blades-whitetext);
 	z-index: 100;
 	padding: 5px;
 	border-radius: 5px;
@@ -236,13 +266,13 @@ $redtext: #c43c35;
 		font-size: 10px;
 		min-height: 24px;
 		line-height: 17px;
-		border-bottom: 1px solid $lightest;
+		border-bottom: 1px solid var(--blades-lightest);
 
 		&.generaterow { line-height: 0 }
 	}
 	label { align-items: center; }
 	.checkbox + span { margin-right: 6px }
-	.checkbox:checked + span { background: black }
+	.checkbox:checked + span { background: var(--blades-blacktext) }
 	:not(input) + span { padding-right: 4px }
 	input[type=number] {
 		padding: 0 2px;
@@ -257,7 +287,7 @@ $redtext: #c43c35;
 		padding-left: 1px;
 		line-height: 16px;
 		border-radius: 3px;
-		border: 1px solid $lightest;
+		border: 1px solid var(--blades-lightest);
 		&.wide {
 			width: 200px;
 			margin-right: 8px;
@@ -271,6 +301,7 @@ $redtext: #c43c35;
 	}
 
 }
+
 /* SETTINGS FOR HIDING STUFF ON THE SHEET */
 .charsheet .toothhider[value="0"] ~ {
 	.tooth, .tooth + span { display: none }
@@ -278,6 +309,7 @@ $redtext: #c43c35;
 .charsheet .hider[value="0"] + {
 	li, div, label { display: none }
 }
+
 /* Sheet container */
 .charsheet .container {
 	position: relative;
@@ -298,6 +330,7 @@ $redtext: #c43c35;
 		grid-gap: 10px 5px;
 	}
 }
+
 /* USEFUL GENERAL LAYOUT*/
 .charsheet .grid {
 	display: grid;
@@ -315,8 +348,8 @@ $redtext: #c43c35;
 }
 .charsheet {
 	.blackheader {
-		background: black;
-		color: white;
+		background: var(--blades-blacktext);
+		color: var(--blades-whitetext);
 		&.rep1, &.hold1 {
 			padding-top: 3px;
 			line-height: 13px;
@@ -324,10 +357,20 @@ $redtext: #c43c35;
 		&.hold1 { padding-left: 2px }
 	}
 	.blackheader, .black-on-grey, .greyheader {
-		.label, button[type=roll].label {
+		.sheet-label, button[type=roll].sheet-label {
 			font-size: 11px;
 			line-height: 15px;
+		}
+	}
+	.black-on-grey, .greyheader {
+		.sheet-label, button[type=roll].sheet-label {
 			color: inherit;
+		}
+		letter-spacing: 1px;
+	}
+	.blackheader {
+		.sheet-label, button[type=roll].sheet-label {
+			color: var(--blades-whitetext);
 		}
 		letter-spacing: 1px;
 	}
@@ -335,14 +378,14 @@ $redtext: #c43c35;
 		height: 16px;
 		line-height: 15px;
 		padding: 1px 2px 0 4px;
-		.label {
+		.sheet-label {
 			padding-left: 1px;
 			padding-right: 1px;
 			line-height: inherit;
 		}
 	}
-	.black-on-grey, .greyheader { background: $darkgrey }
-	.black-on-grey, .black-on-grey .label {
+	.black-on-grey, .greyheader { background: var(--blades-darkgrey) }
+	.black-on-grey, .black-on-grey .sheet-label {
 		text-align: center;
 		position: relative;
 		flex-grow: 1;
@@ -359,7 +402,7 @@ $redtext: #c43c35;
 		line-height: 22px;
 	}
 	.specialheader {
-		background: $darkgrey;
+		background: var(--blades-darkgrey);
 		height: 20px;
 		font-size: 11px;
 		line-height: 20px;
@@ -373,12 +416,12 @@ $redtext: #c43c35;
 	}
 	.italic { font-style: italic }
 	.bold { font-weight: bold }
-	.greyholder { background: $lightest }
+	.greyholder { background: var(--blades-lightest) }
 	.def-margin { margin-top: 10px }
 	.small-margin { margin-top: 5px }
-	.blackborder { border-top: 3px solid black }
+	.blackborder { border-top: 3px solid var(--blades-blacktext) }
 	.tier {
-		background: $lightest;
+		background: var(--blades-lightest);
 		height: 16px;
 		width: 56px;
 		align-items: center;
@@ -386,6 +429,7 @@ $redtext: #c43c35;
 		.checkbox + span { margin-right: auto }
 	}
 }
+
 /* COLUMN LAYOUT */
 .charsheet {
 	.flex { display: flex }
@@ -400,12 +444,13 @@ $redtext: #c43c35;
 	.col45{ width: 45% }
 	.col100 { width: 100% }
 }
+
 /* FONT STYLES */
 .charsheet {
-	.label,
-	input[type=text].label,
-	textarea.label,
-	button[type=roll].label {
+	.sheet-label,
+	input[type=text].sheet-label,
+	textarea.sheet-label,
+	button[type=roll].sheet-label {
 		text-transform: uppercase;
 		font-weight: bold;
 		color: inherit;
@@ -435,7 +480,7 @@ $redtext: #c43c35;
 		width: 95%;
 		padding: 5px;
 		margin-bottom: 5px;
-		background: $lightest;
+		background: var(--blades-lightest);
 		font-size: 12px;
 		line-height: 15px;
 	}
@@ -447,11 +492,12 @@ $redtext: #c43c35;
 		margin: 0 5% 5px 0;
 	}
 }
+
 /* ITEMS/UPGRADES */
 .charsheet {
 	.itemholder > div { padding: 5px }
 	.item-container { flex-grow: 1 }
-	.playbookitems { background: $lightest }
+	.playbookitems { background: var(--blades-lightest) }
 	.regularitems {
 		grid-template-columns: 50% 50%;
 		.repcontainer {
@@ -499,7 +545,7 @@ $redtext: #c43c35;
 	.upgradecosts {
 		font-size: 11px;
 		padding-left: 3px;
-		&.label {
+		&.sheet-label {
 			font-size: 8px;
 			letter-spacing: 1px;
 		}
@@ -509,9 +555,10 @@ $redtext: #c43c35;
 		height: 2px;
 		margin: 8px 0 0 -3px;
 		flex: 0 0 auto;
-		background: $greyborder;
+		background: var(--blades-greyborder);
 	}
 }
+
 /* Repeating items*/
 .charsheet {
 	.numboxes[value="0"] ~ .boxesgeq2,
@@ -533,7 +580,7 @@ $redtext: #c43c35;
 		}
 		label {
 			height: 18px;
-			border: 1px solid $versiongrey;
+			border: 1px solid var(--blades-versiongrey);
 			margin-left: auto;
 			padding: 2px;
 			line-height: 12px;
@@ -548,18 +595,19 @@ $redtext: #c43c35;
 		+ span {
 			top: 1px;
 			right: 1px;
-			&::before { content: "◀" }
+			&::before { content: "\25c0"; }
 		}
-		&:checked + span::before { content: "▼" }
+		&:checked + span::before { content: "\25bc"; }
 		~ textarea {
-			border-top: 1px solid $lightest;
+			border-top: 1px solid var(--blades-lightest);
 			line-height: 12px;
 			font-size: 10px;
 			height: 49px;
 		}
 	}
-	.itemholder .playbookitems .expand ~ textarea { border-color: $versiongrey }
+	.itemholder .playbookitems .expand ~ textarea { border-color: var(--blades-versiongrey) }
 }
+
 /* LOGO */
 .charsheet .bladeslogo {
 	height: 43px;
@@ -567,8 +615,11 @@ $redtext: #c43c35;
 	background-size: 102% auto;
 	background-repeat: no-repeat;
 }
+.sheet-darkmode .charsheet .bladeslogo {
+	background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/logo.png');
+}
 .charsheet .crewheader {
-	color: $headergrey;
+	color: var(--blades-headergrey);
 	font-size: 28px;
 	align-self: flex-start;
 	letter-spacing: -2px;
@@ -579,11 +630,11 @@ $redtext: #c43c35;
 .charsheet {
 	.itemheader,
 	.loadheader {
-		background: $darkgrey;
+		background: var(--blades-darkgrey);
 		height: 20px;
 		font-size: 10px;
 		padding: 3px 2px 1px 4px;
-		.label {
+		.sheet-label {
 			font-size: 10px;
 			padding: 0px;
 		}
@@ -603,17 +654,26 @@ $redtext: #c43c35;
 		margin: 0 3px 0 4px;
 	}
 	.itemheader {
-		> .label { margin-right: 4px }
+		> .sheet-label { margin-right: 4px }
 		&:not(:hover) .text-button { display: none }
 		.text-button {
 			margin-left: auto;
 			input[type=checkbox] + span {
 				opacity: 1;
-				color: $fontblack;
+				color: var(--blades-fontblack);
 			}
 			&:hover input[type=checkbox] + span { color: red }
 		}
 	}
+}
+
+/* LOAD CHECKBOXES */
+.charsheet .loadheader .checkbox + span {
+	border: 1px solid var(--blades-blacktext);
+	transform: rotate(45deg);
+	width: 10px;
+	height: 10px;
+	background: var(--blades-whitetext);
 }
 
 /* ADVANCEMENT BOX*/
@@ -639,7 +699,7 @@ $redtext: #c43c35;
 	}
 	.advancement-desc {
 		width: 99%;
-		background: $lightest;
+		background: var(--blades-lightest);
 		padding: 15px 10px 4px 11px;
 		li {
 			font-style: italic;
@@ -659,7 +719,7 @@ $redtext: #c43c35;
 		align-items: center;
 		height: 50px;
 		position: relative;
-		background: $lightest;
+		background: var(--blades-lightest);
 		input[type=text] {
 			flex: 0 0 auto;
 			margin: 0 2px;
@@ -668,10 +728,10 @@ $redtext: #c43c35;
 			font-size: 35px;
 			line-height: 40px;
 		}
-		.label:empty {
+		.sheet-label:empty {
 			display: inherit;
 		}
-		.label {
+		.sheet-label {
 			text-align: left;
 		}
 		textarea {
@@ -680,15 +740,15 @@ $redtext: #c43c35;
 			font-size: 10px;
 			padding-left: 3px;
 			letter-spacing: 1px;
-			color: $headergrey;
+			color: var(--blades-headergrey);
 			resize: none;
 			overflow: hidden;
 			line-height: 14px;
 		}
 		.reminder {
 			position: absolute;
-			border: 1px solid $fontblack;
-			background: white;
+			border: 1px solid var(--blades-fontblack);
+			background: var(--blades-whitetext);
 			top: 48px;
 			z-index: 3;
 			border-radius: 5px;
@@ -717,24 +777,24 @@ $redtext: #c43c35;
 		label { flex-wrap: wrap }
 		input[type=text], .auto-expand {
 			width: 100%;
-			border-bottom: 1px solid black;
+			border-bottom: 1px solid var(--blades-blacktext);
 			font-size: 14px;
 			line-height: 1.3;
 			text-align: left;
 			padding: 3px 0 0 2px;
 			margin: 3px 0 0;
 			min-height: 22px;
-			color: $redtext;
+			color: var(--blades-redtext);
 		}
 		input[type="hidden"] {
 			&[value=""] + div > .title::after { content: ": " }
 			&:not([value=""]) + div > .info { display: none }
 		}
 		.text {
-			color: black;
+			color: var(--blades-blacktext);
 			text-align: justify;
 			padding: 3px 0 2px;
-			.label {
+			.sheet-label {
 				padding: 3px 0 2px;
 			}
 			line-height: 13px;
@@ -776,7 +836,7 @@ $redtext: #c43c35;
 		.repitem {
 			display: flex;
 			padding: 4px 2px;
-			background: $lightest;
+			background: var(--blades-lightest);
 			align-items: start;
 		}
 		.itemcontrol {
@@ -816,9 +876,9 @@ $redtext: #c43c35;
 		.all, .zero { display: block }
 	}
 	.clock {
-		border: 2px solid black;
+		border: 2px solid var(--blades-blacktext);
 		border-radius: 50%;
-		background: white;
+		background: var(--blades-whitetext);
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -833,7 +893,7 @@ $redtext: #c43c35;
 		display: none;
 		left: 0;
 		top: 0;
-		background: black;
+		background: var(--blades-blacktext);
 	}
 	.spoke-0 { transform: translateX(21px) }
 	.spoke-30 { transform: translateX(21px) rotate(30deg) }
@@ -1118,6 +1178,7 @@ $redtext: #c43c35;
 	}
 
 }
+
 /* TEXT INPUTS FOR TRAUMA AND CLOCKS */
 .charsheet {
 	.text-button {
@@ -1183,8 +1244,8 @@ $redtext: #c43c35;
 		margin-top: 1px;
 		margin-right: 2px;
 		vertical-align: top;
-		border: 1px solid black;
-		background: white;
+		border: 1px solid var(--blades-blacktext);
+		background: var(--blades-whitetext);
 		border-radius: 50%;
 		position: relative;
 	}
@@ -1193,7 +1254,7 @@ $redtext: #c43c35;
 		width: 1px;
 		content: "";
 		left: 0;
-		background: black;
+		background: var(--blades-blacktext);
 		height: 11px;
 	}
 	.zero + span::after { transform: translate(4px,-1px) rotate(135deg) }
@@ -1226,6 +1287,28 @@ $redtext: #c43c35;
 		}
 	}
 }
+/* Darkmode adjustments */
+.sheet-darkmode .charsheet {
+	.xptooth + span {
+		background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/xptooth-red.png');
+	}
+	.tooth:checked ~ .xptooth + span { background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/xptooth-white.png') }
+	.stresstooth[type=radio] + span,
+	.stresstooth[type=checkbox]:checked + span,
+	.holdtooth:checked + span { background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-red.png') }
+	.stresstooth[type=checkbox] + span,
+	.tooth:checked ~ .stresstooth[type=radio] + span,
+	.holdtooth + span { background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-white.png') }
+	.regulartooth + span { background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/shorttooth-red.png') }
+	.tooth:checked ~ .regulartooth + span { background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/shorttooth-grey.png') }
+	.turf-input[value="1"] ~ input[type=radio].turf1 + span,
+	.turf-input[value="2"] ~ input[type=radio].turf2 + span,
+	.turf-input[value="3"] ~ input[type=radio].turf3 + span,
+	.turf-input[value="4"] ~ input[type=radio].turf4 + span,
+	.turf-input[value="5"] ~ input[type=radio].turf5 + span,
+	.turf-input[value="6"] ~ input[type=radio].turf6 + span { background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-black.png') }
+	.tooth:checked ~ .stresstooth.turf6 + span { background-image: url('https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-halfgrey.png') }
+}
 
 /* TURF RADIOS */
 .charsheet {
@@ -1251,8 +1334,8 @@ $redtext: #c43c35;
 		.expand + span { top: 8px }
 		input.expand, .expand + span { right: 3px }
 
-		.expand:not(:checked) + span::before { content: "◀" }
-		.expand:checked + span::before { content: "▼" }
+		.expand:not(:checked) + span::before { content: "\25c0" }
+		.expand:checked + span::before { content: "\25bc" }
 
 		.expand:not(:checked) ~ .description {
 			height: 0px !important;
@@ -1272,7 +1355,7 @@ $redtext: #c43c35;
 	}
 	.specialability,
 	.friend-contact {
-		border-bottom: 1px solid $darkgrey;
+		border-bottom: 1px solid var(--blades-darkgrey);
 		width: 100%;
 		align-items: start;
 	}
@@ -1302,7 +1385,7 @@ $redtext: #c43c35;
 /* FRIENDS/CONTACTS */
 .charsheet .friend-contact .auto-expand {
 	font-size: 12px;
-	color: $lighterblack;
+	color: var(--blades-lighterblack);
 	min-height: 20px;
 	line-height: 16px;
 	flex: 1 1 0;
@@ -1324,11 +1407,11 @@ $redtext: #c43c35;
 		text-align: center;
 		div {
 			background: #d6d8d9;
-			border-bottom: 1px solid black;
+			border-bottom: 1px solid var(--blades-blacktext);
 		}
 		.harmeffect {
 			width: 59px;
-			color: $lighterblack;
+			color: var(--blades-lighterblack);
 			font-size: 10px;
 			letter-spacing: 1px;
 			line-height: 1.4;
@@ -1341,14 +1424,14 @@ $redtext: #c43c35;
 		textarea {
 			font-size: 12px;
 			padding: 10px 4px 3px;
-			color: $redtext;
+			color: var(--blades-redtext);
 			overflow: hidden;
 			height: 52px;
 			resize: none;
 			line-height: 16px;
 			text-align: center;
-			border-bottom: 1px solid black;
-			+ textarea { border-left: 1px solid $lightest }
+			border-bottom: 1px solid var(--blades-blacktext);
+			+ textarea { border-left: 1px solid var(--blades-lightest) }
 		}
 	}
 }
@@ -1379,13 +1462,13 @@ $redtext: #c43c35;
 			text-align: center;
 			line-height: 18px;
 		}
-		.label {
+		.sheet-label {
 			flex-grow: 1;
 			order: 1;
 		}
 		input:checked ~ span { color: red }
 		.checkbox + span {
-			border: 1px solid black;
+			border: 1px solid var(--blades-blacktext);
 			margin: 3px;
 			order: 2;
 		}
@@ -1399,20 +1482,20 @@ $redtext: #c43c35;
 		margin-left: 4%;
 		grid-column: span 2;
 	}
-	.coinrow .label {
+	.coinrow .sheet-label {
 		font-size: 11px;
 		margin-right: auto;
 	}
 	.coin {
-		border-bottom: 1px solid $greyborder;
-		border-right: 1px solid $greyborder;
+		border-bottom: 1px solid var(--blades-greyborder);
+		border-right: 1px solid var(--blades-greyborder);
 		width: 70%;
 		height: 19px;
 		padding: 1px 3px 0 0;
 		align-items: center;
 	}
 	.stashbutton-holder {
-		border-top: 1px solid $greyborder;
+		border-top: 1px solid var(--blades-greyborder);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1443,7 +1526,7 @@ $redtext: #c43c35;
 		font-style: italic;
 	}
 	.crewcoinbar {
-		border-left: 1px solid $lighter;
+		border-left: 1px solid var(--blades-lighter);
 		height: 15px;
 		width: 3px;
 		margin: -1px auto 0;
@@ -1463,7 +1546,7 @@ $redtext: #c43c35;
 			height: 11px;
 			margin-right: auto;
 		}
-		input:checked ~ .radiobox.vaultcoin + span { border-color: $lighter }
+		input:checked ~ .radiobox.vaultcoin + span { border-color: var(--blades-lighter) }
 	}
 	.coin-and-stash {
 		input.radiobox {
@@ -1484,16 +1567,16 @@ $redtext: #c43c35;
 	.coin, .crewcoin {
 		.radiobox + span {
 			background: red;
-			border: 1px solid black;
+			border: 1px solid var(--blades-blacktext);
 		}
-		input:checked ~ .radiobox + span { background: white }
+		input:checked ~ .radiobox + span { background: var(--blades-whitetext) }
 	}
 	.stash {
 		.radiobox + span {
-			background: black;
+			background: var(--blades-blacktext);
 			margin-right: calc((100% - 126px)/9);
 		}
-		input:checked ~ .radiobox + span { background: $lighter }
+		input:checked ~ .radiobox + span { background: var(--blades-lighter) }
 		input.radiobox:nth-of-type(10n+1) {
 			margin: -2px -17px 0 3px;
 			width: 15px;
@@ -1502,7 +1585,7 @@ $redtext: #c43c35;
 		.radiobox:nth-of-type(10n+1) + span {
 			width: 14px;
 			height: 14px;
-			border: 1px solid black;
+			border: 1px solid var(--blades-blacktext);
 			margin-left: 3px;
 			margin-right: 0;
 			position:relative;
@@ -1526,17 +1609,17 @@ $redtext: #c43c35;
 
 /* BONUS DIE SECTION */
 .charsheet {
-	.bonusdie .label { font-size: 12px }
+	.bonusdie .sheet-label { font-size: 12px }
 	.bonusdieplus {
 		width: 10%;
-		background: black;
-		color: white;
+		background: var(--blades-blacktext);
+		color: var(--blades-whitetext);
 		font-size: 13px;
 		line-height: 1;
 		font-weight: bold;
 	}
 	.bonusdietext {
-		background: $lightest;
+		background: var(--blades-lightest);
 		width: 90%;
 		padding: 3px;
 		font-size: 11px;
@@ -1555,9 +1638,9 @@ $redtext: #c43c35;
 		}
 		button {
 			background: transparent;
-			color: $lightblack;
+			color: var(--blades-lightblack);
 			border-radius: 0;
-			border-color: $darkgrey;
+			border-color: var(--blades-darkgrey);
 			transition: all 0.2s;
 			font-family: pictos;
 			font-size: 0;
@@ -1565,9 +1648,9 @@ $redtext: #c43c35;
 			padding: 5px 3px 2px;
 			line-height: 8px;
 			&:hover {
-				color: black;
-				border-color: black;
-				background: $lighter;
+				color: var(--blades-blacktext);
+				border-color: var(--blades-blacktext);
+				background: var(--blades-lighter);
 			}
 			&.repcontrol_edit::after { content: "(" }
 			&.repcontrol_add::after { content: "&" }
@@ -1661,22 +1744,13 @@ $redtext: #c43c35;
 .charsheet .notes {
 	margin-left: 1%;
 	font-family: "Shadows Into Light", cursive;
-	color: $redtext;
+	color: var(--blades-redtext);
 	font-size: 20px;
 	width: 98%;
 	background: linear-gradient(transparent 26px,#a7a7a7 1px) 0 0 / 100% 27px;
 	line-height: 27px;
 	height: 378px;
 	min-height: 378px;
-}
-
-/* LOAD CHECKBOXES */
-.charsheet .loadheader .checkbox + span {
-	border: 1px solid black;
-	transform: rotate(45deg);
-	width: 10px;
-	height: 10px;
-	background: white;
 }
 
 /* ROLL BUTTONS */
@@ -1701,13 +1775,13 @@ $redtext: #c43c35;
 	}
 	.coinrow button[type=roll].rollbutton {
 		font-size: 11px;
-		color: $lightblack;
+		color: var(--blades-lightblack);
 	}
 	.blackheader button[type=roll].rollbutton { margin:auto }
 	button[type=roll].borderbutton {
-		color: $lightblack;
+		color: var(--blades-lightblack);
 		font-size: 13px;
-		border-color: $darkgrey;
+		border-color: var(--blades-darkgrey);
 	}
 	button[type=roll].vicebutton {
 		float: right;
@@ -1731,8 +1805,8 @@ $redtext: #c43c35;
 	}
 	button[type=roll].rollbutton:hover { color: red }
 	button[type=roll].borderbutton:hover {
-		color: black;
-		border-color: black;
+		color: var(--blades-blacktext);
+		border-color: var(--blades-blacktext);
 	}
 }
 
@@ -1744,7 +1818,7 @@ $redtext: #c43c35;
 		width: 12px;
 		flex: 0 0 auto;
 	}
-	.checkbox + span { border: 1px solid $greyborder }
+	.checkbox + span { border: 1px solid var(--blades-greyborder) }
 	.checkbox:checked + span { background: red }
 	.checkbox:hover + span { opacity: 0.7 }
 	.squarebox + span {
@@ -1753,26 +1827,26 @@ $redtext: #c43c35;
 	}
 	.circlebox + span {
 		border-radius: 50%;
-		background: white;
+		background: var(--blades-whitetext);
 	}
 	input.checkbox.squarebox-small, .checkbox.squarebox-small + span {
 		height: 9px;
 		width: 9px;
 	}
-	.checkbox.squarebox-small:checked + span { background: black }
+	.checkbox.squarebox-small:checked + span { background: var(--blades-blacktext) }
 	.claimbridge { position: relative }
 	.claimbridge input, .claimbridge span {
 		width: 100%;
 		height: 100%;
 	}
-	.claimbridge input:checked + span { background: $lightest }
+	.claimbridge input:checked + span { background: var(--blades-lightest) }
 	/* Change text colour when boxes are checked*/
 	.specialability .checkbox:checked ~ .abilityname,
 	.item .checkbox:checked ~ .itemname,
 	.friend .friendstate[value="up"] ~ .auto-expand { color: red }
 	.friend-contact .friendstate:not([value="0"]) ~ .auto-expand { font-weight: bold }
 	.friend .friendstate[value="down"] ~ .auto-expand,
-	.contact .friendstate[value="1"] ~ .auto-expand { color: $fontblack }
+	.contact .friendstate[value="1"] ~ .auto-expand { color: var(--blades-fontblack) }
 	/* specific adjustments */
 	.specialability .checkbox,
 	.specialability .checkbox + span { margin-top: 3px }
@@ -1795,8 +1869,8 @@ $redtext: #c43c35;
 	}
 	/* Fake radios */
 	.checkbox.fakeradio + span { background: red }
-	.action .fakeradio:checked ~ .fakeradio + span { background: $lighter }
-	.tier .fakeradio:checked ~ .fakeradio + span { background: white }
+	.action .fakeradio:checked ~ .fakeradio + span { background: var(--blades-lighter) }
+	.tier .fakeradio:checked ~ .fakeradio + span { background: var(--blades-whitetext) }
 }
 
 /* HIDER */
@@ -1826,7 +1900,7 @@ $redtext: #c43c35;
 			top: -1px;
 			.checkbox + span {
 				border-width: 0 5px 10px;
-				border-bottom-color: white;
+				border-bottom-color: var(--blades-whitetext);
 			}
 			.checkbox:checked + span { border-bottom-color: red }
 		}
@@ -1834,18 +1908,18 @@ $redtext: #c43c35;
 			top: 5px;
 			.checkbox + span {
 				border-width: 10px 5px 0;
-				border-top-color: white;
+				border-top-color: var(--blades-whitetext);
 			}
-			.checkbox:checked + span { border-top-color: black }
+			.checkbox:checked + span { border-top-color: var(--blades-blacktext) }
 		}
 	}
 	.contact label {
 		top: 1px;
 		.checkbox + span {
 			border-width: 5px 0 5px 10px;
-			border-left-color: white;
+			border-left-color: var(--blades-whitetext);
 		}
-		.checkbox:checked + span { border-left-color: black }
+		.checkbox:checked + span { border-left-color: var(--blades-blacktext) }
 	}
 }
 
@@ -1858,8 +1932,8 @@ $redtext: #c43c35;
 	.cohort-title {
 		height: 21px;
 		line-height: 21px;
-		color: white;
-		background: black;
+		color: var(--blades-whitetext);
+		background: var(--blades-blacktext);
 		padding: 0 3px;
 		align-items: center;
 		justify-content: space-between;
@@ -1880,7 +1954,7 @@ $redtext: #c43c35;
 	}
 	.divider {
 		margin-right: calc(5px + (100% - 173px)/12);
-		border-right: 1px solid black;
+		border-right: 1px solid var(--blades-blacktext);
 		height: inherit;
 	}
 	.darktalent[value="1"] ~ .divider {
@@ -1899,10 +1973,10 @@ $redtext: #c43c35;
 		input[type=text] { width: calc(100% - 40px) }
 	}
 	.cohort-info {
-		background: black;
+		background: var(--blades-blacktext);
 		height: 13px;
 		font-size: 9px;
-		color: white;
+		color: var(--blades-whitetext);
 		line-height: 13px;
 		input[type=text] {
 			flex: 1 1 0;
@@ -1934,7 +2008,7 @@ $redtext: #c43c35;
 		z-index: 0; /* Was -1 in legacy version, but that means nothing can be seen in current version */
 	}
 	.cohort-dropdown {
-		background: black;
+		background: var(--blades-blacktext);
 		position: relative;
 		z-index: 1;
 		width: 41px;
@@ -1976,7 +2050,7 @@ $redtext: #c43c35;
 		padding: 1px 0;
 		line-height: 12px;
 		height: 50px;
-		border-bottom: 1px solid $lightest;
+		border-bottom: 1px solid var(--blades-lightest);
 	}
 }
 
@@ -1991,10 +2065,10 @@ $redtext: #c43c35;
 	}
 	.claimbox, .lairbox { height: 66px }
 	.lairbox {
-		background: $lightblack;
+		background: var(--blades-lightblack);
 		font-size: 13px;
 		width: 100%;
-		color: white;
+		color: var(--blades-whitetext);
 		letter-spacing: 1px;
 	}
 	.claims-horisep {
@@ -2008,10 +2082,10 @@ $redtext: #c43c35;
 		height: 12px;
 	}
 	.claimbox {
-		background: $lightest;
+		background: var(--blades-lightest);
 		position: relative;
 		transition: all 0.2s;
-		.label {
+		.sheet-label {
 			height: 30px;
 			padding: 4px 0 2px;
 			line-height: 12px;
@@ -2032,7 +2106,7 @@ $redtext: #c43c35;
 			left: 1px;
 		}
 	}
-	input[value="1"] + .claimbox { background: $lighter }
+	input[value="1"] + .claimbox { background: var(--blades-lighter) }
 }
 
 /* STRICTURES */
@@ -2047,7 +2121,7 @@ $redtext: #c43c35;
 			vertical-align: top;
 			align-items: center;
 		}
-		span.label::after { content: ":" }
+		span.sheet-label::after { content: ":" }
 	}
 }
 
@@ -2112,16 +2186,16 @@ $redtext: #c43c35;
 			position: relative;
 			font-size: 9px;
 			z-index: 2;
-			background: white;
+			background: var(--blades-whitetext);
 			line-height: 1.3;
 			height: 64px;
 			width: 200%;
 			padding: 2px;
-			border: 1px solid $lightest;
+			border: 1px solid var(--blades-lightest);
 		}
 		.repitem:nth-child(even) .alchemicals-info { left: -100% }
 		.alchemicals-expand + span::before {
-			content: '■';
+			content: '\25a0';
 			font-family: serif;
 		}
 		.alchemicals-expand:checked + span { color: red }
@@ -2165,7 +2239,7 @@ $redtext: #c43c35;
 		height: 24px;
 		align-items: center;
 		line-height: 14px;
-		background: $lighter;
+		background: var(--blades-lighter);
 	}
 	.factions-header input[type=text] { padding-left: 3px }
 	.factions-header span { font-size: 7px }
@@ -2181,14 +2255,14 @@ $redtext: #c43c35;
 		+ span {
 			top: 3px;
 			left: -7px;
-			&::before { content: "▶" }
+			&::before { content: "\25b6" }
 		}
-		&:checked + span::before { content: "▼" }
+		&:checked + span::before { content: "\25bc" }
 	}
 	.faction {
-		border-bottom: 1px solid $lightest;
+		border-bottom: 1px solid var(--blades-lightest);
 		textarea {
-			border-top: 1px solid $lightest;
+			border-top: 1px solid var(--blades-lightest);
 			font-size: 11px;
 			line-height: 1.5;
 			height: 51px;
@@ -2200,7 +2274,7 @@ $redtext: #c43c35;
 			font-size: 12px;
 		}
 		input[type=text] {
-			border-right: 1px solid $lightest;
+			border-right: 1px solid var(--blades-lightest);
 			font-size: 12px;
 			padding: 2px 1px;
 		}
@@ -2226,7 +2300,7 @@ $redtext: #c43c35;
 	/* War blurb */
 	.warblurb {
 		text-align: justify;
-		.label { font-size: 14px }
+		.sheet-label { font-size: 14px }
 		li {
 			margin-bottom: .5em;
 			padding-left: 1em;
@@ -2234,11 +2308,11 @@ $redtext: #c43c35;
 	}
 	/* Generate button */
 	label.generatebutton {
-		color: $lightblack;
-		border: 1px solid $darkgrey;
+		color: var(--blades-lightblack);
+		border: 1px solid var(--blades-darkgrey);
 		&:hover {
-			color: black;
-			border-color: black;
+			color: var(--blades-blacktext);
+			border-color: var(--blades-blacktext);
 			input + span { opacity: 1 }
 		}
 	}
@@ -2298,7 +2372,7 @@ $redtext: #c43c35;
 		line-height: 14px;
 		height: 14px;
 		width: 14px;
-		color: $lightblack;
+		color: var(--blades-lightblack);
 		left: 3px;
 		bottom: 7px;
 	}
@@ -2307,12 +2381,12 @@ $redtext: #c43c35;
 		line-height: 11px;
 		height: 12px;
 		width: 12px;
-		color: $lightblack;
+		color: var(--blades-lightblack);
 		right: 0;
 		bottom: 2px;
 	}
 	.harm button[type=roll].broadcast-button {
-		color: white;
+		color: var(--blades-whitetext);
 		font-weight: normal;
 		font-size: 11px;
 		line-height: 11px;
@@ -2333,14 +2407,14 @@ $redtext: #c43c35;
 		.itemheader :first-child,
 		.loadheader :first-child,
 		.attribute-title button[type=roll].rollbutton,
-		.bonusdie > .label:first-child,
+		.bonusdie > .sheet-label:first-child,
 		.cohort-title,
-		.claimbox .label,
+		.claimbox .sheet-label,
 		.lairbox,
 		.crewheader,
 		.factiontitle input[type="text"],
 		.factions-header input[type="text"] { font-family: Kirsty, Georgia, serif }
-		.claimbox .label {
+		.claimbox .sheet-label {
 			font-size: 10px;
 			font-weight: 400;
 		}
@@ -2353,7 +2427,7 @@ $redtext: #c43c35;
 			font-weight: 400;
 		}
 		.factions-header input[type="text"],
-		.bonusdie > .label:first-child {
+		.bonusdie > .sheet-label:first-child {
 			font-size: 14px;
 			font-weight: 400;
 		}
@@ -2371,7 +2445,7 @@ $redtext: #c43c35;
 			letter-spacing: 0;
 		}
 		.blackheader, .greyheader, .black-on-grey {
-			.label, button[type="roll"].label {
+			.sheet-label, button[type="roll"].sheet-label {
 				font-size: 12px;
 				font-weight: 400;
 			}
@@ -2409,6 +2483,7 @@ $redtext: #c43c35;
 	}
 }
 
+
 /* Adjustments for non-English languages */
 .charsheet.lang-ko {
 	font-family: "Malgun Gothic", Dotum, Georgia, "Bitstream Charter", "Times New Roman", serif;
@@ -2430,7 +2505,7 @@ $redtext: #c43c35;
 	.healing-progress { font-size: 11px }
 	.armor label { font-size: 12px }
 	.coinrow {
-		.label, button[type="roll"].rollbutton { font-size: 12px }
+		.sheet-label, button[type="roll"].rollbutton { font-size: 12px }
 	}
 	.specialheader { font-size: 13px }
 	.abilityname { font-size: 14px }
@@ -2456,8 +2531,8 @@ $redtext: #c43c35;
 		height: auto;
 	}
 	.numboxes-chooser { font-size: 10px }
-	.item .itemname, .item .label { font-size: 12px }
-	.item .label.upgradecosts { font-size: 9px }
+	.item .itemname, .item .sheet-label { font-size: 12px }
+	.item .sheet-label.upgradecosts { font-size: 9px }
 	.itemholder .expand ~ textarea { font-size: 11px }
 	.bandoliers-name { font-size: 13px }
 	.bandolier-desc {
@@ -2467,12 +2542,12 @@ $redtext: #c43c35;
 	.attribute-title button[type="roll"].rollbutton { font-size: 15px }
 	.action button[type="roll"].rollbutton { font-size: 15px }
 	button[type="roll"].borderbutton { font-size: 15px }
-	.bonusdietext, .bonusdie .label { font-size: 13px }
+	.bonusdietext, .bonusdie .sheet-label { font-size: 13px }
 	.friend-contact .auto-expand { font-size: 13px }
 	.clocks .auto-expand { font-size: 12px }
 	.crewcoin-desc { font-style: normal }
 	.claimbox {
-		textarea.label { font-size: 12px }
+		textarea.sheet-label { font-size: 12px }
 		textarea.claim-desc {
 			overflow: hidden;
 			height: 54px;
@@ -2527,11 +2602,11 @@ $redtext: #c43c35;
 		font-size: 9px;
 		letter-spacing: 0;
 	}
-	.armor .label {
+	.armor .sheet-label {
 		font-size: 10px;
 	}
 	.coinrow {
-		.label,
+		.sheet-label,
 		button[type=roll].rollbutton {
 			font-size: 10px;
 		}
@@ -2564,13 +2639,14 @@ $redtext: #c43c35;
 		font-size: 9px;
 		letter-spacing: 0;
 	}
-	.armor .label {
+	.armor .sheet-label {
 		font-size: 10px;
 	}
 	.coinrow {
-		.label,
+		.sheet-label,
 		button[type=roll].rollbutton {
 			font-size: 10px;
 		}
 	}
 }
+

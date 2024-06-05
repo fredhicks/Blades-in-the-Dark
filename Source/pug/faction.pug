@@ -1,7 +1,7 @@
 mixin makefactions(number, title)
 	div(class!=attributes.class)
 		.factions-header.flex.uppercase
-			+text-input(`factions${number}_header`)(value=title).faction-name.label
+			+text-input(`factions${number}_header`)(value=title).faction-name.sheet-label
 			span.faction-tier(data-i18n="tier")
 			span.faction-hold(data-i18n="hold")
 			span.faction-status(data-i18n="status")
@@ -15,7 +15,7 @@ mixin makefactions(number, title)
 				+textarea("notes")(data-i18n-placeholder="faction_notes")
 
 .factiontitle.flex.sheet-2col
-	+text-input("factions_title")(value="Factions of Doskvol").label
+	+text-input("factions_title")(value="Factions of Doskvol").sheet-label
 	+hidden-input("show_faction_generatebutton")(value="1").hider
 	label.generatebutton
 		+checkbox("generate_factions")(data-i18n="generate_factions")
@@ -27,7 +27,7 @@ mixin makefactions(number, title)
 	+makefactions(5, "Citizenry")
 	+makefactions(4, "The Fringe")
 	.warblurb
-		.label(data-i18n="war")
+		.sheet-label(data-i18n="war")
 		ul
 			li.nondot(data-i18n="warblurb1")
 			li(data-i18n="warblurb2")
@@ -35,7 +35,7 @@ mixin makefactions(number, title)
 			li(data-i18n="warblurb4")
 			li(data-i18n="warblurb5")
 .clocks.free-repcontrol
-	.specialheader.label(data-i18n="clocks")
+	.specialheader.sheet-label(data-i18n="clocks")
 	fieldset.repeating_factionclock
 		+makeclock
 +textarea("faction_notes")(data-i18n-placeholder="notes").notes

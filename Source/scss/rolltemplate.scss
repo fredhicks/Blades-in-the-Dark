@@ -200,7 +200,12 @@ $broadcast-white: #ccc;
 		color: $fortunecolor-light;
 	}
 	/* Inlinerolls */
-	.inlinerollresult {
+	.inlinerollresult,
+	.sheet-action .inlinerollresult,
+	.sheet-fortune .inlinerollresult,
+	.sheet-vice .inlinerollresult,
+	.sheet-resist .inlinerollresult
+	{
 		border: none !important;
 		background-color: transparent;
 		font-weight: normal;

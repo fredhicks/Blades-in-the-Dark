@@ -1,27 +1,40 @@
-@charset "UTF-8";
+
 /* Variants of grey */
 /* red */
-/* FRED'S NEW ADJUSTMENTS TO GET IT TO BEHAVE LIKE THE OLD THING */
-.charsheet .label {
-	padding: 0;
-	text-align: left;
-	border-radius: unset;
+/* Attempt to support dark mode */
+:root {
+	--blades-lightest: #d8d8d8;
+	--blades-lighter: #c7c7c7;
+	--blades-darkgrey: #b4b4b4;
+	--blades-versiongrey: #aaa;
+	--blades-greyborder: #8c8c8c;
+	--blades-headergrey: #808080;
+	--blades-lightblack: #777;
+	--blades-lighterblack: #555;
+	--blades-fontblack: #333;
+	--blades-redtext: #c43c35;
+	--blades-blacktext: #000;
+	--blades-whitetext: #fff;
 }
-.charsheet .label:empty {
-	display: unset;
+
+/* DARK MODE colors */
+/* Remember tho, the background in dark mode is not black, it's #1f1f1f */
+.sheet-darkmode {
+	--blades-lightest: #474747;
+	--blades-lighter: #585858;
+	--blades-darkgrey: #6b6b6b;
+	--blades-versiongrey: #555;
+	--blades-greyborder: #737373;
+	--blades-headergrey: #7f7f7f;
+	--blades-lightblack: #777;
+	--blades-lighterblack: #999;
+	--blades-fontblack: #ccc;
+	--blades-redtext: #d43c35;
+	--blades-blacktext: #fff;
+	--blades-whitetext: #000;
 }
-.charsheet .claimbox {
-	line-height: 0;
-}
-.charsheet .specialheader.label {
-	display: block;
-	padding-left: 4px;
-}
-.charsheet .cohort-condition-name {
-	line-height: unset;
-}
-.charsheet .faction-name.label {
-	line-height: unset;
+.sheet-darkmode .sheetform {
+	background-color: #1f1f1f;
 }
 
 /* GENERALITIES */
@@ -31,7 +44,7 @@
 	top: -11px;
 	line-height: 18px;
 	cursor: default;
-	color: #333;
+	color: var(--blades-fontblack);
 	font-size: 0;
 	font-family: Georgia, "Bitstream Charter", "Times New Roman", serif;
 }
@@ -57,8 +70,7 @@
 	content: "";
 }
 .charsheet label {
-	--dark-secondarytext: #333;
-	color: #333;
+	color: var(--blades-fontblack);
 }
 .charsheet label {
 	margin: 0;
@@ -84,7 +96,7 @@
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	color: #333;
+	color: var(--blades-fontblack);
 	border-radius: 0;
 	-webkit-transition: all 0.2s, height 0.4s;
 	transition: all 0.2s, height 0.4s;
@@ -98,8 +110,8 @@
 	transition: height 0s;
 }
 .charsheet input[type=number] {
-	border-color: #c7c7c7;
-	color: #333;
+	border-color: var(--blades-lighter);
+	color: var(--blades-fontblack);
 	-webkit-box-shadow: none;
 	        box-shadow: none;
 }
@@ -166,7 +178,7 @@
 	margin: 0 0 7px calc(55% + 5px);
 }
 .charsheet .topholder .version {
-	color: #aaa;
+	color: var(--blades-versiongrey);
 	font-size: 13px;
 	font-family: "Times New Roman", Times, serif;
 }
@@ -193,8 +205,8 @@
 	display: -ms-flexbox;
 	display: flex;
 	margin-right: auto;
-	background: #c7c7c7;
-	border: 1px solid #aaa;
+	background: var(--blades-lighter);
+	border: 1px solid var(--blades-versiongrey);
 	letter-spacing: 1px;
 	line-height: 20px;
 	-webkit-box-pack: center;
@@ -202,7 +214,7 @@
 	        justify-content: center;
 	width: 170px;
 	font-size: 11px;
-	color: #555;
+	color: var(--blades-lighterblack);
 }
 .charsheet .type-selector input {
 	position: absolute;
@@ -228,8 +240,8 @@
 	position: absolute;
 	right: 0;
 	width: 415px;
-	border: 1px solid black;
-	background: white;
+	border: 1px solid var(--blades-blacktext);
+	background: var(--blades-whitetext);
 	z-index: 100;
 	padding: 5px;
 	border-radius: 5px;
@@ -254,7 +266,7 @@
 	font-size: 10px;
 	min-height: 24px;
 	line-height: 17px;
-	border-bottom: 1px solid #d8d8d8;
+	border-bottom: 1px solid var(--blades-lightest);
 }
 .charsheet .settings > div.generaterow {
 	line-height: 0;
@@ -268,7 +280,7 @@
 	margin-right: 6px;
 }
 .charsheet .settings .checkbox:checked + span {
-	background: black;
+	background: var(--blades-blacktext);
 }
 .charsheet .settings :not(input) + span {
 	padding-right: 4px;
@@ -286,7 +298,7 @@
 	padding-left: 1px;
 	line-height: 16px;
 	border-radius: 3px;
-	border: 1px solid #d8d8d8;
+	border: 1px solid var(--blades-lightest);
 }
 .charsheet .settings input[type=text].wide {
 	width: 200px;
@@ -355,8 +367,8 @@
 }
 
 .charsheet .blackheader {
-	background: black;
-	color: white;
+	background: var(--blades-blacktext);
+	color: var(--blades-whitetext);
 }
 .charsheet .blackheader.rep1, .charsheet .blackheader.hold1 {
 	padding-top: 3px;
@@ -365,28 +377,36 @@
 .charsheet .blackheader.hold1 {
 	padding-left: 2px;
 }
-.charsheet .blackheader, .charsheet .black-on-grey, .charsheet .greyheader {
-	letter-spacing: 1px;
-}
-.charsheet .blackheader .label, .charsheet .blackheader button[type=roll].label, .charsheet .black-on-grey .label, .charsheet .black-on-grey button[type=roll].label, .charsheet .greyheader .label, .charsheet .greyheader button[type=roll].label {
+.charsheet .blackheader .sheet-label, .charsheet .blackheader button[type=roll].sheet-label, .charsheet .black-on-grey .sheet-label, .charsheet .black-on-grey button[type=roll].sheet-label, .charsheet .greyheader .sheet-label, .charsheet .greyheader button[type=roll].sheet-label {
 	font-size: 11px;
 	line-height: 15px;
+}
+.charsheet .black-on-grey, .charsheet .greyheader {
+	letter-spacing: 1px;
+}
+.charsheet .black-on-grey .sheet-label, .charsheet .black-on-grey button[type=roll].sheet-label, .charsheet .greyheader .sheet-label, .charsheet .greyheader button[type=roll].sheet-label {
 	color: inherit;
+}
+.charsheet .blackheader {
+	letter-spacing: 1px;
+}
+.charsheet .blackheader .sheet-label, .charsheet .blackheader button[type=roll].sheet-label {
+	color: var(--blades-whitetext);
 }
 .charsheet .blackheader, .charsheet .greyheader {
 	height: 16px;
 	line-height: 15px;
 	padding: 1px 2px 0 4px;
 }
-.charsheet .blackheader .label, .charsheet .greyheader .label {
+.charsheet .blackheader .sheet-label, .charsheet .greyheader .sheet-label {
 	padding-left: 1px;
 	padding-right: 1px;
 	line-height: inherit;
 }
 .charsheet .black-on-grey, .charsheet .greyheader {
-	background: #b4b4b4;
+	background: var(--blades-darkgrey);
 }
-.charsheet .black-on-grey, .charsheet .black-on-grey .label {
+.charsheet .black-on-grey, .charsheet .black-on-grey .sheet-label {
 	text-align: center;
 	position: relative;
 	-webkit-box-flex: 1;
@@ -405,7 +425,7 @@
 	line-height: 22px;
 }
 .charsheet .specialheader {
-	background: #b4b4b4;
+	background: var(--blades-darkgrey);
 	height: 20px;
 	font-size: 11px;
 	line-height: 20px;
@@ -424,7 +444,7 @@
 	font-weight: bold;
 }
 .charsheet .greyholder {
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 }
 .charsheet .def-margin {
 	margin-top: 10px;
@@ -433,10 +453,10 @@
 	margin-top: 5px;
 }
 .charsheet .blackborder {
-	border-top: 3px solid black;
+	border-top: 3px solid var(--blades-blacktext);
 }
 .charsheet .tier {
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 	height: 16px;
 	width: 56px;
 	-webkit-box-align: center;
@@ -482,10 +502,10 @@
 }
 
 /* FONT STYLES */
-.charsheet .label,
-.charsheet input[type=text].label,
-.charsheet textarea.label,
-.charsheet button[type=roll].label {
+.charsheet .sheet-label,
+.charsheet input[type=text].sheet-label,
+.charsheet textarea.sheet-label,
+.charsheet button[type=roll].sheet-label {
 	text-transform: uppercase;
 	font-weight: bold;
 	color: inherit;
@@ -515,7 +535,7 @@
 	width: 95%;
 	padding: 5px;
 	margin-bottom: 5px;
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 	font-size: 12px;
 	line-height: 15px;
 }
@@ -539,7 +559,7 @@
 	        flex-grow: 1;
 }
 .charsheet .playbookitems {
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 }
 .charsheet .regularitems {
 	-ms-grid-columns: 50% 50%;
@@ -610,7 +630,7 @@
 	font-size: 11px;
 	padding-left: 3px;
 }
-.charsheet .upgradecosts.label {
+.charsheet .upgradecosts.sheet-label {
 	font-size: 8px;
 	letter-spacing: 1px;
 }
@@ -621,7 +641,7 @@
 	-webkit-box-flex: 0;
 	    -ms-flex: 0 0 auto;
 	        flex: 0 0 auto;
-	background: #8c8c8c;
+	background: var(--blades-greyborder);
 }
 
 /* Repeating items*/
@@ -647,7 +667,7 @@
 }
 .charsheet .numboxes-chooser label {
 	height: 18px;
-	border: 1px solid #aaa;
+	border: 1px solid var(--blades-versiongrey);
 	margin-left: auto;
 	padding: 2px;
 	line-height: 12px;
@@ -673,13 +693,13 @@
 	content: "▼";
 }
 .charsheet .itemholder .expand ~ textarea {
-	border-top: 1px solid #d8d8d8;
+	border-top: 1px solid var(--blades-lightest);
 	line-height: 12px;
 	font-size: 10px;
 	height: 49px;
 }
 .charsheet .itemholder .playbookitems .expand ~ textarea {
-	border-color: #aaa;
+	border-color: var(--blades-versiongrey);
 }
 
 /* LOGO */
@@ -690,8 +710,12 @@
 	background-repeat: no-repeat;
 }
 
+.sheet-darkmode .charsheet .bladeslogo {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/logo.png");
+}
+
 .charsheet .crewheader {
-	color: #808080;
+	color: var(--blades-headergrey);
 	font-size: 28px;
 	-ms-flex-item-align: start;
 	    align-self: flex-start;
@@ -702,7 +726,7 @@
 /* LOAD */
 .charsheet .itemheader,
 .charsheet .loadheader {
-	background: #b4b4b4;
+	background: var(--blades-darkgrey);
 	height: 20px;
 	font-size: 10px;
 	padding: 3px 2px 1px 4px;
@@ -710,8 +734,8 @@
 	    -ms-flex-align: center;
 	        align-items: center;
 }
-.charsheet .itemheader .label,
-.charsheet .loadheader .label {
+.charsheet .itemheader .sheet-label,
+.charsheet .loadheader .sheet-label {
 	font-size: 10px;
 	padding: 0px;
 }
@@ -730,7 +754,7 @@
 	font-size: 12px;
 	margin: 0 3px 0 4px;
 }
-.charsheet .itemheader > .label {
+.charsheet .itemheader > .sheet-label {
 	margin-right: 4px;
 }
 .charsheet .itemheader:not(:hover) .text-button {
@@ -741,10 +765,20 @@
 }
 .charsheet .itemheader .text-button input[type=checkbox] + span {
 	opacity: 1;
-	color: #333;
+	color: var(--blades-fontblack);
 }
 .charsheet .itemheader .text-button:hover input[type=checkbox] + span {
 	color: red;
+}
+
+/* LOAD CHECKBOXES */
+.charsheet .loadheader .checkbox + span {
+	border: 1px solid var(--blades-blacktext);
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	width: 10px;
+	height: 10px;
+	background: var(--blades-whitetext);
 }
 
 /* ADVANCEMENT BOX*/
@@ -773,7 +807,7 @@
 }
 .charsheet .advancement-desc {
 	width: 99%;
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 	padding: 15px 10px 4px 11px;
 }
 .charsheet .advancement-desc li {
@@ -793,7 +827,7 @@
 	        align-items: center;
 	height: 50px;
 	position: relative;
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 }
 .charsheet .playbook input[type=text] {
 	-webkit-box-flex: 0;
@@ -805,10 +839,10 @@
 	font-size: 35px;
 	line-height: 40px;
 }
-.charsheet .playbook .label:empty {
+.charsheet .playbook .sheet-label:empty {
 	display: inherit;
 }
-.charsheet .playbook .label {
+.charsheet .playbook .sheet-label {
 	text-align: left;
 }
 .charsheet .playbook textarea {
@@ -819,15 +853,15 @@
 	font-size: 10px;
 	padding-left: 3px;
 	letter-spacing: 1px;
-	color: #808080;
+	color: var(--blades-headergrey);
 	resize: none;
 	overflow: hidden;
 	line-height: 14px;
 }
 .charsheet .playbook .reminder {
 	position: absolute;
-	border: 1px solid #333;
-	background: white;
+	border: 1px solid var(--blades-fontblack);
+	background: var(--blades-whitetext);
 	top: 48px;
 	z-index: 3;
 	border-radius: 5px;
@@ -863,14 +897,14 @@
 }
 .charsheet .header input[type=text], .charsheet .header .auto-expand {
 	width: 100%;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--blades-blacktext);
 	font-size: 14px;
 	line-height: 1.3;
 	text-align: left;
 	padding: 3px 0 0 2px;
 	margin: 3px 0 0;
 	min-height: 22px;
-	color: #c43c35;
+	color: var(--blades-redtext);
 }
 .charsheet .header input[type=hidden][value=""] + div > .title::after {
 	content: ": ";
@@ -879,12 +913,12 @@
 	display: none;
 }
 .charsheet .header .text {
-	color: black;
+	color: var(--blades-blacktext);
 	text-align: justify;
 	padding: 3px 0 2px;
 	line-height: 13px;
 }
-.charsheet .header .text .label {
+.charsheet .header .text .sheet-label {
 	padding: 3px 0 2px;
 }
 .charsheet .header .title {
@@ -930,7 +964,7 @@
 	display: -ms-flexbox;
 	display: flex;
 	padding: 4px 2px;
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 	-webkit-box-align: start;
 	    -ms-flex-align: start;
 	        align-items: start;
@@ -979,9 +1013,9 @@
 	display: block;
 }
 .charsheet .clock {
-	border: 2px solid black;
+	border: 2px solid var(--blades-blacktext);
 	border-radius: 50%;
-	background: white;
+	background: var(--blades-whitetext);
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -996,7 +1030,7 @@
 	display: none;
 	left: 0;
 	top: 0;
-	background: black;
+	background: var(--blades-blacktext);
 }
 .charsheet .spoke-0 {
 	-webkit-transform: translateX(21px);
@@ -1300,135 +1334,135 @@
 	display: none;
 }
 .charsheet .clock-container .input-progress[value="0"]:checked ~ .clock {
-	background: white;
+	background: var(--blades-whitetext);
 }
 .charsheet .size[value="4"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, white));
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, var(--blades-whitetext)));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(180deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="4"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="4"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="4"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
 	background: red;
 }
 .charsheet .size[value="6"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(150deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="6"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(210deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="6"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="6"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
-	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="6"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
-	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="6"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
 	background: red;
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(135deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(135deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, white));
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, var(--blades-whitetext)));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(180deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(225deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(225deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
-	background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="7"]:checked ~ .clock {
-	background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="8"] ~ .clock-container .input-progress[value="8"]:checked ~ .clock {
 	background: red;
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(126deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(126deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(162deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(162deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(198deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(198deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(234deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(234deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
-	background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="7"]:checked ~ .clock {
-	background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="8"]:checked ~ .clock {
-	background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="9"]:checked ~ .clock {
-	background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="10"] ~ .clock-container .input-progress[value="10"]:checked ~ .clock {
 	background: red;
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(120deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(120deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(150deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, white));
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, var(--blades-whitetext)));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(180deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(210deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(240deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(240deg, red 50%, var(--blades-whitetext) 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="7"]:checked ~ .clock {
-	background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="8"]:checked ~ .clock {
-	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="9"]:checked ~ .clock {
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="10"]:checked ~ .clock {
-	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="11"]:checked ~ .clock {
-	background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .charsheet .size[value="12"] ~ .clock-container .input-progress[value="12"]:checked ~ .clock {
 	background: red;
@@ -1520,8 +1554,8 @@
 	margin-top: 1px;
 	margin-right: 2px;
 	vertical-align: top;
-	border: 1px solid black;
-	background: white;
+	border: 1px solid var(--blades-blacktext);
+	background: var(--blades-whitetext);
 	border-radius: 50%;
 	position: relative;
 }
@@ -1530,7 +1564,7 @@
 	width: 1px;
 	content: "";
 	left: 0;
-	background: black;
+	background: var(--blades-blacktext);
 	height: 11px;
 }
 .charsheet .zero + span::after {
@@ -1563,6 +1597,41 @@
 	position: absolute;
 	left: -13px;
 	top: 13px;
+}
+
+/* Darkmode adjustments */
+.sheet-darkmode .charsheet .xptooth + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/xptooth-red.png");
+}
+.sheet-darkmode .charsheet .tooth:checked ~ .xptooth + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/xptooth-white.png");
+}
+.sheet-darkmode .charsheet .stresstooth[type=radio] + span,
+.sheet-darkmode .charsheet .stresstooth[type=checkbox]:checked + span,
+.sheet-darkmode .charsheet .holdtooth:checked + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-red.png");
+}
+.sheet-darkmode .charsheet .stresstooth[type=checkbox] + span,
+.sheet-darkmode .charsheet .tooth:checked ~ .stresstooth[type=radio] + span,
+.sheet-darkmode .charsheet .holdtooth + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-white.png");
+}
+.sheet-darkmode .charsheet .regulartooth + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/shorttooth-red.png");
+}
+.sheet-darkmode .charsheet .tooth:checked ~ .regulartooth + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/shorttooth-grey.png");
+}
+.sheet-darkmode .charsheet .turf-input[value="1"] ~ input[type=radio].turf1 + span,
+.sheet-darkmode .charsheet .turf-input[value="2"] ~ input[type=radio].turf2 + span,
+.sheet-darkmode .charsheet .turf-input[value="3"] ~ input[type=radio].turf3 + span,
+.sheet-darkmode .charsheet .turf-input[value="4"] ~ input[type=radio].turf4 + span,
+.sheet-darkmode .charsheet .turf-input[value="5"] ~ input[type=radio].turf5 + span,
+.sheet-darkmode .charsheet .turf-input[value="6"] ~ input[type=radio].turf6 + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-black.png");
+}
+.sheet-darkmode .charsheet .tooth:checked ~ .stresstooth.turf6 + span {
+	background-image: url("https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/stresstooth-halfgrey.png");
 }
 
 /* TURF RADIOS */
@@ -1618,7 +1687,7 @@
 }
 .charsheet .specialability,
 .charsheet .friend-contact {
-	border-bottom: 1px solid #b4b4b4;
+	border-bottom: 1px solid var(--blades-darkgrey);
 	width: 100%;
 	-webkit-box-align: start;
 	    -ms-flex-align: start;
@@ -1653,7 +1722,7 @@
 /* FRIENDS/CONTACTS */
 .charsheet .friend-contact .auto-expand {
 	font-size: 12px;
-	color: #555;
+	color: var(--blades-lighterblack);
 	min-height: 20px;
 	line-height: 16px;
 	-webkit-box-flex: 1;
@@ -1682,11 +1751,11 @@
 }
 .charsheet .harmbody div {
 	background: #d6d8d9;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--blades-blacktext);
 }
 .charsheet .harmbody .harmeffect {
 	width: 59px;
-	color: #555;
+	color: var(--blades-lighterblack);
 	font-size: 10px;
 	letter-spacing: 1px;
 	line-height: 1.4;
@@ -1702,16 +1771,16 @@
 .charsheet .harmbody textarea {
 	font-size: 12px;
 	padding: 10px 4px 3px;
-	color: #c43c35;
+	color: var(--blades-redtext);
 	overflow: hidden;
 	height: 52px;
 	resize: none;
 	line-height: 16px;
 	text-align: center;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--blades-blacktext);
 }
 .charsheet .harmbody textarea + textarea {
-	border-left: 1px solid #d8d8d8;
+	border-left: 1px solid var(--blades-lightest);
 }
 
 /* HEALING AND ARMOR */
@@ -1738,7 +1807,7 @@
 	text-align: center;
 	line-height: 18px;
 }
-.charsheet .armor .label {
+.charsheet .armor .sheet-label {
 	-webkit-box-flex: 1;
 	    -ms-flex-positive: 1;
 	        flex-grow: 1;
@@ -1750,7 +1819,7 @@
 	color: red;
 }
 .charsheet .armor .checkbox + span {
-	border: 1px solid black;
+	border: 1px solid var(--blades-blacktext);
 	margin: 3px;
 	-webkit-box-ordinal-group: 3;
 	    -ms-flex-order: 2;
@@ -1764,13 +1833,13 @@
 	-ms-grid-column-span: 2;
 	grid-column: span 2;
 }
-.charsheet .coinrow .label {
+.charsheet .coinrow .sheet-label {
 	font-size: 11px;
 	margin-right: auto;
 }
 .charsheet .coin {
-	border-bottom: 1px solid #8c8c8c;
-	border-right: 1px solid #8c8c8c;
+	border-bottom: 1px solid var(--blades-greyborder);
+	border-right: 1px solid var(--blades-greyborder);
 	width: 70%;
 	height: 19px;
 	padding: 1px 3px 0 0;
@@ -1779,7 +1848,7 @@
 	        align-items: center;
 }
 .charsheet .stashbutton-holder {
-	border-top: 1px solid #8c8c8c;
+	border-top: 1px solid var(--blades-greyborder);
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1814,7 +1883,7 @@
 	font-style: italic;
 }
 .charsheet .crewcoinbar {
-	border-left: 1px solid #c7c7c7;
+	border-left: 1px solid var(--blades-lighter);
 	height: 15px;
 	width: 3px;
 	margin: -1px auto 0;
@@ -1832,7 +1901,7 @@
 	margin-right: auto;
 }
 .charsheet .crewcoin input:checked ~ .radiobox.vaultcoin + span {
-	border-color: #c7c7c7;
+	border-color: var(--blades-lighter);
 }
 .charsheet .coin-and-stash input.radiobox {
 	width: 13px;
@@ -1856,17 +1925,17 @@
 }
 .charsheet .coin .radiobox + span, .charsheet .crewcoin .radiobox + span {
 	background: red;
-	border: 1px solid black;
+	border: 1px solid var(--blades-blacktext);
 }
 .charsheet .coin input:checked ~ .radiobox + span, .charsheet .crewcoin input:checked ~ .radiobox + span {
-	background: white;
+	background: var(--blades-whitetext);
 }
 .charsheet .stash .radiobox + span {
-	background: black;
+	background: var(--blades-blacktext);
 	margin-right: calc((100% - 126px) / 9);
 }
 .charsheet .stash input:checked ~ .radiobox + span {
-	background: #c7c7c7;
+	background: var(--blades-lighter);
 }
 .charsheet .stash input.radiobox:nth-of-type(10n+1) {
 	margin: -2px -17px 0 3px;
@@ -1876,7 +1945,7 @@
 .charsheet .stash .radiobox:nth-of-type(10n+1) + span {
 	width: 14px;
 	height: 14px;
-	border: 1px solid black;
+	border: 1px solid var(--blades-blacktext);
 	margin-left: 3px;
 	margin-right: 0;
 	position: relative;
@@ -1895,19 +1964,19 @@
 }
 
 /* BONUS DIE SECTION */
-.charsheet .bonusdie .label {
+.charsheet .bonusdie .sheet-label {
 	font-size: 12px;
 }
 .charsheet .bonusdieplus {
 	width: 10%;
-	background: black;
-	color: white;
+	background: var(--blades-blacktext);
+	color: var(--blades-whitetext);
 	font-size: 13px;
 	line-height: 1;
 	font-weight: bold;
 }
 .charsheet .bonusdietext {
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 	width: 90%;
 	padding: 3px;
 	font-size: 11px;
@@ -1929,9 +1998,9 @@
 }
 .charsheet .repcontrol button {
 	background: transparent;
-	color: #777;
+	color: var(--blades-lightblack);
 	border-radius: 0;
-	border-color: #b4b4b4;
+	border-color: var(--blades-darkgrey);
 	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
 	font-family: pictos;
@@ -1941,9 +2010,9 @@
 	line-height: 8px;
 }
 .charsheet .repcontrol button:hover {
-	color: black;
-	border-color: black;
-	background: #c7c7c7;
+	color: var(--blades-blacktext);
+	border-color: var(--blades-blacktext);
+	background: var(--blades-lighter);
 }
 .charsheet .repcontrol button.repcontrol_edit::after {
 	content: "(";
@@ -2096,23 +2165,13 @@
 .charsheet .notes {
 	margin-left: 1%;
 	font-family: "Shadows Into Light", cursive;
-	color: #c43c35;
+	color: var(--blades-redtext);
 	font-size: 20px;
 	width: 98%;
 	background: linear-gradient(transparent 26px, #a7a7a7 1px) 0 0/100% 27px;
 	line-height: 27px;
 	height: 378px;
 	min-height: 378px;
-}
-
-/* LOAD CHECKBOXES */
-.charsheet .loadheader .checkbox + span {
-	border: 1px solid black;
-	-webkit-transform: rotate(45deg);
-	        transform: rotate(45deg);
-	width: 10px;
-	height: 10px;
-	background: white;
 }
 
 /* ROLL BUTTONS */
@@ -2140,15 +2199,15 @@
 }
 .charsheet .coinrow button[type=roll].rollbutton {
 	font-size: 11px;
-	color: #777;
+	color: var(--blades-lightblack);
 }
 .charsheet .blackheader button[type=roll].rollbutton {
 	margin: auto;
 }
 .charsheet button[type=roll].borderbutton {
-	color: #777;
+	color: var(--blades-lightblack);
 	font-size: 13px;
-	border-color: #b4b4b4;
+	border-color: var(--blades-darkgrey);
 }
 .charsheet button[type=roll].vicebutton {
 	float: right;
@@ -2174,8 +2233,8 @@
 	color: red;
 }
 .charsheet button[type=roll].borderbutton:hover {
-	color: black;
-	border-color: black;
+	color: var(--blades-blacktext);
+	border-color: var(--blades-blacktext);
 }
 
 /* CHECKBOXES */
@@ -2195,7 +2254,7 @@
 	        flex: 0 0 auto;
 }
 .charsheet .checkbox + span {
-	border: 1px solid #8c8c8c;
+	border: 1px solid var(--blades-greyborder);
 }
 .charsheet .checkbox:checked + span {
 	background: red;
@@ -2209,14 +2268,14 @@
 }
 .charsheet .circlebox + span {
 	border-radius: 50%;
-	background: white;
+	background: var(--blades-whitetext);
 }
 .charsheet input.checkbox.squarebox-small, .charsheet .checkbox.squarebox-small + span {
 	height: 9px;
 	width: 9px;
 }
 .charsheet .checkbox.squarebox-small:checked + span {
-	background: black;
+	background: var(--blades-blacktext);
 }
 .charsheet .claimbridge {
 	position: relative;
@@ -2226,7 +2285,7 @@
 	height: 100%;
 }
 .charsheet .claimbridge input:checked + span {
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 }
 .charsheet .specialability .checkbox:checked ~ .abilityname,
 .charsheet .item .checkbox:checked ~ .itemname,
@@ -2238,7 +2297,7 @@
 }
 .charsheet .friend .friendstate[value=down] ~ .auto-expand,
 .charsheet .contact .friendstate[value="1"] ~ .auto-expand {
-	color: #333;
+	color: var(--blades-fontblack);
 }
 .charsheet .specialability .checkbox,
 .charsheet .specialability .checkbox + span {
@@ -2271,10 +2330,10 @@
 	background: red;
 }
 .charsheet .action .fakeradio:checked ~ .fakeradio + span {
-	background: #c7c7c7;
+	background: var(--blades-lighter);
 }
 .charsheet .tier .fakeradio:checked ~ .fakeradio + span {
-	background: white;
+	background: var(--blades-whitetext);
 }
 
 /* HIDER */
@@ -2301,7 +2360,7 @@
 }
 .charsheet .friend label.up .checkbox + span {
 	border-width: 0 5px 10px;
-	border-bottom-color: white;
+	border-bottom-color: var(--blades-whitetext);
 }
 .charsheet .friend label.up .checkbox:checked + span {
 	border-bottom-color: red;
@@ -2311,20 +2370,20 @@
 }
 .charsheet .friend label.down .checkbox + span {
 	border-width: 10px 5px 0;
-	border-top-color: white;
+	border-top-color: var(--blades-whitetext);
 }
 .charsheet .friend label.down .checkbox:checked + span {
-	border-top-color: black;
+	border-top-color: var(--blades-blacktext);
 }
 .charsheet .contact label {
 	top: 1px;
 }
 .charsheet .contact label .checkbox + span {
 	border-width: 5px 0 5px 10px;
-	border-left-color: white;
+	border-left-color: var(--blades-whitetext);
 }
 .charsheet .contact label .checkbox:checked + span {
-	border-left-color: black;
+	border-left-color: var(--blades-blacktext);
 }
 
 /* ACTION RATINGS */
@@ -2335,8 +2394,8 @@
 .charsheet .cohort-title {
 	height: 21px;
 	line-height: 21px;
-	color: white;
-	background: black;
+	color: var(--blades-whitetext);
+	background: var(--blades-blacktext);
 	padding: 0 3px;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
@@ -2367,7 +2426,7 @@
 }
 .charsheet .divider {
 	margin-right: calc(5px + (100% - 173px) / 12);
-	border-right: 1px solid black;
+	border-right: 1px solid var(--blades-blacktext);
 	height: inherit;
 }
 .charsheet .darktalent[value="1"] ~ .divider {
@@ -2386,10 +2445,10 @@
 	width: calc(100% - 40px);
 }
 .charsheet .cohort-info {
-	background: black;
+	background: var(--blades-blacktext);
 	height: 13px;
 	font-size: 9px;
-	color: white;
+	color: var(--blades-whitetext);
 	line-height: 13px;
 }
 .charsheet .cohort-info input[type=text] {
@@ -2433,7 +2492,7 @@
 	z-index: 0; /* Was -1 in legacy version, but that means nothing can be seen in current version */
 }
 .charsheet .cohort-dropdown {
-	background: black;
+	background: var(--blades-blacktext);
 	position: relative;
 	z-index: 1;
 	width: 41px;
@@ -2484,7 +2543,7 @@
 	padding: 1px 0;
 	line-height: 12px;
 	height: 50px;
-	border-bottom: 1px solid #d8d8d8;
+	border-bottom: 1px solid var(--blades-lightest);
 }
 
 /* CLAIMS */
@@ -2505,10 +2564,10 @@
 	height: 66px;
 }
 .charsheet .lairbox {
-	background: #777;
+	background: var(--blades-lightblack);
 	font-size: 13px;
 	width: 100%;
-	color: white;
+	color: var(--blades-whitetext);
 	letter-spacing: 1px;
 }
 .charsheet .claims-horisep {
@@ -2526,12 +2585,12 @@
 	height: 12px;
 }
 .charsheet .claimbox {
-	background: #d8d8d8;
+	background: var(--blades-lightest);
 	position: relative;
 	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
 }
-.charsheet .claimbox .label {
+.charsheet .claimbox .sheet-label {
 	height: 30px;
 	padding: 4px 0 2px;
 	line-height: 12px;
@@ -2552,7 +2611,7 @@
 	left: 1px;
 }
 .charsheet input[value="1"] + .claimbox {
-	background: #c7c7c7;
+	background: var(--blades-lighter);
 }
 
 /* STRICTURES */
@@ -2571,7 +2630,7 @@
 	    -ms-flex-align: center;
 	        align-items: center;
 }
-.charsheet .strictures span.label::after {
+.charsheet .strictures span.sheet-label::after {
 	content: ":";
 }
 
@@ -2649,12 +2708,12 @@
 	position: relative;
 	font-size: 9px;
 	z-index: 2;
-	background: white;
+	background: var(--blades-whitetext);
 	line-height: 1.3;
 	height: 64px;
 	width: 200%;
 	padding: 2px;
-	border: 1px solid #d8d8d8;
+	border: 1px solid var(--blades-lightest);
 }
 .charsheet .alchemicals .repitem:nth-child(even) .alchemicals-info {
 	left: -100%;
@@ -2727,7 +2786,7 @@
 	    -ms-flex-align: center;
 	        align-items: center;
 	line-height: 14px;
-	background: #c7c7c7;
+	background: var(--blades-lighter);
 }
 .charsheet .factions-header input[type=text] {
 	padding-left: 3px;
@@ -2756,10 +2815,10 @@
 	content: "▼";
 }
 .charsheet .faction {
-	border-bottom: 1px solid #d8d8d8;
+	border-bottom: 1px solid var(--blades-lightest);
 }
 .charsheet .faction textarea {
-	border-top: 1px solid #d8d8d8;
+	border-top: 1px solid var(--blades-lightest);
 	font-size: 11px;
 	line-height: 1.5;
 	height: 51px;
@@ -2771,7 +2830,7 @@
 	font-size: 12px;
 }
 .charsheet .faction input[type=text] {
-	border-right: 1px solid #d8d8d8;
+	border-right: 1px solid var(--blades-lightest);
 	font-size: 12px;
 	padding: 2px 1px;
 }
@@ -2797,7 +2856,7 @@
 .charsheet .warblurb {
 	text-align: justify;
 }
-.charsheet .warblurb .label {
+.charsheet .warblurb .sheet-label {
 	font-size: 14px;
 }
 .charsheet .warblurb li {
@@ -2805,12 +2864,12 @@
 	padding-left: 1em;
 }
 .charsheet label.generatebutton {
-	color: #777;
-	border: 1px solid #b4b4b4;
+	color: var(--blades-lightblack);
+	border: 1px solid var(--blades-darkgrey);
 }
 .charsheet label.generatebutton:hover {
-	color: black;
-	border-color: black;
+	color: var(--blades-blacktext);
+	border-color: var(--blades-blacktext);
 }
 .charsheet label.generatebutton:hover input + span {
 	opacity: 1;
@@ -2873,7 +2932,7 @@
 	line-height: 14px;
 	height: 14px;
 	width: 14px;
-	color: #777;
+	color: var(--blades-lightblack);
 	left: 3px;
 	bottom: 7px;
 }
@@ -2882,12 +2941,12 @@
 	line-height: 11px;
 	height: 12px;
 	width: 12px;
-	color: #777;
+	color: var(--blades-lightblack);
 	right: 0;
 	bottom: 2px;
 }
 .charsheet .harm button[type=roll].broadcast-button {
-	color: white;
+	color: var(--blades-whitetext);
 	font-weight: normal;
 	font-size: 11px;
 	line-height: 11px;
@@ -2905,16 +2964,16 @@
 .charsheet .use-kirsty[value="1"] ~ .container .itemheader :first-child,
 .charsheet .use-kirsty[value="1"] ~ .container .loadheader :first-child,
 .charsheet .use-kirsty[value="1"] ~ .container .attribute-title button[type=roll].rollbutton,
-.charsheet .use-kirsty[value="1"] ~ .container .bonusdie > .label:first-child,
+.charsheet .use-kirsty[value="1"] ~ .container .bonusdie > .sheet-label:first-child,
 .charsheet .use-kirsty[value="1"] ~ .container .cohort-title,
-.charsheet .use-kirsty[value="1"] ~ .container .claimbox .label,
+.charsheet .use-kirsty[value="1"] ~ .container .claimbox .sheet-label,
 .charsheet .use-kirsty[value="1"] ~ .container .lairbox,
 .charsheet .use-kirsty[value="1"] ~ .container .crewheader,
 .charsheet .use-kirsty[value="1"] ~ .container .factiontitle input[type=text],
 .charsheet .use-kirsty[value="1"] ~ .container .factions-header input[type=text] {
 	font-family: Kirsty, Georgia, serif;
 }
-.charsheet .use-kirsty[value="1"] ~ .container .claimbox .label {
+.charsheet .use-kirsty[value="1"] ~ .container .claimbox .sheet-label {
 	font-size: 10px;
 	font-weight: 400;
 }
@@ -2927,7 +2986,7 @@
 	font-weight: 400;
 }
 .charsheet .use-kirsty[value="1"] ~ .container .factions-header input[type=text],
-.charsheet .use-kirsty[value="1"] ~ .container .bonusdie > .label:first-child {
+.charsheet .use-kirsty[value="1"] ~ .container .bonusdie > .sheet-label:first-child {
 	font-size: 14px;
 	font-weight: 400;
 }
@@ -2946,7 +3005,7 @@
 	font-size: 40px;
 	letter-spacing: 0;
 }
-.charsheet .use-kirsty[value="1"] ~ .container .blackheader .label, .charsheet .use-kirsty[value="1"] ~ .container .blackheader button[type=roll].label, .charsheet .use-kirsty[value="1"] ~ .container .greyheader .label, .charsheet .use-kirsty[value="1"] ~ .container .greyheader button[type=roll].label, .charsheet .use-kirsty[value="1"] ~ .container .black-on-grey .label, .charsheet .use-kirsty[value="1"] ~ .container .black-on-grey button[type=roll].label {
+.charsheet .use-kirsty[value="1"] ~ .container .blackheader .sheet-label, .charsheet .use-kirsty[value="1"] ~ .container .blackheader button[type=roll].sheet-label, .charsheet .use-kirsty[value="1"] ~ .container .greyheader .sheet-label, .charsheet .use-kirsty[value="1"] ~ .container .greyheader button[type=roll].sheet-label, .charsheet .use-kirsty[value="1"] ~ .container .black-on-grey .sheet-label, .charsheet .use-kirsty[value="1"] ~ .container .black-on-grey button[type=roll].sheet-label {
 	font-size: 12px;
 	font-weight: 400;
 }
@@ -3022,7 +3081,7 @@
 .charsheet.lang-ko .armor label {
 	font-size: 12px;
 }
-.charsheet.lang-ko .coinrow .label, .charsheet.lang-ko .coinrow button[type=roll].rollbutton {
+.charsheet.lang-ko .coinrow .sheet-label, .charsheet.lang-ko .coinrow button[type=roll].rollbutton {
 	font-size: 12px;
 }
 .charsheet.lang-ko .specialheader {
@@ -3065,10 +3124,10 @@
 .charsheet.lang-ko .numboxes-chooser {
 	font-size: 10px;
 }
-.charsheet.lang-ko .item .itemname, .charsheet.lang-ko .item .label {
+.charsheet.lang-ko .item .itemname, .charsheet.lang-ko .item .sheet-label {
 	font-size: 12px;
 }
-.charsheet.lang-ko .item .label.upgradecosts {
+.charsheet.lang-ko .item .sheet-label.upgradecosts {
 	font-size: 9px;
 }
 .charsheet.lang-ko .itemholder .expand ~ textarea {
@@ -3090,7 +3149,7 @@
 .charsheet.lang-ko button[type=roll].borderbutton {
 	font-size: 15px;
 }
-.charsheet.lang-ko .bonusdietext, .charsheet.lang-ko .bonusdie .label {
+.charsheet.lang-ko .bonusdietext, .charsheet.lang-ko .bonusdie .sheet-label {
 	font-size: 13px;
 }
 .charsheet.lang-ko .friend-contact .auto-expand {
@@ -3102,7 +3161,7 @@
 .charsheet.lang-ko .crewcoin-desc {
 	font-style: normal;
 }
-.charsheet.lang-ko .claimbox textarea.label {
+.charsheet.lang-ko .claimbox textarea.sheet-label {
 	font-size: 12px;
 }
 .charsheet.lang-ko .claimbox textarea.claim-desc {
@@ -3172,10 +3231,10 @@
 	font-size: 9px;
 	letter-spacing: 0;
 }
-.charsheet.lang-es .armor .label {
+.charsheet.lang-es .armor .sheet-label {
 	font-size: 10px;
 }
-.charsheet.lang-es .coinrow .label,
+.charsheet.lang-es .coinrow .sheet-label,
 .charsheet.lang-es .coinrow button[type=roll].rollbutton {
 	font-size: 10px;
 }
@@ -3205,10 +3264,10 @@
 	font-size: 9px;
 	letter-spacing: 0;
 }
-.charsheet.lang-pt .armor .label {
+.charsheet.lang-pt .armor .sheet-label {
 	font-size: 10px;
 }
-.charsheet.lang-pt .coinrow .label,
+.charsheet.lang-pt .coinrow .sheet-label,
 .charsheet.lang-pt .coinrow button[type=roll].rollbutton {
 	font-size: 10px;
 }
@@ -3415,7 +3474,11 @@
 	text-shadow: 0 0 6px rgb(136, 219, 215);
 	color: #1e1e1e;
 }
-.sheet-rolltemplate-blades .inlinerollresult {
+.sheet-rolltemplate-blades .inlinerollresult,
+.sheet-rolltemplate-blades .sheet-action .inlinerollresult,
+.sheet-rolltemplate-blades .sheet-fortune .inlinerollresult,
+.sheet-rolltemplate-blades .sheet-vice .inlinerollresult,
+.sheet-rolltemplate-blades .sheet-resist .inlinerollresult {
 	border: none !important;
 	background-color: transparent;
 	font-weight: normal;
@@ -3665,132 +3728,132 @@
 	        transform: translate(39px, -4px) rotate(150deg);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-4.sheet-progress-1 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, white));
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, var(--blades-whitetext)));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(180deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-4.sheet-progress-2 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-4.sheet-progress-3 {
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-4.sheet-progress-4 {
 	background: red;
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-6.sheet-progress-1 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(150deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-6.sheet-progress-2 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(210deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-6.sheet-progress-3 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-6.sheet-progress-4 {
-	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-6.sheet-progress-5 {
-	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-6.sheet-progress-6 {
 	background: red;
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-1 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(135deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(135deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-2 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, white));
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, var(--blades-whitetext)));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(180deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-3 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(225deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(225deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-4 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-5 {
-	background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-6 {
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-7 {
-	background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-8.sheet-progress-8 {
 	background: red;
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-1 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(126deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(126deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-2 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(162deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(162deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-3 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(198deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(198deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-4 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(234deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(234deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-5 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-6 {
-	background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-7 {
-	background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-8 {
-	background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-9 {
-	background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-10.sheet-progress-10 {
 	background: red;
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-1 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(120deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(120deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-2 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(150deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-3 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, white));
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, red), color-stop(50%, var(--blades-whitetext)));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(180deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-4 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(210deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-5 {
-	background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(240deg, red 50%, white 50%);
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, transparent 50%), linear-gradient(240deg, red 50%, var(--blades-whitetext) 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-6 {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-7 {
-	background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-8 {
-	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-9 {
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, red));
-	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, red)), -webkit-gradient(linear, left top, right top, color-stop(50%, var(--blades-whitetext)), color-stop(50%, red));
+	background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-10 {
-	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-11 {
-	background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+	background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, var(--blades-whitetext) 50%, red 50%);
 }
 .sheet-rolltemplate-bitd-broadcast .sheet-size-12.sheet-progress-12 {
 	background: red;

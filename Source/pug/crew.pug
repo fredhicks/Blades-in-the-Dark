@@ -3,7 +3,7 @@ mixin claimbox(number)
 	.claimbox
 		label
 			+checkbox(`claim_${number}_check`).checkbox.squarebox-small
-		+textarea(`claim_${number}_name`).label
+		+textarea(`claim_${number}_name`).sheet-label
 		+textarea(`claim_${number}_desc`).claim-desc
 
 mixin claimbridge(number, type)
@@ -27,39 +27,39 @@ mixin makeupgrade(label, numboxes, def, desc)
 	//- Logo, Header text fields
 	.header.grid
 		.bladeslogo
-		.crewheader.label(data-i18n="crew_sheet")
+		.crewheader.sheet-label(data-i18n="crew_sheet")
 		label
 			+text-input("crew_name")
-			.label.text.title(data-i18n="name")
+			.sheet-label.text.title(data-i18n="name")
 		label
 			+text-input("reputation")
-			.label.text.title(data-i18n="reputation")
+			.sheet-label.text.title(data-i18n="reputation")
 		label.sheet-2col
 			+text-input("lair")
-			.label.text.title(data-i18n="lair")
+			.sheet-label.text.title(data-i18n="lair")
 		+hidden-input("setting_show_deity")(value="0").hider
 		label
 			+text-input("crew_deity")
-			.label.text.title
+			.sheet-label.text.title
 				span(name="attr_setting_deity_label")
 		+hidden-input("setting_show_deity")(value="0").hider
 		label
 			+text-input("crew_deity_features")(data-i18n-placeholder="choose_2_features")
 			+hidden-input("crew_deity_features")(value="")
 			.text
-				span.label.title
+				span.sheet-label.title
 					span(name="attr_setting_deity_label").space-after
 					span(data-i18n="features")
 				span.uppercase.info(data-i18n="deity_features_info")
 		+hidden-input("setting_show_origin")(value="0").hider
 		label.sheet-2col
 			+text-input("origin")
-			.label.text.title(data-i18n="origin")
+			.sheet-label.text.title(data-i18n="origin")
 	//- Rep, Hold, and Tier
 	.rep-and-hold.flex.def-margin
 		.rep.flex.col45
 			.rep1.blackheader
-				.label(data-i18n="rep")
+				.sheet-label(data-i18n="rep")
 			.rep2.blackborder.flex
 				.turfbox
 					each num in range(1,6)
@@ -70,24 +70,24 @@ mixin makeupgrade(label, numboxes, def, desc)
 					+radio("rep")(class=["tooth", "stresstooth", ...((num < 6) ? [] : [...Array(num-6).keys()].map(x => `turf${6-x}`))], value=num)
 			.rep3.blackborder
 				.black-on-grey
-					.label(data-i18n="turf")
+					.sheet-label(data-i18n="turf")
 				.turfzero-holder
 					+radio("turf")(value="0", checked).zero
 		//- Hold
 		.hold.flex
 			.hold1.blackheader
-				.label(data-i18n="hold")
+				.sheet-label(data-i18n="hold")
 			label.blackborder
 				.black-on-grey
-					.label(data-i18n="weak")
+					.sheet-label(data-i18n="weak")
 				+radio("hold")(value="weak").tooth.holdtooth
 			label.blackborder
 				.black-on-grey
-					.label(data-i18n="strong")
+					.sheet-label(data-i18n="strong")
 				+radio("hold")(value="strong", checked).tooth.holdtooth
 			//- Tier
 			.blackheader
-				+roll("Tier", "{{type=resist}} {{short=short}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their}}} @{crew_tier_formula}")(data-i18n="tier").label.inherit.rollbutton
+				+roll("Tier", "{{type=resist}} {{short=short}} {{title-crew_tier=1}} {{title=^{crew_tier}}} {{subtitle=^{roll_their}}} @{crew_tier_formula}")(data-i18n="tier").sheet-label.inherit.rollbutton
 				+hidden-input("crew_tier_formula")(value=zerodiceFormula)
 			.tier.flex
 				+hidden-checkbox("crew_tier")(value="0", checked).fakeradio
@@ -136,7 +136,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 		.heat.col45.flex
 			//- Heat markers
 			.heat1.blackheader
-				.label
+				.sheet-label
 					span(name="attr_setting_heat_label")
 			.heat2.blackborder.flex
 				+radio("heat")(value="0", checked).tooth.zero
@@ -145,7 +145,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 			//- Wanted Level
 			.heat3
 				.blackheader
-					+roll("Wanted", "{{type=vice}} {{short=short}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat}&nbsp;@{setting_heat_label}^{wantedroll2}}} @{wanted_formula}").label.inherit.rollbutton
+					+roll("Wanted", "{{type=vice}} {{short=short}} {{title-entanglement=1}} {{title=^{entanglement}}} {{subtitle=^{wantedroll1}@{heat}&nbsp;@{setting_heat_label}^{wantedroll2}}} @{wanted_formula}").sheet-label.inherit.rollbutton
 						span(name="attr_setting_wanted_label")
 					+hidden-input("wanted_formula")(value=zerodiceFormula)
 				.wantedholder.flex
@@ -156,9 +156,9 @@ mixin makeupgrade(label, numboxes, def, desc)
 		.crewcoin.col52b
 			.col100.flex
 				.blackheader.crewcoin1
-					.label(data-i18n="coin")
+					.sheet-label(data-i18n="coin")
 				.greyheader.crewcoin2
-					.label(data-i18n="vaults")
+					.sheet-label(data-i18n="vaults")
 			.col100.flex.crewcoin-coins
 				+radio("crewcoin")(value="0", checked).zero
 				each num in range(1,4)
@@ -172,7 +172,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 			.col100.crewcoin-desc(data-i18n="upon_crew_advance")
 	//- Special abilities
 	.specialabilities.def-margin
-		.specialheader.label(data-i18n="special_abilities")
+		.specialheader.sheet-label(data-i18n="special_abilities")
 		.greyholder
 			fieldset.repeating_crewability
 				.specialability.flex
@@ -183,8 +183,8 @@ mixin makeupgrade(label, numboxes, def, desc)
 	//- Advancement
 	.advancement.def-margin
 		.advancement-header.flex.blackheader
-			.label.markxp(data-i18n="mark_xp:")
-			.label(data-i18n="crew_advancement")
+			.sheet-label.markxp(data-i18n="mark_xp:")
+			.sheet-label(data-i18n="crew_advancement")
 			.xpholder.flex
 				+radio("crew_xp")(value="0", checked).tooth.zero
 				each num in range(1,10)
@@ -203,8 +203,8 @@ mixin makeupgrade(label, numboxes, def, desc)
 .right-column.grid
 	//- Crew Type
 	.playbook.sheet-2col.flex
-		+text-input("crew_type")(data-i18n-placeholder="crew").label
-		+textarea("crew_description")(data-i18n-placeholder="crew_description").label
+		+text-input("crew_type")(data-i18n-placeholder="crew").sheet-label
+		+textarea("crew_description")(data-i18n-placeholder="crew_description").sheet-label
 		+hidden-input("show_playbook_reminder")(value="1").hider
 		.reminder
 			span(data-i18n="autofill_reminder_crew")
@@ -214,7 +214,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 	.upgradecolumn
 		//- Upgrades
 		.itemheader
-			span.label(data-i18n="crew_upgrades")
+			span.sheet-label(data-i18n="crew_upgrades")
 		.itemholder.upgrades
 			//- Specific upgrades
 			.playbookitems.free-repcontrol
@@ -238,8 +238,8 @@ mixin makeupgrade(label, numboxes, def, desc)
 						+textarea("description")(data-i18n-placeholder="description")
 			//- Regular upgrades
 			.regularitems.upgrades.grid
-				.upgradecaption.label(data-i18n="lair")
-				.upgradecaption.label(data-i18n="quality")
+				.upgradecaption.sheet-label(data-i18n="lair")
+				.upgradecaption.sheet-label(data-i18n="quality")
 				+makeupgrade("carriage", 2, "Carriage", "You have a carriage, two goats to pull it, and a stable. A second upgrade improves the carriage with armor and larger, swifter goats. Horses are very rare in Doskvol — most carriages in the city use the large Akorosian goat as their draft animal.")
 				+makeupgrade("documents", 1, "Documents", "+1 quality for Documents.")
 				+makeupgrade("boat", 2, "Boat", "You have a boat, a dock on a waterway, and a small shack to store boating supplies. A second upgrade improves the boat with armor and more cargo capacity.")
@@ -254,10 +254,10 @@ mixin makeupgrade(label, numboxes, def, desc)
 				+makeupgrade("weapons", 1, "Weapons", "+1 quality for Weapons.")
 				+makeupgrade("workshop", 1, "Workshop", "Your lair has a workshop appointed with tools for tinkering and alchemy, as well as a small library of books, documents, and maps. You may accomplish long-term projects with these assets without leaving your lair.")
 				div
-				.upgradecaption.label(data-i18n="training")
-				.upgradecaption.label(data-i18n="cohorts")
+				.upgradecaption.sheet-label(data-i18n="training")
+				.upgradecaption.sheet-label(data-i18n="cohorts")
 				+makeupgrade("insight", 1, "Insight", "Earn 2 xp when training insight during downtime.")
-				.upgradecosts.label(data-i18n="upgrade_costs")
+				.upgradecosts.sheet-label(data-i18n="upgrade_costs")
 				+makeupgrade("prowess", 1, "Prowess", "Earn 2 xp when training prowess during downtime.")
 				.upgradecosts(data-i18n="new_cohort")
 				+makeupgrade("resolve", 1, "Resolve", "Earn 2 xp when training resolve during downtime.")
@@ -275,7 +275,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 						+textarea("upgrade_mastery_description")(data-i18n-placeholder="description")
 							| Your crew has access to master level training. You may advance your PCs' action ratings to 4 (until you unlock this upgrade, PC action ratings are capped at 3). This costs four upgrade boxes to unlock.
 		.hunting-grounds.def-margin
-			+autoexpand("hunting_grounds_type")(data-i18n-placeholder="hunting_grounds").plainheader.label
+			+autoexpand("hunting_grounds_type")(data-i18n-placeholder="hunting_grounds").plainheader.sheet-label
 			+autoexpand("hunting_grounds_description")(data-i18n-placeholder="hunting_grounds_description").description
 		+fortuneroll("Engagement", "{{type=action}} {{short=short}} {{small-title=small-title}} {{subtitle=^{roll_for}}} {{title-engagement=1}} {{title=^{engagement}}}")(data-i18n="roll_engagement").engagementbutton.borderbutton
 	//- Cohorts and Contacts
@@ -288,7 +288,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 				+makecohort("")
 		//- Contacts
 		.contacts
-			.specialheader.label.flex
+			.specialheader.sheet-label.flex
 				+text-input("contacts_title")(value="Contacts").inherit
 			.greyholder
 				fieldset.repeating_contact
@@ -303,7 +303,7 @@ mixin makeupgrade(label, numboxes, def, desc)
 		+fortuneroll("Fortune_crew", "{{type=fortune}} {{subtitle=^{roll}}} {{title-fortune=1}} {{title=^{fortune}}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
 	//- Clocks
 	.clocks.sheet-2col.free-repcontrol
-		.specialheader.label(data-i18n="clocks")
+		.specialheader.sheet-label(data-i18n="clocks")
 		fieldset.repeating_crewclock
 			+makeclock
 	+textarea("crew_notes")(data-i18n-placeholder="notes").notes.sheet-2col.small-margin

@@ -14,34 +14,34 @@
 		.bladeslogo
 		label
 			+text-input("crew")
-			.label.text.title(data-i18n="crew")
+			.sheet-label.text.title(data-i18n="crew")
 		label
 			+text-input("name")
-			.label.text.title(data-i18n="name")
+			.sheet-label.text.title(data-i18n="name")
 		label
 			+text-input("alias")
-			.label.text.title(data-i18n="alias")
+			.sheet-label.text.title(data-i18n="alias")
 		label.sheet-2col
 			+text-input("look")
-			.label.text.title(data-i18n="look")
+			.sheet-label.text.title(data-i18n="look")
 		label
 			+autoexpand("heritage")
 			+hidden-input("heritage")(value="")
 			.text
-				span.label.title(data-i18n="heritage")
+				span.sheet-label.title(data-i18n="heritage")
 				span.uppercase.info(data-i18n="heritage_info")
 		label
 			+autoexpand("background")
 			+hidden-input("background")(value="")
 			.text
-				span.label.title(data-i18n="background")
+				span.sheet-label.title(data-i18n="background")
 				span.uppercase.info(data-i18n="background_info")
 		+hidden-input("setting_vice_type")(value="normal").vice-input
 		label.vice.normal
 			+autoexpand("vice_purveyor")
 			+hidden-input("vice_purveyor")(value="")
 			.text
-				span.label.title(data-i18n="vice_purveyor")
+				span.sheet-label.title(data-i18n="vice_purveyor")
 				span.uppercase.info(data-i18n="vice_info")
 			+roll("Vice", "{{subtitle=^{viceroll1}@{stress}&nbsp;@{setting_stress_label}^{viceroll2}}} {{type=vice}} {{title-vice=1}} {{title=^{vice}}} @{vice_formula} {{instructions=^{vice_instructions}}}")(data-i18n="indulge_vice").vicebutton.borderbutton
 			+hidden-input("vice_formula")(value=zerodiceFormula)
@@ -52,7 +52,7 @@
 				+text-input("hull_functions")(data-i18n-placeholder="choose_3_functions")
 				+hidden-input("hull_functions")(value="")
 				.text
-					span.label.title(data-i18n="functions")
+					span.sheet-label.title(data-i18n="functions")
 					span.uppercase.info(data-i18n="functions_info")
 			span.italic(data-i18n="hull_viceblurb")
 		.vice.vampire
@@ -62,7 +62,7 @@
 	.stress.flex.sheet-2col
 		//- Stress markers
 		.stress1.blackheader
-			.label
+			.sheet-label
 				span(name="attr_setting_stress_label")
 		.stress2.blackborder.flex
 			+radio("stress")(value="0", checked).tooth.zero
@@ -73,7 +73,7 @@
 		//- Trauma markers
 		.stress3
 			.blackheader
-				.label
+				.sheet-label
 					span(name="attr_setting_trauma_label")
 			.traumaholder.flex
 				+radio("trauma")(value="0", checked).tooth.zero
@@ -103,7 +103,7 @@
 		//- Harm
 		.harm
 			.blackheader
-				.label(data-i18n="harm")
+				.sheet-label(data-i18n="harm")
 				button.broadcast-button(type="roll", name="roll_Harm", value="&{template:bitd-broadcast} {{charname=@{character_name}}} {{harm=1}} {{harm3=@{harm3}}} {{harm2_1=@{harm2_1}}} {{harm2_2=@{harm2_2}}} {{harm1_1=@{harm1_1}}} {{harm1_2=@{harm1_2}}} {{charimage=@{chat_image}}} @{title_text}", data-i18n-title="send_details_to_chat") :
 			.harmbody
 				.flex-center.harmnumber 3
@@ -120,7 +120,7 @@
 		//- Healing
 		.healing
 			.blackheader
-				+fortuneroll("Recovery", "{{type=resist}} {{short=short}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for}}}")(data-i18n="healing").label.rollbutton.inherit
+				+fortuneroll("Recovery", "{{type=resist}} {{short=short}} {{title-recovery=1}} {{title=^{recovery}}} {{subtitle=^{rolls_for}}}")(data-i18n="healing").sheet-label.rollbutton.inherit
 			.col100.healing-progress(data-i18n="progress_clock", data-i18n-title="recoveryblurb")
 			+hidden-input("recovery_max")(value="4").size
 			.clock-container
@@ -133,23 +133,23 @@
 		//- Armor
 		.armor
 			.blackheader
-				.label(data-i18n="armor_uses")
+				.sheet-label(data-i18n="armor_uses")
 			each val in ["armor", "+heavy", "special"]
 				label
 					+checkbox(val.replace("+", "")).checkbox.squarebox
-					span.label(data-i18n=val)
+					span.sheet-label(data-i18n=val)
 		//- Coin and Stash
 		.coin-and-stash
 			//- Coin
 			.coinrow.flex
 				.coin.flex
-					.label(data-i18n="coin")
+					.sheet-label(data-i18n="coin")
 					+radio("coin")(value="0", checked).zero
 					each num in range(1,4)
 						+radio("coin")(value=num).radiobox
 				.stashbutton-holder
 					+hidden-input("stash_formula")(value=zerodiceFormula)
-					+roll("Stash", "{{type=resist}} {{short=short}} {{title-lifestyle=1}} {{title=^{lifestyle}}} {{subtitle=^{rolls}}} @{stash_formula}")(data-i18n="stash").rollbutton.label
+					+roll("Stash", "{{type=resist}} {{short=short}} {{title-lifestyle=1}} {{title=^{lifestyle}}} {{subtitle=^{rolls}}} @{stash_formula}")(data-i18n="stash").rollbutton.sheet-label
 			//- Stash
 			.stash
 				+radio("stash")(value="0", checked).zero
@@ -159,7 +159,7 @@
 						br
 	//- Special abilities
 	.specialabilities.sheet-2col
-		.specialheader.label.flex
+		.specialheader.sheet-label.flex
 			+text-input("special_abilities_title")(value="Special Abilities").inherit
 		.greyholder
 			fieldset.repeating_ability
@@ -171,8 +171,8 @@
 	//- Advancement
 	.advancement.sheet-2col
 		.advancement-header.flex.blackheader
-			.label.markxp(data-i18n="mark_xp:")
-			.label(data-i18n="playbook_advancement")
+			.sheet-label.markxp(data-i18n="mark_xp:")
+			.sheet-label(data-i18n="playbook_advancement")
 			.xpholder.flex
 				+hidden-input("setting_vampirexp")(value="0").vampirexp
 				+radio("playbook_xp")(value="0", checked).tooth.zero
@@ -194,14 +194,14 @@
 				+autoexpand("xp_condition3") You struggled with issues from your vice or traumas during the session.
 	//- Teamwork
 	.teamwork
-		.plainheader.label(data-i18n="teamwork")
+		.plainheader.sheet-label(data-i18n="teamwork")
 		.teamworkbox(data-i18n="assist_a_teammate")
 		.teamworkbox(data-i18n="lead_a_group_action")
 		.teamworkbox(data-i18n="protect_a_teammate")
 		.teamworkbox(data-i18n="set_up_a_teammate")
 	//- Gather Information
 	.gatherinfo
-		.plainheader.label(data-i18n="gather_information")
+		.plainheader.sheet-label(data-i18n="gather_information")
 		div
 			ul
 				li
@@ -219,21 +219,21 @@
 				li(data-i18n="gatherinfo_whats_going_on")
 		+hidden-input("setting_show_strictures")(value="0").hider
 		.strictures.def-margin
-			.plainheader.label(data-i18n="strictures")
+			.plainheader.sheet-label(data-i18n="strictures")
 			div
 				span.italic(data-i18n="stricturesblurb")
 			each name in strictures
 				div
 					label
 						+checkbox(`stricture_${name}`).checkbox.squarebox
-						span.label(data-i18n=name)
+						span.sheet-label(data-i18n=name)
 					span(data-i18n=`strictures_${name}`)
 //- Right column
 .right-column.grid
 	//- Playbook
 	.playbook.sheet-2col.flex
-		+text-input("playbook")(data-i18n-placeholder="playbook").label
-		+textarea("playbook_description")(data-i18n-placeholder="playbook_description").label
+		+text-input("playbook")(data-i18n-placeholder="playbook").sheet-label
+		+textarea("playbook_description")(data-i18n-placeholder="playbook_description").sheet-label
 		+hidden-input("show_playbook_reminder")(value="1").hider
 		.reminder
 			span(data-i18n="autofill_reminder_playbook")
@@ -243,14 +243,14 @@
 	.itemcolumn
 		//- Load
 		.loadheader.flex
-			.label(data-i18n="load")
+			.sheet-label(data-i18n="load")
 			each val in ["light", "normal", "heavy"]
 				label
 					+checkbox("load")(value=val).checkbox
 					span.loadnumber(name=`attr_setting_load_${val[0]}`)
 					span(data-i18n=val)
 		.itemheader.small-margin.flex
-			.label(data-i18n="items")
+			.sheet-label(data-i18n="items")
 			span.italic(data-i18n="italics_dont_count")
 			label.text-button
 				+checkbox("reset_items")(data-i18n="reset?")
@@ -315,7 +315,7 @@
 		//- Alchemicals
 		.def-margin
 			input.title-checkbox(type="checkbox", name="attr_show_alchemicals", value="1")
-			span.label.plainheader(name="attr_setting_alchemicals_label")
+			span.sheet-label.plainheader(name="attr_setting_alchemicals_label")
 			.alchemicals.free-repcontrol
 				+hidden-input("setting_show_bandolier")(value="0").hider
 				.bandolier
@@ -334,7 +334,7 @@
 		//- Planning and Load
 		.planning.def-margin
 			input.title-checkbox(type="checkbox", name="attr_show_planning", value="1", checked)
-			span.label.plainheader(data-i18n="planning_load")
+			span.sheet-label.plainheader(data-i18n="planning_load")
 			.planning-content
 				.planningdesc(data-i18n="planningdesc")
 				.teamworkbox
@@ -364,7 +364,7 @@
 						"{{type=resist}} {{subtitle=^{resists} @{consequence_query} ^{with}}} {{title-" + attribute + "=1}} " +
 						"{{title=^{" + attribute + "}}} @{" + attribute + "_formula} {{instructions=^{resist_instructions}}} " +
 						`@{${attribute}_roll_mods}`
-					)(data-i18n-title=`${attribute}_description`).rollbutton.label
+					)(data-i18n-title=`${attribute}_description`).rollbutton.sheet-label
 						span(data-i18n=attribute).default-label.inherit
 						span(name=`attr_${attribute}_label`).custom-label.inherit
 					+hidden-input(`${attribute}`)(value="0")
@@ -392,7 +392,7 @@
 							+roll(TitleCase(action),
 								"{{type=action}} {{subtitle=^{rolls}}} {{title-" + action + "=1}} {{title=^{" + action + "}}} " +
 								`{{@{position_query}}} {{effect=@{effect_query}}} @{${action}_formula} @{${action}_roll_mods}`
-							)(data-i18n-title=`${action}_description`).rollbutton.label
+							)(data-i18n-title=`${action}_description`).rollbutton.sheet-label
 								span(data-i18n=action).default-label.inherit
 								span(name=`attr_${action}_label`).custom-label.inherit
 		//- Cohort
@@ -400,18 +400,18 @@
 		+makecohort("char_cohort_", true)
 		//- Bonus die box
 		.bonusdie
-			.label(data-i18n="bonus_die")
+			.sheet-label(data-i18n="bonus_die")
 			.flex
 				.flex-center.bonusdieplus +
 				.bonusdietext
-					.label(data-i18n="push_yourself")
+					.sheet-label(data-i18n="push_yourself")
 					span(data-i18n="push_yourself_desc1")
 					span(name="attr_setting_stress_label")
 					span(data-i18n="push_yourself_desc2")
-					.label(data-i18n="devils_bargain")
+					.sheet-label(data-i18n="devils_bargain")
 		//- Friends
 		.friends
-			.specialheader.label.flex
+			.specialheader.sheet-label.flex
 				+text-input("friends_title")(value="Friends").inherit
 			.greyholder
 				fieldset.repeating_friend
@@ -428,7 +428,7 @@
 		+fortuneroll("Fortune", "{{type=fortune}} {{subtitle=^{rolls}}} {{title-fortune=1}} {{title=^{fortune}}}", true)(data-i18n="roll_fortune").fortunebutton.borderbutton
 	//- Clocks
 	.clocks.sheet-2col.free-repcontrol
-		.specialheader.label(data-i18n="clocks")
+		.specialheader.sheet-label(data-i18n="clocks")
 		fieldset.repeating_clock
 			+makeclock
 	+textarea("notes")(data-i18n-placeholder="notes").notes.sheet-2col.small-margin

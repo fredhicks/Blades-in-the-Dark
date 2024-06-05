@@ -58,7 +58,7 @@ mixin makecohort(prefix, isCharacter)
 	.cohort
 		+hidden-input(`${prefix}verb`)(value=isCharacter ? "^{rolls_their}" : "^{roll_their}")
 		+hidden-input(`${prefix}roll_formula`)(value=zerodiceFormula)
-		.cohort-title.flex.label
+		.cohort-title.flex.sheet-label
 			+text-input(`${prefix}name`)(value="Cohort").inherit
 			+roll(`${prefix}roll`, "{{type=resist}} {{short=short}} {{charname=@{"+prefix+"name} (^{@{"+prefix+"type}}, @{"+prefix+"subtype})}} {{title-cohort_quality=1}} {{title=^{cohort_quality}}} {{subtitle=@{"+prefix+"verb}}} @{"+prefix+"roll_formula}")(data-i18n="roll-inf").inherit.rollbutton
 		.cohort-info.flex.uppercase
@@ -73,12 +73,12 @@ mixin makecohort(prefix, isCharacter)
 					+radio(`${prefix}type`)(value="expert", checked=isCharacter, data-i18n="expert")
 			+text-input(`${prefix}subtype`)(data-i18n-placeholder=isCharacter ? "hunter" : "gang_type").inherit
 			if (isCharacter)
-				.label.cohort-quality-label(data-i18n="quality_abbreviated") Q:
-				+number-input(`${prefix}quality`)(min="0", max="5", value="1").label
+				.sheet-label.cohort-quality-label(data-i18n="quality_abbreviated") Q:
+				+number-input(`${prefix}quality`)(min="0", max="5", value="1").sheet-label
 		.cohort-condition.flex
 			each name in ["weak", "impaired", "broken", "armor"]
 				label
-					span(class="cohort-condition-name " + (name ==="armor" ? "label" : "uppercase"), data-i18n=name)
+					span(class="cohort-condition-name " + (name ==="armor" ? "sheet-label" : "uppercase"), data-i18n=name)
 					+checkbox(prefix + name).tooth.stresstooth
 		each name in ["edges", "flaws"]
 			label.cohort-edgeflaw
@@ -139,6 +139,7 @@ mixin makeclock(isFaction)
 .preload
 	each tooth in teeth
 		img(src=`https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/teeth/${tooth}.png`)
+		img(src=`https://raw.githubusercontent.com/fredhicks/ehp-roll20/master/art/Blades%20in%20the%20Dark/Assets/darkmode/teeth/${tooth}.png`)
 	each title in [...templateTitles, "harm"]
 		img(src=`https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-${title}.png`)
 
