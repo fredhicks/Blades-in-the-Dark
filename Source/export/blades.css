@@ -15,6 +15,8 @@
 	--blades-redtext: #c43c35;
 	--blades-blacktext: #000;
 	--blades-whitetext: #fff;
+	--blades-bg: #fff;
+	--blades-riverblood: #500;
 }
 
 /* DARK MODE colors */
@@ -32,6 +34,8 @@
 	--blades-redtext: #d43c35;
 	--blades-blacktext: #fff;
 	--blades-whitetext: #000;
+	--blades-bg: #1f1f1f;
+	--blades-riverblood: #600;
 }
 .sheet-darkmode .sheetform {
 	background-color: #1f1f1f;
@@ -1716,7 +1720,6 @@
 	font-size: 12px;
 	line-height: 14px;
 	padding: 2px 1px;
-	text-align: justify;
 }
 
 /* FRIENDS/CONTACTS */
@@ -1763,6 +1766,7 @@
 .charsheet .harmbody .harmnumber {
 	line-height: 1;
 	font-size: 13px;
+	color: var(--blades-lightblack);
 }
 .charsheet .harmbody .twocols {
 	-ms-grid-column-span: 2;
@@ -2612,6 +2616,581 @@
 }
 .charsheet input[value="1"] + .claimbox {
 	background: var(--blades-lighter);
+}
+
+/* Support for The River (City of Red Waters) */
+.charsheet .claimhider[value="1"] ~ .claims, .charsheet .claimhider[value="1"] ~ .claims .claimbody {
+	display: none;
+}
+
+.charsheet .riverhider[value="0"] ~ .river, .charsheet .riverhider[value="0"] ~ .river .riverbody {
+	display: none;
+}
+
+.charsheet .river {
+	margin-top: 15px;
+}
+.charsheet .riverbody {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (2% 17.6%)[5] 2%;
+	grid-template-columns: repeat(5, 2% 17.6%) 2%;
+	-ms-grid-rows: (22px)[11];
+	grid-template-rows: repeat(11, 22px);
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	justify-items: center;
+}
+.charsheet .riverbody > *:nth-child(1) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(2) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(3) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(4) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(5) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(6) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(7) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(8) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(9) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(10) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(11) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(12) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(13) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(14) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(15) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(16) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(17) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(18) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(19) {
+	-ms-grid-row: 4;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(20) {
+	-ms-grid-row: 4;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(21) {
+	-ms-grid-row: 4;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(22) {
+	-ms-grid-row: 4;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(23) {
+	-ms-grid-row: 4;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(24) {
+	-ms-grid-row: 4;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(25) {
+	-ms-grid-row: 5;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(26) {
+	-ms-grid-row: 5;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(27) {
+	-ms-grid-row: 5;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(28) {
+	-ms-grid-row: 5;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(29) {
+	-ms-grid-row: 5;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(30) {
+	-ms-grid-row: 5;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(31) {
+	-ms-grid-row: 6;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(32) {
+	-ms-grid-row: 6;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(33) {
+	-ms-grid-row: 6;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(34) {
+	-ms-grid-row: 6;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(35) {
+	-ms-grid-row: 6;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(36) {
+	-ms-grid-row: 6;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(37) {
+	-ms-grid-row: 7;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(38) {
+	-ms-grid-row: 7;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(39) {
+	-ms-grid-row: 7;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(40) {
+	-ms-grid-row: 7;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(41) {
+	-ms-grid-row: 7;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(42) {
+	-ms-grid-row: 7;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(43) {
+	-ms-grid-row: 8;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(44) {
+	-ms-grid-row: 8;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(45) {
+	-ms-grid-row: 8;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(46) {
+	-ms-grid-row: 8;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(47) {
+	-ms-grid-row: 8;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(48) {
+	-ms-grid-row: 8;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(49) {
+	-ms-grid-row: 9;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(50) {
+	-ms-grid-row: 9;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(51) {
+	-ms-grid-row: 9;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(52) {
+	-ms-grid-row: 9;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(53) {
+	-ms-grid-row: 9;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(54) {
+	-ms-grid-row: 9;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(55) {
+	-ms-grid-row: 10;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(56) {
+	-ms-grid-row: 10;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(57) {
+	-ms-grid-row: 10;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(58) {
+	-ms-grid-row: 10;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(59) {
+	-ms-grid-row: 10;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(60) {
+	-ms-grid-row: 10;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody > *:nth-child(61) {
+	-ms-grid-row: 11;
+	-ms-grid-column: 1;
+}
+.charsheet .riverbody > *:nth-child(62) {
+	-ms-grid-row: 11;
+	-ms-grid-column: 2;
+}
+.charsheet .riverbody > *:nth-child(63) {
+	-ms-grid-row: 11;
+	-ms-grid-column: 3;
+}
+.charsheet .riverbody > *:nth-child(64) {
+	-ms-grid-row: 11;
+	-ms-grid-column: 4;
+}
+.charsheet .riverbody > *:nth-child(65) {
+	-ms-grid-row: 11;
+	-ms-grid-column: 5;
+}
+.charsheet .riverbody > *:nth-child(66) {
+	-ms-grid-row: 11;
+	-ms-grid-column: 6;
+}
+.charsheet .riverbody .roundtl {
+	border-top-left-radius: 10px;
+}
+.charsheet .riverbody .roundtr {
+	border-top-right-radius: 10px;
+}
+.charsheet .riverbody .roundbl {
+	border-bottom-left-radius: 10px;
+}
+.charsheet .riverbody .roundbr {
+	border-bottom-right-radius: 10px;
+}
+.charsheet .riverbody .riverbox {
+	background: var(--blades-lightest);
+	width: 100%;
+	position: relative;
+	-webkit-transition: all 1.5s;
+	transition: all 1.5s;
+}
+.charsheet .riverbody .riverbox .sheet-label {
+	height: 30px;
+	padding: 4px 0 2px;
+	line-height: 12px;
+}
+.charsheet .riverbody .riverbox textarea {
+	text-align: center;
+	font-size: 9px;
+	resize: none;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.charsheet .riverbody .riverbox textarea.river-desc {
+	height: 36px;
+	padding: 2px 2.5% 4px;
+	line-height: 10px;
+}
+.charsheet .riverbody .riverbox label {
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
+}
+.charsheet .riverbody input[value="1"] + input[value="1"] + .riverbox.bloodflow,
+.charsheet .riverbody input[value="1"] + .riverbox.rivertarget {
+	background: var(--blades-riverblood);
+	color: var(--blades-redtext);
+}
+.charsheet .riverbody input[value="1"] + input[value="1"] + .riverbox.bloodflow textarea,
+.charsheet .riverbody input[value="1"] + .riverbox.rivertarget textarea {
+	-webkit-text-decoration: line-through 1px;
+	        text-decoration: line-through 1px;
+	color: var(--blades-redtext);
+}
+.charsheet .riverbody input[value="1"] + input[value="1"] + .riverbox.bloodflow .checkbox:checked + span,
+.charsheet .riverbody input[value="1"] + .riverbox.rivertarget .checkbox:checked + span {
+	background: var(--blades-redtext);
+}
+.charsheet .riverbody input[value="1"] + input:not([value="1"]) + .riverbox.bloodflow {
+	background: -webkit-gradient(linear, left top, right top, from(var(--blades-riverblood)), to(var(--blades-lightest)));
+	background: linear-gradient(to right, var(--blades-riverblood), var(--blades-lightest));
+}
+.charsheet .riverbody input:not([value="1"]) + input[value="1"] + .riverbox.bloodflow {
+	background: -webkit-gradient(linear, right top, left top, from(var(--blades-riverblood)), to(var(--blades-lightest)));
+	background: linear-gradient(to left, var(--blades-riverblood), var(--blades-lightest));
+}
+.charsheet .riverbody input[value="1"] + input:not([value="1"]) + .riverbox.bloodflow.vflow {
+	background: -webkit-gradient(linear, left top, left bottom, from(var(--blades-riverblood)), to(var(--blades-lightest)));
+	background: linear-gradient(to bottom, var(--blades-riverblood), var(--blades-lightest));
+}
+.charsheet .riverbody input:not([value="1"]) + input[value="1"] + .riverbox.bloodflow.vflow {
+	background: -webkit-gradient(linear, left bottom, left top, from(var(--blades-riverblood)), to(var(--blades-lightest)));
+	background: linear-gradient(to top, var(--blades-riverblood), var(--blades-lightest));
+}
+.charsheet .riverbody .col1 {
+	-ms-grid-column: 1;
+	    grid-column-start: 1;
+	-ms-grid-column-span: 0;
+	grid-column-end: 1;
+}
+.charsheet .riverbody .row1 {
+	height: 22px;
+	-ms-grid-row: 1;
+	    grid-row-start: 1;
+	-ms-grid-row-span: 0;
+	grid-row-end: 1;
+}
+.charsheet .riverbody .span3row1 {
+	height: 66px;
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 3;
+	grid-row: 1/span 3;
+}
+.charsheet .riverbody .col2 {
+	-ms-grid-column: 2;
+	    grid-column-start: 2;
+	-ms-grid-column-span: 0;
+	grid-column-end: 2;
+}
+.charsheet .riverbody .row2 {
+	height: 22px;
+	-ms-grid-row: 2;
+	    grid-row-start: 2;
+	-ms-grid-row-span: 0;
+	grid-row-end: 2;
+}
+.charsheet .riverbody .span3row2 {
+	height: 66px;
+	-ms-grid-row: 2;
+	-ms-grid-row-span: 3;
+	grid-row: 2/span 3;
+}
+.charsheet .riverbody .col3 {
+	-ms-grid-column: 3;
+	    grid-column-start: 3;
+	-ms-grid-column-span: 0;
+	grid-column-end: 3;
+}
+.charsheet .riverbody .row3 {
+	height: 22px;
+	-ms-grid-row: 3;
+	    grid-row-start: 3;
+	-ms-grid-row-span: 0;
+	grid-row-end: 3;
+}
+.charsheet .riverbody .span3row3 {
+	height: 66px;
+	-ms-grid-row: 3;
+	-ms-grid-row-span: 3;
+	grid-row: 3/span 3;
+}
+.charsheet .riverbody .col4 {
+	-ms-grid-column: 4;
+	    grid-column-start: 4;
+	-ms-grid-column-span: 0;
+	grid-column-end: 4;
+}
+.charsheet .riverbody .row4 {
+	height: 22px;
+	-ms-grid-row: 4;
+	    grid-row-start: 4;
+	-ms-grid-row-span: 0;
+	grid-row-end: 4;
+}
+.charsheet .riverbody .span3row4 {
+	height: 66px;
+	-ms-grid-row: 4;
+	-ms-grid-row-span: 3;
+	grid-row: 4/span 3;
+}
+.charsheet .riverbody .col5 {
+	-ms-grid-column: 5;
+	    grid-column-start: 5;
+	-ms-grid-column-span: 0;
+	grid-column-end: 5;
+}
+.charsheet .riverbody .row5 {
+	height: 22px;
+	-ms-grid-row: 5;
+	    grid-row-start: 5;
+	-ms-grid-row-span: 0;
+	grid-row-end: 5;
+}
+.charsheet .riverbody .span3row5 {
+	height: 66px;
+	-ms-grid-row: 5;
+	-ms-grid-row-span: 3;
+	grid-row: 5/span 3;
+}
+.charsheet .riverbody .col6 {
+	-ms-grid-column: 6;
+	    grid-column-start: 6;
+	-ms-grid-column-span: 0;
+	grid-column-end: 6;
+}
+.charsheet .riverbody .row6 {
+	height: 22px;
+	-ms-grid-row: 6;
+	    grid-row-start: 6;
+	-ms-grid-row-span: 0;
+	grid-row-end: 6;
+}
+.charsheet .riverbody .span3row6 {
+	height: 66px;
+	-ms-grid-row: 6;
+	-ms-grid-row-span: 3;
+	grid-row: 6/span 3;
+}
+.charsheet .riverbody .col7 {
+	-ms-grid-column: 7;
+	    grid-column-start: 7;
+	-ms-grid-column-span: 0;
+	grid-column-end: 7;
+}
+.charsheet .riverbody .row7 {
+	height: 22px;
+	-ms-grid-row: 7;
+	    grid-row-start: 7;
+	-ms-grid-row-span: 0;
+	grid-row-end: 7;
+}
+.charsheet .riverbody .span3row7 {
+	height: 66px;
+	-ms-grid-row: 7;
+	-ms-grid-row-span: 3;
+	grid-row: 7/span 3;
+}
+.charsheet .riverbody .col8 {
+	-ms-grid-column: 8;
+	    grid-column-start: 8;
+	-ms-grid-column-span: 0;
+	grid-column-end: 8;
+}
+.charsheet .riverbody .row8 {
+	height: 22px;
+	-ms-grid-row: 8;
+	    grid-row-start: 8;
+	-ms-grid-row-span: 0;
+	grid-row-end: 8;
+}
+.charsheet .riverbody .span3row8 {
+	height: 66px;
+	-ms-grid-row: 8;
+	-ms-grid-row-span: 3;
+	grid-row: 8/span 3;
+}
+.charsheet .riverbody .col9 {
+	-ms-grid-column: 9;
+	    grid-column-start: 9;
+	-ms-grid-column-span: 0;
+	grid-column-end: 9;
+}
+.charsheet .riverbody .row9 {
+	height: 22px;
+	-ms-grid-row: 9;
+	    grid-row-start: 9;
+	-ms-grid-row-span: 0;
+	grid-row-end: 9;
+}
+.charsheet .riverbody .span3row9 {
+	height: 66px;
+	-ms-grid-row: 9;
+	-ms-grid-row-span: 3;
+	grid-row: 9/span 3;
+}
+.charsheet .riverbody .col10 {
+	-ms-grid-column: 10;
+	    grid-column-start: 10;
+	-ms-grid-column-span: 0;
+	grid-column-end: 10;
+}
+.charsheet .riverbody .row10 {
+	height: 22px;
+	-ms-grid-row: 10;
+	    grid-row-start: 10;
+	-ms-grid-row-span: 0;
+	grid-row-end: 10;
+}
+.charsheet .riverbody .span3row10 {
+	height: 66px;
+	-ms-grid-row: 10;
+	-ms-grid-row-span: 3;
+	grid-row: 10/span 3;
+}
+.charsheet .riverbody .col11 {
+	-ms-grid-column: 11;
+	    grid-column-start: 11;
+	-ms-grid-column-span: 0;
+	grid-column-end: 11;
+}
+.charsheet .riverbody .row11 {
+	height: 22px;
+	-ms-grid-row: 11;
+	    grid-row-start: 11;
+	-ms-grid-row-span: 0;
+	grid-row-end: 11;
+}
+.charsheet .riverbody .span3row11 {
+	height: 66px;
+	-ms-grid-row: 11;
+	-ms-grid-row-span: 3;
+	grid-row: 11/span 3;
+}
+.charsheet .riverbody .riverbend {
+	width: 100%;
+	height: 22px;
+	background: var(--blades-bg);
 }
 
 /* STRICTURES */

@@ -131,6 +131,8 @@
     if (options && !("silent" in options)) {
       options.silent = true;
     }
+    log("mySetAttrs: Setting attributes");
+    log(finalAttrs);
     setAttrs(finalAttrs, options, callback);
   }
 
@@ -776,6 +778,7 @@
         claim_bridge_3_4: 0,
         claim_bridge_2_7: 0,
         claim_bridge_12_13: 0,
+        cohort1_type: "gang",
         cohort1_subtype: "thugs",
         crew_description: "crew_bravos_description",
         crew_xp_condition: "crew_bravos_xp_condition",
@@ -832,6 +835,7 @@
         claim_bridge_6_11: 0,
         claim_bridge_12_13: 0,
         claim_bridge_13_14: 0,
+        cohort1_type: "gang",
         cohort1_subtype: "adepts",
         crew_description: "crew_cult_description",
         crew_xp_condition: "crew_cult_xp_condition",
@@ -856,6 +860,61 @@
       }, {
         name: "crew_upgrade_elite_thugs",
         numboxes: "1",
+      }]
+    },
+    emcees: {
+      base: {
+        claim_1_desc: "claim_info_biz_description",
+        claim_1_name: "claim_info_biz",
+        claim_2_name: "claim_turf",
+        claim_3_desc: "claim_interrogation_chamber_description",
+        claim_3_name: "claim_interrogation_chamber",
+        claim_4_desc: "claim_vice_den_description",
+        claim_4_name: "claim_vice_den",
+        claim_5_desc: "claim_luxury_venue_description",
+        claim_5_name: "claim_luxury_venue",
+        claim_6_name: "claim_turf",
+        claim_7_desc: "claim_informants_description",
+        claim_7_name: "claim_informants",
+        claim_9_name: "claim_turf",
+        claim_10_desc: "claim_lookouts_description",
+        claim_10_name: "claim_lookouts",
+        claim_11_desc: "claim_secret_pathways_description",
+        claim_11_name: "claim_secret_pathways",
+        claim_12_desc: "claim_cover_operation_description",
+        claim_12_name: "claim_cover_operation",
+        claim_13_desc: "claim_envoy_description",
+        claim_13_name: "claim_envoy",
+        claim_14_name: "claim_turf",
+        claim_15_desc: "claim_personal_clothier_description",
+        claim_15_name: "claim_personal_clothier",
+        claim_bridge_3_4: 0,
+        claim_bridge_2_7: 0,
+        claim_bridge_9_14: 0,
+        claim_bridge_12_13: 0,
+        crew_description: "crew_emcees_description",
+        crew_xp_condition: "crew_emcees_xp_condition",
+        hunting_grounds_type: "crew_emcees_hunting_grounds_type",
+        hunting_grounds_description: "crew_emcees_hunting_grounds_description",
+        upgrade_documents_check_1: "1",
+        upgrade_resolve_check_1: "1"
+      },
+      crewability: ["persuasive", "troupe_performance", "hungry_friends", "high_society", "professional_drunks", "discerning_customers", "mere_magic", "veteran"],
+      upgrade: [{
+        name: "crew_upgrade_emcee_rigging",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_full_pockets",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_rooks",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_skulks",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_calm",
+        numboxes: "3",
       }]
     },
     hawkers: {
@@ -913,6 +972,36 @@
       }, {
         name: "crew_upgrade_elite_thugs",
         numboxes: "1",
+      }]
+    },
+    river: {
+      base: {
+        crew_description: "crew_river_description",
+        crew_xp_condition: "crew_river_xp_condition",
+        hunting_grounds_type: "crew_river_hunting_grounds_type",
+        hunting_grounds_description: "crew_river_hunting_grounds_description",
+        cohort1_subtype: "thugs",
+        cohort1_type: "gang",
+        setting_river_mode: "1",
+        setting_hide_standard_claims: "1",
+        upgrade_prowess_check_1: "1"
+      },
+      crewability: ["deadly_focus", "saboteurs", "fight_with_tools", "together_we_rise", "nobodies", "forged_in_the_fire", "red_wave", "community", "veteran"],
+      upgrade: [{
+        name: "crew_upgrade_improvised_load",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_jailbird_contacts",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_thugs",
+        numboxes: "1",
+      }, {
+        name: "crew_upgrade_elite_skulks",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_hardened",
+        numboxes: "3"
       }]
     },
     shadows: {
@@ -2253,6 +2342,9 @@
     claim_bridge_9_14: "1",
     cohort1_subtype: "",
     cohort1_type: "gang",
+    cohort1_subtype: "",
+    cohort1_name: "",
+    cohort1_description: "",
     command: "0",
     consort: "0",
     finesse: "0",
@@ -2265,6 +2357,8 @@
     setting_show_deity: "0",
     setting_show_frame: "0",
     setting_show_origin: "0",
+    setting_river_mode: "0",
+    setting_hide_standard_claims: "0",
     setting_show_strictures: "0",
     setting_traumata_set: "normal",
     setting_vampirexp: "0",

@@ -3,6 +3,9 @@
 		zerodiceFormula = " {{?{@{bonusdice}|0,zerodice=[[d6]]&#44; [[d6]]|1,dice=[[d6]]|2,dice=[[d6]]&#44; [[d6]]|3,dice=[[d6]]&#44; [[d6]]&#44; [[d6]]|4,dice=[[d6]]&#44; [[d6]]&#44; [[d6]]&#44; [[d6]]|5,dice=[[d6]]&#44; [[d6]]&#44; [[d6]]&#44; [[d6]]&#44; [[d6]]|6,dice=[[d6]]&#44; [[d6]]&#44; [[d6]]&#44; [[d6]]&#44; [[d6]]&#44; [[d6]]|-1,zerodice=[[d6]]&#44; [[d6]]|-2,zerodice=[[d6]]&#44; [[d6]]|-3,zerodice=[[d6]]&#44; [[d6]]}}}";
 
 //- Mixins for code reuse
+mixin translate(name)
+	span(data-i18n!=name)
+
 mixin checkbox(name, extraclass)
 	input(type="checkbox", class=[attributes.class, extraclass || ""], name=(name ? `attr_${name}` : false), value=attributes.value||"1", checked=attributes.checked)
 	span(class=extraclass, data-i18n!=attributes["data-i18n"])

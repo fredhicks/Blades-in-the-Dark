@@ -86,13 +86,20 @@
     </div>
     <div class="setting-crew generaterow">
       <select name="attr_generate_source_crew">
-        <option value="assassins" data-i18n="assassins" selected="selected"></option>
-        <option value="bravos" data-i18n="bravos"></option>
-        <option value="cult" data-i18n="cult"></option>
-        <option value="hawkers" data-i18n="hawkers"></option>
-        <option value="shadows" data-i18n="shadows"></option>
-        <option value="smugglers" data-i18n="smugglers"></option>
-        <option value="vigilantes" data-i18n="vigilantes"></option>
+        <optgroup data-i18n-label="book_blades">
+          <option value="assassins" data-i18n="assassins" selected="selected"></option>
+          <option value="bravos" data-i18n="bravos"></option>
+          <option value="cult" data-i18n="cult"></option>
+          <option value="hawkers" data-i18n="hawkers"></option>
+          <option value="shadows" data-i18n="shadows"></option>
+          <option value="smugglers" data-i18n="smugglers"></option>
+          <option value="vigilantes" data-i18n="vigilantes"></option>
+        </optgroup>
+        <optgroup data-i18n-label="book_red">
+          <option value="emcees" data-i18n="emcees"></option>
+          <option value="roots" data-i18n="roots"></option>
+          <option value="river" data-i18n="river"></option>
+        </optgroup>
       </select>
       <label class="generatebutton">
         <input type="checkbox" name="attr_generate_crewability" value="1"/><span data-i18n="add_abilities"></span>
@@ -1401,6 +1408,7 @@
           </div>
         </div>
       </div>
+      <input class="claimhider" type="hidden" name="attr_setting_hide_standard_claims" value="0"/>
       <div class="claims free-repcontrol">
         <div class="claimsbody">
               <input type="hidden" name="attr_claim_1_check" value="0"/>
@@ -1664,6 +1672,310 @@
                 <textarea class="claim-desc" spellcheck="false" name="attr_claim_5_desc"></textarea>
               </div>
         </fieldset>
+      </div>
+      <!-- The River of Names-->
+      <input class="riverhider" type="hidden" name="attr_setting_river_mode" value="0"/>
+      <div class="river">
+        <div class="riverbody">
+              <input type="hidden" name="attr_river_land_owner_check" value="0"/>
+              <div class="riverbox rivertarget col4 span3row1 roundtl roundtr">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_land_owner_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_land_owner" data-i18n="claim_river_land_owner"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_land_owner_desc" data-i18n="claim_river_land_owner_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_chief_legislator_check" value="0"/>
+              <div class="riverbox rivertarget col8 span3row1 roundtl roundtr">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_chief_legislator_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_chief_legislator" data-i18n="claim_river_chief_legislator"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_chief_legislator_desc" data-i18n="claim_river_chief_legislator_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <div class="riverbox rivertarget col2 span3row3 roundtl">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_financier_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_financier" data-i18n="claim_river_financier"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_financier_desc" data-i18n="claim_river_financier_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <div class="riverbox rivertarget col6 span3row3 roundbr">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_cartel_leader_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_cartel_leader" data-i18n="claim_river_cartel_leader"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_cartel_leader_desc" data-i18n="claim_river_cartel_leader_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <div class="riverbox rivertarget col10 span3row3 roundtr roundbl">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_the_mayor_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_the_mayor" data-i18n="claim_river_the_mayor"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_the_mayor_desc" data-i18n="claim_river_the_mayor_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_state_treasurer_check" value="0"/>
+              <div class="riverbox rivertarget col4 span3row5 roundbl roundbr">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_state_treasurer_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_state_treasurer" data-i18n="claim_river_state_treasurer"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_state_treasurer_desc" data-i18n="claim_river_state_treasurer_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_surgeon_general_check" value="0"/>
+              <div class="riverbox rivertarget col8 span3row5 roundtl roundtr">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_surgeon_general_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_surgeon_general" data-i18n="claim_river_surgeon_general"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_surgeon_general_desc" data-i18n="claim_river_surgeon_general_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <div class="riverbox rivertarget col2 span3row7 roundtr roundbl">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_the_general_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_the_general" data-i18n="claim_river_the_general"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_the_general_desc" data-i18n="claim_river_the_general_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <div class="riverbox rivertarget col6 span3row7 roundtl">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_chief_magistrate_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_chief_magistrate" data-i18n="claim_river_chief_magistrate"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_chief_magistrate_desc" data-i18n="claim_river_chief_magistrate_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox rivertarget col10 span3row7 roundbr">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_detective_inspector_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_detective_inspector" data-i18n="claim_river_detective_inspector"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_detective_inspector_desc" data-i18n="claim_river_detective_inspector_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_editor-in-chief_check" value="0"/>
+              <div class="riverbox rivertarget col4 span3row9 roundbr roundbl">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_editor-in-chief_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_editor-in-chief" data-i18n="claim_river_editor-in-chief"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_editor-in-chief_desc" data-i18n="claim_river_editor-in-chief_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_the_governor_check" value="0"/>
+              <div class="riverbox rivertarget col8 span3row9 roundbr roundbl">
+                <label>
+                  <input class="checkbox squarebox-small" type="checkbox" name="attr_river_the_governor_check" value="1"/><span></span>
+                </label>
+                <textarea class="sheet-label" spellcheck="false" name="attr_river_the_governor" data-i18n="claim_river_the_governor"></textarea>
+                <textarea class="river-desc" spellcheck="false" name="attr_river_the_governor_desc" data-i18n="claim_river_the_governor_description"></textarea>
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <div class="riverbox bloodflow col1 row4 vflow">
+                <div class="riverbend roundbr"></div>
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <div class="riverbox bloodflow col1 row5 vflow">
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <div class="riverbox bloodflow col1 row6 vflow">
+              </div>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <div class="riverbox bloodflow col1 row7 vflow">
+              </div>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <div class="riverbox bloodflow col1 row8 vflow">
+                <div class="riverbend roundtr"></div>
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <div class="riverbox bloodflow col2 row6 vflow">
+                <div class="riverbend roundtl roundbl"></div>
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_land_owner_check" value="0"/>
+              <div class="riverbox bloodflow col3 row3">
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_land_owner_check" value="0"/>
+              <div class="riverbox bloodflow col3 row2">
+                <div class="riverbend roundbr"></div>
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_land_owner_check" value="0"/>
+              <div class="riverbox bloodflow col3 row4">
+                <div class="riverbend roundtl roundbl"></div>
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_state_treasurer_check" value="0"/>
+              <div class="riverbox bloodflow col3 row5">
+              </div>
+              <input type="hidden" name="attr_river_financier_check" value="0"/>
+              <input type="hidden" name="attr_river_state_treasurer_check" value="0"/>
+              <div class="riverbox bloodflow col3 row6">
+                <div class="riverbend roundtr"></div>
+              </div>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <input type="hidden" name="attr_river_editor-in-chief_check" value="0"/>
+              <div class="riverbox bloodflow col3 row9">
+              </div>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <input type="hidden" name="attr_river_editor-in-chief_check" value="0"/>
+              <div class="riverbox bloodflow col3 row8">
+                <div class="riverbend roundbl"></div>
+              </div>
+              <input type="hidden" name="attr_river_the_general_check" value="0"/>
+              <input type="hidden" name="attr_river_editor-in-chief_check" value="0"/>
+              <div class="riverbox bloodflow col3 row10">
+                <div class="riverbend roundtr"></div>
+              </div>
+              <input type="hidden" name="attr_river_land_owner_check" value="0"/>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <div class="riverbox bloodflow col5 row3">
+              </div>
+              <input type="hidden" name="attr_river_land_owner_check" value="0"/>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <div class="riverbox bloodflow col5 row2">
+                <div class="riverbend roundbl"></div>
+              </div>
+              <input type="hidden" name="attr_river_land_owner_check" value="0"/>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <div class="riverbox bloodflow col5 row4">
+                <div class="riverbend roundtr roundbr"></div>
+              </div>
+              <input type="hidden" name="attr_river_state_treasurer_check" value="0"/>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <div class="riverbox bloodflow col5 row5">
+              </div>
+              <input type="hidden" name="attr_river_state_treasurer_check" value="0"/>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <div class="riverbox bloodflow col5 row6">
+                <div class="riverbend roundtl"></div>
+              </div>
+              <input type="hidden" name="attr_river_editor-in-chief_check" value="0"/>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <div class="riverbox bloodflow col5 row9">
+              </div>
+              <input type="hidden" name="attr_river_editor-in-chief_check" value="0"/>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <div class="riverbox bloodflow col5 row8">
+                <div class="riverbend roundbr"></div>
+              </div>
+              <input type="hidden" name="attr_river_editor-in-chief_check" value="0"/>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <div class="riverbox bloodflow col5 row10">
+                <div class="riverbend roundtl"></div>
+              </div>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <input type="hidden" name="attr_river_chief_legislator_check" value="0"/>
+              <div class="riverbox bloodflow col7 row3">
+              </div>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <input type="hidden" name="attr_river_chief_legislator_check" value="0"/>
+              <div class="riverbox bloodflow col7 row2">
+                <div class="riverbend roundbr"></div>
+              </div>
+              <input type="hidden" name="attr_river_cartel_leader_check" value="0"/>
+              <input type="hidden" name="attr_river_chief_legislator_check" value="0"/>
+              <div class="riverbox bloodflow col7 row4">
+                <div class="riverbend roundtl"></div>
+              </div>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <input type="hidden" name="attr_river_surgeon_general_check" value="0"/>
+              <div class="riverbox bloodflow col7 row6">
+                <div class="riverbend roundbr"></div>
+              </div>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <input type="hidden" name="attr_river_surgeon_general_check" value="0"/>
+              <div class="riverbox bloodflow col7 row7">
+              </div>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <input type="hidden" name="attr_river_surgeon_general_check" value="0"/>
+              <div class="riverbox bloodflow col7 row8">
+                <div class="riverbend roundbl roundtl"></div>
+              </div>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <input type="hidden" name="attr_river_the_governor_check" value="0"/>
+              <div class="riverbox bloodflow col7 row9">
+              </div>
+              <input type="hidden" name="attr_river_chief_magistrate_check" value="0"/>
+              <input type="hidden" name="attr_river_the_governor_check" value="0"/>
+              <div class="riverbox bloodflow col7 row10">
+                <div class="riverbend roundtr"></div>
+              </div>
+              <input type="hidden" name="attr_river_chief_legislator_check" value="0"/>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <div class="riverbox bloodflow col9 row3">
+              </div>
+              <input type="hidden" name="attr_river_chief_legislator_check" value="0"/>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <div class="riverbox bloodflow col9 row2">
+                <div class="riverbend roundbl"></div>
+              </div>
+              <input type="hidden" name="attr_river_chief_legislator_check" value="0"/>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <div class="riverbox bloodflow col9 row4">
+                <div class="riverbend roundtr"></div>
+              </div>
+              <input type="hidden" name="attr_river_surgeon_general_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col9 row7">
+              </div>
+              <input type="hidden" name="attr_river_surgeon_general_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col9 row6">
+                <div class="riverbend roundbl"></div>
+              </div>
+              <input type="hidden" name="attr_river_the_governor_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col9 row8">
+                <div class="riverbend roundbr roundtr"></div>
+              </div>
+              <input type="hidden" name="attr_river_the_governor_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col9 row9">
+              </div>
+              <input type="hidden" name="attr_river_the_governor_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col9 row10">
+                <div class="riverbend roundtl"></div>
+              </div>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col10 row6 vflow">
+                <div class="riverbend roundtr roundbr"></div>
+              </div>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <div class="riverbox bloodflow col11 row4 vflow">
+                <div class="riverbend roundbl"></div>
+              </div>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <div class="riverbox bloodflow col11 row5 vflow">
+              </div>
+              <input type="hidden" name="attr_river_the_mayor_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col11 row6 vflow"> 
+              </div>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col11 row7 vflow">
+              </div>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <input type="hidden" name="attr_river_detective_inspector_check" value="0"/>
+              <div class="riverbox bloodflow col11 row8 vflow">
+                <div class="riverbend roundtl"></div>
+              </div>
+        </div>
       </div>
       <div class="heat-and-vault flex def-margin">
         <div class="heat col45 flex">
@@ -2570,6 +2882,8 @@
     if (options && !("silent" in options)) {
       options.silent = true;
     }
+    log("mySetAttrs: Setting attributes");
+    log(finalAttrs);
     setAttrs(finalAttrs, options, callback);
   }
 
@@ -3215,6 +3529,7 @@
         claim_bridge_3_4: 0,
         claim_bridge_2_7: 0,
         claim_bridge_12_13: 0,
+        cohort1_type: "gang",
         cohort1_subtype: "thugs",
         crew_description: "crew_bravos_description",
         crew_xp_condition: "crew_bravos_xp_condition",
@@ -3271,6 +3586,7 @@
         claim_bridge_6_11: 0,
         claim_bridge_12_13: 0,
         claim_bridge_13_14: 0,
+        cohort1_type: "gang",
         cohort1_subtype: "adepts",
         crew_description: "crew_cult_description",
         crew_xp_condition: "crew_cult_xp_condition",
@@ -3295,6 +3611,61 @@
       }, {
         name: "crew_upgrade_elite_thugs",
         numboxes: "1",
+      }]
+    },
+    emcees: {
+      base: {
+        claim_1_desc: "claim_info_biz_description",
+        claim_1_name: "claim_info_biz",
+        claim_2_name: "claim_turf",
+        claim_3_desc: "claim_interrogation_chamber_description",
+        claim_3_name: "claim_interrogation_chamber",
+        claim_4_desc: "claim_vice_den_description",
+        claim_4_name: "claim_vice_den",
+        claim_5_desc: "claim_luxury_venue_description",
+        claim_5_name: "claim_luxury_venue",
+        claim_6_name: "claim_turf",
+        claim_7_desc: "claim_informants_description",
+        claim_7_name: "claim_informants",
+        claim_9_name: "claim_turf",
+        claim_10_desc: "claim_lookouts_description",
+        claim_10_name: "claim_lookouts",
+        claim_11_desc: "claim_secret_pathways_description",
+        claim_11_name: "claim_secret_pathways",
+        claim_12_desc: "claim_cover_operation_description",
+        claim_12_name: "claim_cover_operation",
+        claim_13_desc: "claim_envoy_description",
+        claim_13_name: "claim_envoy",
+        claim_14_name: "claim_turf",
+        claim_15_desc: "claim_personal_clothier_description",
+        claim_15_name: "claim_personal_clothier",
+        claim_bridge_3_4: 0,
+        claim_bridge_2_7: 0,
+        claim_bridge_9_14: 0,
+        claim_bridge_12_13: 0,
+        crew_description: "crew_emcees_description",
+        crew_xp_condition: "crew_emcees_xp_condition",
+        hunting_grounds_type: "crew_emcees_hunting_grounds_type",
+        hunting_grounds_description: "crew_emcees_hunting_grounds_description",
+        upgrade_documents_check_1: "1",
+        upgrade_resolve_check_1: "1"
+      },
+      crewability: ["persuasive", "troupe_performance", "hungry_friends", "high_society", "professional_drunks", "discerning_customers", "mere_magic", "veteran"],
+      upgrade: [{
+        name: "crew_upgrade_emcee_rigging",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_full_pockets",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_rooks",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_skulks",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_calm",
+        numboxes: "3",
       }]
     },
     hawkers: {
@@ -3352,6 +3723,36 @@
       }, {
         name: "crew_upgrade_elite_thugs",
         numboxes: "1",
+      }]
+    },
+    river: {
+      base: {
+        crew_description: "crew_river_description",
+        crew_xp_condition: "crew_river_xp_condition",
+        hunting_grounds_type: "crew_river_hunting_grounds_type",
+        hunting_grounds_description: "crew_river_hunting_grounds_description",
+        cohort1_subtype: "thugs",
+        cohort1_type: "gang",
+        setting_river_mode: "1",
+        setting_hide_standard_claims: "1",
+        upgrade_prowess_check_1: "1"
+      },
+      crewability: ["deadly_focus", "saboteurs", "fight_with_tools", "together_we_rise", "nobodies", "forged_in_the_fire", "red_wave", "community", "veteran"],
+      upgrade: [{
+        name: "crew_upgrade_improvised_load",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_jailbird_contacts",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_thugs",
+        numboxes: "1",
+      }, {
+        name: "crew_upgrade_elite_skulks",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_hardened",
+        numboxes: "3"
       }]
     },
     shadows: {
@@ -4692,6 +5093,9 @@
     claim_bridge_9_14: "1",
     cohort1_subtype: "",
     cohort1_type: "gang",
+    cohort1_subtype: "",
+    cohort1_name: "",
+    cohort1_description: "",
     command: "0",
     consort: "0",
     finesse: "0",
@@ -4704,6 +5108,8 @@
     setting_show_deity: "0",
     setting_show_frame: "0",
     setting_show_origin: "0",
+    setting_river_mode: "0",
+    setting_hide_standard_claims: "0",
     setting_show_strictures: "0",
     setting_traumata_set: "normal",
     setting_vampirexp: "0",

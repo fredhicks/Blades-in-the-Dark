@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /* Variants of grey */
 $lightest: #d8d8d8; // #d8d8d8
 $lighter: #c7c7c7;
@@ -13,6 +15,7 @@ $whitetext: #fff;
 
 /* red */
 $redtext: #c43c35;
+$redriver: #500;
 
 /* Attempt to support dark mode */
 
@@ -29,6 +32,8 @@ $redtext: #c43c35;
 	--blades-redtext: #{$redtext};
 	--blades-blacktext: #{$blacktext};
 	--blades-whitetext: #{$whitetext};
+	--blades-bg: #{$whitetext};
+	--blades-riverblood: #{$redriver};
 }
 
 /* DARK MODE colors */
@@ -46,6 +51,7 @@ $fontblack_d: #ccc; // #333 in light mode
 $blacktext_d: #fff; // #000 in light mode
 $whitetext_d: #000; // #fff in light mode
 $redtext_d: #d43c35; // #c43c35 in light mode
+$redriver_d: #600; // #500 in light mode
 
 .sheet-darkmode {
 	--blades-lightest: #{$lightest_d};
@@ -60,6 +66,8 @@ $redtext_d: #d43c35; // #c43c35 in light mode
 	--blades-redtext: #{$redtext_d};
 	--blades-blacktext: #{$blacktext_d};
 	--blades-whitetext: #{$whitetext_d};
+	--blades-bg: #1f1f1f;
+	--blades-riverblood: #{$redriver_d};
 	.sheetform {
 		background-color: #1f1f1f;
 	}
@@ -1378,7 +1386,7 @@ $redtext_d: #d43c35; // #c43c35 in light mode
 		font-size: 12px;
 		line-height: 14px;
 		padding: 2px 1px;
-		text-align: justify;
+		// text-align: justify; // this is ugly
 	}
 }
 
@@ -1419,6 +1427,7 @@ $redtext_d: #d43c35; // #c43c35 in light mode
 		.harmnumber {
 			line-height: 1;
 			font-size: 13px;
+			color: var(--blades-lightblack)
 		}
 		.twocols { grid-column: span 2 }
 		textarea {
@@ -2109,6 +2118,113 @@ $redtext_d: #d43c35; // #c43c35 in light mode
 	input[value="1"] + .claimbox { background: var(--blades-lighter) }
 }
 
+/* Support for The River (City of Red Waters) */
+
+.charsheet .claimhider[value="1"] ~ {
+	.claims, .claims .claimbody { 
+		display: none; 
+	}
+}
+
+.charsheet .riverhider[value="0"] ~ {
+	.river, .river .riverbody { 
+		display: none; 
+	}
+}
+
+.charsheet {
+	.river { margin-top: 15px; }
+	.riverbody {
+		display: grid;
+		grid-template-columns: repeat(5, 2% 17.6%) 2%;
+		grid-template-rows: repeat(11, 22px);
+		align-items: center;
+		justify-items: center;
+		.roundtl {
+			border-top-left-radius: 10px;
+		}
+		.roundtr {
+			border-top-right-radius: 10px;
+		}
+		.roundbl {
+			border-bottom-left-radius: 10px;
+		}
+		.roundbr {
+			border-bottom-right-radius: 10px;
+		}
+		.riverbox { 
+			background: var(--blades-lightest);
+			width: 100%;
+			position: relative;
+			transition: all 1.5s;
+			.sheet-label {
+				height: 30px;
+				padding: 4px 0 2px;
+				line-height: 12px;
+			}
+			textarea {
+				text-align: center;
+				font-size: 9px;
+				resize: none;
+				transition: all 0.5s;
+				&.river-desc {
+					height: 36px;
+					padding: 2px 2.5% 4px;
+					line-height: 10px;
+				}
+			}
+			label {
+				position: absolute;
+				bottom: 3px;
+				left: 3px;
+			}
+		}
+		input[value="1"] + input[value="1"] + .riverbox.bloodflow,
+		input[value="1"] + .riverbox.rivertarget { 
+			background: var(--blades-riverblood);
+			color: var(--blades-redtext);
+			textarea {
+				text-decoration: line-through 1px;
+				color: var(--blades-redtext);
+			}
+			.checkbox:checked + span { background: var(--blades-redtext) }
+		}
+		input[value="1"] + input:not([value="1"]) + .riverbox.bloodflow { 
+			background: linear-gradient( to right, var(--blades-riverblood), var(--blades-lightest) );
+		}
+		input:not([value="1"]) + input[value="1"] + .riverbox.bloodflow { 
+			background: linear-gradient( to left, var(--blades-riverblood), var(--blades-lightest) );
+		}
+		input[value="1"] + input:not([value="1"]) + .riverbox.bloodflow.vflow { 
+			background: linear-gradient( to bottom, var(--blades-riverblood), var(--blades-lightest) );
+		}
+		input:not([value="1"]) + input[value="1"] + .riverbox.bloodflow.vflow { 
+			background: linear-gradient( to top, var(--blades-riverblood), var(--blades-lightest) );
+		}
+
+		@for $i from 1 through 11 {
+			.col#{$i} {
+				grid-column-start: #{$i};
+				grid-column-end: #{$i};
+			}
+			.row#{$i} {
+				height: 22px;
+				grid-row-start: #{$i};
+				grid-row-end: #{$i};
+			}
+			.span3row#{$i} {
+				height: 66px;
+				grid-row: #{$i} / span 3;
+			}
+		}
+		.riverbend {
+			width: 100%;
+			height: 22px;
+			background: var(--blades-bg);
+		}
+	}
+}
+
 /* STRICTURES */
 .charsheet {
 	.strictures {
@@ -2482,7 +2598,6 @@ $redtext_d: #d43c35; // #c43c35 in light mode
 		display: none;
 	}
 }
-
 
 /* Adjustments for non-English languages */
 .charsheet.lang-ko {
