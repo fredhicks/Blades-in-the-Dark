@@ -14,6 +14,23 @@ mixin riverbox(target)
 		+textarea(`river_${target}`)(data-i18n=`claim_river_${target}`).sheet-label
 		+textarea(`river_${target}_desc`)(data-i18n=`claim_river_${target}_description`).river-desc
 
+mixin plot(target)
+	+hidden-input(`roots_plot_${target}_planting`)(value="0")
+	.plotbox&attributes(attributes)
+		+textarea(`roots_plot_${target}`)(data-i18n=`roots_plot_${target}`).sheet-label
+		+textarea(`roots_plot_${target}_benefit`)(data-i18n=`roots_plot_${target}_benefit`).plot-benefit
+		.plot-clock
+			+hidden-input(`roots_plot_${target}_planting_max`)(value="6").size
+			.clock-container
+				.spoke-0.all
+				.spoke-60.all
+				.spoke-120.all
+				+radio(`roots_plot_${target}_planting`)(value="0", checked).zero.input-progress
+				each num in range(1,6)
+					input.input-progress.all(type="radio", name=`attr_roots_plot_${target}_planting`, value=num)
+				.clock
+		+textarea(`roots_plot_${target}_sacrifice`)(data-i18n=`roots_plot_${target}_sacrifice`).plot-sacrifice
+
 mixin blood(first,second)
 	+hidden-input(`river_${first}_check`)(value="0")
 	+hidden-input(`river_${second}_check`)(value="0")
@@ -231,6 +248,26 @@ mixin makeupgrade(label, numboxes, def, desc)
 			+blood('detective_inspector','detective_inspector').col11.row7.vflow
 			+blood('detective_inspector','detective_inspector').col11.row8.vflow
 				.riverbend.roundtl
+	// Plots for the Roots Crew
+	+hidden-input("setting_roots_mode")(value=0).plotshider
+	.plots
+		.plotsbody
+			+plot('beautiful_dish')
+			+plot('filling_portion')
+			+plot('poison')
+			+plot('religious_meal')
+			+plot('foreign_delicacy')
+			+plot('invigorating_sample')
+			+plot('seasonal_treat')
+			+plot('well_aged_treat')
+			+plot('simple_fare')
+			+plot('staple')
+			+plot('morish_delight')
+			+plot('addiction')
+			+plot('luxury')
+			+plot('companion_product')
+			+plot('bounty')
+
 	//- Heat and Coin
 	.heat-and-vault.flex.def-margin
 		//- Heat

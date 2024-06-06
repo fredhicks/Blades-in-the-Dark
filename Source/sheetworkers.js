@@ -995,7 +995,7 @@
         numboxes: "1"
       }, {
         name: "crew_upgrade_elite_thugs",
-        numboxes: "1",
+        numboxes: "1"
       }, {
         name: "crew_upgrade_elite_skulks",
         numboxes: "1"
@@ -1004,6 +1004,36 @@
         numboxes: "3"
       }]
     },
+    roots: {
+      base: {
+        crew_description: "crew_roots_description",
+        crew_xp_condition: "crew_roots_xp_condition",
+        hunting_grounds_type: "crew_roots_hunting_grounds_type",
+        hunting_grounds_description: "crew_roots_hunting_grounds_description",
+        setting_roots_mode: "1",
+        setting_hide_standard_claims: "1",
+        upgrade_resolve_check_1: "1",
+        upgrade_quarters_check_1: "1"
+      },
+      crewability: ["anointed", "locals", "shadows", "exquisite_delights", "as_one", "ritual_of_bleeding", "dark_clientele", "all_hands", "veteran"],
+      upgrade: [{
+        name: "crew_upgrade_roots_rigging",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_rituals_of_earth_and_blood",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_thugs",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_elite_rovers",
+        numboxes: "1"
+      }, {
+        name: "crew_upgrade_sustained",
+        numboxes: "3"
+      }]
+    },
+
     shadows: {
       base: {
         claim_1_desc: "claim_interrogation_chamber_description",
@@ -2358,6 +2388,7 @@
     setting_show_frame: "0",
     setting_show_origin: "0",
     setting_river_mode: "0",
+    setting_roots_mode: "0",
     setting_hide_standard_claims: "0",
     setting_show_strictures: "0",
     setting_traumata_set: "normal",

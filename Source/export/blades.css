@@ -1,6 +1,5 @@
 
 /* Variants of grey */
-/* red */
 /* Attempt to support dark mode */
 :root {
 	--blades-lightest: #d8d8d8;
@@ -3191,6 +3190,76 @@
 	width: 100%;
 	height: 22px;
 	background: var(--blades-bg);
+}
+
+/* Support for Roots (City of Red Waters) */
+.charsheet .plots {
+	margin-top: 15px;
+}
+.charsheet .plotsbody {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 19% 3px 19% 3px 19% 3px 19% 3px 19%;
+	grid-template-columns: repeat(5, 19%);
+	grid-gap: 3px 3px;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	justify-items: center;
+}
+.charsheet .plotsbody .plotbox {
+	background: var(--blades-lightest);
+	width: 100%;
+	position: relative;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.charsheet .plotsbody .plotbox .sheet-label {
+	height: 30px;
+	padding: 4px 0 2px;
+	line-height: 12px;
+	resize: none;
+	overflow: hidden;
+}
+.charsheet .plotsbody .plotbox textarea {
+	text-align: center;
+	font-size: 9px;
+	line-height: 12px;
+	resize: none;
+	overflow: hidden;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.charsheet .plotsbody .plotbox textarea.plot-benefit {
+	height: 36px;
+}
+.charsheet .plotsbody .plotbox textarea.plot-sacrifice {
+	height: 24px;
+	font-style: italic;
+}
+.charsheet .plotsbody .plotbox .plot-clock {
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin-top: 3px;
+}
+.charsheet .plotsbody .plotbox label {
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
+}
+.charsheet .plotsbody input:not([value="0"]) + .plotbox {
+	background: var(--blades-lighterblack);
+	color: var(--blades-whitetext);
+}
+.charsheet .plotsbody input:not([value="0"]) + .plotbox textarea {
+	color: var(--blades-whitetext);
 }
 
 /* STRICTURES */

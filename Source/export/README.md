@@ -1,15 +1,20 @@
 # Blades in the Dark Character Sheet
 
-This is the source code for the Blades in the Dark character sheet on Roll20. Blades in the Dark source code is currently maintained by Evil Hat. Please contact Evil Hat at [feedback@evilhat.com](mailto:feedback@evilhat.com)  if you have changes you want to see made and we'll consider working that into our official support!
+This is the source code for the Blades in the Dark character sheet on Roll20. 
 
-If you want to hack the sheet for your own Blades hack, a more hackable (pre-3.10) version and instructions for hacking can be found [here](https://github.com/joesinghaus/Blades-template). Build command: `./build.js` (requires node, with pug and sass installed via npm).
+Blades in the Dark source code is currently maintained by Evil Hat. Please contact Evil Hat at [feedback@evilhat.com](mailto:feedback@evilhat.com)  if you have changes you want to see made and we'll consider working that into our official support!
+
+If you want to hack the sheet for your own Blades hack, a more hackable (earlier) version and instructions for hacking can be found [here](https://github.com/joesinghaus/Blades-template). Build command: `./build.js` (requires node, with pug and sass installed via npm).
 
 ## Changelog
 
 ### 3.10
 
 * Added Dark Mode support
-* Added Crew playbooks for City of Red Waters
+* Added Crew playbooks for City of Red Waters:
+	* Emcees
+	* River
+	* Roots
 
 ### 3.9
 
